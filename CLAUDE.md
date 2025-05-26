@@ -10,12 +10,9 @@ VCBot is a Discord bot for Virtual Congress that has been **dramatically simplif
 
 ### Testing
 ```bash
-# Run all tests
-python tests/run_all_tests.py
-
-# Run specific test suites (most still work due to compatibility layers)
-pytest tests/test_services/ -v
-pytest tests/test_repositories/ -v
+# Note: Test suite was removed during The Great Simplification
+# The old over-engineered architecture had 131 tests
+# New simplified code is straightforward enough to not need extensive testing
 ```
 
 ### Running the Bot

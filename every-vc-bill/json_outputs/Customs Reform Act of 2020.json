@@ -1,0 +1,26 @@
+{
+    "title": "Customs Reform Act of 2020",
+    "author": "Senator Schlorp (L-CA)",
+    "cosponsors": [
+        "Senator Walker (I-MA)",
+        "Senator Lukas-James (R-NJ)",
+        "Senator Carton (SP-FR)"
+    ],
+    "amendments": [
+        [
+            "2083(e)",
+            "19"
+        ],
+        [
+            "2083(d)(1)",
+            "19"
+        ]
+    ],
+    "bill_sections": [
+        1,
+        4,
+        5,
+        6
+    ],
+    "category": "JUST"
+}

@@ -1,0 +1,48 @@
+1
+140THCONGRESS
+1STSESSION
+S. 3
+To require the Federal Communications Commission to redefine the broadband definitions
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+APRIL 17TH, 2021
+Mr. LIGHTWOOD (for himself, Mr. JOHNSON-KOAY, Ms. TOWARD) introduced the
+following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To require the Federal Communications Commission to redefine the broadband definitions
+Be it enacted by the Senate and Houseof Representatives of the United States of
+America in Congress assembled,
+SECTION1.SHORTTITLE.
+ThisActmaybecitedasthe“SpeedAct”.
+SEC.2.FINDINGS.
+Congressfindsthat—
+(1) TheFederalCommunicationsCommission’s(FCC)broadbanddefinitionof“high-speedinternet”
+isoutdatedandnotsufficientforfamiliesinAmerica.
+(2) TheFCCdefinesbroadbandasadownloadspeedof25megabitspersecond(mbps)andan
+uploadspeedof3megabitspersecond(mbps).
+(3) BroadbandaccessisessentialforstudentsandhouseholdsinAmericatoaccesseducation,
+healthcare,banking,andanyothernecessitiesthatrequireastableandhigh-speedinternet
+connection.
+
+2
+(4) TheFCCupdateditsdefinitionofbroadbandbackin2015,sincethenitstruggledtokeepupwith
+itsdefinitionstobestfittheneedsofamoreconnectedAmerica.
+(5) TheFCCwillneedtoupdatethesestandardstostaycurrentwithconsumerneedsandthe
+growingdemandforbandwidthandensurethatAmericanshaveaccesstohigh-speedinternet
+access.
+(6) Section706oftheTelecommunicationsActof1996requirestheFCCtoreportannuallyon
+whetherbroadband“isbeingdeployedtoallAmericansinareasonableandtimelyfashion,”and
+totake“immediateaction”ifitisnot.
+SEC.3.DEFINITIONS.
+InthisAct—
+(1) COMMISSION.—Theterm“Commission”referstotheFederalCommunicationsCommission.
+SEC.4.UPDATETOBROADBANDSPEEDDEFINITION.
+(a) INGENERAL.—Notwithstandinganyfederallaworrulingexceptthosestated,nolaterthan100
+daysafterthedateofenactmentofthisAct,shalltheCommissioncommencearulemakingto
+updatebroadbanddefinitionstoatleast100megabitsperseconddownloadand100megabitsper
+seconduploadspeedspursuanttosection706oftheTelecommunicationsActof1996which
+requirestheCommissiontoannuallyreportweatherbroadbandisbeingdeployedtoAmericansin
+atimelyfashionorreasonabletime.
+SEC.5.ENACTMENT.
+EFFECTIVEDATE.—ThisActshallcomeintoeffectimmediatelyuponpassage.

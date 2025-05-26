@@ -1,0 +1,199 @@
+A BILL
+Toreduce risksto thefinancialsystem bylimitingbanks’abilityto engagein certainrisky
+activities andlimiting conflictsof interest,toreinstatecertain Glass-SteagallAct
+protectionsthat were repealedbythe Gramm-Leach-BlileyAct,andfor otherpurposes.
+Beit enactedby tHouseof Representativesofthe UnitedStatesof AmericainCongress
+assembled,
+Cosponsors:
+● VicePresident Sandoval
+● DemocraticParty ChairmanHull
+● ViceSpeaker Itachi
+● CongressmanWaffles
+● CongressmanLibertad
+● CongressmanGraph
+SECTION 1.SHORTTITLE.
+This Actmaybe citedas the“Glass-EagleAct”
+SEC.2.FINDINGS ANDPURPOSE.
+(a) Findings.—Congress findsthat—
+(1) in responsetoafinancialcrisis andthe ensuing GreatDepression,Congress
+enacted theBankingActof 1933,knownas the“Glass-Steagall Act”, toprohibit
+commercialbanksfromoffering investment bankingand insuranceservices;
+(2) a seriesof deregulatory decisionsbythe Boardof Governorsofthe FederalReserve
+System andtheOffice ofthe Comptroller ofthe Currency,in additiontodecisionsby
+Federal courts,permitted commercialbanks toengage inanincreasingnumberof risky
+financialactivities thathadpreviously beenrestricted under theGlass-Steagall Act,andalso
+vastlyexpanded themeaningof the“business ofbanking” and“closely related activities”in
+bankinglaw;
+(3) in 1999,Congressenactedthe “Gramm-Leach-BlileyAct”, whichrepealed the
+Glass-SteagallAct separation between commercialandinvestment banking andallowed for
+complexcross-subsidiesand interconnectionsbetween commercial andinvestment banks;
+
+(3.5) Byreviving thesovereignty of retailsbanks,the lawmade investmentbanks
+searchfor another sourceof fundsseparatefrom depositors'accounts.
+(4) with theelimination ofGlass-Steagall, thelargest institutions withthe greatest
+ability toleverage their balancesheetsincreasedtheirriskprofile bygettinginto trading,
+marketmaking, andhedgefund activities,addingevergreatercomplexity totheirbalance
+sheets.”And theensuing 2008-Reccesion.Which ledto failureofthe housingmarket, stock
+marketcrash, anda sharpincreasein unemployment,that thecountryis just recently
+recoveringfrom.
+(5) increasedcomplexity anddiversity offinancialactivitiesat financialinstitutions
+may“shiftinstitutionstowardsmorerisk-taking,increasethe levelofinterconnectedness
+amongfinancialfirms,and thereforemay increasesystemicdefault risk.Thesepotential
+costsmaybe exacerbatedincases wherethe marketperceivesdiverse andcomplex
+financialinstitutionsas ‘toobig tofail,’ whichleadstoexcessive risktaking andconcerns
+aboutmoral hazard.”;
+(6) thefinancial crisis,and theregulatoryresponse tothecrisis, has ledtomore
+mergersbetweenfinancial institutions,creatinggreaterfinancialsector consolidation and
+increasingthedominance ofa fewlarge,complexfinancialinstitutionsthat aregenerally
+considered tobe “too bigtofail”, andtherefore areperceivedbythe markets ashaving an
+implicit guaranteefrom theFederal Governmenttobail them outinthe eventof their
+failure.
+(b) Purposes.—Thepurposesof this Actare—
+(1) to reducerisks tothe financialsystembylimitingthe abilityof bankstoengage in
+activities otherthansociallyvaluable corebankingactivities;
+(2) to protecttaxpayers andreducemoralhazard byremovingexplicitand implicit
+governmentguarantees for high-riskactivities outsideofthe corebusinessofbanking; and
+(3) to eliminateany conflictof interestthat arisesfrom banksengaging inactivities
+from whichtheir profits areearnedatthe expenseoftheir customersorclients.
+
+SEC.3.SAFE ANDSOUNDBANKING.
+:
+“(A)PROHIBITION ONAFFILIATIONS WITHNONDEPOSITORY
+ENTITIES.—Aninsured depositoryinstitution maynot—
+“(i) be orbecomean affiliateof anyinsurance company,securities entity,or
+swapsentity;
+“(ii) beincommon ownershipor controlwithanyinsurance company,
+securitiesentity,or swapsentity; or
+“(iii) engage inanyactivity that wouldcausetheinsureddepository
+institution toqualifyas aninsurance company,securities entity, orswaps entity.
+“(B) INDIVIDUALS ELIGIBLETOSERVEON BOARDSOFDEPOSITORY
+INSTITUTIONS.—
+“(i) INGENERAL.—Anindividualwho isanofficer, director,partner, or
+employee of anysecurities entity,insurance company, orswaps entitymaynot
+serve atthesametimeas anofficer, director,employee,or other
+institution-affiliated partyofany insureddepositoryinstitution.
+“(ii) EXCEPTION.—Clause(i) shallnotapplywith respectto servicebyany
+individual which isotherwise prohibitedunder clause(i),if the appropriate
+Federal banking agency determines,byregulation withrespect toalimited
+numberof cases, that servicebysuch anindividualas anofficer, director,
+employee, or otherinstitution-affiliated partyofaninsured depositoryinstitution
+wouldnot unduly influence—
+“(I) theinvestment policies ofthe depositoryinstitution; or
+
+“(II)the advicethat theinstitution providestocustomers.
+“(iii) TERMINATIONOF SERVICE.—Subjecttoadetermination under
+clause (i),any individualdescribed inclause(i) who,as ofthe date ofenactment
+of the21stCenturyGlass-Steagall Actof2017,is servingas anofficer,director,
+employee, or otherinstitution-affiliated partyofanyinsured depositoryinstitution
+shallterminatesuch service assoonas ispracticable after suchdate ofenactment,
+and innoevent,later thanthe endof the60-day periodbeginning onthatdate of
+enactment.
+“(C) TERMINATION OFEXISTING AFFILIATIONSAND ACTIVITIES.—
+“(i) ORDERLY TERMINATIONOFEXISTING AFFILIATIONSAND
+ACTIVITIES.—Anyaffiliation, common ownershiporcontrol,or activityof an
+insured depository institution withanysecurities entity,insurance company,
+swapsentity,or anyotherperson,as ofthe dateof enactment ofthe 21stCentury
+Glass-Steagall Actof2017,which isprohibited undersubparagraph(A) shallbe
+terminatedas soonas ispracticable, andinnoevent laterthan theend ofthe
+5-yearperiod beginningonthat date ofenactment.
+“(ii) EARLY TERMINATION.—TheappropriateFederal bankingagency, at
+any timeafteropportunityfor hearing, mayordertermination ofanaffiliation,
+common ownership orcontrol, oractivity prohibitedbyclause(i) beforethe end
+of the5-year perioddescribedin clause(i),if theagency determinesthat such
+action—
+“(I) isnecessaryto preventundueconcentrationof resources,decreased
+or unfair competition, conflictsofinterest,or unsoundbanking practices;and
+“(II)is inthe publicinterest.
+“(iii) EXTENSION.—Subjecttoa determinationunder clause(ii), an
+appropriateFederal bankingagency mayextend the 5-yearperioddescribed in
+clause (i)astoany particularinsureddepository institution for notmorethanan
+additional6 monthsat atime,if—
+
+“(I) theagency certifies that suchextensionwouldpromote thepublic
+interestandwouldnot poseasignificant threattothe stability ofthe banking
+systemor financialmarkets intheUnited States;and
+“(II)such extension,inthe aggregate, doesnotexceed1yearfor any
+singleinsureddepository institution.
+“(iv) REQUIREMENTS FORENTITIESRECEIVING AN
+EXTENSION.—Uponreceipt of anextensionunder clause(iii), theinsured
+depositoryinstitutionshallnotify shareholders ofthe insureddepository
+institution andthe generalpublic that ithas failedtocomply withthe
+requirements ofclause (i).
+“(I) IN GENERAL.—Anationalbanking associationmayinvestin
+investment securities,defined asmarketableobligations evidencingindebtedness
+of any person, copartnership,association,or corporationinthe formofbonds,
+notes, or debentures(commonly knownas ‘investmentsecurities’), obligationsof
+theFederal Government,or anyState orsubdivisionthereof, andincludes the
+definition of‘investment securities’,asmay bejointly prescribedbyregulation
+by—
+“(aa) theComptroller of theCurrency;
+“(bb)the FederalDeposit InsuranceCorporation;and
+“(cc) theBoard ofGovernorsof theFederal ReserveSystem.
+“(II) LIMITATIONS.—Thebusiness ofdealinginsecurities andstock bythe
+associationshallbelimited to—
+“(aa) purchasingand sellingsuchsecurities andstock withoutrecourse,
+solelyuponthe order,and for theaccountof, customers,andinnocasefor
+its own account,andtheassociationshallnot underwriteany issueof
+securities orstock;and
+“(bb)purchasing for its ownaccountinvestment securities undersuch
+limitationsand restrictionsasthe Comptrollerof theCurrency, the Federal
+
+Deposit InsuranceCorporation,andthe Boardof Governorsofthe Federal
+ReserveSystem mayjointly prescribe, byregulation.
+“(III) PROHIBITIONON AMOUNTOFINVESTMENT.—In noevent
+shallthetotal amountof theinvestment securities ofanysingleobligor or maker,
+heldbytheassociationfor its own account,exceed10percentof itscapital stock
+actuallypaidinand unimpairedand 10percentof itsunimpaired surplusfund,
+exceptthat suchlimitation shallnot requireany associationtodisposeofany
+securitieslawfully heldbyit onAugust23,1935.
+“(C) PROHIBITIONAGAINST TRANSACTIONS INVOLVINGSTRUCTURED
+OR SYNTHETICPRODUCTS.—A nationalbanking associationmaynot—
+“(i) investin astructuredor syntheticproduct,a financialinstrumentinwhicha
+return iscalculatedbased onthevalue of, orbyreference tothe performanceof, a
+security,commodity, swap,otherasset,or anentity, oranyindex orbasketcomposed
+of securities,commodities,swaps, otherassets,or entities,otherthan customarily
+determinedinterestrates; or
+“(ii) otherwiseengage inthe businessof receivingdeposits orextendingcredit for
+transactionsinvolvingstructured orsynthetic products.”.
+(1) in paragraph(8), bystriking “hadbeen determined”andall that followsthroughthe
+end andinserting the following:“areso closelyrelated tobankingso astobe aproper
+incident thereto,asprovidedunder this paragraph oranyruleor regulation issuedbythe
+Board underthis paragraph, providedthatfor purposes ofthis paragraph, closelyrelated
+shallnot beconsideredto include—
+“(A)servingas aninvestment adviser(asdefined insection2(a)of theInvestment
+CompanyAct of 1940toaninvestment company registeredunder that Act,including
+sponsoring, organizing, andmanagingaclosed-end investment company;
+“(B) agency transactionalservicesfor customer investments,exceptthat this
+subparagraphmay notbeconstrued asprohibiting purchasesand salesofinvestments
+
+for theaccountof customersconductedbyabank (or subsidiarythereof) pursuantto
+thebank’s trustand fiduciarypowers;
+“(C) investment transactionsas principal,exceptfor activities specificallyallowed
+byparagraph (14);and
+“(D)management consultingandcounseling activities;”;
+“(3) withtheexceptionof theactivities permittedundersubsection (c),engage inthe
+business of a‘securitiesentity’ ora‘swapsentity’, asthose terms aredefinedinsection
+18(s)(6)(D) of theFederalDeposit InsuranceActincludingdealingor making marketsin
+securities,repurchase agreements,exchangetradedand over-the-counterswaps,as defined
+bytheCommodity FuturesTrading Commissionandthe SecuritiesandExchange
+Commission,or structured orsynthetic products,as definedinthe paragraphdesignated as
+‘Seventh’ of section 24of theRevised Statutes), oranyotherover-the-counter securities,
+swaps,contracts,or anyotheragreementthat derives itsvalue from,or takesontheform of,
+suchsecurities,derivatives,or contracts;
+“(4) engagein proprietary trading,as providedbysection13,orany ruleorregulation
+under thatsection;
+“(5) own,sponsor, orinvestina hedgefund, orprivate equityfund, orany otherfund,
+asprovidedbysection 13,orany ruleorregulation under thatsection, oranyotherfund that
+exhibits thecharacteristics ofa fundthat takesonproprietarytrading activitiesorpositions;
+“(6) holdineligiblesecurities orderivatives;
+“(7) engagein market-making;or
+“(8) engagein prime brokerageactivities.”
+
+Conclusion
+Purposes.—Thepurposesof this Actare—
+(1) to reducerisks tothe financialsystembylimitingthe abilityof bankstoengage in
+activities otherthansociallyvaluable corebankingactivities;
+(2) to protecttaxpayers andreducemoralhazard byremovingexplicitand implicit
+governmentguarantees for high-riskactivities outsideofthe corebusinessofbanking; and
+(3) to eliminateany conflictof interestthat arisesfrom banksengaging inactivities
+from whichtheir profits areearnedatthe expenseoftheir customersorclients.

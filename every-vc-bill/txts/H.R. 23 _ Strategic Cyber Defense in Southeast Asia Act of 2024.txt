@@ -1,0 +1,72 @@
+H.R. 23
+IN THE HOUSE OF REPRESENTATIVES OF THE UNITED
+STATES
+NOVEMBER 30, 2024
+Mr. SALINGER of Olympia (for himself, Mr. Sullivan of Olympia, Mr. Conway
+of Lincoln, Mr. McCarthy of Lincoln) introduced the following bill;
+A BILL
+To enhance the defensive cybersecurity capabilities of partner nations in Southeast Asia, promote
+regional stability by strengthening collective cybersecurity resilience and protect national security
+interests by addressing cyber threats.
+Be it enacted by the Senate and House of Representatives of the United States of America in
+Congress Assembled,
+SECTION 1. SHORT TITLE AND TABLE OF CONTENTS.
+This Act may be cited as the “Strategic Cyber Defense in Southeast Asia Act of 2024”.
+SECTION 2. DEFINITIONS.
+In this Act—
+(a) COVERED NATIONS.— The term “covered nations” refers to Vietnam, Thailand, Indonesia, Malaysia,
+and the Philippines.
+(b) APPROPRIATE COMMITTEES OF CONGRESS.— The term “appropriate committees of congress”
+refers to the Ethics and Oversight Committee of the House of Representatives and the Relations
+Committee of the Senate.
+SECTION 3. FINDINGS.
+Congress finds that—
+1. The Indo-Pacific region, including Southeast Asia, is of critical strategic importance to United States
+national security and economic interests.
+2. Cybersecurity threats in Southeast Asia have increased significantly, with advanced persistent threats
+(APTs) targeting governments, critical infrastructure, and private enterprises.
+
+3. Southeast Asia is home to five of the top ten countries most targeted by cyberattacks globally,
+highlighting the urgent need for collaborative defensive measures.
+4. The nations of Vietnam, Thailand, Indonesia, Malaysia, and the Philippines have demonstrated a
+willingness to collaborate with the United States on cybersecurity initiatives, making them valuable
+partners in addressing regional cyber threats.
+SECTION 4. ESTABLISHMENT OF CYBER COOPERATION PROGRAM
+(a) PROGRAM ESTABLISHMENT.— The Secretary of Defense, in coordination with the
+Secretary of State, shall establish a program to enhance cyber defense cooperation with foreign
+military partners in Southeast Asia, specifically with the nations of Vietnam, Thailand,
+Indonesia, Malaysia, and the Philippines.
+(b) AUTHORIZED ACTIVITIES.— The program shall include but is not limited to the following
+activities—
+(i) Conducting joint training exercises with partner nations to strengthen defensive cybersecurity
+capabilities,
+(ii) Providing technical assistance to develop and enhance secure communication systems and
+incident response frameworks,
+(iii) Establishing secure channels for sharing cyber threat intelligence and best practices, and
+(iv) Offering resources to modernize partner nations’ cybersecurity infrastructure, including software
+and hardware upgrades.
+(c) PROGRAM DURATION.— The program shall operate for a period of 5 years or 1,826 days from the
+date of its establishment, after which its operations and effectiveness shall be evaluated by the
+appropriate committees of Congress.
+(d) FUNDING AUTHORIZATION.— Funds for the program shall be appropriated as authorized under the
+Authority for Building Partner Capacity to Combat Terrorism and Enhance Regional Security (10 U.S.C.
+§ 333) and other relevant authorities as determined by the Secretary of Defense for each fiscal year
+2024-25 through 2029-30, as necessary, to implement the program.
+SECTION 5. ANNUAL REPORTING REQUIREMENT
+(a) REPORT SUBMISSION.— The Secretary of Defense, in consultation with the Secretary of
+State, shall submit an annual report to the appropriate committees of Congress.
+
+(b) ANNUAL REPORT.— Not later than February 1 of each year, the Secretary of Defense shall
+develop and submit to the appropriate committees of Congress an annual report, to be entitled
+“Report to Congress on Defensive Cybersecurity Development in Southeast Asia”, that
+identifies—
+(i) A detailed summary of activities conducted under the program during the preceding year,
+(ii) An assessment of the program’s impact on the cybersecurity capabilities of covered nations,
+(iii) A financial accounting of funds expended, and
+(iv) Recommendations for future improvements or expansions of the program.
+SECTION 6. SEVERABILITY
+If any provision of this Act, or the application thereof to any person or circumstance, is held invalid, the
+remainder of the Act, and the application of such provision to other persons or circumstances, shall not be
+affected thereby.
+SECTION 7. ENACTMENT
+EFFECTIVE DATE.— The provisions of this Act shall come into force immediately upon passage.

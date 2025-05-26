@@ -1,0 +1,334 @@
+140THCONGRESS
+1STSESSION
+H.R. 33
+To guaranteeInternetprivacy rightsforall Americans, establishprivacyandsecurity
+requirementsrelatingto personalinformation,andestablish anagency toenforcethem.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+April 28, 2021
+Mr. Moonguy(for himself, Rep LouLou and Rep.
+Solomon) introduced the following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To guaranteeInternetprivacy rightsforall americans,establishprivacy andsecurity
+requirementsrelatingto personalinformation,andestablish anagency toenforcethem.
+Be it enacted by the Senate and House of Representatives in Congress
+Assembled,
+SEC. 1 — Short Title
+1. This bill shall be referred to as the “Online Privacy and Security” Act.
+SEC. 2 — Findings
+In the context of this Act, Congress Finds that:
+1. The Information rights and freedoms of Individuals are often unclear.
+2. Companies often violate Information rights by: using invasive trackers on
+the internet, having privacy controls hidden and disabled by default and
+hiding search engine choice from consumers.
+3. Surveys have Shown Privacy Rights to be one of the most important rights
+they have.
+
+4. Since 2018, The Federal government has done little to maintain such
+rights.
+5. Targeted advertisements have been proven to,in certain circumstances,
+prey on the vulnerable and cause unnecessary trauma.
+6. The movement of incorrect and incomplete information has hurt
+individuals both in job prospects and credit ratings.
+7. Data breaches have been shown to have immediate and harmful
+consequences.
+SEC. 3 — Definitions
+1. The term “The Agency” Shall refer to the henceforth established Agency
+for online Privacy and Security.
+2. The term “The Director” Shall refer to the henceforth established Director
+of the Agency for online Privacy and Security.
+3. Targeted Advertising-
+A. The Term “Targeted Advertising” shall refer to the processing of an
+individual’s personal information, using an algorithm, model, or any
+other means built using that individual’s personal information
+collected over a period of time, or an aggregate of the personal
+information of one or more Individuals and designed to—
+a. Alter, influence, guide, or predict an individual’s behaviour.
+b. Tailor or personalize a product or service.
+c. Associate a certain product or service with things known to
+be loved or hated by an Individual.
+B. The Term “Targeted Advertising” shall not refer to the use of
+historical personal information to prevent the display of or provide
+additional information about previously accessed content, or to the
+use of publicly available statistics of Information to guide
+advertisement, or if the purposes algorithm for personalization are
+clearly shown in bold letters in the front page of the website.
+4. The Term “Location Tracking” shall refer to the processing of geographical
+location, speed, or direction of a portable electronic device for the purposes
+of collecting and storing said data.
+5. The term “Collecting” shall refer to, with respect to personal information
+or contents of communication, obtaining such information in any manner,
+except when solely transmitting or transferring it.
+6. The term “Disclose”, with respect to personal information or contents of
+communication, shall refer to the sale, release, transfer, share,
+disseminate, make available, or communication of such information to a
+third party.
+
+7. The term “Data breach” shall refer to an unauthorized access to or
+acquisition of personal information or contents of communications
+maintained by such covered entity.
+8. The term “Data Sharing Abuse” shall refer to the processing, by a
+third party, of personal information or contents of communications
+disclosed by a covered entity to the third party, unless any individuals
+or entities concerned shall grant consent to the disclosure.
+9. The term “De-Identified Data” shall refer to any data that cannot
+reasonably identify, relate to, describe, reference, be capable of being
+associated with, or be linked, directly or indirectly, to a particular
+individual or device.
+10.The term “Re-Identification”, in the context of De-identified Data,
+shall refer to the process of transforming formally De-Identified Data
+into Non-De-Identified Data.
+11. The term “Location Data” shall refer to any data gained through Location
+Tracking, Or any other Data related to the historical or current
+geographical location of any individual.
+12.The Term “Biometric Data” shall refer to personal data relating to the
+physical, physiological, or behavioural characteristics of a person, which
+allows the unique identification of that person.
+13.The Term “Facial Data” shall refer to Biometric Data related to the facial
+appearance of a person.
+14.The Term “Personal Information”, with respect to the obtaining and
+communication of such information shall refer to Location, Biometric or
+Facial Data, Any Data that would Reveal the Individual is In a Protected
+Class, Or any other Data determined by the director to be sensitive and
+vital enough to be protected under this act.
+15.The Term “Facial Recognition” shall be defined as any service or product
+that explicitly captures the facial data of any person.
+16.The Term “Privacy Harm” shall refer to any harm done by an individual or
+entity arising from the collection, processing, maintenance, or disclosure of
+personal information, including Economic, physical, reputational or
+psychological harm, adverse outcomes or decisions with respect to the
+eligibility of an individual for rights, benefits, or privileges in employment,
+credit and insurance, housing, education, professional certification, or the
+provision of health care and related services, price discrimination or any
+other negative effects that result from the data breach, as determined by
+the Director.
+17.The term “Protected class” shall refer to the actual or perceived Race,
+Ethnicity, National Origin, Religion, Sexual Orientation, Gender Identity,
+Familial Status, or Disability of an Individual.
+
+18.The term “Third-Party” shall refer to an Individual or Entity that has
+been disclosed personal information by a separate Individual or Entity
+and is not that Individual or Entity, A subsidiary of that Entity, or a
+service provider of that Individual or entity.
+19.The term “The Website” shall refer to the henceforth established website
+of the agency for online Privacy and Security.
+SEC. 4 — Rights and Freedoms
+1. The “Data Privacy Protection Act” Is hereby abolished.
+2. Any entity or individual that intentionally collects, processes, or
+maintains personal information and sends or receives such personal
+information over the internet or a similar communications
+network(Henceforth referred to as a data collector for the purposes of this
+bill) shall Maintain the following rights and freedoms:
+A. The right to know- Any data collector shall make available a
+reasonable mechanism by which an individual may access:
+a. Any personal information collected by the Data Collector, and
+If it was not willingly given by the individual, how it was
+collected.
+b. A list of the third parties, subsidiaries, and corporate
+affiliates, to which the data collector has disclosed or
+obtained personal information on the individual from.
+c. An explanation of the business and monetary intents the
+data collector has with the data listed in subparagraphs (a)
+and (b).
+d. Any automated processes as per paragraph E.
+e. Any other information determined to be vital to the
+individual by the director.
+B. The right to correct-
+a. Any data collector shall make available a reasonable
+mechanism by which an individual may:
+(I)Dispute the accuracy or completeness of Personal
+Information linked to such individuals that are maintained
+by the data collector, And shown as per the right to know
+mentioned in paragraph A of this Section.
+(II)Request a correction to the data disputed under clause (I)
+(III) See any new information of changes in the status of such
+data.
+(IV) Submit a request to the director for intervention if there
+are disagreements on removal policy.
+b. Upon receiving a dispute under clause I of the previous
+paragraph, the data collector shall:
+
+(I)Notify the Individuals on whether the data is correct or
+complete, lacks the information to know whether the data is correct
+or complete, or believes the data is incorrect or incomplete.
+(II) If the data collector believes the data is incorrect or
+incomplete, and the Individual requests to change it, the data
+collector shall change the data they store within 60 days.
+c. If there are reasonable disagreements on the state of the
+data, as per clause(I) of paragraph(b) of this subsection, the
+Individual is reserved the right to file a report staging the
+data needed to be corrected to the director, and the director
+may mandate the information be corrected. The director
+shall, at all times, maintain public access to a form to which
+such a report may be submitted, and post it on the website,
+as per Section 7 of this act.
+C. The right to be forgotten-
+a. Any data collector shall make available a reasonable
+mechanism by which an individual may request the deletion
+of personal information and contents of communications of
+such individual maintained by the data collector, including
+any such information that the data collector acquired from a
+third party or inferred from other information maintained by
+the data collector, as per paragraph A.
+b. Upon receiving a dispute under clause I of the previous
+paragraph, the data collector shall:
+(I)Notify the Individuals on whether the data is correct or
+complete, lacks the information to know whether the data is correct
+or complete, or believes the data is incorrect or incomplete.
+(II) If the data collector believes the data is incorrect or
+incomplete, and the Individual requests to delete it, the data
+collector shall delete the data they store within 60 days.
+c. If there are reasonable disagreements on the state of the
+data, as per clause(I) of paragraph(b) of this subsection, the
+Individual is reserved the right to file a report staging the
+data needed to be corrected to the director, and the director
+may mandate the data be deleted. The director shall, at all
+times, maintain public access to a form to which such a
+report may be submitted, and post it on the website, as per
+Section 7 of this act.
+D. The right of human review-
+a. For any decision by a covered entity based solely on
+automated processing of personal information of an
+individual, if such processing increases reasonably
+
+foreseeable significant privacy harms for such individual, the
+data collector shall Inform such individual of what personal
+information is or may be used for such decision and make
+available a reasonable mechanism by which such individual
+may request a human review of such decision.
+b. If the Individual requests a human review of the results of
+the processing, The Data collector shall ensure the
+conducting of a human review within 30 days.
+c. The Data collector may submit a request for extensions to the
+director for human reviews, which the director may decide to
+accept or not.
+d. The director shall, at all times, maintain public access to a
+form to which such a report may be submitted, and post it on
+the website, as per Section 7 of this act.
+E. The freedom from targeted advertisement-
+a. A data collector shall not collect, process, maintain, or
+disclose an individual’s personal information to create,
+improve on, maintain or create an algorithm, model, or other
+means designed for the creation of targeted advertising
+without explicit permission from any individual.
+b. For all websites, applications, programs, or services that run
+targeted advertisements—
+(I) Upon the creation of a new account, the setting(s) for
+targeted advertising shall be off by default.
+(II) At the end of a two month period upon the passage of this
+bill, all currently existing accounts shall have the setting(s)
+for targeted advertising be turned off.
+(III) For any visitor to a website that is not logged-in to any
+account, it shall be prohibited to present the visitor with any
+targeted advertisements.
+(IV) It shall be prohibited to discriminate against any user
+based on their choice for the previously mentioned setting(s),
+such as blocking off portions of the website in exchange for
+the user turning the setting(s) on.
+c. Any website that deals with targeted advertising shall, In
+clear letters, On its front page, declare that it uses targeted
+advertising.
+3. The following exemptions from the rights listed in Paragraph 1 shall be
+listed:
+a. A data provider may request a “small business exclusion” from
+enforcing any of the rights listed in paragraph 1. The Director shall
+
+determine which businesses are “small businesses”, provided that
+they do not earn any revenue from the sale of personal information,
+have not, at any time during the preceding 6-month period,
+maintained personal information of 250,000 or more individuals,
+have fewer than 200 employees, and have received less than 25
+million dollars in the past fiscal year. The director shall, at all
+times, maintain public access to a form to which such a request may
+be submitted, and post it on the website, as per Section 7 of this act.
+b. These rights do not apply to data collected for the purposes of
+detecting, responding to, or preventing security incidents or threats,
+protecting against malicious software, complying with decisions by
+law enforcement, court or other legal requirements, protecting
+public safety, preventing data abuse by a banned individual, or
+Routing a communication through a communications network or
+resolving the location of a host or client on a communications
+network.
+c. These rights do not apply in cases where protection of these rights
+requires the reidentification of previously de-identified data.
+SEC. 5 — Other Restrictions on Data Collectors
+1. It shall be prohibited for any data collector to request from the user more
+data than is necessary for smooth operation of the product or service.
+2. It shall be prohibited for companies to prohibit the user to change the
+default search engine for any piece of software that utilizes one.
+3. Any Privacy Policy, Terms of Use, EULA, or any similar legal contract
+with a user must provide a short, accessible, clear, and simple summary of
+all points included within the legal text and permissions granted by the
+user so as to ascertain explicit consent, and be typed in a clear font with at
+least 20% spacing between lines.
+4. Once a data breach has been identified within a company, any and all
+relevant authorities must be notified within 48 hours.
+5. Any data collector may not intentionally disclose personal information
+without including the purpose for which the personal information was
+originally collected.
+6. A Data-Collector shall not discriminate against a consumer based on the
+fact that the consumer exercised any of their rights under section 4 of this
+Act.
+7. Notwithstanding Sections 1 and 6, consent is not required for a disclosure
+(not including sale) of de-identified personal information where the
+disclosed personal information is limited to the narrowest possible scope
+likely to yield the intended benefit, provided they prohibit any attempts at
+
+re-identification of said data and they do not contain any information that
+would help Re-Identify said data.
+8. A Data-Collector may not, under any circumstance, reidentify any data,
+Nor allow a third party that they supply De-Identified Data to reidentify
+said Data.
+SEC. 6 — The Agency for Online Privacy and Security
+1. There is hereby established under the Federal Trade Commission, a
+governmental instrumentality of the U.S. Government, to act by its
+authority under the title of The Agency for Online Privacy and Security.
+2. There is hereby established a position of “The Director of The Agency for
+Online Privacy and Security”, who shall serve as the head of the Agency.
+3. The Director shall be nominated by the governor, with the advice and
+consent of the Secretary of Internal affairs, And confirmed by the Senate
+of the United States.
+4. The Director, Unless removed from office by a majority vote of members of
+both houses, Shall Serve A five-year term unless renominated.
+5. The Director shall delegate a portion of their powers to a democratically
+operating board of members(hereafter referred to as the board), as
+appointed by the president, and confirmed by the United States Senate.
+SEC. 7 — The Board of Members Powers and Duties
+1. The Board shall have the power to—
+a. Adopt an official seal;
+b. Sue and be sued in its own name;
+c. Make contracts and execute all instruments necessary or
+convenient for the carrying on of the purposes of this bill.
+d. Acquire, own, hold, dispose of and encumber personal, real or
+intellectual property of any nature or any interest related to its
+duties therein.
+e. Appoint officers, engage and employ employees, including legal
+counsel, consultants, agents and advisors and prescribe their duties
+and fix their compensations.
+f. Make, amend and repeal by-laws, rules and regulations for the
+management of its affairs.
+g. Prescribe rules and issue orders and guidance, as may be necessary
+or appropriate to enable the Agency to administer and carry out the
+purposes and objectives of this Act, and to prevent evasions thereof.
+2. The Board shall-
+a. Create a website, which shall host information about the operations
+of the Agency, as well as contain any and all forms for requests or
+reports specified in this Act.
+
+b. Create an academic unit, to track research, and decide whether
+restrictions on the conduction of research should be added or
+removed.
+c. Create a small business unit, to handle all small business
+exceptions present in this Act.
+SEC. 8 — Audits
+1. The Secretary of Internal Affairs shall order a semi-annual audit into the
+operations of the Agency, ensuring they remain loyal to the purposes and
+text of this Act.
+SEC. 9 — Enactment
+2. Should any part of this bill be considered unconstitutional and struck, all
+other sections shall remain valid.
+3. For any section of any bill that contradicts any section of this act, the
+contradictory section of the previous bill shall be struck and nullified.
+4. This bill shall go into effect no more than one year after passage by
+congress and the signature of the President of the United States.

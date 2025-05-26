@@ -1,0 +1,50 @@
+163th Congress
+1st Session
+H.R. 8
+IN THE HOUSE OF REPRESENTATIVES
+March 18th, 2023
+Ms. BERRY (for herself, Mr. HARRIS-CHAREST, Ms. MOCTEZUMA,
+Mr. O’CONNOR, Mr. CARTER, Mr. BARRASSO, Ms.
+HEINALUOMA, and Mr. LILBURNE) introduced the following bill;
+A BILL
+To amend the Family and Medical Leave Act to expand employees eligible for leave and
+employers subject to leave requirements, and for other purposes.
+Be it enacted by the Senate and the House of Representatives of the United States of
+America in Congress Assembled,
+SEC. 1. SHORT TITLE.
+This Act may be cited as the “Job Leave Protection Act”.
+SEC. 2. EXPANSION OF EMPLOYEES ELIGIBLE FOR FAMILY AND MEDICAL LEAVE.
+(a) IN GENERAL. —Section 101(2) of the Family and Medical Leave Act of 1993 (29
+U.S.C. 2611(2)) is amended—
+(1) in subparagraph (A), by striking “employed—” and all that follows through the
+end of the subparagraph and inserting “employed for at least 90 days by the
+employer with respect to whom leave is requested under section 102.”;
+(2) in subparagraph (B), by striking “does not include—” and all that follows through
+the end of the subparagraph and inserting “does not include any Federal officer or
+employee covered under subchapter V of chapter 63 of title 5, United States Code
+(as added by title II of this Act).”;
+(3) by striking subparagraphs (C) and (D); and
+(4) (4) by redesignating subparagraph (E) as subparagraph (C).
+(b) Federal Employees.—
+
+163th Congress
+1st Session
+(1) IN GENERAL.—Title 5, United States Code, is amended—
+(A) in section 6381(1)(B), by striking “12 months” and inserting “90 days”;
+and
+(B) (B) in section 6382(d)(2)(E), by striking “12 months” and inserting “90
+days”.
+(2) PRESIDENTIAL EMPLOYEES.—Section 412(a)(2)(B) of title 3, United States Code,
+is amended by striking “12 months and for at least 1,250 hours of employment during the
+previous 12 months” and inserting “90 days”.
+(3) CONGRESSIONAL EMPLOYEES.—Section 202(a)(2)(B) of the Congressional
+Accountability Act of 1995 (2 U.S.C. 1312(a)(2)(B)) is amended by striking “12 months
+and for at least 1,250 hours of employment during the previous 12 months” and inserting
+“90 days”.
+SEC. 3. EXPANSION OF EMPLOYERS SUBJECT TO LEAVE REQUIREMENTS.
+(a) Section 101(4)(A)(i) of such Act (29 U.S.C. 2611(4)(A)(i)) is amended by striking “50 or more
+employees” and all that follows through the end of the clause and inserting “25 or more
+employees through January 1, 2027, after which this section shall apply to businesses with 2 or
+more employees;”.
+SEC. 4. ENACTMENT.
+EFFECTIVE DATE.— The provisions of this Act shall come into force immediately upon passage.

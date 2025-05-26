@@ -1,0 +1,109 @@
+IN THE HOUSE OF REPRESENTATIVES OF THE UNITED STATES OF AMERICA
+BE IT ENACTED BY THE VIRTUAL CONGRESS AND PRESIDENT OF THE U.S.A.
+Rural Electrification Modernization Act, 2020
+A BILL TO: modernize 7 U.S.C. Chapter 31.
+SPECIAL SECTION 1. AUTHOR AND COSPONSORS
+AUTHORED BY: Mr. Carton of France
+COSPONSORED BY: Mr. Mitchell of Wisconsin, Mr. Radcliffe of New York, Mr. Schlorp of California.
+SECTION 1. PREAMBLE
+The Senate and House of Representatives of the United States of America, in Virtual Congress Assembled,
+begun and held at the City of Washington, in the District of Columbia, on Saturday the 30 of May, in the Year of
+our Lord two thousand and twenty.
+SUBSECTION 1.1. SHORT TITLE
+THIS BILL may be cited as the ‘Rural Electrification Modernization Act, 2020’, or ‘REMA, 2020’, or ‘H.R.
+XX’.
+SUBSECTION 1.2. FINDINGS
+IN THIS BILL, the Virtual Congress finds that:
+(a) The main objective of the Rural Electrification Administration has been fulfilled, with 100% of
+Americans having access to electricity;
+(b) The administration now manages funds used not only for electrification, but also to modernize our
+energy grid and support and develop green energy, as well as to develop telephone and broadband
+access;
+(c) Internet access is to our time what access to electricity was to the Great Depression, a challenge, with
+many Americans having access only to low-quality internet with reduced broadband, if not being left on
+the sidelines altogether;
+
+(d) The main tools at the hand of the Rural Electrification Administration, so far used for electrification,
+should now be used to develop internet access;
+(e) Other tools should be kept in place under a reformed Rural Electrification Administration to continue to
+support energy efficiency, green energy and telecommunications across rural areas of the United States.
+Be it enacted by the Senate and House of Representatives of the United States of America, in Virtual Congress
+Assembled,
+SECTION 2. CONTENT
+(a) Across 7 U.S.C. Chapter 31, subchapter 1, the words ‘Rural Electrification Act of 1936’ are replaced
+with ‘Rural Internet Access Act of 2020’.
+(b) Across 7 U.S.C. Chapter 31, subchapter 1, the words ‘Rural Electrification Administration’ are replaced
+with ‘Rural Internet Access Administration’.
+(c) 7 U.S.C 901 is replaced with: ‘This subchapter may be cited as the “Rural Internet Access Act of
+2020”.’
+(d) 7 U.S.C. 902 is amended as follows:
+(1) In subsection (a), after the words ‘United States’, replace the end of the paragraph with ‘for
+developing rural internet access and for the purpose of furnishing and improving
+telecommunication service in rural areas, as provided in this chapter, and for the purpose of
+assisting telecommunication borrowers to implement demand side management, and energy
+efficiency and conservation programs.’;
+(2) In subsection (b), remove the word ‘electric,’;
+(e) 7 U.S.C. 904 is amended as follows:
+(1) In subsection (a), replace the words ‘rural electrification’ with ‘developing rural internet access’;
+(2) Furthermore, replace the words ‘generating plants, electric transmission and distribution lines or
+systems for the furnishing and improving of electric service’ with ‘ internet emission and
+transmission devices, systems, distribution lines, and facilities for the furnishing and improving
+of internet access’;
+(3) Furthermore, replace the words ‘assisting electric borrowers to implement demand side
+management, energy efficiency and conservation programs, and on-grid and off-grid renewable
+energy systems’ with ‘assisting internet providers to implement demand side management, and
+energy efficiency and conservation programs’;
+(4) Furthermore, replace the word ‘electric’ with ‘internet’;
+(5) In subsection (b), after ‘income’, remove the rest of the paragraph.
+(f) 7 U.S.C. 905 is repelled.
+(g) 7 U.S.C. 916 is repelled.
+(h) In 7 U.S.C. 917, subsection (a), replace the words ‘electric service’ with ‘internet service’;
+(i) 7 U.S.S. 918a is amended as follows:
+(1) The title is replaced with ‘Internet emission, transmission, and distribution facilities efficiency
+grants and loans in rural communities with extremely high internet access costs’;
+
+(2) In subsection (a), after the word ‘improve’, replace the end of the subsection with ‘internet
+emission, transmission, or distribution facilities serving communities in which the average
+residential expenditure for home internet access is at least 275 percent of the national average
+residential expenditure for home internet access (as determined by the Bureau of Economic
+Analysis using the most recent data available);
+(3) Furthermore, clause (3) is repelled.
+(j) In the 7 U.S.C. 918b title, replace ‘energy’ with ‘internet access’.
+(k) 7 U.S.C. 918c is amended as follows:
+(1) The title is replaced with ‘Rural and remote communities internet access grants’;
+(2) The text of the section is replaced with:
+‘(a) Definitions. In this section:
+(1) The term “eligible grantee” means a local government or municipality, peoples’ utility
+district, irrigation district, and cooperative, nonprofit, or limited-dividend association in a
+rural area.
+(2) The term “rural area” means a city, town, or unincorporated area that has a population of
+not more than 10,000 inhabitants.
+(b) Grants. The Secretary, in consultation with the Secretary of the Interior, may provide grants
+under this section to eligible grantees for the purpose of—
+(1) increasing internet access, siting or upgrading transmission and distribution lines or
+systems serving rural areas; or
+(2) providing or modernizing internet access facilities that serve rural areas.
+(c) Grant administration.
+(1) The Secretary shall make grants under this section based on a determination of
+cost-effectiveness and the most effective use of the funds to achieve the purposes
+described in subsection (b).
+(2) For each fiscal year, the Secretary shall allocate grant funds under this section equally
+between the purposes described in paragraphs (1) and (2) of subsection (b).
+(3) In making grants for the purposes described in subsection (b)(2), the Secretary shall give
+preference to renewable energy facilities.
+(d) Authorization of appropriations.
+There is authorized to be appropriated to the Secretary to carry out this section $20,000,000 for
+each of fiscal years 2020 through 2026.
+SECTION 3. RURAL INTERNET ACCESS ADMINISTRATION
+(a) The Rural Electrification Administration is renamed Rural Internet Access Administration.
+(b) The missions of the Rural Electrification Administration are: to initiate, formulate, administer, and
+supervise a program of approved projects with respect to the development of internet access and the
+furnishing and improving of telecommunication service in rural areas.
+SECTION 4. TIMELINE
+THIS BILL is to be ratified immediately upon enactment.
+
+SECTION 4. CONFLICTS
+THIS BILL shall be mutual with all other laws, unless conflicting, by which they are to be stricken null and
+void.
+Rural Electrification Modernization Act, 2020 (H.R. XX)
+AUTHORED by House Representative Carton of France

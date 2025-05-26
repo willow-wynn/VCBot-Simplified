@@ -1,0 +1,148 @@
+[Note: This document is a copy of a enacted piece of legislation that was about to be lost
+to history. Everything is left the way it is, and typographical errors may be present.]
+Forgotten Act of 2020
+Summary:
+This bill amends the Safe and Drug-Free Schools and Communities Act to require: (1) states to
+use grants for safe and drug-free schools to collect and report information on the incidence of
+bullying and harassment, and (2) local educational agencies (LEAs) and schools to use
+subgrants to prevent and respond to incidents of bullying and harassment.
+Such LEAs or schools must: (1) notify parents and students annually of conduct prohibited in
+their school discipline policies, which must include policies regarding bullying and harassment;
+and (2) establish complaint procedures for students and parents to register complaints
+regarding such conduct.
+The bill also expands the Act's definition of violence to include bullying and harassment.
+To amend the Safe and Drug-Free Schools and Communities Act to include bullying and
+harassment prevention programs.
+A BILL
+To amend the Safe and Drug-Free Schools and Communities Act to include bullying and
+harassment prevention programs.
+Be it enacted by the Virtual Congress
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Forgotten act of 2020”
+SEC. 2. BULLYING AND HARASSMENT PREVENTION POLICIES, PROGRAMS, AND
+STATISTICS.
+(a) State Reporting Requirements.—Section 4112(c)(3)(B)(iv) of the Safe and Drug-Free
+Schools and Communities Act (20 U.S.C. 7112(c)(3)(B)(iv)) is amended by inserting “, including
+bullying and harassment,” after “violence”.
+(b) State Application.—Section 4113(a) of such Act (20 U.S.C. 7113(a)) is amended—
+
+(1) in paragraph (9)—
+(A) in subparagraph (C), by striking “and” at the end; and
+(B) by adding at the end the following:
+“(E) the incidence and prevalence of reported incidents of bullying and harassment; and
+“(F) the perception of students regarding their school environment, including with respect to the
+prevalence and seriousness of incidents of bullying and harassment and the responsiveness of
+the school to those incidents;”;
+(2) in paragraph (18), by striking “and” at the end;
+(3) in paragraph (19), by striking the period at the end and inserting “; and”; and
+(4) by adding at the end the following:
+“(20) provides an assurance that the State educational agency will provide assistance to
+districts and schools in their efforts to prevent and appropriately respond to incidents of bullying
+and harassment and describes how the agency will meet this requirement.”.
+(c) Local Educational Agency Program Application.—Section 4114(d) of such Act (20 U.S.C.
+7114(d)) is amended—
+(1) in paragraph (2)(B)(i)—
+(A) in the matter preceding subclause (I), by striking the semicolon and inserting a comma;
+(B) in subclause (I), by striking “and” at the end; and
+(C) by adding at the end the following:
+“(III) performance indicators for bullying and harassment prevention programs and activities;
+and”; and
+(2) in paragraph (7)—
+(A) in subparagraph (A), by inserting “, including bullying and harassment” after “disorderly
+conduct”;
+(B) in subparagraph (D), by striking “and” at the end; and
+
+(C) by adding at the end the following:
+“(F) annual notice to parents and students describing the full range of prohibited conduct
+contained in the discipline policies described in subparagraph (A); and
+“(G) complaint procedures for students or parents that seek to register complaints regarding the
+prohibited conduct contained in the discipline policies described in subparagraph (A),
+including—
+“(i) the name of the school or district officials who are designated as responsible for receiving
+such complaints; and
+“(ii) timelines that the school or district will follow in the resolution of such complaints;”.
+(d) Authorized Activities.—Section 4115(b)(2) of such Act (20 U.S.C. 7115(b)(2)) is amended—
+(1) in subparagraph (A)—
+(A) in clause (vi), by striking “and” at the end;
+(B) in clause (vii), by striking the period at the end and inserting “; and”; and
+(C) by adding at the end the following:
+“(viii) teach students about the consequences of bullying and harassment.”; and
+(2) in subparagraph (E), by adding at the end the following:
+“(xxiii) Programs that address the causes of bullying and harassment and that train teachers,
+administrators, and counselors regarding strategies to prevent bullying and harassment and to
+effectively intervene when such incidents occur.”.
+(e) Reporting.—Section 4116(a)(2)(B) of such Act (20 U.S.C. 7116(a)(2)(B)) is amended by
+inserting “, including bullying and harassment,” after “drug use and violence”.
+(f) Impact Evaluation.—Section 4122 of such Act (20 U.S.C. 7132) is amended—
+(1) in subsection (a)(2), by striking “and school violence” and inserting “school violence,
+including bullying and harassment,”; and
+(2) in the first sentence of subsection (b), by inserting “, including bullying and harassment,”
+after “drug use and violence”.
+
+(g) Definitions.—
+(1) DRUG AND VIOLENCE PREVENTION.—Paragraph (3)(B) of section 4151 of such Act (20
+U.S.C. 7151) is amended by inserting “, bullying, and other harassment” after “sexual
+harassment and abuse”.
+(2) PROTECTIVE FACTOR, BUFFER, OR ASSET.—Paragraph (6) of such section is amended
+by inserting “, including bullying and harassment” after “violent behavior”.
+(3) RISK FACTOR.—Paragraph (7) of such section is amended by inserting “, including bullying
+and harassment” after “violent behavior”.
+(4) BULLYING, HARASSMENT, AND VIOLENCE.—Such section is further amended by adding
+at the end the following:
+“(12) BULLYING.—
+“(A) IN GENERAL.—The term ‘bullying’ means aggressive behavior that is intended to cause
+distress or harm, involves an imbalance of power or strength between the aggressor and the
+victim and that favors the aggressor, and typically occurs repeatedly over time. Bullying may
+take many forms, including physical, verbal, relational, and cyber. Bullying can be conduct or
+behavior or that is based on, but not limited to, a student’s actual or perceived identity with
+regard to race, color, national origin, sex, gender identity, disability, sexual orientation, religion,
+or other distinguishing characteristics that may be defined by a State or local educational
+agency that—
+“(i) is directed at one or more students;
+“(ii) substantially interferes with educational opportunities or programs of such students; and
+“(iii) adversely affects the ability of a student to participate in or benefit from the school’s
+educational programs or activities by placing a student in reasonable fear of physical or mental
+harm.
+“(B) ASSOCIATION.—Such term includes conduct described in clauses (i), (ii), and (iii) of
+subparagraph (A) that is based on—
+“(i) a student’s association with another individual; and
+“(ii) a characteristic of the other individual that is referred to in subparagraph (A).
+“(C) CYBERBULLYING.—
+
+“(i) IN GENERAL.—Such term includes conduct described in subparagraph (A) that is
+undertaken, in whole or in part, through use of technology or electronic communications
+(including electronic mail, Internet communications, instant messages, or facsimile
+communications) to transmit images, text, sounds, or other data.
+“(ii) SEXTING.—Such term includes transmitting a nude picture by a means described in clause
+(i) if such transmission constitutes conduct described in subparagraph (A).
+“(iii) FALSE IDENTITY.—Such term includes knowingly impersonating another person as the
+author of posted content or messages on the Internet in order to trick, tease, harass, or spread
+rumors about the other person.
+“(13) HARASSMENT.—The term ‘harassment’ means conduct, including conduct that is based
+on a student’s actual or perceived identity with regard to race, color, national origin, gender
+identity, disability, sexual orientation, religion, or any other distinguishing characteristics that
+may be defined by a State or local educational agency, that—
+“(A) is directed at one or more students;
+“(B) substantially interferes with educational opportunities or educational programs of such
+students; and
+“(C) adversely affects the ability of a student to participate in or benefit from the school’s
+educational programs or activities because the conduct as reasonably perceived by the student
+is so severe, persistent, or pervasive.
+“(14) VIOLENCE.—The term ‘violence’ includes bullying and harassment.”.
+(h) Effect On Other Laws.—
+(1) AMENDMENT.—The Safe and Drug-Free Schools and Communities Act (20 U.S.C. 7101 et
+seq.) is amended by adding at the end the following:
+“SEC. 4156. EFFECT ON OTHER LAWS.
+“(a) Federal And State Nondiscrimination Laws.—Nothing in this part shall be construed to alter
+legal standards regarding, or limit rights available to victims of, bullying or harassment under
+other Federal or State laws, including title VI of the Civil Rights Act of 1964 (42 U.S.C. 2000d et
+seq.), title IX of the Education Amendments of 1972 (20 U.S.C. 1681 et seq.), section 504 of the
+Rehabilitation Act of 1973 (29 U.S.C. 794), or the Americans with Disabilities Act of 1990 (42
+U.S.C. 12101 et seq.).
+
+“(b) Free Speech And Expression Laws.—Nothing in this part shall be construed to alter legal
+standards regarding, or affect the rights available to individuals under, other Federal laws that
+establish protections for freedom of speech and expression.”.
+(2) CLERICAL AMENDMENT.—The table of contents of the Elementary and Secondary
+Education Act of 1965 (20 U.S.C. 6301 et seq.) is amended by adding after the item relating to
+section 4155 the following:

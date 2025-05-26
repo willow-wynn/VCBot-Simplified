@@ -1,0 +1,40 @@
+[2025-05-23 16:13:08] [vcbot] [DEBUG] Debug logging active - this message goes to file only
+[2025-05-23 16:13:11] [vcbot] [DEBUG] Generated 3 Gemini tool declarations
+[2025-05-23 16:13:11] [file_manager] [DEBUG] FileManager initialized with base directory: /Users/wynndiaz/VCBot
+[2025-05-23 16:13:32] [vcbot] [DEBUG] Checking roles for Posting: ['@everyone', 'Records Oversight', 'Activity Oversight', 'Chat Revive Ping', 'Disboard Bump Ping', 'Pre-Verified', 'Verified', 'Archive', 'Emotional Support', 'They/Them/Theirs', 'Fun Ping', 'DMs Open', 'Award Winner', 'Frontier', 'Press', 'Attorney', 'Jury Duty', 'Server Booster', 'Republican Party', 'Former Senator', 'Former Cabinet Official', 'Former President Pro Tempore', 'Former Speaker', 'VIP', 'US Attorney', 'Appeals Board', 'Canada', 'Moderator', 'Bot', 'Server Developer', 'Admin', '*']
+[2025-05-23 16:13:32] [vcbot] [DEBUG] Checking if Posting can use command in 1327483297202176080
+[2025-05-23 16:13:33] [httpcore.connection] [DEBUG] connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+[2025-05-23 16:13:33] [httpcore.connection] [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1684041a0>
+[2025-05-23 16:13:33] [httpcore.connection] [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x15a1f3020> server_hostname='generativelanguage.googleapis.com' timeout=None
+[2025-05-23 16:13:33] [httpcore.connection] [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1680d96d0>
+[2025-05-23 16:13:33] [httpcore.http11] [DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2025-05-23 16:13:33] [httpcore.http11] [DEBUG] send_request_headers.complete
+[2025-05-23 16:13:33] [httpcore.http11] [DEBUG] send_request_body.started request=<Request [b'POST']>
+[2025-05-23 16:13:33] [httpcore.http11] [DEBUG] send_request_body.complete
+[2025-05-23 16:13:33] [httpcore.http11] [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2025-05-23 16:13:34] [httpcore.http11] [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 23 May 2025 22:13:34 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=455'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+[2025-05-23 16:13:34] [httpcore.http11] [DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2025-05-23 16:13:34] [httpcore.http11] [DEBUG] receive_response_body.complete
+[2025-05-23 16:13:34] [httpcore.http11] [DEBUG] response_closed.started
+[2025-05-23 16:13:34] [httpcore.http11] [DEBUG] response_closed.complete
+[2025-05-23 16:13:34] [file_manager] [DEBUG] Appended to text file: /Users/wynndiaz/VCBot/queries.csv (69 chars)
+[2025-05-23 16:13:45] [vcbot] [DEBUG] Checking roles for Posting: ['@everyone', 'Records Oversight', 'Activity Oversight', 'Chat Revive Ping', 'Disboard Bump Ping', 'Pre-Verified', 'Verified', 'Archive', 'Emotional Support', 'They/Them/Theirs', 'Fun Ping', 'DMs Open', 'Award Winner', 'Frontier', 'Press', 'Attorney', 'Jury Duty', 'Server Booster', 'Republican Party', 'Former Senator', 'Former Cabinet Official', 'Former President Pro Tempore', 'Former Speaker', 'VIP', 'US Attorney', 'Appeals Board', 'Canada', 'Moderator', 'Bot', 'Server Developer', 'Admin', '*']
+[2025-05-23 16:13:45] [vcbot] [DEBUG] Checking if Posting can use command in 1327483297202176080
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] close.started
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] close.complete
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1680da990>
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x15a1f3020> server_hostname='generativelanguage.googleapis.com' timeout=None
+[2025-05-23 16:13:46] [httpcore.connection] [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1682d50f0>
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] send_request_headers.complete
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] send_request_body.started request=<Request [b'POST']>
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] send_request_body.complete
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 23 May 2025 22:13:46 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=503'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] receive_response_body.complete
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] response_closed.started
+[2025-05-23 16:13:46] [httpcore.http11] [DEBUG] response_closed.complete
+[2025-05-23 16:13:46] [vcbot] [DEBUG] Executing tool 'call_other_channel_context' via registry
+[2025-05-23 16:13:46] [vcbot] [DEBUG] Executing tool 'call_other_channel_context' with args: ['channel_to_call', 'number_of_messages_called', 'client']

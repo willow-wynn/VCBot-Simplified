@@ -1,0 +1,38 @@
+IN THE CONGRESS OF THE UNITED STATES
+MAY 20, 2020
+Mr. CARTON (for himself, Mr. MITCHELL, Mr. RADCLIFFE)
+introduced the following bill;
+A BILL
+To amend the Magnuson-Stevens Fishery Conservation and Management Act to outlaw
+the discarding of bycatches for high seas fisheries, or fisheries governed by international
+fishery management agreements.
+Be it enacted by the House of Representatives of the United States of America in Congress
+Assembled,
+SECTION 1. SHORT TITLE.
+This bill may be cited as the “Fisheries Discard Ban Act of 2020”.
+SECTION 2. CHANGES IN FINDINGS.
+(a) NEED FOR A LANDING OBLIGATION.— Section 2(a) (16 U.S.C. 1801(a)) is amended by
+adding at the end the following:
+“(14) The practice of economic discards and regulatory discards leads to an important
+number of fishes being returned to the sea immediately after being catched. These catches
+are not accounted for, cannot be counted against the existing total allowable catches, and are
+often returned dead, effectively impacting stocks. The practice makes it harder for scientists
+
+to determine precisely the impact of fishing activities on all stocks. Therefore, a landing
+obligation should be adopted to ensure better measurement of the impact of fishing on all
+total allowable catches, and better long-term stock management.”
+SECTION 3. ESTABLISHMENT OF A LANDING OBLIGATION.
+Title III (16 U.S.C. 1851 et seq.) is amended by adding at the end the following:
+“SEC. 321. LANDING OBLIGATION. (16 U.S.C. 1870)
+(a) LANDING OBLIGATION. All quantities of fish from a fishery which is subject to a
+total allowable catch shall be brought and retained on board the fishing vessels,
+recorded, landed and counted against the total allowable catch.
+(b) INTERNATIONAL TREATIES. The landing obligation under paragraph (a) is without
+prejudice to the United States’ international obligations and commitments under
+existing Treaties.
+(c) MINIMUM SIZE. Councils may establish minimum reference sizes, below which a fish
+is regarded as juvenile. The catches of species below the applicable minimum reference
+size shall not be subject to the landing obligation under paragraph (a), but shall instead
+immediately be returned to the sea.”
+SECTION 4. ENACTMENT.
+This Act shall be enacted 30 days after its passing.

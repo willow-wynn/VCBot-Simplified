@@ -1,0 +1,79 @@
+- 1 -
+177
+th CONGRESS
+S.10
+IN THE SENATE OF THE UNITED STATES
+MAY 21, 2024
+Introduced by Sen. Pluribus
+IN THE HOUSE: Mr. Lockhart, Ms. Kallis, Mr. Morales, Mr. Wood
+A BILL
+To amend the Internal Revenue Code of 1986 to improve the historic rehabilitation
+tax credit, and for other purposes.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. SHORT TITLE
+(a) This Act may be cited as the ‘Historic Rehabilitation Tax Credit Improvement
+Act of 2024.”
+SEC. 2. INCREASEIN THEREHABILITATION CREDITFOR CERTAINSMALL
+PROJECTS.
+(a) INGENERAL.—Section47of theInternalRevenueCode of 1986isamendedby
+addingattheend thefollowingnewsubsection:
+“(e)SPECIALRULEREGARDINGCERTAINSMALLPROJECTS.—
+“(1) INGENERAL.—In thecaseofanyqualified rehabilitated building orportion
+thereof—
+
+- 2 -
+“(A)whichis placedinservice after thedate ofthe enactment ofthis
+subsection,and
+“(B) whichis asmallproject,
+subsection(a)(2) shall beappliedbysubstituting ‘30percent’for ‘20 percent’.
+“(2) MAXIMUMCREDIT.—Thecredit under thissection (afterapplication of
+this subsection)withrespect toanyproject for all taxableyearsshallnotexceed
+$750,000.
+“(3) SMALL PROJECT.—
+“(A)IN GENERAL.—Forpurposesofthis subsection, theterm‘small
+project’meansanycertified historic structureorportion thereof if—
+“(i) thetotalqualified rehabilitation expenditurestakeninto accountfor
+purposes of this sectionwithrespect tothe rehabilitationdonot exceed
+$3,750,000,and
+“(ii) no creditwas allowedunder this sectionfor either ofthe two
+immediatelypreceding taxableyearswith respectto suchbuilding.
+“(B) PROGRESS EXPENDITURES.—Creditallowablebyreason of
+subsection(d) shall notbetaken intoaccountunder subparagraph(A)(ii).”.
+(b) EFFECTIVEDATE.—The amendmentmadebythis sectionshallapply toperiodsafter
+thedate of theenactmentof thisAct, underrules similartotherules ofsection48(m) ofthe
+InternalRevenue Codeof 1986(asineffect onthedaybefore thedate of theenactment of
+theRevenue Reconciliation Actof1990).
+
+- 3 -
+SEC. 3. INCREASING THETYPEOF BUILDINGS ELIGIBLEFOR
+REHABILITATION.
+(a) INGENERAL.—Section47(c)(1)(B)(i)(I) ofthe InternalRevenueCode of1986is
+amendedbyinserting “50percent of”before “the adjustedbasis”.
+(b) EFFECTIVEDATE.—The amendmentmadebysubsection (a)shallapply totaxable
+years beginningafter December31,2022.
+SEC. 4. ELIMINATION OF REHABILITATION CREDITBASISADJUSTMENT.
+(a) INGENERAL.—Section50(c)of theInternalRevenue Codeof 1986isamendedby
+addingattheend thefollowingnewparagraph:
+“(6) EXCEPTIONFORREHABILITATION CREDIT.—Inthe caseofthe
+rehabilitation credit,paragraph(1) shallnotapply.”.
+(b) TREATMENTINCASEOFCREDITALLOWEDTOLESSEE.—Section 50(d) ofsuch Codeis
+amendedbyaddingatthe endthefollowing: “Inthe caseofthe rehabilitation credit,
+paragraph (5)(B) of thesection 48(d) referredto inparagraph (5) ofthis subsectionshallnot
+apply.”.
+(c) EFFECTIVEDATE.—The amendmentsmade bythis sectionshallapplyto property
+placedin serviceafter thedate of theenactment ofthis Act.
+SEC. 5. MODIFICATIONSREGARDINGCERTAIN TAX-EXEMPTUSEPROPERTY.
+(a) INGENERAL.—Section47(c)(2)(B)(v) ofthe InternalRevenueCode of1986is
+amendedbyaddingatthe endthefollowing newsubclause:
+“(III) DISQUALIFIED LEASERULES TOAPPLY ONLYIN
+CASE OFGOVERNMENT ENTITY.—For purposesofsubclause (I),
+exceptinthe caseofa tax-exemptentitydescribedin section
+168(h)(2)(A)(i), the determinationof whetherpropertyis tax-exempt
+useproperty shallbemade under section168(h) without regardto
+
+- 4 -
+whetherthe propertyis leasedinadisqualified lease(asdefinedin
+section168(h)(1)(B)(ii)).”.
+(b) EFFECTIVEDATE.—The amendmentsmade bythissection shallapplytoproperty
+placedin serviceafter thedate of theenactment ofthis Act.

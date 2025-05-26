@@ -1,0 +1,256 @@
+American Worker’s Freedom and Labor Price Transparency Act
+Drafted by: Congressman Josh Harder (D-CA)
+Cosponsors
+Solic. Gen. Cade Holbrook (D-AZ)
+Chief of Staff McKenna (D-CA)
+Ambassador Hull (D-NY)
+Congresswoman soufong (D-OR)
+Sec. of HHS Vita (I-MD)
+Majority Whip Itachi (D-PA)
+Justice Justin Lew (D-FL)
+AN ACT
+To amend the Fair Labor Standards Act of 1938 to provide labor price transparency, resulting in
+more effective labor markets in the payment of wages.
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “American Worker’s Freedom and Labor Price Transparency Act”
+SEC. 2. FINDINGS.
+Congress finds the following:
+(1) Labor markets suffer from information asymmetry, this:
+(A) burdens commerce and the free flow of goods in commerce;
+(B) constitutes an unfair method of competition in commerce;
+(C) tends to cause labor disputes, as evidenced by the tens of thousands of charges filed
+against employers between 2010 and 2016;
+(D) interferes with the orderly and fair marketing of goods in commerce; and
+(E) in some instances, may deprive workers of equal protection in violation of the 5th and 14th
+Amendments to the Constitution.
+
+(2) (A) Artificial barriers to the elimination of information asymmetries in the payment of wages
+continue to exist decades after the enactment of the Fair Labor Standards Act of 1938 (29
+U.S.C. 201 et seq.)
+(B) Elimination of such barriers would have positive effects, including—
+(i) promoting stable families by enabling all family members to earn a fair rate of pay;
+(ii) ensuring equal protection pursuant to Congress’ power to enforce the 5th and 14th
+Amendments to the Constitution.
+(3) The Department of Labor and the Employment Transparency Commission carry out
+functions to help ensure that employees receive transparent wages.
+(4) The Department of Labor is responsible for—
+(A) collecting and making publicly available information about employee pay;
+(B) ensuring that companies receiving Federal contracts comply with requirements of Executive
+Order 11246;
+(C) helping workers who have been victims of retaliation for sharing wage information obtain a
+remedy
+SEC. 3. ENFORCEMENT OF TRANSPARENT PAY REQUIREMENTS AND
+NON-RETALIATION
+(a) Nonretaliation Provision.—Section 15 of the Fair Labor Standards Act of 1938 (29 U.S.C.
+215) is amended—
+(1) in subsection (a)—
+(A) in paragraph (3), by striking “employee has filed” and all that follows and inserting
+“employee—
+“(A) has made a charge or filed any complaint or instituted or caused to be instituted any
+investigation, proceeding, hearing, or action under or related to this Act, including an
+investigation conducted by the employer, or has testified or is planning to testify or has assisted
+or participated in any manner in any such investigation, proceeding, hearing or action, or has
+served or is planning to serve on an industry committee; or
+
+“(B) has inquired about, discussed, or disclosed the wages of the employee or another
+employee (such as by inquiring or discussing with the employer why the wages of the employee
+are set at a certain rate or salary);”;
+(B) in paragraph (5), by striking the period at the end and inserting “; or”; and
+(C) by adding at the end the following:
+“(6) to require an employee to sign a contract or waiver that would prohibit the employee from
+disclosing information about the employee’s wages.”; and
+(2) by adding at the end the following:
+“(c) Subsection (a)(3)(B) shall not apply to instances in which an employee who has access to
+the wage information of other employees as a part of such employee’s essential job functions
+discloses the wages of such other employees to individuals who do not otherwise have access
+to such information, unless such disclosure is in response to a complaint or charge or in
+furtherance of an investigation, proceeding, hearing, or action under section 6(d), including an
+investigation conducted by the employer. Nothing in this subsection shall be construed to limit
+the rights of an employee provided under any other provision of law.”.
+(c) Enhanced Penalties.—Section 16(b) of the Fair Labor Standards Act of 1938 (29 U.S.C.
+216(b)) is amended—
+(1) by inserting after the first sentence the following: “Any employer who violates section 6(d)
+shall additionally be liable for such compensatory damages, or, where the employee
+demonstrates that the employer acted with malice or reckless indifference, punitive damages as
+may be appropriate, except that the United States shall not be liable for punitive damages.”;
+(2) in the sentence beginning “An action to”, by striking “the preceding sentences” and inserting
+“any of the preceding sentences of this subsection”;
+(3) in the sentence beginning “No employees shall”, by striking “No employees” and inserting
+“Except with respect to class actions brought to enforce section 6(d), no employee”;
+(4) by inserting after the sentence referred to in paragraph (3), the following: “Notwithstanding
+any other provision of Federal law, any action brought to enforce section 6(d) may be
+maintained as a class action as provided by the Federal Rules of Civil Procedure.”; and
+(5) in the sentence beginning “The court in”—
+(A) by striking “in such action” and inserting “in any action brought to recover the liability
+prescribed in any of the preceding sentences of this subsection”; and
+
+(B) by inserting before the period the following: “, including expert fees”.
+(d) Action By Secretary.—Section 16(c) of the Fair Labor Standards Act of 1938 (29 U.S.C.
+216(c)) is amended—
+(1) in the first sentence—
+(A) by inserting “or, in the case of a violation of section 6(d), additional compensatory or punitive
+damages, as described in subsection (b),” before “and the agreement”; and
+(B) by inserting before the period the following: “, or such compensatory or punitive damages,
+as appropriate”;
+(2) in the second sentence, by inserting before the period the following: “and, in the case of a
+violation of section 6(d), additional compensatory or punitive damages, as described in
+subsection (b)”;
+(3) in the third sentence, by striking “the first sentence” and inserting “the first or second
+sentence”; and
+(4) in the sixth sentence—
+(A) by striking “commenced in the case” and inserting “commenced—
+“(1) in the case”;
+(B) by striking the period and inserting “; or”; and
+(C) by adding at the end the following:
+“(2) in the case of a class action brought to enforce section 6(d), on the date on which the
+individual becomes a party plaintiff to the class action.”.
+SEC. 4. RESEARCH, EDUCATION, AND OUTREACH.
+(a) In General.—Not later than 18 months after the date of enactment of this Act, and
+periodically thereafter, the Secretary of Labor shall conduct studies and provide information to
+employers, labor organizations, and the general public, including—
+(1) publishing and otherwise making available to employers, labor organizations, professional
+associations, educational institutions, the media, and the general public the findings resulting
+from studies and other materials;
+
+(2) sponsoring and assisting State, local, and community informational and educational
+programs;
+(3) providing information to employers, labor organizations, professional associations, and other
+interested persons
+SEC. 5. COLLECTION OF PAY INFORMATION BY THE EMPLOYMENT TRANSPARENCY
+COMMISSION.
+Section 709 of the Civil Rights Act of 1964 (42 U.S.C. 2000e–8) is amended by adding at the
+end the following:
+“(f) (1) Not later than 18 months after the date of enactment of this subsection, the Commission
+shall provide for the collection from employers of compensation data and other
+employment-related data (including hiring, termination, and promotion data) disaggregated by
+the sex, race, and ethnic identity of employees.
+“(2) In carrying out paragraph (1), the Commission shall have as its primary consideration the
+most effective and efficient means for enhancing the enforcement of Federal laws prohibiting
+pay discrimination. For this purpose, the Commission shall consider factors including the
+imposition of burdens on employers, the frequency of required reports (including the size of
+employers required to prepare reports), appropriate protections for maintaining data
+confidentiality, and the most effective format to report such data.
+“(3) (A) For each 12-month reporting period for an employer, the compensation data collected
+under paragraph (1) shall include, for each range of taxable compensation described in
+subparagraph (B), disaggregated by the categories described in subparagraph (E)—
+“(i) the number of employees of the employer who earn taxable compensation in an amount that
+falls within such taxable compensation range; and
+“(ii) the total number of hours worked by such employees.
+“(B) Subject to adjustment under subparagraph (C), the taxable compensation ranges described
+in this subparagraph are as follows:
+“(i) Not more than $19,239.
+“(ii) Not less than $19,240 and not more than $24,439.
+“(iii) Not less than $24,440 and not more than $30,679.
+
+“(iv) Not less than $30,680 and not more than $38,999.
+“(v) Not less than $39,000 and not more than $49,919.
+“(vi) Not less than $49,920 and not more than $62,919.
+“(vii) Not less than $62,920 and not more than $80,079.
+“(viii) Not less than $80,080 and not more than $101,919.
+“(ix) Not less than $101,920 and not more than $128,959.
+“(x) Not less than $128,960 and not more than $163,799.
+“(xi) Not less than $163,800 and not more than $207,999.
+“(xii) Not less than $208,000.
+“(C) The Commission may adjust the taxable compensation ranges under subparagraph (B)—
+“(i) if the Commission determines that such adjustment is necessary to enhance enforcement of
+Federal laws prohibiting pay discrimination; or
+“(ii) for inflation, in consultation with the Bureau of Labor Statistics.
+“(D) In collecting data described in subparagraph (A)(ii), the Commission shall provide that, with
+respect to an employee who the employer is not required to compensate for overtime
+employment under section 7 of the Fair Labor Standards Act of 1938 (29 U.S.C. 207), an
+employer may report—
+“(i) in the case of a full-time employee, that such employee works 40 hours per week, and in the
+case of a part-time employee, that such employee works 20 hours per week; or
+“(ii) the actual number of hours worked by such employee.
+“(E) The categories described in this subparagraph shall be determined by the Commission and
+shall include—
+“(i) race;
+“(ii) ethnic identity;
+“(iii) sex; and
+
+“(iv) job categories, including the job categories described in the instructions for the Equal
+Employment Opportunity Employer Information Report EEO–1, as in effect on the date of the
+enactment of this subsection.
+“(F) The Commission shall use the compensation data collected under paragraph (1)—
+“(i) to enhance—
+“(I) the investigation of charges filed under section 706 or section 6(d) of the Fair Labor
+Standards Act of 1938 (29 U.S.C. 206(d)); and
+“(II) the allocation of resources to investigate such charges; and
+“(ii) for any other purpose that the Commission determines appropriate.
+“(G) The Commission shall annually make publicly available aggregate compensation data
+collected under paragraph (1) for the categories described in subparagraph (E), disaggregated
+by industry, occupation, and core based statistical area (as defined by the Office of
+Management and Budget).
+“(4) The compensation data under paragraph (1) shall be collected from each employer that—
+“(A) is a private employer that has 100 or more employees, including such an employer that is a
+contractor with the Federal Government, or a subcontractor at any tier thereof; or
+“(B) the Commission determines appropriate.”.
+SEC. 6. PROHIBITIONS RELATING TO PROSPECTIVE EMPLOYEES’ SALARY AND
+BENEFIT HISTORY.
+(a) In General.—The Fair Labor Standards Act of 1938 (29 U.S.C. 201 et seq.) is amended by
+inserting after section 7 the following new section:
+“SEC. 8. REQUIREMENTS AND PROHIBITIONS RELATING TO WAGE, SALARY, AND
+BENEFIT HISTORY.
+“(a) In General.—It shall be an unlawful practice for an employer to—
+“(1) rely on the wage history of a prospective employee in considering the prospective employee
+for employment, including requiring that a prospective employee’s prior wages satisfy minimum
+or maximum criteria as a condition of being considered for employment;
+
+“(2) rely on the wage history of a prospective employee in determining the wages for such
+prospective employee, except that an employer may rely on wage history if it is voluntarily
+provided by a prospective employee, after the employer makes an offer of employment with an
+offer of compensation to the prospective employee, to support a wage higher than the wage
+offered by the employer;
+“(3) seek from a prospective employee or any current or former employer the wage history of the
+prospective employee, except that an employer may seek to confirm prior wage information only
+after an offer of employment with compensation has been made to the prospective employee
+and the prospective employee responds to the offer by providing prior wage information to
+support a wage higher than that offered by the employer; or
+“(4) discharge or in any other manner retaliate against any employee or prospective employee
+because the employee or prospective employee—
+“(A) opposed any act or practice made unlawful by this section; or
+“(B) took an action for which discrimination is forbidden under section 15(a)(3).
+“(b) Definition.—In this section, the term ‘wage history’ means the wages paid to the prospective
+employee by the prospective employee’s current employer or previous employer.”.
+(b) Penalties.—Section 16 of such Act (29 U.S.C. 216) is amended by adding at the end the
+following new subsection:
+“(f) (1) Any person who violates the provisions of section 8 shall—
+“(A) be subject to a civil penalty of $5,000 for a first offense, increased by an additional $1,000
+for each subsequent offense, not to exceed $10,000; and
+“(B) be liable to each employee or prospective employee who was the subject of the violation for
+special damages not to exceed $10,000 plus attorneys' fees, and shall be subject to such
+injunctive relief as may be appropriate.
+“(2) An action to recover the liability described in paragraph (1)(B) may be maintained against
+any employer (including a public agency) in any Federal or State court of competent jurisdiction
+by any one or more employees or prospective employees for and on behalf of—
+“(A) the employees or prospective employees; and
+“(B) other employees or prospective employees similarly situated.”.
+SEC. 7. AUTHORIZATION OF APPROPRIATIONS.
+
+(a) Authorization Of Appropriations.—There are authorized to be appropriated such sums as
+may be necessary to carry out this Act.
+(b) Prohibition On Earmarks.—None of the funds appropriated pursuant to subsection (a) for
+purposes of the grant program in section 5 of this Act may be used for a congressional earmark
+as defined in clause 9(e) of rule XXI of the Rules of the House of Representatives.
+SEC. 8. SMALL BUSINESS ASSISTANCE.
+(a) Small Businesses.—A small enterprise shall be exempt from the provisions of this Act, and
+the amendments made by this Act, to the same extent that such enterprise is exempt from the
+requirements of the Fair Labor Standards Act of 1938 (29 U.S.C. 201 et seq.) pursuant to
+clauses (i) and (ii) of section 3(s)(1)(A) of such Act (29 U.S.C. 203(s)(1)(A)).
+(b) Technical Assistance Materials.—The Secretary of Labor and the Commissioner of the
+Employment Transparency Commission shall jointly develop technical assistance material to
+assist small enterprises in complying with the requirements of this Act and the amendments
+made by this Act.
+SEC. 9. ENACTMENT.
+(a) Enactment Date.—This Act is considered enacted when it is signed into law.
+(b) Effective Date.—This Act and the amendments made by this Act shall take effect on the date
+that is 6 months after the date of enactment of this Act.
+SEC. 10. RULE OF CONSTRUCTION.
+Nothing in this Act, or in any amendments made by this Act, shall affect the obligation of
+employers and employees to fully comply with all applicable immigration laws, including being
+subject to any penalties, fines, or other sanctions.
+SEC. 11. SEVERABILITY.
+If any provision of this Act, an amendment made by this Act, or the application of that provision
+or amendment to particular persons or circumstances is held invalid or found to be
+unconstitutional, the remainder of this Act, the amendments made by this Act, or the application
+of that provision to other persons or circumstances shall not be affected.

@@ -1,0 +1,73 @@
+136THCONGRESS
+1STSESSION
+H.R. 48
+To create a program called “Space Viewing System” to gain knowledge on deep
+space for future missions.
+——————————————————
+IN THE HOUSE OF REPRESENTATIVES OF
+THE UNITED STATES
+DECEMBER 7, 2020
+Mr. SEAVER, (for himself, Mr. WARRIOR, Mr. BRAD
+WOOD, Ms. SANDY, Mr. GLASS, Mr. SOLOMON, Mr.
+SOMEONE)
+——————————————————
+A BILL
+To create a program called “Space Viewing System” to gain knowledge on deep
+space for future missions.
+Be it enacted by the Senate and House of Representatives of the
+United States of America in Congress assembled,
+SECTION 1. SHORT TITLE AND TABLE OF CONTENTS
+(a) SHORT TITLE — This Act may be cited as the “Space Viewing
+System Program Act”.
+
+Page 2
+SECTION 2. DEFINITIONS
+(a) DEFINITIONS — For the purposes of this Act, the term —
+(i) NASA means the National Aeronautics and Space Agency.
+(ii) SLS means the Space Launch System.
+(iii) SVS means the Space Viewing System.
+(iv) DSN means the Deep Space Network.
+(v) JPL means the Jet Propulsion Laboratory.
+(vi) ADMINISTRATOR means the Administrator of the National
+Aeronautics and Space agency.
+SECTION 3. PROGRAM INITIATION
+(a) INITIATION OF DEVELOPMENT — The Administrator shall, no
+longer than 720 days after the enactment of the act, initiate the
+development of a Space Viewing System program, meeting the
+general objectives, requirements and other prescribed matters
+pursuant to this Section.
+(b) OBJECTIVE — It shall be the objective of the program developed
+pursuant to this Section that a semi-constant video feed be
+telecommunication to Earth.
+(c) MINIMUM REQUIREMENTS — The program developed pursuant
+to this Section shall be expected to have, at a minimum, the
+following —
+(i) The capability to be placed in a heliospheric escape orbit.
+(ii) The capability to relay information to the Earth.
+(iii) The capability to film in a semi-constant manner and return
+these informations.
+(d) REPORT ON PROGRAM — The Administrator shall, no longer
+than 720 days after the enactment of the act, provide a detailed
+report to the appropriate committees of Congress, and the Senate
+and the House of Representatives of the United States, a report
+comprising of information pertaining to —
+(i) The planned design of the vehicle, with measurements.
+(ii) The planned timelines for the launch of the vehicle.
+(iii) The planned orbit.
+(iv) The planned camera arrangements and technologies.
+(v) The planned launch vehicle.
+(e) SLS REQUEST — The Administrator shall make the necessary
+arrangements, to, wherever possible, provide for the SLS as a
+launch vehicle.
+
+Page 3
+(f) 39A REQUEST — The Administrator shall make the necessary
+arrangements, to, wherever possible, provide for Launch Pad 39A
+as the launch pad.
+(g) APPROPRIATIONS — NASA shall be appropriated $1,100,000,000
+in total to cover for all amounts including contracting.
+SECTION 4. ENACTMENT
+(a) EFFECTIVE DATE — The provisions of this Act shall come into
+force five years after the completion of the Artemis program.
+(b) SUNSET DATE — The provisions of this Act shall be null and void
+ten years after the commencement of the SVS program.

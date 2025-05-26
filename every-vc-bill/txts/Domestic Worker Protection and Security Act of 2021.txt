@@ -1,0 +1,357 @@
+1
+137THCONGRESS
+1STSESSION
+S. 14
+To establish rights and protections for domestic workers.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+January 28, 2021
+Mr. JOHNSON of Pennsylvania and Mr. SHEPHERD of Texas
+(for themselves, Mr. MARSHMALL, Mr. MILLER, and Mr.
+WOOD) introduced the following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To establish rights and protections for domestic workers.
+Be it enacted by the Senate in Congress Assembled,
+SECTION1.SHORTTITLE.
+ThisActmaybecitedasthe“DomesticWorkerProtectionandSecurityActof2021”.
+SEC.2DEFINITIONS.
+(a) CHILD.—InthisAct,theterm“child”meansanindividualwhoisundertheageof18yearsand
+includesanindividualwhois—
+(1) abiological,adopted,orfosterchild;or
+(2) astepchildorchildofadomesticpartner;
+(b) COMMITTEDRELATIONSHIP.—Theterm“committedrelationship”meansarelationship
+between2individualsthatisgrantedlegalrecognitionbyapoliticalsubdivisionasamarriageor
+analogousrelationship,includingacivilunionordomesticpartnership.
+
+2
+(c) DISABILITY.—InthisAct,theterm“disability”hasthemeaninggiventotheterminsection3
+oftheAmericanswithDisabilitiesActof1990(42U.S.C.12102).
+(d) DOMESTICPARTNER.—InthisAct,theterm“domesticpartner”meansanindividualwith
+whomtheindividualisinacommittedrelationship.
+(e) DOMESTICSERVICES.—InthisAct,theterm“domesticservices”—
+(1) meansservicesofahouseholdnatureprovidedininterstatecommerceandperformedby
+anindividualinoraboutaprivatehome;and
+(2) includesservicesperformedbyindividualssuchasbabysitters,butlers,
+caretakers,companions,cooks,gardeners,handymen,homehealthaides,housekeepers,
+janitors,laundresses,maids,nannies,nurses,valets,andwaiters.
+(f) DOMESTICVIOLENCE.—InthisAct,theterm“domesticviolence”hasthemeaninggivento
+theterminsection40002(a)oftheViolenceAgainstWomenActof1994(34U.S.C.12291(a))
+(g) DOMESTICWORKER.—InthisAct,theterm“domesticworker”meansanindividual,including
+anemployee,whoiscompensateddirectlyorindirectlyfortheperformanceofdomesticservices,
+butdoesnotinclude—
+(1) afamilymember,friend,orneighborwhoprovideschildcareinthechild’shome;
+(2) anyindividualwhoisanemployeeoforisafamilychildcareprovider;and
+(3) anyemployeedescribedinsection13(a)(15)oftheFairLaborStandardsActof1938(29
+U.S.C.213(a)(15))
+(h) DOMESTICWORKHIRINGENTITY.—InthisAct,theterm“domesticworkhiringentity”
+meansanypersonwhoprovidescompensationdirectlyorindirectlytoadomesticworkerforthe
+performanceofdomesticservicesandincludesapersonactingdirectlyorindirectlyintheinterest
+ofaworkhiringentityinrelationtothedomesticworkerandincludesanemployerofadomestic
+worker.
+(i) EMPLOYER.—InthisAct,theterm“employer”hasthemeaninggiventotheterminsection3of
+theFairLaborStandardsActof1938(29U.S.C.203)
+(j) EMPLOYMENT.—InthisAct,theterm“employment”hasthemeaninggiventothetermin
+section3oftheFairLaborStandardsActof1938(29U.S.C.203)
+
+3
+(k) ON-CALLSHIFT.—InthisAct,theterm“on-callshift”meansanytimeadomesticworkhiring
+entityexpectsadomesticworkertobeavailabletoworkandtowaittocontactorbecontactedby
+theentityoradesigneeoftheentitytodeterminewhethertheworkershallreportforworkforthe
+time.
+(l) PARENT.—InthisAct,theterm“parent”meansabiological,adoptive,orfosterparent,ora
+stepparent,parent-in-law,parentofadomesticpartner,orlegalguardianofadomesticworker.
+(m)PAIDSICKTIME.—InthisAct,theterm“paidsicktime”meansanincrementofcompensated
+leavethatcanbeearnedbyadomesticworkerforuseduring—
+(1) anabsenceresultingfromaninjuryormedicalconditionofthedomesticworker;
+(2) anabsenceresultingfromobtainingmedicalcare,includingpreventivemedicalcareand
+diagnosis;
+(3) anabsenceforthepurposeofcaringforachild,parent,spouse,domesticpartner,or
+individualclosetothedomesticworkerordomesticworker’sfamily;
+(4) anabsenceresultingfromobtainingcounseling,servicesfromavictimservices
+organization,orotherassistancefordomesticviolence,sexualassault,orstalking;
+(n) PRIVATECOMMUNICATIONS.—InthisAct,theterm“privatecommunications”meansany
+communicationsthroughtelephoneorinternetservices.
+(o) SECRETARY.—InthisAct,theterm“Secretary”meanstheSecretaryofLabor.
+(p) SEXUALASSAULT.—InthisAct,theterm“sexualassault”hasthemeaninggiventothetermin
+section40002(a)oftheViolenceAgainstWomenActof1994(34U.S.C.12291(a))
+(q) SPOUSE.—InthisAct,theterm“spouse”,withrespecttoadomesticworker,hasthemeaning
+giventosuchtermbythemarriagelawsoftheStatewherethemarriagewas.
+(r) STALKING.—InthisAct,theterm“stalking”hasthemeaninggiventotheterminsection
+40002(a)oftheViolenceAgainstWomenActof1994(34U.S.C.12291(a))
+(s) VICTIMSERVICESORGANIZATION.—InthisAct,theterm“victimservicesorganization
+meansanonprofit,nongovernmentalorganizationthatprovidesassistancetovictimsofdomestic
+violence,sexualassault,orstalking,orprovidesadvocacy,counselingorlegalservices,orother
+assistance,legalorotherwise.
+SEC.3SICKDAYS.
+(a) EARNEDPAIDSICKTIME.—
+
+4
+(1) EARNINGOFTIME.—
+(A)INGENERAL.—Adomesticworkhiringentityshallprovideeachdomestic
+workeremployedbythehiringentitynotlessthan1hourofearnedpaid
+sicktimeforevery30hoursworked,tobeusedasdescribedinparagraph
+(2).
+(B) DATES.—Domesticworkersshallbegintoearnpaidsicktimeatthe
+commencementoftheiremployment.Adomesticworkershallbeentitledto
+usetheearnedpaidsicktimebeginningonthe30thcalendardayofthe
+domesticworker'semployment.Adomesticworkhiringentitymayloan
+paidsicktimetoadomesticworkerinadvanceofthedomesticworker
+earningsuchsicktimeasprovidedinthisparagraphandmaypermituse
+beforethe30thdayofemployment.
+(C) CARRYOVER.—
+(i) INGENERAL.—Paidsicktimeearnedunderthissubsectionshall
+carryoverfromoneyeartothenext.
+(D)EXISTINGPOLICIES.—Anydomesticworkhiringentitywithapaidleave
+policywhomakesavailableanamountofpaidleavethatissufficientto
+meettherequirementsofthissubsectionandthatmaybeusedforthesame
+purposesandunderthesameconditionsasthepurposesandconditions
+outlinedinparagraph(2)shallnotberequiredtopermitadomesticworker
+toearnadditionalpaidsicktimeunderthissubsection.
+(E) REINSTATEMENT.—Ifadomesticworkerisseparatedfromemployment
+withadomesticworkhiringentityandisrehiredwithin3monthsafterthat
+separationbythesamehiringentity,thehiringentityshallreinstate
+previouslyearnedpaidsicktime,unlessthecauseoftheseparationofthe
+domesticworkerfromemploymentoccurredasadisciplinaryaction.
+(F) PROHIBITION.—Adomesticworkhiringentityshallnotrequirethe
+domesticworkerinvolvedtosearchfororfindareplacementtocoverthe
+hoursduringwhichthedomesticworkerisusingpaidsicktime.
+(2) USES.—Paidsicktimeearnedunderthissubsectionmaybeusedbyadomestic
+workerforanyofthefollowing:
+(A)Anabsenceresultingfromaphysicalormentalillness,injury,ormedical
+conditionofthedomesticworker.
+
+5
+(B) Anabsenceresultingfromobtainingprofessionalmedicaldiagnosisorcare,
+orpreventivemedicalcare,forthedomesticworker.
+(C) Anabsenceforthepurposeofcaringforachild,aparent,aspouse,a
+domesticpartner,oranyotherindividualrelatedbybloodoraffinitywhose
+closeassociationwiththedomesticworkeristheequivalentofafamily
+relationship,who—
+(i) hasanyoftheconditionsorneedsfordiagnosisorcaredescribedin
+subparagraph(A)or(B);
+(ii) isotherwiseinneedofcare.
+(D)Anabsenceresultingfromdomesticviolence,sexualassault,orstalking,if
+thetimeisto—
+(i) seekmedicalattentionforthedomesticworkerorarelatedperson
+describedinsubparagraph(C);
+(ii) recoverfromphysicalorpsychologicalinjuryordisabilitycaused
+bydomesticviolence,sexualassault,orstalking;
+(iii) obtainorassistarelatedpersondescribedinsubparagraph(C)in
+obtainingservicesfromavictimservicesorganization;
+(iv) obtainorassistarelatedpersondescribedinsubparagraph(C)in
+obtainingpsychologicalorothercounseling;
+(v) seekorassistarelatedpersoninseekingrelocation;or
+(vi) takeorassistarelatedpersonintakinglegalaction,including
+preparingfororparticipatinginanycivilorcriminallegal
+proceedingrelatedtoorresultingfromdomesticviolence,sexual
+assault,orstalking.
+(3) SCHEDULING.—Adomesticworkershallmakeareasonableefforttoschedulea
+periodofpaidsicktimeunderthissubsectioninamannerthatdoesnotunduly
+disrupttheoperationsofthedomesticworkhiringentity.
+(4) PROCEDURES.—
+
+6
+(A)INGENERAL.—Paidsicktimeshallbeprovideduponthecommunicated
+requestofadomesticworker.Suchrequestshall—
+(i) includetheexpecteddurationoftheperiodofsuchtime;
+(ii) inacaseinwhichtheneedforsuchperiodoftimeisforeseeableat
+least7daysinadvanceofsuchperiod,beprovidedatleast7daysin
+advanceofsuchperiod;and
+(iii) otherwise,beprovidedassoonaspracticableafterthedomestic
+workerisawareoftheneedforsuchperiod.
+(b) CONSTRUCTIONANDAPPLICATION.—
+(1) EXISTINGLAWS.—
+(A)STATEANDLOCALLAWS.—Nothinginthissectionshallbeconstrued
+topreemptorsupersedeanyStateorlocallawthatprovidesgreaterpaid
+sicktimeorleaverights.
+(B) FEDERALANDSTATEANTIDISCRIMINATIONLAWS.—Nothingin
+thissectionshallbeconstruedtoaffectanyFederalorStatelawprohibiting
+discriminationonthebasisofrace,sex,religion,color,nationalorigin,age,
+disabilitystatus,maritalstatus,familialstatus,orotherprotectedstatuses.
+(2) EXISTINGEMPLOYMENTBENEFITS.—
+(A)Nothinginthissectionshallbeconstruedtoreducethedomesticwork
+hiringentity’sobligationtocomplywithanexistingcontractthatoffers
+greaterrightsthanthoseestablishedunderthissection.
+(B) Nothinginthissectionshallbeconstruedtoreduceanyagreements,
+contracts,orplansmadebythedomesticworkhiringentity
+SEC.4BREAKS.
+(a) MEALBREAKS.—
+(1) INGENERAL.—Exceptasprovidedinsubsection(c),adomesticworkhiring
+entityshallnotrequireadomesticworkertoworkmorethan6hourswithoutan
+uninterruptedmealbreakofnotlessthan30minutes.
+(2) RATEOFPAY.—Adomesticworkhiringentityshallpayadomesticworkerfora
+mealbreakattheregularrateofpayofthedomesticworkerunlessthedomestic
+
+7
+workerisrelievedofalldutyfornotlessthan30minutesduringthemealbreakand
+ispermittedtoleavetheworksiteduringsuchbreak.
+(3) PAIDMEALBREAK.—Exceptasprovidedinsubsection(c),foranypaidmeal
+breakrequiredunderparagraph(2),adomesticworkhiringentityshall;
+(A)Provideareasonableopportunityforadomesticworkertotakesuchbreak
+foraperiodofuninterruptedtimethatisnotlessthan30minutes;and
+(B) Notimpedeordiscourageadomesticworkerfromtakingsuchamealbreak.
+(b) RESTBREAKS.—
+(1) INGENERAL.—Exceptasprovidedinsubsection(c),forevery4hoursofwork
+thatadomesticworkerisscheduledtoperformforadomesticworkhiringentity,the
+entityshallallowfortheworkerarestbreakofnotlessthan10uninterrupted
+minutesinwhichthedomesticworkerisrelievedofalldutiesrelatedtoproviding
+domesticservicestothedomesticworkhiringentity.Thedomesticworkhiring
+entityshallallowsuchrestbreaktooccurduringthefirst3hoursofconsecutive
+workperformedbytheworkerfortheentity.
+(2) RATEOFPAY.—Adomesticworkhiringentityshallpayadomesticworkerforthe
+timesspentbytheworkerforarestbreakattheregularrateofpayoftheworker.
+Thehiringentityshallnotimpedeordiscourageadomesticworkerfromtakingsuch
+abreak.
+(c) EXCEPTIONS.—Inacaseinwhichthesafetyofanindividualunderthecareofthe
+domesticworkerpreventsthedomesticworkerfortakingsuchbreak,thedomesticworker
+maystilltakeanon-dutybreakdescribedundersubsections(a)and(b)if—
+(1) thenatureoftheworkpreventsadomesticworkerfrombeingrelievedofallduties
+requiredofthedomesticworkerforthedomesticworkhiringentity;and
+(2) thedomesticworkerandthedomesticworkhiringentityagreetosuchanon-duty
+breakinthewrittenagreement.
+SEC.5PRIVACY.
+(a) INGENERAL.—
+(1) Adomesticworkhiringentityshallnot—
+(A)monitororrecordadomesticworkerwhilesuchdomesticworkeris—
+
+8
+(i) usingrestroomorbathingfacilities;
+(ii) intheirprivatelivingquarters;or
+(iii) engaginginanyactivitiesassociatedwithdressing,undressing,or
+changingofclothes;
+(B) Restrictorinterferewiththeprivatecommunicationsofsuchdomestic
+worker;or
+(C) takepossessionofanydocumentsorotherpersonaleffectsofsuchdomestic
+worker.
+(b) PRIVATECOMMUNICATIONS.—
+(1) Adomesticworkhiringentitymay—
+(A)restrictorinterferewiththeprivatecommunicationsofadomesticworkerif
+thedomesticworkhiringentityhasareasonablebeliefthatsuch
+communicationssignificantlyinterferewiththedomesticworker’s
+performanceofexpectedduties;and
+(B) establishreasonablerestrictionsontheprivatecommunicationofadomestic
+workerwhilesuchworkerisperformingworkfortheworkhiringentity.
+(c) EXISTINGLAWS.—Thissectionshallnotprecludeliabilityunderanyotherlaw.
+SEC.6PROTECTIONS.
+(a) INGENERAL.—Itshallbeunlawfulforanypersontointerferewith,restrain,ordenythe
+exerciseof,ortheattempttoexercise,anyrightprovidedinthisAct,including—
+(1) discharging,retaliatingagainst,orinanymannerdiscriminatingagainstany
+domesticworkerforexercising,orattemptingtoexercise,anyrightprovidedinthis
+Act;or
+(2) discriminatingagainstanydomesticworkerbyusingtheexerciseofarightprovided
+inthisActasanegativefactorinanemploymentaction,includinghiring,
+promotion,disciplinaryaction,dischargingofduties,orshiftorworkhourchanges.
+(b) RETALIATIONPROTECTION.—Itshallbeunlawfulforanydomesticworkhiringentity
+totakeanyadverseemploymentactionagainst,threatentotakeanadverseactionagainst,or
+inanyothermannerdiscriminateagainstadomesticworkerwithrespecttocompensation,
+terms,conditions,orprivilegesofemploymentbecauseofthedomesticworker,whetherat
+
+9
+theinitiativeofthedomesticworkerorintheordinarycourseofthedomesticworker’s
+duties(oranypersonactingpursuanttotherequestofthedomesticworker)for—
+(1) assertinganyclaimorrightinthisAct;
+(2) assistingadomesticworkerinassertingsuchclaimorright;
+(3) informinganydomesticworkerofprotectionsaffordedbythisAct;
+(4) opposinganypracticemadeunlawfulbythisAct;
+(5) giving,beingabouttogive,orintendingtogiveanyinformationrelatingtoan
+inquiryorproceedingrelatedtoanyrightprovidedinthisAct;
+(6) filinganactionorinstitutingorcausingtobeinstitutedanyproceedinginorrelating
+tothisAct;
+(7) testifying,beingabouttotestify,orintendingtotestifyinanyinquiryorproceeding
+relatingtoanyrightprovidedinorrelatingtothisAct;
+(c) PRESUMPTIONOFRETALIATION.—Forthepurposesofsubsections(a)and(b),proof
+thatapersondischargedanindividualordiscriminatedagainstanindividualwithrespectto
+compensation,terms,conditions,orprivilegesofemployment,within30daysofthe
+individualinvolvedassertinganyclaimorrightinthisAct,orassistinganyotherindividual
+inassertingsuchaclaimorright,shallraiseapresumptionthatthedischargeor
+discriminationwasinretaliationasprohibitedundersubsection(a)or(b),asthecasemay
+be.Thispresumptionmayberebuttedbyclearandconvincingevidencethatsuchactionor
+actionsweretakenforanotherpermissiblereasonorreasons.
+SEC.7ENFORCEMENT.
+(a) INGENERAL.—
+(1) INVESTIGATIVEAUTHORITY.—
+(A)INGENERAL.—ToensurecompliancewiththeprovisionsofthisAct,or
+anyregulationororderissuedinthisAct,theSecretaryshallhavethe
+investigativeauthorityprovidedundersection11(a)oftheFairLabor
+StandardsActof1938(29U.S.C.211(a)),withrespecttohiringentities,
+domesticworkers,andotherindividualsaffected.
+(B) RECORDS.—Adomesticworkhiringentityshallmake,keep,andpreserve
+recordspertainingtocompliancewiththisActinaccordancewithsection
+
+10
+11(c)oftheFairLaborStandardsActof1938(29U.S.C.211(c))andin
+accordancewithregulationsprescribedbytheSecretary.
+(C) SUBPOENAAUTHORITY.—Forthepurposesofanyinvestigationunder
+thisparagraph,theSecretaryshallhavethesubpoenaauthorityprovided
+undersection9oftheFairLaborStandardsActof1938(29U.S.C.209)
+(2) CIVILACTIONBYDOMESTICWORKERS.—
+(A)RIGHTOFACTION.—Anactiontorecoverthedamagesorequitablerelief
+prescribedinsubparagraph(B)maybemaintainedagainstadomesticwork
+hiringentitybyoneormoredomesticworkers,orarepresentativeforand
+onbehalfofthedomesticworkersandanyotherdomesticworkersinsimilar
+situations.
+(B) LIABILITY,—AdomesticworkhiringentitythatviolatesthisActshallbe
+liabletoadomesticworkeraggrievedbytheviolation,exceptasprovidedin
+subparagraph(C)for—
+(i) damagesequalto—
+(I) theamountof—
+(a) anycompensationdeniedorlostbyreasonofthe
+violation;or
+(b) inacaseinwhichcompensationhasnotbeen
+deniedorlost,anyactualmonetarylosses
+sustained,orthecostsreasonablyrelatedtodamage
+toorlossofproperty,oranyotherinjurytothe
+person,reputation,character,orfeelingssustained
+byadomesticworkerasadirectresultofthe
+violation,bythedomesticworkhiringentity;
+(II) theinterestontheamountdescribedinsubclause(I)
+calculatedattheprevailingrate;
+(III) anadditionalamountasliquidateddamages;and
+(IV) suchotherlegalreliefasmayappropriate;
+(ii) Suchequitablereliefasmaybeappropriate,includingemployment,
+reinstatement,andpromotion;and
+
+11
+(iii) inareasonableattorney’sfee,reasonableexpertwitnessfees,and
+othercostsoftheaction.
+(C) MEALANDRESTBREAKS.—Inthecaseofaviolationofsection8,the
+domesticworkhiringentityinvolvedshallbeliableundersubparagraph
+(B)—
+(i) Fortheamountofdamagesdescribedinsubclauses(I),(II),and
+(III)ofsubparagraph(B)(i);and
+(ii) undersubparagraph(B)(i)(IV),foreachsuchviolation,foran
+amountequalto1hourofpayatthedomesticworker’sregularrate
+ofcompensation,butnotmorethan2hoursofsuchpayforeach
+workdayforwhichthedomesticworkhiringentityisinviolationof
+suchsection.
+(D)VENUE.—Anactionunderthisparagraphmaybemaintainedinany
+FederalorStatecourtofthecompetentjurisdiction.
+SEC.8EFFECTONEXISTINGLAWS,CONTRACTS,ANDBENEFITS.
+(a) INGENERAL.—NothinginthisActshall—
+(1) supersedeaprovisioninacollectivebargainingagreement;or
+(2) Beconstruedtodiminishtheobligationofthedomesticworkhiringentitytocomplywith
+anycontract,collectivebargainingagreement,oremploymentbenefitplanorprogram
+thatprovidesgreaterrightsorbenefitstodomesticworkersthantherightsestablished
+underthisAct.
+(b) EXISTINGLAWS.—NothinginthisActshall—
+(1) affecttheobligationofadomesticworkhiringentitytoprovideareasonable
+accommodationintheformofachangetotheworkscheduleofadomesticworker
+requiredunderanyotherlaw,ortootherwisecomplywithanyotherlaw;
+(2) preempt,limit,orotherwiseaffecttheapplicabilityofanyStateorlocallawthatprovides
+comparableorsuperiorbenefitsfordomesticworkerstotherequirementsunderthisAct;
+or
+(3) diminishtherights,privileges,orremediesofanydomesticworkerunderanyFederal,
+State,orlocallaworunderanycollectivebargainingagreement.
+
+12
+(c) WAIVERS.—TherightsandremediesinthisActmaynotbewaivedbyadomesticworker
+throughanyagreement,policyorform,orasaconditionofemployment.
+SEC.9SEVERABILITY.
+SEVERABILITY.—Shouldanyprovisionofthisactbedeemedinvalidorunconstitutionalforanyreason
+inacourtwithrelevantjurisdiction,therestoftheAct,andtheapplicationoftheremainingprovisions,
+shallnotbeaffected.
+SEC.10ENACTMENT.
+EFFECTIVEDATE.—ThisActshallcomeintoeffectimmediatelyuponpassage.
+BasedoffofSB535,introducedintheHawaiiStateSenateinthe2019Session,andSenateBillS2311E,
+introducedintheNewYorkStateSenateinthe2009-2010Session.

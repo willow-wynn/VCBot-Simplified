@@ -1,0 +1,45 @@
+151STCONGRESS
+1STSESSION
+S. 7
+IN THE SENATE OF THE UNITED STATES
+MARCH20,2022
+MS. KATE KASPARIAN OF OLYMPIA ANDMR. NOAH OF JACKSON(FOR THEMSELVES, MR.
+BOLTON OF FRONTIER,) INTRODUCED THE FOLLOWING BILL;
+A BILL
+Toestablishlimitations ontheuse ofno-knock warrants, andfor otherpurposes.
+Beit enactedbythe SenateandHouse ofRepresentativesof theUnited Statesof
+Americain Congressassembled,
+SECTION 1.SHORTTITLE.
+This Actmaybe citedas the“Ending FederalNo-KnockWarrantsAct”.
+SEC.2.DEFINITIONS.
+For thepurposesof thisAct, theterm—
+(1) “No-knock warrant” meansanysearchwarrant authorized tobeexecutedwithout
+theexecutorof thewarrant knockingandannouncing theirpresence, authority,
+and intention toenterthe property.
+(2) “Lawenforcement officer”meansanyofficer, agent,or employeeof theUnited
+Statesauthorized bylawor byaGovernmentagency toengage inor supervisethe
+
+prevention, detection,investigation,or prosecutionof anyviolationof Federal
+criminallaw;
+SEC.3.NO-KNOCK WARRANTSGENERALLYPROHIBITED.
+(a) IN GENERAL.—No Federalcourtmay issueano-knock warrantfor the investigationof
+any crime.
+(b) EXCEPTION.—Notwithstandingsubsection (a),aFederalcourtmay onlyissueaFederal
+no-knock warrantifthe courtdeterminesthereis clearandconvincingevidence,
+supported byparticularized facts,that lawenforcement officersenteringthe property
+without announcingtheir presenceand intentiontoenteris necessarybecausenoticeprior
+to entrywouldsubstantially endangerthelife orsafety ofthe lawenforcementofficeror
+otherpersons:Provided,That, innocasemaya Federalcourtissueano-knock warrant
+for theinvestigation ofanyoffense related todrugs.
+SEC.4.NIGHTTIMEWARRANTS GENERALLYPROHIBITED.
+(a) IN GENERAL.—A Federalcourtmay onlyissueaFederalno-knock warrant ifthe court
+determines thereisclear andconvincingevidence,supportedbyparticularized facts,that
+law enforcementofficersentering theproperty withoutannouncing theirpresence and
+intention toenter isnecessarybecause noticepriortoentrywouldsubstantiallyendanger
+thelife or safetyofthe lawenforcement officerorotherpersons: Provided,That, inno
+casemaya Federalcourtissueano-knock warrant for theinvestigationof anyoffense
+related todrugs.
+(b) CONFORMINGAMENDMENT.—21USC§879isamendedtoreadthe following:
+“NoFederalcourtmay issueawarrant, exceptfor ano-knock warrantotherwise
+permittedunder federallaw,tobeexecuted atnight, includingifsaid offense
+involvescontrolled substances.”.

@@ -1,0 +1,42 @@
+Proposedby:
+Secretary of Health & Human Services Chad Vita (I-MD)
+Cosponsors:
+CongressmanMcDonough(R-NC),MajorityWhipAtachi(D-PA),CongressmanCucag(R-FL),SolicitorGeneralCade
+Holbrook(D-AZ),CongressmanHawk(I-CT),SecretaryofEnvironmentSandoval,ChiefofStaffMcKenna(D-CA),
+CongressmanAlex(D-CA),CongressmanJehebus(I),CongressmanEmperio(R-PA),CongressmanChuck(D-VA),
+CongressmanTarkin(R-VA),CongressmanJacobHelton(D-KY),CongressmanThatcher(I-AZ),CongressmanAllen
+(D-OR),VicePresidentStarro(D),CongressmanPutin(R-RUS),CongressmanHull(D-NY)
+Title: Leveraging Allocations forMedicaid Expansion(L.A.M.E.)Act
+Preamble: Whereas2.5million uninsuredAmericansmaintain incomeabove thefederal
+Medicaideligibility baselinebutbelowthe lowerlimit forMarketplace premiumtaxcredits,
+falling into thecoverage “gap”;whereas theSupreme CourtdecisioninN.F.I.B. v. Sebelius
+(2012) struck downthemandatory Medicaidexpansionunder theAffordableCareAct as
+unconstitutional; whereas37statesandthe Districtof Columbiahave optedinto full coverage
+andaccepted 90-100% federal fundingofthe cost ofMedicaidexpansionwhile 13stateshave
+refused; whereasthefederalgovernmentmayuse theflowofhospitalfunding, insurance
+payouts, andmatchingratesto influenceapushtowards expansion.
+Be it hereby enacted by the Virtual Congress:
+Definition: A“Medicaid expansionplan” shallbedefined asastatewide extensionof Medicaid
+coverageunder for allindividuals withincomesupto138% ofthe federalpoverty level(FPL).
+Section 1: Stateswithout Medicaidexpansionplans shallbeclassified as“disproportionateshare
+states” (DSSs) for thepurposesof payoutsunder the MedicaidDSHpayout program.
+Subsection A: The Medicaidand CHIPPayment andAccessCommissionshallestablish
+a fundingformula for hospitalswith thelargest uncompensatedcare expensesinDSSs,
+based onuninsuredpatients’costsanda 20%minimumMedicaid utilization rate.
+Subsection B:DSSs areherebybarred fromusingfederalfunding under State Reliefand
+Empowerment Waivers(ACA, Sec.1332)to subsidizeinsurance companies.
+Subsection C: Localjurisdictions inDSSs deemed“metropolitanstatistical areas”
+(MSAs)bytheU.S. Officeof Management andBudgetshallbeeligible toreceive federal
+funding for Medicaidexpansionplans implementedwithin theirown jurisdictions.
+Section 2: Allstateswith Medicaid expansionplans implementedafter2014shallreceive the
+sameFMAP asthematching rateof federalfundingfor the expansionoffered underthe PPACA.
+Subsection A: There shallbeareduction ofupto10% inthe federalmatchingratefor
+Medicaidin statesthat donotimplement afull Medicaid expansionplanby2021.
+
+Subsection B:The CongressionalBudgetOfficeshallannuallyverify that reductionsin
+federalfunding under subsection2A donotexceed7% ofthe concernedstatebudget.
+Subsection C: No federalfundingshallbe allocatedfor a stateMedicaidexpansionplan
+containing statutoryprovisions automaticallyending theprogram inthescenario of a
+decreasein federalfunding.
+Section 3: Thisbill shallbe enforcedbythe U.S.Department of Healthand HumanServices.
+Section 4: Thisbill shalltakeeffect immediatelyuponpassage.

@@ -1,0 +1,283 @@
+Page 1
+135TH CONGRESS
+1ST SESSION
+S. 19
+—————————————
+IN THE SENATE OF THE UNITED STATES
+DECEMBER 4, 2020
+Mr. LOULOU, (for himself, Ms. CHAN, Mr. SEAVER)
+—————————————
+A BILL
+To reform our national space and discovery technology to move for
+interplanetary exploration, protect satellites from space debris
+and lower appropriations for the James Webb Space Telescope,
+and for other purposes.
+Be it enacted by the Senate and House of Representatives of the
+United States of America in Congress assembled,
+
+Page 2
+TITLE I — SPECIFICATIONS
+SECTION 101. SHORT TITLE
+(a) SHORT TITLE — This Act may be cited as the
+“Interplanetary Horizons Act”.
+SECTION 102. DEFINITIONS
+(a) DEFINITIONS — For the purposes of this Act —
+(i) NASA — National Aeronautics and Space
+Administration, a subsidiary administration of the
+Department of Transportation.
+(ii) STS — Space Transportation System, a program
+developed by NASA for transportation of up to 7
+astronauts into orbit.
+(iii) SLS — Space Launch System, a program to use old
+technologies to send astronauts in space, to the moon
+and eventually to Mars.
+(iv) LEO — Low Earth Orbit, any orbit between 70 and
+1200 miles above the Earth.
+(v) POINT NEMO — A vague geographical area located
+in the Pacific Ocean as the furthest point from any
+landmass.
+(vi) GEOSTATIONARY ORBIT — Any orbit around
+22,000 and 22,500 miles above the Earth.
+(vii) ADMINISTRATOR — The Administrator of NASA,
+appointed by the President and confirmed by the
+Senate.
+(viii) JWST — James Webb Space Telescope, a proposed
+cryogenic light spectrum telescope to be NASA’s
+flagship mission.
+SECTION 103. SEVERABILITY
+(a) SEVERABILITY — Should any provision of this Act be
+deemed invalid or unconstitutional for any reason in a
+court with relevant jurisdiction, the rest of the Act, and
+the application of the remaining provisions, shall not be
+affected.
+
+Page 3
+SECTION 104. FINDINGS
+(a) ISS FINDINGS — Congress finds that —
+(i) The ISS is a valuable, recognisable, beloved by the
+public, international collaboration, that should be
+maintained to train astronauts, perform
+psychological and physical experiments, and
+additionally test space systems in orbit.
+(ii) As such, the ISS should remain operational until
+2025 to protect it.
+(b) SLS FINDINGS — Congress finds that —
+(i) The SLS Lander program needs to be enhanced to
+have deadlines to ensure that all components of the
+SLS are ready for EM-2 and EM-3.
+(ii) The SLS Lander program needs to have
+requirements for general launch and procedure, as
+well as reusing tried and tested technologies.
+(iii) Orion and SLS also need to have their deadlines
+pushed back in construction.
+(iv) Orion and SLS additionally do not need to dock to
+the ISS anymore.
+(c) JWST FINDINGS — Congress finds that —
+(i) The JWST costs between $300,000,000 and
+$500,000,000 mil yearly.
+(ii) The cuts to the JWST will be equivalent to the
+funding for Space Debris Cleanup Technologies, and
+as such, will provide no change in appropriations.
+(d) SPACE DEBRIS FINDINGS — Congress finds that —
+(i) Space debris are highly dangerous and can, and has
+caused, problems on spacecraft, manned or
+unmanned, including the ISS.
+(ii) The butterfly effect method of multiplication of space
+debris increases the threat of space debris.
+(iii) Space debris should be limited and cleaned up as
+such.
+
+Page 4
+TITLE II — LOW EARTH ORBIT VEHICLES
+SECTION 201. STS RETIREMENT
+(a) REPEAL — Title VI, Section 601, Point b of the NASA
+Authorization Act of 2010 is repealed.
+(b) REPLACEMENT — Title VI, Section 601, Point b of the
+NASA Authorization Act of 2010 is inserted as follows —
+“SENSE OF CONGRESS — It is the sense of Congress
+that —
+(i) The use and experience of the technologies used
+within the STS Program are to be used for future
+exploration of the outer space.
+(ii) The aforementioned technologies used to go into LEO
+must be aided with new technologies and upgraded
+technologies from the Apollo Program.
+(iii) The United States must maintain the ability to be
+independent in space, from launch to recovery for its
+astronauts.
+”
+SECTION 202. ISS RETIREMENT
+(a) AMENDMENT — Title V, Section 501, Point b of the
+NASA Authorization Act of 2010 is amended by striking
+“at least 2020” and inserting in lieu —
+“at least 2025”
+(b) AMENDMENT — Title V, Section 503, Point a of the
+NASA Authorization Act of 2010 is amended by striking
+“September 30, 2020” and inserting in lieu —
+“December 31, 2025”
+SECTION 203. ISS GATEWAY
+(a) AMENDMENT — Title V, Section 502, Point b of the
+NASA Authorization Act of 2010 is amended by inserting
+Subpoint 4 below Subpoint 3 as follows —
+“GATEWAYS — The ISS shall be used by the United
+States as a method of testing vehicles and technologies, as
+well as psychological, emotional, physical and mental
+effects on the human body, for deep space interplanetary
+missions.”
+
+Page 5
+SECTION 204. TECHNOLOGY TESTS
+(a) AMENDMENT — Title VII, Section 706 of the NASA
+Authorization Act of 2010 is amended by appending the
+following —
+“The use of CubeSats or similar technologies for
+development of minor technologies is encouraged. The use
+of the ISS as a launchpad via the Kibo module is
+encouraged in contrast to a secondary payload within a
+launch vehicle.”
+
+Page 6
+TITLE III — SPACE LAUNCH SYSTEM
+SECTION 301. IMPROVING LANDERS
+(a) ADDING DEADLINES — Title III, Section 4 (bis) of the
+NASA Authorization Act of 2020 is amended by renaming
+Point b Point c, and inserting Point b below Point a, as
+follows —
+“It shall be the goal to achieve full operational capability
+​
+for the transportation vehicle developed pursuant to this
+subsection by not later than December 31, 2023.”
+​
+(b) ADDING REQUIREMENTS — Title III, Section 4 of the
+NASA Authorization Act of 2020 is amended by inserting
+Point d below Point c, as follows
+“The lander developed pursuant to Points a and b of this
+Section shall be designed to have, at a minimum, the
+following —
+(i) The capability to land on the lunar surface from a
+standard orbit around the moon.
+(ii) The capability to ascend from the lunar surface and
+dock with an orbital module.
+(iii) The capability to provide for a moonwalk.
+(c) ADDING CONSTRUCTION REQUIREMENTS — Title
+III, Section 4, Point 2 of the NASA Authorization Act of
+2020 is amended by inserting Subpoint C below Subpoint
+B, as follows —
+“use existing contracts, investments, workforce, industrial
+base, and capabilities from the Space Shuttle and Orion
+and Ares 1 projects.”
+SECTION 302. AMENDING DEADLINES
+(a) FOR SLS — Title III, Section 302, Point c, Subpoint 4 of
+the NASA Authorization Act of 2010 is amended by
+striking “December 31, 2016” and inserting in lieu —
+“December 31, 2023”
+(b) FOR ORION — Title III, Section 303, Point A, Subpoint 2
+of the NASA Authorization Act of 2010 is amended by
+striking “December 31, 2016” and inserting in lieu —
+“December 31, 2023”
+
+Page 7
+SECTION 303. REMOVING ISS REQUIREMENTS
+(a) FOR SLS — Title III, Section 302, Point c, Subpoint 1,
+Clause D of the NASA Authorization Act of 2010 is
+repealed.
+(b) FOR ORION — Title III, Section 303, Point b, Subpoint 3
+of the NASA Authorization Act of 2010 is repealed.
+
+Page 8
+TITLE IV — JAMES WEBB TELESCOPE
+SECTION 401. JWST DEFUNDING
+(a) IN GENERAL — Funding for the JWST shall be
+decreased and a deadline given.
+(b) DEADLINE — The JWST should aim to be finished by
+December 31, 2022.
+(c) FUNDING — The monthly funding for the JWST shall be
+decreased by $10,500,000.
+SECTION 402. JWST TERMINATION
+(a) IN GENERAL — Funding for the JWST shall be
+terminated if the JWST is not finished by a certain
+deadline.
+(b) TERMINATION — If the JWST is not ready for
+encapsulation by December 31, 2025, appropriations for
+2027 shall have the appropriations for the JWST lowered
+to $50,000,000 per year.
+(c) SUBSEQUENT APPROPRIATIONS — Subsequent
+appropriations for the JWST shall be maintained at
+$50,000,000 until the transfer of the JWST is complete.
+(d) TRANSFER — The unfinished JWST shall be transferred
+to the European Space Agency, with the terms of the
+agreement to be considered in subsequent legislation.
+Appropriations appropriated after December 31, 2025
+under the JWST program shall be used exclusively for
+maintenance of and transfer of the JWST.
+
+Page 9
+TITLE V — SPACE DEBRIS
+SECTION 501. SENSE OF CONGRESS
+(a) SENSE OF CONGRESS — It is the Sense of Congress
+that —
+(i) The velocity of space debris being sufficient to cause
+the destruction of a craft, manned or unmanned,
+poses a major problem to the safety of astronauts in
+space, and additionally a cause of concern for
+vehicles in Earth orbit.
+(ii) A program should be made to test the ability to
+recover a craft from space to prevent damage.
+(iii) A program should be made to test the efficacity of a
+system to automatically deorbit a craft at theend of
+its service life, or having some major critical failure
+intrinsically terminating mission goals and
+procedure.
+SECTION 502. REPORT ON DEBRIS RECOVERY
+(a) IN GENERAL — No later than July 1, 2021, the
+Administrator shall submit to Congress a report on
+debris-recovering missions.
+(b) SPECIFICATIONS — The report shall concern the
+possibility of debris-recovering missions with the following
+to be included —
+(i) Feasibility of sending a craft to recover medium or
+large debris in LEO.
+(ii) Costs and Benefits of the recovery, and
+appropriations to be provided by Congress.
+(iii) Possible Timeframe and liekliness that the
+Timeframe be adhered to.
+(iv) Accuracy of the recovery.
+(v) Risks of the recovery, especially regarding potential
+collisions and impacts, and failure of the mission.
+(vi) Possible Contractors for construction and launch.
+
+Page 10
+SECTION 503. DEORBIT TECHNOLOGIES
+(a) IN GENERAL — It is the policy of the United States that
+NASA develop a system onboard spacecrafts in LEO and
+up to Geostationary Orbit to terminate the mission by a
+destructive re-entry to Point Nemo, to prevent debris in
+space.
+(b) IMPLEMENTATION — NASA and the Administrator
+shall factor in the addition of a system to move vehicles to
+reenter over Point Nemo, or other safe location depending
+on the inclination and eccentricity of the orbit, via
+re-entry on any new vehicle commissioned after July 1,
+2021.
+(c) FORMS — The deorbit section of the vehicle shall take
+the form of —
+(i) An onboard thruster, or cluster of, using
+monopropellant.
+(ii) A deployable solar sail.
+(iii) An ion engine and xenon ionised fuel combination.
+(iv) Or any system that is deemed appropriate by the
+Administrator.
+SECTION 504. APPROPRIATIONS
+(a) IN GENERAL — Congress shall appropriate $10,500,000
+monthly for the execution of the provisions established
+within Section 503.
+
+Page 11
+TITLE VI — FINAL PROVISIONS
+SECTION 601. RENAMING JPL ROAD C
+(a) IN GENERAL — Road C at the Jet Propulsion Laboratory
+in Pasadena, California is renamed to the “Charles F.
+Bolden Road”.
+SECTION 602. ENACTMENT
+(a) ENACTMENT — The provisions of this Act shall come
+into force on January 1st, 2021.

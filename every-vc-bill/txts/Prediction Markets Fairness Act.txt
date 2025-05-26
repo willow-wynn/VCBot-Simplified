@@ -1,0 +1,78 @@
+﻿Tab 1
+
+
+H. R. 22
+
+
+One Hundred Eighty-Eighth Congress
+of the
+United States of America
+
+
+AT THE FIRST SESSION
+
+
+Begun and held at the City of Washington on Sunday,
+
+
+the twelfth day of April, two thousand and twenty-five
+
+
+An Act
+
+
+To enforce fairness and prohibit insider trading in prediction markets.
+
+
+Be it enacted by the Senate and House of Representatives of the United States of America in Congress assembled,
+
+
+SECTION 1. SHORT TITLE; TABLE OF CONTENTS.
+1. This Act may be cited as the “Prediction Markets Fairness Act of 2025”.
+
+
+SEC. 2. AMENDMENTS TO THE COMMODITY EXCHANGE ACT.
+The Commodity Exchange Act, 7 U.S.C. § 1 et seq., is amended as follows—
+1. By inserting at the end of 7 U.S.C. 1a the following—
+“(52) PREDICTION MARKET
+“(A) IN GENERAL.—The term ‘prediction market’ means any person or exchange who either (i) perpetually or periodically maintains an exchange or venue, whether real or digital, to advertise, facilitate, or market prediction market contracts to which the prediction market is a party; or (ii) perpetually or periodically maintains an exchange or venue, whether real or digital, to facilitate the entering into of prediction market contracts between persons who are not the prediction market.
+“(B) CONTRACTS.—The term ‘prediction market contract’ means any contract in which the consideration or value is contingent upon the eventual occurrence or eventual non-occurrence of a verifiable event.
+“(C) USERS.—The term ‘prediction market user’ means any person who is a party to a prediction market contract and is not a prediction market.
+
+
+“(53) VERIFIABLE EVENT
+“The term ‘verifiable event’ means any event or set of circumstances which can be reasonably verified to have taken place or not taken place by a person outside of the prediction market contract which involved the verifiable event.
+
+
+“(54) INDEPENDENT ADJUDICATOR
+“The term ‘independent adjudicator’ in the context of prediction market contracts means any person who is not a party to a prediction market contract and determines the occurrence or non-occurrence of the verifiable event on which consideration or payment of such prediction market contract is contingent.”
+
+
+2. By amending 7 U.S.C. 6b(a) as follows—
+   1. by adding to subsection (1) after the words “designated contract market,” the phrase: “or of any prediction market contract”;
+   2. by adding to subsection (2) after the words “or to be made,” the phrase: “or any prediction market contract”; and
+   3. by adding subsection (3), which shall read as follows—
+“for any prediction market to facilitate the entering into thereon of or become a party to any prediction market contract which does not provide for independent adjudication of the occurrence or non-occurrence of the verifiable event on which consideration or payment is contingent or provides for independent adjudication for which the adjudicator’s payment is either not determined by either hourly rate or a certain amount in advance of the date of execution of the prediction market contract or the payment is dependent upon the adjudicator’s decision on the occurrence or non-occurrence of the verifiable event on which consideration or payment regarding the prediction market contract is contingent.”
+   4. by adding subsection (4), which shall read as follows—
+“(A) for any person to enter into a prediction market contract while having material non-public information regarding the likelihood of the eventual occurrence or non-occurrence of the verifiable event on which consideration or payment is contingent that is not disclosed to all parties to the prediction market contract;
+“(B) in furtherance of entering into a prediction market contract, to make any untrue statement of a material fact or to omit to state a material fact necessary in order to make the statements made, in the light of the circumstances under which they were made, not misleading; or
+“(C) to engage in any act, practice, or course of business which operates or would operate as a fraud or deceit upon any person, in connection with the entering into of any prediction market contract.”
+
+
+SEC. 3. CRIMINAL PENALTIES.
+1. Title 18, United States Code, is amended by adding section 1041, which shall read as follows—
+“(a) FRAUD AS INDEPENDENT ADJUDICATOR.—Whoever shall act as an independent adjudicator of any prediction market contract in the course of interstate or foreign commerce and is informed of the occurrence or non-occurrence of the verifiable event or events on which consideration or payment of such prediction market contract is contingent and knowingly verifies the opposite result or results and then enjoys pecuniary benefit as a result of such malicious verifications shall be imprisoned for no more than 5 years, fined no more than $1,000,000, or both.
+
+
+“(b) FRAUD AS PARTY.—Whoever shall, in the course of interstate or foreign commerce, enter into a prediction market contract while having material non-public information regarding the likelihood of the eventual occurrence or non-occurrence of the verifiable event on which consideration or payment is contingent that is not disclosed to all parties to the prediction market contract and then enjoys pecuniary benefit because of such omissions shall be imprisoned for no more than 10 years, fined no more than $20,000,000, or both.
+
+
+“(c) DEFINITIONS.—The terms ‘independent adjudicator,’ ‘prediction market contract,’ and ‘verifiable event’ shall have the same meanings as defined in 7 U.S.C. 1a.”
+
+
+SEC. 4. SEVERABILITY.
+Should any part of this Act be held invalid or unenforceable, the remaining provisions contained herein shall remain unaffected.
+________________
+
+
+By: Representative Quantum Kearsley

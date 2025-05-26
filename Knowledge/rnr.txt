@@ -1,0 +1,195 @@
+﻿Virtual Congress Rules and Regulations
+Last updated January 11, 2025
+v 1.0.13
+
+
+By choosing to participate in Virtual Congress and its affiliated servers, you agree to abide by all rules and regulations, as follows.
+Virtual Congress and its affiliated servers (“the server”) are monitored by the administrators and moderators who enforce the Rules and Regulations (“the extended rules”; “the document”).
+Upon ratification and approval of this version of this document by a unanimous vote of all administrators and a majority vote of all users, this document shall be formally adopted as the Rules and Regulations of Virtual Congress.
+The administrators and the moderators have concurrent authority to interpret and enforce this document — when a resolution by the moderators is inconsistent with a resolution by the administrators, the latter prevails.
+This document includes:
+1. general non-binding guidelines regarding punishments and ban lengths; and
+2. policies and regulations relating to administrators, moderators and other teams.
+If you have any enquiries, please do not hesitate to ask in #contact-staff-or-server-help on the Virtual Congress server, or by messaging an administrator or moderator.
+
+
+By contributing any work to Virtual Congress you consent for your work to be used for non-commercial purposes by Virtual Congress and its teams, incl. documents, spreadsheets, and code. We will accept good-faith requests, within reason, to remove certain information from said documents.
+Users can license under CC–BY–SA, if they wish, and will be provided credit for contributions in perpetuity and will maintain ownership of all documents until they leave. However, the server administration must be able to create and maintain a copy of said documents. Original documents will not be replaced by copies unless the user who owns the documents leaves, stops updating or otherwise privatizes said documents. 
+
+
+Rules
+The rules may at any time be found detailed in this document here.
+Regulations
+Canonicity
+The administrators reserve the authority to determine the canonicity of all events and actions. The Domestic Events, International Relations and the Economy Teams are permitted to determine canonicity in their respective areas for real life events. Administrators may intervene in roleplay when doing so is reasonable in the server’s interests. All non-roleplay events that took place before December 11th, 2019 are considered canon unless otherwise stated.
+Absentee Individuals
+Individuals who leave the server for more than 24 hours will be considered to have resigned all their roleplay positions, unless an exemption has been granted by the administrators.
+Roleplay Channels
+All messages in channels labeled with “rp” or otherwise clearly designated as being for roleplay, are considered as roleplay channels. This includes affiliated servers such as party servers.
+All dealings, negotiations or planning must take place on the Virtual Congress server or an affiliated server, in a channel explicitly designated for roleplay.
+Direct messages and group chats will be determined as roleplay by the administrators on a case-by-case basis.
+If a player cannot fulfill their roleplay duties due to a permissions error or meta punishment role, the administrators will give an opportunity to fulfill such duties as appropriate.
+
+
+States
+There are five states:
+1. Commonwealth of Olympia, with base state New York;
+2. District of Pacifica, with base state California;
+3. Commonwealth of Lincoln, with base state Indiana;
+4. State of Jackson, with base state Georgia; and
+5. State of Frontier, with base state Texas.
+  
+
+The laws of states are the same as those of base states on December 11th, 2019, in addition to any changes made by the state government in roleplay.
+Characters may only be registered as being in one state at a time, but may move by paying $2000 in roleplay to the @VCAdministration account and incurring applicable negative modifiers as prescribed by the Federal Election Commission. Characters may change neither states nor party affiliation during elections.
+During midterm elections, there shall be elections for the Governors of the several states. Each party shall put forth one candidate per state. However, if a party does not provide any candidates, the Domestic Events team shall provide unfilled candidacies.
+The election of the Governors and the rules thereto, shall be determined and held solely by the FEC, and, where reasonably possible, in accordance with in-sim laws.
+The simulation of the Governors shall lie with the Domestic Events team, and it may determine how the Governors act and behave based on their profile and party affiliation.
+
+
+Parties
+There are two parties:
+1. Democratic Party; and
+2. Republican Party.
+Any character affiliated with none of the above will be registered as independent.
+
+
+U.S. House of Representatives
+Any player may opt-in to the U.S. House of Representatives at any time, unless the House has expelled them or they are otherwise prohibited from joining by the Federal Elections Commission, due to negmod severity. Any player may resign from the U.S. House of Representatives at any time.
+
+
+State Legislatures
+State legislatures are suspended.
+Concurrent Positions
+Unless otherwise provided:
+1. The President, Vice President of the United States may not serve in any other state or federal government roleplay position;
+2. Candidates for President and Vice President of the United States and the officeholders may not serve as an administrator without being recused;
+3. Individuals in the judicial branch of the United States may not serve in any other roleplay position; and
+4. Individuals may not serve concurrently in the U.S. House of Representatives and the U.S. Senate.
+
+
+Penalties
+The administrators and the moderators have concurrent authority to interpret the rules — when a resolution by the moderators is inconsistent with a resolution by the administrators, the latter prevails.
+Staff may unilaterally remove permissions from individuals in response to time intensive situations, when the alternative would be to allow imminent damage to occur to the server or its users. These actions should be as minimal as reasonable and targeted towards harm reduction.
+All penalties require sufficient justification and evidence to be upheld by the administrators or moderators by either consensus or vote.
+Bans require an administrator vote to be sustained. The only method of rescinding a ban is through an administrator or Appeals Board vote.
+Appeals
+Penalties issued by moderators may be appealed to both administrators and moderators for either a vote or consensus overturning such a penalty. Penalties issued by administrators may be appealed to administrators for either a vote or consensus overturning such a penalty.
+The Federal Election Commission conducts the server-wide election by instant-runoff voting and may prescribe further regulations pertaining to this election. There may be no restrictions against candidate nomination, except wherein such candidates have engaged in election fraud or other severely malicious activity threatening the integrity of the server, or where a member of staff attempts to run in the community member election, which is prohibited.
+The Appeals Board
+Additionally, penalties may be appealed to the Appeals Board, consisting of:
+1. an administrator elected solely by the administrator team;
+2. a moderator elected solely by the moderator team; and
+3. two non-staff community members elected in a single server-wide election, without moderator or admin participation. 
+The Appeals Board may rule on appeals by majority vote, without restriction. The Appeals Board has the authority to require that staff cooperate with the Appeals Board in good faith to the greatest reasonable extent. The Appeals Board may only consider appeals on punishments in relation to the server rules.
+Individuals may appeal an offense during or after their punishment, to remove inappropriately issued offenses from their record. Rules amendments may not be applied retroactively.
+Members of the Appeals Board may not rule on cases in which they were the subject of penalties. In such cases, the runner-up serves as the representative to the Appeals Board.
+Accounts banned due to suspected serial alting on Virtual Congress are ineligible to appeal to the Appeals Board. They may only appeal directly to the Administration.
+The moderators shall vote by secret ballot. The procedure for the moderator vote may be changed by a simple majority of the moderators.
+
+
+Resolutions
+There are four types of resolutions, in descending order of authority:
+1. administrator vote by proposal;
+2. administrator consensus;
+3. moderator vote by proposal; and
+4. moderator consensus. 
+An administrator or moderator vote may be submitted by any administrator or moderator by posting such a vote in the #admin-vote or #mod-vote respectively, written in the format:
+Proposal [Numeral] - [Title]
+@[Admin/Moderator]
+[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur semper enim odio, ac iaculis sem placerat sed.]
+	
+
+A vote passes if:
+1. there is a majority in the affirmative, of all those eligible to vote; or
+2. the number of affirmative votes exceed the number of negative votes at the conclusion of 24 hours after the vote’s introduction.
+All administrator votes, unless held to be confidential, shall be released publicly with the individual vote of each administrator also public.
+Administrators and moderators may not disclose the confidential comments of others in private staff discussions. Furthermore, administrators and moderators may not disclose information held to be confidential in the interests of the server, without a respective resolution carried in favor of doing so.
+ 
+Administrator Vote
+The authority of an administrator proposal holds supremacy over all other decisions including preceding proposals, except wherein a new proposal would:
+1. restrict the authority of future proposals; or
+2. infringe upon the authority of other bodies as provided in this document without a respective amendment to this document.
+
+
+Administrator Consensus
+Absent an existing administrator resolution, administrators may unilaterally take actions insofar as they are confident beyond reasonable doubt that those actions are necessary in a time-intensive situation, or would be unanimously supported by all other administrators. Administrators who abuse or violate this provision may be subject to recall.
+
+
+Moderator Vote
+Moderator proposals may exercise the authority given with respect to interpretation of this document and issuing penalties through moderator proposals. Additionally, moderator proposals may issue a persuasive opinion on any matter.
+
+
+Moderator Consensus
+Absent an existing administrator resolution, moderators may unilaterally take actions insofar as they are confident beyond reasonable doubt that those actions are necessary in a time-intensive situation, or would be unanimously supported by all other staff. Moderators who abuse or violate this provision may be subject to dismissal.
+
+
+Permissions
+Appropriate changes in permissions do not require a resolution to be passed, but moderators may not delete channels or roles without administrator permission.
+Teams
+Federal Election Commission
+The Federal Election Commission has the exclusive authority to conduct all elections relating to the general user base of the server, and the exclusive authority to prescribe regulations for such elections.
+The FEC Chair or Deputy Chair that has served within the Commission at any point in the last 28 days may not stand as a candidate in any election in roleplay.
+Members of the FEC may join the House of Representatives, but not participate in leadership positions, including Speaker and Majority/Minority Leaders. They also may not make partisan or politically biased speeches or other RP actions except where required by being a Member of the House. The Chair is additionally required to be an Independent and be as neutral as is reasonably possible.
+The Federal Election Commission may establish its independent processes for the appointment and recall of all positions within the Federal Election Commission. The Chair may only be appointed by a ⅔ supermajority of the administrators.
+Elections occur on the 10th of every month, unless they are a special election, and results for regular elections consist of 50% raw user votes and 50% simulated component.
+
+
+International Events Team
+The International Events team is responsible for simulating the international effects of United States foreign affairs policy and creating realistic and interactive events between international entities and the United States federal government.
+The International Events team has concurrent authority with the administrators to determine the canonicity of international events — when a resolution by the International Events team is inconsistent with a resolution by the administrators, the latter prevails.
+The International Events team may establish its independent processes for the appointment, recall and regulation of all positions, but administrators may reserve the right to intervene as may be necessary. Members of the International Events team are not allowed to hold a position that will conflict with their duties on the team. The team lead shall be responsible for ensuring this is upheld. If a position has been allowed to be held by a member, but they come in conflict with an event, they must recuse from the event in roleplay, or, recuse from the team for the duration of the event; enforced by the team’s oversight, if necessary.
+Furthermore, members of the International Events team are to exercise sound judgment in recusing themselves to avoid obtaining or being perceived to obtain an advantage that their character in roleplay would not have held. Characters of members of the International Events team  are strictly prohibited from interacting with their own events in roleplay.
+Domestic Events Team
+The Domestic Events team is responsible for simulating the effects of United States domestic affairs policy and creating realistic and interactive events for United States state and federal governments.
+The Domestic Events team has concurrent authority with the administrators to determine the canonicity of domestic events — when a resolution by the Domestic Events team is inconsistent with a resolution by the administrators, the latter prevails.
+The Domestic Events team may establish its independent processes for the appointment and recall of all positions, but administrators may reserve the right to intervene as may be necessary. If a member of the Domestic Events team is part of the federal government, they may not partake or deal with situations they do or can come in contact within their respective area of authority within roleplay. The team lead shall be responsible for ensuring this is upheld. If this cannot be upheld, the member shall either recuse in roleplay or from the team for the duration of the event; enforced by the team’s oversight, if necessary.
+Furthermore, members of the Domestic Events team are to exercise sound judgment in recusing themselves to avoid obtaining or being perceived to obtain an advantage that their character in roleplay would not have held. Characters of members of the Domestic Events team are strictly prohibited from interacting with their own events in roleplay.
+Economics Team
+The Economics team is responsible for simulating the effects of United States economic policy in a realistic manner appropriately tuned for players’ skill sets.
+The Economics team has concurrent authority with the administrators to determine the canonicity of economic events — when a resolution by the Economics team is inconsistent with a resolution by the administrators, the latter prevails.
+Furthermore, members of the Economics team are to exercise sound judgment in recusing themselves to avoid obtaining or being perceived to obtain an advantage that their character in roleplay would not have held.
+The Economics team is made up of members of, and works alongside the Domestic Events and International Relations teams to ensure realism with respect to the economic effects of events planned by either team.
+
+
+Other Teams
+The administrators may establish, regulate and abolish any other teams. Teams may establish their independent processes for the appointment and recall of all positions.
+Appointments
+Server Owner
+Server owner appointments and recall are made by an administrator vote carried by a simple majority in the affirmative. The server owner must grant roles in accordance with this document and the resolutions passed by the administrators.
+Administrators
+Administrator appointments are made by an administrator vote carried by a simple majority in the affirmative. All administrators have the “administrator” permission (as prescribed by Discord).
+If there exist no administrators, then the Moderators shall select two admins simultaneously.
+Administrators may be recalled by:
+
+
+1. A two-thirds of all other administrators voting in the affirmative;
+2. A majority of all other administrators voting in the affirmative and a two-thirds supermajority of all moderators voting in the affirmative; or
+3. A recall petition in accordance with section 8.
+Moderators
+Moderator appointments are made by an administrator vote carried by a simple majority in the affirmative.
+1. An administrator vote carried by a simple majority in the affirmative connected to a substantive reason; or
+2. A recall petition in accordance with section 8.
+Petitions
+Any user may submit a petition to the administrators. If a petition attains not less than 25 signatures, a response is to be provided by the administrators within 14 days. When a petition reaches 25 signatures, it is the responsibility of the author to properly notify the admins by pinging them in the #petition-submissions channel, relaying the relevant petition. The time provided for the admins to write a response shall start on the day admins are notified of the required signatures being reached.
+In the event a response is expected to require additional time, a short initial response may be provided before being followed by a more detailed document within 28 days of the petition attaining 25 responses. If either a detailed or shortened response is not provided within 14 days, the petition shall be considered adopted.
+Should a petition be rejected, a server-wide overriding vote may be called by submitting a secondary petition with 25 signatures to the Federal Election Commission to be verified. The provisions of the petition will be adopted if the overriding vote is carried by two-thirds of those present and voting, unless such provisions:
+1. infringe upon the authority of the Federal Election Commission;
+2. seek to abolish non-roleplay documents, rules or political parties;
+3. overturn a present ruling on whether or not a person has committed a violation of the rules;
+4. require the appointment of members to the Admin or Moderator teams; or
+5. are ruled by at least ¾ of the Administrator team to be a troll petition at any point in the petition submission process, which shall not be subject to override by any community action, in which case the petition may not be submitted or its denial overridden, and may not be resubmitted anew.
+Petitions that amend subparagraphs (a) through (e), as above, are prohibited.
+The override vote shall be a 24-hour vote administered by the Federal Election Commission. The Federal Election Commission may prescribe further restrictions on whipping and other communication regarding the aforementioned override vote identical to those pertaining to the "Appeals Board" election specified in section 4.
+Any non-recall petition shall be considered void 30 days after its submission, if it has not attained the required number of signatures.
+Recalls
+Once a recall petition attains 30 signatures, the Federal Election Commission shall conduct the 24-hour, server-wide election by a “yes or no”-vote. The FEC may prescribe further regulations pertaining to this election, on whipping, and other communication regarding the aforementioned vote of no confidence.
+If a vote of no confidence against an administrator is carried in the negative, no petition to recall the administrator in question may be proposed for one month following the conclusion of the vote of no confidence.
+No petition shall be submitted that recalls more than one administrator within the same petition. This subsection shall not preclude the concurrent submission of multiple petitions on multiple administrators. Recall petitions shall include a justification for their submission within their text.
+Recall petitions that do not attain the required signatures within 30 days of their initial submission shall be ineligible for a vote of no confidence.
+Amendments
+This document may only be amended by a majority of the administrators or through a petition made under Section 8 of the Rules and Regulations. Amendments pertaining to (1) petitions, (2) recalls, and/or (3) the Appeals Board, shall require a 24-hour community vote, requiring a simple majority to pass. The FEC shall hold this election in a similar manner as otherwise prescribed by these Rules and Regulations.
+Amendments must be made in the following format:
+1. The proposal must specify the exact provisions and sections of the Rules and Regulations that are to be amended
+2. It must state the exact language that it seeks to strike, add, or replace.
+Any amendment that does not follow the format, is declared in violation of the Rules and Regulations and is null and void. No moderator or admin shall enforce such amendment unless it is made in the proper format. The only exception to amending in this format is to change the list of admins provided.

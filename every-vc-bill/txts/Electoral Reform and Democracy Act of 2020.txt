@@ -1,0 +1,105 @@
+1
+134TH CONGRESS
+1STSESSION
+H.R. 18
+To establish ranked choice voting in elections for Representatives, Senators and the
+President of the United States.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE HOUSE OF REPRESENTATIVES
+OCTOBER 17th, 2020
+Ms. KYOUKO of New York (for herself, MR. JOHNSON, MR. SOMEONE, MR.
+MCKENNA,MR. NOAH, MR. LIGHTWOOD) introduced the following bill, which
+was subsequently referred to the House of Representatives.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To establish ranked choice votingin electionsfor Representatives, Senatorsandthe Presidentof the
+UnitedStates.
+Beit enactedby theSenate andthe HouseofRepresentatives oftheUnited StatesinAmerica
+assembled,
+SECTION 1.TITLE.
+This Actmaybe citedas the“ElectoralReformand DemocracyAct”.
+SECTION 2.CONSTITUTIONALAUTHORITY.
+Congress findsthatit hastheauthority toestablish themannerof elections for theoffice ofSenator
+in Congressand for thePresidentof theUnited Statesthat theFederalElectionCommissionmust
+follow inadministeringelectionspursuant tosection3and4of the28th AmendmenttotheUnited
+StatesConstitution.
+
+2
+SECTION 3.FINDINGS.
+Congress findsasfollows,
+(1) Thecurrent votingsystem usedinour elections isFirst Past thePost,abbreviatedto FPTP.
+(2) It ispossibleto win anelection withaplurality butnota majorityof thevotes cast.
+(3) In August, twoSenatorswere electedwithout amajority ofvotes cast.In September,a
+DemocraticSenatorwaselected withonly41.7% ofthe overallvote.
+(4) Vote splitting andthe spoilereffect leadstocandidates toattackthose who mayoftenagree
+with themselvesona greaternumberofissues.This further amplifiesthespoiler effect ifthe
+similarcandidatedoesnotdrop outof theelection.
+(5) Candidatesmayjudgewho islikelyto win,andvotefor the perceived alternativetothe
+candidatewho they donotwishto wintheelection, insteadofthe candidatethey prefer.
+(6) Thephenomenon ofvote splittingincentivises partyleadersto createundemocratic
+agreements towithdrawfrom ballotsincertain districts.
+(7) This isanissueonboththe leftandthe right, withSocialists andDemocrats frequently
+splitting votes, and bothRepublicansandLibertarians frequentlysplittingvotes.
+(8) Theaforementioned problemswith FPTP aregreatlyamplifiedinan electoralenvironment
+with four (4) major parties.
+SECTION 4.AMENDINGTITLEIII OF THEHELPAMERICAVOTE ACTOF 2002.
+(a) INGENERAL.—TitleIII ofthe HelpAmerica VoteActof 2002(52U.S.C. 21081et seq.) is
+amendedbyaddingatthe endthefollowing:
+“Subtitle C—Ranked Choice Voting
+“SEC.321.REQUIRING THEUSEOF RANKED CHOICEVOTING INELECTIONS FOR
+SENATORS ANDTHE PRESIDENT.
+“(a)INGENERAL.—The FederalElectionCommissionshallcarry outelections for theoffice of
+Senatorin Congressand forthe officeof thePresident byemployingasystemof rankedchoice
+voting (also referredto asas instantrunoffvoting) under whicheach votershallrank thecandidates
+for theofficein theorderof thevoter’s preference.
+“(b) BALLOTDESIGN.—TheFederalElectionCommissionshallensurethat theballotor poll
+usedin anelectionmeets thefollowing requirements:
+
+3
+“(1) Theballotshould besimpleand easyto understand.
+“(2) Theballotshallincludesuch instructionsas theFederalElectionCommission
+considers necessary toenablethe votertorank candidatesand successfullycastthe ballot
+under thesystem.
+“(c)ELECTIONINCASEOFONLYTWOCANDIDATESORLESS.—Notwithstandingsubsection
+(a) and(b), in thecaseof when onlytwocandidates orlessstand inan electionfor the officeof
+Senatorin Congressor for theoffice ofthe President,the FederalElectionCommissionshallbe
+empowered toutilisea system ofvoting mostpracticable requiring acandidateto receivea number
+of votes greaterthan50percentof thenumberof ballotscastinan electiontobe elected.
+“SEC.322.ELECTIONTABULATION ANDCRITERIA.
+“(a)INGENERAL.—
+“(1) DETERMINATIONOF CANDIDATE’SNUMBER OFVOTES.—The number of
+votes receivedbya candidatein eitherthe initialtabulation orinan additionalround of
+tabulationshallbe equal tothenumberof ballotsonwhichthat candidate isthe highest
+rankedcontinuingcandidate.
+“(2) ELECTION CRITERIA.—Exceptas provided insection321(c),a candidateshallbe
+electedto theoffice ofSenatorin Congressif—
+“(A)the candidatereceivesanumberof votes greaterthan50percent ofthe
+numberof ballots castinthe election;or
+“(B) iftheelection officialcarriesoutadditional roundsof tabulationunder
+subsection(b), thecandidate receivesthegreatestnumber of votesof theremaining
+continuingcandidates (asdescribed insuchsubsection).
+“(b) PROCESSWHENNOCANDIDATEELECTEDUNDERINITIALTABULATION.—
+“(1) ADDITIONALROUNDS OFTABULATION.—If,under the initialtabulation of
+ballots, nocandidate iselected tooffice underthe criteriadescribed insubsection (a)(2)(A),
+
+4
+theFederal Election Commissionshallcarryout additionalrounds oftabulation in
+accordancewith paragraph(2) until only2continuingcandidates remain.
+“(2) TREATMENT OFBALLOTS INADDITIONAL ROUNDS.—In each additional
+round of tabulation carriedoutunder thissubsection—
+“(A)the candidatereceiving thefewest number ofvotes amongall candidates
+shallbe treatedas adefeated candidate;
+“(B) for each ballotcastfor adefeated candidate,the FederalElection
+Commissionshalldeterminethe highest-rankedcandidate ontheballotwho isa
+continuingcandidate; and
+“(C) thevote castontheballotshallbe transferredto,andadded tothe total
+numberof votesreceived by, thehighest-ranked continuingcandidatedetermined
+under subparagraph (B).
+“SEC.323.TREATMENTOF TIESBETWEENCANDIDATES.
+“If atie occursbetweencandidates withthe greatestnumberofvotes or thefewestnumberof
+votes atanypoint in thetabulationof ballotsunder this partandthetabulation cannot proceeduntil
+thetie isresolved,thetieshall beresolvedin accordancewithrulesthe FederalElection
+Commissionshallpromulgate.”
+SECTION 5.IMPLEMENTATION
+Theprovisionsof this Actshalltake effect onthe15thof themonth following passagebyboth
+Housesof Congress.

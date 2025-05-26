@@ -1,0 +1,23 @@
+[2025-05-23 23:38:49] [vcbot] [DEBUG] Debug logging active - this message goes to file only
+[2025-05-23 23:38:52] [vcbot] [DEBUG] Discord client set in tool registry
+[2025-05-23 23:38:52] [vcbot] [DEBUG] Generated 3 Gemini tool declarations
+[2025-05-23 23:38:52] [file_manager] [DEBUG] FileManager initialized with base directory: /Users/wynndiaz/VCBot
+[2025-05-23 23:38:52] [vcbot] [DEBUG] Added handler Clerk channel handler (1037456401708105780) for channel 1037456401708105780
+[2025-05-23 23:38:52] [vcbot] [DEBUG] Added handler News channel handler (1275044113754095697) for channel 1275044113754095697
+[2025-05-23 23:38:52] [vcbot] [DEBUG] Added handler Sign channel handler (655065748984561676) for channel 655065748984561676
+[2025-05-23 23:39:13] [vcbot] [DEBUG] Checking roles for Posting: ['@everyone', 'Records Oversight', 'Activity Oversight', 'Chat Revive Ping', 'Disboard Bump Ping', 'Pre-Verified', 'Verified', 'Archive', 'Emotional Support', 'They/Them/Theirs', 'Fun Ping', 'DMs Open', 'Award Winner', 'Frontier', 'Press', 'Attorney', 'Jury Duty', 'Server Booster', 'Republican Party', 'Former Senator', 'Former Cabinet Official', 'Former President Pro Tempore', 'Former Speaker', 'VIP', 'US Attorney', 'Appeals Board', 'Canada', 'Moderator', 'Bot', 'Server Developer', 'Admin', '*']
+[2025-05-23 23:39:13] [vcbot] [DEBUG] Checking if Posting can use command in 1327483297202176080
+[2025-05-23 23:39:13] [httpcore.connection] [DEBUG] connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+[2025-05-23 23:39:14] [httpcore.connection] [DEBUG] connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x3233cffe0>
+[2025-05-23 23:39:14] [httpcore.connection] [DEBUG] start_tls.started ssl_context=<ssl.SSLContext object at 0x3236200d0> server_hostname='generativelanguage.googleapis.com' timeout=None
+[2025-05-23 23:39:14] [httpcore.connection] [DEBUG] start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x16fead640>
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] send_request_headers.started request=<Request [b'POST']>
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] send_request_headers.complete
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] send_request_body.started request=<Request [b'POST']>
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] send_request_body.complete
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] receive_response_headers.started request=<Request [b'POST']>
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sat, 24 May 2025 05:39:14 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=499'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] receive_response_body.started request=<Request [b'POST']>
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] receive_response_body.complete
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] response_closed.started
+[2025-05-23 23:39:14] [httpcore.http11] [DEBUG] response_closed.complete

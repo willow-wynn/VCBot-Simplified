@@ -1,0 +1,1287 @@
+159th CONGRESS
+1STSESSION
+S. 1
+Torendertheissues facingourdemocracy defunct,so astoprotect theRepublic.
+IN THE SENATE OF THE UNITED STATES
+November 17th, 2022
+Mr.Twosof Lincoln,onbehalf ofconstituent authorMr.Sullivan
+of Olympia(forthemselves,) introducedthe following bill;
+A BILL
+Torendertheissues facingourdemocracy defunct,so astoprotect theRepublic.
+Beit enactedby theSenate andthe HouseofRepresentatives oftheUnited States
+of AmericainCongress Assembled,
+SEC.1.SHORTTITLE.
+This actmaybe citedasthe “TheProtecting ourDemocracy Act”.
+SEC.2.FINDINGS.
+Congress findsthat—
+1) Recenteventsin theCapitalof ournation havehighlighted thewidespread corruptionthat is
+ingrainedin our systems ofgovernment;
+2) Therevolving door between congressandlobbying firms mustbe haltedfor thesake ofthe
+integrity of our electedofficials;
+3) ElectionSecurity,andin particularElectionCybersecurity, isof theupmost importance.In
+recentyears we’veseenhow the vulnerabilitiesinourElectionMachines couldleaveus
+exposed toa hackingthreat fromaforeign adversarysuchas theRussian Federationor The
+People’sRepublicof China.Suchahacking event couldchange the resultsof ourelections in
+a waythatisinherentlya threattoour Democracy;
+4) For fartoo long,Foreign Governmentshave beenable toinfluence the policydecisions and
+elections of theUnitedStatesof Americalegally,which hasallowed them tocontortthe
+Public Policy of theUnited StatesofAmerica inamannerthat suitsthe needsof their
+citizens andnot our citizens;
+
+5) Theextremelylaxand minimalstandards wehave hadregarding foreignpowers, bothfriend
+and foe,havegone unenforced andthereforeignored;
+6) TheUnitedStatesof America, andbyextensionthe Congressof theUnited Statesof
+America,hasa vestedinterestto fixcertain issuessurrounding thestability andsecurity of
+our elections, theethicsof ourgovernment, andcampaignfinance;
+7) TheCongress of theUnitedStatesof Americahas thefull constitutional authoritytoamend
+theprevious statutesenacted bythis Congressthat this bill addressesasthesestatutes
+surround CampaignFinance, NationalSecurity,andtheEthics of ourGovernment.The
+constitution givesCongressthe full authorityto regulateitself solong asit doesnotimpede
+onthefreedomsof the people;and
+8) Therefore,this Actto address thecritical issuesfacingour Democracyis necessitated.
+SEC.3.SEVERABILITY.
+1) Severability.—Should anyoneor moreprovision,section,subsection, sentence,clause,
+phrase, word,applicationof this Actbedeemedinvalidor unconstitutionalfor anyreasonin
+a courtwithrelevant jurisdiction, therestof theAct, andtheapplication of theremaining
+provisions,shallnot beaffected.
+SEC.4.TABLE OF CONTENTS.
+Thetableof contents for this Actareasfollows:
+Sec.1.ShortTitle.
+Sec.2.Findings
+Sec.3.Severability
+Sec.4.TableofContents
+DivisionA—CongressionalLobbyingReform
+Sec.1101.BarringMembersofCongressfromLobbyingwithintheirLifetime
+Sec.1102.LengtheningthePeriodofTimebeforeCongressionalStaffmayengageinLobbying
+Sec.1103.LobbyistRevolvingDoorintoCongress
+Sec.1104.ImprovedReportingofLobbyists’Activities
+Sec.1105.ReportingbySubstantialLobbyingEntities
+Sec.1106.Requiringlobbyiststodisclosestatusaslobbyistsuponmakinganylobbyingcontacts
+Sec.1107.PenaltyEnhancement
+Sec.1108.FederalCampaignReportingofForeignContacts
+Sec.1109.FederalCampaignForeignContactReportingComplianceSystem
+Sec.1110.CriminalPenalties
+Sec.1111.ReporttoCongressionalIntelligenceCommittees
+Sec.1112.StreamliningCollectionofElectioninformation
+Sec.1113.EstablishmentofClearinghouse
+Sec.1114.ProhibitiononForeignLobbying
+Sec.1115.RuleofConstruction
+DivisionB—ElectionSecurity
+
+Sec.2101.PreventingForeignInfluenceinBallotMeasures
+Sec.2102.ProhibitingUseofDeepfakeinElectionCampaigns
+Sec.2103.ApplicationoflawstoU.S.territories
+Sec.2104.TestingofExistingVotingSystemstoEnsureCompliancewithElectionCybersecurity
+GuidelinesandOtherGuidelines
+Sec.2105.TreatmentofElectronicPollBooksasPartofVotingSystems
+Sec.2106.Pre-ElectionReportsonVotingSystemUsage
+Sec.2107.BugBountyProgram
+Sec.2108.UseofVotingMachinesManufacturedintheUnitedStates
+Sec.2109.ClarificationofProhibitiononParticipationbyForeignNationalsinElection-Related
+Activities.
+Sec.2110.ClarificationofApplicationofForeignMoneyBantoCertainDisbursementsandActivities
+Sec.2111.AuditandReportonIllicitForeignMoneyinFederalElections
+Sec.2112.DisbursementsandActivitiesSubjecttoForeignMoneyBan
+Sec.2113.ProhibitingEstablishmentofCorporationtoConcealElectionContributionsandDonationsby
+ForeignNationals
+Sec.2114.ApplicationofForeignmoneyBantoDisbursementsforCampaign-RelatedDisbursements
+ConsistingofCoveredTransfers
+Sec.2115.RestrictionsonExchangeofCampaignInformationBetweenCandidatesandForeignPowers
+Sec.2116.ClarificationofStandardforDeterminingExistenceofCoordinationbetweenCampaignsand
+OutsideInterests
+Sec.2117.ProhibitiononProvisionofSubstantialAssistanceRelatingtoContributionorDonationby
+ForeignNationals
+Sec.2118.ClarificationofApplicationofForeignMoneyBan
+Sec.2119.ExpansionofDefinitionofElectioneeringCommunication
+Sec.2120.Definitions
+DivisionC—Ethics
+Sec.3101.CodeofConductforSupremeCourtJustices
+Sec.3102.AssessmentofExemptionofRegistrationRequirementsUnderFARAforRegistered
+Lobbyists
+Sec.3103.EstablishmentofFARAInvestigationandEnforcementUnitwithinDepartmentofJustice
+Sec.3104.AuthoritytoImposeCivilMoneyPenalties
+Sec.3105.DisclosureofTransactionsInvolvingThingsofFinancialValueConferredonOfficeholders
+DIVISION A — CONGRESSIONAL LOBBYING REFORM
+SEC.1101. BARRINGMEMBERSOF CONGRESS FROMLOBBYING WITHIN
+THEIR LIFETIME.
+1) In General. –Section207(e)(1) oftitle 18ofthe UnitedStatesCode isamendedto readas
+follows:
+“(1) Prohibition.— Anypersonwho is aSenator,a Memberof theHouseof
+Representatives,or anelected officerofthe Senate orthe HouseofRepresentatives and
+who, afterthat personleaves office,knowinglymakes,with theintenttoinfluence, any
+communicationtoor appearancebeforeany Member,officer,or employeeofeither
+House of Congress oranyemployee ofanyotherlegislative officeof theCongress, on
+
+behalf of anyotherperson(except theUnited States)inconnection withanymatter on
+which saidformer Senator, Member,orelected officialseeksactionbyaMember,officer,
+or employee of either Houseof Congress,in hisor herofficialcapacity, shallbepunished
+asprovidedin section216of thistitle.
+(2) Exemption. — Theprohibitionunder subsection (a)shallnotapply toaformer
+Senator,a former Memberof theHouse ofRepresentatives, oraformer elected officerof
+theSenate or Houseof Representatives,while theyareanofficeholder ineither stateor
+localgovernment.”
+2) Conforming Amendments.–Section 207(e)(2)of title18of theUnited Statescodeis
+amendedto readasfollows:
+a) in theheading,bystriking “OFFICERS ANDSTAFF” andinserting “STAFF”;
+b) bystriking “anelected officerofthe Senate,or”;
+c) bystriking “leavesoffice oremployment” andinserting “leavesemployment”;and
+d) bystriking “former electedofficeror”.
+SEC.1102. LENGTHENINGTHEPERIOD OF TIMEBEFORECONGRESSIONAL
+STAFFMAY ENGAGEINLOBBYING.
+1) In General. –Paragraphs (2), (3)(A),(4), (5)(A), and(6)(A) of section207(e)of title18of
+theUnitedStatesCode areeach amendedbystriking“1year” andinserting “10years”.
+SEC.1103. LOBBYISTREVOLVINGDOORINTO CONGRESS.
+1) Definitions. –for thepurposes ofthis section:
+a) theterm “foreignprincipal” hasthe meaninggiventhat termunder section1(b) of the
+Foreign AgentsRegistrationActof 1938,asamended(22U.S.C.611(b));
+b) theterms“lobbyist” and“lobbying contact”has themeaningsgiven suchterms under
+section 3of theLobbyingDisclosure Actof 1995(2U.S.C.1602); and
+c) theterm “registered lobbyist”meansalobbyistregistered underthe Lobbying Disclosure
+Act of 1995(2U.S.C.1601et seq.).
+1) Temporary prohibitionfor Registered Lobbyists. –Anypersonwho is aregisteredlobbyist
+maynot, within 10years afterthat personleavessuch position,behiredbyamember or
+committeeof eitherHouseof Congress withwhomtheregistered lobbyisthashad substantial
+lobbying contact.
+2) PermanentProhibition for Agentsof aForeign Principal.–Any personwho isan agentof a
+foreign principal maynotbehiredbya memberof committeeofeither HouseofCongress
+with whom theagentof aforeign principal hashadsubstantiallobbying contact.
+3) Waiver. –Thissection maybe waivedinthe Senate orthe HouseofRepresentatives bythe
+SelectCommittee onEthicsof theSenate orthe CommitteeonOversightand Ethicsof the
+House of Representatives,respectively, basedona compellingnationalneed.
+4) SubstantialLobbying Contact.–Forpurposes ofthis section,indeterminingwhethera
+registeredlobbyistor agent ofa foreignprincipal hashad substantiallobbyingcontactwithin
+theapplicable periodof time,aMember orcommitteeof eitherHouseof Congress shalltake
+into consideration whether theindividual's lobbying contactshave pertainedto pending
+legislative business,or related tosolicitationof anearmarkor otherFederalfunding,
+particularly ifsuchcontacts includedthecoordination ofmeetings withthe Memberor
+
+committee,involved presentationsto employeesof theMember orcommittee,or
+participationin fundraising (exceptfor the meregiving ofapersonal contribution).Simple
+social contactswiththe Memberor committeeofeither HouseofCongress andstaff, shall
+not bythemselvesconstitutesubstantiallobbying contacts.
+SEC.1104. IMPROVEDREPORTING OF LOBBYISTS’ACTIVITIES.
+In General. –Section6of the Lobbying DisclosureAct of1995(2U.S.C.1605)is amendedby
+addingattheend thefollowing:
+“(c)Joint Website. —
+(1) IN GENERAL.—TheSecretaryof theSenate andthe Clerkof theHouse of
+Representatives shallmaintainajoint lobbyistdisclosureinternet databasefor
+information requiredtobe publiclydisclosedunder this Actwhichshallbean easily
+searchable Web sitecalledlobbyists.govwith astatedgoal ofsimplicityof usage.
+(2) AUTHORIZATIONOF APPROPRIATIONS. —Thereis authorized tobe
+appropriated to carryoutthis subsection $100,000for fiscalyear2022,and
+$50,000for each succeedingfiscal year.”.
+SEC.1105. REPORTING BYSUBSTANTIAL LOBBYINGENTITIES.
+1) In General. –TheLobbying Disclosure Actof1995(2U.S.C.1601etseq.)is amendedby
+inserting aftersection 6 thefollowing:
+“SEC. 6A. REPORTINGBYSUBSTANTIAL LOBBYINGENTITIES.
+(a) In General.—A substantial lobbyingentityshallfile onanannual basiswiththeClerk
+of theHouse of Representativesand theSecretaryof theSenate alistof eachemployee of,
+individual undercontract with,or individualwho providespaidconsulting servicestothe
+substantiallobbying entity whois—
+(1) a former Senatoror aformer Member ofthe HouseofRepresentatives; or
+(2) another covered legislativebranchofficialwho—
+(A) waspaid notlessthan$100,000in any1yearasa coveredlegislative
+branchofficial;
+(B) workedfor atotalof notlessthan 4yearsasa coveredlegislativebranch
+official; or
+(C) had ajobtitle atanytimewhile employedasa coveredlegislativebranch
+officialthat containedanyof thefollowing terms: ‘Chiefof Staff’,‘Legislative
+Director’, ‘Staff Director’,‘Counsel’,‘Professional Staff Member’,
+‘CommunicationsDirector’,or ‘PressSecretary’.
+(b) Contentsof Filing. —The filingrequired underthis sectionshallcontaina briefjob
+descriptionof each individual describedin subsection(a)and anexplanationof theirwork
+experienceunder subsection(a) thatrequiresthis filing.
+
+(c) Improved Reportingof Substantial Lobbying Entities.—Thejoint Websitebeing
+maintained bytheSecretaryof theSenate andthe Clerkof theHouse ofRepresentatives,
+known aslobbyists.gov,shallincludean easilysearchabledatabase entitled‘Substantial
+Lobbying Entities’ thatincludes informationonall individualsdescribed insubsection (a).
+(d) Law Enforcement Oversight.—TheClerk ofthe HouseofRepresentatives andthe
+Secretaryof theSenate shall provideacopyof each filingunder subsection(a)to theUnited
+StatesAttorneyfor theDistrictof Columbia,to allowthe UnitedStatesAttorneyfor the
+District of Columbiatodeterminewhetherasubstantiallobbying entityisunderreporting
+thelobbying activities of its employees,individuals undercontract, or individualswho
+providepaidconsulting services.
+(e) SubstantialLobbying Entity.—In thissection, theterm‘substantial lobbyingentity’
+meansan incorporatedentity thatemploysmorethan 3registeredlobbyists duringa filing
+period.”.
+SEC.1106. REQUIRINGLOBBYISTS TO DISCLOSESTATUSAS LOBBYISTSUPON
+MAKINGANY LOBBYING CONTACTS.
+1) MandatoryDisclosureat Timeof Contact.–Section 14of theLobbying Disclosure Actof
+1995(2U.S.C.1609) is amended—
+a) bystriking subsections(a) and(b) andinserting thefollowing:
+“(a)RequiringIdentificationat Timeof Lobbying Contact.—
+Any personorentitythat makesalobbying contactwitha covered
+legislativebranchofficialor acoveredexecutive branchofficialshall,at
+thetime ofthe lobbyingcontact—
+1. indicate whetherthepersonor entityisregistered underthis
+chapter andidentifythe clientonwhosebehalf thelobbying
+contactis made;and
+2. indicate whethersuchclientis aforeign entityandidentifyany
+foreign entityrequiredto bedisclosedunder section4(b)(4) that
+has adirectinterestin theoutcomeof thelobbying activity.”;and
+b) byredesignating subsection (c)as subsection(b).
+2) Effective Date.—Theamendment made bysubsection(a)shallapply withrespect to
+lobbying contactsmade onorafter the dateof enactment ofthis act
+SEC.1107. PENALTYENHANCEMENT.
+1) Civil Penalty.–Section 7(a)ofthe Lobbying Disclosure Actof1995(2U.S.C. 1606(a)) is
+amendedbystriking “$200,000”andinserting “1,000,000” inits place.
+2) Criminal Penalty.–Section 7(b) ofthe Lobbying DisclosureAct of1995(2U.S.C.1606(b))
+isamendedbystriking “5years” andinserting “7years” inits place.
+SEC.1108. FEDERALCAMPAIGN REPORTING OF FOREIGNCONTACTS.
+1) Initial Notice.—
+a) In general.—Section 304ofthe FederalElectionCampaign Actof1971(52U.S.C.
+30104) isamendedbyadding atthe endthefollowing newsubsection:
+
+“(j) Disclosure of ReportableForeign Contacts. —
+(1) Committeeobligation tonotify. —Notlaterthan 1weekafter a
+reportable foreign contact,each political committeeshallnotify theFederal
+Bureauof Investigationand theCommissionof thereportableforeign contact
+and providea summaryof thecircumstanceswithrespect tosuch reportable
+foreign contact. TheFederalBureau ofInvestigation,not laterthan 1week
+after receiving anotificationfroma politicalcommitteeunder this paragraph,
+shallsubmittothe political committee,thePermanent SelectCommitteeon
+Intelligence ofthe HouseofRepresentatives, andthe SelectCommitteeon
+Intelligence ofthe Senatewritten orelectronicconfirmation ofreceipt of the
+notification.
+(2) Individual obligationtonotify. —Notlaterthan 3daysafter areportable
+foreign contact —
+(A) each candidateandeach immediatefamily memberof acandidate
+shallnotify the treasureror otherdesignatedofficialof theprincipal
+campaigncommitteeof suchcandidate ofthe reportableforeign
+contactand provide asummaryof thecircumstanceswith respectto
+such reportableforeigncontact; and
+(B) eachofficial,employee, oragent ofa politicalcommitteeshall
+notify the treasureror otherdesignatedofficialof thecommitteeof
+thereportable foreigncontact andprovideasummary ofthe
+circumstanceswithrespect tosuch reportableforeign contact.
+(3) Reportableforeign contact.—In thissubsection:
+(A) Ingeneral. —Theterm“reportable foreigncontact” meansany
+direct orindirect contactor communicationthat—
+(i)is between —
+(I) acandidate,an immediatefamilymember ofthe
+candidate, apolitical committee,oranyofficial,
+employee,or agent ofsuch committee;and
+(II) anindividual thatthe persondescribed in
+subclause (I)knows,has reasontoknow, orreasonably
+believes isacovered foreignnational; and
+(ii) thepersondescribed inclause(i)(I) knows,has reasonto
+know, orreasonably believesinvolves—
+(I) anofferor otherproposalfor acontribution,
+donation, expenditure, disbursement,orsolicitation
+described insection319; or
+(II) coordination orcollaboration with,anoffer or
+provisionof informationor servicestoorfrom, or
+persistentand repeatedcontact with,acoveredforeign
+nationalin connectionwithanelection.
+(B) Exceptions.—
+(i)Contacts inofficialcapacity aselected official.—Theterm
+`reportable foreigncontact' shallnotincludeanycontact or
+communicationwitha coveredforeignnational byanelected
+
+officialor anemployeeof anelectedofficialsolelyin an
+officialcapacity assuch anofficialoremployee.
+(ii) Contactsfor purposes ofenablingobservation ofelections
+byinternational observers.—Theterm`reportable foreign
+contact' shallnotincludeanycontactor communicationwitha
+coveredforeign nationalbyanypersonwhich ismade for
+purposesof enablingtheobservation of electionsin the
+United Statesbyaforeignnational orthe observationof
+elections outsideofthe UnitedStatesbya candidate,political
+committee,or anyofficial,employee,or agentof such
+committee.
+(iii) Exceptionsnotapplicable if contactsor communications
+involve prohibiteddisbursements.— A contactor
+communicationbyanelected officialoran employeeofan
+elected officialshallnotbeconsidered tobemade solelyinan
+officialcapacity for purposesofclause (i),andacontact or
+communicationshallnotbe consideredto bemade for
+purposesof enablingtheobservation of electionsfor purposes
+of clause(ii),if the contactorcommunicationinvolvesa
+contribution, donation, expenditure,disbursement, or
+solicitationdescribed insection 319.
+(B) Coveredforeign nationaldefined.—
+(i)In general.—In this paragraph,the term“covered foreign
+national” means—
+(I) aforeignprincipal (asdefinedin section1(b) ofthe
+Foreign AgentsRegistration Actof 1938(22U.S.C.
+611(b)) thatis agovernment ofaforeign country ora
+foreign politicalparty;
+(II) anypersonwho actsas anagent, representative,
+employee,or servant,or anypersonwho actsinany
+othercapacity atthe order,request, orunder the
+direction orcontrol, ofaforeign principal describedin
+subclause (I)or ofapersonany ofwhoseactivities are
+directly orindirectlysupervised, directed, controlled,
+financed, orsubsidized inwholeor inmajorpartbya
+foreign principaldescribed insubclause (I); or
+(III) anypersonincludedinthe listofspecially
+designated nationalsandblocked personsmaintained
+bythe OfficeofForeign AssetsControl ofthe
+Department ofthe Treasurypursuant toauthorities
+relating tothe impositionof sanctionsrelating tothe
+conduct ofa foreignprincipal described insubclause
+(I).
+(ii) Clarificationregarding application tocitizens ofthe united
+states. —Inthe caseofacitizen ofthe UnitedStates,
+subclause (II) ofclause(i) appliesonlytothe extentthat the
+
+personinvolved actswithinthe scope ofthat person’sstatus as
+the agentof aforeign principaldescribed insubclause (I)of
+clause(i).
+(3) Immediatefamily member.In thissubsection, theterm “immediate
+family member”means,with respectto acandidate,a parent,parent-in-law,
+spouse, adult child,or sibling.”.
+b) Effective date.—The amendmentmade byparagraph (1) shallapplywithrespect to
+reportable foreign contactswhich occuronorafter thedate of theenactment ofthis
+act.
+2) Information Included on Report.—
+a) In general.—Section 304(b) ofsuch Act(52U.S.C.30104(b))is amended—
+i) Bystriking “and atthe endofparagraph (7);
+ii) Bystriking the periodatthe endofparagraph (8) andinserting “; and”;and
+iii) Byaddingattheendthe following newparagraph:
+“(9) for anyreportable foreigncontact (asdefinedinsubsection (j)(3))—
+(A) thedate,time,andlocation ofthe contact;
+(B) thedate andtimeof whenadesignatedofficialof thecommitteewas
+notified of the contact;
+(C) theidentityof individualsinvolved;and
+(D) adescriptionof thecontact,includingthe natureof anycontribution,
+donation, expenditure, disbursement,orsolicitation involvedand thenatureof
+any activitydescribed insubsection(j)(3)(A)(ii)(II) involved.”.
+b) Effective Date.—Theamendment made byparagraph(1) shallapply withrespect
+to reportsfiled onor after theexpiration ofthe 30-day periodwhichbegins onthe
+date of theenactment ofthis Act.
+SEC.1109. FEDERALCAMPAIGN FOREIGNCONTACT REPORTING
+COMPLIANCESYSTEM.
+1) In General. —Section 302ofthe FederalElectionCampaignAct of1971(52U.S.C.
+30102) isamendedbyadding atthe endthefollowing newsubsection:
+“(j) Reportable Foreign ContactsCompliancePolicy. —
+(1) Reporting. -- Eachpolitical committeeshallestablish apolicy thatrequiresall
+officials, employees, andagentsof suchcommittee(and, inthe caseofanauthorized
+committee,thecandidateandeach immediatefamily memberof thecandidate)to
+notify thetreasureror otherappropriatedesignated officialofthe committeeofany
+reportable foreign contact(asdefinedin section304(j)) notlaterthan 3daysafter
+suchcontact wasmade.
+(2) Retention andpreservation ofrecords. -- Eachpolitical committeeshallestablish
+a policythat providesfor the retentionand preservationof recordsand information
+related toreportableforeign contacts(asso defined)for a periodofnotlessthan 10
+years.
+(3) Certification.—
+(A) In general. -- Upon filingits statementoforganization under section
+303(a), and witheach reportfiledunder section304(a), thetreasurer ofeach
+political committee (otherthan anauthorized committee)shallcertifythat –
+
+(i) the committeehasin placepoliciesthat meettherequirements of
+paragraphs(1) and(2);
+(ii) thecommitteehas designatedanofficialto monitorcompliance
+withsuch policies; and
+(iii) notlater than1weekafter the beginningof anyformal or
+informal affiliation withthecommittee,all officials,employees, and
+agentsof suchcommitteewill—
+(I) receivenoticeof suchpolicies;
+(II) beinformed of theprohibitions under section319;and
+(III) signacertification affirmingtheirunderstanding ofsuch
+policies andprohibitions.
+(B) Authorized committees.—Withrespect toan authorizedcommittee,the
+candidateshall makethe certificationrequired under subparagraph(A).”.
+2) Effective Date.—
+a) In General. —The amendmentmade bysubsection 1shallapplywithrespect to
+political committeeswhichfile astatementoforganization under section303(a)of
+theFederal Election CampaignAct of1971(52U.S.C.30103(a))onor after thedate
+of theenactment ofthis Act.
+b) Transitionrulefor existingcommittees.—Notlater than30days afterthe date of
+theenactment of this Act,each politicalcommitteeunder the FederalElection
+CampaignAct of 1971shallfile acertificationwiththe FederalElection
+Commissionthat thecommitteeis incompliance withthe requirementsof section
+302(j) of suchAct (asaddedbysubsection (1)).
+SEC.1110.CRIMINAL PENALTIES.
+Section 309(d)(1) of theFederalElectionCampaign Actof1971(52U.S.C.30109(d)(1))is
+amendedbyaddingatthe endthefollowing newsubparagraphs:
+“(E) Any personwho knowinglyandwillfully commitsaviolation ofsubsection (j)
+or (b)(9) of section304or section302(j)shallbe finednotmorethan$500,000,
+imprisoned notmorethan 5years,orboth.
+(F) Anypersonwhoknowingly andwillfullyconceals ordestroys anymaterials
+relating toa reportable foreigncontact(asdefined insection304(j)) shallbefined
+not morethan$1,000,000, imprisoned notmorethan7years, orboth.''.
+SEC.1111. REPORTTOCONGRESSIONAL INTELLEGENCECOMMITTIEES.
+1) In General. —Notlaterthan 1yearafter thedate ofenactment of thisAct, andannually
+thereafter,theDirector ofthe FederalBureau ofInvestigationshallsubmitto the
+congressional intelligence committeesareport relatingto notificationsreceived bythe
+Federal Bureauof Investigation undersection 304(j)(1)ofthe FederalElection
+CampaignAct of 1971(asadded bysection1108(a)of this Act).
+2) Elements. —Eachreport under subsection(a) shallinclude,ataminimum, the
+following with respecttonotifications described insubsection(a):
+a) Thenumberof suchnotifications receivedfrom politicalcommittees duringthe year
+covered bythereport.
+
+b) A descriptionof protocols andproceduresdevelopedbythe FederalBureauof
+Investigation relatingtoreceipt andmaintenanceof records relatingto such
+notifications.
+c) With respectto such notificationsreceived during theyearcovered bythereport, a
+descriptionof any subsequentactionstaken bythe Directorof theFederal Bureauof
+Investigation resultingfromthe receipt ofsuch notifications.
+3) CongressionalIntelligenceCommittees Defined.—Inthis section,the term
+“congressionalintelligence committees'' hasthe meaninggiventhat terminsection 3of
+theNationalSecurity Actof 1947(50U.S.C.3003).
+SEC.1112.STREAMLINING COLLECTIONOF ELECTIONINFORMATION.
+Section 202of theHelpAmerica VoteActof 2002(52U.S.C.20922) isamended—
+a) Bystriking “The Commission” andinserting “(a)In General.—Thecommission”;
+and
+b) Byaddingattheendthe following newsubsection:
+“(b) Waiverof CertainRequirements. —SubchapterI ofchapter 35oftitle 44,
+UnitedStatesCode,shallnot applytothe collection ofinformationfor purposes of
+maintaining theclearinghouse describedin paragraph(1) of subsection(a).”.
+SEC.1113.ESTABLISHMENTOF CLEARINGHOUSE.
+1) Establishment.—TheAttorneyGeneralshallestablish andoperate withinthe
+Department of Justice aclearinghousethrough whichmembers of thepublic mayobtain
+copies(including in electronicform) ofregistration statementsfiled underthe Lobbying
+Disclosure Actof 1995 (2U.S.C.1601et seq.) andtheForeign Agents RegistrationAct
+of 1938,asamended(22 U.S.C.611etseq.).
+2) Format. —TheAttorneyGeneralshallensure thatthe informationinthe clearinghouse
+establishedunder thissection ismaintained ina searchableandsortable format.
+3) Stated Goal.—Thestatedgoal ofthe Clearinghouseshallbe simplicityofusage.
+4) Agreements WithClerk ofHouseand Secretaryofthe Senate.—TheAttorneyGeneral
+shallenter into agreementswiththe Clerkof theHouse ofRepresentativeand the
+Secretaryof theSenate asmay benecessaryfor the AttorneyGeneraltoobtain
+registration statementsfiledwith theClerk andtheSecretaryunder the Lobbying
+Disclosure Actof 1995 for inclusioninthe clearinghouse.
+5) Lobbyists.gov.—
+a) In General. —If deemed necessarybytheAttorneyGeneral inagreeancewiththe
+Clerkof theHouse ofRepresentatives andthe Secretaryofthe Senate,the
+searchable WebSitecalled lobbyists.govestablishedunder Sec.1104ofthis Act
+maybe mergedintothe clearinghouse,soas tofacilitate easeofaccess by thepublic
+to registrationstatementsand disclosuresmade underthe Foreign Agents
+Registration Actof 1938,asamended(22U.S.C.611etseq.)andthe Lobbying
+Disclosure Actof 1995 (2U.S.C.1601et seq.) respectively.
+b) Operational Authority. —Inthe caseofsuch amergerunder paragraph a,the Clerk
+of theHouse of Representativesand theSecretaryof theSenate shallhavethe
+
+authority to participate,in collaborationwiththe AttorneyGeneral,inthe
+management andmaintenanceof theclearinghouse.
+c) Funding Authorized.—In thecaseof sucha mergerunder paragraph a,thefunding
+authorized undersubsection(2) of Sec.1104’samendment toSec.6of theLobbying
+Disclosure Actof 1995 (2U.S.C.1605) shallberedirectedto theclearinghouseto be
+usedfor thepurposesof establishment,maintenance,and developmentof the
+clearinghouse.
+SEC.1114PROHIBITIONONFOREIGN LOBBYING.
+1) In General. —TheLobbying Disclosure Actof1995(2U.S.C.1601etseq)is amended
+—
+a) Byredesignating section26(2U.S.C.1614)as section27;and
+b) Byinserting aftersection25(2U.S.C.1613)the following:
+“SEC. 26.PROHIBITIONON FOREIGN LOBBYING.
+(a) Definition. —Inthis section—
+(1) the term`covered lobbyist'means—
+(A) alobbyistthat isregistered oris required toregisterunder
+section4(a)(1);
+(B) anorganization thatemploys1or morelobbyistsandis
+registered, oris requiredto register,under section4(a)(2); and
+(C) anemployeelistedor required tobelistedas alobbyistby
+aregistrant under section4(b)(6) or5(b)(2)(C); and
+(2) the terms“information-service employee”,“public-relations
+counsel”,and “publicityagent”have themeaningsgiven those terms
+in section 1ofthe ForeignAgents Registration Actof1938,as
+amended(22U.S.C.611)
+(b) Prohibition.—Except asprovidedin subsection(c),a coveredlobbyist
+maynot acceptfinancialor othercompensationfor servicesthat include
+lobbying activities onbehalfof aforeignentity.
+(c) Exemptions.—Theprohibition under subsection(b) shallnotapply to
+thefollowing coveredlobbyists:
+(1) Diplomatic orconsular officers.—A dulyaccrediteddiplomatic
+or consularofficerof aforeigngovernment who issorecognized by
+theDepartmentof State, whilethe officerisengaged exclusively in
+activitiesthat arerecognized bytheDepartment of Stateas being
+within thescope ofthe functionsof theofficer.
+(2) Officialsof foreigngovernments. —An officialofaforeign
+government, ifthat government isrecognized bytheUnited States,
+who isnot apublic-relationscounsel,apublicity agent,or an
+information-service employee,ora citizenof theUnited States,
+whosename andstatus andthecharacter ofwhose dutiesasan
+officialareof publicrecord inthe Departmentof State, whilesaid
+officialis engagedexclusively inactivities thatarerecognized bythe
+
+Department ofState as beingwithin thescope ofthe functionsof the
+official.
+(3) Staff members ofdiplomatic or consularofficers.—A member of
+thestaff of, oranypersonemployedby, aduly accrediteddiplomatic
+or consularofficerof aforeigngovernment who issorecognized by
+theDepartmentof State, otherthanapublic-relations counsel,a
+publicityagent, or aninformation-serviceemployee, whosename and
+statusand thecharacter ofwhosedutiesas suchmember oremployee
+areof publicrecord inthe Departmentof State, whilethe memberor
+employeeis engaged exclusivelyin theperformance ofactivities that
+arerecognized bytheDepartment of Stateas beingwithin thescope
+of thefunctions ofthe memberor employee.
+(4) Personsengaging oragreeing toengage inthe solicitingor
+collecting offunds for humanitarianrelief.—A personengaging or
+agreeing toengage onlyinthe solicitingor collecting offunds and
+contributionswithin theUnited Statestobeused onlyfor medicalaid
+andassistance, orfor food andclothingtorelieve humansuffering, if
+thesolicitation orcollection of fundsand contributionsisin
+accordancewith,and subjectto,the provisionsof theNeutrality Act
+of 1939 (22U.S.C.441et seq.), andsuchrules andregulationsas
+may beprescribedthereunder.
+(5) Certainpersonsqualified topracticelaw.—
+(A) Ingeneral. —A personqualifiedto practicelaw,insofar
+as thepersonengages,or agreestoengage in,the legal
+representationof adisclosedforeign entitybeforeany courtof
+lawor anyagency ofthe Governmentof theUnited States.
+(B) Legalrepresentation.—Forthe purposeofthis
+paragraph, legalrepresentationdoesnot includeanyattempt
+toinfluence or persuadeagency personnelor officialsother
+than inthecourse of—
+(i)a judicialproceeding;
+(ii) acriminalorcivillaw enforcementinquiry,
+investigation,or proceeding;or
+(iii) anagency proceedingrequired bystatute or
+regulation tobeconductedonthe record.
+(d) Penalties. —Anypersonwho knowinglyviolates this sectionshallbe
+finednot morethan $1,000,000,imprisoned for notmorethan7years, or
+both, andany compensation receivedfor engaging inthe unlawful activity
+shallbe subject todisgorgement.”.
+2) Conforming Amendment.—Section 7ofthe Lobbying Disclosure Actof1995(2
+U.S.C.1606) isamended—
+a) In subsection(a), in thematter precedingparagraph (1), bystriking “Whoever”and
+inserting “Exceptasotherwise providedinthis Act,whoever”;and
+b) In subsection(b), bystriking “Whoever”and inserting“Except as otherwise
+providedin thisAct,whoever”.
+
+SEC.1115.RULEOF CONSTRUCTION.
+1) Nothing inthis Divisionor theamendments made bythisDivision shallbeconstrued —
+a) Toimpedelegitimatejournalistic activities;or
+b) Toimposeany additional limitation ontheright to expresspolitical viewsor to
+participatein public discourseof anyindividualwho —
+i) Resides intheUnitedStates;
+ii) Is nota citizen ofthe UnitedStatesor anationalof theUnited States,asdefined
+in section101(a)(22) ofthe Immigrationand NationalityAct(8U.S.C.
+1101(a)(22));and
+iii) Is notlawfullyadmitted for permanent residence,asdefinedbysection
+101(a)(20) of theImmigration andNationality Act(8U.S.C.1101(a)(20)).
+DIVISION B — ELECTION SECURITY
+SEC.2101.PREVENTING FOREIGNINFLUENCE INBALLOTMEASURES.
+1) In General. –Section319(a)(1)(A) ofthe FederalElectionCampaignAct of1971(52U.S.C.
+30121(a)(1)(A)) isamendedbystriking “election;”andinserting thefollowing in itsplace:
+“election, includingaState orlocalballotinitiative or referendum;”.
+2) Effective Date.–Theamendment made bythissection shallapplywithrespect toelections
+heldin November2022 orany succeedingmonth oryear.
+SEC.2102.PROHIBITING USEOF DEEPFAKESINELECTIONCAMPAIGNS.
+1) In General. –TitleIII of theFederalElectionCampaign Actof 1971(52U.S.C.30101et
+seq.) isamendedbyaddingat theendthe following newsection:
+“Sec.325.Prohibition onDistribution ofMaterially DeceptiveMediaPrior toElection.
+a) In General. –Exceptas providedinsubsections (b) and(c),a person,politicalcommittee,
+or otherentityshall not,within60days ofan electionfor Federaloffice atwhich a
+candidatefor electiveoffice willappear ontheballot,distribute,withactual malice,
+materiallydeceptiveaudio, orvisualmediaof thecandidate withtheintentto injurethe
+candidate’sreputation orto deceiveavoterinto votingfor or againstthecandidate.
+b) Exception. —
+i) Required language. –Theprohibitionin subsection(a)does notapply ifthe audioor
+visualmediaincludes—
+(1) a disclosurestating: “This___has beenmanipulated.”; and
+(2) filled in theblank inthe disclosureundersubparagraph(A), the term‘image’,
+‘video’, or ‘audio’, asmost accuratelydescribed themedia.
+ii) Visualmedia.–Forvisualmedia,the text ofthe disclosureshallappearinasizethat
+iseasily readable bytheaverage viewerandnosmallerthanthe largestfont sizeof
+theothertext appearing inthe visualmedia.If thevisualmediadoes notincludeany
+othertext, thedisclosureshallappear inasizethat iseasily readablebythe average
+viewer.Forvisualmediathat isvideo, thedisclosureshallappear for thedurationof
+thevideo.
+
+iii) Audio-only media. –If themediaconsists ofaudio only,thedisclosureshallbe read
+in aclearly spoken mannerandin apitch thatcan beeasilyheardbythe average
+listener,atthebeginner ofthe audio,at theend ofthe audio,and,if the audiois
+greaterthan2minutes inlength, interspersed withinthe audioat intervalsofnot
+greaterthan2minutes each.
+c) Inapplicability toCertainEntities.–This sectiondoesnot applytothe following:
+i) A radioor televisionbroadcastingstation,includinga cableorsatellitetelevision
+operator,programmer,or producer,that broadcastsmateriallydeceptive audioor
+visualmediaprohibited bythissection aspartof abonafidenewscast,news
+interview,news documentary,or on-the-spotcoverageof bonafidenewsevents,if the
+broadcast clearly acknowledgesthrough contentoradisclosure,in amannerthat can
+be easilyheard orreadbythe averagelisteneror viewer,that therearequestions
+abouttheauthenticityof thematerially deceptiveaudio orvisualmedia.
+ii) A radioor televisionbroadcastingstation,includinga cableorsatellitetelevision
+operator,programmer,or producer,whenitis paidto broadcastmaterially deceptive
+audioor visualmedia.
+iii) An internetwebsite, oraregularlypublishednewspaper, magazine, orother
+periodicalof generalcirculation,includingan internetor electronicpublication, that
+routinely carries newsandcommentaryof generalinterest,and thatpublishes
+materiallydeceptiveaudio orvisualmediaprohibited bythissection, ifthe
+publicationclearlystates that thematerially deceptiveaudio orvisualmediadoes not
+accurately represent thespeechor conductof thecandidate.
+iv) Materiallydeceptiveaudio orvisualmediathat constitutessatire orparody.
+d) Civil Action.—
+i) Injunctive or otherequitable relief.–A candidatefor elective officewhose voiceor
+likenessappearsina materiallydeceptive audioor visualmediadistributedin
+violation of this sectionmayseek injunctive orotherequitable reliefprohibitingthe
+distribution of audioor visualmediainviolationof thissection. Anactionunder this
+paragraph shall beentitled toprecedenceinaccordancewiththe FederalRulesof
+Civil Procedure.
+ii) Damages.–A candidatefor elective office whosevoice orlikeness appearsina
+materiallydeceptiveaudio orvisualmediadistributedinviolation ofthis sectionmay
+bring anactionfor general orspecial damagesagainstthe person,committee,orother
+entitythat distributed thematerially deceptiveaudio orvisualmedia.Thecourtmay
+also awarda prevailing partyreasonableattorney’sfeesandcosts.Thisparagraph
+shallnot beconstruedtolimit orpreclude aplaintiff fromsecuring orrecoveringany
+otheravailable remedy.
+iii) Burden of Proof. –Inanycivilactionalleging aviolationof thissection, theplaintiff
+shallbeartheburdenof establishingtheviolation throughclear andconvincing
+evidence.
+e) Ruleof construction.–Thissectionshallnotbe construedtoalter ornegateany rights,
+obligations,or immunitiesof aninteractiveservice provider undersection 230oftitle47
+of theUnitedStates Code.
+f) MateriallyDeceptive AudioorVisualMediaDefined.–In this section,theterm
+‘materiallydeceptive audioor visualmedia’meansanimageor anaudio orvideo
+
+recording of acandidate’s appearance,speech,orconduct that hasbeen intentionally
+manipulated ina manner suchthat bothof thefollowing conditionsaremet:
+i) Theimageor audioor videorecording wouldfalsely appeartoareasonablepersonto
+be authentic
+ii) Theimageor audioor videorecording wouldcauseareasonablepersontohave a
+fundamentallydifferent understandingor impressionofthe expressivecontextofthe
+imageor audioor videorecording thanthat personwouldhave ifthe personwere
+hearing or seeing theunaltered, original versionofthe imageoraudio orvideo
+recording.”.
+2) Criminal Penalties.–Section 309(d)(1) ofthe FederalElectionCampaignAct of1971(52
+U.S.C.30109(d)(1)), isamendedbyadding atthe endthefollowing newsubparagraph:
+“(G)Any personwho knowinglyandwillingly commits aviolationof section325shall
+be finednotmorethan$100,000,imprisoned notmorethan 5years,orboth.”.
+3) Effect onDefamationAction. –Forpurposesof anactionfor defamation,aviolationof
+section 325of theFederal ElectionCampaignActof 1971,asadded bysubsection(a), shall
+constitute defamationper se.
+SEC.2103.APPLICATIONOF LAWS TOU.S. TERRITORIES.
+1) NationalVoter Registration Actof1993.—Section 3(4) of theNationalVoter Registration
+Act of 1993(52U.S.C.20502(4)) isamendedbystriking “Statesandthe District of
+Columbia” andinserting “States,the Districtof Columbia,Guam, AmericanSamoa, the
+UnitedStatesVirgin Islands, andthe Commonwealthof theNorthern MarianaIslands.”
+2) Help AmericaVoteActof 2002.—
+a) Coverage of theCommonwealth ofNorthernMariana Islands. —Section901of theHelp
+AmericaVote Actof 2002(52U.S.C.21141) isamendedbystriking “andthe United
+StatesVirgin Islands” andinserting “theUnited StatesVirgin Islands,andthe
+Commonwealth ofthe NorthernMariana Islands”.
+b) Conforming amendments tothe HelpAmericaVote Actof2002.—SuchAct isfurther
+amendedasfollows:
+i) Thesecond sentenceof section213(a)(2)(52U.S.C.20943(a)(2)) isamendedby
+striking “andAmerican Samoa”and inserting“American Samoa, andthe
+Commonwealth ofthe NorthernMariana Islands”.
+ii) Section 252(c)(2) (52U.S.C.21002(c)(2))is amendedbystriking“or the United
+StatesVirgin Islands” andinserting “theUnited StatesVirgin Islands,or the
+Commonwealth ofthe NorthernMariana Islands”.
+c) Conforming amendment relatingto consultationof helpAmerica votefoundation with
+localelectionofficials. —Section 90102(c)oftitle 36,UnitedStatesCode, isamended
+bystriking “andthe UnitedStatesVirgin Islands” andinserting “theUnited StatesVirgin
+Islands,and theCommonwealthof theNorthernMariana Islands”.
+SEC.2104.TESTINGOF EXISTINGVOTINGSYSTEMSTO ENSURECOMPLIANCE
+WITHELECTIONCYBERSECURITYGUIDELINES ANDOTHERGUIDELINES.
+1) Requiring Testingof ExistingVotingSystems—
+
+a) In general.—-Section231(a) ofthe HelpAmericaVote Actof2002(52 U.S.C.
+20971(a)) isamendedbyadding atthe endthe following newparagraph:
+“(3) Testingtoensure compliance withguidelines.—
+(A) Testing. —Notlaterthan 9months beforethe dateof each regularly
+scheduled general electionfor Federal office,the Commissionshallprovidefor
+thetesting by accreditedlaboratories under thissection ofthe votingsystem
+hardwareand software whichwascertified for useinthe most recentsuch
+election,on thebasisof themost recentvoting systemguidelines applicableto
+suchhardwareor software(including electioncybersecurity guidelines)issued
+under thisAct.
+(B) Decertification ofhardware orsoftware failing tomeetguidelines.—If, on
+thebasisof the describedin subparagraph(A),the Commissiondeterminesthat
+any voting systemhardware orsoftware doesnot meetthemost recentguidelines
+applicable tosuch hardwareor softwareissuedunder this Act,the Commission
+shalldecertifysuch hardwareor software.''.
+b) Effective Date—Theamendment made byparagraph(a) shallapplywithrespect tothe
+regularlyscheduledgeneral electionfor Federal officeheld inMarch2023andeach
+succeedingregularly scheduledgeneralelection for FederalOffice.
+2) Issuance of CybersecurityGuidelines byCISA.—Notlater than6months after thedate of
+theenactment of thissubsection,the Directorof theCybersecurityand Infrastructure
+Security Agencyof the Departmentof Homeland Security,inconsultation withthe
+Commission,shallissueelection cybersecurityguidelines, includingstandards andbest
+practices for procuring, maintaining, testing,operating,and updatingelection systemsto
+prevent anddeter cybersecurity incidents.
+SEC.2105.TREATMENTOF ELECTRONIC POLLBOOKS ASPART OF VOTING
+SYSTEMS.
+1) Inclusionin Definitionof VotingSystem. —Section 301(b) ofthe HelpAmericaVote Actof
+2002(52U.S.C.21081(b))is amended—
+a) In thematter of the precedingparagraph (1), bystriking “thissection”andinserting “this
+act”
+b) Bystriking “and” atthe endof paragraph(1);
+c) Byredesignating paragraph (2) asparagraph (3);and
+d) Byinserting afterparagraph (1) thefollowing newparagraph:
+“(2) anyelectronic pollbookused withrespect tothe election;and”.
+2) Definition. —Section301of suchAct (52U.S.C.21081) isamended—
+a) Byredesignating subsections (c)and(d) as subsections(d) and (e);and
+b) Byinserting aftersubsection (b) thefollowing newsubsection:
+“(c)Electronic Poll BookDefined—In thisAct, theterm‘electronic poll book’means
+thetotalcombinationof mechanical,electromechanical,or electronicequipment
+(including thesoftware, firmware,anddocumentation required toprogram, control,and
+supporttheequipment)that is used—
+(1) to retain thelistof registeredvoters atapolling location,or votecenter,or
+otherlocationat whichvoterscastvotes inan electionfor Federaloffice; and
+
+(2) to identify registeredvoters whoareeligible tovote inanelection.”.
+3) Effective Date.—Subsection301(e) ofsuch Act(52U.S.C.21081(e)),as redesignatedby
+subsection(2), isamendedbystriking theperiodat theendand insertingthe following:“or,
+with respectto anyrequirementsrelating toelectronic pollbooks,onor after March1,
+2023.”.
+SEC.2106.PRE-ELECTION REPORTSONVOTINGSYSTEM USAGE.
+1) Requiring StatestoSubmit Reports.—Title III ofthe HelpAmericaVote Actof2002(52
+U.S.C.21081etseq.) isamendedbyinserting after section301thefollowing newsection:
+“Sec.301A. Pre-ElectionReports onVotingSystem Usage.
+(a) RequiringStatesToSubmit Reports.—Notlater than10days beforethe date of
+each regularlyscheduledgeneral electionfor Federaloffice, thechief Stateelection
+officialof a State shallsubmit areportto theCommissioncontaininga detailedvoting
+system usageplan for eachjurisdiction intheState whichwill administerthe election,
+includinga detailed planfor the usage ofelectronicpoll booksandotherequipment and
+components of suchsystem.
+(b) Effective Date.—Subsection(a) shallapplywithrespect tothe regularly scheduled
+generalelectionfor Federaloffice heldin November2022andeach succeeding
+regularlyscheduledgeneral electionfor Federal office.''.
+2) ClericalAmendment.— Thetableofcontentsof suchAct isamendedbyinserting after the
+itemrelating tosection301the following newitem:
+“Sec.301A. Pre-election reports onvotingsystemusage.”.
+SEC.2107.BUGBOUNTYPROGRAM.
+1) Establishment.—Notlater than1yearafter thedate of enactmentof this Act,theSecretary
+shallestablish aprogram tobeknown asthe “ElectionSecurityBug Bounty Program”
+(hereafter inthis section referredto asthe “Program”)toimprovethe cybersecurity ofthe
+systemsusedto administer electionsfor Federal officebyfacilitating andencouraging
+assessmentsbyindependent technical experts,incooperation withState andlocalelection
+officials andelectionservice providers, toidentifyand reportelection cybersecurity
+vulnerabilities.
+2) Voluntary ParticipationbyElectionOfficialsand ElectionServiceProviders.—
+a) No requirementto participateinprogram. —Participationinthe Programshallbe
+entirely voluntaryfor State andlocalelection officialsandelection serviceproviders.
+b) Encouragingparticipation andinputfrom electionofficials.—In developingthe
+Program, theSecretary shallsolicitinput from,andencourage participationby, State and
+localelectionofficials.
+3) Activities Funded.—Inestablishingand carryingout theprogram, theSecretaryshall—
+a) establish aprocess for Stateand localelectionofficialsand electionservice providers to
+voluntarily participatein theProgram;
+b) designateappropriate informationsystems tobeincludedinthe Program;
+
+c) providecompensation toeligible individuals,organizations,andcompanies for reports of
+previouslyunidentified securityvulnerabilitieswithin theinformation systemsdesignated
+under paragraph(a) andestablish criteriafor individuals, organizations,andcompanies to
+be consideredeligible for suchcompensation incompliance withFederallaws;
+d) consultwith theAttorney Generalonhow toensurethat approvedindividuals,
+organizations,andcompanies that complywith therequirements ofthe Programare
+protected fromprosecution under section1030oftitle 18,UnitedStatesCode, and
+similarprovisionsof law,andfrom liabilityunder civilactionsfor specificactivities
+authorized undertheProgram;
+e) consultwith theSecretary ofDefense andtheheads of otherdepartmentsandagencies
+that haveimplementedto provide compensationfor reports of previouslyundisclosed
+vulnerabilitiesin information systems,regarding lessonsthat beappliedfromsuch
+programs;
+f) develop anexpeditious processbywhichan individual,organization, orcompany can
+register withtheDepartment, toabackgroundcheck as determinedbytheDepartment,
+and receivea determination regarding eligibility for theProgram; and
+g) engage qualifiedinterested persons,includingrepresentatives ofprivate entities,about
+thestructure of the Programand,to theextentpracticable, establisha recurring
+competition for independenttechnical expertsto assesselection systemsfor the purpose
+of identifying andreportingelection cybersecurity vulnerabilities.
+4) Use of ServiceProviders. —TheSecretarymayaward competitivecontractsasnecessaryto
+managetheProgram.
+5) Definitions. —In thissection:
+a) Theterm “Department” meanstheDepartment ofHomeland Security.
+b) Theterms“election” and“Federaloffice” have themeaningsgiven suchterms insection
+301of theFederalElectionCampaign Actof 1971(52U.S.C.30101)
+c) Theterm “electioncybersecurity vulnerability”meanssecurity vulnerabilitythat affects
+an electionsystem.
+d) Theterm “electioninfrastructure”meansstorage facilities,polling places,and centralized
+votetabulationlocations usedtosupportthe administration ofelections for public office,
+aswellasrelated information andcommunicationstechnology, including voter
+registration databases, votingmachines, electronicmailandothercommunications
+systems(including electronicmailand othersystemsof vendorswhohave enteredinto
+contractswith election agenciesto supporttheadministration ofelections, managethe
+electionprocess,andreport anddisplayelection results),andothersystems usedto
+managetheelectionprocess andtoreport anddisplayelectionresults onbehalfof an
+electionagency.
+e) Theterm “electionagency”meansanycomponentof aState, orany componentofaunit
+of localgovernmentina State,which isresponsiblefor the administrationof elections for
+Federal officeinaState.
+f) Theterm “electionservice provider” meansanypersonproviding, supporting,or
+maintaining anelection systemonbehalfof aState orlocalelection official,suchas a
+contractor or vendor.
+g) Theterm “electionsystem” meansanyinformationsystemwhich ispartof anelection
+infrastructure.
+
+h) Theterm “information system”has themeaninggiven suchterm insection3502of title
+44,UnitedStatesCode.
+i) Theterm “Secretary” meanstheSecretaryof Homeland Security,or,upondesignationby
+theSecretaryof Homeland Security,theDeputy SecretaryofHomeland Security, the
+Director of Cybersecurityand Infrastructure Securityofthe Cybersecurityand
+InfrastructureSecurityAgency ofthe Departmentof Homeland Security,ora
+Senate-confirmed officialwho reports tothe Director.
+j) Theterm “securityvulnerability” hasthe meaninggivensuch terminsection 102ofthe
+CybersecurityInformation SharingAct of2015(6U.S.C.1501).
+k) Theterm “State”means eachof theseveral states, theDistrict ofColumbia, the
+Commonwealth ofPuerto Rico,Guam,American Samoa,the Commonwealth of
+Northern MarianaIslands, andtheUnited StatesVirgin Islands.
+l) Theterm “votingsystem” hasthe meaninggivensuch terminsection301(b) of theHelp
+AmericaVote Actof 2002(52U.S.C.21081(b)).
+SEC.2108.USEOF VOTING MACHINESMANUFACTUREDINTHEUNITED
+STATES.
+1) Requirement.—Section301(a) ofthe HelpAmericaVote Actof2002(52U.S.C. 21081(a)),
+isamendedbyaddingat theendthe following newparagraph:
+“(5) Votingmachine requirements. —Bynotlater thanthe date ofthe regularlyscheduled
+generalelectionfor Federaloffice occurring inMarch2023,each State shallseekto ensure
+that anyvoting machine usedin suchelection andinanysubsequent electionfor Federal
+officeismanufactured intheUnited States.”
+2) Conforming AmendmentsRelating toEffective Date. —
+a) Section 301(d) ofsuch Act(52U.S.C.21081(d)),is amendedbyaddingat theendthe
+following newparagraph:
+“(2) EachStateand jurisdictionshallberequired tocomply withthe requirements
+of subsectiona(5) onand afterMarch 1,2023.”.
+b) Section 301(d)(1) ofsuch Act(52U.S.C.21081(d)(1)),is amendedtoreadasfollows:
+“(1) Eachstate andjurisdictionshallbe requiredto complywith therequirements
+of this section, exceptfor subsectiona(5), onand afterJanuary 1,2006.”.
+SEC.2109.CLARIFICATIONOF PROHIBITION ONPARTICIPATIONBY FOREIGN
+NATIONALS INELECTION-RELATEDACTIVITIES.
+1) Clarificationof Prohibition.—Section 319(a)of theFederal ElectionCampaignActof 1971
+(52U.S.C.30121(a)) is amended—
+a) Bystriking “or”at theendof paragraph (1);
+b) Bystriking theperiod atthe endofparagraph (2) andinserting “; or”;and
+c) Byaddingattheend,the following newparagraph:
+“(3) aforeign nationalto direct,dictate, control,ordirectly or indirectlyparticipateinthe
+decision-makingprocessof anyperson(includinga corporation,labororganization,
+political committee, orpolitical organization)with regardtosuch person’sFederal or
+non-Federal election-related activity,includinganydecisionconcerning themaking of
+contributions,donations,expenditures,or disbursementsinconnection withanelection
+
+for any Federal,State,or localofficeor anydecisionconcerning theadministration of a
+political committee.”
+2) Certificationof Compliance.—Section 319ofsuch Act(52U.S.C.30121)is amendedby
+addingattheend thefollowingnewsubsection:
+“(c)Certificationof Compliance RequiredPrior to CarryingOutActivity.—Prior to themaking
+in connectionwith anelection for Federalofficeof anycontribution, donation, expenditure,
+independent expenditure,or disbursementfor anelectioneering communicationbyacorporation,
+labororganization (asdefinedinsection 316(b)),limited liabilitycorporation,or partnership
+during ayear,thechief executive officerofthe corporation,labororganization, limitedliability
+corporation,or partnership (or,if the corporation,labororganization,limited liability
+corporation,or partnership doesnot haveachief executiveofficer, thehighestrankingofficialof
+thecorporation,labororganization,limited liability corporation,orpartnership), shallfilea
+certification withtheCommission,under penaltyofperjury, thata foreignnationaldid notdirect,
+dictate,control, or directlyor indirectlyparticipateinthe decision-makingprocess relating to
+suchactivityin violationof subsection (a)(3),unlessthechief executiveofficerhas previously
+filed suchacertification duringthat calendar year.”.
+3) Effective Date.—Theamendments made bythis sectionshalltake effectuponenactment of
+this Act,and shalltakeeffect withoutregard towhetheror nottheFederal Election
+Commissionhaspromulgatedregulationsto carryoutsuch amendments.
+SEC.2110. CLARIFICATIONOF APPLICATIONOF FOREIGN MONEYBANTO
+CERTAIN DISBURSEMENTSANDACTIVITIES.
+1) Application toDisbursements toSuper PACsandOther Persons.—Section 319(b) ofthe
+Federal ElectionCampaign Actof 1971(52U.S.C.30121(b)) isamended—
+a) Byredesignating paragraphs (1) and(2) as subparagraphs(A) and(B),respectfully, and
+bymoving suchsubparagraphs2ems tothe right;
+b) Bystriking “as usedin thissection” andinserting thefollowing:
+“Definitions.—Forthe purposesof thissection —
+(1) Foreign national.—Theterm”; and
+c) Byaddingattheendthe following newparagraph:
+“Contribution and donation.—For purposesofparagraphs(1) and (2) ofsubsection
+(a), theterm`contributionor donation'includesanydisbursement toapolitical
+committeewhichaccepts donationsorcontributions that donotcomply withany ofthe
+limitations, prohibitions,andreporting requirements ofthis Act(or any disbursementto
+or onbehalf of any accountofapolitical committeewhichis establishedfor the
+purposeof acceptingsuch donationsorcontributions), ortoany otherpersonfor the
+purposeof fundingan expenditure,independent expenditure,or electioneering
+communication(asdefinedin section304(f)(3)).
+2) ConditionsUnderWhich CorporatePACsMay Make Contributionsandexpenditures.—
+Section 316(b) of such Act(52U.S.C.30118(b))is amendedbyaddingat theendthe
+following newparagraph”
+“(8) Aseparatesegregatedfund establishedbyacorporationmaynot makea contributionor
+expenditure duringa year unlessthefund hascertified tothe Commissionthefollowing during
+theyear:
+
+(A) Eachindividualwho managesthe fund,and whois responsiblefor exercising
+decision-making authorityfor the fund,is acitizenof theUnited Statesoris lawfully
+admittedfor permanentresidencein theUnited States.
+(B) No foreign nationalunder section319participates inanywayin the
+decision-making processesofthe fundwithregard tocontributionsor expenditures
+under thisAct.
+(C) Thefund does notsolicitor acceptrecommendations fromanyforeign national
+under section319withrespect tothe contributions orexpendituresmade bythe fund.
+(D) Anymemberof theboard ofdirectors ofthe corporationwhois aforeign national
+under section319abstains fromvotingonmattersconcerning thefund orits
+activities.”.
+SEC.2111.AUDITAND REPORTONILLICITFOREIGN MONEYINFEDERAL
+ELECTIONS.
+1) In General. —TitleIII of theFederalElectionCampaign Actof 1971(52U.S.C.30101et
+seq.), asamendedbysection 1821,isfurther amendedbyinserting after section319A the
+following newsection:
+“Sec.319B.AUDIT AND REPORTON DISBURSEMENTSBYFOREIGN NATIONALS.
+(a). Audit.—
+(1) In general.—TheCommissionshallconduct anaudit after eachFederal
+election cycletodeterminetheincidence ofillicit foreign moneyinsuch
+Federalelection cycle.
+(2) Procedures. —Incarrying outparagraph (1), the Commissionshall
+conduct randomauditsofany disbursementsrequired tobereported under
+this Act,inaccordancewith proceduresestablishedbytheCommission.
+(b) Report.—Not laterthan 10daysafter theend ofeach Federalelection cycle,the
+CommissionshallsubmittoCongress areport containing—
+(1) results ofthe audit requiredbysubsection (a)(1);
+(2) an analysis ofthe extenttowhichillicit foreign moneywasused tocarry
+out disinformationandpropaganda campaignsfocusedondepressing turnout
+among ruralcommunitiesandthe successor failureoftheseefforts, together
+with recommendationstoaddress theseefforts infuture elections;
+(3) an analysis ofthe extenttowhichillicit foreign moneywasused tocarry
+out disinformationandpropaganda campaignsfocusedondepressing turnout
+among African-Americanandotherminority communitiesandthe successor
+failureof theseefforts, togetherwithrecommendations toaddress these
+efforts infuture elections;
+(4) an analysis ofthe extenttowhichillicit foreign moneywasused tocarry
+out disinformationandpropaganda campaignsfocusedoninfluencing
+military andveteran communitiesandthe successor failureoftheseefforts,
+together withrecommendations toaddresstheseefforts in futureelections;
+and
+(5) recommendations toaddress thepresence ofillicit foreign moneyin
+elections, asappropriate.
+(c) Definitions.—Asused inthis section:
+
+(1) Theterm`Federal election cycle'meanstheperiodwhich beginsonthe
+day afterthe dateof aregularlyscheduledgeneral electionfor Federal office
+and which endsonthe dateof thefirst regularlyscheduledgeneral election
+for Federaloffice heldafter such date.
+(2) Theterm`illicit foreignmoney' meansanydisbursementbya foreign
+national(asdefined insection319(b)) prohibitedunder suchsection.”.
+2) Effective Date.—Theamendment made bysubsection(a)shallapply withrespect tothe
+Federal electioncycle that beginsonMarch 1,2023,andeach succeedingFederalElection
+Cycle.
+SEC.2112. DISBURSEMENTS ANDACTIVITIESSUBJECT TOFOREIGN MONEY
+BAN.
+1) Disbursements Described. —Section 319(a)(1)ofthe FederalElectionCampaign Actof
+1971(52U.S.C.30121(a)(1)),as amendedbysection2109,is amended—
+a) Bystriking “or”at theendof subparagraph(b);and
+b) Bystriking subparagraph(C) andinserting thefollowing:
+“(C) anexpenditure;
+(D) anindependentexpenditure;
+(E) adisbursementfor an electioneeringcommunication(within the meaningofsection
+304(f)(3));
+(F) adisbursementfor a communicationwhichisplacedor promotedfor afeeona
+website,webapplication, ordigital applicationthat refersto aclearly identified
+candidatefor electionfor Federaloffice andis disseminatedwithin15days beforea
+general,specialor runoffelectionfor the officebythe candidateor 7daysbefore a
+primary or preferenceelection, oraconventionor caucusofa politicalpartythat has
+authority to nominateacandidate for theoffice soughtbythe candidate;
+(G) adisbursementfor a broadcast,cableor satellitecommunication,or for a
+communicationwhichis placedorpromoted for afeeonawebsite,webapplication, or
+digital application,that promotes,supports, attacksor opposesthe electionof aclearly
+identifiedcandidate for Federal,State, orlocaloffice (regardlessofwhetherthe
+communicationcontainsexpress advocacyorthe functional equivalentof express
+advocacy);
+(H) adisbursementfor a broadcast,cable,or satellitecommunication,or for any
+communicationwhichis placedorpromoted for afeeonanonline platform (asdefined
+in section304(k)(3)), that discusses anationallegislativeissueof public importancein
+a yearinwhich aregularlyscheduledgeneral electionfor Federal officeis held,but
+only ifthedisbursement ismade byacovered foreignnationaldescribed insection
+304(j)(3)(C);
+(I) a disbursementbyacovered foreignnationaldescribed insection 304(j)(3)(C)to
+compensate anypersonfor internet activitythat promotes, supports,attacksor opposes
+theelectionof a clearly identified candidatefor Federal,State, or localoffice
+(regardlessof whether theactivity containsexpressadvocacyor thefunctional
+equivalentof express advocacy);
+(J) adisbursement for aFederaljudicial nominationcommunication(asdefinedin
+section 324(d)(3));”
+
+4) Effective Date.—Theamendments made bythis sectionshalltake effectuponenactment of
+this Act,and shalltakeeffect withoutregard towhetheror nottheFederal Election
+Commissionhaspromulgatedregulationsto carryoutsuch amendments.
+SEC.2113. PROHIBITING ESTABLISHMENTOF CORPORATIONTO CONCEAL
+ELECTIONCONTRIBUTIONSANDDONATIONSBY FOREIGNNATIONALS.
+1) Prohibition. —Chapter29of title18,UnitedStatesCode, is amendedbyaddingat theend
+thefollowing:
+“Sec.614.Establishment ofcorporationtoconceal electioncontributionsanddonationsby
+foreign nationals
+(a) Offense.—It shallbe unlawful for anowner,officer,attorney, orincorporationagent
+of a corporation,company,or otherentitytoestablish oruse thecorporation,company, or
+otherentitywith the intenttoconcealan activityof aforeignnational (asdefinedin
+section 319of theFederal ElectionCampaignActof 1971(52U.S.C.30121))prohibited
+under suchsection 319.
+(b) Penalty.—Anypersonwho violates subsection(a)shallbe imprisonedfor not more
+than5years, fined under thistitle, orboth.”.
+2) Table of Sections.—Thetableof sectionsfor chapter 29oftitle 18,UnitedStatesCode, is
+amendedbyinserting after theitemrelating tosection613the following:
+“614. Establishmentof corporationtoconcealelection contributions anddonationsby
+foreign nationals.”
+SEC.2114. APPLICATIONOF FOREIGN MONEYBANTO DISBURSEMENTSFOR
+CAMPAIGN-RELATEDDISBURSEMENTS CONSISTINGOF COVERED
+TRANSFERS.
+1) Section 319(b)(2) of the FederalElectionCampaign Actof1971(52U.S.C. 30121(a)(1)(A)),
+aspreviouslyamendedbythis Act,is amended—
+a) Bystriking “includes anydisbursement”and inserting
+“includes—
+(A) anydisbursement”;
+b) Bystriking theperiod atthe endandinserting “;and”, and
+c) Byaddingattheendthe following newsubparagraph:
+“(B) anydisbursement,otherthan adisbursementdescribed insection
+324(a)(3)(A), toanother personwhomade acampaign-related disbursement
+consistingof acovered transfer(asdescribed insection324) during the2-year
+periodending onthedate ofthe disbursement.”.
+2) Effective Date.—Theamendments made bythis sectionshallapplywith respectto any
+disbursementsmade onor after thedate ofthe enactment ofthis Act,andshalltake effect
+without regardasto whether ornot theFederalElectionCommissionhas promulgated
+regulationsto carryoutsuch amendments.
+SEC.2115. RESTRICTIONS ONEXCHANGEOF CAMPAIGN INFORMATION
+BETWEEN CANDIDATES ANDFOREIGN POWERS.
+
+Section 319of theFederalElectionCampaign Actof1971(52U.S.C.30121),as amendedby
+section 4101(b) andsection 4209,isfurther amendedbyadding atthe endthe following new
+subsection:
+“(e) RestrictionsonExchange ofInformation BetweenCandidatesandForeign Powers.
+—
+(1) Treatment ofoffer tosharenonpublic campaignmaterial assolicitationof
+contribution fromforeign national.—Ifacandidate oranindividual affiliatedwith
+thecampaign ofa candidate,or ifa politicalcommitteeor anindividualaffiliated
+with apoliticalcommittee,provides oroffers toprovidenonpublic campaign
+material to acoveredforeign nationalorto anotherpersonwhom thecandidate,
+committee,or individualknowsorhas reasontoknow will providethematerialto
+a coveredforeign national,the candidate,committee,or individual(asthe case
+maybe) shallbe consideredfor purposes ofthis sectiontohave solicited a
+contribution ordonation described insubsection (a)(1)(A) fromaforeign national.
+(2) Definitions. —Inthis subsection, thefollowing definitionsapply:
+(A) Theterm“candidate”meansanindividual whoseeksnomination for,
+or electionto,any Federal,State, orlocalpublic office.
+(B) Theterm“coveredforeign national”has themeaninggiven suchterm
+in section 304(j)(3)(C).
+(C) Theterm“individualaffiliated withacampaign” means,withrespect
+to a candidate,anemployee ofanyorganization legallyauthorized under
+Federal,State, or locallawtosupportthe candidate'scampaignfor
+nominationfor, orelection to,anyFederal, State,or localpublic office,as
+well asanyindependent contractorofsuch anorganization andany
+individualwho performsservicesonbehalf ofthe organization,whether
+paid orunpaid.
+(D) Theterm“individual affiliatedwitha politicalcommittee” means,
+withrespect toa politicalcommittee,an employeeofthe committeeas
+well asanyindependent contractorofthe committeeandanyindividual
+who performsservicesonbehalfof thecommittee,whetherpaid or
+unpaid.
+(E) Theterm“nonpubliccampaignmaterial” means,withrespect toa
+candidate orapolitical committee,campaignmaterial thatis producedby
+thecandidateor thecommitteeor producedatthe candidateor
+committee's expenseorrequest whichisnot distributedormade available
+to the generalpublic or otherwiseinthe public domain,includingpolling
+andfocusgroup data andoppositionresearch,exceptthat suchterm does
+notincludematerial producedfor purposesofconsultationsrelating solely
+to the candidate'sorcommittee's positiononalegislativeor policy
+matter.''.
+SEC.2116. CLARIFICATIONOF STANDARD FOR DETERMININGEXISTENCEOF
+COORDINATION BETWEEN CAMPAIGNSANDOUTSIDE INTERESTS.
+
+Section 315(a)of theFederalElectionCampaign Actof 1971(52U.S.C.30116(a)) isamended
+byaddingattheend thefollowingnewparagraph:
+“(10) Forpurposes ofparagraph 7,anexpenditure or disbursementmaybe consideredto
+havebeenmade incooperation, consultation, orconcert with,orcoordinated with,a
+personwithout regardtowhetheror notthe cooperation,consultation, or coordinationis
+carriedout pursuant toagreementorformal collaboration.”.
+SEC.2117. PROHIBITION ONPROVISIONOF SUBSTANTIAL ASSISTANCE
+RELATING TO CONTRIBUTIONORDONATIONBY FOREIGNNATIONALS.
+Section 319of theFederalElectionCampaign Actof1971(52U.S.C.30121)), asamendedby
+this Act,isfurther amended —
+1) In subsection(a) —
+a) Bystriking “or”at theendof paragraph (2);
+b) Bystriking theperiod atthe endofparagraph (3) andinserting “; or”;and
+c) Byaddingattheendthe following:
+“(4) apersonto knowinglyprovidesubstantialassistanceto anotherpersonincarrying
+out anactivitydescribed inparagraph (1), (2), or(3).'';and
+2) Byaddingattheend the following newsubsections:
+“(f) KnowinglyDescribed.—
+(1) In general.—Forpurposes ofsubsection (a)(4),theterm `knowingly' meansactual
+knowledge,constructive knowledge,awareness of pertinentfacts that wouldleada
+reasonablepersontoconcludethere isasubstantialprobability, orawareness of
+pertinent factsthatwouldlead areasonablepersontoconduct areasonableinquiry to
+establish —
+(A) withrespect toanactivity described insubsection(a)(1), thatthe
+contribution, donation, expenditure,independent expenditure,or
+disbursementis fromaforeign national;
+(B) with respect toanactivity describedin subsection(a)(2),that the
+contribution ordonation solicited, accepted,or received isfroma foreign
+national; and
+(C) with respect toanactivity describedin subsection(a)(3),that the person
+directing, dictating,controlling, or directlyor indirectlyparticipatingin the
+decision-making processis aforeignnational.
+(2) Pertinent Facts.Pertinent facts.—For purposesofparagraph (1), pertinent facts
+include,but arenot limitedto,that the personmakingthe contribution, donation,
+expenditure, independentexpenditure, ordisbursement, orthat thepersonfrom whom
+thecontribution or donation issolicited, accepted,or received, orthat theperson
+directing, dictating,controlling, or directlyor indirectlyparticipatingin the
+decision-making process—
+(A) uses aforeignpassport orpassport number for identification purposes;
+(B) provides aforeign address;
+(C) usesa checkor otherwritteninstrumentdrawn onaforeignbank, orbya
+wire transferfrom aforeignbank, incarryout theactivity; or
+(D) resides abroad.
+
+(g) SubstantialAssistanceDefined. —Asused inthis section,the term“substantial
+assistance”means,with respect toanactivity prohibitedbyparagraph (1), (2), or(3) of
+subsection(a), involvementwith anintenttofacilitate successfulcompletion ofthe activity.”
+SEC.2118. CLARIFICATIONOF APPLICATIONOF FOREIGN MONEYBAN.
+1) Clarificationof Treatment ofProvision of CertainInformationas Contribution orDonation
+of a Thing of Value.—Section 319ofthe FederalElectionCampaign Actof1971(52
+U.S.C.30121), asamendedbysection4101(a), section4101(b), section4209,section4401,
+and section4403,isamendedbyadding atthe endthefollowing newsubsection:
+“(h) Clarification ofTreatment of Provision ofCertainInformation asContribution or
+Donationof a Thingof Value. —Forpurposesof thissection, a`contributionor
+donation of money orotherthing ofvalue'includes theprovisionof opposition
+research, polling,or othernon-publicinformationrelating toacandidate for election
+for a Federal,State,or localofficefor the purposeofinfluencing the election,
+regardlessof whethersuch research,polling, orinformationhas monetaryvalue, except
+that nothing inthissubsection shallbeconstrued totreatthe mereprovisionof an
+opinion abouta candidate asa thingof valuefor purposes ofthis section.”.
+2) Clarificationof Applicationof Foreign Moneybanto AllContributionsandDonations of
+Things of Valueand toall solicitationsof ContributionsandDonations of ThingsofValue.
+—Section 319(a)of suchAct(52U.S.C.30121(a)), asamendedbysection4105and section
+4403,isamended—
+a) In paragraph (1)(A),bystriking “promiseto makea contributionor donation”and
+inserting “promise tomake suchacontribution or donation”;
+b) In paragraph (1)(B), bystriking“donation” andinserting “Donationof moneyor other
+thing of value, or to makean expressor impliedpromiseto makesuch acontribution or
+donation,”; and
+c) Byamendingparagraph(2) to readasfollows:
+“(2) apersonto solicit,accept, orreceive (directlyor indirectly)acontribution,
+donation, or disbursement describedin paragraph(1), or tosolicit, accept,orreceive
+(directly or indirectly)an expressor impliedpromiseto makesuch acontribution or
+donation, froma foreign national;”
+SEC.2119. EXPANSIONOF DEFINITIONOF ELECTIONEERING
+COMMUNICATION.
+1) Expansionto OnlineCommunications. —
+a) Application toqualifiedinternet anddigital communications.—
+i) In general.Subparagraph (A)of section304(f)(3) ofthe FederalElection Campaign
+Act of 1971(52U.S.C.30104(f)(3)(A))is amendedbystriking“or satellite
+communication”each placeit appearsinclauses (i)and(ii) andinserting “satellite,or
+qualified internet ordigitalcommunication”.
+ii) Qualifiedinternetor digitalcommunication.—Paragraph (3) ofsection304(f) of
+suchAct (52 U.S.C.30104(f)) is amendedbyaddingat theend thefollowing new
+subparagraph:
+
+“(D)Qualified internetor digitalcommunication.—Theterm“qualified
+internet ordigital communication”meansanycommunicationwhichis placed
+or promoted for afeeonanonline platform (asdefinedin subsection
+(k)(3)).”.
+2) Nonapplicationof relevant electorateto onlinecommunications. —Section
+304(f)(3)(A)(i)(III) of suchAct(52U.S.C.30104(f)(3(A)(i)(III)) isamendedbyinserting
+“anybroadcast, cable,or satellite”before “communication.”
+3) Newsexemption. —Section304(f)(3)(B)(i)of suchAct (52U.S.C.30104(f)(3)(B)(i)) is
+amendedto readasfollows:
+“(i) a communication appearingin anewsstory, commentary, oreditorialdistributed
+through thefacilitiesof anybroadcastingstationor anyonline ordigitalnewspaper,
+magazine,blog, publication,or periodical,unlesssuchbroadcasting,online, or digital
+facilities areowned orcontrolled byanypolitical party, political committee,or
+candidate;”.
+4) Effective Date.—Theamendments made bythis sectionshallapplywith respectto
+communications madeonor afterMarch 1,2023.
+SEC.2120.DEFINITIONS.
+Asisapplicable insections2104,2105,and2106of this Act,thefollowing definitionsapply:
+1) Chairman.—Theterm“Chairman” meansthechair ofthe ElectionAssistanceCommission.
+2) Chiefstate electionofficial.—Theterm “chiefState electionofficial” means,withrespect to
+a State,theindividual designatedbythe State underSection 10of theNationalVoter
+Registration Actof 1993 (52U.S.C.20509) toberesponsiblefor coordination ofthe State’s
+responsibilities undersuch Act.
+3) Commission.—Theterm“Commission” meanstheElectionAssistance Commission.
+4) Secretary.—Theterm“Secretary” meanstheSecretaryof HomelandSecurity.
+5) State. Theterm“state” hasthe meaninggivensuch terminsection 901ofthe HelpAmerica
+Vote Actof 2002(52U.S.C. 21141).
+DIVISION C — ETHICS
+SEC.3101.CODE OF CONDUCT FOR FEDERALJUDGES.
+1) In General. Chapter57 ofTitle 28ofthe UnitedStatesCode is amendedbyaddingat theend
+thefollowing:
+“Sec.964.Code of Conduct
+i) Notlaterthan1yearafter thedate of theenactment ofthis section,the Judicial
+Conferenceshall issueacodeof conduct, whichappliestoeach justice andjudgeof
+theUnitedStates,exceptthat thecode ofconduct may includeprovisionsthat are
+applicable onlytocertain categoriesof judges orjustices.”
+2) ClericalAmendment.– Thetableofsections for chapter57of Title28of theUnited States
+Code isamendedbyadding after theitemrelated tosection963the following:
+“964. Codeof Conduct.”.
+
+SEC.3102.ASSESSMENTOF EXEMPTION OF REGISTRATIONREQUIREMENTS
+UNDERFARAFOR REGISTERED LOBBYISTS.
+Notlaterthan90days afterthe date ofthe enactmentof this Act,thecomptroller General
+of theUnitedStatesshallconductand submittoCongress anassessmentof theimplicationsof
+theexemption providedunder theForeign AgentsRegistration Actof 1938 asamended(22
+U.S.C.611etseq.) for agents offoreign principalswhoarealso registered lobbyistsunder the
+Lobbying Disclosure Actof 1995(2U.S.C.1601et seq.), andshallincludeinthe assessmentan
+analysisof theextentto whichrevisions insuch Actsmight mitigate theriskof foreign
+governmentmoneyinfluencing elections orpolitical processesinthe UnitedStates.
+SEC.3103.ESTABLISHMENT OF FARAINVESTIGATIONAND ENFORCEMENT
+UNIT WITHINDEPARTMENTOF JUSTICE.
+Section 8of theForeignAgentsRegistration Actof 1938,asamended(22U.S.C.618)is
+amendedbyaddingatthe endthefollowing newsubsection:
+“(i) Dedicated Enforcement Unit.—
+(1) Establishment.—Notlater than90days afterthe date ofenactment ofthis
+subsection,theAttorneyGeneralshallestablish aunit withinthe counterespionage
+section of theNationalSecurity Divisionof theDepartment of Justicewith
+responsibilityfor theenforcement ofthis Act.
+(2) Powers.—The unitestablishedunder this subsectionis authorizedto —
+(A) takeappropriate legalactionagainstindividuals suspectedof violatingthis
+Act;and
+(B) coordinateany suchlegalactionwiththe UnitedStatesAttorneyfor the
+relevant jurisdiction.
+(3) Consultation.—In operatingthe unitedestablishedunder this subsection,the
+AttorneyGeneralshall,as appropriate,consultwiththe Director ofNational
+Intelligence,theSecretaryof HomelandSecurity,and theSecretaryof State.
+(4) Authorization ofappropriations. —There areauthorizedto beappropriatedtocarry
+out theactivitiesof theunit establishedunderthis subsection $10,000,000for fiscal
+year2022and eachsucceeding fiscalyear.”.
+SEC.3104.AUTHORITY TOIMPOSE CIVIL MONEYPENALTIES.
+1) EstablishingAuthority.—Section 8of theForeign AgentsRegistration Actof 1938,as
+amended(22U.S.C.618)is amendedbyinsertingafter subsection (c)thefollowing new
+subsection:
+“(d) CivilMoneyPenalties. —
+(1) Registration statements.—Whoeverfails tofiletimely orcomplete aregistration
+statementasprovided undersection 2(a)shallbesubjectto acivilmoneypenaltyof not
+morethan$100,000 perviolation.
+(2) Supplements.Whoever failedtofile timelyorcomplete supplements asprovided
+under section2(b) shallbesubject toacivilmoney penaltyofnotmorethan $10,000
+per violation.
+
+(3) Other violations.—Whoever Knowinglyfailsto—
+(A) remedyadefectivefiling within60days afternoticeof suchdefect bythe
+AttorneyGeneral; or
+(B)complywith anyotherprovisionof thisAct,
+Shall uponproof ofsuch knowingviolationbyapreponderanceof theevidence, be
+subject toa civil moneypenaltyof notmorethan $500,000,dependingonthe extent
+and gravityof the violation.
+(4) No finespaid byforeignprincipals.—A civilmoneypenaltypaid under paragraph
+(1) maynot bepaid, directlyor indirectly, byaforeignprincipal.
+(5) Use of fines.—Allcivilmoney penalties collectedunder this subsectionshallbe
+usedto defraythe cost ofthe enforcementestablishedunder subsection(i).”.
+2) Effective Date.—Theamendment made bysubsection(1) shalltake effect onthedate ofthe
+enactment of thisAct.
+SEC.3105.DISCLOSUREOF TRANSACTIONS INVOLVINGTHINGS OF
+FINANCIALVALUE CONFERRED ONOFFICEHOLDERS.
+1) Requiring AgentstoDisclose KnownTransactions.—
+a) In General. —Section 2(a)ofthe Foreign AgentsRegistration Actof 1938,asamended
+(22U.S.C.612(a))is amended—
+i) Byredesignating paragraphs(10) and(11) as paragraphs(11) and(12);and
+ii) Byinserting afterparagraph (9) thefollowing newparagraph:
+“(10) Totheextent that theregistrant hasknowledge ofanytransaction which
+occurred inthe preceding60days andinwhichthe foreignprincipal for whomthe
+registrantisactingas anagent conferredonaFederalor State officeholderanything
+of financialvalue,includinga gift, profit,salary,favorableregulatorytreatment, or
+any otherdirect orindirect economicor financialbenefit,a detailedstatement
+describing each suchtransaction.”.
+b) Effective date.—The amendmentsmade byparagraph (a)shallapply withrespect to
+statements filedon orafter theexpiration of the30dayperiodwhich beginsonthe date
+of theenactment ofthis Act.
+2) SupplementalDisclosurefor CurrentRegistrants. —Notlater thanthe expirationof the
+30-day periodwhichbegins onthedate of theenactment ofthis Act,each registrant who
+(prior totheexpirationof suchperiod) filedaregistration statementwiththe Attorney
+General undersection2(a) ofthe ForeignAgents Registration Actof1938,as amended(22
+U.S.C.612(a)) andwho hasknowledge ofany transactiondescribed inparagraph (10) of
+section 2(a)of suchAct (asaddedbysubsection (a)(1)) whichoccurred atanytimeduring
+which theregistrantwas anagent ofthe foreignprincipal involved, shallfilewiththe
+AttorneyGeneral asupplementtosuch statementunder oath,onaform prescribedbythe
+AttorneyGeneral, containing adetailedstatementdescribing each suchtransaction.
+SEC.3106.ENSURING ONLINE ACCESSTO REGISTRATIONSTATEMENTS.
+1) Requiring StatementsFiled byRegistrationstobe inDigitizedFormat. —Section 2(g) ofthe
+Foreign AgentsRegistrationActof 1938,asamended(22U.S.C.612(g))is amendedby
+striking “inelectronic form” andinserting “ina digitizedformat whichwill enableto
+
+AttorneyGeneral tomeet therequirements ofsection 6(d)(1) (relatingtopublic accessto an
+electronic databaseof statements andupdates)”.
+2) Requirements for Electronic DatabaseofRegistration Statements andUpdates. —Section
+6(d)(1) of suchAct (22 U.S.C.616(d)(1))is amended—
+a) In thematter precedingsubparagraph(A), bystriking “tothe extenttechnically
+practicable,”;and
+b) In subparagraph(A),bystriking “includesthe information”and inserting“includes ina
+digitizedformat the information”.
+3) Effective Date.—Theamendments made bythis sectionshallapplywith respectto the
+statements filedonor after January1,2023.
+Writtenby SenatorDanielSullivan(R-OL) forCongress’use

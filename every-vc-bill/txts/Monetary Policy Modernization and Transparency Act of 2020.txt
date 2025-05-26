@@ -1,0 +1,63 @@
+IN THE CONGRESS OF THE UNITED STATES
+April 30, 2020
+Mr. SYSADMIN (for himself, Mr. MITCHELL, Mr. SCHLORP,
+and Mr. SLEEK) introduced the following bill;
+A BILL
+To Achieve a more effective and transparent monetary policy.
+Be it enacted by the House of Representatives of the United States of America in Congress
+Assembled,
+SECTION 1. SHORT TITLE.
+This bill may be cited as the “Monetary Policy Modernization and Transparency Act of 2020”
+SECTION 2. DEFINITIONS.
+In this Act—
+1. “Board of Governors” - The term “Board of Governors” or “Board” means the Board of
+Governors of the Federal Reserve System..
+2. “Federal Reserve” - The term “Federal Reserve” means the Federal Reserve System of
+the United States.
+3. “Dual Mandate” - The term “Dual Mandate” means the current Federal Reserve
+objectives of maximum employment and stable prices.
+SECTION 3. FINDINGS
+This body finds-
+1. Adjustments to the Federal Reserve’s 13(3) and emergency authority may need to be
+adjusted to allow for greater transparency and auditing.
+
+2. The Federal Reserve (much like other Central Banks around the globe) are unable to
+fulfil the dual mandate currently prescribed to them as it impossible for a central bank to
+maximize employment with the policy tools prescribed to them.
+SECTION 4. AMENDMENT IN STATUTE.
+1. In General. -- The Federal Reserve Act (as Amended by the Dodd-Frank Wall Street
+Reform and Consumer Protection Act) (12 U.S.C. §§ 221-552) is amended--
+a. In Chapter 13 (12 U.S.C. § 343)
+i. In Section 3 (12 U.S.C. § 343) --
+1. In Subsection B. --
+a. In Paragraph (iv) --
+i. By inserting “Any such program or facility
+established under this section, shall be monitored by
+the Inspector General of the Treasury Department
+and Government Accountability Office and release
+reports on the status and safety of such programs
+and facilities every 30 days.
+b. By inserting a paragraph (v) stating “The Board may
+establish emergency lending programs or facilities that may
+aid a failing financial company, or work with securities for
+emergency loans which may not protect taxpayers from
+losses upon approval by a majority vote of the Financial
+Stability Oversight Council, approval of the House
+Committee on Financial Services (or House of
+Representatives), and approval of the Senate Banking
+Committee (or Senate).
+2. In General. -- The Federal Reserve Act (12 U.S.C. §§ 221-552) is amended--
+a. In Section 2A (12 U.S.C. § 225a.) --
+i. By striking “maximum employment, stable prices, and moderate
+long-term interest rates.” and inserting “stable prices and moderate
+long-term interest rates.”
+SECTION 5. SEVERABILITY.
+If any provision of this Act, or any application of such provision to any person or circumstance,
+is held to be unconstitutional, the remainder of this Act and the application of this Act to any
+other person or circumstance shall not be affected.
+SECTION 6. ENACTMENT.
+
+This Act shall go into effect on the date which it is adopted by the Congress and signed by the
+President.
+SECTION 7. CONFLICTS.
+Any laws in conflict with this legislation are hereby declared null and void.

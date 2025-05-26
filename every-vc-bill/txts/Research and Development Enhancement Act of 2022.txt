@@ -1,0 +1,170 @@
+Research and Development
+Enhancement Act of 2022
+IN THE SENATE OF THE UNITED STATES
+Ms.Lambros-Kasparian introducedthe following pieceoflegislation.
+A BILL
+ToprovidefortheenhancementofthecapabilitiesofUnitedStatesFederalResearchandDevelopment
+EffortsaswellasadoptingkeyResearchandDevelopmentinitiatives
+Resolvedby theSenateandHouseof Representativesofthe UnitedStatesof Americain
+Congressassembled
+SECTION I. Short Title
+I. This actmaybe cited inpublic worksas the“Research andDevelopmentEnhancement
+Act”,or the‘RDE’ Act.
+SECTION II.Findings
+Congress findsthat-
+
+I. TheU.S. governmentsupportsa broadrangeof scientificand engineeringR&D. Its
+purposes includeaddressingnationaldefense, health,safety,the environment,and energy
+security;advancingknowledge generally;developingthescientific andengineering
+workforce; and strengtheningU.S. innovationandcompetitiveness inthe global
+economy.Most of theR&D funded bythefederalgovernment isperformedin supportof
+theuniquemissions ofindividualfunding agencies.
+II. Congress playsa central roleindefiningthe nation’sR&Dpriorities asit makesdecisions
+aboutthelevelandallocation of R&Dfunding—overall,within agencies,and for specific
+programs. In recent years,some Members ofCongress haveexpressed concerns aboutthe
+levelof federalspending(for R&Dand for otherpurposes)in lightof thefederaldeficit
+and debt.OtherMembersof Congress haveexpressed supportfor increasedfederal
+spending for R&Das aninvestment inthe nation’sfuturecompetitiveness. AsCongress
+actsto completetheFY2022 appropriationsprocess, itfaces twooverarchingissues:the
+amount of thefederal budgetto bespent onfederalR&Dandthe prioritization and
+allocation of theavailable funding.
+III. Currentappropriations proposalsshowadecreaseof $13.8billion (8.8%)below the
+FY2021 levelof $156.0billion of FederalR&Dfunding. Adjusted for inflation to
+FY2022 dollars,the currentFY2022 R&Drequest representsa constant-dollardecrease
+of 10.6% from the FY2020actual level.
+IV. Underthecurrent appropriations,eight federalagencies wouldreceivenearly 98%of
+totalfederalR&Dfundingin FY2021:the Department ofDefense(DOD), 42.1%;
+Department of HealthandHuman Services(HHS),primarily theNationalInstitutesof
+Health (NIH), 26.6%; Departmentof Energy(DOE),11.3%; NationalAeronautics and
+SpaceAdministration (NASA), 9.4%; NationalScienceFoundation(NSF),4.5%;
+Department of Agriculture(USDA), 1.9%; Department ofCommerce (DOC),1.1%;and
+Department of VeteransAffairs (VA),1.0%.
+V. Theagencieswith thelargest R&Dfunding declines (measuredindollars)inthe FY2021
+requestcomparedtoFY2020 enactedlevelareDOD(down $4.713billion),DOE(down
+
+$3.168billion), HHS (down$2.943billion), NASA(down$723million), andDOT
+(down $540million).
+VI.Theagencieswith thelargest percentagedeclinesin R&Dfunding inthe FY2021request
+comparedto FY2020enacted levelareDOT(down47.6%), EPA(down 35.4%), DOI
+(down 25.5%), DOC(down 22.7%), andDOE(down16.5%).
+SECTION III.Definitions Associatedwith FederalResearch andDevelopmentFunding
+I. Two keysourcesof definitionsassociatedwithfederalresearch anddevelopmentfunding
+aretheWhiteHouse Officeof Managementand BudgetandtheNationalScience
+Foundation.
+II. Office of Management andBudget.TheOfficeof Managementand Budgetprovidesthe
+following definitionsof R&D-relatedterms inOMB CircularNo. A-11,“Preparation,
+Submission,and Executionof theBudget.”1This documentprovidesguidanceto
+agenciesin thepreparation ofthe President’sannualbudget andinstructionsonbudget
+execution. In 2017, OMBadopted arefinement tothe categoriesofR&D, replacing
+“development”with“experimental development,” whichmorenarrowlydefines theset
+of activities tobe included.Thenewdefinition has resultedin lowerreported R&D by
+some agencies,includingthe Department ofDefenseand theNationalAeronautics and
+SpaceAdministration. Thisdefinition isused inthe President’sFY2022budget.
+a. Conductof R&D.Researchand experimentaldevelopment (R&D)activitiesare
+defined ascreative andsystematicwork undertakeninorder toincreasethestock
+of knowledge—includingknowledge ofpeople, culture,and society—andto
+devisenewapplicationsusing availableknowledge.
+b. BasicResearch. Basicresearch isdefinedas experimentalor theoreticalwork
+undertaken primarilytoacquire newknowledgeof theunderlyingfoundations of
+phenomenaandobservable facts. Basicresearchmay includeactivitieswithbroad
+or generalapplicationsinmind, suchas thestudy ofhow plant genomeschange,
+but excludes researchdirected towardsaspecificapplication orrequirement, such
+astheoptimizationof thegenome ofa specificcropspecies.
+c. AppliedResearch. Appliedresearch isdefinedas originalinvestigation
+undertaken inordertoacquire newknowledge.Applied researchis, however,
+directed primarilytowardsaspecificpractical aimor objective.
+d. Experimental Development.Experimentaldevelopment isdefined ascreativeand
+systematic work, drawingonknowledge gained fromresearchandpractical
+experience,whichis directed atproducingnewproductsor processesor
+
+improving existing productsorprocesses.Like research,experimental
+development willresult ingaining additionalknowledge.
+e. R&DEquipment.R&D equipmentincludesamountsfor major equipmentfor
+research and development.It includesacquisition, design, orproductionof major
+movableequipment,such asmassspectrometers, researchvessels,DNA
+sequencers,andothermajor movableinstrumentsfor usein R&Dactivities.It
+includes programsof $1millionormorethat aredevoted tothe purchaseor
+constructionof majorR&Dequipment.
+f. R&DFacilities. R&Dfacilities includeamountsfor theconstructionof facilities
+that arenecessary for theexecution ofanR&D program.This mayincludeland,
+major fixedequipment, andsupportinginfrastructure suchas asewerline or
+housingataremote location.
+III. NationalScienceBoard/National ScienceFoundation.TheNationalScience
+Board/NationalScience Foundationprovidesthe following definitions ofR&D-related
+termsin itsreport ScienceandEngineering Indicators:2022.
+a. Research and Development(R&D): Researchandexperimental development
+comprise creative andsystematicwork undertakentoincreasethe stock of
+knowledge—including knowledgeof humankind,culture, andsociety—and its
+useto devise newapplicationsofavailable knowledge.
+b. BasicResearch:Experimentalor theoreticalworkundertaken primarilytoacquire
+newknowledge ofthe underlyingfoundationsof phenomenaandobservable
+facts,without anyparticular application oruse inview.
+c. AppliedResearch:Originalinvestigationundertaken toacquire newknowledge;
+directed primarily, however,toward aspecific,practicalaim or objective.
+d. Development(or ExperimentalDevelopment):Systematic work,drawing on
+knowledge gainedfrom researchandpracticalexperienceand producing
+additionalknowledge,whichis directed toproducingnewproductsor processes
+or to improvingexistingproducts orprocesses.
+SECTION IV.Appropriationsfor Researchand Developmentprograms
+I. Theseareauthorizedto beappropriatedtothe WhiteHouseOfficeof Management and
+Budgetfor thefiscalyear2022for the following activities:
+a. $250Millionfor the Environmental ProtectionAgency
+b. $590Millionfor the Department ofTransport
+c. $5Billion for theDepartment ofHealth andHuman Services
+d. $4Billion for theDepartment ofDefense
+
+II. Theseareauthorizedto beappropriatedtoGeneral FederalR&Dfor the fiscal year2022
+for thefollowing activities:
+a. $3Billion for BasicResearch
+b. $7Billion for AppliedResearch
+c. $5Billion for Development
+d. $4Billion for FacilitiesandEquipment
+III. Theseareauthorizedto beappropriatedtothe NationalScienceFoundationfor the fiscal
+year2022for thefollowing multi-agencyResearchandDevelopment Initiatives:
+a. EnhancedArtificial Intelligence ResearchandDevelopmentInitiative
+i. A 76%increasein theAIR&D budgetof theNationalScienceFoundation
+to $868million overthe FY2020level,for AI-related researchandthe
+creation ofseveral NationalAIResearch Institutes,incollaborationwith
+USDA,DHS,DOT, andVA.Theinstitutesareto supportmultisector,
+multidisciplinaryresearch andworkforce efforts amongacademia,
+industry,federalagencies, andnonprofits.
+ii. An additional$100million for theUSDAAgricultureandFood Research
+Initiative(AFRI) for AIandmachine learningresearchto promote
+advancedmanufacturing inthefood andagricultural sciences, aswell asto
+continueefforts inrobotics andthe applicationof bigdata toprecision
+agriculture.
+iii. $125millionfor DOE’s Officeof Science,a$54millionincreaseover the
+FY2020 request.
+iv. $50millionfor NIHresearch onchronicdiseases usingAIand related
+approaches.
+v. $459millionfor DARPA AIR&D, anincreaseof$50million fromthe
+FY2020 request.
+vi. $290millionfor DOD’s Joint AICenter,upfrom $242millionin
+FY2020.
+IV. Theseareauthorizedto beappropriatedtothe Department ofEnergyfor the fiscal year
+2022for thefollowing ResearchandDevelopmentInitiatives aimedtosupportour
+technical efforts toresearchnewand moreefficientwaysof combatingclimate changeas
+wellasreinforcing thesecurity ofour energy infrastructure:
+a. Science
+i. $2.2Billion for BasicEnergySciences
+ii. $1.1Billion HighEnergyPhysics
+iii. $760BiologicalandEnvironmental ResearchNuclear Physics
+iv. $1Billion for AdvancedScientificComputingResearch FusionEnergy
+Sciences
+v. $588MillionOther ScientificResearchand Development
+
+b. Energy
+i. $2.5Billion for EnergyEfficiency andRenewableEnergy
+ii. $735Millionfor Fossil EnergyR&D
+iii. $1Billion for NuclearEnergy
+iv. $195Millionfor Electricity
+v. $104Millionfor Cybersecurity, EnergySecurity,and Emergency
+Response R&D
+vi. $435MillionforAdvanced ResearchProjects Agency–Energy
+c. National Security
+i. $1.8Billion for WeaponsActivitiesStockpile R T&E
+ii. $900Millionfor Naval Reactors
+iii. $642Millionfor Defense NuclearNonproliferation R&D
+iv. $30MillionDef. Environmental CleanupTechnol. Devel.
+SECTION V.Enactment
+Theprovisionsof this Actshallgointo effectimmediately uponitssignature bythe President.

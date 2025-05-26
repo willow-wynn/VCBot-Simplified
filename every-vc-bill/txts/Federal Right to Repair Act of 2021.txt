@@ -1,0 +1,58 @@
+- 1 -
+146
+th CONGRESS
+S.1
+IN THE 146th CONGRESS OF THE UNITED STATES
+October 12th, 2021
+Introduced by Senator Dillinger (for himself, Mr. Joey, Mrs. Harris, Mrs. Turnbull,)
+A Bill
+To federallyprotecttherightsof consumers todiagnose,service, maintain,andrepair electronic
+equipment;requiresoriginalequipmentmanufacturers tomake equipmentavailable to
+independent repair providersunder fair andreasonableterms.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. Short Title.
+This Act may be cited as the “Federal Right to Repair Act of 2021”.
+SECTION 2. Definitions.
+1. "Equipment" means digitalelectronicequipmentor apartfor such equipment
+originally manufactured for distribution and saleintheUnited States.
+2. "Firmware" means a software program or set of instructionsprogrammed ona
+hardwaredeviceto allowthe devicetocommunicatewithothercomputer hardware.
+3. "Independent Repair Provider"meansapersonor businessoperating intheUnited
+Stateswho isnotaffiliatedwithan originalequipmentmanufactureror anoriginal
+equipment manufacturer's authorized repairprovider and who isengaged inthe
+diagnosis, service,maintenance,or repairof electronicequipment.
+
+- 2 -
+4. "Service Parts"meansany replacement parts, either new or used, made availableby
+theoriginal equipmentmanufacturerto theauthorized repair providerfor the purposesof
+effectingrepair.
+SECTION 3. Ensuring the Right to Repair Electronics.
+1. Require technology manufactures andcompaniesto makerepair partsand assembly
+instructions readily available toindependentrepair providers orowners ofequipment
+manufacturedbysuchoriginal equipmentmanufacturerthesamediagnostic andrepair
+information, includingrepair technical updates,schematicdiagrams, updates,corrections
+to embeddedsoftwareandsafety andsecurity patchestimely,andfor nochargeor for the
+samechargeand in thesameformat suchoriginal equipmentmanufacturermakes
+available toits authorized repairprovider andsubcontractrepair ofrefurbishment
+facilities.
+2. Require technology manufactures andcompaniesto makerepair partsand assembly
+instructions availablefor purchase bytheowner,his orher authorized agent,or
+independent repairprovider, equipment or service parts,inclusiveof anyupdatestothe
+embeddedsoftware of the equipment or parts,uponfairand reasonableterms.
+3. Each original equipmentmanufacturershalloffer such tools for saletoowners and
+independent repairproviders uponfairand reasonableterms. Each original equipment
+manufacturerthat providesdiagnostic repairdocumentation to aftermarket diagnostic
+tools, diagnostic, or third party service information publications andsystemsshall
+havefully satisfied its obligationsunder this sectionandthereafternotbe responsiblefor
+thecontentand functionalityof suchaftermarket diagnostic tools, diagnostics,or service
+information systems.
+SECTION 4. Repeals.
+1. Theprovisionsof this Actshallfor all intentsandpurposes beconsidered exemptfrom
+17U.S. Code §1201.
+2. Any legislationor setprovisions conflictingwiththis Actshallbeconsidered nulland
+voideduponits enactment.
+
+- 3 -
+SECTION 5. Enactment.
+1. This billshallgointo effectimmediately uponit’ssignage.

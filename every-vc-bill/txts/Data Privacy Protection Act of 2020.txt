@@ -1,0 +1,68 @@
+IntroducedinHouse(02/13/2020)
+Tocodifytheprivacyrightsofconsumers,aswellastheresponsibilitiesofinternetandinformationserviceproviders.
+IN THE CONGRESS OF THE UNITED STATES
+FEBRUARY 13, 2020
+Mr. HOLBROOK (for himself, Mr. WILL, Mr. PLURIBUS, Mr. BERT, Ms.
+EMMA, Mr. S4L, Mr. VITA, Mr. LIBERTAD, Ms. MCKENNA, Mr.
+WAFFLES, and Mr. RICHARD) introduced the following Act;
+AN ACT
+Tocodifytheprivacyrightsofconsumers,aswellastheresponsibilitiesofinternetandinformationserviceproviders.
+Whereas,everyonehastherighttoconfidentialityovertheircommunications,
+Whereas,everyonehastheright,uponrequest,tohavetheirpersonaldatasecurelyerased,
+BeitenactedbytheHouseofRepresentativesoftheUnitedStatesofAmericainCongressassembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Data Privacy Protection Act”.
+SEC. 2. NEW RIGHTS AND REGULATIONS.
+(a) In General.—Title 47 of the U.S. Code is amended—
+(i) by creating the following new section within a new chapter entitled “Data Protection”:
+“§ 1601. DATA PROTECTION
+“(a) REGULATIONS
+“(1) Any individual, organization, or corporation which derives revenue from hosting, storing,
+“facilitating, processing, transmitting, or receiving electronic data—
+“(i) is prohibited from directly viewing anyone’s personal data without their informed consent.
+“(ii) must delete the personal data of any data subject which has been inactive for one year
+“unless provided otherwise by the user or account with informed consent.
+“(iii) must provide an easily accessible mechanism by which a data subject may request to
+“have their personal data deleted with the option of receiving a certificate of deletion via mail
+“or any other means of communication.
+“(iv) which receives a request from a data subject to delete personal data must securely
+“erase the data in the manner described in paragraph (2).
+“(v) is prohibited from profiling data subjects without their informed consent.
+“(2) The process of secure erasure shall consist of—
+“(i) encrypting the entirety of the data in the manner described in the most recent revision of
+“the Federal Information Processing Standards Publication 197 (NIST).
+“(ii) sanitizing the entirety of the data and its encryption key(s) in the manner described in
+“the most recent revision of Special Publication 800-88 (NIST).
+“(iii) any further erasure or encryption method determined by the Secretary of Commerce.
+“(b) PENALTIES
+
+IntroducedinHouse(02/13/2020)
+“(1) An individual shall be fined for each violation not more than $100 for each day they remain
+“in violation of this section, except as specifically provided for in this section.
+“(2) An organization or corporation shall be fined for each violation not more than $1,000 for
+“each day they remain in violation of this section, except as specifically provided for in this
+“section.
+“(3) An individual, organization, or enterprise unable to comply with this section for technical
+“reasons may be granted not more than 30 additional days to comply, after which they will be
+“fined according to paragraphs (1) and (2).
+“(c) DEFINITIONS
+“(1) For the purposes of this section—
+“(i) “personal data” means any information, media, or files relating to a natural person who
+“can be identified, including names, addresses, identification numbers, internet protocol
+“addresses, location data, aliases, usernames, emails, phone numbers, facial images,
+“fingerprints, or any other factors which would contribute to identifying any natural person,
+“except for any legal documents, media, or files held by the states of federal government.
+“(ii) “informed consent” means any freely given and unambiguous agreement given by a
+“person who is presented with and can reasonably understand the terms of the agreement.
+“(iii) “data subject” means the person to whom personal data belongs or relates to.
+“(iv) “directly viewing” means the accessing, viewing, or evaluation of personal data by a
+“person, algorithm, or any other agent.
+“(v) "profiling” means the use of personal data to analyze, evaluate, or predict personal
+“aspects relating to natural persons, including but not limited to preferences, behavior,
+“location, health.
+“(vi) “inactive” means a data subject from which new data has not been recorded.
+“(vii) “easily accessible mechanism” means any freely available and unambiguous process
+“or agreement by which a data subject may request the deletion of their personal data.
+SEC. 3. ENACTMENT.
+(a) Effective Date.—The amendments made by this act shall apply starting June 1, 2020.
+—————————————————————————————————————————————————

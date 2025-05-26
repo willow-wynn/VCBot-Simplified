@@ -1,0 +1,114 @@
+S.9
+To enhance defense cooperation amongst member states of the Indo-Pacific Treaty
+Organization, harmonize allied export control regimes, expedite military technology transfers,
+and relax International Traffic in Arms Regulations for civilian aerospace purposes.
+—————————————————————
+IN THE SENATE OF THE UNITED STATES
+January 31, 2024
+Mr. EMPERIO (for himself, Mr. PLURIBUS, Mr. HARRIS-CHAREST,
+Mr. RABB) submitted the following bill; which was referred to the
+Committee on Relations.
+—————————————————————
+A BILL
+To enhance defense cooperation amongst member states of the Indo-Pacific Treaty
+Organization, harmonize allied export control regimes, expedite military technology transfers,
+and relax International Traffic in Arms Regulations for civilian aerospace purposes.
+Be it enacted by the Senate and House of Representatives of the United States of America
+in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the "Technology Interconnectedness and Export Streamlining Act"
+or the TIES Act.
+SEC. 2. HARMONIZATION OF ALLIED EXPORT CONTROL REGIMES; ITAR EXEMPTION.
+IN GENERAL.—Section 38 of the Arms Control Export Act (22 U.S.C. 2778) is amended by
+appending the following subsection:tia
+pg. 1 of 5
+
+“(l) IPTO DEFENSE COOPERATION.—
+“(1) IN GENERAL.—No later than 3 months after this enactment of this section, and on
+an annual basis thereafter, the President shall determine and certify in writing to the
+relevant congressional committees whether a cooperating state has—
+“(A) implemented a system of export controls comparable to the United States;
+“(B) included comparable exemptions from export controls for the United States.
+“(2) DEFINITIONS.—In this subsection:
+(A) COOPERATING STATE.—The term “cooperating state” means any member
+of the Indo-Pacific Treaty Organization, including:
+(i) The Commonwealth of Australia;
+(ii) The Republic of Korea;
+(iii) The Republic of India; and
+(iv) Japan.
+(B) RELEVANT CONGRESSIONAL COMMITTEES.—The term “relevant
+congressional committees” includes the:
+“(A) Committee on Ethics and Oversight of the House of Representatives; and
+“(B) Committee on Relations of the Senate.
+“(3) REPORTING REQUIREMENTS.—
+“(A) POSITIVE ASSESSMENT.—If the President determines that a cooperating
+state has met the comparability standards of subparagraphs (A) and (B) of
+paragraph (1), the determination and certification of such shall include a detailed
+assessment of how a cooperating state has satisfied those individual requirements.
+“(B) NEGATIVE ASSESSMENT.—If the President determines that a cooperating
+state has not met the comparability standards of subparagraphs (A) and (B) of
+paragraph (1), the determination of such shall include a detailed assessment of the
+pg. 2 of 5
+
+specific elements the cooperating state did not satisfy and the actions a cooperating
+state would need to take to meet those comparability standards.
+“(C) TRANSMISSION.—The President shall also deliver an assessment made
+under paragraph (3) of this subsection to the relevant authorities of the cooperating
+state to which the assessment pertains to.
+“(D) ANNEX.—Any assessment submitted to Congress or a cooperating state
+under this subsection may include a classified annex if deemed necessary by the
+President.
+“(4) EXEMPTION.—Upon submittal of a determination and certification to the relevant
+congressional committees that a cooperating state has met the comparability standards of
+paragraph (1) of this subsection, the President shall immediately exempt from the
+licensing or other approval requirements of this section exports and transfers (including
+reexports, transfers, temporary imports, and brokering activities) of defense articles and
+defense services between the United States and that cooperating state or among other
+cooperating states.
+“(5) SUSPENSION.—If the President determines that a cooperating state, previously
+certified under paragraph (1) of this subsection, no longer meets the comparability
+standards of subparagraphs (A) and (B) of paragraph (1), the President shall immediately
+suspend the exemption granted under paragraph (4) for that cooperating state, until such
+time that the cooperating state meets those standards again.”
+SEC. 3. EXPEDITED MILITARY TECHNOLOGY TRANSFER.
+(a) IN GENERAL.—The Secretary of State, in cooperation with the Secretary of Defense,
+shall promulgate an anticipatory release policy for the transfer of technologies described in
+subsection (b) to cooperating states (as defined in section 38(l)(2)(A) of the Arms Control Export
+Act (22 U.S.C. 2778(l)(2)(A)) of the Indo-Pacific Treaty Organization, certified under section
+pg. 3 of 5
+
+38(l)(3)(A) of that Act, through Foreign Military Sales and Direct Commercial Sales not already
+covered by an exemption under the International Traffic in Arms Regulations.
+(b) TECHNOLOGIES DESCRIBED.—The technologies described in this section relate to:
+(1) cybersecurity and information warfare;
+(2) electronic warfare;
+(3) undersea warfare;
+(4) autonomous systems and artificial intelligence;
+(5) quantum technologies;
+(6) strategic communication and psychological operations; and
+(7) other advanced technologies.
+SEC. 4. ITAR RELAXATION FOR CIVILIAN AEROSPACE PURPOSES.
+(a) IN GENERAL.—No later than 1 year after the passage of this Act, the Secretary of State,
+in consultation with the Secretary of Defense (hereinafter referred to the as “the Secretaries”),
+shall promulgate new regulations to relax the International Traffic in Arms Regulations to enable
+the greater participation of nationals of certified cooperating states, pursuant to Indo-Pacific
+Treaty Organization and section 38(l)(2)(A) of the Arms Control Export Act (22 U.S.C.
+2778(l)(2)(A), in the civilian space sector, for which purpose the Secretaries may consider—
+(1) amending the United States Munitions List (22 CFR 121.1), particularly
+technologies relating to rockets and satellite launch vehicles (SLVs); and
+(2) re-examining the ITAR definition of a U.S. person (22 CFR 120.62) to include such
+nationals who are employed by a recognized aerospace entity under a valid and lawfully
+issued visa or work authorization.
+(b) VETTING PROCESS.—Any regulations made or modified under subsection (a) shall
+require that a national of a cooperating state pass a comprehensive vetting process which,
+according to the nature of their work, may include background investigations, national agency
+pg. 4 of 5
+
+checks, credit checks, foreign national assessments, security interviews, polygraph
+examinations, and any other scrutiny deemed appropriate.
+(c) VIOLATION.—The Secretaries shall also be empowered to promulgate stringent new
+fines and penalties for any entity found in violation of regulations made or modified under
+subsection (a).
+SEC. 5. ENACTMENT.
+The provisions of this Act shall enter into force immediately upon passage.
+pg. 5 of 5

@@ -1,0 +1,81 @@
+IN THE CONGRESS OF THE UNITED STATES
+March 2, 2021
+Mr. SOLOMON(for himself, Mr. ILTUTMISH, Mr. TOBY, Ms.
+BROADMAN, Mr. FRANCIS, Mr. MARK, Ms. DUNBAR) introduced
+the following bill;
+A BILL
+To require the Administrator of the Environmental Protection Agency to regulate and designate
+tetrafluoromethane and hexafluoroethane as hazardous air substances under the
+Comprehensive Environmental Response, Compensation, and Liability Act of 1980
+Be it enacted by the House of Representatives of the United States of America in
+Congress Assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Tetrafluoromethane & Hexafluoroethane Regulation & Designation Act”
+SEC. 2. FINDINGS.
+Congress finds that—
+(a) Tetrafluoromethane and Hexafluoroethane are both major contributors to the greenhouse effect
+and are potent greenhouse gases.
+(b) Tetrafluoromethane has an atmospheric lifetime of 50,000 years and a greenhouse warming
+potential of 6,500.
+(i) For reference, Carbon dioxide has a greenhouse warming potential of 1.
+(c) Hexafluoroethane has an atmospheric lifetime of 10,000 years and a global warming potential
+of 9,200.
+
+SEC. 3. DEFINITIONS.
+In this Act—
+(a) TETRAFLUOROMETHANE.— Also known as Carbon Tetrafluoride, is the simplest
+perfluorocarbon and a perfluorinated counterpart to methane. It has a chemical formula of CF
+4
+and is a bond of one carbon and four fluorine atoms.
+(b) HEXAFLUOROETHANE.— A perfluorocarbon counterpart to the hydrocarbon ethane. It has
+a chemical formula of C F and contains two carbon and six fluorine atoms.
+2 6
+(c) ADMINISTRATOR.— The term “Administrator” means the Administrator of the
+Environmental Protection Agency
+(d) PHASE DOWN.— A slowing down of a process through phases.
+(e) REGULATED SUBSTANCE.— The term regulated substances refers to the the Consolidated
+List of Chemical
+SEC. 4. DESIGNATION OF TETRAFLUOROMETHANE AND HEXAFLUOROETHANE AS
+HAZARDOUS AIR POLLUTANTS.
+(a) DESIGNATION.— No later than 100 days after the date of enactment of this Act, the
+Administrator shall issue a final rule adding, as a class, Tetrafluoromethane and
+Hexafluoroethane to the list of hazardous air pollutants under section 112(b) of the Clean Air
+Act (42 U.S.C. 7412(b)).
+(b) SOURCES CATEGORIES.— No later than 6 months after the final rule is issued under
+subsection (a), the Administration shall revise the list under Section 112(c)(1) of the Clean Air
+Act ((42 U.S.C. 7412(c)(1)) to include categories and subcategories of major sources and area
+sources of Tetrafluoromethane and Hexafluoroethane listed pursuant to the final rule.
+SEC. 5. PHASE-DOWN OF PRODUCTION AND CONSUMPTION OF
+TETRAFLUOROMETHANE & HEXAFLUOROETHANE.
+(a) IN GENERAL.— During the period beginning on January 1 of each year listed in the table
+contained in subsection (c) and ending on December 31 of the year before the next year listed
+on that table, except as otherwise permitted under this Act, no person shall—
+(i) Produce a quantity of regulated substances without a corresponding quantity of
+production allowances.
+(ii) Consume a quantity of regulated substances without a corresponding quantity of
+consumption allowances.
+
+(b) COMPLIANCE.—For each year listed on the table contained in subsection (c), the
+Administrator shall ensure that the annual quantity of all regulated substances produced or
+consumed in the United States does not exceed the product obtained by multiplying the
+applicable percentage listed on the table contained in subsection (c).
+(c) RELATION TO BASELINE.—On January 1 of each year listed in the following table, the
+Administrator shall apply the applicable percentage, as described in subsection (a):
+Date Percentage of Production Percentage of Consumption
+Baseline Baseline
+2021-2024………………….. 90 percent 90 percent
+2025-2029………………….. 60 percent 60 percent
+2030-2034………………….. 30 percent 30 percent
+2035-2037………………….. 20 percent 20 percent
+2038 and thereafter……….... 15 percent 15 percent
+(d) REGULATION REGARDING PRODUCTION AND CONSUMPTION OF
+TETRAFLUOROMETHANE & HEXAFLUOROETHANE.— No later than 270 days after the
+date of enactment of this Act, the Administrator shall issue a final rule of the following—
+(i) Phasing down the production of Tetrafluoromethane and Hexafluoroethane in the
+United States through an allowance allocation and trading program in accordance with
+this act.
+(ii) Phasing down the consumption of Tetrafluoromethane and Hexafluoroethane in the
+United States through an allowance allocation and trading program in accordance with
+the schedule under subsection (c).
+SEC. 6. ENACTMENT.
+EFFECTIVE DATE.— The provisions of this Act shall come into force immediately upon passage.

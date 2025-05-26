@@ -1,0 +1,44 @@
+143RDCONGRESS
+1STSESSION
+H.R. 33
+To amend title 31, United States Code, in regards to limiting the
+amount that the portion of a taxpayer’s tax refund may be reduced by
+student loans
+——————————————————
+IN THE CONGRESS OF THE UNITED STATES
+AUGUST 2ND, 2021
+Mr. LIGHTWOOD-TOWARD (for himself,) introduced
+the following bill;
+——————————————————
+A BILL
+To amend title 31, United States Code, in regards to limiting the
+amount that the portion of a taxpayer’s tax refund may be reduced by
+student loans
+Be it enacted by the Senate and House of Representatives in
+Congress Assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Preventing Tax Credit Seizures Act.
+SEC. 2. REDUCTION LIMITATIONS ON CERTAIN PORTIONS OF TAX
+REFUNDS BY AMOUNT OF STUDENT LOAN DEBT.
+(a) IN GENERAL.—Section 3720A of title 31, United States Code, is amended by
+adding at the end the following new subsection:
+
+“(j) The Secretary of the Treasury shall not reduce under subsection (c),
+because of student loan debt, a refund of Federal taxes paid that is
+payable to a taxpayer to the extent such reduction would cause such
+refund to be less than the sum of credits allowed under subpart C of
+part IV of subchapter A of chapter 1 of the Internal Revenue Code of
+1986 because of sections 24 and 32 of such Code. The Secretary of the
+Treasury shall determine the amount of the reduction under
+subsection (c) that is because of student loan debt and the amount of
+the refund that is being reduced after applying all other reductions
+under such subsection.”.
+(b) CONFORMING AMENDMENT.—Section 6402(d)(1) of the Internal Revenue
+Code of 1986 is amended by inserting “and subject to the limitations with
+respect to student loan debt under section 3720A of title 31, United States
+Code” before “) to such agency”.
+(c) EFFECTIVE DATE.—The amendments made by this section shall apply to
+refunds of Federal taxes paid for taxable years beginning after December 31,
+2020.
+SEC. 3. ENACTMENT.
+EFFECTIVE DATE.—This Act shall go into effect immediately upon passage.

@@ -1,0 +1,199 @@
+IN THE CONGRESS OF THE UNITED
+STATES
+July 11, 2021
+Mr. WOOD (for himself), Mr. HARRIS on behalf of the
+BERRY ADMINISTRATION) introduced the following
+bill;
+A BILL
+To strengthen and empower the United States Department of Education with
+respect to fiscal concerns regarding students.
+Be it enacted by the Senate and the House of Representatives of the
+United States of America in Congress Assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Supporting Those Under the Department of
+Education’s New Terms Act of 2021, or the STUDENT Act of 2021”
+SEC. 2. FINDINGS.
+Congress finds that—
+(a) 42.9 million borrowers applied for, and received Federal student loans as of
+September of 2020;
+(b) Those 42.9 million borrowers took out $1.57 trillion in federal loans as of
+September of 2020;
+
+(c) The outstanding amount of student loan debt, including interest, exceeds
+$1.8 trillion;
+(d) The average amount per borrower totals $41,958.04 as of September of 2020;
+(e) 22.2 million borrowers are in forbearance for $887.4 billion, or 49.3 percent of
+outstanding student debt as of September of 2020;
+(f) Temporary options such as deferrals or forbearances result in increases to the
+loan balances of borrowers who cannot afford to pay their loans at the current
+payment requirements;
+(g) 11.1 percent of borrowers were in excess of 90 days behind on payments for
+their student loans.
+(h)Only one in four borrowers are able to afford the level payment plan, which is
+the most cost effective method in paying off a loan balance over the long term;
+(i) 3.6 million parents shoulder the cost of a portion of their child’s education in
+order for them to advance in society;
+(j) For a period of fourteen years, beginning in 1992, the federal government
+issued loans at variable interest rates, which negatively impacted borrowers;
+and
+(k)Borrowers opting to consolidate their loans are not offered the same
+protections as borrowers opting to not consolidate their loans.
+SEC. 3. DEFINITIONS.
+In this Act:
+(1) The term “borrower” refers to an individual who has borrowed funds from the
+federal government for the purposes of obtaining an education from an
+institution of higher learning.
+(2) The term “applicant” refers to an individual who has applied to borrow funds
+from the federal government for the purposes of obtaining an education from
+an institution of higher learning.
+(3) The term “department” refers to the United States Department of Education,
+unless otherwise noted.
+(4) The term “secretary” refers to the secretary of the Department of Education,
+unless otherwise noted.
+
+SEC. 4. AMENDING INTEREST RATES IN UNITED STATES CODE.
+(a) IN GENERAL.—Section 1087e of Title 20, United States Code is amended by, in
+subsection b—
+(1) in subparagraph (1)(A), striking “; plus”;
+(2) striking subparagraph (1)(B) in its entirety;
+(3) in clause (2)(B)(i), striking “; plus”;
+(4) striking clause (2)(B)(ii) in its entirety;
+(5) in subparagraph (3)(A), striking “; plus”;
+(6) striking subparagraph (3)(B) in its entirety;
+(7) in subclause (4)(A)(i)(I), striking “; plus”;
+(8) striking subclause (4)(A)(i)(II) in its entirety;
+(9) in subclause (4)(A)(ii)(I), striking “; plus”;
+(10) striking subclause (4)(A)(ii)(II) in its entirety;
+(11) striking subparagraph (5)(A) and replacing it with the following:
+“(1) Notwithstanding the preceding paragraphs of this
+subsection, for Federal Direct Stafford Loans and Federal Direct
+Unsubsidized Stafford Loans for which the first disbursement is
+made on or after July 1, 1998, and before October 1, 1998, the
+applicable rate of interest shall, during any 12-month period
+beginning on July 1 and ending on June 30, be determined on
+the preceding June 1 and be equal to the bond equivalent rate of
+91-day Treasury bills auctioned at the final auction held prior to
+such June 1, except that such rate shall not exceed 5 percent.”;
+(12) in paragraph (5), appending the following subparagraph:
+“(D) The Secretary shall have the authority to decrease interest
+rates to any percentage between the current active rate and zero
+percent on all loans issued by the Department, including
+consolidation loans, without regard to repayment status, during
+the declaration of a national emergency as defined by the
+National Emergencies Act of 1974 (50 USC § 1601-1651). During
+
+this time, interest shall accrue at the new rate prescribed by the
+Secretary.”;
+(13) in subparagraph (5)(B), striking “by substituting ‘1.7 percent’ for
+‘2.3 percent’”;
+(14) in subparagraph (5)(C)—
+(i) striking the em dash and replacing it with a period; and
+(ii) striking clauses (i) and (ii);
+(15) in subparagraph (6)(A), striking the em dash and all that follows,
+and replacing it with “the bond equivalent rate of 91-day Treasury bills
+auctioned at the final auction held prior to such June 1, except that
+such rate shall not exceed 5 percent.”;
+(16) in subparagraph (6)(B), striking “by substituting ‘1.7 percent’ for
+‘2.3 percent’”;
+(17) in subparagraph (6)(C), striking the em dash and all that follows
+and replacing it with a period;
+(18) in subparagraph (6)(E), striking the em dash and all that follows,
+and replacing it with “the bond equivalent rate of 91-day Treasury bills
+auctioned at the final auction held prior to such June 1, except that
+such rate shall not exceed 5 percent.”;
+(19) in subparagraph (7)(A), striking “6.8 percent”, and replacing it with
+“the bond equivalent rate of 91-day Treasury bills auctioned at the
+final auction held prior to such June 1 of the year in which the loan
+was originally issued”;
+(20) in subparagraph (7)(B), striking “7.9 percent”, and replacing it with
+“the bond equivalent rate of 91-day Treasury bills auctioned at the
+final auction held prior to such June 1 of the year in which the loan
+was originally issued”;
+(21) in subparagraph (7)(D), striking “as follows:” and all that follows
+and replacing it with “the bond equivalent rate of 91-day Treasury bills
+auctioned at the final auction held prior to such June 1 of the year in
+which the first disbursement was issued.”;
+(22) in clause (8)(A)(i), striking “plus 2.05 percent”;
+
+(23) in clause (8)(A)(ii), striking “8.2”;
+(24) in clause (8)(B)(i), striking “plus 3.6 percent”;
+(25) in clause (8)(B)(ii), striking “9” and replacing it with “5”;
+(26) in clause (8)(C)(i), striking “plus 4.6 percent”;
+(27) in clause (8)(C)(ii), striking “10.5” and replacing it with “6”; and
+(28) in subparagraph (8)(C), striking the period in clause (ii) and
+appending the following at the end of the subparagraph:
+“and, for borrowers with incomes below $110,000 annually, the
+Secretary may, with proper documentation, adjust the interest
+rate of the consolidated loans to be equal to the weighted
+average of the interest rates on the loans before consolidation
+without the added margin.”.
+SEC. 5. AMENDING QUALIFIED PERIODS FOR ELIGIBLE MILITARY
+BORROWERS.
+(a) IN GENERAL.—Section 1087e of Title 20, United States Code is amended, in
+paragraph (o)(4), by striking “60”, and replacing it with “120”.
+SEC. 6. AMENDING UNITED STATES CODE REGARDING LOAN
+DEFERMENTS.
+(a) IN GENERAL.—Section 1087e of Title 20, United States Code is amended by, in
+subsection (f)—
+(1) in paragraph (1), by striking the em dash and all that follows and
+inserting “shall not accrue.”;
+(2) in paragraph (2)(B), striking “3”, and replacing it with “6”; and
+(3) in paragraph (2)(D), striking “3”, and replacing it with “6”.
+SEC. 7. AMENDING UNITED STATES CODE REGARDING DIRECT
+SUBSIDIZED LOANS.
+(a) IN GENERAL.—Section 1087e of Title 20, United States Code is amended by
+striking paragraph (q)(1) and replacing it with the following:
+
+“(1) Notwithstanding subsection (a) or any other provision of this
+subchapter, any borrower who was a new borrower on or after July 1,
+2013, shall not be eligible for a Federal Direct Stafford Loan if the
+period of time for which the borrower has received Federal Direct
+Stafford Loans, in the aggregate, exceeds the period of enrollment
+described in paragraph (3): Provided, That the borrower is not also
+eligible for either the Federal Supplemental Educational Opportunity
+Grant, or Federal Pell Grant. Any borrower deemed ineligible for a
+Federal Direct Stafford Loan may still receive any Federal Direct
+Unsubsidized Stafford Loan for which such borrower is otherwise
+eligible.”.
+SEC. 8. RETROACTIVITY AUTHORIZED.
+The Secretary shall have the authority to retroactively apply any changes
+made by this Act to all existing loans issued by the Department.
+SEC. 9. FORGIVENESS
+(a) IN GENERAL.—The Secretary shall have the authority to discharge a portion
+of federally-held or federally-disbursed student loan balance.
+(b) LIMITS.—The Secretary is prohibited from ordering a mass discharge of the
+student loan debt—
+(1) more than once every ten years;
+(2) in excess of 20 percent of the federally-held or federally-disbursed
+student loan balance; or
+(3) for borrowers earning in excess of $55,000 annually, as determined by
+the Internal Revenue Service.
+SEC. 10. NOTIFICATION
+(a) IN GENERAL.—The Secretary shall notify all current borrowers about the
+changes made under this law, and ensure that loan finances are explained to
+applicants in simple English.
+
+(b) REQUIREMENTS.— In carrying out the program under subsection (a) the
+Secretary shall—
+(1) draft and send a letter serving as notification to all borrowers notifying
+them of the changes to their loans; and
+(2) create a simple English explanation of the terms of all loans disbursed
+by the Department, consisting of—
+(A)total amount borrowed;
+(B)total interest over the life of the loan for all repayment plans
+offered by the Department;
+(C)all mandatory fees; and
+(D)all possible fees that may be applied due to actions of the
+borrower.
+(c) FUNDING.— The Secretary is authorized to be appropriated $22,000,000
+during the fiscal year of 2021 to carry out the provisions of this section to
+cover postage for the correspondence.
+SEC. 11. SEVERABILITY.
+(a) IN GENERAL.— If any provision of this Act or amendment made by this Act, or
+the application of a provision or amendment to any person or circumstance, is
+held to be unconstitutional, the remainder of this Act and amendments made
+by this Act, and the application of the provisions and amendment to any
+person or circumstance, shall not be affected by the holding.
+SEC. 12. ENACTMENT.
+(a) EFFECTIVE DATE.— The provisions of this Act shall come into force
+immediately upon passage.

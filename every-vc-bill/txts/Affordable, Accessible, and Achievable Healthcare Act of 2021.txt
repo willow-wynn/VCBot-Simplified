@@ -1,0 +1,756 @@
+140th Congress
+1stSession
+H.R.41
+Tomake qualityhealthcare moreAffordable,Accessible, andAchievable for theAmerican
+people.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE HOUSE OF REPRESENTATIVES
+MAY 6, 2021
+Mr.MILLERofJackson(forhimself,Mr.TOBY,Mr.HARRIS,Ms.HARRIS-KITE,Mr.DIAZ)
+introducedthefollowingbill;whichwasreferredtotheCommitteeonGeneralLegislation
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+Tomake qualityhealthcare moreAffordable,Accessible, andAchievable for theAmerican
+people.
+Beit enactedbytheSenateandHouse ofRepresentativesof theUnited StatesofAmericain
+Congressassembled,
+SECTION 1.SHORTTITLE;TABLE OF CONTENTS.
+(a) SHORT TITLE.—This Actmaybe citedasthe “AAAHActof 2021”,orthe
+“Affordable,Accessible, andAchievableHealthcareAct of2021”.
+(b) TABLE OF CONTENTS.—The tableofcontents for thisAct isas follows:
+Section 1.Short title; table ofcontents.
+TITLE I—LOWERINGHEALTHCARECOSTS
+Sec. 101.EstablishingaState healthinsurance affordabilityand innovationfund.
+TITLE II—EXPANDING, INCENTIVIZING,ANDIMPROVING MEDICAID
+Sec. 201.Expandingaccesstoadult vaccines underMedicaid.
+Sec. 202.ReducingtheadministrativeFMAP for nonexpansionStates.
+Sec. 203.Stateoption to provide 12months ofpostpartum Medicaideligibility.
+Sec. 204.SupportingState Medicaidprograms through economicdownturns.
+TITLE III—FAIRMEDICARE PAYMENTSTO RURALHOSPITALS
+
+Sec. 301.Ensuringfairnessin Medicarehospitalpayments.
+TITLE IV—COMMONSENSECOMPETITION AND ANDACCESS TOHEALTH
+INSURANCE
+Sec. 401.Providingsmallbusiness healthinsuranceacross State lines.
+Sec. 402.Reportandmodels.
+TITLE V—FUNDING ANDEFFECTIVEDATE
+Sec. 501.Funding andeffective date.
+TITLE I—LOWERING HEALTHCARE COSTS
+SEC.101.ESTABLISHINGA STATEHEALTH INSURANCEAFFORDABILITYAND
+INNOVATIONFUND.
+Subtitle D of titleI of thePatientProtection andAffordable CareAct(42 U.S.C.18021et
+seq.) isamendedbyaddingat theendthe following:
+“PART6—STATEHEALTHINSURANCEAFFORDABILITY ANDINNOVATION
+FUND
+“SEC.1351.ESTABLISHMENT OF FUND.
+“Thereisherebyestablished the‘StateHealth InsuranceAffordabilityand Innovation
+Fund’ tobe administeredbythe SecretaryofHealth andHuman Services,actingthrough the
+Administrator of theCenters for Medicare&MedicaidServices (referredtoin thissection asthe
+‘Administrator’), to providefunding, inaccordancewith thispart,to eachof the50Statesand
+theDistrict of Columbia(each referredto inthis sectionasa ‘State’)beginning onJanuary1,
+2022,for thepurposes described insection1352.
+“SEC.1352.USEOF FUNDS.
+“(a)IN GENERAL.—A Stateshalluse thefunds allocated tothe Stateunder this partfor
+one of thefollowingpurposes:
+“(1) Toprovidereinsurance paymentstohealthinsurance issuers withrespect to
+individuals enrolledunder healthinsurance coverage(other thanthrough aplan
+described insubsection (b))offered bysuchissuers.
+“(2) Toprovideassistance (otherthan throughpayments describedin paragraph
+(1)) to reduceout-of-pocket costs,suchas copayments,coinsurance,premiums,
+and deductibles,of individualsenrolled underqualified healthplans offered on
+theindividual marketthrough anExchange.
+“(3) Stateefforts tostreamline healthinsurance enrollmentproceduresinorderto
+reduce burdensonconsumers andfacilitate greaterenrollmentinhealthinsurance
+coveragein theindividual andsmallgroup markets,includingautomatic
+
+enrollment andreenrollment of, orpre-populatedapplicationsfor, individuals
+without health insurancewho areeligible for taxcredits under section36Bof the
+InternalRevenueCode of 1986,withtheability tooptoutof suchenrollment.
+“(4) Stateinvestment intechnologytoimprove datasharing andcollection for the
+purposes of facilitating greaterenrollmentinhealthinsurance coverageinsuch
+markets.
+“(5) Feasibilitystudiesto developcomprehensive andcoherentState plan for
+increasingenrollment inthe individualandsmall groupmarket.
+“(b) EXCLUSION OFCERTAIN GRANDFATHEREDAND TRANSITIONAL
+PLANS.—For purposesof subsection(a), aplandescribed inthis subsection isthe
+following:
+“(1) Agrandfathered healthplan(asdefined in
+12section 1251).
+“(2) Aplan (commonlyreferred toas a‘transitionalplan’)continuedunder the
+letter issued bytheCentersfor Medicare& MedicaidServices onNovember14,
+2013,to the State InsuranceCommissionersoutlining atransitionalpolicy for
+coveragein theindividual andsmallgroup marketsto whichsection1251does
+not apply,and under theextensionof thetransitional policy for suchcoverage set
+forth intheInsuranceStandardsBulletin Seriesguidanceissuedbythe Centersfor
+Medicare&Medicaid ServicesonMarch 5,2014,February29,2016, February
+13,2017,April 9,2018,March25,2019,andJanuary 31,2020,orunder any
+subsequentextensions thereof.
+‘‘(3) Student healthinsurancecoverage (asdefinedinsection 147.145oftitle45,
+Code of Federal Regulations).
+“SEC.1353.STATEELIGIBILITY ANDAPPROVAL; DEFAULTSAFEGUARD.
+“(a)ENCOURAGINGSTATE OPTIONS FORALLOCATIONS.—
+“(1) INGENERAL.—To beeligiblefor an allocationof funds underthis partfor
+a year(beginning with2022),a Stateshallsubmitto theAdministrator an
+application atsuch time(but, inthecaseof allocationsfor 2022,notlater than90
+daysafter the date ofthe enactmentof this partand,inthe caseofallocationsfor a
+subsequentyear, notlater thanMarch1of theprevious year)andin suchform
+and manner asspecifiedbythe Administratorcontaining—
+“(A)adescriptionof how thefunds willbe used;and
+“(B) suchotherinformation asthe Administratormay require.
+“(2) AUTOMATICAPPROVAL.—An applicationso submittedis approved
+unlesstheAdministrator notifies theState submitting theapplication, notlater
+than60daysafter thedate of thesubmission ofsuch application,that the
+application hasbeen denied for notbeingin compliancewith anyrequirementof
+this partandof thereasonfor such denial.
+
+“(3) 5-YEAR APPLICATIONAPPROVAL.—If anapplication of aState is
+approvedfor apurposedescribed insection 1352for ayear,such application shall
+be treatedas approvedfor suchpurposefor each ofthe subsequent4years.
+“(4) REVOCATIONOF APPROVAL.—The approvalofan applicationof aState,
+with respecttoa purposedescribedin section1352,maybe revokedifthe State
+failsto usefunds providedtothe State underthis sectionfor such purposeor
+otherwisefailstocomply withthe requirements ofthis section.
+“(b) DEFAULTFEDERAL SAFEGUARD.—
+“(1) 2022.—For 2022,inthecaseof aState that doesnotsubmitan application
+under subsection(a) bythe90-day submissiondate applicable tosuch yearunder
+subsection(a)(1) andinthe caseofa Statethat does submitsuchanapplication by
+suchdate thatis notapproved,theAdministrator,in consultationwith theState
+insurance commissioner, shall,fromthe amountcalculatedunder paragraph (4)
+for suchyear,carry outthepurposedescribed inparagraph (3) insuch State for
+suchyear.
+“(2) 2023AND SUBSEQUENTYEARS.—For 2023orasubsequent year,inthe
+caseof a State thatdoes nothave ineffect anapprovedapplication underthis
+section forsuch year,the Administrator,inconsultation withthe Stateinsurance
+commissioner,shall,fromthe amount calculatedunderparagraph (4) for such
+year,carryoutthe purposedescribed inparagraph (3) insuchState for such year.
+“(3) SPECIFIEDUSE.—The amountdescribed inparagraph (4), withrespect to
+2022or a subsequentyear, shallbeusedto carryoutthe purposedescribed in
+section 1352(a)(1) ineach Statedescribed inparagraph (1) or (2) for suchyear, as
+applicable, byproviding reinsurancepayments tohealthinsurance issuerswith
+respect toattachmentrangeclaims (asdefinedinsection1354(b)(2)), usingthe
+dollar amountsspecifiedin subparagraph(B)of suchsectionfor such yearinan
+amount equal to,subjecttoparagraph (5), the percentage(specifiedfor such year
+bytheSecretary undersuch subparagraph)of theamount of suchclaims.
+“(4) AMOUNTDESCRIBED.—The amount described inthis paragraph,with
+respect to2022or asubsequentyear, isthe amountequal tothe total sumof
+amountsthat theSecretarywouldotherwise estimateunder section
+1354(b)(2)(A)(i) for such yearfor eachState described inparagraph (1) or(2) for
+suchyear,as applicable,if each suchState were notsodescribed for such year.
+“(5) ADJUSTMENT.—Forpurposesof this subsection,the Secretarymayapply a
+percentageunder paragraph (3) withrespect toayearthat islessthan the
+percentageotherwise specifiedinsection1354(b)(2)(B) for suchyear, ifthe cost
+of payingthe totaleligibleattachmentrangeclaims for Statesdescribedin this
+subsectionfor suchyearat suchpercentageotherwise specifiedwouldexceedthe
+amount calculated under paragraph(4) for such year.
+
+“SEC.1354.ALLOCATIONS.
+“(a)APPROPRIATION.—For thepurposeof providing allocationstoStatesunder
+subsection(b) and paymentsunder section1353(b), thereis appropriated,outof any
+moneyin theTreasury nototherwise appropriated,$10,000,000,000for 2022 andeach
+subsequent year.
+“(b) ALLOCATIONS.—
+“(1) PAYMENT.—
+“(A)INGENERAL.—From amountsappropriatedunder subsection(a)
+for ayear, theSecretaryshall,with respectto aState notdescribed in
+section1353(b) for such yearandnotlater thanthe date specifiedunder
+subparagraph(B) for suchyear, allocatefor such State theamount
+determinedfor such Stateand yearunderparagraph (2).
+“(B) SPECIFIED DATE.—Forpurposes ofsubparagraph(A), thedate
+specifiedinthis subparagraphis—
+“(i) for 2022,thedate that is45days afterthe date ofthe
+enactment ofthis part;and
+‘‘(ii) for 2023orasubsequent year,January1of therespective
+year.
+“(C) NOTIFICATIONS OFALLOCATION
+AMOUNTS.—For 2023andeach subsequentyear, theSecretaryshall
+notify each State ofthe amountdeterminedfor such State underparagraph
+(2) for such yearbynotlaterthan January1of thepreviousyear.
+“(2) ALLOCATION AMOUNTDETERMINATIONS.—
+“(A)INGENERAL.—For purposesofparagraph (1), the amount
+determinedunder this paragraphfor a yearfor aState describedin
+paragraph (1)(A) for suchyearis theamount equal to—
+“(i) theamount that theSecretaryestimateswouldbe expended
+under this partfor suchyearonattachmentrangeclaims of
+individuals residinginsuch State ifsuch State usedsuch funds
+onlyfor the purposedescribed inparagraph (1) ofsection1352(a)
+at thedollaramountsand percentagespecifiedundersubparagraph
+(B) for suchyear;minus
+“(ii) theamount, if any,bywhichthe Secretarydetermines—
+“(I) theestimatedamount of premiumtax creditsunder
+section36B ofthe InternalRevenueCode of1986that
+wouldbeattributable toindividuals residinginsuch State
+for such yearwithoutapplication ofthis part;exceeds
+“(II)the estimatedamount ofpremium taxcredits under
+section36B ofthe InternalRevenueCode of1986that
+wouldbeattributable toindividuals residinginsuch State
+
+for such yearifsuch State werea Statedescribed insection
+1353(b) for such year.For purposesofthe previous
+sentence andsection1353(b)(3), the term‘attachment
+rangeclaims’means,withrespect toan individual,the
+claims for suchindividualthat exceedadollar amount
+specifiedbythe Secretaryfor ayear,but donotexceeda
+ceilingdollar amountspecifiedbythe Secretaryfor such
+year, undersub- paragraph (B).
+“(B) SPECIFICATIONS.—For purposesofsubparagraph(A) andsection
+1353(b)(3), the Secretaryshalldeterminethedollaramountsand the
+percentagetobe specifiedunderthis subparagraphfor ayearin amanner
+to ensure thatthe totalamount ofexpendituresunder this partfor such
+yearis estimatedtoequal thetotalamount appropriatedfor such year
+under subsection(a) ifsuch expenditureswere usedsolelyfor the purpose
+described inparagraph (1) ofsection 1352(a)for attachmentrangeclaims
+atthedollaramountsand percentagesospecifiedfor suchyear.
+“(3) AVAILABILITY.—Fundsallocated toa Stateunder this subsectionfor a year
+shallremain availablethrough the endofthe subsequentyear.’’.
+TITLE II—EXPANDING, INCENTIVIZING, AND
+IMPROVING MEDICAID
+SEC.201.IMPROVINGACCESS TOADULTVACCINES UNDERMEDICAID.
+(a) REQUIRING MEDICAID PLANSTO COVERADULT VACCINATIONS.—Section
+1902(a)(10)(A) of theSocial SecurityAct(42U.S.C.1396a(a)(10)(A)) isamendedinthe
+matter precedingclause (i)byinserting “(13)(B),”after“(5),”.
+(b) NOCOST-SHARING FORVACCINATIONS.—
+(1) GENERAL COST-SHARINGLIMITATIONS.—Section1916of theSocial
+Security Act (42U.S.C.1396o) isamended—
+(A)in subsection (a)(2)—
+(i)in subparagraph(F),bystriking “,or” andinserting acomma;
+(ii) insubparagraph(G), bystriking“; and”andinserting “,or”;
+and
+(iii) byaddingat theend thefollowing newsubparagraph:
+“(H)vaccines describedin section1905(a)(13)(B) (andthe administration
+of suchvaccines);and”; and
+
+(B)in subsection (b)(2)—
+(i)in subparagraph(F),bystriking “,or” andinserting acomma;
+(ii) insubparagraph(G), bystriking“; and”andinserting “,or”;
+and
+(iii) byaddingat theend thefollowing newsubparagraph:
+“(H)vaccines describedin section1905(a)(13)(B) (andthe administration
+of suchvaccines);and”.
+(2) APPLICATION TOALTERNATIVECOST-SHARING.—Section
+1916A(b)(3)(B)of theSocial SecurityAct (42U.S.C.1396o–1(b)(3)(B))is
+amendedbyadding atthe endthefollowing newclause:
+“(xii) Vaccinesdescribed insection 1905(a)(13)(B)(and the
+administration ofsuch vaccines).’’.
+(c) ENHANCED FMAPFORADULT VACCINES.—Section 1905(b) of theSocial Security
+Act (42U.S.C.1396d(b))is amended—
+(1) bystriking “and(5)”and inserting“(5)”;
+(2) bystriking ‘‘servicesandvaccinesdescribed insubparagraphs (A)and (B)of
+subsection(a)(13), andprohibits cost-sharingfor such servicesandvaccines’’and
+inserting “servicesdescribed insubsection (a)(13)(A), andprohibitscost-sharing
+for suchservices”;
+(3) bystriking “medicalassistance for suchservicesandvaccines” andinserting
+“medical assistancefor such services”;and
+(4) byinserting “,and(6) with respectto medicalassistancefor vaccines described in
+subsection(a)(13)(B),the Federalmedical assistancepercentage,asdetermined
+under thissubsectionandsubsection (y) (without regardto paragraph(1)(C) of
+suchsubsection), shallbeincreasedby1percentagepoint” beforethe firstperiod.
+SEC.202.REDUCING THEADMINISTRATIVE FMAPFOR NONEXPANSION
+STATES.
+Section 1903of the Social SecurityActof 1935(42U.S.C.1396b) isamended—
+(1) in subsection(a)(7),byinserting “subsection (cc)and” before“section 1919(g)(3)(B)”;
+and
+(2) byaddingattheend thefollowing newsubsection:
+“(cc) REDUCTION OFFEDERAL PAYMENTS FORCERTAIN ADMINISTRATIVE
+COSTS OF NONEXPANSION STATES.—
+
+“(1) INGENERAL.—In the caseofaState that doesnot provideunderthe State
+planof such State(or waiverof suchplan)for making medical assistance
+available inaccordancewithsection 1902(k)(1) toall individualsdescribed in
+section 1902(a)(10)(i)(VIII)for acalendar quarter beginning onorafter October
+1,2022,the Secretarymayreducethe percentagespecifiedinsubsection (a)(7)for
+amountsdescribed insuch subsectionexpended during suchquarter bysuchState
+bythenumber ofpercentagepoints specifiedinparagraph (2) for suchquarter.
+“(2) AMOUNTOF REDUCTION.—Forpurposesof paragraph (1), thenumber
+of percentage pointsspecifiedin thisparagraph for acalendar quarter isthe
+following:
+“(A)Forthe calendar quarterbeginning onOctober1,2022,0.5.
+“(B) Foracalendar quarter beginning onorafter January1,2023,and
+ending beforeJuly 1,2027,thenumberof percentagepointsspecified
+under this paragraphfor the previousquarter,plus 0.5.
+“(C) Foracalendar quarter beginning onorafter July1,2027,10.
+“(3) DEFINITION.—Forpurposes ofthis subsection,the term‘State’ meansa
+State thatisoneof the50Statesor theDistrict of Columbia.”.
+SEC.203.STATEOPTION TOPROVIDE12MONTHS OF POSTPARTUMMEDICAID
+ELIGIBILITY.
+(a) OPTION TOPROVIDECONTINUOUSMEDICAID ANDCHIP COVERAGEFOR
+PREGNANT ANDPOSTPARTUMWOMEN.—
+(1) MEDICAID.—Title XIXofthe SocialSecurity Act(42U.S.C.1396et seq.) is
+amended—
+(A)in section 1902(l)(1)(A), byinserting“(or, at theoption ofthe State,
+365-day period)” after“60-dayperiod”;
+(B)in section 1902(e)(6),byinserting “(or,at theoption ofthe State, 365-day
+period)” after “60-dayperiod”;
+(C)in section 1903(v)(4)(A)(i), byinserting“(or, at theoption ofthe State,
+365-day period)” after“60-dayperiod”; and
+(D)in section 1905(a),inthe 4thsentencein thematter following paragraph
+(30), byinserting “(or, atthe optionof theState, 365-day period)”after
+“60-dayperiod”.
+(2) CHIP.—Section 2112ofthe SocialSecurity Act(42U.S.C.1397ll)is amendedby
+inserting “(or, atthe optionof theState, 365-day period)”after “60-dayperiod”
+each placeitappears.
+(b) REQUIRING FULL BENEFITSFORPREGNANT ANDPOSTPARTUMWOMEN.—
+(1) MEDICAID.—
+
+(A)IN GENERAL.—Paragraph (5) ofsection 1902(e)ofthe Social Security
+Act(24U.S.C.1396a(e)) isamendedto readasfollows:
+“(5) Anywomanwho is eligiblefor medical assistanceunder theState planor a
+waiverof suchplan andwho is,or whowhile soeligible becomes,pregnant,shall
+continuetobe eligibleunder theplan orwaiverfor medical assistancethrough the
+end of themonth inwhichthe 60-day period(or,at theoption ofthe State,
+365-day period)(beginning onthelastdayof her pregnancy)ends, regardlessof
+thebasisfor thewoman's eligibility for medicalassistance, includingifthe
+woman's eligibility for medicalassistance isonthe basisofbeing pregnant.”.
+(B)CONFORMINGAMENDMENT.—Section 1902(a)(10)of theSocial
+SecurityAct (42U.S.C.1396a(a)(10))is amendedinthematter following
+subparagraph(G) bystriking“(VII) the medicalassistance” andall that
+followsthrough “complicatepregnancy,”.
+(2) CHIP.—Section 2107(e)(1)ofthe Social SecurityAct(42U.S.C.1397gg(e)(1))is
+amended—
+(A)byredesignatingsubparagraphs (H)through (S) assubparagraphs (I)
+through (T), respectively;and
+(B)byinserting after subparagraph(G),the following:
+“(H)Section 1902(e)(5)(requiring60-day (or, atthe optionof theState,
+365-day)continuouscoverage for pregnantandpostpartum women).”.
+(c) MAINTENANCEOF EFFORT.—
+(1) MEDICAID.—Section 1902ofthe SocialSecurity Act(42U.S.C.1396a)is
+amended—
+(A)in paragraph(74), bystriking “subsection(gg); and”andinserting
+“subsections(gg) and(tt);”; and
+(B)byadding atthe endthefollowing newsubsection:
+“(tt) MAINTENANCEOF EFFORTRELATEDTO LOW-INCOMEPREGNANT
+WOMEN.—Forcalendar quartersbeginning onorafter theeffective datedescribed in
+section 204(d) of theHealth Care ImprovementActof 2021,andbeforeJanuary 1,2023,
+noFederal paymentshallbe madeto aState undersection 1903(a)for amountsexpended
+under aState planunderthis titleor awaiverofsuch planif the State—
+“(1) hasineffect under suchplan eligibility standards,methodologies, or
+proceduresfor individuals describedin subsection(l)(1)who areeligible for
+medicalassistance under theState planor waiverunder subsection
+(a)(10)(A)(ii)(IX) that aremorerestrictivethanthe eligibility standards,
+
+methodologies, orprocedures,respectively, for suchindividuals undersuch plan
+or waiverthatarein effectonthe date ofthe enactmentof this subsection;or
+“(2) provides medicalassistanceto individualsdescribed insubsection (l)(1)who
+areeligible for medicalassistanceunder such planor waiverundersubsection
+(a)(10)(A)(ii)(IX) ata levelthatis lessthanthe levelatwhich theState provides
+suchassistance tosuch individualsunder suchplan orwaiveronthe date ofthe
+enactment ofthis subsection.”.
+(2) CHIP.—Section 2112ofthe SocialSecurity Act(42U.S.C.1397ll),as amended
+bysubsection (b), isfurther amendedbyadding atthe endthefollowing
+subsection:
+“(g) MAINTENANCE OFEFFORT.—For calendar quartersbeginningonor after the
+effective datedescribed insection204(d) of theHealth Care ImprovementActof 2021,
+and beforeJanuary1,2023,nopaymentmay bemade undersection 2105(a)withrespect
+to aState childhealthplan ifthe State—
+“(1) hasineffect under suchplan eligibility standards,methodologies, or
+proceduresfor targeted low-incomepregnantwomen thataremorerestrictivethan
+theeligibility standards,methodologies, or procedures,respectively,under such
+planthat arein effectonthe date ofthe enactmentof this subsection;or
+“(2) provides pregnancy-relatedassistanceto targetedlow-income pregnant
+women undersuch planat alevelthat islessthan thelevelat whichtheState
+provides such assistancetosuch womenunder suchplan onthedate of the
+enactment ofthis subsection.”.
+(d) EFFECTIVE DATE.—
+(1) IN GENERAL.—Except asprovidedunder paragraph (2), theamendments made
+bysubsections (a)and(b) shalltake effect on(and theeffectivedate described in
+this subsectionshallbe) the firstday ofthe firstcalendar yearthat begins afterthe
+lastday of theemergency perioddescribed insection1135(g)(1)(B) ofthe Social
+Security Act (42U.S.C.1320b–5(g)(1)(B)).
+(2) EXTENSION OFEFFECTIVEDATE FORSTATE LAWAMENDMENT.—In
+thecaseof aState plan undertitle XIXorState child healthplanunder titleXXI
+of theSocial SecurityAct(42U.S.C.1396etseq.;42U.S.C.1397aa etseq.)
+which theSecretary ofHealth andHuman ServicesdeterminesrequiresState
+legislation(other thanlegislationappropriatingfunds) inorderfor the respective
+planto meet theadditional requirementimposedbythe amendments madeby
+subsection(b), therespectiveplan shallnotberegarded as failingtocomply with
+therequirementsof suchtitle solelyonthebasisof itsfailureto meetsuch
+applicable additionalrequirement beforethe first dayofthe first calendarquarter
+
+beginning after thecloseof thefirst regular sessionofthe State legislaturethat
+begins after thedate ofenactment of thisAct. Forpurposesof theprevious
+sentence,in thecaseof aState that hasa2-year legislativesession,each yearof
+thesession isconsidered tobe aseparateregular sessionofthe State legislature.
+SEC.204.SUPPORTING STATEMEDICAIDPROGRAMS THROUGHECONOMIC
+DOWNTURNS.
+(a) IN GENERAL.—Section1905of theSocial SecurityAct(42U.S.C.1396d)is
+amended—
+(1) in subsection (b), bystriking“and (ff)” andinserting “(ff), and(hh)”; and
+(2) byaddingatthe endthefollowing newsubsection:
+“(hh) INCREASEDFMAP DURINGECONOMIC DOWNTURNS.—
+“(1) INGENERAL.—If afiscal quarterthat begins onorafter January1,2021,is
+an economic downturnquarter (asdefinedinparagraph (2)) withrespect toa
+State, thenthe Federalmedical assistancepercentagedeterminedfor each State
+for suchquarterunder subsection (b) shallbeequal tothepercentagedetermined
+for theStateand quarterunder paragraph (3).
+“(2) ECONOMICDOWNTURNQUARTER.—
+“(A)INGENERAL.—
+“(i) INGENERAL.—Inthis subsection, theterm‘economic
+downturn quarter’means,withrespect toaState, afiscal quarter
+during whichthe State’sunemploymentrate for thequarter
+exceedsthe percentagedeterminedfor theState andquarter under
+clause(ii).
+“(ii) THRESHOLDPERCENTAGE.—Thepercentagedetermined
+under this clausefor aState andfiscal quarter isthe percentage
+equal tothe lowerof—
+“(I) theState unemployment rateatthe 20thpercentileof
+the distribution ofthe State’squarterlyunemploymentrates
+for the 60-quarterperiodprecedingthe quarter involved,
+increasedby1percentagepoint; and
+“(II)the State’saverage quarterlyunemploymentratefor
+the 12-quarterperiodprecedingthe quarter involved,
+increasedby1percentagepoint.
+“(B) UNEMPLOYMENT DATA.—
+“(i) INGENERAL.—Exceptas providedinclause(ii), for
+purposesof determiningunemploymentrates for aState anda
+quarter under thisparagraph, the Secretaryshallusedata fromthe
+
+Local AreaUnemployment StatisticsfromtheBureau ofLabor
+Statistics.
+“(ii) APPLICATION TOCERTAIN TERRITORIES.—Inthecase
+of theVirgin Islands,Guam, theNorthernMariana Islands,
+American Samoa,or anyotherjurisdictionfor whichsuitable data
+fromthe LocalArea UnemploymentStatisticsfrom theBureau of
+Labor Statisticsareunavailable,the Secretaryshallusedata from
+the U–3unemployment measure ofthe Bureauof LaborStatistics
+tomake anynecessarydeterminations under subparagraph(A).
+“(3) INCREASEDFMAP DURINGECONOMIC DOWNTURNQUARTER.—
+“(A)INGENERAL.—During afiscal quarter thatis aneconomic
+downturn quarterwith respectto aState, theFederalmedical assistance
+percentagefor the Stateand quarterdeterminedunder subsection (b) shall
+be equalto—
+“(i) theFederalmedical assistancepercentagedeterminedfor the
+State andquarter under subsection(b) without regardtothis
+subsection; increasedby
+“(ii) thenumber of percentagepoints (roundedtothe nearesttenth
+of apercentagepoint) equal totheproductof—
+“(I) thenumber of percentagepoints (roundedtothe
+nearest tenth ofapercentagepoint) bywhich the
+unemployment ratefor theState andquarter exceedsthe
+percentagedeterminedfor the Stateand quarterunder
+paragraph (2)(A)(ii);and
+“(II)4.8.
+“(B) RULESOF APPLICATION.—The following rulesshallapplywith
+respect tothe Federalmedicalassistance percentagedeterminedfor aState
+andan economicdownturnquarter under this subsection:
+“(i) SCOPEOF APPLICATION.—SuchFederal medical
+assistancepercentageshallnot applyfor purposesof—
+“(I) disproportionate sharehospitalpaymentsdescribed in
+section1923;
+“(II)payments underpartD of titleIV;or
+“(III) anypaymentsunder this titlethat arebased ona
+Federalmedical assistancepercentagedeterminedfor a
+State under subsection(aa) (butonly totheextentthat such
+Federalmedical assistancepercentageis higherthanthe
+economicrecovery FMAP).
+“(ii) LIMITATION.—Innocaseshall—
+
+“(I) theFederal medicalassistancepercentagedetermined
+for aState andquarter pursuantto thissubsection exceed
+95percent; or
+“(II)any increasetotheFederal medicalassistance
+percentagedeterminedfor aState andquarter pursuantto
+this subsectionresult inthe applicationof aFederal
+medical assistancepercentagethat exceeds95percent.
+“(iii) APPLICATION TOCHIP.—Notwithstandingthe first
+sentence ofsection2105(b), the application ofthis subsectionmay
+result intheenhancedFMAP ofa Statefor a fiscalyearunder such
+sectionexceeding 85percent,butin nocasemaythe applicationof
+this subsectionbefore application ofthe secondsentence ofsuch
+sectionresult inthe enhancedFMAPof theState exceeding95
+percent.
+“(4) ADVANCEPAYMENT; RETROSPECTIVE ADJUSTMENT.—
+“(A)INGENERAL.—Prior to thebeginning ofthe second fiscalquarter
+that begins afterthe date ofenactment ofthis subsection, andeach
+subsequentfiscal quarter,the Secretaryshall,withrespect toeach State—
+“(i) makean initialdetermination, basedonthe projectionsmade
+for the Stateand quarterunder subparagraph(B), asto—
+“(I) whethertheapplication of thissubsection isexpected
+toresult inthe applicationof ahigherFederalmedical
+assistancepercentagefor the State andquarter thanthe
+percentagethat wouldotherwiseapply withoutregard to
+this subsection; and
+“(II)if the applicationof this subsectionis expectedto
+result insucha higherFederalmedicalassistance
+percentagefor the Stateand quarter,whatsuch higher
+percentageis expectedtobe; and
+“(ii) if theSecretarydeterminesunder clause(i) thatthe
+application ofthis subsection isexpectedto resultinthe
+application ofa higherFederalmedicalassistance percentagefor
+the Stateand quarterthan thepercentagethat wouldotherwise
+apply withoutregard tothis subsection—
+“(I) applysuch higher Federalmedical assistance
+percentageof theState for purposesof makingpayments to
+the Statefor amountsexpended during suchquarter as
+medical assistanceunder theState plan; and
+“(II)take into accountsuchhigherFederalmedical
+assistancepercentageof theState for purposesof
+
+calculatingthe enhancedFMAPfor the Stateand quarter
+under section2105(b).
+“(B) PROJECTIONOF STATE UNEMPLOYMENT RATES.—Priorto
+thebeginningof thesecond fiscal quarter thatbegins after thedate of
+enactment ofthis subsection, andeach subsequentfiscal quarter,the
+Secretary, actingthrough theChief Actuaryofthe Centersfor Medicare&
+Medicaid Services,shall,using themost recently availabledata described
+in paragraph(2)(B), makeprojectionswith respectto—
+“(i) theunemployment ratesfor each State for suchquarter;
+“(ii) thethreshold percentagesdescribed inparagraph (2)(A)(ii)for
+each State for suchquarter;and
+“(iii) the nationalunemploymentrate for suchquarter.
+“(C) RETROSPECTIVE ADJUSTMENT.—Assoonas practicableafter
+finalunemployment data becomesavailable for afiscal quarterfor which
+theSecretary madean initialdetermination underthis paragraph, the
+Secretaryshall,withrespect toeach State—
+“(i) makea finaldeterminationwith respectto theapplication of
+this subsectionfor purposes ofdeterminingthe Federalmedical
+assistancepercentageand enhancedFMAPof theState for the
+quarter;and
+“(ii) inaccordancewithsection 1903(d)(2) andsection2105(e),
+reduceor increasetheamount payabletothe State undersection
+1903(a)or section2105for asubsequent fiscalquarter tothe
+extentof anyoverpayment orunderpayment under eithersuch
+sectionwhich theSecretarydetermineswas madeas aresult ofan
+incorrectinitial determinationunder subparagraph(A)(i) with
+respect tothe applicationof this subsectionfor purposesof
+determiningthe Federalmedicalassistance percentageand
+enhancedFMAP ofthe Statefor such priorfiscal quarter.
+“(5) RETROSPECTIVEAPPLICATION OFOVER-THE-LIMIT FMAP
+INCREASES.—
+“(A)INGENERAL.—If a Statehas excesspercentagepoints withrespect
+to an economicdownturnquarter andan applicableFMAP (asdetermined
+under subparagraph(B)), theState may electtoapply suchexcess
+percentagepoints toincreasesuch applicableFMAP for oneor more
+quartersduring thelook-back periodfor theState andeconomicdownturn
+quarter inaccordancewiththis paragraph.
+“(B) EXCESSPERCENTAGEPOINTS.—For purposesofthis paragraph,
+thenumber ofexcesspercentagepoints for aState, economicdownturn
+
+quarter,and anapplicable FMAPshallbeequal tothe number of
+percentagepoints bywhich—
+“(i) theapplicable FMAPfor the State andquarter (after
+application ofparagraph (3) butwithout regardto subparagraph
+(B)(ii) of suchparagraph); exceeds
+“(ii) 95percent.
+“(C) EFFECTOF APPLICATIONOF EXCESSPERCENTAGE
+POINTS.—Ifa Stateelects toapply excesspercentagepoints toan
+applicable FMAPto aquarter duringa look-backperiodunder this
+paragraph, theSecretaryshalldeterminethe additionalamount of payment
+under section1903(a)to whichtheState wouldhave beenentitled for such
+quarter if theapplicable FMAP(asso increased)hadbeen ineffect for
+such quarter,andshalltreat suchadditional amountas anunderpayment
+for such quarter.
+“(D)DISTRIBUTION OFEXCESS PERCENTAGEPOINTS.—A State
+that hasexcess percentagepointswith respectto aneconomicdownturn
+quarter andapplicable FMAPmay electtodivide such pointsamong more
+than 1quarterduring the look-backperiodfor suchState andquarter
+providedthat noexcesspercentagepoint (or fractionofanexcess
+percentagepoint) is appliedtotheapplicable FMAP ofmorethan 1
+quarter.
+“(E) LIMITATIONS.—
+“(i) NOINCREASES OVER 100PERCENT.—AState may not
+increaseanapplicable FMAP for anyquarter duringa look-back
+periodunder this paragraphif such increasewouldresultinthe
+applicable FMAPfor such quarter exceeding100percent.
+“(ii) SCOPEOF APPLICATION.—Anyincreaseto anapplicable
+FMAP ofaState for afiscal quarter under thisparagraph—
+“(I) shallonlyapply withrespect topaymentsfor amounts
+expended bytheState for medical assistancefor services
+furnished during suchquarter towhichsuch applicable
+FMAP isapplicable;and
+“(II)shallnot applywithrespect topayments describedin
+paragraph (3)(B)(i).
+“(F) DEFINITIONS.—In this paragraph:
+“(i) APPLICABLEFMAP.—The term‘applicable FMAP’ means,
+withrespect toa Stateand fiscalquarter—
+“(I) theFederal medicalassistancepercentagedetermined
+for the Stateand quarterunder subsection (b);
+
+“(II)the Federalmedical assistancepercentageapplicable
+under subsection(y);
+“(III) theFederal medicalassistancepercentageapplicable
+under subsection(z)(2);
+“(IV) theFederalmedical assistancepercentagedetermined
+for the Stateand quarterunder subsection (ff); or
+“(V)the enhancedFMAPdeterminedfor the Stateand
+quarter under section2105(b).
+“(ii) LOOK-BACKPERIOD.—The term‘look-back period’
+means,withrespect toa Stateand afiscal quarterthat is an
+economicdownturn quarter for theState, theperiodof 4fiscal
+quartersthat endswith thefourthquarter whichprecedes the most
+recent fiscalquartersthat wasnot aneconomicdownturn quarter
+for the State.
+“(6) REQUIREMENTFORALL STATES.—This subsectionshallnotapply toa
+State withrespect toafiscal quarter,if—
+“(A)eligibility standards, methodologies, orproceduresunder theState
+plan orawaiverof suchplan aremorerestrictiveduring suchquarter than
+theeligibility standards,methodologies, or procedures,respectively,under
+such plan(or waiver) asineffect onthe lastdayofthe most recentfiscal
+quarter that wasnotaneconomic downturnquarter for theState;
+“(B) theamount of anypremiumimposedbythe State pursuanttosection
+1916or 1916Aduring such quarter,withrespect toanindividual enrolled
+under suchplan (or waiver),exceeds theamount ofsuch premiumas of
+thedatedescribed insubparagraph(A); or
+“(C) theState fails toprovidethat anindividualwho isenrolled for
+benefits under suchplan (or waiver)as ofthe datedescribed in
+subparagraph(A) orenrolls for benefits undersuch plan(or waiver)
+during theperiodbeginning withsuch date andendingwith thedaybefore
+thefirstday ofthe nextquarter that isnotan economicdownturnquarter
+for the Stateshallbe treatedas eligiblefor such benefits for notlessthan
+12months after suchdate or(if later)thedate that suchindividualso
+enrolls unlesstheindividualrequests avoluntary terminationofeligibility
+or theindividualceases tobea residentof theState.”.
+(b) EXCLUSION OF ECONOMIC DOWNTURNFMAPINCREASES FROM
+TERRITORIAL CAPS; SPECIAL RULEFORCHIP ALLOTMENTS.—
+(1) EXCLUSIONFROM TERRITORIALCAPS.—Section 1108ofthe Social
+Security Act (42U.S.C.1308) isamended—
+
+(A)in subsection (f),in thematter precedingparagraph (1), bystriking
+“subsections(g) and(h)” andinserting “subsections(g), (h), and(i)”; and
+(B)byadding atthe endthefollowing:
+“(i) EXCLUSIONFROMCAPS OFAMOUNTS
+ATTRIBUTABLETO ECONOMICDOWNTURN FMAP.—Any
+paymentmade toaterritory for afiscal yearinwhichthe Federal
+medical assistancepercentagefor theterritory isdeterminedunder
+section1905(hh) shallnot betaken intoaccountfor purposesof
+applying paymentlimitsunder subsections (f)and (g) totheextent
+that suchpaymentexceeds theamount ofthe paymentthat would
+have beenmade tothe territoryfor the yearifthe Federalmedical
+assistancepercentagefor the territoryhad beendeterminedwithout
+regard tosuchsection.”.
+(2) CHIP ALLOTMENTS.—Section2104(m) ofthe SocialSecurity Act(42U.S.C.
+1397dd(m)) isamended—
+(A)in paragraph(2)(B), inthematter preceding clause(i),bystriking
+“paragraphs(5) and (7)”andinserting “paragraphs(5), (7), and(12)”; and
+(B)byadding atthe endthefollowing newparagraph:
+“(12) SPECIALRULE FORADJUSTINGALLOTMENTS DURINGFISCAL
+YEARS WITH ECONOMIC DOWNTURNQUARTERS.—
+“(A)INGENERAL.—If a fiscalquarter is determinedundersection
+1905(hh) tobe aneconomicdownturn quarterwith respectto aState then,
+assoon aspracticable after suchdetermination, theSecretaryshall
+increasethe allotmentfor the State andthefiscal yearinwhich suchfiscal
+quarter occursinaccordancewith subparagraph(B).
+“(B) AMOUNTOFINCREASE.—
+“(i) INGENERAL.—The amount ofanincreaseto theallotment
+of aState describedin subparagraph(A)for a fiscalyearshallbe
+equal tothe amountbywhich Federalpaymentsmade tothe State
+for the precedingfiscal yearunder thistitle wouldhavebeen
+increased(without regard towhethersuchpayments wouldexceed
+the amountof theState’s allotmentfor such precedingfiscal year)
+if theenhancedFMAP determinedfor theState for such preceding
+fiscal yearhadbeen increasedtothesameextentthat the State's
+enhancedFMAP for thefiscal yearinvolved isexpectedto be
+increasedas aresultof theapplication of section1905(hh) relative
+
+tothe enhancedFMAPthat wouldapply totheState for the fiscal
+yearinvolved withoutthe application ofsuch section.
+“(ii) INCLUSION OFPROJECTED INCREASES.—In increasing
+the allotmentof aState for afiscal yearunder thisparagraph, the
+Secretarymay basethe calculationofsuch increaseonprojections
+made bytheSecretarywith respectto—
+“(I) thenumber of fiscal quartersduringsuch fiscal year
+that willbe economicdownturnquarters; and
+“(II)the effect thatthe application ofsection1905(hh) is
+expectedto haveonthe enhancedFMAPof theState for
+such fiscalyear.
+“(C) DISREGARDOFINCREASED PAYMENTS FOR PURPOSES OF
+FUTUREALLOTMENTS.—Any Federalpaymentmade toa Stateunder
+this titlefor afiscal yearinwhich theFederalmedical assistance
+percentagefor the Stateis determinedunder section1905(hh) shallbe
+disregardedwhendeterminingthe allotment ofthe Statefor any
+subsequentyear, includingfor purposesof applyingthis paragraph, tothe
+extentthat suchpaymentexceeds theamount ofthe paymentthat would
+have beenmade tothe Statefor the yearif theFederalmedical assistance
+percentagefor the Stateand yearhadbeendeterminedwithout regardto
+such section.”.
+TITLE III—FAIR MEDICARE PAYMENTS TO
+RURAL HOSPITALS
+SEC.301.ENSURING FAIRNESSINMEDICARE HOSPITALPAYMENTS.
+(a) HOSPITAL INPATIENTSERVICES.—
+(1) IN GENERAL.—Section1886(d)(3)(E) ofthe Social SecurityAct(42U.S.C.
+1395www(d)(3)(E)) isamended—
+(A)in clause (i),inthe firstsentence, bystriking‘‘or (iii)’’ andinserting ‘‘,
+(iii), or(iv)’’; and
+(B)byadding atthe endthefollowing newclause:
+“(iv) AREAWAGE INDEX FLOOR.—
+“(I) INGENERAL.—Fordischarges occurring onorafter
+October1,2021,the areawageindex applicableunder this
+subparagraphtoany hospitalwhichis notlocatedina
+frontierState (asdefinedin clause(iii)(II))may notbeless
+than 0.85.
+
+“(II)WAIVING BUDGETNEUTRALITY.—Pursuantto
+the fifthsentence ofclause(i), thisclause shallnotbe
+appliedina budgetneutral manner.”.
+(2) WAIVING BUDGETNEUTRALITY.—
+(A)TECHNICAL AMENDATORY CORRECTION.—Section10324(a)(2)of
+Public Law111–148is amendedbystriking“third sentence”and inserting
+“fifth sentence”.
+(B)WAIVER.—Section 1886(d)(3)(E)(i) ofthe SocialSecurity Act(42
+U.S.C.1395ww(d)(3)(E)(i))is amended,inthefifth sentence—
+(i)bystriking “andthe amendments”andinserting “,the
+amendments”;and
+(ii) byinserting“, andtheamendments made bysection401(a)(1)
+of theAffordable, Accessible, andAchievableHealthcareActof
+2021”after “Care Act”.
+(b) HOSPITAL OUTPATIENTDEPARTMENTSERVICES.—Section 1833(t) ofthe Social
+Security Act(42U.S.C.1395l(t)),is amended—
+(1) in paragraph(2)(D), bystriking“(19), theSecretary”and inserting“(19) and
+paragraph (23), theSecretary”; and
+(2) byaddingatthe endthefollowing newparagraph:
+“(23) FLOOR ONAREA WAGE ADJUSTMENTFACTOR FORHOSPITAL
+OUTPATIENT DEPARTMENTSERVICES.—Withrespect tocoveredOPD
+servicesfurnished onorafter January1,2021,the areawageadjustment factor
+applicable under thepaymentsystemestablishedunder this subsectionto any
+hospital outpatient departmentwhichis notlocatedina frontierState (asdefined
+in section1886(d)(3)(E)(iii)(II)) maynotbe lessthan0.85.Thepreceding
+sentenceshall notbeimplementedina budgetneutral manner.”.
+TITLE IV—COMMONSENSE COMPETITION
+AND ACCESS TO HEALTH INSURANCE
+SEC.401.PROVIDING SMALL BUSINESSHEALTHINSURANCEACROSS STATE
+LINES.
+Section 1333(a)(1)(A) ofthe PatientProtectionand AffordableCare Act(42U.S.C.
+18053(a)(1)(A)) isamendedbyinserting “andsmall groupmarkets”after “individualmarkets”.
+SEC.402.REPORTAND MODELS.
+
+Section 1333of the PatientProtectionand AffordableCare Act(42U.S.C.18053)is
+amendedbyaddingatthe endthefollowing:
+“(b) NAICREPORTANDMODELS.—
+“(1) INGENERAL.—Not laterthan December31,2021,the Secretaryshall
+requestthatthe NationalAssociationof InsuranceCommissionerssubmittothe
+Secretaryareport concerninghealthplans providedfor under this section.Such
+report shall include—
+“(A)adescriptionof thechallenges that Stateswouldfacebypermitting
+issuers ofqualified healthplans tooffer suchplans inStatesotherthan
+those Stateswhere suchplan wasoriginally writtenorissued;
+“(B) anassessmentof how anout-of-Stateinsurer wouldgoabout
+building anadequateprovider network;
+“(C) adescriptionof howsuch challenges couldbelessened without
+weakening theenforcement oflaws andregulationsdescribed in
+subsection (a)(1)(B)(i) inanyState that isincludedina compactunder this
+section;
+“(D)adescriptionof thecommonalities that existinState lawsand
+opportunitiestoallow issuers ofqualified healthplans tooffersuch plans
+in Statesotherthan those Stateswheresuch planwas originallywritten or
+issued;and
+“(E) modelstobe usedbyStatestoestablish andenter intointerstate
+healthcarechoicecompacts under thissection, which—
+“(i) mayincludemodel legislationfor usebyStatesto enactlaws
+toenter intosuch compacts;
+“(ii) shallidentifyhow Stateswouldcontinuetoenforce, andnot
+weaken, thelaws andregulationsdescribed insubsection
+(a)(1)(B)(i) inany Statethat is includedinsuchcompact; and
+“(iii) shallidentify howsuch modelswouldensurethat thereis no
+violationof theconditions for Secretarialapproval under
+subsection (a)(3).
+“(2) OTHER ORGANIZATIONSANDENTITIES.— Inmaking the request
+under paragraph (1), theSecretarymay alsorequest that theNationalAssociation
+of Insurance Commissionersgatherconceptsfor inclusionin thereport under
+suchparagraphfrom organizationsandentities thathave experienceinoffering
+qualified health plans inStatesinwhichsuch plans werenot originallyissued.”.
+TITLE V—FUNDING AND EFFECTIVE DATE
+SEC.501.FUNDING AND EFFECTIVEDATE.
+
+(a) AUTHORIZATIONOF APPROPRIATIONS.—Thereareauthorized tobe appropriated
+suchsums asmaybe necessarytocarryout thisAct.
+(b) EFFECTIVE DATE.—Unlessotherwise specified,theprovisions inthis Actshallgointo
+effect onJanuary1,2022.
+MetaNote:Partially basedoff ofthe HealthcareImprovementActof 2021

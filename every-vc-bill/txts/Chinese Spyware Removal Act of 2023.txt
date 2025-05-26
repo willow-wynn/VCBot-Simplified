@@ -1,0 +1,49 @@
+160th Congress
+1st Session
+H.R.21
+IN THE HOUSE OF REPRESENTATIVES
+January 1st, 2023
+Mr. Sullivan(for himself) introducedthe following bill;
+A BILL
+ToProhibitthe Usageof Chinese SpywareonGovernment Devices.
+Beit enactedby theSenate and theHouseof Representativesofthe UnitedStatesof
+America inCongressAssembled,
+SEC.1.SHORTTITLE.
+This Actmaybe citedasthe“ChineseSpyware RemovalActof 2023”,or alternatively,as the
+“CSRA”
+SEC.2.FINDINGS.
+Congress findsthat—
+(a) Tiktok, anapplicationrun withinthe jurisdictionof thePeople’sRepublic ofChina,has openly
+admittedto spyingonjournalists, following anexpose byForbesmagazine.
+(b) Tiktok, anapplicationrun withinthe jurisdictionof thePeople’sRepublic ofChina,has
+engaged inunscrupulous userdatacollection policies.
+(c) Tiktok, anapplicationrun withinthe jurisdictionof thePeople’sRepublic ofChina,is sharing
+userdata withthegovernmentof thePeople’sRepublic ofChina
+(d) It iscrucialto theNational Securityof theUnited States,for obviousreasons, thatnoforeign
+spywarebe installedonanygovernment device.
+SEC.3.DEFINITIONS.
+In this Act—
+
+160th Congress
+1st Session
+(a) Theterm “covered application”referstothe socialnetworkingservice TikTokorany successor
+application or servicedevelopedor providedby ByteDanceLimited or anentityownedby
+ByteDanceLimited;
+(b) Theterm “governmental entity”referstoany department,agency,or organizationof theUnited
+States.
+(c) Theterm “information technology”refersto thedefinition giventhat termin section11101of
+title 40,UnitedStates Code. (40U.S.C.§11101)
+SEC.4.PROHIBITION ON TIKTOK USAGE.
+(1) IN GENERAL. —Notlater than15days after thedate ofthe enactment ofthis Act,the heads
+of all governmentalentities coveredwithin this Act,consistent withtheinformation security
+requirements under subchapterII of chapter35of title44,United StatesCode(44U.S.C.
+§§3551-3559),shall develop standardsand guidelinesfor governmentalentities requiring the
+removalof any covered applicationfrom informationtechnology.
+(2) NATIONALSECURITYAND RESEARCHEXCEPTIONS —
+Thestandards andguidelines developedunderparagraph (1) shallinclude—
+(a) exceptions for lawenforcementactivities, nationalsecurity interestsandactivities,and
+security researchers;and
+(b) for any authorizeduse ofacovered applicationunder anexception, requirementsfor
+agenciesto develop anddocumentriskmitigation actionsfor suchuse.
+WrittenbyRepresentativeDanielSullivan,sourcingportionsofthetextfromtheIRLNoTikTokonGovernmentDevices
+Act,forusebytheCongressoftheUnitedStatesofAmerica.

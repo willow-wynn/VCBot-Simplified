@@ -1,0 +1,346 @@
+IN THE CONGRESS OF THE UNITED STATES
+APRIL 7, 2020
+Mr. LESTER (author) and the VITA ADMINISTRATION (for
+themselves, Mr. COLLIN, Mr. MCKENNA, Mr. DILLON, Mr.
+HOLBROOK, Mr. HARDER, Mr. PLURIBUS, Mr. BO, Mr.
+MATTHEW, Mr. TOWARD) introduced the following bill;
+A BILL
+To direct the Department of Labor to carry out a Federal subsidized employment program, and
+for other purposes.
+SECTION 1. SHORT TITLE.
+This bill may be cited as the “Work Opportunity Act of 2020”.
+SECTION 2. PURPOSE.
+The purpose of this Act is to carry out a program—
+(1) to provide access to a job through federally subsidized employment for
+individuals who are unemployed, underemployed, and jobless but want to work;
+(2) to assist such individuals in coping with structural unemployment in their
+communities, job displacement resulting from deindustrialization, trade, automation, and
+artificial intelligence, as well as societal barriers that separate the most vulnerable
+jobless from employment;
+(3) to provide for credentialing and certificates that employers recognize and help
+provide both low-income and middle-class jobseekers with concrete pathways to good
+paying, skilled jobs; and
+
+(4) to expand services automatically during economic downturns to address
+unemployment and stabilize the national economy and State economies.
+SECTION 3. Funding.
+(a) Federal Subsidized Employment Program.—
+(1) STATE ALLOCATIONS.—
+(A) IN GENERAL.—From amounts appropriated under subsection (b)(1), the Secretary
+of Labor shall pay to each State that has an application approved under section 6, for each
+quarter, beginning with the quarter beginning on or after the date of the enactment of this
+Act, an amount equal to the Federal percentage of the total amount expended by the State
+during such quarter under—
+(i) the Federal subsidized employment program under section 4;
+(ii) the program of block grants to States for temporary assistance for needy
+families established under part A of title IV of the Social Security Act;
+(iii) any program under the Workforce Innovation and Opportunity Act; and
+(iv) any other Federal program under which Federal funding is provided to
+subsidize employment.
+(B) FEDERAL PERCENTAGE.—For purposes of subparagraph (A), the Federal
+percentage for any State shall be 100 percent less the State percentage, and the State
+percentage shall be that percentage that bears the same ratio to 45 percent as the square
+of the per capita income of such State bears to the square of the per capita income of
+the continental United States, including Alaska and Hawaii, except that the Federal
+percentage shall in no case be less than 75 percent or more than 100 percent. Such
+Federal percentage shall be increased each quarter by the year-over-year percentage
+point increase, if any, in the three-month average unemployment rate of the State.
+(2) LOCAL ENTITY ALLOCATIONS.—
+
+(A) IN GENERAL.—From amounts made available under subsection (b)(2), the
+Secretary of Labor shall award grants, on a competitive basis and in an amount
+determined under subparagraph (B)—
+(i) to local entities to carry out the Federal subsidized employment program
+under section 4; and
+(ii) to not more than 15 local entities to carry out a jobs guarantee program in
+accordance with section 5.
+(B) AMOUNT OF GRANT.—In determining the amount a grant awarded to a
+local entity under subparagraph (A), the Secretary of Labor shall ensure that the grant
+amount is adequate to reach each community served by the local entity.
+(b) Mandatory Funding.—
+(1) IN GENERAL.—Subject to paragraph (2), there are authorized to be appropriated,
+and there are appropriated (in addition to any other amounts appropriated to carry out this
+Act and out of any money in the Treasury not otherwise appropriated) such sums as may be
+necessary to carry out this Act.
+(2) COMPETITIVE GRANT PROGRAMS.—The amount of funds that shall be made
+available for the competitive grants under subsection (a)(2) for a fiscal year shall be equal to
+the result obtained by multiplying—
+(A) the difference between—
+(i) the number of individuals counted under the U–6 measure of
+unemployment and underemployment most recently published by the Bureau of
+Labor Statistics of the Department of Labor; and
+(ii) the number of individuals participating in the program carried out under
+subsection (a)(1); and
+(B) average cost for each participant under such program.
+SEC. 4. FEDERAL SUBSIDIZED EMPLOYMENT PROGRAM.
+
+Each grantee receiving funds under paragraph (1) or (2)(A)(i) of section 3(a) shall carry out,
+or expand, a program that provides access to federally subsidized employment for all eligible
+individuals as follows:
+(1) PARTICIPATING EMPLOYERS.—
+(A) AMOUNT OF SUBSIDIES.—A grantee shall provide each participating
+employer with a subsidy in an amount that—
+(i) covers up to 150 percent of the wages that the employer pays to eligible
+individuals who are employed in a position covered by a collective-bargaining
+agreement in effect with the employer; and
+(ii) covers up to 120 percent of the wages that the employer pays to eligible
+individuals who are employed under the program in a position not covered by a
+collective-bargaining agreement in effect with the employer.
+(B) HIRING REQUIREMENTS.—
+(i) WORKFORCE.—
+(I) IN GENERAL.—To remain eligible to receive additional placements
+of subsidized employees under this Act, a participating employer who seeks
+to employ, on a cumulative basis, more than 15 eligible individuals under the
+program shall be required to hire, in an unsubsidized capacity, not less than
+the greater of 4 employees or 25 percent of the employees who were
+previously placed with the employer through the subsidized job program.
+(II) EXCEPTION.—The requirements of subclause (I) shall not apply
+during a period that is an economic recession.
+(ii) NONDISPLACEMENT OF UNSUBSIDIZED EMPLOYEES.—The
+grantee may not employ an individual under the program, if—
+(I) employing such individual will result in the layoff or partial
+displacement (such as a reduction in hours, wages, or employee benefits) of
+an existing employee of the grantee who was not hired under the program, or
+
+will result in infringing upon the promotional opportunities of such existing
+employee; or
+(II) such individual will perform the same or substantially similar work
+that had previously been performed by such an existing employee who—
+(aa) has been laid off or partially displaced; and
+(bb) has not been offered by the employer, to be restored to the
+position the employee had immediately prior to being laid off or
+partially displaced.
+(iii) ELIMINATION OF POSITION.—
+(I) IN GENERAL.—Clause (ii) shall not apply to any position that has
+been eliminated by a grantee.
+(II) DESCRIPTION.—For purposes of this clause, a position shall be
+considered to have been eliminated by a grantee if the position has remained
+unfilled and the grantee has not sought to fill such position for at least a
+period of one month.
+(iv) NONDISPLACEMENT OF STATE OR LOCAL GOVERNMENT
+SERVICES.—The grantee may not employ an individual under the program to
+provide services or functions that are customarily provided by the grantee.
+(v) CONSENT OF UNION.—An employer that has a collective-bargaining
+agreement in effect with a labor organization, or an employer whose employees
+are represented by a labor organization for purposes of collective bargaining, shall
+seek the consent of the labor organization representing its employees to
+participate in the program under this Act.
+(vi) OTHER PARTICIPATING EMPLOYERS.—In addition to other entities
+that may serve as participating employers under this section, nonprofit entities,
+local government entities (except as provided in clause (iv)), and labor
+organizations may serve as participating employers, administrators, or
+intermediaries under this section.
+
+(2) TECHNICAL TRAINING.—
+(A) EMPLOYEES IN-DEMAND INDUSTRY SECTORS OR
+OCCUPATIONS.—With respect to an eligible individual employed under the program
+by an employer in an in-demand industry sector or occupation, subject to the
+administrator of the job placement entity selected by the grantee and upon completion
+of 3 months of satisfactory job performance, the employer may receive additional
+funds under the program to enable such individual to pursue a general equivalency
+diploma, or a year of career and technical education that leads to a recognized
+postsecondary credential required for continued employment in such sector or
+occupation.
+(B) OTHER EMPLOYEES.—With respect to an eligible individual employed
+under the program who is not employed in an industry sector or occupation described
+in subparagraph (A), subject to the administrator of the job placement entity selected
+by the grantee and upon completion of 3 months of satisfactory job performance, such
+individual may be provided with an opportunity to pursue up to a year of career and
+technical education.
+(3) ELIGIBLE INDIVIDUAL.—To participate in the program an individual shall—
+(A) be at least 18 years of age; and
+(B) (i) have been unemployed for more than 90 days by demonstrating to the
+program administrator selected by the grantee involved—
+(I) that the individual has been registered as unemployed for more than 90
+days under a State unemployment insurance system; or
+(II) through submission of a self-affidavit that demonstrates that the
+individual has been so unemployed; or
+(ii) have had earnings for the previous 6 months that are below the poverty line.
+(4) PLACEMENT LENGTH.—
+
+(A) IN GENERAL.—A period of employment with a participating employer
+under the program for an individual shall be not longer than 18 months, and not less
+than 3 months, except that such period—
+(i) may be shorter in the case of termination of the individual for
+unsatisfactory performance;
+(ii) may be extended—
+(I) for an additional 12-month period in a case in which the eligible
+individual is pursuing the career and technical education described in
+paragraph (2); or
+(II) in the case of an individual with a barrier to employment; and
+(iii) shall not be applicable during a period that is an economic recession.
+(B) MAXIMUM PARTICIPATION.—
+(i) IN GENERAL.—During a 10-year period, an eligible individual may
+have not more than 3 separate periods of employment under the program.
+(ii) DIFFERENT EMPLOYERS.—Each period of employment shall be with
+a different participating employer.
+(iii) CONTINUED ELIGIBILITY.—An eligible individual shall become
+eligible for a new period of employment under the program if the individual is
+unemployed not less than 4 weeks after the conclusion of the individual’s
+previous employment period under the program.
+(iv) INAPPLICABILITY.—This subparagraph shall not apply during a
+period of economic recession or for individuals with barriers to employment.
+(5) WRAPAROUND SERVICES.—Any wraparound services (such as screening,
+matching, and job preparation services, and transportation, childcare, and counseling)
+provided with funds under this Act shall be minimal and may only be used—
+
+(A) for the individuals with barriers to employment and who shall be made aware
+of similar opportunities available through local, State, or Federal social welfare
+programs; and
+(B) with an evidence-based approach regarding the impact and importance of
+such services to the job placement of the individual, as determined by the Secretary of
+Labor.
+(6) OUTREACH.—
+(A) GRANTEES.—Each grantee shall make available, on a publicly available
+website of the grantee, information on program opportunities for potential employees
+and employers.
+(B) WEBSITE.—The Secretary of Labor shall create a publicly available website
+to provide information connecting prospective employees with program administrators.
+SEC. 5. JOBS GUARANTEE PROGRAM.
+(a) In General.—The Secretary of Labor shall carry out a pilot program under which the
+Secretary makes grants, on a competitive basis, to not more than 5 local entities to assist such
+entities in carrying out a jobs guarantee program as described in subsection (b).
+(b) Use Of Funds.—A local entity that receives a grant under subsection (a) shall use the
+grant to carry out a program that provides jobs that—
+(1) are available to all individuals who—
+(A) are 18 years of age or older; and
+(B) reside in the area served under the program, except that participants in the
+program may be disciplined, released, or suspended from further participation in jobs
+under the program if they are found to be negligent, or generally disruptive to the
+workplace involved under procedures established by the Secretary of Labor that
+provide for an opportunity for a review of such determinations;
+(2) are, with respect to individual participants, included as part of an established
+bargaining unit and covered by any applicable collective bargaining agreement in effect if
+
+similarly situated employees part of such unit and represented by an exclusive bargaining
+representative;
+(3) are available for the duration of the pilot program;
+(4) provide a wage of not less than the greater of—
+(A) the hourly wage provided for under the provisions of S. 1242 (115th
+Congress), as introduced;
+(B) the prevailing wage in the area involved for a similar job as required by
+chapter 67 of title 41, United States Code, and other related laws; or
+(C) the applicable wage under an applicable collective bargaining agreement as
+provided for under subparagraph (B);
+(5) provide for coverage of the worker under a health insurance program that is
+comparable to that offered to Federal employees under the Federal Employee Health
+Benefits Program; and
+(6) provide, at a minimum—
+(A) paid family leave consistent with the provisions of S. 337 (111th Congress),
+as introduced, and applicable State law; and
+(B) paid sick leave consistent with the provision of S. 1152 (115th Congress), as
+introduced, and applicable State law.
+SEC. 6. APPLICATIONS.
+(a) State Applications.—To receive an allocation under this Act a State shall submit to the
+Secretary of Labor, a plan at such time, in such manner, and containing such information as the
+Secretary may require, which shall include a description of how the State will use the
+allocation—
+(1) to use funds to carry out the program in areas in the State proportionate to the rates
+of joblessness, underemployment, and poverty in such areas, as determined by the
+Secretary; and
+
+(2) to target individuals with barriers to employment.
+(b) Local Applications.—
+(1) IN GENERAL.—To receive a grant under this Act, a local entity shall submit to
+the Secretary of Labor, a plan, at such time, in such manner, and containing such
+information as the Secretary may require, which shall include a demonstration of the local
+entity’s ability to meet the purposes described in section 2.
+(2) PRIORITY.—In awarding grants under this Act to local entities, the Secretary of
+Labor shall give priority to local entities that will use the grant to—
+(A) serve areas that are facing acute challenges, including persistent racial
+unemployment gap, drug addiction epidemics, or high mortality rates, as determined
+by the Secretary of Labor; and
+(B) carry out programs that provide participating individuals with general
+equivalency diplomas, recognized postsecondary credentials, and paid apprenticeships.
+(c) Technical Assistance.—The Secretary of Labor may reserve a portion of the funds
+appropriated under this Act to provide technical assistance to local entities that seek to apply for
+a grant under this Act. In providing such technical assistance, the Secretary shall give priority to
+local entities that the Secretary determines have the greatest need for such assistance.
+SEC. 7. EVALUATION AND EXPANSION, AND REPORT.
+(a) Evaluation And Expansion.—Not later than 18 months after the date on which the first
+grant or allocation is awarded under this Act, and annually thereafter, the Secretary of Labor
+shall—
+(1) develop a strategy (which shall include annual, representative, and random surveys
+of employees and employers under the programs)—
+(A) to determine whether the programs under this Act are accomplishing the
+purposes described in section 2; and
+(B) to improve the programs to better accomplish such purposes; and
+
+(2) expand the programs under this Act until a determination is made that equal rates
+of joblessness in all regions and among all demographic groups have been achieved.
+(b) Report.—Not later than 18 months after the first grant is awarded under this Act, and
+annually thereafter, the Secretary of Labor shall submit to Congress a report that includes the
+information described in subsection (a) for the purpose of providing Congress with an informed
+opportunity to update this Act and to effectively achieve the purposes described in section 2.
+SEC. 8. REVISIONS TO TEMPORARY ASSISTANCE TO NEEDY FAMILIES
+(TANF).
+In General.—
+(a) States shall be directed to allocate at least 60 percent of TANF block grant funds
+directly towards families needing financial assistance (as defined in Section 9).
+(b) The federal government shall allocate an additional $6,400,000,000 per year to
+fund TANF. Federal spending on TANF shall increase or decrease with the rate of
+increase or decrease in the value of the US dollar.
+SEC. 9. DEFINITIONS.
+In this Act:
+(1) CAREER AND TECHNICAL EDUCATION.—The term "career and technical
+education" means organized educational activities that-
+(A) offer a sequence of courses that-
+(i) provides individuals with rigorous academic content and relevant technical
+knowledge and skills needed to prepare for further education and careers in current or
+emerging professions, which may include high-skill, high-wage, or in-demand industry
+sectors or occupations, which shall be, at the secondary level, aligned with the challenging
+State academic standards adopted by a State under section 6311(b)(1) of this title;
+(ii) provides technical skill proficiency or a recognized postsecondary credential, which
+may include an industry-recognized credential, a certificate, or an associate degree; and
+(iii) may include prerequisite courses (other than a remedial course) that meet the
+requirements of this subparagraph;
+
+(B) include competency-based, work-based, or other applied learning that supports the
+development of academic knowledge, higher-order reasoning and problem-solving skills,
+work attitudes, employability skills, technical skills, and occupation-specific skills, and
+knowledge of all aspects of an industry, including entrepreneurship, of an individual;
+(C) to the extent practicable, coordinate between secondary and postsecondary education
+programs through programs of study, which may include coordination through articulation
+agreements, early college high school programs, dual or concurrent enrollment program
+opportunities, or other credit transfer agreements that provide postsecondary credit or
+advanced standing; and
+(D) may include career exploration at the high school level or as early as the middle grade
+(2) GRANTEE.—The term “grantee” means a State that receives an allocation under
+section 3(a)(1) or a local entity that receives a grant under section 3(a)(2).
+(3) INDIVIDUAL WITH A BARRIER TO EMPLOYMENT.—The term “individual
+with a barrier to employment” means a member of one or more of the following
+populations:
+(A) Displaced homemakers.
+(B) Indians, Alaska Natives, and Native Hawaiians, as such terms are defined in
+section 166 of the Workforce Innovation and Opportunity Act.
+(C) Individuals with disabilities, including youth who are individuals with
+disabilities.
+(D) Older individuals.
+(E) Ex-offenders.
+(F) Homeless individuals (as defined in section 41403(6) of the Violence Against
+Women Act of 1994 (42 U.S.C. 14043e–2(6))), or homeless children and youths (as
+defined in section 725(2) of the McKinney-Vento Homeless Assistance Act (42 U.S.C.
+11434a(2))).
+
+(G) Individuals who are English language learners, individuals who have low
+levels of literacy or who have not more than a high school diploma or the equivalent,
+and individuals facing substantial cultural barriers.
+(H) Individuals within 2 years of exhausting lifetime eligibility under part A of
+title IV of the Social Security Act (42 U.S.C. 601 et seq.).
+(I) Single parents (including single pregnant women).
+(J) Long-term unemployed individuals.
+(K) Such other groups as the Secretary of Labor determines to have barriers to
+employment.
+(4) LOCAL ENTITY.—The term “local entity” means a unit of general local
+government or a nonprofit or other organization serving such a unit.
+(5) PERIOD OF ECONOMIC RECESSION.—The term “period of economic
+recession” means not less than a consecutive 3-month period of decline in national payroll
+employment, which shall be determined to have ended on the date on which the national
+payroll employment reaches the level reported by the Bureau of Labor Statistics of the
+Department of Labor in the highest month of national payroll employment prior to such
+period of decline.
+(6) WIOA TERMS.—The terms “in-demand industry sector or occupation”, “poverty
+line”, “recognized postsecondary credential”, “State”, and “unit of general local
+government” have the meanings given the terms in section 3 of the Workforce Innovation
+and Opportunity Act.
+(7) NEEDY FAMILIES: Families with incomes at or below the federal poverty line.

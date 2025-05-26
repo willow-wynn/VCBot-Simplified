@@ -1,0 +1,108 @@
+H.R.X
+IN THE HOUSE OF REPRESENTATIVES
+December, 2022
+Mr. Kean(for himself) introduced thefollowing bill;
+A BILL
+Toamend theFederalantitrust lawstoprovideexpanded coverage andtoeliminateexemptions
+from suchlawsthatarecontrary tothe publicinterestwith respectto railroads.
+Beit enactedby theSenate andthe HouseofRepresentatives oftheUnited Statesof
+Americain CongressAssembled,
+SEC.1.SHORTTITLE.
+This Actmaybe citedas the“Railroad AntitrustEnforcementActof 2022”.
+SEC.2.INJUNCTIONS AGAINSTRAILROAD COMMONCARRIERS.
+The proviso in section 16ofthe ClaytonAct(15 U.S.C.26)ending with“Code.”is amendedto
+read as follows: “Provided, That nothing herein contained shall be construed to entitle any person,
+firm, corporation, or association,exceptthe UnitedStates,tobring suit for injunctivereliefagainst any
+common carrier that is not a railroad subject to the jurisdiction of the Surface Transportation Board
+under subtitleIVof title 49,United StatesCode.”.
+SEC.3.RAIL MERGERSANDACQUISITIONS.
+The sixth undesignated paragraph of section 7ofthe ClaytonAct(15 U.S.C. 18)is amendedto
+read as follows: “Nothing contained in this section shall apply to transactions duly consummated
+pursuant to authority given by the Secretary of Transportation, Federal Power Commission, Surface
+Transportation Board (except for agreements described in section 10706 of title 49, United States
+Code, and transactions described in section 11321 of that title), the Securities and Exchange
+Commission in theexercise ofits jurisdictionunder section10(of the PublicUtility Holding Company
+
+Act of 1935), the United States Maritime Commission, or the Secretary of Agriculture under any
+statutory provisionvestingsuch powerinthe Commission,Board,or Secretary.”.
+SEC.4.LIMITATIONOFJURISDICTION.
+TheClayton Actisamendedbyadding atthe endthereof thefollowing:
+“Sec.29.In any civilactionagainst acommon carrierrailroadunder section4,4C, 15,or16of
+this Act,thedistrict courtshallnotberequired todefer totheprimary jurisdictionof the
+SurfaceTransportation Board.”
+SEC.5.FTCENFORCEMENT.
+(a) Section 11(a) of the Clayton Act (15 U.S.C. 21(a)) is amended by striking “subject to
+jurisdiction” and all that follows through the first semicolon and inserting “subject to
+jurisdiction under subtitle IV of title 49, United States Code (except for agreements described
+in section10706of that titleandtransactions described insection11321of thattitle);”
+(b) Section 5(a)(2) of the Federal Trade Commission Act (15 U.S.C. 44(a)(1)) is amended by
+striking “common carriers subject” and inserting “common carriers, except for railroads,
+subject.”
+SEC.6.EXPANSIONOF TREBLEDAMAGES.
+Section 4of theClaytonAct(15 U.S.C.15)is amendedby—
+(1) redesignating subsections(b) and(c) assubsections (c)and(d), respectively; and
+(2) inserting aftersubsection(a)the following:
+“(b) Subsection (a) shall apply to common carriers by rail subject to the jurisdiction of the
+Surface Transportation Board under subtitle IV of title 49, United States Code, withoutregard
+to whether such railroads have filed rates or whether a complaint challenging a rate has been
+filed.”
+SEC.7.TERMINATION OF TITLE49EXEMPTIONS.
+(a) Section 10706of title 49,UnitedStatesCode, isamended–
+(1) in subsection (a)–
+(A) in paragraph (2)(A), by striking “, and the Sherman Act (15U.S.C.1et seq.),”
+and all that follows through “or carrying out the agreement” in the third
+sentence;
+(B) in paragraph(4)—
+
+(i) bystriking thesecond sentence; and
+(ii) bystriking “However,the” inthethird sentence andinserting “The”; and
+(C) in paragraph (5)(A), by striking “, and the antitrust laws set forth in paragraph
+(2) of this subsection do not apply to parties and other persons with respect to
+making orcarrying outthe agreement”;and
+(2) bystriking subsection(e)and insertingthe following:
+“(e)Application ofantitrustlaws.—
+“(1) IN GENERAL.—Nothing in this section exempts a proposed agreement
+described insubsection (a)fromthe applicationof theShermanAct (15U.S.C.1
+et seq.), the Clayton Act (15 U.S.C. 12, 14 et seq.), the Federal Trade
+Commission Act (15 U.S.C. 41 et seq.), section 73 or 74 of the Wilson Tariff
+Act (15 U.S.C. 8 and 9), or the Act of June 19, 1936 (15 U.S.C. 13, 13a, 13b,
+21a).
+“(2) ANTITRUST ANALYSIS TO CONSIDER IMPACT.—In reviewing any
+such proposed agreement for the purpose of any provision of law described in
+paragraph (1), theBoard andanyotherreviewingagency shalltake intoaccount,
+among any other considerations, the impact of the proposed agreement on
+shippers, onconsumers,and on affectedcommunities.”
+(b) Section 11321of title 49,UnitedStatesCode, isamended—
+(1) in subsection (a)—
+(A) by striking “The authority” in the first sentence and inserting “Except as
+provided in sections 4 (15 U.S.C. 15), 4C (15 U.S.C. 15c), section 15 (15
+U.S.C. 25), and section16(15 U.S.C.26)of theClaytonAct (15U.S.C.21(a)),
+the authority”;and
+(B) by striking “is exempt from the antitrust laws and from all other law,” in the
+third sentence and inserting “is exempt from all other law (except the antitrust
+laws referredto insubsection(c)),”; and
+(2) byaddingatthe endthefollowing:
+“(c)Application ofantitrustlaws.—
+“(1) IN GENERAL.—Nothing inthis sectionexemptsa transactiondescribed in
+subsection (a) from the applicationof theShermanAct (15U.S.C.1et seq.),the
+
+Clayton Act (15 U.S.C. 12, 14 et seq.), the Federal Trade Commission Act (15
+U.S.C. 41 et seq.), section 73 or 74 of theWilson Tariff Act(15U.S.C.8–9), or
+theAct ofJune 19,1936(15U.S.C.13,13a, 13b,21a).
+“(2) ANTITRUST ANALYSIS TO CONSIDER IMPACT.—In reviewing any
+such transaction for the purpose of any provision of law described inparagraph
+(1), the Board and any other reviewing agency shall take into account, among
+any other considerations, the impact of the transaction on shippers and on
+affectedcommunities.”.
+SEC.8.ENACTMENT.
+(a) Theprovisionsof this Actshallcome intoforce immediatelyuponpassage.
+(b) A civil action under section 4, 15,or16of theClayton Act(15U.S.C.15,25,26) orcomplaint
+under section 5 of the Federal Trade Commission Act (15 U.S.C. 45) may not be filed with
+respect to any conduct or activity that occurred prior to the date of enactment of this Act that
+was previously exempted from the antitrust laws as definedinsection 1ofthe ClaytonAct(15
+U.S.C. 12) by orders of the Interstate Commerce Commission or the Surface Transportation
+Board issuedpursuant tolaw.
+(c) A civilactionor complaint described inparagraph (1) maynotbe filedearlierthan 180days
+after thedateof enactmentof this Actwithrespect toanypreviously exemptedconduct or
+activityor previously exemptedagreementthat iscontinuedsubsequentto thedate of
+enactment of thisAct.

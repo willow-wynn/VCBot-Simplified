@@ -1,0 +1,66 @@
+177TH CONGRESS
+H.R.4
+IN THE HOUSE OF REPRESENTATIVES
+May 12, 2024
+Introduced by Mr. Nord of Pacifica, for himself.
+IN THE SENATE
+Introduced by Mr. Sun of Olympia
+A BILL
+To invest in the research of breeder nuclear technology and nuclear fusion
+technology in order to produce clean, efficient, reliable, and cheap energy, and to
+further the efficient transition to clean energy sources.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Nuclear Research Investment Act of 2024”.
+SEC. 2. DEFINITIONS
+For the purposes of this act,
+(a) “Fission Breeder Reactor” (hereinafter referred to as “FBR”s) refers to any
+nuclear reactor that generates more fissile material than it consumes via the
+transmutation of fertile isotopes.
+(b) “Fusion Nuclear Reactor” (hereinafter referred to as “FNR”s) refers to any
+power plant which produces energy by fusing atomic nuclei (such as
+hydrogen) together.
+
+(c) “The Secretary” shall refer to the United States Secretary of Energy.
+(d) “The Department” shall refer to the United States Department of Energy.
+(e) “The Under Secretary '' shall refer to The Under Secretary for Science and
+Innovation in the United States Department of Energy.
+SEC 3. RELEVANT PROVISIONS
+The Secretary, through the Under Secretary, is hereby authorized to —
+(1) enter into agreements or contracts with any Federal, State, or local
+agency or private organization, including private research institutions
+and universities, on behalf of the Department, for the purpose of
+furthering the development and research of FNRs or FBRs;
+(i) including but not limited to agreements with agencies where
+clean energy is already part of their jurisdiction, or agencies
+with nuclear energy, development, and research as their focus;
+and that it is the sense of congress that the Secretary should
+engage in such agreement with the Environmental Protection
+Agency;
+(2) award grants not exceeding $40,000,000 each to such federal, state,
+or local agencies, or research institutions, to further the development
+of FNRs or FBRs;
+(3) maintain communication with those agencies and institutions to
+avoid duplication of efforts, including and necessitating but not limited
+to bi-annual updates on research efforts and development; and that the
+Secretary, through the Under Secretary, shall review all updates before
+authorizing renewals for the grants provided for in Section 3(2).
+(4) use resources and personnel of The Department to conduct research
+and further the development of FNRs or FBRs.
+SEC. 4. SEVERABILITY
+Should any portion of this Act be deemed invalid or unconstitutional for any
+reason in a court with relevant jurisdiction, the rest of the Act, and the
+application of the remaining provisions, shall not be affected.
+SEC 5. APPROPRIATIONS
+
+(a) AUTHORIZATION OF APPROPRIATIONS.—There is authorized to be appropriated
+$200,000,000 for the fiscal year 2024 for the Department to carry out this
+Act; $300,000,000 for fiscal years 2025 to 2028; and such sums as may be
+necessary for fiscal years thereafter.
+(b) The Department shall reduce public research spending on other nuclear
+related projects by $100,000,000 for the fiscal years 2024-2028 and this
+money shall be allocated to the research of FNRs and FBRs.
+SEC. 6. EFFECTIVE DATE.
+This Act shall take effect on the date that is 6 months after the date of
+enactment of this Act.

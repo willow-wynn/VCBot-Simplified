@@ -1,0 +1,161 @@
+161st Congress
+1st Session
+H.R.4.
+IN THE HOUSE OF REPRESENTATIVES
+January 13th, 2022
+Mr. Sullivan of Olympia (for himself, Mr. Posting of Pacifica, Mr.
+Morales of Frontier) introduced the following bill;
+A BILL
+Be it enacted by the Senate and the House of Representatives of the United States of
+America in Congress Assembled,
+SEC. 1. SHORT TITLE.
+This Act may be cited as the “Lowering the Deficit Act of 2023”.
+SEC. 2. FINDINGS.
+Congress finds that—
+(a) Stock Buybacks are one of the many mechanisms by which the wealth gap is growing out of
+control, and ever since Corporate Repurchases of stock were fulling legalized in 1982 in a
+decision by the Securities and Exchange Commission,:
+(i) The share of aggregate wealth held by upper-income families, the primary beneficiaries
+of corporate stock repurchases, has increased by 19%, as of 2016; so as to make them
+holders of nearly 79% of aggregate wealth as of 2016, up from only 60% in 1983; and
+(ii) The share of aggregate wealth held by middle-income families has decreased by 15%,
+so as to make them holders of only 17% of aggregate wealth as of 2016, down from
+32% in 1983; and
+(iii) The share of aggregate wealth held by lower-income families has decreased by 3%, so
+as to make them holders of only 4% of aggregate wealth as of 2016, down from 7% in
+1983.
+(b) The wealth gap is a drag on economic growth and, consequently, tax revenues. Concentrated
+income and wealth reduces the level of demand in the economy because rich households tend
+to spend less of their income compared to poorer ones,
+(c) As of 2016 and 2017, the proportion of Repurchases funded by corporate bonds reached as high
+as 30%, endangering the American economy due to excessive bad debt that is being taken on
+by corporations,
+(d) Repurchases are draining corporate treasuries, making Corporations more vulnerable to
+economic recessions, and therefore are causing the government to spend more on bailouts,
+1
+
+161st Congress
+1st Session
+(e) Senior corporate executives are using open-market repurchases to manipulate their companies’
+stock prices to their own benefit, so as to achieve higher compensation,
+(f) The open and tax-free availability of stock buybacks has allowed Corporations to use their
+record profits to spend money on repurchasing their stock, making shareholders even richer,
+rather than reinvesting in the industry, services, and employees that keep their corporations
+running and add real value to the economy,
+(g) A tax on Repurchase of Corporate stock may incentivize the shareholders of corporations to
+re-invest in their employees and business rather than themselves,
+(h) Without accounting for the fact that firms may decrease Corporate Stock Repurchases as a
+result of this bill, it is estimated that this tax will generate $27,500,000,000.00 per year in
+additional revenue, and that additional revenue may be used to reduce the deficit.
+SEC. 3. EXCISE TAX ON REPURCHASE OF CORPORATE STOCK.
+(a) IN GENERAL. Subtitle D of the Internal Revenue Code of 1986 is amended by inserting after
+chapter 36 the following new chapter:
+“Chapter 37 — REPURCHASE OF CORPORATE STOCK.
+(a) General Rule. — There is hereby imposed on each covered corporation a tax equal to 5 percent
+of the fair market value of any stock of the corporation which is repurchased by such
+corporation during the taxable year.
+(b) Covered Corporation.—For purposes of this section, the term `covered corporation' means any
+domestic corporation the stock of which is traded on an established securities market (within
+the meaning of section 7704(b)(1)).
+(c) Repurchase.—For purposes of this section —
+(1) In General. — The Term ‘repurchase’ means —
+(A) a redemption within the meaning of section 317(b) with regard to the stock of a
+covered corporation, and
+(B) any transaction determined by the Secretary to be economically similar to a
+transaction described in subparagraph (A).
+(2) Treatment of purchases by specified affiliates. —
+(A) In general.—The acquisition of stock of a covered corporation by a specified
+affiliate of such covered corporation, from a person who is not the covered
+corporation or a specified affiliate of such covered corporation, shall be treated
+as a repurchase of the stock of the covered corporation by such covered
+corporation.
+(B) Specified affiliate.—For purposes of this section, the term `specified affiliate'
+means, with respect to any corporation–
+1. any corporation more than 50 percent of the stock of which is owned (by
+vote or by value),directly or indirectly, by such corporation, and
+2
+
+161st Congress
+1st Session
+2. any partnership more than 50 percent of the capital interests or profits
+interests of which is held, directly or indirectly, by corporation.
+(C) Adjustment.—The amount taken into account under subsection (a) with respect
+to any stock repurchased by a covered corporation shall be reduced by the fair
+market value of any stock issued by the covered corporation during the taxable
+year, including the fair market value of any stock issued or provided to
+employees of such covered corporation or employees of a specified affiliate of
+such covered corporation during the taxable year, whether or not such stock is
+issued or provided response to the exercise of an option to purchase such stock.
+(d) Special Rules for Acquisition of Stock of Certain Foreign Corporations. —
+(1) In general.—In the case of an acquisition of stock of an applicable foreign corporation
+by a specified affiliate of such corporation (other than a foreign corporation or a foreign
+partnership (unless such partnership has a domestic entity as a direct or indirect
+partner)) from a person who is not the applicable foreign corporation or a specified
+affiliate of such applicable foreign corporation, for purposes of this section–
+(A) such specified affiliate shall be treated as a covered corporation with respect to
+such acquisition,
+(B) such acquisition shall be treated as a repurchase of stock of a covered
+corporation by such covered corporation, and
+(C) the adjustment under subsection (c)(3) shall be determined only with respect to
+stock issued or provided by such specified affiliate to employees of the specified
+affiliate.
+(2) Surrogate Foreign Corporations. — Surrogate foreign corporations.—In the case of a
+repurchase of stock of a covered surrogate foreign corporation by such covered
+surrogate foreign corporation, or an acquisition of stock of a covered surrogate foreign
+corporation by a specified affiliate of such corporation, for purposes of this section–
+(A) the expatriated entity with respect to such covered surrogate foreign corporation
+shall be treated as a covered corporation with respect to such repurchase or
+acquisition,
+(B) such repurchase or acquisition shall be treated as a repurchase of stock of a
+covered corporation by such covered corporation, and
+(C) the adjustment under subsection (c)(3) shall be determined only with respect to
+stock issued or provided by such expatriated entity to employees of the
+expatriated entity.
+(3) Definitions.—For purposes of this subsection–
+(A) Applicable foreign corporation.—The term `applicable foreign corporation'
+means any foreign corporation the stock of which is traded on an established
+securities market (within the meaning of section 7704(b)(1)).
+(B) Covered surrogate foreign corporation.—The term `covered surrogate foreign
+corporation' means any surrogate foreign corporation (as determined under
+3
+
+161st Congress
+1st Session
+section 7874(a)(2)(B) by substituting `September 20, 2021' for `March 4, 2003'
+each place it appears) the stock of which is traded on an established securities
+market (within the meaning of section 7704(b)(1)), but only with respect to
+taxable years which include any portion of the applicable period with respect to
+such corporation under section 7874(d)(1).
+(C) (C) Expatriated entity.—The term `expatriated entity' has the meaning given
+such term by section7874(a)(2)(A).
+(e) Exceptions. —
+(1) to the extent that the repurchase is part of a reorganization (within the meaning of
+section368(a)) and no gain or loss is recognized on such repurchase by the shareholder
+under chapter 1 by reason of such reorganization,
+(2) in any case in which the stock repurchased is, or an amount of stock equal to the value
+of the stock repurchased is, contributed to an employer sponsored retirement plan,
+employee stock ownership plan, or similar plan,
+(3) in any case in which the total value of the stock repurchased during the taxable year
+does not exceed $50,000,
+(4) under regulations prescribed by the Secretary, in cases in which the repurchase is by a
+dealer in securities in the ordinary course of business,
+(5) to repurchases by a regulated investment company (as defined in section 851) or a real
+estate investment trust, or
+(6) to the extent that the repurchase is treated as a dividend for the purposes of this title.
+(f) Regulations and Guidance. — The Secretary shall prescribe such regulations and other
+guidance as are necessary or appropriate to carry out, and to prevent the avoidance of, the
+purposes of this section, including regulations and other guidance —
+(1) to prevent the abuse of the exceptions provided by subsection (e),
+(2) to address special classes of stock and preferred stock, and
+(3) for the application of the rules under subsection d.”.
+(b) Tax Not Deductible. — Paragraph (6) of section 275(a) is amended by inserting “37” before
+“41”.
+(c) Clerical Amendment. — The table of chapters for subtitle D is amended by inserting after the
+item relating to chapter 36 the following new item:
+“Chapter 37 — Repurchase of Corporate Stock”.
+(d) Effective Date. — The amendments made by this section shall apply to repurchases (within the
+meaning of section 4501(c) of the Internal Revenue Code of 1986, as added by this section) of
+stock made after February 31, 2023.
+Written by Representative Daniel Sullivan, sourcing the vast majority of the text from the IRL Inflation
+Reduction Act, for use by the Congress of the United States of America.
+4

@@ -1,0 +1,150 @@
+179th Congress
+1st Session
+H.R. 13
+IN THE HOUSE OF REPRESENTATIVES
+July 20th, 2024
+Mr. Wilber de Silveira (for himself, on behalf of the Sun
+Administration) introduced the following bill;
+A BILL
+To establish the Hydrogen Fuel Cell Electric Vehicle (FCEV) Development Fund
+Be it enacted by the Senate and the House of Representatives of the United
+States of America in Congress Assembled,
+SEC. 1. SHORT TITLE.
+This Act may be cited as the “American Hydrogen FCEV Development and
+Protection Act of 2024 ”.
+SEC. 2. FINDINGS.
+Congress finds that—
+(a) It is the policy of the United States to aim to lead in the development
+and deployment of advanced vehicle technologies, strengthen its economy, as
+well as to preserve the environment, and to move away from fossil fuels;
+(b) Hydrogen Fuel Cell Electric Vehicles (Hydrogen FCEVs) represent a
+promising advanced vehicle technology for the purpose of reducing
+greenhouse gas emissions and dependence on fossil fuels, to satisfy the first,
+third, and fourth policies listed in Section 2(a);
+(c) When industry and business is conducted within the borders of the
+United States, the United States experiences economic growth;
+(d) It is therefore in the interest of American policy to ensure the
+development, design, and manufacturing of FCEVs occurs within the United
+States.
+
+179th Congress
+1st Session
+SEC. 3. DEFINITIONS.
+In this Act—
+(a) American Automobile Manufacturer:
+The term “American Automobile Manufacturer” refers to a company or
+corporation that:
+(i) Is incorporated in the United States;
+(ii) Is majority-owned by entities or individuals who are citizens or
+legal residents of the United States; or
+(iii) Has its principal place of business within the United States.
+(b) Hydrogen Fuel Cell Electric Vehicle (FCEV)
+The term “Hydrogen Fuel Cell Electric Vehicle (FCEV)” means a vehicle
+that
+(i) Utilizes a hydrogen fuel cell to generate electricity that powers one
+or more electric motors;
+(ii) Operates solely on electricity produced from hydrogen stored in
+onboard tanks; and
+(iii) Emits only water vapor and heat as by-products during operation
+(c) Majority-Owned:
+The term “majority-owned” refers to a situation where more than 50% of a
+company’s voting shares are held by entities or individuals who are citizens
+or legal residents of the United States.
+(d) American Made:
+The term “American Made” refers to products, components, or parts that
+are:
+(i) Manufactured or produced in the United States
+(ii) Made from materials sourced from within the United States.
+(e) Intellectual Property (IP):
+The term “Intellectual Property (IP)” includes patents, copyrights,
+trademarks, and trade secrets related to the technology and innovations
+developed through the funding provided under this Act.
+(f) Vehicle Platform:
+The term “vehicle platform” refers to the shared base structure and
+components used for multiple models of vehicles produced by the
+
+179th Congress
+1st Session
+manufacturer. This includes any vehicle model that shares the same
+fundamental design and engineering elements.
+(g) Development:
+The term “development” refers to the process of researching, designing, and
+engineering new technologies or vehicle models, including prototyping and
+testing.
+(h) Manufacturing:
+The term “Manufacturing” refers to the process of producing, assembling,
+and producing final products, including vehicles and vehicle components.
+SEC. 4. Establishment of the Hydrogen FCEV Development Fund
+(a) Establishment:
+There is established, in the Treasury of the United States, a trust fund to be
+known as the Hydrogen FCEV Development Fund (hereafter referred to as
+“the Fund”), consisting of amounts appropriated to the Fund under this Act
+or otherwise credited or transferred to it by law.
+(b) Funding:
+The Fund shall provide financial subsidies and grants to American
+automobile manufacturers to support the development, design, and
+production of Hydrogen FCEVs, by
+(i) discretion of the Board of Review as established in Section 6 of this
+act; or
+(ii) discretion of the Secretary responsible for the Department of
+Energy, (“the Secretary”) or the President.
+(c) Duration:
+Funding shall be allotted for a period of four (4) years from the date of
+enactment of this Act, with a possible extension after four (4) years based on
+a review process mentioned in section 6(b)(4) of this act.
+SEC. 5. Eligibility and Requirements
+(a)Eligibility:
+To be eligible for funding, an automobile manufacturer must:
+(i) be committed to the development, design, and manufacture of FCEVs and
+any subsequent model within the borders of the United States;
+
+179th Congress
+1st Session
+(ii) Ensure that 100% of the parts used in the FCEVs are American Made.
+(iii) in their application, include a comprehensive plan detailing the use of
+the funding requested, adherence to American manufacturing requirements,
+and projected outcomes.
+(b)Moratorium:
+Manufacturers receiving funds under this Act shall not move any aspect of
+production, design, or development outside of the borders of the United
+States for a period of twenty (20) years from the date of receiving funds.
+(c)Intellectual Property:
+Any intellectual property resulting from the development of FCEVs funded
+by this Act must be registered in the United States.
+SEC. 6. Administration and Oversight
+(a) Board of Review:
+A Board (“Board of Review”) shall be established to perform the duties
+listed in Section 6(b) of this act, consisting of representatives from the
+following agencies and institutes, as appointed by their principal officers;
+1. The Department of Energy;
+2. The Department of Commerce;
+3. The Department of Transportation;
+4. The Federal Trade Commission;
+5. The Office of Science and Technology Policy;
+6. The National Institute of Standards and Technology; and
+7. The Environmental Protection Agency.
+(b) Duties of the Board:
+The Board Shall –
+1. Establish criteria for the evaluation of funding requests;
+2. Review and approve or deny all funding requests based on said
+criteria, unless any request should be granted or denied by the
+Secretary or the President as detailed in Section 4(b)(i) of this act;
+3. Conduct annual reviews of fund usage by recipient manufacturers;
+and
+4. Review requests for an extension of funding after four (4) years and
+make recommendations.
+
+179th Congress
+1st Session
+(c) Reporting:
+The Board shall submit an annual report to the President and to Congress
+detailing the Fund’s expenditures, progress made by funded projects, and
+compliance with the requirements of this Act.
+SEC. 7. Authorization of Appropriations
+There are authorized to be appropriated to the Fund, by the discretion of the
+Secretary responsible for the Treasury Department or by direction of the
+President, both through explicit proclamation, such sums as may be necessary to
+carry out the purposes of this Act for each of fiscal years 2024 through 2028.
+SEC. 8. ENACTMENT.
+EFFECTIVE DATE.— The provisions of this Act shall come into force immediately
+upon passage.

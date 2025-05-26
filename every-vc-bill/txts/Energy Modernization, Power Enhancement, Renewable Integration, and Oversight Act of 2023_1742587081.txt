@@ -1,0 +1,189 @@
+S.1
+To modernize and expand the power grid for operation into the 21st century, promote
+renewable energy, including related interconnections, and streamline the permitting and
+siting processes for interstate transmission projects.
+—————————————————————
+IN THE SENATE OF THE UNITED STATES
+December 14, 2023
+Mr. EMPERIO (for himself, Mr. HOFFMAN, Mr. ROSS, Mr.
+HERSEY, Mr. LeMAIRE, Mr. ANKA) submitted the following bill;
+which was referred to the Committee on General Welfare.
+—————————————————————
+A BILL
+To modernize and expand the power grid for operation into the 21st century, promote
+renewable energy, including related interconnections, and streamline the permitting and
+siting processes for interstate transmission projects.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the "Energy Modernization, Power Enhancement,
+Renewable Integration, and Oversight Act of 2023" or the EMPERIO Act.
+SEC. 2. FINDINGS.
+Congress finds that— (a) the current U.S. power-grid is over a century-old, with its
+infrastructure failing and wholly unable to serve the demands of the 21st century;
+pg. 1 of 8
+
+(b) to prepare for the future, tap into renewable energy potential, and meet Federal
+sustainability targets, it is necessary to dramatically expand the current electric grid,
+including its transmission capabilities;
+(c) that the U.S. requires, according to most estimates, at least 47,000 gigawatt-miles
+of new power lines by 2035, which requires that the pace of construction be doubled;
+(d) excessive regulation and convoluted approval processes have held back new
+transmission projects, often requiring years and even decades just to complete
+preliminary approval processes;
+(e) current permitting and siting processes require that separate reviews be conducted
+by each State and municipality that the transmission project would pass through, including
+several Federal agencies;
+(f) antiquated environmental regulation continues to impede progress; and
+(f) the federalization of permitting and siting for major transmission projects involved in
+interstate commerce, including a new streamlined Federal process, is necessary to meet
+future energy requirements;
+SEC. 4. DECLARATION OF POLICY.
+Section 201 of the Federal Power Act (16 U.S.C. 824) is amended by appending the
+following text to subsection (a):
+“It is further declared that the expeditious planning, siting, and approval of new
+transmission facilities intended for interstate commerce is affected in the public interest,
+and that Federal supremacy for regulating such activities, pursuant to Article 1, Section 8,
+Clause 3 of the Constitution, and subject to the provisions of this Act (16 U.S.C. 824 et
+seq.), is necessary and in the national interest to ensure the development of a modern,
+sustainable, integrated, and efficient energy grid for the 21st century.”
+SEC. 5. NATIONAL INTEREST TRANSMISSION CORRIDORS OVERHAUL.
+pg. 2 of 8
+
+Section 216 of the Federal Power Act (16 U.S.C. 824p) is amended by replacing
+subsection (a) with:
+“(a) EXPLORATORY PROCESS.—
+“(1) STUDY ON TRANSMISSION CORRIDORS.—
+“(A) IN GENERAL.—No later than six months after the passage of this
+amendment, the Secretary whose executive jurisdiction encompasses the
+Department of Energy (hereafter referred to as “the Secretary”), in
+collaboration with the Commission, shall undertake a comprehensive study to
+identify regions experiencing high electric congestion, insufficient
+infrastructure, and insufficient capacity, assessing the need for new
+transmission lines and connections between electric utilities across state lines
+(that is, passing through no fewer than two States), designating such regions
+as National Interest Electric Transmission Corridors.
+“(B) COLLABORATION WITH TENTATIVE STAKEHOLDERS.—In
+conducting a study pursuant to subparagraph (A), the Secretary shall consult
+with relevant State commissions, Isolated Service Providers, Regional
+Transmission Organizations, and any other necessary electric or transmitting
+utilities.
+“(2) REPORT ON POSSIBLE TRANSMISSION PROJECTS.—
+“(A) IN GENERAL.—The Secretary shall also concurrently conduct an
+investigation into possible transmission line projects in identified National
+Interest Electric Transmission Corridors, consulting the same entities stipulated
+in paragraph (1)(B) and publishing such findings in the form of a report no later
+than one year after the publishing of the study under subsection (a).
+pg. 3 of 8
+
+“(B) CAPACITY TARGETS.—A report made under subparagraph (A) shall
+present proposals of a capacity amounting to no less than 47,300
+gigawatt-miles of new transmission lines.
+“(C) TECHNOLOGICAL TARGETS.—The identified corridors and
+subsequent proposals should maximize opportunities to integrate:
+“(i) high-voltage direct current (HVDC)
+“(ii) dynamic line ratings;
+“(iii) topology optimization;
+“(iv) power flow control;
+“(v) advanced conductors or superconductors; and
+“(vi) storage-as-transmission technologies.
+“(D) ENVIRONMENTAL TARGETS.—Any proposals made under this
+subsection should seek to comply, to the maximum extent possible, with
+federal sustainability targets and State environmental regulations, additionally
+ensuring that, wherever possible, the transmission connections proposed
+under this subsection connect facilities producing renewable energy (as
+defined in 42 U.S.C. 15852).
+“(3) RECURRENCY.—The studies and reports authorized pursuant to subsection
+(a)(1) shall be carried out every five years.”
+SEC. 6. PERMITS AND SITING AMENDMENTS; PRE-EMPTIVE APPROVAL.
+(a) IN GENERAL.—Section 216 of the Federal Power Act (16 U.S.C. 824p) is
+amended—
+(1) in subsection (b), by—
+(A) replacing all instances of “Construction Permit” with “Interstate
+Transmission Authority Permit”, including in the subsection title;
+pg. 4 of 8
+
+(B) replacing “for the construction or modification” with “for the construction,
+modification, or operation”;
+(C) striking paragraph (1) in its entirety; and
+(D) inserting the following paragraph:
+“(7) the proposed construction or modification is consistent with the target
+requirements made under subsection (b)”; and renumbering as necessary.
+(2) by striking subsection (g) in its entirety;
+(3) in subsection (f)(2), by replacing “an amount equal to” with “no less than” ;
+(4) appending the following paragraph to subsection (f):
+“(3) Just compensation shall also include compensation for—
+“(A) lost income from the property; and
+“(B) damages to any other properties of the owner”;
+(5) appending the following subsection:
+“(l) SUPREMACY.—Unless otherwise specified, the Commission shall have
+exclusive jurisdiction over, with no State or political subdivision thereof, regulating
+any aspect of, the siting or permitting of an energy transmission facility constructed
+or modified under a permit issued under subsection (a)”.
+(b) PRE-EMPTIVE PERMITTING AND SITING.—Section 216 of the Federal Power
+Act (16 U.S.C. 824p) is amended by appending the following subsection:
+“(m) PRE-EMPTIVE AUTHORIZATION.—
+“(1) IN GENERAL.—Pursuant to a report filed under subsection (a)(2), the
+Secretary shall be empowered to preemptively authorize the construction of select
+transmission projects.
+“(2) SCOPE.—In granting a pre-emptive authorization, the Secretary shall first
+rigorously develop an internal proposal for the transmission project being authorized,
+pg. 5 of 8
+
+after which the Secretary shall initiate a process to attain any and all Federal
+authorizations and environmental reviews, pursuant to subsection (h).
+“(3) SITING.—In accordance with paragraph (2), the Secretary shall undertake a
+modified siting process, notifying and preparing affected landowners of the potential
+authorization of the project, soliciting their opinions, and determining the extent to
+which a future permit holder may need to exercise right-of-way and eminent domain,
+including the possible amounts of just compensation to be paid for.
+“(4) AWARDING OF CONTRACTS.—The Secretary, in consultation with the
+Commission, shall, no later than one year after the passage of this amendment,
+promulgate rules to award pre-authorized projects under this subsection to
+interested electric or transmitting utilities, including but not limited to competitive
+bidding, requests for proposals, requests for qualifications, and negotiated
+procurement.”.
+(b) CATEGORICAL EXCLUSIONS.—Section 216 of the Federal Power Act (16 U.S.C.
+824p) is amended by appending the following subsection:
+“(n) NEPA CATEGORICAL EXCLUSION.—The Secretary, in consultation with the
+Commission, shall be empowered to expedite the permitting and siting processes under
+this section by considering the construction or modification of a transmission project to be
+categorically excluded (as defined in 24 CFR 58.35) from the requirements of the National
+Environmental Policy Act (42 U.S.C. 4321 et seq.) if it is determined that—
+“(1) the transmission project would create minimal environmental impact; or
+“(2) there exists an exceptional public interest to expedite the permitting and
+siting process for the transmission project.”.
+(c) CEFA REPEAL.—
+(1) IN GENERAL.—The Clean Energy Future Act of 2022 is amended by striking
+section 4 and section 5 in their entirety.
+pg. 6 of 8
+
+(2) RETURN OF FUNDS.—Any and all funds, pursuant to authorizations made
+under section 13(a) of the Clean Energy Future Act of 2022, that remain unobligated
+as of the passage of this Act shall be returned to the General Fund of the U.S.
+Treasury within six months of the passage of this Act.
+SEC. 7. COST RECOVERY AND OTHER INCENTIVES.
+Section 205 of the Federal Power Act (16 U.S.C. 824d) is amended—
+(a) in subsection (a), by inserting “including costs incurred by transmission
+projects authorized under section 216 (16 U.S.C 824p)” after “in connection with the
+transmission or sale of electric energy”; and
+(b) by appending the following subsection:
+“(h) COST RECOVERY INCENTIVE.—The Commission shall, no later than 1
+year after the passage of this amendment, promulgate rules to enable a public utility
+or permit-holder developing an interstate transmission project authorized under
+section 216 (16 U.S.C 824p) of this Act to submit a request to recover, either
+partially or in whole, the costs of such a project upon its completion, if the
+Commission is satisfied that the project has reasonably fulfilled the stipulated
+expectations, requirements, and targets set forth by section 216 of this Act (16
+U.S.C 824p) and any relevant contractual agreements or legal instruments.”.
+SEC. 8. APPROPRIATIONS.
+In addition to funds otherwise available, there is to be appropriated, out of any funds in
+the Treasury not otherwise appropriated, to remain until expended, the amount of—
+(a) $100,000,000, for the Department of Energy, to carry out the amendments
+made under sections 5 and 6; and
+pg. 7 of 8
+
+(b) $50,000,000,000, for the Federal Energy Regulatory Commission, to carry
+out the amendments made under section 7, specifically for the purposes of cost
+recovery pursuant to that section.
+pg. 8 of 8

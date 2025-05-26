@@ -1,0 +1,4 @@
+[2025-05-23 16:55:44] [vcbot] [DEBUG] Debug logging active - this message goes to file only
+[2025-05-23 16:55:49] [vcbot] [DEBUG] Discord client set in tool registry
+[2025-05-23 16:55:49] [vcbot] [DEBUG] Generated 3 Gemini tool declarations
+[2025-05-23 16:55:49] [file_manager] [DEBUG] FileManager initialized with base directory: /Users/wynndiaz/VCBot

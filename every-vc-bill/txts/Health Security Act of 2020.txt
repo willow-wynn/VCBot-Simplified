@@ -1,0 +1,79 @@
+IntroducedinHouse(03/19/20)
+TooptimizefederalhealthcarepolicybyadjustingtheMedicarepremiumschedule,creatinganewrefundabletaxcreditforhealth
+savingscontributions,andbroadeningMedicaideligibilitytoincludeagreatershareofthelow-incomepopulation.
+IN THE CONGRESS OF THE UNITED STATES
+MARCH 19, 2020
+Mr. HOLBROOK introduced the following bill;
+A BILL
+TooptimizefederalhealthcarepolicybyadjustingtheMedicarepremiumschedule,creatinganewrefundabletaxcreditforhealth
+savingscontributions,andbroadeningMedicaideligibilitytoincludeagreatershareofthelow-incomepopulation.
+BeitenactedbytheHouseofRepresentativesoftheUnitedStatesofAmericainCongressassembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Health Security Act of 2020”.
+SEC. 2. TWEAKING MEDICARE PREMIUMS.
+(a) In General.— Section 1395r(i)(3)(C) is amended by striking subsection (i) and inserting the following:
+“(i)Ingeneral
+“(I)Subjecttoparagraph(5),foryearspriorto2021:
+“Ifthemodifiedadjustedgrossincomeis: Theapplicablepercentageis:
+Morethan$85,000butnotmorethan$107,000 35percent
+Morethan$107,000butnotmorethan$133,500 50percent
+Morethan$133,500butnotmorethan$160,000 65percent
+Morethan$160,000butnotmorethan$500,000 80percent
+Morethan$500,000 85percent
+“(II)Subjecttoparagraph(5),foryearsbeginning2021:
+“Ifthemodifiedadjustedgrossincomeis: Theapplicablepercentageis:
+Morethan$75,000butnotmorethan$100,000 37percent
+Morethan$100,000butnotmorethan$125,000 49percent
+Morethan$125,000butnotmorethan$150,000 61percent
+Morethan$150,000butnotmorethan$175,000 73percent
+Morethan$175,000butnotmorethan$200,000 85percent
+Morethan$200,000 97percent
+(b) In General.— Section 1395r(i)(2)(A) is amended—
+(1) by striking “$80,000” and inserting “$85,000”;
+(2) by striking “$85,000” and inserting “$75,000”;
+(3) by striking “2018” and inserting “2021”.
+
+IntroducedinHouse(03/19/20)
+SEC. 3. TAX CREDIT FOR HEALTH SAVINGS.
+(a) In General.— Subpart C of part VII of subchapter A of chapter 1 of the Internal Revenue Code of 1986 is
+amended by adding at the end the following new section:
+“§35B.HEALTHSAVINGSCONTRIBUTIONS.
+“(a)AllowanceOfCredit—Inthecaseofanindividualwhoisaneligibleindividualforanymonthduringthetaxable
+year,thereshallbeallowedasacreditagainstthetaximposedbythisSubtitleforsuchtaxableyearequaltothe
+aggregateamountdepositedduringsuchtaxableyearbyoronbehalfofsuchindividualintoahealthsavingsaccountof
+suchindividual.
+“(b)Limitations
+“(1)DollarLimitation—Theamountallowableasacreditundersubsection(a)forthetaxyearshallnotexceed—
+“(A)—inthecaseofanindividualwhohasself-onlycoverageunderahealthplan,$1,250;
+“(B)—inthecaseofamarriedindividualwhohasfamilycoverageunderahealthplan,$2,500;and
+“(C)—foreachdependent(asdefinedinsection152)ofthetaxpayerforthetaxableyear,$625.
+“(2)LimitationBasedOnModifiedAdjustedGrossIncome—Theamountallowableasacreditundersubsection
+(a)forthetaxableyearshallbereduced(butnotbelowzero)by—
+“(A)—two-fifthsmultipliedbytheexcess(ifany)of—
+“(i)—thetaxpayer’smodifiedadjustedgrossincomeforsuchtaxableyear,over
+“(ii)—$75,000($150,000inthecaseofajointreturn),increasedby
+“(iii)—$25,000foreachdependent(asdefinedinsection152)ofthetaxpayerinthetaxableyear.
+“(c)InflationAdjustment—Inthecaseofanytaxableyearbeginninginacalendaryearafter2021,thedollaramount
+containedinparagraphs(1)through(3)shallbeincreasedbyanamountequalto—
+“(1)—suchdollaramount,multipliedby
+“(2)—thecost-of-livingadjustmentdeterminedundersection1(f)(3)forthecalendaryearinwhichthetaxyearbegins.
+(b) In General.— Section 223(f)(4)(A) is amended by striking “20 percent” and inserting “40 percent”.
+SEC. 4. EXPANDING MEDICAID COVERAGE.
+(a) In General.—Section 1902(a)(10)(A)(i) of the Social Security Act (42 U.S.C. 1396a) is amended—
+(1) by inserting the following new subsections:
+“(X)beginningJanuary1,2021,whoareunder65yearsofage,notpregnant,notentitled,orenrolledfor,benefits
+underpartAofsubchapterXVIII,orenrolledforbenefitsunderpartBsubchapterXVIII,andarenotdescribedin
+previoussubclauseofthisclause,andwhoseincome(asdeterminedundersubsection(e)(14))doesnotexceed150
+percentofthepovertyline(asdefinedinsection1397jj(c)(5)ofthistitle)applicabletoafamilyofthesizeinvolved,
+subjecttosubsection(k);or
+“(XI)who—
+“(aa)areunder26yearsofage;
+“(bb)arenotdescribedinorenrolledunderanysubclause(I)through(VII)ofthisclauseoraredescribedinany
+suchsubclausesbuthaveincomethatexceedsthelevelofincomeapplicableundertheStateplanforeligibilityto
+enrollformedicalassistanceundersuchsubclause;
+“(cc)wereinfostercareundertheresponsibilityoftheStateonthedateofattaining18yearsofageorsuch
+higherageastheStatehaselectedundersection675(8)(B)(iii)ofthistitle;and
+“(dd)wereenrolledintheStateplanunderthissubchapterorunderawaiveroftheplaninsuchfostercare;
+(2) in subsection (VIII) by striking “beginning January 1, 2014” and inserting “before January 1, 2021”.
+SEC. 5. ENACTMENT.
+(a) Effective Date.—The amendments made by this act shall apply immediately upon passage.

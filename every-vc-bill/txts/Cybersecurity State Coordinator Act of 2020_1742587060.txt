@@ -1,0 +1,116 @@
+IN THE CONGRESS OF THE UNITED STATES
+JUNE 6,2020
+Mr. LEE(for himself,Mr. JACOB, Ms. KIKI,Mr. KRISHNA,and Mr.WATKINS) introducedthe
+following bill;
+A BILL
+Torequire theDirectorof CybersecurityandInfrastructure SecurityAgencyto establisha
+CybersecurityState Coordinatorineach State, andfor otherpurposes.
+Be it enactedby theHouse ofRepresentatives andSenate ofthe UnitedStatesofAmerica inCongress
+assembled,
+SECTION 1.SHORTTITLE.
+This Actmaybe citedasthe“Cybersecurity StateCoordinator Actof2020”.
+SECTION 2.FINDINGS.
+Congress findsthat—
+(1) cyberthreats, suchas ransomware,againstState, local,Tribal, andterritorialentities have
+grown atanalarming rate;
+
+(2) State, local,Tribal, andterritorialentities facea growingthreat fromadvancedpersistentactors,
+hostile nationstates, criminalgroups,and other maliciouscyberactors;
+(3) there isanurgent needfor greaterengagement andexpertisefromthe FederalGovernmentto
+helptheseentities build theirresilience anddefense; and
+(4) coordination withinFederal entitiesand betweenFederal andnon-Federal entities,including
+State, local,Tribal, andterritorialgovernments, Information Sharingand AnalysisCenters,
+electionofficials, State adjutantsgeneral, andothernon-Federal entitiesis criticalto
+anticipating,preventing, managing,andrecoveringfromcyberattacks.
+SECTION 3.DEFINITIONS.
+In this Act—
+(a) CYBERSECURITY.—Theterm “cybersecurity”meansmeasurestaken toprotecta computer
+or computersystem(asonthe Internet)against unauthorizedaccess orattack.
+(b) CYBERSECURITYSTATE COORDINATOR.— Theterm“cybersecuritystatecoordinator”
+meansan individual appointedbytheDirector ofCybersecurityand InfrastructureSecurity
+Agency toeach State.
+(c) RANSOMWARE.—Theterm “ransomware”meansmalware thatrequiresthe victimtopay a
+ransom toaccessencrypted files.
+SECTION 4.CYBERSECURITYSTATECOORDINATOR.
+(a) IN GENERAL.— SubtitleA of titleXXIIof theHomeland SecurityAct of2002(6 U.S.C.651
+etseq.)isamended—
+(1) in section2202(c) (6U.S.C.652(c))—
+(A)in paragraph(10), bystriking “and”at theend;
+(B)byredesignatingparagraph (11) as paragraph(12); and
+
+(C)byinserting after paragraph(10) the following:
+“(11) appointaCybersecurityState Coordinatorin eachState, as describedin section
+2215; and”;and
+(2) byadding atthe endthefollowing:
+“SEC.2215.CYBERSECURITY STATECOORDINATOR.
+(a) APPOINTMENT.— TheDirectorshallappoint anemployee ofthe Agencyineach
+State, withthe appropriatecybersecurity qualificationsand expertise,whoshallserve as
+theCybersecurity StateCoordinator.
+(b) DUTIES.—Thedutiesof aCybersecurityState Coordinatorappointedunder
+subsection(a) shallinclude—
+(1) building strategicrelationships acrossFederaland, onavoluntarybasis,
+non-Federal entities byadvisingonestablishinggovernancestructures to
+facilitate thedevelopment andmaintenanceof secureandresilient infrastructure;
+(2) servingas aFederalcybersecurity riskadvisorand coordinatingbetween Federal
+and,ona voluntarybasis,non-Federal entitiesto supportpreparation,response,
+andremediation efforts relatingto cybersecurityrisks andincidents;
+(3) facilitating thesharing ofcyberthreat informationbetween Federaland,ona
+voluntarybasis,non-Federal entities toimproveunderstanding of cybersecurity
+risksand situationalawarenessof cybersecurity incidents;
+(4) raising awarenessof thefinancial,technical, andoperationalresources available
+fromthe FederalGovernmentto non-Federalentities toincreaseresilience
+againstcyberthreats;
+
+(5) supportingtraining, exercise,andplanning for continuityof operationsfor
+expediterecovery fromcybersecurity incidents, includingransomware;
+(6) servingas aprincipal pointof contactfor non-Federal entities toengage, ona
+voluntarybasis,with theFederalGovernment onpreparing,managing,and
+respondingto cybersecurityincidents;
+(7) assisting non-Federal entitiesin developingandcoordinating vulnerability
+disclosureprograms consistent withFederalandinformation securityindustry
+standards;and
+(8) performingsuch otherdutiesasdeterminednecessarybythe Director toachieve
+thegoalof managingcybersecurityrisks intheUnited Statesandreducingthe
+impactof cyberthreats tonon-Federal entities.
+(c) FEEDBACK.— TheDirector shall
+consultwithrelevant State andlocal
+officials regardingthe appointment,and
+State andlocalofficialsand other
+non-Federal entities regardingthe
+performance, ofthe CybersecurityState
+Coordinatorof aState.”
+(b) OVERSIGHT.—TheDirector of the
+CybersecurityandInfrastructure
+Security Agency shallprovidetothe
+Secretaryof Securityabriefing on
+theplacementand efficacyofthe
+CybersecurityState Coordinators
+appointedunder section2215of the
+
+Homeland SecurityActof 2002,as
+addedbysubsection(a)—
+(1) notlater than1yearafter the dateof enactment ofthis Act;and
+(2) notlater than2years afterproviding the first briefingunder this subsection.
+(c) RULEOF CONSTRUCTION.—
+Nothing inthissection orthe
+amendments made bythissection shall
+be construed toaffect orotherwise
+modify theauthority of Federallaw
+enforcement agencieswithrespect to
+investigationsrelating tocybersecurity
+incidents.
+(d) TECHNICAL ANDCONFORMING
+AMENDMENT.— Thetableofcontents
+in section1(b) ofthe HomelandSecurity
+Act of 2002 (Public Law 107-296;116
+Stat. 2135) is amendedbyinsertingafter
+theitemrelatingto section2214the
+following:
+“Sec.2215.Cybersecurity State
+Coordinator.”.
+SECTION 5.ENACTMENT.
+EFFECTIVE DATE.—The provisionsof thisAct shallcomeinto forceonJanuary 1,2021.
+Writtenby Sec.ofSecurityLee(R-SC-3)
+
+AUTHOR’S NOTES:
+1. This billwas inspiredbyS.3207- CybersecurityState CoordinatorActof 2020.

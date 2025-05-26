@@ -1,0 +1,41 @@
+- 1 -
+173
+rd CONGRESS
+S.1
+IN THE SENATE OF THE UNITED STATES
+JANUARY 12, 2024
+Introduced by Sen. Pluribus, for themself, Sen. Emperio, Sen. Harris, Sen. Mac and
+[INSERT COSPONSOR])
+A BILL
+To amend the Higher Education Act of 1965 to include certain individuals who work
+on farms or ranches as individuals who are employed in public service jobs for
+purposes of eligibility for loan forgiveness under the Federal Direct Loan program.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. Short Title
+(a) This Act may be cited as the Farmers in Public Service Success Act of 2024
+SEC. 2. ELIGIBILITYOF CERTAIN FARMANDRANCH WORKERSFOR
+STUDENTLOAN FORGIVENESS.
+(a) ELIGIBILITY.—Section 455(m)(3)(B) of the Higher Education Act of 1965
+(20 U.S.C. 1087e(m)(3)(B)) is amended—
+(1) by striking “or” at the end of clause (i);
+(2) by striking the period at the end of clause (ii) and inserting “; or”;
+and
+(3) by adding at the end the following new clause:
+
+- 2 -
+“(iii) a full-time job engaged in farm work as an employee or
+manager of a qualified farm or ranch.”.
+(b) DEFINITION.—Section 455(m)(3) of such Act (20 U.S.C. 1087e(m)(3)) is
+amended by adding at the end the following new subparagraph:
+“(C) QUALIFIED FARM OR RANCH.—The term ‘qualified farm or
+ranch’ means, with respect to a year, a farm or ranch whose earnings of
+gross revenue during the year from the sale of agricultural products
+are equal to or greater than—
+“(i) in the case of 2024, $40,000; or
+“(ii) in the case of any succeeding year, the amount applicable
+under this subparagraph for the previous year increased by the
+estimated percentage change in the Consumer Price Index (as
+determined by the Secretary, using the definition in section 478(f))
+for the most recent year preceding such year.”.
+(//credit to irl bill)

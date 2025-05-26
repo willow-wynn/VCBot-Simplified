@@ -1,0 +1,207 @@
+CONGRESS
+1st SESSION
+H.R. 3
+To reduce waste, overlap, and duplication in the federal
+government and achieve billions in financial benefits for
+the American people.
+IN THE HOUSE OF REPRESENTATIVES
+September,2023
+Mr. Franco Hersey (For Himself), On behalf of the tc
+administration)introducedthefollowingbill)
+A BILL
+To reduce waste, overlap, and duplication in the federal
+government and achieve billions in financial benefits for
+the American people.
+Be it enacted by the Senate and House of Representatives
+of the United States of America in Congress assembled,
+
+2
+SECTION 1. SHORT TITLE.
+(a) SHORT TITLE—This Act may be cited as the “Government
+Waste Reduction Act”
+SECTION 2. SEVERABILITY.
+(a) SEVERABILITY—If any provision of this Act, an amendment
+made by this Act, or the application of such provision or
+amendment to any person or circumstance is held to be
+unconstitutional, the remainder of this Act, the amendments
+made by this Act, and the application of the provisions of such to
+any person or circumstance shall not be affected thereby.
+(b) SUPREMACY– Any law, order, or regulation that contradicts or
+conflicts with this Act shall be deemed null and void to the
+extent of such confliction and contradiction..
+SECTION 3. DEPARTMENT OF DEFENSE
+(a) The DoD shall establish a Headquarters Efficiency Task Force
+(HETF), composed of representatives from key DoD offices and
+components, to oversee and coordinate the headquarters
+consolidation and size reduction efforts. Each DoD component
+shall conduct a comprehensive review of its respective
+headquarters organizations. This review shall include an
+assessment of the functions, personnel, facilities, and costs
+associated with each headquarters. Based on the comprehensive
+reviews, each DoD component shall identify specific
+opportunities for consolidation or size reduction within its
+headquarters. These opportunities should be categorized as
+short-term and long-term initiatives. The HETF shall prioritize
+the identified opportunities and submit them for approval to the
+
+3
+Secretary of Defense and other relevant authorities within the
+DoD. Implementation Approved consolidation and size reduction
+initiatives shall undergo detailed implementation planning. This
+planning should address timelines, resource allocation, potential
+impacts on personnel, and strategies for achieving efficiency
+gains. DoD components shall execute the approved initiatives
+under the guidance and oversight of the HETF. Regular progress
+reports and updates shall be provided to the HETF. The HETF
+shall continuously monitor and evaluate the progress and
+outcomes of the consolidation and size reduction initiatives.
+Adjustments and refinements shall be made as necessary to
+achieve the desired cost saving efficiency goals.
+(b) The United States Navy shall be required to (1) report
+sustainment cost estimate growth information to Congress and
+(2) reassess shipbuilding programs that are experiencing a high
+level of sustainment cost estimate growth.
+(i) The Secretary of Defense shall
+(1) change its definition for setting operational
+availability for ships in its Joint Capabilities
+Integration and Development System policy by
+adding information that defines the operational
+availability requirement by mission area in
+addition to the ship level and includes all
+equipment failures that affect the ability of a ship
+to perform primary missions.
+(2) change the definition for setting materiel
+availability for ships in its Joint Capabilities
+Integration and Development System requirements
+policy to include all factors that could result in a
+ship being unavailable for operations, such as
+
+4
+unplanned maintenance, unplanned losses, and
+training.
+(3) direct the ASN (RD&A) and the CNO, once DOD
+requirements setting policy is revised, to update
+existing operational availability requirements for
+ongoing shipbuilding programs. When revising
+these requirements, the Navy shall set operational
+availability requirements that: (1) are based on
+failures that affect the ability of a ship to perform
+primary missions and (2) are set at the mission
+level instead of ship level.
+(4) direct the ASN (RD&A) and the CNO, once DOD
+requirements setting policy is revised, to update
+the materiel availability requirements for ongoing
+shipbuilding programs. When developing or
+revising these requirements, the Navy shall set
+material availability requirements that fully
+capture all factors that could preclude a ship from
+being ready when needed.
+(5) direct the Commander of Naval Sea Systems
+Command to ensure that cost estimators follow
+current guidance and GAO-identified best practices
+and conduct sensitivity analyses and other
+analyses to improve their assessment of cost risk in
+the O&S costs in shipbuilding programs' life-cycle
+cost estimates.
+(6) Institute a process for vigilant monitoring of orders
+and expeditious resolution of lingering
+reimbursements, with an objective to recover
+
+5
+overdue repayments owed by foreign partners for
+sales transactions.
+(c) The Department of Defense shall initiate a comprehensive
+transition plan to adopt and implement performance based
+logistics principles across all weapon systems, equipment, and
+platforms within its jurisdiction.
+SECTION 4. DEPARTMENT OF HEALTH AND HUMAN
+SERVICES
+(a) The Secretary of Health and Human Services is hereby directed
+to equalize payment rates between settings for evaluation and
+management office visits and other services that the Secretary
+deems appropriate and return the associated savings to the
+Medicare program.
+SECTION 5. OFFICE OF MANAGEMENT AND BUDGET
+(a) The Office of Management and Budget (OMB) shall further its
+Category Management initiative to improve how agencies buy
+common goods and services by taking such actions as addressing
+agencies’ data management challenges and establishing
+additional performance metrics to assist the federal government
+achieve cost savings, as well as potentially eliminate duplicative
+contracts.
+(b) The Office of Management and Budget and the General Services
+Administration shall better position themselves to achieve their
+cost savings goals and reduce inefficient overlap and duplication
+by strengthening their implementation of selected federal
+shared service reform efforts.
+
+6
+SECTION 6. DEPARTMENT OF EDUCATION
+(a) The Department of Education is hereby directed to institute
+verification requirements to ensure the accuracy of income
+information reported by borrowers who claim zero income on
+their Income-Driven Repayment (IDR) applications
+SECTION 7. INTERNAL REVENUE SERVICE AND BUREAU OF
+LABOR STATISTICS
+(a) The Internal Revenue Service enforcement and service
+capabilities shall be enhanced and strengthened to their
+discretion to reduce the gap between taxes owed and paid by
+collecting tax revenue and facilitating compliance, to achieve
+this, they shall institute third-party information reporting (ie,
+reporting shall be required for certain payments that rental real
+estate owners make to service providers, such as contractors
+who perform repairs on their rental properties, and for
+payments that businesses make to corporations for services.)
+(b) The Internal Revenue Service shall enact rigorous measures and
+fortify its relentless endeavors to thwart any and all instances of
+refund fraud linked with identity theft and ensure those who do
+so are met with severe consequences and scrutiny.
+(c) The IRS shall be required to fully verify income through a
+review of form W-2, form 1099, business licensing or
+registration, and relevant invoices before any refundable EITC
+payment is made. They shall additionally
+(i) Require individuals claiming self-employment or small
+business income to:
+(1) Provide a form 1099 documenting the income; or,
+(2) Be a registered or licensed small business and
+provide invoices of payments received including
+
+7
+date of service and identifying contact information
+from customers.
+(ii) Be required to check the administrative records of the
+Temporary Assistance for Needy Families, Supplemental
+Nutrition Assistance Program, and subsidized housing
+programs to determine if the tax filer received benefits or
+a dependent child received benefits from the program
+during the calendar year and to determine whether the
+household composition and income reported on the
+claimant tax form is consistent with that reported to state
+agencies operating those programs.
+(iii) Provide a $2,000 penalty for any tax filing involving an
+erroneous claim for a refundable tax credit that is based
+on substantial misreported income.
+(d) The Bureau of Labor Statistics (BLS) shall adopt the Chained
+CPI as the official method for measuring inflation for all federal
+government programs and purposes.
+SECTION 8. DEPARTMENT OF ENERGY
+(a) The Department of Energy shall mitigate inherent risks by
+strategically embracing cost-saving alternative methods, notably
+the utilization of grouting, for the management of its
+low-activity radioactive waste.
+SECTION 9. AUDIT TIMELINE
+(a) The HETF will conduct an audit of the DoD at the time of
+establishment, and continue to have an audit every 5 years. The
+audit shall be accompanied by a review of productivity that shall
+be used by the DoD to determine whether it is necessary to
+perform job cuts.
+
+8
+(b) The OMB will continue to receive department financial reports,
+and shall conduct an audit on all departments under their
+jurisdiction every 5 years. These audits shall be available to the
+President of the United States and to Congress.
+(c) Apart from the DoD, a full internal review shall happen in every
+department to determine productivity and the necessity of
+removing positions.
+◯

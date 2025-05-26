@@ -1,0 +1,199 @@
+136THCONGRESS
+1STSESSION
+S. 09
+To amend Title 51 of the United States Code.
+——————————————————
+IN THE SENATE OF THE UNITED STATES
+DECEMBER 28, 2020
+Mr. LOULOU, (for himself)
+——————————————————
+A BILL
+To amend Title 51 of the United States Code.
+Be it enacted by the Senate and House of Representatives of the
+United States of America in Congress assembled,
+
+Page 2
+TITLE I — SPECIFICATIONS
+SECTION 101. SHORT TITLE
+(a) SHORT TITLE — This Act may be cited as the “Title 51
+Amendments Act”.
+SECTION 102. DEFINITIONS
+(a) DEFINITIONS — For the purposes of this Act —
+(i) ADMINISTRATOR — The Administrator of NASA, appointed
+by the President and confirmed by the Senate.
+(ii) ADMINISTRATION — The National Aeronautics and Space
+Agency.
+SECTION 103. SEVERABILITY
+(a) SEVERABILITY — Should any provision of this Act be deemed
+invalid or unconstitutional for any reason in a court with relevant
+jurisdiction, the rest of the Act, and the application of the
+remaining provisions, shall not be affected.
+
+Page 3
+TITLE II — AMENDMENTS
+SECTION 201. FURTHER APPLICATION OF SECTION 503 OF
+THE INTERPLANETARY HORIZONS ACT
+(a) AMENDMENT — 51 USC §20112 is amended by appending below
+Point (b)(2) —
+“(3) SPACE DEBRIS DEORBIT TECHNOLOGIES
+The Administration shall, to the extent of appropriated funds, initiate,
+support, and carry out such research, development, demonstration, and
+other related activities in ground propulsion technologies as are
+provided for in Section 503 of the Interplanetary Horizons Act.”
+(b) ADDITION — In Title 51, Subtitle II, Chapter 201, Subchapter II,
+insert —
+“
+§20118 - International Space Debris Collaboration
+(a) IN GENERAL — The Administration, pursuant to §20115 of this
+Title, may and is recommended to engage in one or more programs
+of international collaboration with the purpose to —
+(i) Limit space debris.
+(ii) Deorbit space debris.
+(iii) Analyse space debris factors in space.
+(iv) Create degradable space debris.
+(b) TREATIES — The Administration, pursuant to §20115 of this Title,
+may participate in the peaceful application of agreements made by
+the President with the advice and consent of the Senate relating to
+aforementioned matters within this Section.
+”
+SECTION 202. FURTHER APPLICATION OF SECTION 202 OF
+THE INTERPLANETARY HORIZONS ACT
+(a) IN GENERAL — Title 51 is amended to change the end date for
+reports and activities pertaining to the International Space Station
+to be in accordance with Section 202 of the Interplanetary Horizons
+Act.
+(b) AMENDMENT — 51 USC §50111(c)(2), notwithstanding any
+Subpoints is amended by striking all occurrences of “2023” and
+inserting in lieu —
+“2025”
+
+Page 4
+(c) SUBSECTION I AMENDMENT — 51 USC §50111(c)(2)(I),
+notwithstanding any Subpoints, is amended by inserting between
+“2024” and “2028” —
+“2025”
+SECTION 203. AMENDMENTS TO THE PROCUREMENT OF
+PRIVATE SPACE TRANSPORTATION SERVICES; SECTION 50131
+(a) IN GENERAL — Title 51 is amended to remove the exception from
+procurement of commercial vehicles if the Space Transportation
+System is available due to the retirement of the Space
+Transportation System.
+(b) STS REPEAL — 51 USC §50131(b)(1) and 51 USC §50131(b)(7) are
+stricken and all provisions are renumbered accordingly.
+SECTION 204. REPORT FOR UPCOMING RETIREMENTS OF
+PRIVATE SPACE TRANSPORTATION SERVICES
+(a) IN GENERAL — Title 51 is amended to add a report on the
+preferred Space Transportation Services of the Administration and
+possible replacements for them when retiring.
+(b) ADDITION — In Title 51, Subtitle V, Chapter 501, Subchapter III,
+insert —
+“
+§50135 - International Space Debris Collaboration
+(a) IN GENERAL — The Administrator shall, no longer than 180 days
+after the enactment of the act, provide a detailed report to the
+appropriate committees of Congress, and the Senate and the House
+of Representatives of the United States, a report comprising of the
+most regularly used Space Transportation Services of the
+Administration and additionally their most optimal use relating to
+vehicular orbit, weight, transfers, and orientation, as well as a
+statement regarding potential alternatives if they were to be
+retired.
+”
+SECTION 205. REPEAL OF WEAPONRY AS MEANS FOR SPACE
+TRANSPORTATION SERVICES
+(a) REPEAL — 51 USC §50134 is repealed.
+
+Page 5
+SECTION 206. REPEALING THE COMMERCIAL SPACE
+ACHIEVEMENT AWARD
+(a) REPEAL — 51 USC §50506 is repealed.
+SECTION 207. ADAPTING REENTRY CANCELLATIONS TO NOT
+BE DETRIMENTAL TO THE ENVIRONMENT OR CREW
+(a) IN GENERAL — Title 51 is amended to amend and append the
+procedure for reentry into the atmosphere and the possibility for its
+cancellation.
+(b) REPEAL — 51 USC §50909(a) is amended by striking “or reentry
+site, or reentry of a reentry vehicle” and “or reentry”.
+(c) AMENDMENT — 51 USC §2 is amended by renaming Subsection
+(b) Subsection (e) and appending below Subsection (a) —
+“(b) CANCELLATION OF UNCREWED REENTRY
+The Secretary of Transportation may prohibit or suspend the reentry of
+an uncrewed vehicle for the reasons of the public health and safety, the
+safety of property, or a national security or foreign policy interest of the
+United States, provided it has not deorbited to an extent greater than
+75% of its periapsis and given that no part of its current orbit falls
+below 50 miles.
+(c) ADAPTATION OF CANCELLATION
+Should any vehicle fall below such limits as were described in
+Subsection (b), it shall be required by the Secretary of Transportation
+to communicate with the agency, company, or persons with control over
+the reentry and flight path and processes, to find a solution to such
+problem, and it shall consist of one of the following —
+(i) The destruction of the vehicle during reentry by means of
+weaponry.
+(ii) The placement of a vehicle using remaining fuel into an
+interim reentry orbit, which shall have a periapsis not inferior to
+75 miles.
+(iii) The alteration of the orbit of the vehicle to provide for a
+different reentry path.
+
+Page 6
+(d) CANCELLATION OF CREWED REENTRY
+The Secretary of Transportation may prohibit or suspend the reentry of
+a crewed vehicle for the reasons of the public health and safety, the
+safety of property, or a national security or foreign policy interest of the
+United States, given that no crewmembers shall be harmed.”
+SECTION 208. FURTHER BANNING OBSTRUSIVE
+ADVERTISEMENT IN SPACE
+(a) AMENDMENT — 51 USC §50902(12) is amended by striking
+“without” and inserting in lieu —
+“with or without”
+(b) APPENDMENT — 51 USC §50902(12) is amended by appending
+after “telescope” —
+“with a magnification size smaller or equal to 250 times”
+SECTION 209. SLS COMMERCIAL PAYLOADS DELAY
+(a) AMENDMENT — 51 USC §70103 is amended by appending below
+Point (b) —
+“(c) SUNRISE PROVISION
+The provisions laid out within this act shall not apply until 5 years
+after the first launch of the Space Launch System.”
+SECTION 210. REQUIRING SEMI-PERMANENT HABITATION IN
+A FUTURE LUNAR OUTPOST
+(a) APPENDMENT — 51 USC §70505(a) is amended by appending
+after “outpost to be” —
+“permanently”
+SECTION 211. NAMING THE SECOND LUNAR OUTPOST AFTER
+SCOTT KELLY
+(a) APPENDMENT — 51 USC §70505(b) is amended by appending —
+“The United States portion of the second human-tended outpost
+established on the surface of the Moon shall be designated the
+“Scott Kelly Lunar Outpost”.”
+
+Page 7
+SECTION 212. REQUIRING SEMI-PERMANENT HABITATION IN
+A FUTURE LUNAR OUTPOST
+(a) APPENDMENT — 51 USC §70901(a) is amended by appending
+after “civil space” —
+“, martian, lunar, or other planetary”
+SECTION 213. REPEAL OF DE FACTO VOIDED PROVISIONS
+(b) REPEAL — 51 USC §70907 is repealed.
+TITLE III — FINAL PROVISIONS
+SECTION 301. CHARLES E. BOLDEN SPACE AWARD
+(a) ESTABLISHMENT — There is established a “Charles E. Bolden
+Youth Space Award. The award shall consist of a medal, which
+shall be of such design and materials and bear such inscriptions as
+determined by the Administrator.
+(b) CRITERIA — The Administrator shall periodically make awards
+under this section to individuals that in the opinion of the
+Secretary of Commerce best meet either Point (ii) or (iii) as well as
+meet Point (i) —
+(i) The awardee is under the age of thirty.
+(ii) The awardee has greatly contributed to innovation in
+scientific space exploration.
+(iii) The awardee has locally developed technologies which could
+serve as innovation for scientific space exploration.
+(c) LIMITATIONS — No awardee, once awarded, may receive the
+award a second time.
+SECTION 302. ENACTMENT
+(a) ENACTMENT — The provisions of this Act shall come into force on
+January 15th, 2021.

@@ -1,0 +1,30 @@
+{
+    "title": "Federal Animal Embargo Act of 2022",
+    "author": "MS. KASPARIAN OF OLYMPIA",
+    "cosponsors": [
+        "MS. LAURA KELLY OF LINCOLN",
+        "MS. BROADMAN OF LINCOLN",
+        "MR BRUHMAN OF FRONTIER",
+        "MR. BOLTON OF FRONTIER"
+    ],
+    "amendments": [
+        [
+            301,
+            21
+        ],
+        [
+            409,
+            21
+        ],
+        [
+            512,
+            21
+        ]
+    ],
+    "bill_sections": [
+        101,
+        102,
+        104
+    ],
+    "category": "COMM"
+}

@@ -1,0 +1,82 @@
+135TH CONGRESS
+1STSESSION
+H.R. 46
+To amend the Internal Revenue Code of 1986 responsibly addressing the
+federal deficit while providing a tax cut for those earning low-incomes.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE HOUSE OF REPRESENTATIVES
+NOVEMBER 13th, 2020
+Mr. JOHNSON of Pennsylvania (for himself, Mr. LIGHTWOOD, Mr.
+SANDERS, Mr. SOMEONE, Ms. HARRIS, Mr. LONG, on behalf of Ms.
+KYOUKO of New York, Secretary of the Treasury Graves, and the Halpert
+Administration) introduced the following bill, which was subsequently
+referred to the House of Representatives.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To amend the Internal Revenue Code of 1986 responsibly addressing the federal deficit
+without harming those earninglow-incomes.
+Be it enacted by the Senate and the House of Representatives of the United States in
+Americaassembled,
+SECTION 1.TITLE.
+This Actmaybe citedas the“FairTaxationAct”.
+SECTION 2.FINDINGS.
+Congress findsthat—
+(a) Themost recentbillpassedonsignificanttax reform wasthe TaxReform Actof
+2020,sponsored byformer President CadeHolbookonFebruary7th2020.
+(b) This billispartially baseduponthe T.O.G.E.T.H.E.R. ActbySenatorLoulou andthe
+Comprehensive Tax Code Reform Act by Senator Walker.
+(c) This bill
+
+(i) eliminates incometaxespaid bythose earninglesser than$12,000,
+(ii) cuts income taxespaidbythose earningupto $55,000byover1.5%, fulfilling
+a campaign promisebyPresident Ianduring the NovemberPresidential
+Election,
+(iii) cuts income taxesfor thevast majority ofAmericans, who areearningunder
+$227,714,
+(iv) raises income taxespaidbythose earningover $227,214,
+(v) reinstatesthecorporateincometax at35% whichwasthe levelitwasat in
+2016,raising around$270billion before accountingfor lossesin economic
+inefficiency.
+SECTION 3.INCOMETAX REFORM.
+(a) IN GENERAL.— Section1of theInternalRevenueCode of 1986(26 U.S.C. §1) is
+amendedbystriking subsection(a)and insertingthe following inlieu ofsubsection
+(a):
+Thereisherebyimposedon thetaxableincome ofeveryeligible individualataxdetermined
+in accordancewiththefollowing table:
+If taxable incomeis: Thetaxis:
+Not over$12,000 $0
+Over$12,000but notover $28,000 9% of taxableincomeover$12,000
+Over$28,000but notover $55,000 $1440,plus12% of taxableincome over $28,000
+Over$55,000but notover $110,000 $4680,plus24% of taxableincome over $55,000
+Over$110,000but notover $165,000 $17,880,plus28% of taxableincome over $110,000
+Over$165,000but notover $220,000 $33,560,plus35% of taxableincome over $165,000
+Over$220,000but notover $500,000 $52,810,plus47% of taxableincome over $220,000
+Over$500,000 $178,810,plus55% of taxableincome over $500,000
+(b) INDEXING.— Section1of theInternalRevenue Codeof 1986(26 U.S.C. §1) is
+amendedin subsection (f)bystriking theterm “2020”where itapplies andinserting
+“2021”.
+SECTION 4.REMOVING INVESTMENTSFROMTAXDEDUCTIONS.
+
+(a) IN GENERAL.— Section225of theInternalRevenueCode of 1986(26 U.S.C.
+§225) isherebyrepealed.
+SECTION 5.REINSTATING CORPORATETAXRATES.
+(a) FINDINGS.— In 2017,President DonaldTrumpsigned the TaxCut andJobsAct of
+2017,which among otheractions,cut thecorporatetax ratefrom35% to21%.
+Following theTaxCutsandJobs Actof 2020whichcutcorporateincometaxesby
+40% multiplicatively,revenues fromsuch taxessawan“almost exactly40%decline”
+too, suggestingtheclaimed intendedeffectsupontheeconomy didnotemerge.
+(b) IN GENERAL.— Section11of theInternalRevenueCode of 1986(26U.S.C.§11)
+isamendedbystriking subsection (b) andinserting thefollowing inlieu of subsection
+(b):
+Theamountof the taximposed bysubsection (a) shallbe—
+(a) 21percent of taxableincomebeforeJuly 1st2021;
+(b) 24percent of taxableincomebeginning July 1st2021;
+(c) 27percent of taxableincomebeginning July 1st2022;
+(d) 31percent of taxableincomebeginning July 1st2023; and
+(e) 35percent of taxableincomebeginning July 1st2024.
+SECTION 6.SEVERABILITY.
+(a) SEVERABILITY — Should any provision of this Act be deemed invalid or
+unconstitutional for any reason in a court with relevant jurisdiction, the rest of theAct,
+and the application of the remaining provisions, shallnot be affected.
+SECTION 7.ENACTMENT.
+EFFECTIVE DATE.—The provisionsof thisAct shallapplybeginning July1,2021.

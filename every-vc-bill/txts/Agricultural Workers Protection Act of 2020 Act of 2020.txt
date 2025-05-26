@@ -1,0 +1,81 @@
+1
+137THCONGRESS
+1STSESSION
+S. 4
+To increase protections for agricultural workers by amending the Fair Labor Standards
+Act of 1938.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+January 16, 2021
+Mr. JOHNSON of Pennsylvania (for himself, Mr. LIGHTWOOD,
+and Mr. SOMEONE) introduced the following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To increase protections for agricultural workers by amending the Fair Labor
+Standards Act of 1938.
+Be it enacted by the House of Representatives in Congress Assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Agricultural Workers Protection Act of 2020”.
+SEC. 2. CHANGES TO THE FAIR LABOR STANDARDS ACT OF 1938 REGARDING
+FARM WORKERS.
+(a) Ending Discrimination With Respect To Overtime HoursRequirements.—Section 7of
+the Fair Labor Standards Act of 1938 (29 U.S.C. 207) is amended—
+(1) in subsection (a), by adding at the end the following:
+
+2
+“(3) (A) Except as provided in subparagraph (C), beginning on January 1, 2022,
+no employer shall employ any employee employed in agriculture (who inany
+workweek is engaged in commerce or in the production of goods for commerce,
+or is employed in an enterprise engaged in commerce or in the production of
+goods for commerce) for a workweek that is longer than the hours specified under
+subparagraph (B), unless such employee receivescompensation for employment
+in excess of the hours specified in such subparagraph at a rate not less than one
+and one-half times the regular rate at which the employee is employed, unless that
+employer employs fewer than 25 employees employed in agriculture, inwhich
+case requirements shall be further specified in subparagraph (C).”
+“(B) The hours specified in this subparagraph are, subject to subparagraph (C), as
+follows:”
+“(i) Beginning on January 1, 2022, fifty hours in any workweek.”
+“(ii) Beginning on January 1, 2023, forty-five hours in any workweek.”
+“(iii) Beginning on January 1, 2024, forty hours in any workweek.”
+“(C) With respect to any employer that employs 25 or fewer employees—”
+“(i) the requirement under subparagraph (A) shall begin on January 1,
+2023; and”
+“(ii) the hours specified under subparagraph (B) shall applyas follows:”
+“(I) The number of hours specified under subparagraph (B)(i) shall
+begin on January 1, 2024.”
+“(II) The number of hours specified under subparagraph (B)(ii)
+shall begin on January 1, 2025.”
+
+3
+“(III) The number of hours specified undersubparagraph (B)(iii)
+shall not apply.”
+(2) by repealing subsection (m).
+(b) Removing Certain Exemptions For Agricultural Work.—Section 13 of the Fair Labor
+Standards Act of 1938 (29 U.S.C. 213) is amended—
+(1) in subsection (a)(6), by striking “(A)” and all that follows through the semicolon
+and inserting “if such employee is the parent, spouse, child, or other member of
+the employer’s immediate family;”;
+(2) in subsection (b), by repealing paragraphs (12) through (17)
+(c) Effective Dates.—The amendments made by—
+(1) subsections (a)(1), (a)(2), and (b)(1) shalltake effect—
+(a) with respect to an employer that employs more than 25 employees, on
+January 1, 2024; and
+(b) with respect to an employer that employs 25 or fewer employees, on
+January 1, 2026; and
+(2) subsection (b)(2) shall take effect—
+(a) with respect to an employer that employs more than 25 employees, on
+January 1, 2022; and
+(b) with respect to an employer that employs 25 or fewer employees, on
+January 1, 2024.
+(d) Amendment.—
+(1) FAIR LABOR STANDARDS ACT OF 1938.—Section 13(c)(1)(A) of the Fair
+Labor Standards Act of 1938 (29 U.S.C. 213(c)(1)(A)) is amended by striking
+
+4
+“none of the employees” and all that follows in “section 6(a)(5)” and inserting “all
+of the employees of which are employed in agriculture and are employed by an
+employer who did not, during any calendar quarter during the preceding calendar
+year, use more than 500 man-days of agricultural labor (within the meaning of the
+exemption under subsection (a)(6)(A), as in effect on the day before the date of
+enactment of the Fairness for Farm Workers Act)”.

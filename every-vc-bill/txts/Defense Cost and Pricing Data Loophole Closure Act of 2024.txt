@@ -1,0 +1,28 @@
+- 1 -
+179
+th CONGRESS
+H.R.20
+IN THE HOUSE OF REPRESENTATIVES
+July 24, 2024
+Introduced by Mr. Pluribus
+A BILL
+To amend section 3706 of title 10, United States Code, to eliminate the submission
+of cost and pricing data after agreeing on the contract price as a defense to contract
+price adjustments for defective cost and pricing data, and for other purposes.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Defense Cost and Pricing Data Loophole Closure
+Act of 2024”.
+SEC. 2. ELIMINATION OF LATE COST AND PRICING DATA
+SUBMISSION DEFENSE.
+Section 3706(c) of title 10, United States Code, is amended—
+(1) in paragraph (3) by striking “or” at the end;
+(2) in paragraph (4) by striking the period and inserting “; or”; and
+(3) by adding at the end the following:
+
+- 2 -
+“(5) the cost or pricing data were submitted by the prime contractor or
+subcontractor after the date of agreement on the price of the contract (or
+price of the modification) or, if applicable consistent with subsection (a)(2),
+such other date agreed upon between the parties.”.

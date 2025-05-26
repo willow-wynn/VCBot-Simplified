@@ -1,0 +1,196 @@
+IN THE CONGRESS OF THE UNITED STATES
+APRIL 21, 2020
+Mr. HOLBROOK (for himself, Mr. JAMES, Mr. LUKAS, Mr. MILLER, Mr.
+WONDER, and Mr. ETHAN) introduced the following bill;
+AN ACT
+To decriminalize certain drug offenses, democratize justice, proportionate sentences, and humanize incarceration.
+Be it enacted by the House of Representatives of the United States of America in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Justice Reform Act of 2020”.
+SEC. 2. RETURNING SENTENCING DISCRETION TO COURTS.
+(a) In General.— Title 18 of the U.S. Code is amended—
+(1) in chapter 1 by inserting the following new section:
+“§ 14. Discretion of the courts in sentencing
+“Without exception, a federal court of the United States shall have, for any crime which is not a crime
+“punishable by death or life imprisonment, the authority to sentence an individual to fines or a term of
+“imprisonment which is less than the minimum fine or term of imprisonment provided by any title.
+(2) in section 3742(a)(4) by striking “.” and inserting “; or”.
+(3) in section 3742(a) by inserting the following new paragraphs:
+“(5) is plainly disproportionate to the offense committed; or
+“(6) is unreasonably longer than the average sentence issued for the same offense or very similar offenses.
+(4) in section 3742(b)(4) by striking “.” and inserting “; or”.
+(5) in section 3742(b) by inserting the following new paragraphs:
+“(5) is plainly disproportionate to the offense committed; or
+“(6) is unreasonably longer than the average sentence issued for the same offense or very similar offenses.
+SEC. 3. DECRIMINALIZING CERTAIN DRUGS, SIMPLE POSSESSION.
+(a) In General.— Title 21 of the U.S. Code is amended—
+(1) in section 812(c) by striking paragraphs (9), (10), (10), (12), (15), and (16);
+(2) in section 841(b)(1)(A) by striking clauses (v) and (vii);
+(3) in section 841(b)(1)(B) by striking clauses (v) and (vii);
+(4) in section 841(b)(1) by striking paragraph (D);
+(5) by striking sections 844 and 844a.
+SEC. 4. INCREASING EARLY RELEASE CREDIT; MAXIMUM SENTENCE FOR NONCAPITAL OFFENSES.
+(a) In General.— Title 18 of the U.S. Code is amended—
+(1) in section 3624(b) by striking “54 days” and inserting “73 days”.
+(2) in subchapter A of chapter 227 by adding at the end the following new section:
+
+“§ 3560. Maximum term of imprisonment
+“(a) In General.— No individual shall be sentenced—
+“(1) to a term of imprisonment for any criminal offense which, if committed by an adult, would not be a
+“criminal offense.
+“(2) to a term of imprisonment of more than twelve months, except for an offense which resulted in
+“direct or immediate injury to any identifiable person or property.
+“(3) to a term of imprisonment of more than fifteen years, except for a crime of violence;
+“(4) to a term of imprisonment of more than thirty years, except for an offense which, after taking into
+“account any mitigating or aggravating factors, would be punishable by death or life imprisonment;
+“(5) to death or life imprisonment, except for committing an act of premeditated murder, which after a
+“preponderance of evidence, a court finds without any reasonable doubt was conducted in such a cruel
+“and depraved manner as to justify the imposition of a sentence of death or life imprisonment.
+SEC. 5. REGULATIONS AND CONDITIONS WITH RESPECT TO SOLITARY CONFINEMENT.
+(a) In General.— Title 18 of the U.S. Code is amended in chapter 301 by adding the following new section:
+“§ 4015. Solitary confinement
+“(a) Definitions.— In this section—
+“(1) the term “covered inmate” means an inmate who is being proceeded against under this chapter for
+“an alleged criminal offense;
+“(2) the term “correctional facility” means any penal or correctional facility where inmates are—
+“(A) committed pursuant to an adjudication for any criminal offense under this title; or
+“(B) detained prior to disposition or conviction; and
+“(3) the term “solitary confinement” means the involuntary placement of a covered inmate alone in a
+“cell, room, or other area for any reason.
+“(b) Prohibition on room confinement in prison facilities
+“(1) In General.— The use of solitary confinement at a for discipline, punishment, retaliation, or any
+“reason other than as a response to an inmate's behavior that poses a serious and immediate risk of
+“physical harm to any individual, including the inmate is prohibited.
+“(2) Inmates Posing Risk Of Harm.—
+“(A) Requirement to use the least restrictive techniques.—
+“(i) In general.— Before a staff member of a correctional facility places a covered inmate in
+“room confinement, the staff member shall attempt to use less restrictive techniques, including—
+“(I) talking with the covered inmate in an attempt to de-escalate the situation; and
+“(II) permitting a qualified mental health professional to talk to the covered inmate.
+“(ii) Explanation.— If, after attempting to use less restrictive techniques as required under
+“clause (i), a staff member of a correctional facility decides to place a covered inmate in solitary
+“confinement, the staff member shall first—
+“(I) explain to the covered inmate the reasons for the solitary confinement; and
+“(II) inform the covered inmate that release from room confinement will occur—
+“(aa) immediately when the covered inmate regains self-control, as described in
+“subparagraph (B)(i); or
+“(bb) not later than after the expiration of the time period described in subclause (I) or (II)
+“of subparagraph (B)(ii), as applicable.
+“(B) Maximum period of confinement.— If a covered inmate is placed in solitary confinement
+“because the covered inmate poses a serious and immediate risk of physical harm to themself, or to
+“others, the covered inmate shall be released—
+
+“(i) immediately when the covered inmate has sufficiently regained self control as to no longer
+“engage in behaviour that threatens serious and immediate risk of physical harm to themself, or
+“to others; or
+“(ii) if a covered inmate does not sufficiently gain control as described in clause (i), not later
+“than—
+“(I) 3 hours after being placed in solitary confinement, in the case of a covered inmate who
+“poses a serious and immediate risk of physical harm to others; or
+“(II) 30 minutes after being placed in solitary confinement, in the case of a covered inmate
+“who poses a serious and immediate risk of physical harm only to themself.
+“(C) Risk of harm after maximum period of confinement.— If, after the applicable maximum period
+“of confinement under subclause (I) or (II) of subparagraph (B)(ii) has expired, a covered inmate
+“continues to pose a serious and immediate risk of physical harm described in that subclause—
+“(i) the covered inmate shall be transferred to another correctional facility or internal location
+“where services can be provided to the covered inmate without relying on solitary confinement;
+or
+“(ii) if a qualified mental health professional believes the level of crisis service needed is not
+“currently available, a staff member of the correctional facility shall initiate a referral to a location
+“that can meet the needs of the covered inmate.
+“(D) Spirit and purpose.— The use of consecutive periods of solitary confinement to evade the spirit
+“and purpose of this subsection shall be prohibited.
+SEC. 6. STATES INELIGIBLE FOR CERTAIN FUNDS UNLESS ABIDING BY MINIMUM FEDERAL STANDARDS.
+(a) In General.— Title 23 of the U.S. Code is amended in chapter 1 by inserting the following new section:
+“§ 160. National correctional standards
+“(a) Withholding Of Funds For Noncompliance.
+“(1) In General.— The Secretary shall withhold fifteen percent of the amount required to be apportioned
+“to any State under each of sections 104(b)(1), 104(b)(3), and 104(b)(4) of this title on the first day of
+“each fiscal year after the second fiscal year beginning after September 30, 2021, in which it is—
+“(A) lawful—
+“(i) to hold a prisoner in solitary confinement for discipline, punishment, retaliation, or any
+“reason other than as a response to an inmate's behavior that poses a serious and immediate
+“risk of physical harm to any individual;
+“(ii) for any individual to be sentenced to more than thirty years of imprisonment for a crime
+“other than a crime punishable by death or life imprisonment;
+“(iii) to place restraints, beginning on the date on which pregnancy is confirmed by a healthcare
+“professional, and ending at the conclusion of postpartum recovery, a prisoner, except for a
+“reason provided in section 4322(b) of title 18.
+“(B) unlawful—
+“(i) for any court to sentence an individual, for a crime which is not a crime punishable by death
+“or life imprisonment, to a term of imprisonment which is less than the minimum term of
+“imprisonment provided by any law of such State;
+“(ii) for any prisoner to issue an appeal or file a complaint to a court or appropriate authorities
+“with respect to—
+“(I) an abuse, maltreatment, or violation of law by any law enforcement official or prison staff;
+“(II) their sentence being unduly harsh or substantively harsher than that provided to
+“individuals convicted of the same or similar offenses.
+“(2) State Grandfathering Law As Complying.— If, before the later of October 1, 2022, or the tenth day
+“following the last day of the first session the legislature of a State convenes after the date of the
+
+“enactment of this paragraph, such State has in effect a law which makes unlawful the activities listed
+“under paragraph (1), such State shall be deemed to be in compliance with paragraph (1) in each fiscal
+“year in which such law is in effect.
+“(b) Effect Of Withholding Of Funds.— No funds withheld under this section from apportionment to any
+“State after September 30, 2024, shall be available for apportionment to that State.
+“(c) Definitions.— For purposes of this section—
+“(1) the term “prisoner” means a person who has been sentenced to a term of imprisonment pursuant to
+“a conviction for a State or Federal criminal offense, or a person in the custody of any State department
+“of corrections, or law enforcement official.
+“(2) the terms “restraints” and “postpartum recovery” shall have the same meanings as those provided
+“by section 4322(g) of title 18.
+SEC. 8. MISCELLANEOUS AMENDMENTS.
+(a) In General.— Title 18 of the U.S. Code is amended—
+(1) by striking section 1791 and inserting the following:
+“§ 1791. Providing or possessing contraband in prison
+“(a) Offense.— Whoever—
+“(1) in violation of a statute or rule or order issued under a statute, provides to an inmate of a prison a
+“prohibited object, or attempts to do so; or
+“(2) being an inmate of a prison, makes, possesses, or obtains, or attempts to make or obtain, a
+prohibited “object;
+“shall be punished as provided in subsection (b) of this section.
+“(b) Punishment.— The punishment for an offense under this section is a fine under this title or—
+“(1) imprisonment for not more than 8 years, or both if the object is specified in subsection (d)(1)(A);
+“(2) imprisonment for not more than 5 year, or both if the object is specified in subsection (d)(1)(B);
+“(3) imprisonment for not more than 3 years, or both if the object is specified in subsection (d)(1)(C);
+“(c) Consecutive Punishment Required.— Any punishment imposed under subsection (b) for a violation of
+“this section by an inmate of a prison shall be consecutive to the sentence being served by such inmate at
+“the time the inmate commits such violation.
+“(d) Definitions.— As used in this section—
+“(1) the term “prohibited object” means—
+“(A) a firearm or destructive device;
+“(B) ammunition, a weapon (other than a firearm or destructive device), or an object that is designed
+or “intended to be used as a weapon or to facilitate escape from a prison;
+“(C) any other object that threatens the security of a prison, or the life, health, or safety of an
+individual;
+“(2) the terms “ammunition”, “firearm”, and “destructive device” have, respectively, the meanings given
+“those terms in section 921 of this title;
+“(3) the term “prison” means a Federal correctional, detention, or penal facility or any prison, institution,
+or “facility in which persons are held in custody by direction of or pursuant to a contract or agreement
+with the “Attorney General.
+(2) by striking section 2252.
+(3) in section 3287 by striking “5 years” and inserting “3 years”.
+(4) in section 2252A by striking subsection (b) and inserting the following:
+“(b) Whoever violates, or attempts to violate, any paragraph of subsection (a)—
+“(1) shall be fined under this title for each unique visual depiction—
+“(i) involving a minor of 16 or more years in age, not more than $50,
+“(ii) involving a minor of 13 or more years in age, not more than $300,
+
+“(iii) involving a minor of less than 13 years in age, not more than $1,800,
+“(2) shall be imprisoned under this title for each unique visual depiction—
+“(i) involving a minor of 16 or more years in age, not more than 5 days,
+“(iii) involving a minor of 13 or more years in age, not more than 30 days,
+“(v) involving a minor of fewer than 13 years in age, not more than six months,
+“consecutively, but not more than five years for the sum of offenses, unless a jury finds upon
+“a preponderance of evidence that the sum of offenses reflected a degree of depravity and
+“indecency which would justify a sentence of more than five years, in which case the
+“sentence shall be not more than fifteen years.
+(5) in section 3565(b) by striking paragraphs (1), (3), and (4);
+(6) in section 5031 by striking “eighteenth” where it applies and inserting “nineteenth” in each place.
+(7) in section 5038 by inserting the following new subsection:
+“(g) Any fingerprints or photographs taken in accordance with subsection (d) shall be erased not more than
+“five years from the date which such juvenile delinquent last committed an act which if committed by an
+“adult would be a felony crime of violence or an offense described in section 401 of the Controlled
+“Substances Act or section 1001(a), 1005, or 1009 of the Controlled Substances Import and Export Act.
+SEC. 9. ENACTMENT.
+(a) Effective Date.—The amendments made by this act shall apply immediately upon passage.

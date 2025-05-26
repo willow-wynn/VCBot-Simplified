@@ -1,0 +1,45 @@
+1
+139THCONGRESS
+1STSESSION
+S. 13
+To expand the E-Rate program for internet connections in tribal schools and libraries, and school
+buses
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+APRIL 1ST, 2021
+Mr. LIGHTWOOD (for himself, Mr. MILLER of Georgia, Mr. TOBY) introduced
+the following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To expand the E-Rate program for internet connections in tribal schools and libraries, and school
+buses
+Be it enacted by the Senate and Houseof Representatives of the United States in
+Congress Assembled,
+SECTION1.SHORTTITLE.
+ThisActmaybecitedasthe“E-RateExpansionAct”.
+SEC.2.DEFINITIONS.
+InthisAct—
+(a) COMMISSION.—Theterm“Commission”referstotheFederalCommunicationsCommission.
+SEC.3.E-RATEEXPANSION.
+(a) DEFINITIONS.—Inthissection:
+
+2
+(1) SCHOOLBUS.—Theterm“schoolbus”meansapassengervehiclethatisdesignedto
+transportandcarryadriverwithaminimumof5passengersandusedtotransportchild
+education,elementary,orsecondaryschoolstudentstoorfromschooloraschool-related
+event.
+(2) WI-FI.—Theterm“WI-FI”meansawirelessnetworkingprotocolbasedontheInstitute
+ofElectricalandElectronicsEngineersStandards802.11(oranyothersuccessor
+standard).
+(3) TRIBALLAND.—Theterm“Triballand”meansanareaoflandlegallydesignated
+managedbyafederallyrecognizedNativeAmericantribeundertheU.S.Bureauof
+IndianAffairs.
+(b)RULEMAKING.—Notwithstandingtherestrictionsunderparagraphs(1)(b)and(2)(a)of
+Section254(h)oftheCommunicationsActof1934(47U.S.C.254)regardingtheauthorized
+recipientsandusesofdiscountedtelecommunicationsservices,notlaterthan200daysafterthe
+dateofenactmentofthisAct,theCommissionshallcommencearulemakingtomakethe
+provisionofWI-FIaccessonschoolbuseswhichincludesschoolsandlibrarieswithintriballands
+eligibleforsupportundertheE-rateprogramsetforthundersubpartFofpart54oftitle47,Code
+ofFederalRegulations.
+SEC.4.ENACTMENT.
+EFFECTIVEDATE.—ThisActshallcomeintoeffectimmediatelyuponpassage.

@@ -1,0 +1,65 @@
+173RD CONGRESS
+2ND SESSION
+S. 1
+To provide a tax credit for the installation and utilization of solar
+panels on residential properties.
+MS. MOCTEZUMA (for herself, MR. HARRIS-CHAREST
+Ms. Whitmer ) introduced the following bill.
+AN ACT
+To provide a tax credit for the installation and utilization of solar panels on residential
+properties.
+Be it enacted by the Senate and the House of Representatives of the United States of America
+in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the Residential Solar Energy Tax Credit Act of 2024.
+SEC 2. DEFINITIONS.
+In this act:
+(a) Department as used in this Act shall refer to the Department of the
+Treasury.
+(b) Dwelling shall use the definition as provided in 42 USC 3602(b).
+(c) Secretary shall refer to the Secretary of the Treasury, or any designee
+named thereof.
+
+2
+SEC 3. CHANGES TO TAX CODE.
+Title 26, United States Code, is amended by inserting after section 36C the
+following:
+“§ 36D. Residential Solar Tax Credit.
+“(a) ALLOWANCE OF CREDIT.— Any person who owns a building
+that has a primary purpose of being a dwelling, or consists primarily of
+dwelling units shall be eligible for a credit against the total amount of tax
+imposed by this chapter, provided that the solar energy system is of sufficient
+size to meet or exceed fifty percent of the building’s projected annual energy
+use.
+“(b) LIMITATIONS.—
+“(1) Dollar Limitation.— The credit allowed under paragraph
+(a) shall not exceed twenty-five percent of the annual maintenance
+cost for the solar energy system.
+“(A) In the case of a solar energy system sized to provide
+one-hundred percent of the building’s projected annual energy
+use, subparagraph (1) shall be applied by substituting “fifty
+percent” for “twenty-five percent”.
+“(B) In the case of a solar energy system sized to provide
+one-hundred and twenty-five percent of the building’s projected
+annual energy use, subparagraph (1) shall be applied by
+substituting “sixty-two and one-half percent” for “twenty-five
+percent”.
+“(2) Individuals seeking to claim the credit provided shall
+provide documentation to the Department in such a manner as the
+Secretary may prescribe.
+“(A) At the discretion of the Secretary, the credit may be
+prorated should the system not provide fifty percent of the
+building’s projected annual energy use.
+
+3
+SEC 4. SUPREMACY.
+For the purposes of enacting this Act, any laws in conflict with this Act shall be
+immediately rescinded and rendered null and void.
+SEC 5. SEVERABILITY.
+If any provision of this Act, or any amendment made by this Act, or the application
+of such provision to any person, entity, government, or circumstance, is held to be
+unconstitutional, the remainder of this Act, or any amendment made thereby, or the
+application of such provision to all other persons, entities, governments, or
+circumstances, shall not be affected thereby.
+SEC 6. SUNSET.
+This credit shall expire 10 years after adoption, unless reauthorized by Congress.

@@ -1,0 +1,133 @@
+- 1 -
+174th
+CONGRESS
+S.5
+IN THE SENATE OF THE UNITED STATES
+FEBRUARY 21, 2024
+Introduced by Mr. Pluribus, Ms. Moctezuma, Mr. Morales
+A BILL
+To enhance the practice of precision agriculture in the United States, and other
+purposes.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled,
+SECTION 1.SHORTTITLE.
+This Actmaybe citedas the“Precision AgriculturePromotion Actof 2024”.
+SEC.2.DEFINITIONS.
+In this Act:
+(1) 3GPP.—The term“3GPP” meanstheThird GenerationPartnershipProject.
+(2) ADVANCEDWIRELESS COMMUNICATIONS TECHNOLOGY.—The
+term “advancedwirelesscommunications technology”meansadvancedtechnology
+that contributestomobile(5Gor beyond) networks,next-generationWi-Fi networks,
+or otherfuture networksusing other technologies,regardless ofwhetherthe network is
+operatingonan exclusivelicensed, sharedlicensed, orunlicensed frequencyband.
+
+- 2 -
+(3) ARTIFICIALINTELLIGENCE.—Theterm “artificialintelligence”has the
+meaninggiventhetermin section238(g) ofthe JohnS. McCainNationalDefense
+Authorization Actfor FiscalYear 2019(Public Law115–232; 10U.S.C.noteprec.
+4061).
+(4) FOREIGNADVERSARY.—Theterm “foreignadversary” meansanyforeign
+governmentor foreign nongovernmentpersonengaged inalong-term pattern or
+seriousinstances of conduct significantlyadverse tothenational securityof theUnited
+States,or security and safetyof UnitedStatespersons.
+(5) PRECISIONAGRICULTURE.—The term“precisionagriculture” means
+managing,tracking,or reducingcrop or livestockproductioninputs, includingseed,
+feed,fertilizer,chemicals, water,time,and suchotherinputs asthe Secretary
+determines tobe appropriate,at aheightenedlevelof spatialandtemporal granularity
+to improveefficiencies, reducewaste, andmaintainenvironmental quality.
+(6) PRECISIONAGRICULTURE EQUIPMENT.—Theterm“precision
+agricultureequipment”meansanyequipment ortechnologythat directly contributesto
+a reductionin,or improved efficiencyof, inputsused incrop orlivestock production,
+including—
+(A) globalpositioning system-basedor geospatial mapping;
+(B) satellite oraerial imagery;
+(C) yield monitors;
+(D) soilmapping;
+(E) sensorsfor gathering data oncrop,soil, andlivestock conditions;
+(F) Internet ofThings andtechnologythat reliesonedge andcloud
+computing;
+
+- 3 -
+(G) datamanagementsoftware andadvancedanalytics;
+(H) network connectivityproducts andsolutions,includingpublic and
+privatewirelessnetworks;
+(I) global positioning systemguidance,auto-steersystems, autonomous
+fleeting, andothermachine-to-machine operations;
+(J) variableratetechnologyfor applying inputs, suchas sectioncontrol; and
+(K) anyothertechnologythat leadstoareduction in,or improvesefficiency
+of, crop andlivestockproductioninputs, whichmay include—
+(i) seed;
+(ii) feed;
+(iii) fertilizer;
+(iv) chemicals;
+(v) water;
+(vi) time;
+(vii) fuel;
+(viii) emissions; and
+(ix) such otherinputs asthe Secretarydeterminestobeappropriate.
+(7) SECRETARY.—Theterm “Secretary”meansthe SecretaryofAgriculture,or
+othersuchSecretaryunderan executivereorganization plan.
+
+- 4 -
+(8) TRUSTED.—The term“trusted”means,withrespect toa providerof
+advancedcommunicationsservice or asupplierof communicationsequipmentor
+service, thattheSecretaryhas determinedthatthe provideror supplieris notownedby,
+controlled by,or subjectto theinfluence of,a foreignadversary.
+(9) VOLUNTARYCONSENSUS STANDARDS DEVELOPMENT
+ORGANIZATION.—
+(A) INGENERAL.—Theterm“voluntary consensusstandards development
+organization”meansanorganization that developsstandards inaprocess that
+meets theprinciples for thedevelopment ofvoluntary consensusstandards (as
+defined inthedocumentof theOfficeof Management andBudgetentitled
+“FederalParticipation inthe DevelopmentandUseof Voluntary Consensus
+Standards andin ConformityAssessment Activities”(OMBCircularA–119)).
+(B) INCLUSIONS.—Theterm “voluntaryconsensusstandards development
+organization”includesthe 3GPP,the Alliancefor TelecommunicationsIndustry
+Solutions, theAgricultural IndustryElectronicsFoundation, andtheGlobal
+System for Mobile CommunicationsAssociation.
+SEC.3.PURPOSES.
+Thepurposes of thisAct are—
+(1) to enhancethe participationof precision agricultureinthe UnitedStates; and
+(2) to promoteUnitedStatesleadershipinvoluntary consensusstandards
+developmentorganizations thatset standards for precision agriculture.
+SEC.4.INTERCONNECTIVITY STANDARDSFOR PRECISION
+AGRICULTURE.
+
+- 5 -
+(a) INGENERAL.—Notlater than2years afterthe date ofenactment ofthis Act,the
+Secretary,inconsultation withthe Directorof theNationalInstitute of Standardsand
+Technology,shall—
+(1) develop voluntary, consensus-based,private sector-ledinterconnectivity
+standards, guidelines,and bestpractices for precisionagriculture that willpromote
+economiesof scale and easetheburden ofthe adoption ofprecision agriculture; and
+(2) in carryingoutparagraph (1)—
+(A) coordinate withrelevant publicand trustedprivate sectorstakeholders
+and otherrelevantindustryorganizations,includingvoluntary consensusstandards
+developmentorganizations; and
+(B) consult withsector-specific agencies,otherappropriateagencies, and
+State andlocalgovernments.
+(b) CONSIDERATIONS.—The Secretary, incarrying outsubsection (a),shall,in
+consultation withtheFederal CommunicationsCommissionand theDirector ofthe National
+Instituteof Standards andTechnology, consider—
+(1) theevolvingdemandsof precision agriculture;
+(2) theconnectivityneeds of precisionagriculture equipment;
+(3) thecybersecuritychallenges facingprecision agriculture, including
+cybersecurity threats for agricultureproducers andagriculture supplychains;
+(4) theimpact ofadvancedwireless communicationstechnologyonprecision
+agriculture; and
+(5) theimpact ofartificialintelligence onprecisionagriculture.
+SEC.5.GAO ASSESSMENT OF PRECISIONAGRICULTURESTANDARDS.
+
+- 6 -
+(a) STUDY.—Notlater than1yearafter the Secretarydevelopsstandardsunder section
+4,and every2yearsthereafter for thefollowing 8years,the Comptroller Generalofthe
+UnitedStatesshallconducta studythat assessesthose standards,includingthe extentto
+which thosestandards, asapplicable—
+(1) arevoluntary;
+(2) were developed incoordination withrelevant industryorganizations,including
+voluntary consensusstandardsdevelopment organizations;and
+(3) havesuccessfullyencouraged theadoption ofprecision agriculture.
+(b) REPORT.—TheComptrollerGeneralof theUnited Statesshallsubmittothe
+Committee onGeneralWelfare ofthe Senate andtheCommittee onGeneralLegislationof
+theHouse of Representatives areport thatsummarizes thefindings ofeach studyconducted
+under subsection(a).

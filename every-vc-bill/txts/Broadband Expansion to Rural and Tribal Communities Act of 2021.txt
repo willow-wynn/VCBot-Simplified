@@ -1,0 +1,50 @@
+1
+140THCONGRESS
+1STSESSION
+S. 2
+To amend the Secure Rural Schools and Community Self-Determination Act of 2000 to allow
+counties to utilize funds to provide and expand broadband, and for other purposes
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE CONGRESS OF THE UNITED STATES
+APRIL 17TH, 2021
+Mr. LIGHTWOOD (for himself, Mr. JOHNSON-KOAY) introduced the following bill;
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+To amend the Secure Rural Schools and Community Self-Determination Act of 2000 to allow
+counties to utilize funds to provide and expand broadband, and for other purposes
+Be it enacted by the Senate and Houseof Representatives of the United States of
+America in Congress assembled,
+SECTION1.SHORTTITLE.
+ThisActmaybecitedasthe“BroadbandExpansiontoRuralandTribalCommunitiesAct”.
+SEC.2.RURALBROADBANDANDTECHNOLOGYEXPANSION.
+(a) Section302(a)oftheSecureRuralSchoolsandCommunitySelf-DeterminationActof2000is
+amendedby—
+(1) inparagraph(3)bystriking“and”attheend;
+(2) inparagraph(4)bystrikingtheperiodattheendandinserting“;and”;and
+(3) byaddingthefollowingattheend:
+
+2
+“(5)toprovideandorexpandaccessto—
+“(A)broadbandtelecommunicationsservicesatschools;or
+“(B)thetechnologyandconnectivityresourcesforstudentstouseadigital
+learningtooloralocalschoolcampus.
+SEC.3.2.5GHZTRIBALPRIORITYWINDOW.
+(a) DEFINITIONS.—
+(1) COMMISSION.—Inthissectiontheterm“Commission”meansorreferstotheFederal
+CommunicationsCommission.
+(b)ESTABLISHMENTOFPRIORITYWINDOW.—
+(1) TRIBALPRIORITYWINDOW.—Notlaterthan60daysafterthedateofenactmentof
+thisAct,theCommissionshallestablishanewTribalprioritywindowforthe2.5
+gigahertzband,underthesametermsandconditionsestablishedundertheReportand
+OrderdatedJuly10th,2019(FCC19-62),foranyportionsoftheband—
+(A)thatremainavailableforassignmentinaccordancewiththatReportandOrder;
+and
+(B) forwhichtheCommissiondidnotreceiveanapplicationduringtheTribal
+prioritywindowestablishedinthatReportandOrder;and
+(2)acceptapplicationsinthenewwindowestablishedundersubsection(b)(1)duringthe
+periodthatbeginsonthedateonwhichthewindowwasestablishedandendsatalater
+dateastheCommissionconsidersappropriate.
+(c)EXEMPTIONS.—Alllawsandprovisionsinconflictwithsubsection(b)(1)and(b)(2)shallnotbe
+appliedanddeclarednullthatpreventstheCommissionfromestablishingtheprioritywindow.
+SEC.4.ENACTMENT.
+EFFECTIVEDATE.—ThisActshallcomeintoeffectimmediatelyuponpassage.

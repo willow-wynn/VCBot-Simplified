@@ -1,0 +1,139 @@
+178th
+CONGRESS
+S.4
+IN THE SENATE OF THE UNITED STATES
+JUNE 16, 2024
+Introduced by Senate Majority Leader James Sun, for himself
+A BILL
+To combat toxic indoor mold, and for other purposes.
+Be it enacted by the Senate and House of Representatives of the United States
+of America in Congress assembled,
+SECTION 1. DEFINITIONS.
+(1) The term ‘‘indoor residential mold’’ means any form of multicellular fungi
+in indoor environments.
+(2) RESIDENTIALMOLDINSPECTION.—The term ‘‘residential mold inspection’’
+means an inspection, by a certified or licensed mold inspector or other indoor
+environmental professional, including through the Real Estate Assessment
+Center, of real property that is designed to discover—
+(A) indoor mold growth in residential properties;
+(B) conditions that facilitate indoor residential mold growth; or
+(C) indicia of conditions that are likely to facilitate indoor residential
+mold growth.
+(3) TOXIGENICMOLD.—The term ‘‘toxigenic mold’’ means any indoor mold
+growth that may be capable of producing a toxin or toxic compound that can
+cause illnesses, or other major adverse health impacts, as jointly determined
+by the individuals listed in Section 2(a)(1).
+
+SEC. 2. INTERAGENCY RESEARCH ON HEALTH IMPACTS OF INDOOR
+RESIDENTIAL MOLD.
+(a) RESEARCH.—
+(1) INGENERAL.—As soon as practicable after the date of enactment of this
+Act, The Secretary of Housing and Urban Development, in conjunction with
+the Director of the Centers forDisease Control and Prevention, the
+Administrator of the Environmental Protection Agency, the Secretary of
+Health and Human Services, shall jointly conduct a comprehensive study of
+the health effects of indoor residential mold growth.
+(2) CONTENTS.—The study conducted under paragraph (1) shall ascertain,
+among other things—
+(A) detailed information about harmful or toxigenic mold, a list of said
+harmful and toxigenic molds, as well as any toxin or toxic compound
+such mold can produce;
+(B) the most accurate research-based methods of detecting harmful or
+toxigenic mold;
+(C) potential dangers of prolonged or chronic exposure to indoor
+residential mold growth;
+(D) the estimated current public health burden of new or exacerbated
+physical illness resulting from exposure to indoor residential mold,
+including its disproportionate impact on vulnerable communities,
+including children and seniors;
+(3) AVAILABILITY.—Not later than the expiration of the 3-year period
+beginning on the date of the enactment of this Act, the results of the study
+conducted under paragraph (1) shall be submitted to Congress and the
+President and made available to the general public.
+SEC. 4. HEALTH, SAFETY, AND HABITABILITY STANDARDS AND MODEL
+STANDARDS.
+(a) MODELSTANDARDSFORPREVENTING, DETECTING, ANDREMEDIATINGINDOOR
+RESIDENTIALMOLDGROWTH.—Based on the results of the interagency health
+study conducted under section 3, the Administrator of the Environmental
+Protection Agency, in conjunction with the Secretary of Housing and Urban
+Development, the Director of the Centers for Disease Control and Prevention,
+the Assistant Secretary of Labor for Occupational Safety and Health at the
+
+Occupational Safety and Health Administration, shall jointly issue model
+health, safety, and habitability standards for preventing, detecting, and
+remediating indoor residential mold growth.
+(b) DEADLINE.—
+(1) PUBLICATION.—Not later than 3 years after the results of the study
+conducted under section 3 are submitted to Congress in accordance
+with such section, the officers identified in subsection (a) shall issue,
+and make available to the public, final standards and model standards
+under this section.
+(c) PHYSICALCONDITIONINSPECTIONS.—Not later than 2 years after the
+publication of standards and model standards under subsection (a), the
+Secretary of Housing and Urban Development shall revise the requirements
+for conducting uniform physical condition inspections, to incorporate the
+model standards issued under this section, as applicable.
+SEC. 5. HOUSING STOCK QUALITY REQUIREMENTS.
+Section 8 of the United States Housing Act of 1937 (42 U.S.C. 1437f) is amended by
+inserting after subsection (v) the following new subsection:
+‘‘(w) STANDARDSFORPHYSICALCONDITIONANDMANAGEMENTOFHOUSINGRECEIVING
+ASSISTANCEPAYMENTS.—
+(1) STANDARDS.—Any entity receiving housing assistance payments under this
+section shall maintain decent, safe, and sanitary conditions, as determined by
+the Secretary, and comply with any standards under applicable State or local
+laws, rules, ordinances, or regulations relating to the physical condition of
+any insured or non-insured property covered under a housing assistance
+payment contract for project-based assistance.
+(2) REMEDIATION.—The Secretary shall take action under paragraph (3) when
+a multifamily housing project with a housing assistance payment contract
+under this section or a contract with the Department of Housing and Urban
+Development for similar project-based assistance—
+(A) receives a failing score on a physical inspection by the Department;
+or
+
+(B) fails to certify in writing to the Secretary within 3 days that all
+severe health or safety deficiencies identified at the project by the
+inspector have been corrected.
+(3) NOTICEOFDEFAULT.—
+(A) ISSUANCE.—Meeting the parameters in Subsection (w)(2) of this
+section, the Secretary shall provide the owner with a notice of default
+that shall include a specified timetable, determined by the Secretary,
+for correcting all deficiencies.
+(B) COPIES.—The Secretary shall provide a copy of the notice of default
+to the tenants of the property, the local government for the jurisdiction
+within which the property is located, any mortgagees, and any contract
+administrator.
+(C) APPEAL; WITHDRAWAL.—If the owner appeals the notice of default
+and the appeal results in a passing Uniform Physical Condition
+Standards score for the property, the Secretary may withdraw the
+notice of default. ‘
+(4) ENFORCEMENT.—If the owner fails to fully correct all deficiencies identified
+in the notice of default by the end of the time period for correcting such
+deficiencies specified in the notice, the Secretary shall, in consultation with
+the tenant organization, one or more of the following actions, and provide
+additional notice of those actions to the owner and the parties specified in
+paragraph (3)(B) to improve property conditions and preserve housing
+assistance:
+(A) Take any regulatory or contractual remedies available as deemed
+necessary and appropriate by the Secretary to improve property
+conditions, protect tenants from displacement and harm, and preserve
+the housing assistance.
+(B) Require immediate replacement of the project management with a
+management agent approved by the Secretary.
+(C) Pursue exclusionary sanctions, including suspensions or
+debarments from Federal programs.
+
+(D) Relocate tenants while providing the same level of housing
+assistance.
+(E) Seek judicial appointment of a receiver to manage the property and
+cure all project deficiencies or seek a judicial order of specific
+performance requiring the owner to cure all project deficiencies.
+(F) Work with the owner, lender, tenants, or other related party to
+stabilize the property in an attempt to preserve the property through
+compliance, transfer of ownership, or an infusion of capital or other
+resources.
+(5) PROHIBITIONONRENTINCREASES.—Effective upon the expiration of the
+12-month period beginning on the date of the enactment of this subsection,
+the Secretary shall prohibit any increases in rents for dwelling units in the
+property until the owner fully corrects all deficiencies identified in the
+notice.”

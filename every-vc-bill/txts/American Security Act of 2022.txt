@@ -1,0 +1,143 @@
+IN THE CONGRESS OF THE UNITED STATES
+JANUARY 12, 2022
+Mr.CARTER (for himself)introduced thefollowing bill;
+A BILL
+Toprotectthenational securityof theUnited StatesofAmerica, toprotectthe integrity of
+state-owned devices,toprotect nationalsecretsanddata fromforeign eyes, toensure
+compliance withfederallaw,tohold thePeople’sRepublic ofChinaaccountable for human
+rights abuses,andfor otherpurposes.
+Beit enactedby theSenate and theHouseof Representativesofthe UnitedStatesof
+America inCongressAssembled,
+SECTION 1.SHORTTITLE.
+This Actmaybe citedasthe“American SecurityAct”
+SEC.2.DEFINITIONS.
+In this Act—
+(1) theterm “coveredapplication”meansthe socialnetworkingservice TikTokorany
+successorapplication orservice developedor providedbyByteDanceLimited or anentity
+ownedbyByteDance Limited;
+(2) theterm “executive agency”hasthe meaninggiventhat terminsection 133oftitle41,
+UnitedStatesCode; and
+(3) theterm “informationtechnology” hasthe meaninggiventhat terminsection 11101of
+title 40,UnitedStates Code.
+
+(4) theterm “SpeciallyDesignated NationalsandBlockedPersonsList” (henceforth referredto as
+the“SDNList”) refers tothelistmaintained bythe OfficeofForeign Asset Controlof
+individualsand corporationsblocked frominteractingwith U.S.institutionsor persons.
+SEC.3.PROHIBITION AGAINSTPURCHASES OF PROPERTYBYCERTAINENTITIES
+IN GENERAL—
+(a) Any individual(or company, entity,or foreignstate) that isassociatedwith toanydegree,or
+who isor hasbeen employedby, thefollowing entities, shallbeprohibited frompurchasingany
+parcelof land,leasing anyparcel ofland, orapplying for anypermits orwaivers for the
+constructionof new structuresonalready ownedorleasedland withinthe UnitedStatesof
+Americaor any territories orwaterscontrolled or managedbytheUnited States:
+(i) TheChinese CommunistParty
+(ii) TheGovernmentof thePeople’sRepublic ofChina
+(iii) ThePeople’sLiberation Army(Mainland China)
+(iv) ‘People's Daily’ orany otherpropagandaornews-based firmfunded inpartor inwhole
+bytheChineseCommunist Party.
+(b) Personsor entitiesthat fallunder the prohibitionas describedin subsectionashallbe
+prohibited from applying for anextensiontoany existinglease.
+SEC.4.PERMANENTPROHIBITIONOF CERTAIN CELLULARTECHNOLOGIES
+IN GENERAL—
+(a) Any companythatis ownedinpartor inwholebyanyof theentities listedin Section3(a), or
+that haveanyofficial associationoragreementwithany ofthe entitieslisted inSection 3(a),
+shallbe consideredathreat tothe integrityof U.S.communications infrastructureand national
+security.o
+(b) Any companythatmeets thecriteria asdescribed insubsection aofthis sectionshallcease
+operations of telecommunications servicesintheUnited States,including cellular,broadband,
+wired internet,and radioservices.
+(i) All activities asdescribed insubsection (b) mustcease byJanuary1,2023.
+(ii) Any individualwho conductsactivitiesinviolation ofthis sectionshallbeconsidered as
+taking part inunlawfulinterferenceand subjecttoprosecution under 47C.F.R.§
+97.101(d).
+
+SEC.5.EXCLUSION OFCERTAIN ENTITIESANDSERVICESONSTATEDEVICES
+(a) Notlaterthan60days afterthe date ofthe enactmentof this Act,theDirector of theOfficeof
+Management andBudget,inconsultation withthe Administratorof GeneralServices, the
+Director of theCybersecurity andInfrastructureSecurityAgency,the Director ofNational
+Intelligence,and theSecretaryof Defense,andconsistent withthe informationsecurity
+requirements under subchapterII of chapter35of title44,United StatesCode,shalldevelop
+standards andguidelines for executiveagencies requiringthe removalof anycovered
+application frominformationtechnology.
+SEC.6.SANCTIONSAGAINST INDIVIDUALS
+(a) All property andinterestsin propertythat areinthe UnitedStates,that hereafter comewithin
+theUnitedStates,or thatareor hereafter comewithin thepossession orcontrol ofanyUnited
+Statespersonof thefollowing personsareblocked andmay notbetransferred, paid,exported,
+withdrawn, or otherwise dealtin:
+(i) MaXingrui(馬興瑞),Communist Party SecretaryofXinjiang UyghurAutonomous
+Region.
+(ii) Erkin Tuniyaz(艾爾肯·吐尼亞孜), ChairmanofXinjiang UyghurAutonomous Region.
+(iii) Chen Quanguo (陈全国), former Communist PartySecretaryof Xinjiang Uyghur
+Autonomous Region.
+(iv) Shewket Imin(肖開提·依明), Chairmanofthe StandingCommittee ofthe People's
+Congress ofXinjiang UygurAutonomous Region.
+(v) Nurlan Abilmazhinuly(努爾蘭·阿不都滿金), Chairmanofthe Xinjiang Regional
+Committeeof theChinese People'sPoliticalConsultative Conference.
+(vi) ZhangChunxian(張春賢),Vice Chairpersonof theStanding Committeeof theNational
+People'sCongress, former Communist PartySecretaryof theXinjiang Uyghur
+Autonomous Region.
+(vii) Nur Bekri(努爾·白克力),Director of theNationalEnergyAdministration, former
+Chairmanof theXinjiang UyghurAutonomous RegionPeople'sGovernment.
+(viii) Shohrat Zakir (雪克來提·扎克爾),former Chairmanof theXinjiang Uyghur
+Autonomous Region.
+(ix) Guo Shengkun (郭声琨), Secretaryofthe CentralPoliticaland LegalAffairs
+Commissionof theChinese CommunistParty.
+
+(x) MengJianzhu (孟建柱), former Secretaryofthe CentralPoliticalandLegal Affairs
+Commissionof theChinese CommunistParty.
+(xi) any persondeterminedbythe Secretaryofthe Treasury,inconsultation withthe
+Secretaryof State:
+(1) to be responsiblefor orcomplicit in,or responsiblefor ordering,controlling, or
+otherwise directing,or tohave participatedin,directly or indirectly,any ofthe
+following inor inrelation tothe XinjiangUyghur AutonomousRegion:
+a) Significant actsofviolence orconduct that constitutesaseriousabuse or
+violationof humanrights
+b) Thearbitrary detentionofany personorpersonwithout dueprocessor
+probablecausefor detention, includingtheconductingof showtrials,or
+trials that yieldconvictions andsentences withouta bonafideattemptat
+ensuringdue processof law,andensuringguilt ofa legitimatecrime
+c) Therepressionor limitingof alegitimatereligious practiceor
+observance, orany discriminationor targetingof religious groups,their
+respectiveinstiutions, leaders therein,or members orobservancesof any
+religious group,faith, creed,ororganization, institution, orotherwise
+equivalent body.
+d) Thetorture, murder,ordeath, intentional orotherwise causedby
+deliberative negligence,of anypersonorpersons, donesoonthe basisof
+religion, ethnicity,creed,nationalorigin, or anyotherstatusprotected
+under internationallaw,occurring within theXinjiang Uyghur
+Autonomous Region,andoccurring betweenJanuary 1st,2008,andthe
+date ofenactment of thisAct.
+(2) Tohave materiallyassisted, sponsored,or providedfinancial,material,or
+technologicalsupportfor, orgoodsor servicestoor insupport of:
+a) A personwhoseproperty andinterestsinproperty areblocked pursuant
+tothis Act; or
+b) An activitydescribed insubsection (xi)(1)of thissection
+(b) Theprohibitions insubsection (a)ofthis sectionapply notwithstandingany contractentered
+into or any license orpermit grantedpriorto theeffectivedate of thisAct.
+SEC.7.PROHIBITIONS OF CERTAINACTIONS
+
+(a) Themaking of donationsof thetype ofarticles specifiedinsection203(b)(2) of IEEPA(50
+U.S.C.1702(b)(2)) by,to, orfor the benefitof anypersonwhoseproperty andinterestsin
+property areblockedpursuant tosection4of thisAct isprohibited.
+(b) Theprohibitions insection4of this Actincludebutarenotlimited to:
+(i) themakingof anycontribution orprovision offunds, goods,or servicesby,to, orfor
+thebenefitof anypersonwhoseproperty andinterestsinproperty areblocked pursuant
+to thisAct; and
+(ii) thereceiptof anycontribution orprovision offunds, goods,or servicesfromanysuch
+person.
+(iii) Any transactionthat evadesoravoids, has thepurposeof evadingor avoiding, causesa
+violation of, orattempts toviolate anyofthe prohibitions setforth inthis Act
+(iv) Any conspiracy formedtoviolate anyofthe prohibitions setforth inthis Act
+SEC.8.MISCELLANEOUSPROVISIONS
+(a) TheSecretaryof theTreasury,as wellas anyotherofficialsentrusted withthe executionof this
+Act andits provisions, shallundertakethe aforementioned actionsinaperiodnot exceedingten
+daysfollowing theeffectivepassage ofthis Act.
+(b) TheSecretaryof theTreasury retainsthe right totake anyadditional actionsseen necessary
+against anyindividual foundto beinvolved in,complicit in,orcontributing toin anyway,
+directly or indirectly,the actionsoractivities previouslymentionedin thisAct.
+(c) TheSecretaryof theTreasury,nor thePresident, orany surrogate,maynotrescind anysanction
+or penaltyput intoplaceunder this Act,for anypurpose,under penaltyof law.
+(d) All personssanctionedunder Section 4ofthis Actshallbeadded tothe SDNListwithin ten
+daysof theeffective passageof thisAct.
+SEC.9.ENACTMENT
+Theprovisionsof this Actshallbeenacted immediatelyuponpassageinto law.

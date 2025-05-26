@@ -1,0 +1,525 @@
+Market-Based Healthcare Reform for
+the 21st Century Act
+IN THE CONGRESS OF THE UNITED STATES
+May 9, 2022
+For Mrs. Athena Sinclair-Kasparian ,herself and Mr. Threes Twos
+Introduced the following piece of legislation.
+A BILL
+To provide reasonable reforms to the Affordable Care Act so that healthcare is truly affordable.
+Along with providing measures to bring down drug costs, end surprise billing, expand telehealth,
+reform malpractice laws, provide reforms to Medicare and Medicaid to decrease costs while
+improving care.
+Be it enacted by the Senate and House of Representatives of the United States of
+America in Congress assembled.
+SECTION I. Short Title
+I. This act may be cited in public works as the “Market-Based Healthcare Reform for
+the 21st Century” Act or “MBHRTFC”
+SECTION II. Guaranteed Protections
+
+I. Medicare, Medicaid, Employer, and Private insurers are prohibited from denying
+coverage or discriminating in relation to prices and medical treatment against
+anyone with pre-existing conditions.
+II. Insurers are prohibited from imposing annual or lifetime caps on coverage.
+III. Insurers are forbidden from dropping policyholders when they become ill.
+IV. Insurers must spend at least 80–85% of premium dollars on health costs; rebates
+must be issued if this is violated.
+V. Dependents are permitted to remain on their parents' health insurance plan until
+their 26th birthday including:
+A. dependents who no longer lived with their parents,
+B. are not dependent on a parent's tax return,
+C. are no longer a student
+D. or are married.
+VI. All health insurance plans must cover 10 essential benefits:
+A. Chronic disease management, preventive care, and wellness services;
+B. Outpatient care (or “ambulatory patient services”);
+C. Emergency services;
+D. Hospitalization (inpatient care);
+E. Laboratory services;
+F. Prescription drugs
+G. Mental health and substance use disorder services, including behavioral
+health treatment;
+H. Rehabilitative or habilitative services and devices;
+I. Maternity and newborn care; and
+J. Pediatric services
+VII. This section shall only go into effect in the effect the Affordable Care Act is
+repealed or struck down in the courts
+SECTION III. Expanding Coverage
+
+I. Short-term Limited Duration insurance plans (STLD) are to be allowed to provide
+to policyholders.
+A. Short-term Limited Duration insurance is defined as
+1. health insurance coverage plan provided pursuant to a contract with a
+health insurance issuer that has an expiration date specified in the
+contract (not taking into account any extensions that may be elected
+by the policyholder with or without the issuer’s consent) that is less
+than 12 months after the original effective date of the contract.
+B. Short-term duration plans shall be exempt from covering all 10 essential
+health benefits but are prohibited from dropping holders when they get sick.
+C. Persons shall be eligible for STLDs while in between long term insurance
+plans
+II. This section shall restore the 5:1 ratio in which insurers can charge their most to
+least costly plans.
+III. Citizens and Permanent Residents shall be eligible to purchase various healthcare
+plans across state lines.
+A. Hospitals, primary care provider, outpatient, and in-patient centers shall be
+prohibited from denying care to a person if they are enrolled in an out of
+state plan,
+B. If a policyholder is enrolled in an out-of-state plan then they shall be
+applicable to all laws and regulations regarding healthcare in the origin state
+along with laws and regulations in the state that policyholder resides.
+SECTION IV. Improvements to the private market.
+I. The individual mandate shall be repealed.
+A. An insurer shall be allowed to impose a 25% surcharge for the first 6
+months of a policyholder being enrolled if a person goes more than 180 days
+without enrolling in a plan.
+1. If a person enrolls in an STLD plan they will not have to pay a
+surcharge.
+
+II. Employers with 50 or more employees shall no longer be required to offer health
+insurance as an employee benefit.
+III. A new “Copper Tier” shall be added to the Marketplace exchanges.
+A. Copper-level plans will have an actuarial value of 50% and will have
+out-of-pocket limits that are 30% higher than bronze plans.
+IV. Adjusts premium assistance to incorporate both means-tested and age-adjusted tax
+credits as to individuals in certain age groups and income groups pay no more than
+a certain percentage of their income as listed below:
+Federal Up to Age Ages 30-39 Ages 40-49 Ages 50-59 Over 59
+Poverty 29
+Level (FPL)
+Up to 100% 0 0 0 0 0
+100%-133% 2 2 2 2 2
+133%-150% 3 3.2 3.4 3.4 3.6
+150%-200% 4 4.2 4.4 4.4 4.6
+200%-250% 5 5.2 5.4 5.6 5.8
+250%-300% 6 6.2 6.4 6.6 6.8
+300%-400% 7 7.2 7.4 7.6 7.8
+400%-600% 8 8.5 9 9.3 9.5
+A. Premium assistance eligibility shall be based on the previous year’s tax
+return.
+V. Insurers shall be allowed to enroll individuals in exchange plans outside of open
+enrollment periods if they wish.
+A. If they do this then they shall have the ability to impose a late fee as long as
+it is not an open enrollment period.
+VI. A new waiver shall be established to allow for states to hold open enrollment
+periods every 24 or 36 months instead of one every 12.
+
+A. A state’s executive authority shall apply for a waiver through the
+Department of Health and Human Services.
+VII. Repeals the ACA ban on the construction of new physician-owned hospitals;
+VIII. Private insurers in a given state shall be able to jointly negotiate reimbursement
+rates and network access with regional hospital systems.
+IX. Requires hospitals in extremely concentrated markets to accept Medicare
+Advantage rates from all payers with hospitals and payers free to negotiate rates
+that are lower than MA rates in these settings.
+A. Rural areas are exempt from this provision.
+X. Gag clauses on price and quality information and anti-competitive terms in
+payer-provider contracts are prohibited,
+XI. Repeals the McCarran-Ferguson antitrust exemption for health insurance plans.
+SECTION V. Price Transparency
+I. Hospitals are required to publish, in a standardized digital format, average prices
+for their 100 most common shoppable services.
+II. Grants HHS the statutory authority to require that providers and payers disclose
+their negotiated prices.
+III. Establishes a national all-payer claims database to create transparency into prices
+negotiated by insurers and providers, including those covered under ERISA plans
+exempt from state regulation.
+IV. Insurers are required to have up-to-date directories of their in-network providers.
+V. Policyholders are to access all cost-sharing information.
+VI. Patients shall have ownership of all diagnostic tests and objective clinical
+measurements conducted on their behalf.
+VII. Health care facilities are required to give patients bills for performed services
+within 45 days.
+A. The patient will have at least 30 days to pay bills upon receipt.
+VIII. An advisory group shall be formed to consult with the HHS Secretary on
+administrative burdens faced by hospitals that increase costs.
+
+A. This group shall be comprised of 24 individuals all of which are to have a
+medical background.
+1. These individuals shall range from all areas of healthcare areas
+including and not limited to:
+a) Hospital administers
+b) Doctors
+c) Insurance agency trustees
+d) State and Federal health regulators.
+B. This advisory group shall deliver an annual report to Congress based on
+their findings and give recommendations.
+C. This group shall dissolve after 5 years unless extended by act of congress,
+IX. Requires participating 340B entities to report to HHS the number of individuals
+dispensed drugs under this program, whether they belong to Medicare, Medicaid, or
+other insurance, the total costs incurred and reimbursements received.
+A. This data will be made public on the HHS website and the OIG, GAO, and
+Comptroller General will provide subsequent reports based on the data.
+X. Employers who provide health insurance for 100 or more employees shall be
+required to provide certain information to those beneficiaries.
+A. On an annual basis, each beneficiary will be informed of the amount the
+employer paid for their coverage for that plan year, as well as any previous
+plan years in which the employer paid for their coverage.
+XI. Requires that insurers submit to the HHS Secretary an annual report on health
+claims spending.
+XII. The Government Accountability Office shall deliver a report on profit-sharing
+relationships between the hospitals, contract management groups, and physician
+and ancillary services.
+SECTION VI. Medicare
+I. Medicare Part B beneficiaries shall have the ability to select their own primary care
+physician.
+
+A. Beneficiaries are not liable for more than $5 per visit to their selected
+physician.
+1. The physician may receive a monthly fee under Part B for providing
+services such as preventive care, vaccinations, and communications to
+the beneficiary.
+B. The Secretary is responsible for providing a list of standardized benefits that
+are included in the payment.
+II. Individuals 65 and older, with a lifetime reported earnings exceeding $10 million,
+are prohibited from enrolling in Medicare Part B and Part D coverage, or other
+Medicare supplemental policies.
+A. These individuals may still receive Medicare Part A coverage.
+III. Individuals shall have the option to opt-out of Part A coverage without losing social
+security benefits.
+A. An individual who opts out of Part A will also terminate benefits under Part
+B,
+B. An individual that opts out of Part B terminates benefits under Part A.
+C. Establishes a special open enrollment period, without a late enrollment
+penalty, for individuals who receive either Parts A or B coverage and wish
+to be enrolled in both.
+IV. No late enrollment penalty will be assessed if new beneficiaries for Medicare had
+any health coverage prior to enrollment.
+V. All Medigap plans must offer guaranteed coverage as described under the
+Affordable Care Act and Section I of this bill.
+VI. There shall be a max $10,000 out-of-pocket spending cap for beneficiaries under
+Medicare Part A and B.
+VII. An online platform shall be established for beneficiaries to enroll in easily
+comparable Medicare Advantage, Fee-For-Service (FFS), and Accountable Care
+Organization (ACO) plans.
+
+A. Medicare Advantage plans will be required to have an actuarial value
+equivalent to FFS coverage under Parts A and B and can only introduce two
+supplemental benefit plans.
+1. FFS and ACO enrollees will still have access to Medigap plans.
+B. Competitive bidding markets will be tied to metropolitan statistical regions
+with benchmark premiums based on the weighted average (by enrollment in
+the previous year) of the premium bids from Medicare Advantage plans,
+ACOs, and the per-person costs of FFS cost – minus the statutory Part B
+premium.
+C. Beneficiaries enrolling in a Medicare Advantage plan will pay the difference
+above the benchmark rate for higher-cost plans or receive 100% of the
+savings for plans with premiums below the benchmark.
+D. Medicare Advantage plans can offer multi-year contracts with guaranteed
+premiums.
+1. For beneficiaries enrolling in FFS Medicare after the enactment of
+this Act, premiums can only increase $20/month year-over-year for 5
+years to limit cost increases.
+VIII. Enacts site-neutral payment from Medicare for health care services performed in a
+hospital-owned facility and a non-hospital-owned facility.
+A. Site-neutral payment is defined “as paying the same rates for the same care,
+regardless of whether or not it takes place in a hospital or an outpatient
+clinic”
+SECTION VII. Drug Prices
+I. The Secretary of Health and Human Services shall have the ability to negotiate
+prices on certain prescription drug prices.
+A. The secretary can negotiate prices for up to 125 prescription drugs a year.
+1. 50 of these drugs must be from the highest costing single-source,
+brand-name drugs for medicare.
+
+2. 50 of these drugs must be newly approved single-source, brand-name
+drugs.
+3. 25 of these drugs shall be personally picked by the secretary.
+B. All negotiated costs are to not exceed 120% of the average price in
+Australia, Canada, France, Germany, Japan, and the United Kingdom.
+1. If no price information is available in these countries then the
+negotiated price is 85% of the U.S. average manufacturer price.
+C. All negotiated prices are required to be available to private insurers.
+1. A private insurer may opt-out.
+D. Drug manufacturers that fail to comply with this section’s negotiation
+requirements, shall be subject to a 30% value-added tax penalty for 5 years.
+1. This tax will apply to all levels of production for the manufacturing of
+a drug that fails to comply with the requirements.
+II. Drug manufacturers are required to pay a rebate to the Centers for Medicare &
+Medicaid Services (CMS) for covered drugs under Medicare that cost $100 or more
+and for which the average manufacturer price increases faster than inflation.
+A. Each rebate paid to the CMS will equal the difference of total cost exceeding
+the rate of inflation.
+1. HHS will use the CPI-E formula to measure inflation for prescription
+drugs covered under Medicare.
+III. States shall have the ability under this section to apply for a waiver from the
+Secretary to import from Australia, Canada, France, Germany, Japan, United
+Kingdom, and South Korea.
+A. Each waiver must state the drug that it wishes to import and what country
+it will be coming from.
+B. If a waiver is approved then the described drug must first be FDA approved
+and transported through a legal port of entry.
+IV. There shall be a max market price cap of $125 for the cost of insulin.
+
+A. The max market price cap shall be adjusting for inflation each year using the
+Chained CPI formula.
+V. Eliminates the role of pharmacy benefit manager (PBM) rebates in steering
+patients to cost-ineffective drugs.
+A. PBMs are required to steer patients to the most effective drugs regardless of
+cost.
+VI. Requires PBMs to disclose to insurers the costs, fees, and rebate information
+associated with their contracts.
+VII. Eliminates the ability of PBMs to retroactively charge pharmacies for price
+increases.
+SECTION VIII. Medicaid
+I. States shall have the option to receive a “per-capita allotment” for coverage of their
+legacy Medicaid population in lieu of expanding Medicaid under the Affordable Care
+Act.
+A. States that choose this option will have the flexibility to determine who
+qualifies for Medicaid in their state and will receive federal funds reflecting
+the number of enrollees in the program.
+B. Legacy Medicaid population is defined as “a state's Medicaid population 2
+years prior to the enactment of this bill”
+C. States shall receive $10,000 per enrollee.
+1. This figure shall be adjusted for inflation using the CPI-E formula.
+D. In states that have elected the per-capita allotment option for Medicaid,
+individuals whose incomes are below 600% FPL and above the threshold for
+eligibility in the state’s Medicaid program as of January 1, 2019, shall be
+eligible for premium subsidies from the federal government.
+II. States shall be allowed to hire outside contractors to conduct Medicaid eligibility
+redeterminations and allow states to assess an individual’s Medicaid eligibility
+every 6 months or more frequently.
+
+III. States, through an 1115 waiver, shall be granted the ability to design programs to
+allow direct primary care arrangements (DPC) for low-income individuals enrolled
+in their state Medicaid program.
+IV. States shall be able to receive a waiver to set up work requirements for able-bodied
+persons enrolled in state Medicaid programs.
+A. In order to receive a waiver, a state must apply through the Department of
+Health and Human Services and have the application approved by the
+Secretary of HHS.
+1. An application for a waiver must be signed by the state's Department
+of Health and a state’s executive authority with the approval of its
+legislative body.
+B. Each program must include the following
+1. Exemptions:
+a) on disability
+b) is a single parent
+c) unable to find work
+(1)Must provide valid proof recipients are actively looking
+for work.
+(a) Valid proof is defined as “a job application”
+d) above the age of 55
+e) under the age of 26.
+2. A max minimum hourly requirement of 18 hours a week.
+C. Requirements, if approved, can be suspended or delayed by the secretary or
+president during times of economic recession.
+SECTION IX. Tax Provisions
+I. Employers shall be able to deduct business-expenses contributed toward
+prescription drug coverage under Medicare Part D for retirees from their taxes
+without reductions due to federal subsidies.
+
+II. The 2.3% Tax on Medical Device Manufacturers created under the Affordable Care
+Act is hereby repealed
+III. The 40% Excise Tax “Cadillac” on high-end Premium Health Insurance Plans
+Created under the Affordable Care Act is hereby repealed.
+IV. Decrease the tax on insurance agencies from 35% to 23.5%.
+SECTION X. Invisible Guaranteed Coverage Pool Reinsurance Program
+I. Implements a reinsurance program using an invisible high-risk pool
+approach.
+II. Authorizes $200,000,000,000 over ten years to HHS for the establishment
+of such a program.
+A. $20,000,000,000 shall be allocated annually.
+III. States shall participate in a nationwide, federally-operated pool, or choose to
+receive a block grant composed of an appropriately portioned amount
+determined by the Secretary to run separate pools.
+IV. A $4 fee attached to exchange policies will contribute to funding the pool
+and an HHS report, in collaboration with the GAO, will be published after 5
+and 10 years to provide oversight on the funding of this pool.
+V. Insurance companies in states that participate in the federal program shall
+designate policies for placement in the pool and may do so at any time.
+A. They may place individual policies as well as family policies into the
+pool, but they cannot separate one individual from a family policy for
+placement in the pool.
+VI. When an insurance company places a policy in the pool, that policy takes on
+a “high-risk” designation, but policyholders are not notified of the
+designation.
+A. From insurers’ perspective, two features of high-risk plans separate
+them from the rest.
+1. First, insurers retain only 10% of the monthly premiums paid
+for these high-risk policies.
+
+2. The remaining 90% shall be submitted to the fund sustaining
+the pool.
+B. Insurers are responsible only for the first $10,000 in annual medical
+costs incurred by individuals on high-risk policies.
+1. Subsequent costs are payable at the Medicare Advantage rate
+and are reimbursed by the fund sustaining the pool.
+2. For services not covered by Medicare, the Secretary may
+establish an appropriate dollar amount.
+SECTION XI. Malpractice Reform
+I. Malpractice lawsuits are to occur no longer than 3 years after the relevant medical
+treatment or no longer than 1 year after a patient discovers that he or she is
+injured.
+II. Non-economic damages from malpractice litigation are limited to $250,000.
+III. Attorney contingency fees are capped to 40% of the first $50,000 recovered, 33%
+of the next $50,000, 25% of the next $500,000, and 15% of any amount above
+$600,000 so that the majority of damages are awarded to patients, not lawyers.
+IV. Requires periodic payments of damages to a minimum of 1 payment per fiscal
+quarter.
+V. Health care providers shall be immune from product liability for the lawful use of
+FDA-approved prescription drugs and medical devices.
+VI. Physician expert witnesses are limited to those licensed to practice in the
+defendant’s state or a contiguous bordering state, and practice in a specialty that is
+relevant to the case.
+VII. Physician apologies or other expressions of sympathy are inadmissible for any
+purpose as evidence of an admission of liability in a malpractice lawsuit.
+SECTION XII. Medisave
+I. New Medisave Accounts (MDAs) shall be established for eligible individuals to save
+and spend pre-tax earnings towards qualified medical expenses.
+
+II. MDAs shall have a yearly contribution limit of $5,000 on a sliding scale with an
+accruing total of $50,000.
+A. Individuals with insurance plans that are above 80% actuarial value are not
+eligible for MDAs unless those plans meet high deductible health plan
+(HDHP) thresholds, or if the individual has an income below 250% FPL.
+III. Unused advance premium tax credits can be directly deposited into MDAs and
+employers may make contributions tax-free if the individual is not already receiving
+APTCs.
+IV. MDA funds that are used to purchase non-qualified medical expenses will have a
+20% tax and no payment for a qualified medical expense shall count toward the
+Medical Expense Deduction.
+V. Within one year of enactment, holders of legacy health care savings accounts like
+Health Savings Accounts, Health Reimbursement Arrangements, Flexible
+Spending Accounts, and Medical Savings Accounts will be required to deposit these
+monies into MDAs in order to preserve their tax-free status.
+A. There will be no contribution limit for this one-time transition.
+B. Employers will be required to allow workers to convert their
+employer-owned HRA balances into the new employee-owned MDAs.
+VI. New businesses incorporated on or after December 31, 2021, that wish to sponsor
+tax-advantaged health insurance for their workers, must do so by offering MDAs to
+their workers.
+VII. Appropriates $5,000,000 to the Department of Health and Human Services for a
+public awareness campaign to promote MDAs.
+SECTION XII. Ending Surprise Billing
+I. Out-of-network service providers are required to give patients 72-hour notice of
+their estimated charges for treatment.
+A. Patients would have to agree to receive out-of-network care from the
+hospital or doctor to then bill them.
+
+II. Air ambulance services are prohibited from sending patients to surprise bills for
+more than the in-network cost-sharing amount.
+III. Patients are only responsible for their in-network cost-sharing amounts, including
+deductibles, in both emergency situations and certain non-emergency situations
+where patients do not have the ability to choose an in-network provider.
+IV. The practice of balance billing is hereby prohibited for healthcare providers and
+facilities.
+A. Balanced billing is defined as “a medical bill from a healthcare provider
+billing a patient for the difference between the total cost of services being
+charged and the amount the insurance pays to providers who are out of
+network, and therefore not subject to the rates or terms of providers who
+are in-network.
+V. Requires healthcare facilities and practitioners to give patients a list of services
+received upon discharge or end of a visit or by postal or electronic communication
+as soon as practicable and not later than 15 calendar days after discharge or date of
+visit.
+A. Healthcare facilities and practitioners are required to submit medical bills to
+patients with 90 days of discharge.
+1. If a patient receives a bill after the 90 day period they will not be
+obligated to pay the bill.
+B. Healthcare facilities and practitioners are required to give patients at least
+45 days after the postmark date to pay bills.
+C. The timeline for submitting a bill may be extended if a patient or their
+provider is appealing an adverse coverage determination, or if an
+out-of-network provider is disputing a payment through open negotiation or
+Independent Dispute Resolution.
+VI. Provides for a 30-day open negotiation period for providers and issuers to settle
+out-of-network claims.
+
+A. In the event that the parties are unable to reach a negotiated agreement,
+they may access a binding arbitration process – referred to as Independent
+Dispute Resolution (IDR) – in which one offer prevails.
+1. Providers may batch similar services in one proceeding when claims
+are from the same issuer.
+2. The IDR process will be administered by independent, unbiased
+entities with no affiliation to providers or issuers.
+a) The IDR entity is required to consider the median in-network
+rate, alongside relevant information brought by either party,
+information requested by the reviewer,
+(1)as well as factors such as
+(a) the provider’s training and experience,
+(b)patient acuity and the complexity of furnishing
+the item or service,
+(i) in the case of a provider that is a facility,
+(a) the teaching status,
+(b)case-mix and scope of services of
+such facility,
+(c) demonstrations of good faith
+efforts (or lack of good faith
+efforts) to enter into a network
+agreement,
+(d)prior contracted rates during the
+previous four plan years, and
+other items.
+3. Following IDR, the party that initiated the IDR may not take the
+same party to IDR for the same item or service for 90 days following
+a determination by the IDR entity, in order to encourage settlement
+
+of similar claims, but all claims that occur during that 90-day period
+may still be eligible for IDR upon completion of the 90-day period.
+SECTION XIII. Telehealth
+I. Medicare shall expand allowable and billable telehealth coverage to include
+applicable services furnished by a certified diabetes educator or licensed respiratory
+therapist, audiologist, occupational therapist, physical therapist, or
+speech-language pathologist.
+II. The Secretary shall have the authority to waive off telehealth restrictions regarding
+geographic limitations, types of technology, types of providers, types of services
+when certain criteria are met and hold a 60 day public comment period for the
+waivers.
+A. Certain criteria are to include but not limited to:
+1. Mass disease outbreaks such as an epidemic and/ or pandemic.
+2. Bio-terrorism
+3. Economic recession
+4. Public health emergency
+a) There shall be no public comment period during a public
+health emergency in relation to this section.
+III. There shall be no geographic restrictions for mental health services, emergency
+medical care services, federally qualified health centers, rural health clinics,
+facilities of the Indian Health Service, Native Hawaiian Health Care Systems.
+IV. A patient’s place of residence shall serve as an originating site in all telehealth
+services.
+SECTION XIV. Definitions
+I. Doctor is defined as “a qualified practitioner of medicine”.
+II. Policyholder is defined as “a person enrolled on a public or private healthcare plan”.
+III. Inpatient care is defined as “the care of patients whose condition requires
+admission to a hospital”
+
+IV. Outpatient care is defined as “medical procedures or tests that can be done in a
+medical center without an overnight stay”
+V. HHS is defined as “the Department of Health and Human Services”.
+VI. The Secretary is defined as the “the Secretary of Health and Human Services”
+VII. All references in Section II will follow the ACA definitions.
+VIII. Prescription drugs are defined as “a pharmaceutical drug that legally requires a
+medical prescription to be dispensed.”
+IX. Telehealth is defined as “the distribution of health-related services and information
+via electronic information and telecommunication technologies”.
+X. Insurer is defined as “a health insurance plan provider”.
+SECTION XV. Enactment
+I. The provisions of this Act shall go into effect in one year, upon its signature
+by the President.
+SECTION XVI. CBO Estimation
+I. Costs over 10 years:
+A. Medicare Cap on out-of-pocket: $113 billion
+B. Employer mandate repeal: $21 billion
+C. Other tax cut provisions: $75 billion
+D. Reinsurance pool: $200 billion
+E. Per-capita Medicaid option: $163 billion
+F. Premium adjustment: $46 billion
+G. Total: $618 billions
+1. 61.8 Billion a year
+II. Savings over 10 years:
+A. Drug pricing negotiation: $456 billion
+B. Malpractice reform: $69 billion
+C. Other drug pricing reform: $72 billion
+D. Competitive bidding for medicare: $72 billion
+E. All other provisions: $11 billion
+
+F. Medicaid work requirement waiver: $50 billion
+G. Increased hospital competition: $100 billion
+H. Site neutral payment: $142 billion
+I. Total: $972 billion
+1. 97.2 billion a year
+III. This legislation will REDUCE the federal deficit by $354 billion over 10 years.
+A. 35.4 Billion a year
+IV. An estimated 100 million people would have expanded healthcare options and an
+estimated 9 million would gain insurance.
+V. Drug prices could see a price reduction ranging from 57% to 75%.

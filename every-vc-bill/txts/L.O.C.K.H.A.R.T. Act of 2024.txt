@@ -1,0 +1,943 @@
+180th
+CONGRESS
+1st Session
+S. 4
+IN THE SENATE OF THE UNITED STATES
+August 13, 2024
+Introduced by Senator Norman Nord on behalf of the Sun Administration
+A BILL
+To enhance the capabilities of American National Security and Defense
+efforts, to counter the threat imposed by Pax Mortis, to declare a national
+emergency regarding that threat, and other measures.
+Be it enacted by the Senate and House of Representatives of the United States
+of America in Congress assembled,
+SEC. 1. SHORT TITLE.
+This Act may be cited as –
+(a) The “Legislation for Organizing Comprehensive and Key Homeland
+Action and Response to Terrorism Act of 2024”;
+(b) The “L.O.C.K.H.A.R.T. Act of 2024”; or
+SEC 2. GENERAL CONGRESSIONAL FINDINGS.
+The Congress of the United States finds that —
+(a) There exists a significant and existential threat to the national security,
+welfare, and safety, arising from the existence and operation of the terrorist
+organization known as Pax Mortis, evidenced by their attacks both prior and
+after, but especially on August 1st, 2024, when their attacks on the United
+States Capitol and D.C. Metro System resulted in the deaths of 2,137
+citizens, injury in 4,783, the attempted assassination of a United States
+Senator and aggravated assault upon a sitting United States Congressman,
+Daniel Lockhart, after whom this bill is named.
+(b) In regards to the scope of the threat posed by Pax Mortis, said threat
+comprises not only the organization itself, but also affiliated entities -
+
+including those hostile elements present in foreign nations, and together with
+Pax Mortis constitute a greater threat to the national security, welfare, and
+safety than Pax Mortis alone.
+(c) That it is the responsibility of the United States Government to protect
+the aforementioned security, welfare, and safety of the nation and its people,
+to “provide for the common Defense and general welfare of the United
+States”, and therefore by extension, the responsibility of the United States
+Congress to support, authorize, direct, and legislate for those measures,
+actions, decisions, and laws which may be necessary for that protection of
+those aforementioned principles of security, welfare, safety, and the defense,
+of the American people.
+(d) That this article of legislation, does support, authorize, direct, and
+legislate for those measures, actions, decisions, and laws which may be
+necessary for that protection, through the declaration of a National
+Emergency in regards to Pax Mortis and therefore the supply of requisite
+powers to those entities which may require them, amendments to existing
+provisions and acts to further the security of the American people, and
+several other means.
+(e) That it is therefore in the interest of the responsibilities placed upon the
+United States Congress, the measures within this act.
+SEC 3. DEFINITIONS, IN THIS ACT.
+In this act —
+(a) The term “National Emergency” shall refer in all instances, with exception
+of any instance wherein an alternative definition is given to the use of the
+term, to the definition as used in the National Emergencies Act (Public Law
+94-412);
+(b) The term “Central Intelligence Agency” refers in all instances, with
+exception of any instance wherein an alternative definition is given to the use
+of the term, to the definition as used in the National Security Act of 1947
+(Public Law 80-253), and the entity as provided for the Reinstate the CIA Act
+(Public Law 179-3);
+(c) The terms “executive agency” or “military department” refer in all
+instances, with exception of any instance wherein an alternative definition is
+given to the use of the term, to the definition as defined in sections 105 and
+102 of title 5, United States Code, respectively;
+(d) The term “President” refers in all instances, with exception of any
+instance wherein an alternative definition is given to the use of the term, to
+the President of the United States, as established in the Constitution;
+
+(e) The term “NATO Defense Expenditure Threshold” shall refer in all
+instances, with exception of any instance wherein an alternative definition is
+given to the use of the term, to 2.0% of any given NATO member state’s gross
+domestic product;
+(f) the term “domestic terrorism” refers in all instances, with exception of any
+instance wherein an alternative definition is given to the use of the term, to
+the meaning given the term in section 2331 of title 18, United States Code;
+(g) the term “uniformed services” refers in all instances, with exception of
+any instance wherein an alternative definition is given to the use of the term,
+to the meaning given the term in section 101(a) of title 10, United States
+Code;
+(h) the term “Domestic Terrorism Executive Committee” refers in all
+instances, with exception of any instance wherein an alternative definition is
+given to the use of the term, to the committee within the Department of
+Justice, established in Section 115 of this act, tasked with assessing and
+sharing information about ongoing domestic terrorism threats;
+(i) The term ‘‘governing organization’’ refers in all instances, with exception of
+any instance wherein an alternative definition is given to the use of the term,
+to any national body separate from a foreign government that maintains
+ultimate control over such government, including political parties that
+exercise functions normally reserved for governments;
+(j) The term “designated languages” refers in all instances, with exception of
+any instance wherein an alternative definition is given to the use of the term,
+to languages identified as critical languages by the Department of State’s
+Critical Language Scholarship Program; and other languages as determined
+by the board established pursuant to section 117, in consultation with the
+Secretary of State.
+(k) The term “incident” refers in all instances, with exception of any instance
+wherein an alternative definition is given to the use of the term, to the
+meaning given to it by Section 3552 of Title 44, United States Code.
+(l) The term “information security” refers in all instances, with exception of
+any instance wherein an alternative definition is given to the use of the term,
+to the meaning given to it by Section 3552 of Title 44, United States Code.
+(m) The term “cyber attacks and cyber campaigns of significant consequence”
+refers in all instances, with exception of any instance wherein an alternative
+definition is given to the use of the term, to any incident or series of incidents
+that have the purpose or effect of—
+(i) causing a significant disruption to the availability of a Federal
+information system;
+
+(ii) harming, or otherwise significantly compromising the provision
+of service by, a computer or network of computers that support one
+or more entities in a critical infrastructure sector;
+(iii) significantly compromising the provision of services by one or
+more entities in a critical infrastructure sector;
+(iv) causing a significant misappropriation of funds or economic
+resources, trade secrets, personal identifiers, or financial
+information for commercial or competitive advantage or private
+financial gain; or
+(v) otherwise constituting a significant threat to the national
+security, foreign policy, or economic health or financial stability of
+the United States.
+(n) The term “cybersecurity posture” refers in all instances, with
+exception of any instance wherein an alternative definition is given to the
+use of the term, to the ability to identify and protect, and detect, respond
+to and recover from intrusions in information systems the compromise of
+which could constitute a cyber attack or cyber campaign of significant
+consequence.
+SEC 4. TABLE OF CONTENTS.
+The table of contents for this Act is as follows –
+Sec1.ShortTitle.
+Sec2.GeneralCongressionalFindings.
+Sec3.Definitions,inthisAct.
+Sec4.TableofContents.
+TITLEI-ENHANCINGAMERICANNATIONALSECURITY,ANDNATIONALEMERGENCY
+Sec101.NationalEmergencyDeclaration.
+Sec102.EmploymentofTranslatorsbytheFederalBureauofInvestigation.
+Sec103.CounterterrorismFund.
+Sec104.AttorneyGeneral’sAuthoritytoPayRewardstoCombatPaxMortis.
+Sec105.InteragencyTaskForceonAnti-Terrorism.
+Sec106.ExpansionofNationalElectronicCrimeTaskForceInitiative.
+Sec108.Anti-TerrorismContractingAuthorization.
+Sec109.PromotionofPatriotism.
+Sec110.PaxMortisAssetConfiscation.
+Sec111.AmendmenttotheLaw.
+Sec112.DevelopmentandSupportofCybersecurityForensicCapabilities.
+Sec113.PreservingtheJROTC.
+Sec114.PaxMortisVictimMemorialConstruction.
+
+Sec115.DomesticTerrorismOfficesCreation.
+Sec116.TrainingtoCombatDomesticTerrorism.
+Sec117.IncorporationofanOpenTranslationCenter
+Sec118.IncreasedFundingfortheTechnicalSupportCenterattheFederalBureauofInvestigation.
+Sec119.ToestablishtheOfficeofCyberDirector.
+TITLEII-ENHANCINGAMERICANCRISISRESPONSEANDFLEXIBILITY
+Sec201.CongressionalFindings.
+Sec202.RulesofConstruction.
+Sec203.WashingtonMetroAreaTransitAuthority.
+Sec204.NationalGuardFederalization.
+Sec205.DepartmentalLineofSuccession.
+Sec206.SmallBusinessDisasterRelief
+Sec207.AmendmentsandRepeals.
+Sec208.InclusionofServicesbyPhysicianAssistants,etc.inEmployeeCompensation
+TITLEIV-GENERALLEGALSECTIONS,ANDMISCELLANEOUS
+Sec401.Severability.
+Sec402.Supremacy.
+Sec403.EffectiveDate.
+Sec404.RulesofConstruction.
+TITLE I—ENHANCING AMERICAN NATIONAL
+SECURITY, AND NATIONAL EMERGENCY
+SEC. 101. NATIONAL EMERGENCY DECLARATION.
+(a) Congress declares that a national emergency exists by reason of the
+significant and existential threat to national security, welfare, and safety
+delineated in Section 2(a) and (b) of this act.
+(b) This national emergency shall continue until 180 days following the
+enactment of this article, but may be terminated by Presidential
+Proclamation by the President of the United States at any point before the
+expiration of those 180 days.
+SEC. 102. EMPLOYMENT OF TRANSLATORS BY THE FEDERAL BUREAU
+OF INVESTIGATION
+(a) The Director of the Federal Bureau of Investigation is authorized to
+expedite the employment of personnel as translators to support
+counterterrorism investigations and operations without regard to applicable
+Federal personnel requirements and limitations.
+
+(b) The Director of the Federal Bureau of Investigation shall establish such
+security requirements as are necessary for the personnel employed as
+translators under subsection (a).
+SEC. 103. COUNTERTERRORISM FUND.
+(a) There is hereby established in the Treasury of the United States a
+separate fund to be known as the ‘‘Counterterrorism Fund’, amounts in which
+shall remain available without fiscal year limitation –
+(i) reestablishing the operational capability of an office or facility that
+has been damaged or destroyed as the result of any domestic or
+international terrorism incident;
+(ii) providing support to counter, investigate, or prosecute domestic or
+international terrorism, including, without limitation, paying rewards
+in connection with these activities; and
+(iii) conducting terrorism threat assessments of Federal agencies and
+their facilities; and
+(iv) to reimburse any department or agency of the Federal Government
+for any costs incurred in connection with detaining any individuals
+accused of acts of terrorism that violate the laws of the United States.
+SEC. 104. ATTORNEY GENERAL’S AUTHORITY TO PAY REWARDS TO
+COMBAT PAX MORTIS.
+(a) Funds available to the Attorney General may be used for the payment of
+rewards pursuant to public advertisements for assistance to the Department
+of Justice to combat terrorism and defend the Nation against Pax Mortis, in
+accordance with procedures and regulations established or issued by the
+Attorney General.
+(b) In making rewards under this Section 104(a) of this act —
+(i) no such reward of $300,000 or more may be made or offered without
+the personal approval of either the Attorney General or the President,
+nor any reward more than $2,000,000 without the personal approval of
+the President;
+(ii) any executive agency or military department may provide the
+Attorney General with funds for the payment of rewards; and
+(iii) no such reward shall be subject to any per or aggregate reward
+spending limitation established by law, unless that law expressly
+refers to this section, and no reward paid pursuant to any such offer
+shall count toward any such aggregate reward spending limitation.
+
+SEC. 105. INTERAGENCY TASK FORCE ON ANTI-TERORRISM.
+(a) There is hereby established an Interagency Task Force on Anti-Terrorism
+to be chaired by the Secretary responsible for the Department of Homeland
+Security, or his designee, and whose remaining members shall consist of the
+following individuals, or their designees –
+(i) The President of the United States;
+(ii) The Secretary responsible for the Department of State;
+(iii) The Secretary responsible for the Department of Defense;
+(iv) The Secretary responsible for the Department of Justice;
+(v) The Secretary responsible for the Department of the Treasury;
+(vi) The Director of the Federal Bureau of Intelligence;
+(vii) The Director of the Central Intelligence Agency;
+(viii) The Director of the National Security Agency;
+(ix) The Director of National Intelligence; and
+(x) Any other individual deemed necessary through a majority vote
+taken by the other members of the Interagency Task Force on
+Anti-Terrorism.
+(b) The Interagency Task Force on Anti-Terrorism’s mission statement shall
+be: “To ensure the strategic coordination of all federal efforts aimed in the
+name of countering the terrorist organization Pax Mortis, facilitate the rapid
+and safe sharing of intelligence between different federal departments and
+agencies in regards to countering the terrorist organization Pax Mortis.”
+(c) The Interagency Task Force on Anti-Terrorism shall be abolished upon the
+extermination of Pax Mortis as determined by the President of the United
+States.
+SEC. 106. EXPANSION OF NATIONAL ELECTRONIC CRIME TASK FORCE
+INITIATIVE.
+The Director of the United States Secret Service shall take appropriate
+actions to develop a national network of electronic crime task forces, based on
+the New York Electronic Crimes Task Force model, throughout the United
+States, for the purpose of preventing, detecting, and investigating various
+forms of electronic crimes, including potential terrorist attacks against
+critical infrastructure and financial payment systems.
+SEC. 107. ANTI-TERRORISM CONTRACTING AUTHORIZATION.
+(a) The President, the Secretary responsible for the Department of Homeland
+Security, the Director of the Federal Bureau of Intelligence, or the Central
+Intelligence Agency, or their designees, may —
+
+(i) enter into agreements or contracts with any Federal, State, or local
+agency or private organization, including private research institutions,
+on behalf of their respective agency, department, or branch, to —
+(A) fund and research development of new technologies for
+detecting and preventing terrorist activities, specifically in
+relation to Pax Mortis, such as but not limited to, advanced
+surveillance tools, biometric systems, and artificial intelligence
+driven threat analysis.
+(ii) award grants not exceeding $20,000,000 each to such federal, state,
+or local agencies, private organizations, or research institutions, to the
+end as established in Section 108(a)(i)(A) of this act;
+(iii) maintain communication with those agencies and institutions
+contracted to or given grants to avoid duplication of efforts, including
+and necessitating but not limited to bi-annual updates on research
+efforts and development; and that the President shall possess to sole
+power to authorize renewals for the grants provided for in Section
+108(a)(ii), and he shall review all updates before authorizing any
+renewal for the grants provided for in Section 108(a)(ii).
+(iv) there is authorized to be appropriated, in the next budget,
+$80,000,000 to carry out this section; and such appropriation shall be
+evenly split between new funds to be established in the Departments of
+Homeland Security, the Federal Bureau of Intelligence, and the
+Central Intelligence Agency, and the existing section entitled
+“Executive Office of the President and Funds Appropriation”.
+SEC. 108. PROMOTION OF PATRIOTISM.
+(a) Chapter 63 of title 41, United States Code, is amended by adding at the
+end the following new section:
+“§ 6310. Requirement for agencies to buy domestically made United States
+flags
+“(a) Except as provided in subsections (b) through (d), funds appropriated
+or otherwise available to an agency may not be used for the procurement of any
+flag of the United States, unless such flag has been 100 percent manufactured
+in the United States from articles, materials, or supplies that have been grown
+or 100 percent produced or manufactured in the United States.
+“(b) Subsection (a) does not apply to the extent that the head of the agency
+concerned determines that satisfactory quality and sufficient quantity of a flag
+described in such subsection cannot be procured as and when needed at United
+States market prices.
+
+“(c) Subsection (a) does not apply to the following:
+“(i) Procurements by vessels in foreign waters.
+“(ii) Procurements for resale purposes in any military commissary,
+military exchange, or nonappropriated fund instrumentality operated by an
+agency.
+“(iii) Procurements for amounts less than the simplified acquisition
+threshold.
+“(d) The President may waive the requirement in subsection (a) if the
+President determines a waiver is necessary to comply with any trade agreement
+to which the United States is a party. Not later than 30 days after granting a
+waiver under paragraph (1), the President shall publish a notice of the waiver
+in the Federal Register.
+“(e) Each manufacturer of a flag of the United States shall maintain
+records related to such flags marketed by the manufacturer for a period of 5
+years demonstrating that articles, materials and supplies used for the flags
+have been grown or 100 percent produced or manufactured in the United
+States. The records described in paragraph (1) shall be made available to an
+agency upon request, at reasonable times and within reasonable limits and in a
+reasonable manner, including allowing electronic access to such records.
+“(f) In this section:
+“(i)—The term ‘agency’ has the meaning given the term ‘executive
+agency’ in section 102 of title 40.
+“(ii) —The term ‘simplified acquisition threshold’ has the meaning
+given that term in section 134.”.
+(iii).—The table of sections at the beginning of such chapter is amended
+by adding at the end the following new item:
+“6310.RequirementforagenciestobuydomesticallymadeUnitedStatesflags”.
+SEC. 109. PAX MORTIS ASSET CONFISCATION.
+(a) The President may confiscate, through instructions or licenses or in such
+other manner as the President determines appropriate, funds of any person,
+entity, or organization, affiliated, owned, or aids, Pax Mortis, that are subject
+to the jurisdiction of the United States.
+(b) All right, title, and interest in funds confiscated under paragraph (1) shall
+vest in the Government of the United States, and be added to the fund known
+as “Executive Office of the President and Funds Appropriation”, and may be
+used at the discretion of the President, and will remain available until
+expended.
+
+SEC. 110. AMENDMENT TO THE LAW.
+Section 4, subsection (a)-3, of Public Law 93-148 shall be amended to strike
+“24” and replace it with “48”.
+SEC. 111. DEVELOPMENT AND SUPPORT OF CYBERSECURITY
+FORENSIC CAPABILITIES.
+(a) The Attorney General shall establish such regional computer forensic
+laboratories as the Attorney General considers appropriate, and provide
+support to existing computer forensic laboratories, in order that all such
+computer forensic laboratories have the capability—
+(1) to provide forensic examinations with respect to seized or
+intercepted computer evidence relating to criminal activity (including
+cyberterrorism);
+(ii) to provide training and education for Federal, State, and local law
+enforcement personnel and prosecutors regarding the investigations,
+forensic analyses, and prosecutions of computer-related crime
+(including cyberterrorism);
+(iii) to assist Federal, State, and local law enforcement in enforcing
+Federal, State, and local criminal laws relating to computer-related
+crime;
+(iv) to facilitate and promote the sharing of Federal law enforcement
+expertise and information about the investigation, analysis, and
+prosecution of computer-related crime with State and local law
+enforcement personnel and prosecutors, including the use of
+multijurisdictional task forces; and
+(v) to carry out such other activities as the Attorney General considers
+appropriate.
+(b) There is hereby authorized to be appropriated in each fiscal year
+$50,000,000 for purposes of carrying out this section. Amounts appropriated
+pursuant to the authorization of appropriations in this subsection shall
+remain available until expended.
+SEC. 112. PRESERVING THE JROTC.
+(a) The United States Code shall be amended by the following—
+Section 2031(b)(1)(A) of title 10, United States Code, is amended by
+striking ‘‘100’’ and inserting ‘‘50’’; and by striking “10” and inserting
+“5”; and
+Section 2031(2)(A) of title 10, United States Code, is amended by
+striking “48” and inserting ‘‘24’’.
+
+SEC. 113. PAX MORTIS VICTIM MEMORIAL CONSTRUCTION.
+(a) The Director of the National Parks Service may, on the behalf of the
+Department of the Interior –
+(i) enter into one agreement or contract with any Federal, State, or
+local agency or private organization, to —
+(A) construct a national monument to honor the victims of the
+Pax Mortis terrorist attacks, on August 1st, and the fifteen
+Associated Press members killed on July 18th; which shall be
+finished no later than August 1st, 2025.
+(ii) there is authorized to be appropriated, in the next budget,
+$20,000,000 to carry out this section; and such appropriation shall be
+added to the Department of the Interior under the name “Pax Mortis
+Monument Construction”, which shall remain available until August
+1st, 2025.
+(iii) The memorial, when completed, shall be known as the “August
+First Victims’ Memorial”.
+(iv) In the event the funds authorized in Section 116(a)(ii) of this act
+are not fully expended either by August 1st, 2025, or when the Director
+of the National Parks Service concludes that the monument has been
+completed, then such funds may be diverted, by the discretion of the
+Secretary responsible for the Department of Interior, into separate
+expenditures of the Department of the Interior, including the National
+Parks Service and other funds as the Secretary may designate.
+SEC 114. DOMESTIC TERRORISM OFFICES CREATION
+(a) In this section, and in Section 118 of this act —
+(i) the term “Director” means the Director of the Federal Bureau of
+Investigation;
+(ii) the term “Secretary”, except as otherwise provided, means the
+Secretary responsible for the Department of Homeland Security;
+and
+(b) There is authorized a Domestic Terrorism Unit in the Office of
+Intelligence and Analysis of the Department of Homeland Security, which
+shall be responsible for monitoring and analyzing domestic terrorism
+activity.
+(c) There is authorized a Domestic Terrorism Office in the
+Counterterrorism Section of the National Security Division of the
+Department of Justice—
+
+(i) which shall be responsible for investigating and prosecuting
+incidents of domestic terrorism;
+(ii) which shall be headed by the Domestic Terrorism Counsel.
+(d) There is authorized a Domestic Terrorism Section within the
+Counterterrorism Division of the Federal Bureau of Investigation, which
+shall be responsible for investigating domestic terrorism activity.
+(e) The Secretary, the Attorney General, and the Director shall each
+ensure that each office authorized under this section in their respective
+agencies shall—
+(i) have an adequate number of employees to perform the required
+duties; and
+(ii) require that all employees undergo annual anti-bias training.
+(e) There is authorized a Domestic Terrorism Executive Committee,
+which shall meet on a regular basis, and not less regularly than 4 times
+each year, to coordinate with United States Attorneys and other key
+public safety officials across the United States to promote information
+sharing and ensure an effective, responsive, and organized joint effort to
+combat domestic terrorism.
+SEC. 115. TRAINING TO COMBAT DOMESTIC TERRORISM.
+(a) The Secretary, the Attorney General, and the Director shall review
+the anti-terrorism training and resource programs of their respective
+agencies that are provided to Federal, State, local, and Tribal law
+enforcement agencies, including the State and Local Anti-Terrorism
+Program that is funded by the Bureau of Justice Assistance of the
+Department of Justice. The Attorney General shall make training
+available to Department prosecutors and to Assistant United States
+Attorneys on countering and prosecuting domestic terrorism. The
+domestic-terrorism training shall focus on the most significant domestic
+terrorism threats, as determined by the criteria listed in Section 3(3).
+(b) Any individual who provides domestic terrorism training required
+under this section shall have—
+(i) expertise in domestic terrorism; and
+(ii) relevant academic, law enforcement, or other community-based
+experience in matters related to domestic terrorism.
+SEC. 116. INCORPORATION OF AN OPEN TRANSLATION CENTER
+
+(a) There is established a federally funded research and development
+center to be known as the ‘‘Open Translation Center’’ (referred to in this
+bill as ‘‘OTC’’).
+(b) OTC shall be—
+(i) administered as a separate entity by an organization managing a
+federally funded research and development center on the date of the
+enactment of this Act; or
+(ii) incorporated as a nonprofit membership corporation.
+(c) OTC shall be headed by a board that consists of five members to be
+appointed as follows:
+(i) Two members shall be appointed by the Secretary of State.
+(ii) Two members shall be appointed by the Director of National
+Intelligence.
+(iii) One member shall be appointed by the Register of Copyrights.
+(iv) Each member appointed to the board of OTC in accordance with
+this subsection shall serve for a term of 3 years, and may be
+re-appointed to consecutive terms.
+(d) Members of the board shall be appointed from among individuals with
+expertise in translation, publishing, domestic and international copyright
+law, media, foreign languages, area studies, or international relations, and
+shall make all decisions independently from the United States Government.
+No member of the board may be an employee or official of the United States
+during the term served by such member.
+(e) The Chair of the board of OTC shall be elected from among the members
+of the board.
+(f) The purpose and mission of OTC is the following:
+(i) The translation, analysis, and public dissemination of foreign
+language government and other documents from designated countries,
+for the purposes of enhancing the understanding of such countries’
+governments, governing organizations, militaries, economies, and
+cultures.
+(ii) To provide proper context and explanations of translated foreign
+language material to enhance the ability of consumers to understand
+the meaning and significance of such translated material.
+(iii) To strive to make as much translated foreign language material
+publicly available as possible, and to provide summaries of important
+foreign language material that cannot be made public.
+(iv) To train and develop exceptional analysts and linguists with
+specialization regarding designated countries.
+
+(g) In furtherance of the purpose and mission specified in subsection f of this
+section, OTC shall—
+(i) translate into the English language documents and information
+from designated countries;
+(ii) provide analyses, summaries, and important context for material
+translated pursuant to paragraph (1), and other untranslated material,
+including—
+(A) biographical sketches and information on important leaders;
+(B) descriptions and background on political processes,
+important bodies, companies, economic systems, and military
+weapons systems and doctrines;
+(C) definitions and analysis of important concepts and phrases;
+(D) information regarding changes over time in the policies and
+intentions of governments, militaries, and governing
+organizations; and other issues that are of significance for
+understanding designated countries;
+(iii) cooperate with other relevant Federal agencies regarding any
+effort consistent with such purpose and mission;
+(iv) to the extent possible, provide such materials free of charge to all
+United States Government employees, Members of Congress, and
+congressional staff, as well as to organizations and individuals who
+have relevant contracts or grants with the United States Government
+or any part thereof; or
+(h) In carrying out this section and section a, OTC shall—
+(i) establish the capabilities to acquire, retain, train, and develop
+exceptional analytical and linguistic expertise in designated countries
+and designated languages;
+(ii) use software, programs, artificial intelligence, and other
+technologies to ensure timely translations;
+(iii) seek input from technical, regional, and subject matter experts
+from a wide range of relevant disciplines, to review, provide feedback,
+and evaluate translations and analyses;
+(iv) maximize cooperation with the public and private sectors in the
+United States, including Federal agencies, as well as with United
+States allies and partners, to maximize efficiencies, acquire source
+materials, and eliminate duplication of efforts; and
+(v) select materials, such as the materials described in paragraph (2),
+to translate and analyze on the basis of—
+
+(A) the significance of the material for United States
+policymakers as well as for journalists, academics, and the
+general public; and
+(B) the ability of such material to enhance the understanding of
+the politics, policies, intentions, ideologies, militaries,
+businesses, technologies, science, or cultures of designated
+countries.
+(i) In carrying out the duties described in this section, OTC may consult and
+cooperate with—
+(i) relevant Federal agencies and grantees of the U.S. Agency for
+Global Media, regarding any effort consistent with the purposes of this
+Act, including—
+(A) collecting source material;
+(B) avoiding duplication of effort;
+(C) details of employees;
+(D) training; and
+(2) other relevant stakeholders, including—
+(I) nonprofit research institutes;
+(II) institutions of higher education; and
+(III) media organizations.
+(j) OTC is authorized to consult and cooperate with any foreign government
+beginning on the date that is 14 days after the enactment of this bill if—
+(i) the Secretary of State certifies that it is in the national interest for
+OTC to cooperate and consult with that foreign government; and
+(ii) the Secretary of State provides to the relevant congressional
+committees such certification.
+(k) The Secretary of State shall be the primary sponsor of OTC. The
+Secretary of State may enter into agreements with other relevant Federal
+agencies to provide additional sponsors of OTC.
+(l) in the context of this section, “designated countries” means –
+(i) the People’s Republic of China; and
+(ii) other countries as determined by the board established under this
+section, in consultation with the Secretary of State.
+(m) There are authorized to be appropriated for OTC—
+(i) $85,000,000 for fiscal year 2024;
+(ii) $80,000,000 for each of fiscal years 2025 through 2028; and
+(iii) such sums as may be necessary for each fiscal year thereafter.
+
+SEC. 117. INCREASED FUNDING FOR THE TECHNICAL SUPPORT
+CENTER AT THE FEDERAL BUREAU OF INVESTIGATION.
+There are authorized to be appropriated for the Technical Support Center
+established in section 811 of the Antiterrorism and Effective Death Penalty
+Act of 1996 (Public Law 104–132) to help meet the demands for activities to
+combat terrorism and support and enhance the technical support and tactical
+operations of the FBI, $100,000,000 for the combined fiscal years 2024 and
+2025.
+SEC. 118. TO ESTABLISH THE OFFICE OF CYBER DIRECTOR.
+(a) There is established, within the Executive Office of the President, the
+Office of the National Cyber Director (in this section referred to as the
+“Office”).
+(b) The Office shall be headed by the National Cyber Director (in this
+section referred to as the “Director”) who shall be appointed by the
+President, by and with the advice and consent of the Senate. The
+Director shall hold office at the pleasure of the President, and shall be
+entitled to receive the same pay and allowances as are provided for level
+I of the Executive Schedule under section 5312 of title 5, United States
+Code.
+(c) There shall be two Deputy National Cyber Directors, to be appointed
+by the President, who shall hold office at the pleasure of the President,
+and who shall report to the Director, as follows:
+(i) The Deputy National Cyber Director for Strategy, Capabilities,
+and Budget.
+(ii) The Deputy National Cyber Director for Plans and Operations.
+(d) Subject to the authority, direction, and control of the President, the
+Director shall—
+(i) serve as the principal advisor to the President on cybersecurity
+strategy and policy;
+(ii) in consultation with appropriate Federal departments and
+agencies, develop the United States National Cyber Strategy,
+which shall include elements related to Federal departments and
+agencies—
+(A) information security; and
+(B) programs and policies intended to improve the United
+States cybersecurity posture;
+
+(iii) in consultation with appropriate Federal departments and
+agencies and upon approval of the National Cyber Strategy by the
+President, supervise implementation of the strategy by—
+(A) in consultation with the Director of the Office of
+Management and Budget, monitoring and assessing the
+effectiveness, including cost-effectiveness, of Federal
+departments and agencies’ implementation of the strategy;
+(B) making recommendations relevant to changes in the
+organization, personnel and resource allocation, and policies
+of Federal departments and agencies to the Director of the
+Office of Management and Budget and heads of such
+departments and agencies in order to implement the
+strategy;
+(C) reviewing the annual budget proposal for each Federal
+department or agency and certifying to the head of each
+Federal department or agency and the Director of the Office
+of Management and Budget whether the department or
+agency proposal is consistent with the strategy;
+(D) continuously assessing and making relevant
+recommendations to the President on the appropriate level
+of integration and interoperability across the Federal
+cybersecurity operations centers;
+(E) coordinating with the Federal Chief Information Officer,
+the Federal Chief Information Security Officer, the Director
+of the Cybersecurity and Infrastructure Security Agency,
+and the Director of National Institute of Standards and
+Technology on the development and implementation of
+policies and guidelines related to issues of Federal
+department and agency information security; and
+(F) reporting annually to the President and the Congress on
+the state of the United States cybersecurity posture, the
+effectiveness of the strategy, and the status of Federal
+departments and agencies’ implementation of the strategy;
+(iv) lead joint interagency planning for the Federal Government’s
+integrated response to cyberattacks and cyber campaigns of
+significant consequence, to include—
+(A) coordinating with relevant Federal departments and
+agencies in the development of, for the approval of the
+
+President, joint, integrated operational plans, processes, and
+playbooks for incident response that feature—
+(I) clear lines of authority and lines of effort across
+the Federal Government;
+(II) authorities that have been delegated to an
+appropriate level to facilitate effective operational
+responses across the Federal Government; and
+(III) support for the integration of defensive cyber
+plans and capabilities with offensive cyber plans and
+capabilities in a manner consistent with improving
+the United States cybersecurity posture;
+(B) exercising these operational plans, processes, and
+playbooks;
+(C) updating these operational plans, processes, and
+playbooks for incident response as needed in coordination
+with ongoing offensive cyber plans and operations; and
+(D) ensuring these plans, processes, and playbooks are
+properly coordinated with relevant private sector entities, as
+appropriate;
+(v) direct the Federal Government’s response to cyberattacks and
+cyber campaigns of significant consequence, to include—
+(A) developing for the approval of the President, with the
+heads of relevant Federal departments and agencies
+independently or through the National Security Council as
+directed by the President, operational priorities,
+requirements, and tasks;
+(B) coordinating, deconflicting, and ensuring the execution
+of operational activities in incident response; and
+(C) coordinating operational activities with relevant private
+sector entities;
+(vi) engage with private sector leaders on cybersecurity and
+emerging technology issues with the support of, and in
+coordination with, the Cybersecurity and Infrastructure Security
+Agency and other Federal departments and agencies, as
+appropriate;
+(vii) annually report to Congress on cybersecurity threats and
+issues facing the nation, including any new or emerging
+technologies that may impact national security, economic
+prosperity, or enforcing the rule of law; and
+
+(viii) be responsible for such other functions as the President may
+direct.
+(ix) The Director may—
+(A) serve as the senior representative on any body that the
+President may establish for the purpose of providing the
+President advice on cybersecurity;
+(B) be empowered to convene National Security Council,
+National Economic Council and Homeland Security Council
+meetings, with the concurrence of the National Security
+Advisor, Homeland Security Advisor, or Director of the
+National Economic Council, as appropriate;
+(C) be included as a participant in preparations for and, if
+appropriate, execution of cybersecurity summits and other
+international meetings at which cybersecurity is a major
+topic;
+(D) delegate any of the Director’s functions, powers, and
+duties to such officers and employees of the Office as he may
+designate; and
+(E) authorize such successive re-delegations of such
+functions, powers, and duties to such officers and employees
+of the Office as he may deem appropriate.
+(e) Section 101(c)(2) of the National Security Act of 1947 (50 U.S.C.
+3021(c)(2)) is amended by striking “and the Chairman of the Joint Chiefs
+of Staff” and inserting “the Chairman of the Joint Chiefs of Staff, and the
+National Cyber Director”.
+(f) The Director may, for the purposes of carrying out the Director’s
+functions under this section—
+(i) subject to the civil service and classification laws, select,
+appoint, employ, and fix the compensation of such officers and
+employees as are necessary and prescribe their authority and
+duties, except that not more than 75 individuals may be employed
+without regard to any provision of law regulating the employment
+or compensation at rates not to exceed the basic rate of basic pay
+payable for level IV of the Executive Schedule under section 5315
+of title 5, United States Code;
+(ii) employ experts and consultants in accordance with section
+3109 of title 5, United States Code, and compensate individuals so
+employed for each day (including travel time) at rates not in excess
+of the maximum rate of basic pay for grade GS–15 as provided in
+
+section 5332 of such title, and while such experts and consultants
+are so serving away from their homes or regular place of business,
+to pay such employees travel expenses and per diem in lieu of
+subsistence at rates authorized by section 5703 of such title 5 for
+persons in Federal Government service employed intermittently;
+(iii) promulgate such rules and regulations as may be necessary to
+carry out the functions, powers, and duties vested in the Director;
+(iv) utilize, with their consent, the services, personnel, and
+facilities of other Federal agencies;
+(v) enter into and perform such contracts, leases, cooperative
+agreements, or other transactions as may be necessary in the
+conduct of the work of the Office and on such terms as the Director
+may determine appropriate, with any Federal agency, or with any
+public or private person or entity;
+(vi) accept voluntary and uncompensated services,
+notwithstanding the provisions of section 1342 of title 31, United
+States Code;
+(vii) adopt an official seal, which shall be judicially noticed; and
+(viii) provide, where authorized by law, copies of documents to
+persons at cost, except that any funds so received shall be credited
+to, and be available for use from, the account from which
+expenditures relating thereto were made.
+TITLE II—ENHANCING AMERICAN CRISIS
+RESPONSE & FLEXIBILITY
+SEC. 201. CONGRESSIONAL FINDINGS.
+Congress finds that —
+(a) That in times of immediate emergency or crisis, the more
+deliberative nature of Congress means that Congress is often unable to
+respond immediately to threats in a timely fashion as may be
+necessary to save lives, prevent extreme damage, or pursue
+perpetrators before they are lost; and therefore, these tasks are
+typically delegated to the Executive Branch of the government.
+(b) Because of the inability of Congress to respond in time frames as
+may be necessary, previous Congresses have afforded to the President
+emergency powers, through acts including but not limited to the
+
+National Emergencies Act of 1976 and the International Emergency
+Economic Powers Act of 1977, which he may invoke in times of
+national emergency as he may declare, to manage such immediate
+emergencies or crises as may be necessary in a short timeframe.
+(c) However, powers afforded in the current acts have long periods
+during which they may be active before their expiration (as long as two
+years as per the International Emergency Economic Powers Act) and
+the powers afforded are adjusted in ability accordingly - significantly
+more moderate in scale, while useful, leading to harmful and
+unnecessary constraints on executive ability during times of severe
+and real national emergency.
+(d) There should be emergency powers afforded to the executive, which
+should be more powerful than those currently afforded to him, so he
+can effectively manage crisis in the extremely important
+minute-by-minute level; but unlike the earlier emergency powers
+afforded to the President, these powers may only be active upon his
+declaration of a national emergency for a significantly shorter period of
+time - twenty-four hours, three days, seven days, or a fortnight,
+depending on the scope of the emergency powers, before congressional
+authorization may be needed to use such powers further.
+(e) That shall be the stated purpose of this title, as well as other
+measures.
+SEC. 202. RULES OF CONSTRUCTION.
+No authority granted by this title upon the condition of a declaration of
+national emergency, in which such authority expires less than fourteen days
+following the invocation of said authority, may be invoked for a second time in
+the same thirty-day period in regards to the same subject without explicit
+authorization of congress.
+SEC. 203. WASHINGTON METRO AREA TRANSIT AUTHORITY.
+(a) During times of war or national emergency declared by Congress, or the
+President, if the President should judge there is a significant and domestic
+threat to the national security, or safety of the people of the United States of
+America, involving the Washington Metro Area Transit Authority, the
+President, through executive order, direction, memorandum, or proclamation,
+may place the Metro Transit Police Department under presidential control;
+and make decisions regarding the Washington Metro Area Transit Authority
+on behalf of its board of directors.
+
+(b) If the President of the United States should invoke the authority granted
+to him by Section 203(a) of this act, such authority will be in effect from the
+moment of invocation until twenty-four hours following invocation; and
+unless a joint resolution from both chambers of Congress, to sustain such
+invocation, has become law before twenty-four hours after invocation, the
+authority shall be considered and expired Section 202 of this act shall come
+into effect regarding further invocation.
+SEC. 204. NATIONAL GUARD FEDERALIZATION
+(a) During time of war or national emergency declared by Congress, or the
+President, if the President should judge there is a significant and domestic
+threat to the national security, or safety of the people of the United States of
+America, arising from persons or organizations within the nation, against
+whom confrontation would be extremely dangerous by means of significant
+capacity and intent to commit violent actions to a degree to which the
+President judges law enforcement will find it difficult to confront themselves,
+from those persons or organizations, the President may waive those sections
+of law which prohibit him from ordering the Chief of the National Guard
+Bureau to order a National Guard to place itself under federal control, and he
+may order such Guard to take measures to counter such significant domestic
+threat to the national security, through published executive order.
+(b) If the President of the United States should invoke the authority granted
+to him by Section 204(a) of this act, such authority will be in effect from the
+moment of invocation until fourteen days following invocation; and unless a
+joint resolution from both chambers of Congress, to sustain such invocation,
+has become law before fourteen days after invocation, the authority shall be
+considered expired, and Section 202 of this act shall come into effect
+regarding further invocation.
+SEC. 205. DEPARTMENTAL LINE OF SUCCESSION
+(a) During time of war or national emergency declared by Congress or the
+President, if the office of Secretary responsible for the Departments of State,
+Defense, the Treasury, Justice, or Homeland Security is vacant, or the
+officeholder be unable to perform the functions and duties of the office, and
+the President determines the first assistant to the office of such officer is not
+present to perform the full functions of the office, though he may not be
+legally incapacitated—
+(i) The President is granted the authority, through executive order,
+waive the provisions of 5 U.S. Code § 3345, and he may designate a
+
+person of his choosing to perform the functions and duties of the office,
+provided that person is a United States Citizen, has served either in
+the United States Congress or Presidential Cabinet prior to his
+designation, or is currently holding any office whose salary is paid for
+by the United States Government.
+(ii) Should the first assistant to the office as defined in 5 U.S. Code §
+3345, and whose definition is not waived by Section 206(a)(i) of this
+act, transmit to the President a statement of presence and capability to
+perform the duties of his office at any point during the time he is not
+performing perform the duties of acting secretary due to the conditions
+of Section 206(a)(i) of this act, the authority, waiver and designation
+shall be considered expired, effective immediately — but if such
+transmission was performed less than one hour following the
+promulgation of such executive order provided for in Section 206(a)(i)
+of this act, the original order shall not be considered an invocation of
+authority under Section 202 of this act.
+(b) If the President of the United States should invoke the authority granted
+to him by Section 206(a)(i) of this act, such authority will be in effect from the
+moment of invocation until three days following invocation; and unless a joint
+resolution from both chambers of Congress, to sustain such invocation, has
+become law before three days after invocation, the authority shall be
+considered expired, the acting officer shall be removed from the role of acting
+Secretary, and Section 202 of this act shall come into effect regarding further
+invocation.
+SEC. 206. SMALL BUSINESS DISASTER RELIEF
+The Small Business Act (15 U.S.C. 636) is amended as follows:
+(a) Section 7(b) (15 U.S.C. 636(b)) is amended by adding the following
+paragraph at the end:
+"(9) In addition to physical and economic injury disaster loans under
+paragraph (2), the Administrator may provide low-interest disaster
+loans to cover insurance deductibles of small businesses' insurance
+claims resulting from disasters, and to cover the cost of lost pay for
+workers of small businesses affected by disasters, subject to the terms
+and conditions determined by the Administrator."
+(b) Section 7(b)(1)(B) (15 U.S.C. 636(b)(1)(B)) is amended by inserting ",
+including insurance deductibles of small businesses' insurance claims and the
+cost of lost pay for workers," after "economic injury" wherever it appears.
+
+(c) The Administrator of the Small Business Administration shall establish
+and maintain procedures and guidelines for the implementation of the
+program described in subsection (a)(1)(9) of this section, including eligibility
+criteria, loan terms, and application processes, and shall ensure that total
+authorizations for these purposes do not exceed $15,500,000 per fiscal year.
+(d) APPROPRIATIONS—There is authorized to be appropriated such sums
+as may be necessary, not to exceed $15,500,000 per fiscal year, to carry out
+the provisions of this section.
+SEC. 207. AMENDMENTS AND REPEALS.
+(a) 10 U.S. Code § 603 shall be amended in subsection (a) by striking the
+words “major” and “rear”.
+(b) 10 U.S. Code § 7063 is amended in subsection (b) by adding “of Defense”
+after “Secretary”, striking “Army”, and adding “Armed Forces as defined in
+10 U.S. Code § 3063” in its place.
+(c) Section 101(a) of Public Law 95-223, shall be repealed, effective
+immediately.
+(d) Section (b)(1) and (b)(2) of 50 U.S. Code § 3806 shall be amended to
+remove the text, “except after a declaration of war or national emergency
+made by the Congress subsequent to June 24, 1948”, and striking
+subparagraphs (A) and (B) from (b)(2).
+(e) Public Laws 176-1 and 95-511 shall be repealed in favor of this act.
+(f) Section (a) of 10 U.S. Code § 12103 is amended, by adding, “or by the
+President, should such presidentially declared emergency involve use of the
+armed forces”, following “Congress,”.
+(g) 42 U.S. Code § 2138, 14 U.S. Code § 3733, and 10 U.S. Code § 7063 are
+amended in both laws by adding “or the President” following the sole mention
+of “Congress”.
+SEC. 208. INCLUSION OF SERVICES BY PHYSICIAN ASSISTANTS AND
+NURSE PRACTITIONERS IN FEDERAL EMPLOYEES’ COMPENSATION.
+(a) Section 8101 of title 5, United States Code, is amended—
+(i) in paragraph (3), by inserting ‘‘, other eligible providers,’’ after
+‘‘osteopathic practitioners’’;
+(ii) by striking ‘‘and’’ at the end of paragraphs (18) and (19);
+(iii) by striking the period at the end of paragraph (20) and inserting ‘‘;
+and’’; and
+(iv) by adding at the end the following:
+
+‘‘(21) ‘other eligible provider’ means a nurse practitioner or
+physician assistant within the scope of their practice as defined
+by State law.’’.
+(b) Chapter 81 of title 5, United States Code, is amended—
+(i) in section 8103(a)—
+(A) by inserting ‘‘or other eligible provider’’ after ‘‘physician’’ in
+each instance; and
+(B) in paragraph (3), by inserting ‘‘or other eligible providers’’
+after ‘‘physicians’’;
+(ii) in section 8121(6), by inserting ‘‘or other eligible provider’’ after
+‘‘physician’’; and
+(iii) in section 8123(a)—
+(A) by inserting ‘‘or other eligible provider’’ after ‘‘The employee
+may have a physician’’; and
+(B) by inserting ‘‘or other eligible provider’’ after ‘‘United States
+and the physician’’.
+TITLE III—GENERAL LEGAL SECTIONS, AND
+MISCELLANEOUS
+SEC. 301. SEVERABILITY.
+Should any portion of this Act be deemed invalid or unconstitutional for any reason
+in a court with relevant jurisdiction, the rest of the Act, and the application of the
+remaining provisions, shall not be affected.
+SEC. 302. SUPREMACY.
+Any existing provisions of law that contradict this Act shall be considered null and
+void for the purposes of interpreting this legislation.
+SEC. 303. EFFECTIVE DATE.
+This act shall take effect immediately upon enactment.
+SEC. 304. RULES OF CONSTRUCTION
+Nothing in this Act, or any amendment made by this Act, may be construed to
+authorize the infringement or violation of any right protected under the First
+Amendment to the Constitution of the United States or an applicable provision
+of Federal law.
+
+// credit for Section 119 to Pluribus and 206 to Ducky

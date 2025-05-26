@@ -1,0 +1,62 @@
+163rd Congress
+1stSession
+H.R.16
+IN THE HOUSE OF REPRESENTATIVES
+March 29th, 2023
+Mr.Posting (for himself)introduced thefollowing bill;
+A BILL
+Topreventthepracticeof “evergreening” patentsspecifically withregards topharmaceutical
+companies.
+Beit enactedby theSenate and theHouseof Representativesofthe UnitedStatesof
+America inCongressAssembled,
+SEC.1.SHORTTITLE.
+This Actmaybe citedas the“DeciduousPatent Actof 2023.”
+SEC.2.FINDINGS.
+Congress findsthat—
+(a) Thepracticeof “evergreening”patentsondrugs has resultedin massiveincreasesin drugprices
+over time.
+(b) Suchpatents areinherentlyanti-competitionandcreate whatis ineffect ahealthcaremonopoly.
+(c) Americaspends exponentiallymoreonhealthcarethan anyothernation inthe world.
+SEC.3.AMENDINGPATENT LAW.
+(a) 35U.S. Code §102is amended,addingsubsection (e)and(f) following all priorsubsections:
+
+163rd Congress
+1stSession
+"(e) SpecialRules OnPatentsForDrugs andMedication.—A personshallbeentitledto apatent
+unless—
+(1) Thepatentis for adrugas definedunder 21U.S.C.321,and
+(2) A priorpatent(henceforth referredto asthe priorpatent)has alreadybeen issuedtothe
+sameorganization, entity, corporation, body,or individualfor anydrug withthe same
+basicchemical compounds andmethodsofactionfor the purposesof treatinga different
+ailment,or aprior patenthasalready beenissuedtothe sameorganization, entity,
+corporation,body, orindividual for anydrugdesignedto diagnose,treat,cure,mitigate,
+or prevent thesameailment for whichthe currentpatentis beingapplied,and
+(3) Thecurrent patentbeingappliedfor does notsignificantly changethe method ofaction,
+chemical composition,or efficacyofthe drugwhencompared tothe priorpatent.
+(f) Extensionsand patentrules undersection (e).—Inthe event thata personwhowouldnot be
+eligiblefor a patent under subsection(e)applies for apatent,andthe original20-year termof
+theprior patenthasnot expired,thefollowing section shallapply.—
+(1) Theindividualshallbe grantedthepatent,however;
+(2) Thegrantof termfor thepatentshallbe for theremainderof the20-year termpursuant
+to 35U.S. Code §154(a)(2)ofthe originalpatent,and shallnotextend suchterm.”
+(b) 35U.S. Code §284is amendedtoreadas follows:
+“Uponfinding for theclaimantthe courtshallaward theclaimant damagesadequateto compensatefor
+theinfringement, but inno eventlessthan areasonableroyaltyfor the usemade of theinventionbythe
+infringer,togetherwithinterest andcostsasfixedbythe court.Inthe event thatthe infringed patentis
+for a drug, asdefinedunder21U.S.C.321,the damagesadequateto compensatefor the infringement
+shallnot befound asgreater thanaroyalty often percentof allfuture salesof thepatenteddrug for the
+remainder of thepatent’stermas definedunder 35U.S.Code §154(a)(2),unlessthe patentwas
+granted lessthanfiveyearsplus anyextensionsgranted under35U.S. Code §156priortothe alleged
+infringement, in whichcasethe damagesadequateshallnotbe foundas greaterthanaroyalty of
+twenty-five per centof all futuredrug salesuntil thedate fiveyearsplus anygrantedextensions after
+thepatentwas issued,atwhich pointthe royaltypaidshalldecreaseto notmore thanten per cent.For
+thepurposes of drug patents,damagesshallnot befoundor assessed asaflat feefor lostprofits.
+
+163rd Congress
+1stSession
+Whenthedamages arenot foundbyajury, thecourtshallassess them. Ineither eventthe courtmay
+increasethedamages uptothreetimes theamount foundor assessed. Increaseddamagesunder this
+paragraph shallnotapplyto provisional rightsunder section154(d), norshallthey applyto anydrug
+patent.
+Thecourtmayreceive expert testimonyas anaidto thedetermination ofdamagesor ofwhat royalty
+wouldbe reasonableunderthe circumstances.”

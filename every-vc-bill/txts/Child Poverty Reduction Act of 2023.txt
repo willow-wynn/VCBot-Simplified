@@ -1,0 +1,159 @@
+S. 9
+To reduce child poverty in the United States, and for other purposes.
+IN THE SENATE OF THE UNITED STATES
+SEPTEMBER 28, 2023
+Mr. HERSEY introduced the following bill;
+A BILL
+To reduce child poverty in the United States, and for other purposes.
+Be it enacted by the Senate and House of Representatives of the United States of America in
+Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Child Poverty Reduction Act of 2023”.
+SEC. 2. CHILD POVERTY GOAL AND ACCOUNTABILITY.
+Title IV of the Social Security Act (42 U.S.C. 601 et seq.) is amended by inserting after part
+B the following:
+“PART C—CHILD POVERTY ACCOUNTABILITY MEASURE
+“SEC. 441. NATIONAL GOAL TO CUT CHILD POVERTY BY HALF.
+“(a) STATEMENT OF POLICY.—It is the policy of the United States to reduce the number
+of children living in poverty in the United States by half in 5 years.
+“(b) SENSE OF THE CONGRESS.—It is the sense of the Congress that an effort to reach the
+goal described in subsection (a) shall include reducing the number of children in deep
+poverty as well as reducing child poverty among racial or ethnic groups with disparate
+poverty rates.
+“SEC. 442. ESTABLISHMENT OF ANNUAL REPORTING.
+
+“(a) ANCHORED SUPPLEMENTAL POVERTY MEASURE.—The Secretary shall enter into an
+agreement with the Bureau of the Census to report an anchored Supplemental Poverty
+Measure for individuals who have not attained 18 years of age, annually beginning with
+calendar year 2023. Beginning with the report for calendar year 2024, the report shall be
+based on poverty thresholds which are adjusted for inflation using the Consumer Price Index
+for all-urban consumers (as published by the Department of Labor). This subsection shall
+not be interpreted to require or authorize the replacement of any other calculation or
+measure reported by the Bureau of the Census.
+“(b) TIMING OF RELEASE OF CURRENT POPULATION SURVEY ANNUAL SOCIAL AND ECONOMIC
+SUPPLEMENT MICRODATA.—The Bureau of the Census shall release the Current Population
+Survey Annual Social and Economic Supplement microdata for each year as a single file
+containing the anchored Supplemental Poverty Measure and any other poverty rates the
+Bureau of the Census reports. The file shall be released at the same time as the Bureau of
+the Census report on Income, Poverty, and Health Insurance Coverage in the United States.
+That report, or companion reports, should include poverty statistics and thresholds for the
+anchored Supplemental Poverty Measure and any other measures the Bureau of the Census
+reports.
+“(c) REPORTING IN RELATION TO THE TERRITORIES.—
+“(1) IN GENERAL.—The Secretary shall enter into an agreement with the
+Bureau of the Census to develop data to report an anchored Supplemental Poverty
+Measure for Puerto Rico, Guam, the United States Virgin Islands, the Northern
+Mariana Islands, and American Samoa, as part of the annual report required by
+subsection (a), not later than the close of fiscal year 2025.
+“(2) REPORT REQUIRED IF COMPLIANCE IS NOT FEASIBLE.—If the
+Secretary determines that it will not be feasible to comply with all or part of paragraph
+(1), the Secretary shall submit to the Congress, not later than 6 months after the date of
+the enactment of this section, a report that explains what is not feasible, why it is not
+feasible, and includes details on what, if anything, would be needed to enable such
+compliance and by what date compliance could be achieved.
+“(3) LIMITATIONS ON AUTHORIZATION OF APPROPRIATIONS.—To carry
+out this subsection, there are authorized to be appropriated to the Secretary a total of
+not more than $2,000,000 for fiscal years 2024 through 2026.
+“(d) IMPROVING INCOME DATA FOR USE IN ANNUAL REPORTING.—
+
+“(1) IN GENERAL.—The Secretary shall enter into an agreement with the
+Bureau of the Census to develop income data with corrections for under-reporting of
+income data for calculating an anchored Supplemental Poverty Measure as part of the
+annual report required by subsection (a), not later than the close of fiscal year 2025.
+“(2) REPORT REQUIRED IF COMPLIANCE IS NOT FEASIBLE.—If the
+Secretary determines that it will not be feasible to comply with all or part of paragraph
+(1), the Secretary shall submit to the Congress, not later than 6 months after the date of
+the enactment of this section, a report that explains what is not feasible, why it is not
+feasible, and includes details on what, if anything, would be needed to enable such
+compliance and by what date compliance could be achieved.
+“SEC. 443. CHILD POVERTY REPORTS.
+“(a) ANNUAL REPORTS ON THE EFFECT OF FEDERAL POLICIES ON CHILD POVERTY IN THE
+UNITED STATES.—Within 6 months after the date of the enactment of this section, the
+Secretary shall enter into an agreement with the National Academy of Sciences to submit to
+the Congress annual reports providing an evidence-based, non-partisan analysis of how
+Federal policies or programs have contributed to meeting the goal set forth in section 441(a),
+based on their effect on the anchored Supplemental Poverty Measure for children as
+reported by the Bureau of the Census pursuant to section 442.
+“(b) CONTENTS OF REPORTS.—
+“(1) IN GENERAL.—Each such report—
+“(A) shall analyze how, and the extent to which, Federal policies and
+programs contribute to meeting the goal referred to in subsection (a) of this
+section;
+“(B) shall take into account the number of children in deep poverty and child
+poverty among racial or ethnic groups with disparate poverty rates;
+“(C) shall attempt to ascertain whether each studied policy or program
+reduces or increases the number of children living in poverty, why the policy or
+program does so, and the extent to which the policy or program does so; and
+“(D) shall include, to the extent feasible, projections on how such policies or
+programs would affect the number of children living in poverty in future years,
+
+which shall be made on the basis of previously released Current Population
+Survey Annual Social and Economic Supplement data, and adjusted periodically
+as new estimates from the Bureau of the Census become available.
+“(2) DATA CORRECTIONS.—Where feasible, each such report shall correct the
+underlying Current Population Survey Annual Social and Economic Supplement data,
+for under-reporting of income and in-kind benefits and shall include estimates using
+both uncorrected and corrected income data. Because available information with which
+to produce corrected income data is currently limited and not timely, each such report
+shall indicate the year to which the corrected income data pertain and other limitations
+of the data. As soon as corrected income data from the Census Bureau become
+available under section 442(d), each such report shall use those data.
+“(c) FEASIBILITY REVIEW OF STATE AND LOCAL EVIDENCE-BASED POLICIES.—The 1st report
+under subsection (a) shall include a review of the feasibility of including consideration of
+State and local evidence-based policies or programs in subsequent such reports, and if the
+review determines that including the consideration is feasible, then each such report shall
+include an analysis of the additional policies.
+“(d) TIMING.—Each report for a year under subsection (a) shall be made after the report
+of the United States Census Bureau on Income, Poverty, and Health Insurance Coverage in
+the United States for the year is released, and—
+“(1) in the case of the 1st such report, before the beginning of the 1st calendar
+year that begins more than 6 months after the date of the enactment of this section; or
+“(2) in the case of each subsequent such report, before the end of the year.
+“(e) LIMITATIONS ON AUTHORIZATION OF APPROPRIATIONS.—To carry out this section, there
+are authorized to be appropriated not more than—
+“(1) $1,200,000 for fiscal year 2024; and
+“(2) $1,000,000 for each of fiscal years 2025 through 2033.
+“SEC. 444. CHILD POVERTY REDUCTION STRATEGY CLEARINGHOUSE.
+“The Secretary shall establish, and annually update, on a website of the Department of
+Health and Human Services, an online collection of resources related to the national child
+poverty reduction goal established in section 441 of this Act, including—
+
+“(1) the anchored Supplemental Poverty Measure published under section 442 of
+this Act;
+“(2) the reports required by section 443 of this Act;
+“(3) the report required by section 3 of the Child Poverty Reduction Act of 2023;
+“(4) the report required by section 4 of the Child Poverty Reduction Act of 2023;
+and
+“(5) links to other relevant Federal reports, analyses, evaluations, and resources
+related to child poverty as determined by the Secretary.
+“SEC. 445. DEFINITIONS.
+“In this part:
+“(1) ANCHORED.—The term ‘anchored’ means fixed at a given point in time,
+and annually adjusted by a measure reflecting only changes in prices.
+“(2) POVERTY.—The term ‘poverty’ means, with respect to an individual or
+family, that the individual or family has a total annual income that is less than the
+anchored Supplemental Poverty threshold for the individual or family, as provided in
+the Bureau of the Census report under section 442.
+“(3) DEEP POVERTY.—The term ‘deep poverty’ means, with respect to an
+individual or family, that the individual or family has a total annual income that is less
+than 50 percent of the anchored Supplemental Poverty threshold for the individual or
+family, as provided in the Bureau of the Census report under section 442.”.
+SEC. 3. UPDATE OF “A ROADMAP TO REDUCE CHILD POVERTY”.
+(a) IN GENERAL.—Within 12 months after the date of the enactment of this section, the
+Secretary of Health and Human Services shall enter into an agreement with the National
+Academy of Sciences to revise and update the National Academies' report entitled “A
+Roadmap to Reduce Child Poverty” within 24 months after the date of entry into the
+agreement.
+(b) LIMITATIONS ON AUTHORIZATION OF APPROPRIATIONS.—To carry out subsection (a),
+there are authorized to be appropriated not more than $2,200,000.
+
+SEC. 4. REPORT ON REDUCING LONG-TERM, INTERGENERATIONAL
+CHILD POVERTY.
+(a) IN GENERAL.—Within 6 months after the date of the enactment of this section, the
+Secretary of Health and Human Services shall enter into an agreement with the National
+Academy of Sciences to publish, within 36 months after the date of entry into the
+agreement, a report on evidence-based policies to reduce long-term, intergenerational child
+poverty, which report shall build on the National Academies' report entitled “A Roadmap to
+Reduce Child Poverty”.
+(b) LIMITATIONS ON AUTHORIZATION OF APPROPRIATIONS.—To carry out subsection (a),
+there are authorized to be appropriated not more than $2,200,000.

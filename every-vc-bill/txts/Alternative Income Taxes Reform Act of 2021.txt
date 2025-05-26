@@ -1,0 +1,96 @@
+138TH CONGRESS
+1STSESSION
+H.R. 20
+To significantly increase our budget surplus by shifting the Alternative
+Minimum Tax burden away from the middle class, to merge long-term capital gains
+taxes, and make minor administrative corrections.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE HOUSE OF REPRESENTATIVES
+APRIL 2nd, 2021
+Mr. MILLER of Georgia (for himself, Mr. LIGHTWOOD, Mr. TOBY, Mr.
+ARTEMIS, on behalf of Ms. KYOUKO) introduced the following bill, which
+was subsequently referred to the House of Representatives.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+Be it enacted by the Senate and the House of Representatives of the United States in
+Americaassembled,
+SECTION 1.TITLE.
+This Actmaybe citedas the“Alternative IncomeTaxes ReformAct”.
+SECTION 2.FINDINGS.
+Congress findsthat—
+(a) Thealternativeminimum isa floorfor taxation,calculatedbased uponanalternative
+minimum taxableincome, whichingeneral, removesfromaccounting for some
+deductions, whileapplying alesser taxrate,to computeanoverallalternative
+effective taxrate.Individuals arethentaxed bycomparing theeffectivetax rates
+between traditionalindividualincometaxes,and thealternative minimumtax.
+(b) Asa resultof acombinationof specialinterestsand carelesslegislating,the
+alternativeminimum taxnow placesthe taxburden uponthe middleclassrather than
+
+thewealthy,with the effectivetax ratefor anindividualearning $175,000being
+similarto theratefor anindividual earning$1,000,000.
+(c) Underthis reform,everyone earningunder $295,440wouldseetheir taxesunderthe
+alternativetaxable incomereduced,while everyoneearningabove thatamount would
+see theirtaxesunder thealternative taxableincomeincreased.
+(d) For anindividual inthe middle classbeingtaxed under thealternative minimumtax
+with analternativetaxableincomeof $110,000,theirtaxeswouldbereduced byover
+57%.
+(e) Currently,capitalgain,such asthe saleofproperty orstocks,is taxedat alower rateif
+it’sheldfor morethanayear.
+(f) Asproperty sales andstockstradingareparticularly moreprevalent amongthose who
+aremorewealthy,thisessentially turnsourtaxationinto beingregressive, where
+someonetheoretically earning$300,000inlong-term capital gains wouldonlypayat
+a taxrateof 15%, butmeanwhile, someonewhoearns halfthatat $150,000 wouldpay
+a higher effectivetaxrateof 19.4%.
+(g) Theconcentrationof long-term capitalgains is highlyfocusedonthe topquintileof
+earners.Despitemaking up0.00028%of taxpayers, thetop400individuals inthe
+UnitedStatesrealize 16%of capitalgains, Taxingtheseindividuals ata lowerrate
+thanthose whoearnless,severely undermines theprogressivity ofthe incometax.
+(h) There isaconsistently expressedinterestof Americantaxpayers favoring a
+simplificationof thetax code,where anill understanding ofthis taxcode canlead to
+disenfranchisement towardsgovernment,if notimpactfulmisguided personalfinance
+decisionsthat furtherthe wealth gap.Thepreferentialtaxationof capitalgains
+significantlycomplicates this taxcode.
+(i) Thearbitrary differentiation between short-termand long-term capitalgains leadstoa
+waste of resources asentities attemptto circumventtaxliabilities. Therehave been
+attempts for decadestoeliminatethis circumventionof taxliabilities withoutreform
+of thecapitalgainstax, andit hasbeen evidentthattheseattempts have been
+ineffective.
+(j) In 2012,Professor LeonardE. Burman presentedto theHouseCommittee onWays
+and MeansandtheSenate CommitteeonFinance that from1950to2011,therehas
+beena lowcorrelationat 0.12,between cutsin capitalgains taxesandeconomic
+growth.
+(k) Themergerof long-term capital gainsinto theconsideration ofandbeing taxed atthe
+samerate asshort-term capitalgains andoverall income,whichreclaimsat least$90
+
+billion in lostrevenue,with themajority ofthis tax burdenfalling uponthewealthy.
+Some estimatesprojectanover $160billion increaseinrevenue.
+SECTION 3.ALTERNATIVEMINIMUM TAXREFORM.
+(a) IN GENERAL.— Section55of theInternalRevenueCode of 1986(26US Code§
+55) isamendedbystriking subsection(b)(1)(A) andinserting thefollowing in lieuof
+subsection(b)(1)(A):
+Thetentative minimumtaxfor thetaxableyear isas determinedinaccordancewiththe
+following table:
+If alternative taxableincomeis: Thetentative minimumtaxis:
+Not over$55,000 $0
+Over$55,000but notover $110,000 12% of taxableincomeover$55,000
+Over$110,000but notover $165,000 $6600,plus24% of taxableincome over $110,000
+Over$165,000but notover $220,000 $19,800,plus32% of taxableincome over $165,000
+Over$220,000but notover $500,000 $37,400,plus38% of taxableincome over $220,000
+Over$500,000 $143,800,plus47% of taxableincome over
+$500,000
+SECTION 4.LONG-TERMCAPITALGAINS TAXMERGER.
+(a) IN GENERAL.— Section1of theInternalRevenueCode of 1986(26US Code§1)
+isamendedbystriking—
+(i) theentiretyof subsection(h); and
+(ii) theentiretyof subsection(j)(5).
+SECTION 5.INTERNAL REVENUECODECORRECTION.
+(a) IN GENERAL.— Section1of theInternalRevenueCode of 1986(26US Code§1,
+previously amended by Fair TaxationAct) isamendedbystriking “$178,810”,and
+inserting inlieu with“$184,410”.
+SECTION 6.SEVERABILITY.
+
+Theprovisionsof this Actareseverable;should anyprovisionof this Actbefound
+unconstitutional or unenforceable,or beotherwise stricken,the remainderof thisAct shall
+remainin full forceandeffect.
+SECTION 7.EFFECTIVEDATE.
+EFFECTIVE DATE.—The provisionsof thisAct shallapplybeginning July1,2021.

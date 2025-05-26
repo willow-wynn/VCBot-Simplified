@@ -1,0 +1,182 @@
+S.9
+To amend the Ethics in Government Act of 1978 to prohibit transactions involving certain financial
+instruments by Members of Congress.
+IN THE SENATE
+JUNE 22, 2023
+Mr. Lionheart Hersey (For himself) introduced the following bill
+A BILL
+Mr. Lionheart Hersey (For himself) introduced the following billTo amend the Ethics in Government
+Act of 1978 to prohibit transactions involving certain financial instruments by Members of
+Congress.
+Be it enacted by the Senate and House of Representatives of the United States of America in Congress
+assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the “Banning Insider Trading in Congress Act”.
+SEC. 2. BANNING INSIDER TRADING IN CONGRESS.
+(a) IN GENERAL.—The Ethics in Government Act of 1978 (5 U.S.C. App.) is amended by inserting
+after title I the following:
+“TITLE II—BANNING INSIDER TRADING IN CONGRESS
+“SEC. 201. DEFINITIONS.
+“In this title:
+“(1) COVERED FINANCIAL INSTRUMENT.—
+“(A) IN GENERAL.—The term ‘covered financial instrument’ means—
+“(i) any investment in—
+
+“(I) a security (as defined in section 3(a) of Securities Exchange Act of 1934
+(15 U.S.C. 78c(a)));
+“(II) a security future (as defined in that section); or
+“(III) a commodity (as defined in section 1a of the Commodity Exchange
+Act (7 U.S.C. 1a)); and
+“(ii) any economic interest comparable to an interest described in clause (i) that
+is acquired through synthetic means, such as the use of a derivative, including an
+option, warrant, or other similar means.
+“(B) EXCLUSIONS.—The term ‘covered financial instrument’ does not include—
+“(i) a diversified mutual fund;
+“(ii) a diversified exchange-traded fund;
+“(iii) a United States Treasury bill, note, or bond; or
+“(iv) compensation from the primary occupation of a spouse or dependent of a
+Member of Congress.
+“(2) MEMBER OF CONGRESS.—The term ‘Member of Congress’ has the meaning given in
+section 109.
+“(3) QUALIFIED BLIND TRUST.—The term ‘qualified blind trust’ has the meaning given in
+section 102(f)(3).
+“(4) SUPERVISING ETHICS COMMITTEE.—The term ‘supervising ethics committee’
+means, as applicable—
+“(A) the Select Committee on Ethics of the Senate; and
+“(B) the Committee on Ethics of the House of Representatives.
+“SEC. 202. PROHIBITION ON CERTAIN TRANSACTIONS AND HOLDINGS INVOLVING
+COVERED FINANCIAL INSTRUMENTS.
+“(a) PROHIBITION.—Except as provided in subsection (b), a Member of Congress, or any spouse of a
+Member of Congress, may not, during the term of service of the Member of Congress, hold, purchase,
+or sell any covered financial instrument.
+“(b) EXCEPTIONS.—The prohibition under subsection (a) shall not apply to—
+
+“(1) a sale by a Member of Congress, or a spouse of a Member of Congress, that is
+completed by the date that is—
+“(A) for a Member of Congress serving on the date of enactment of the Banning
+Insider Trading in Congress Act, 180 days after that date of enactment; and
+“(B) for any Member of Congress who commences service as a Member of Congress
+after the date of enactment of the Banning Insider Trading in Congress Act, 180 days after
+the first date of the initial term of service; or
+“(2) a covered financial instrument held in a qualified blind trust operated on behalf of, or
+for the benefit of, the Member of Congress or spouse of the Member of Congress.
+“(c) PENALTIES.—
+“(1) DISGORGEMENT.—A Member of Congress shall disgorge to the Treasury of the
+United States any profit from a transaction or holding involving a covered financial instrument
+that is conducted in violation of this section.
+“(2) INCOME TAX.—A loss from a transaction or holding involving a covered financial
+instrument that is conducted in violation of this section may not be deducted from the amount
+of income tax owed by the applicable Member of Congress or spouse of a Member of Congress.
+“(3) FINES.—A Member of Congress who holds or conducts a transaction involving, or
+whose spouse holds or conducts a transaction involving, a covered financial instrument in
+violation of this section may be subject to a civil fine assessed by the supervising ethics
+committee under section 204.
+“SEC. 203. CERTIFICATION OF COMPLIANCE.
+“(a) IN GENERAL.—Not less frequently than annually, each Member of Congress shall submit to
+the applicable supervising ethics committee a written certification that the Member of Congress has
+achieved compliance with the requirements of this title.
+“(b) PUBLICATION.—The supervising ethics committees shall publish each certification submitted
+under subsection (a) on a publicly available website.
+“SEC. 204. AUTHORITY OF SUPERVISING ETHICS COMMITTEES.
+“(a) IN GENERAL.—The supervising ethics committees may implement and enforce the
+requirements of this title, including by—
+“(1) issuing—
+“(A) for Members of Congress—
+
+“(i) rules governing that implementation; and
+“(ii) 1 or more reasonable extensions to achieve compliance with this title, if the
+supervising ethics committee determines that a Member of Congress is making a
+good faith effort to divest any covered financial instruments; and
+“(B) guidance relating to covered financial instruments;
+“(2) publishing on the Internet certifications submitted by Members of Congress under
+section 203(a); and
+“(3) assessing civil fines against any Member of Congress who is in violation of this title,
+subject to subsection (b).
+“(b) REQUIREMENTS FOR CIVIL FINES.—
+“(1) IN GENERAL.—Before imposing a fine pursuant to this section, a supervising ethics
+committee shall provide to the applicable Member of Congress—
+“(A) a written notice describing each covered financial instrument transaction for
+which a fine will be assessed; and
+“(B) an opportunity, with respect to each such covered financial instrument
+transaction—
+“(i) for a hearing; and
+“(ii) to achieve compliance with the requirements of this title.
+“(2) PUBLICATION.—Each supervising ethics committee shall publish on a publicly
+available website a description of—
+“(A) each fine assessed by the supervising ethics committee pursuant to this section;
+“(B) the reasons why each such fine was assessed; and
+“(C) the result of each assessment, including any hearing under paragraph (1)(B)(i)
+relating to the assessment.
+“(3) APPEAL.—A Member of Congress may appeal the assessment of a fine under this
+section to a vote on the floor of the Senate or the House of Representatives, as applicable, as a
+privileged motion.
+“SEC. 205. AUDIT BY GOVERNMENT ACCOUNTABILITY OFFICE.
+
+“Not later than 2 years after the date of enactment of the Banning Insider Trading in Congress Act, the
+Comptroller General of the United States shall—
+“(1) conduct an audit of the compliance by Members of Congress with the requirements of
+this title; and
+“(2) submit to the supervising ethics committees a report describing the results of the
+audit conducted under paragraph (1).”.
+(b) CONFORMING AMENDMENTS.—
+(1) Section 109 of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended—
+(A) in the matter preceding paragraph (1), by striking “For the purposes of this title,
+the term—” and inserting “In this title:”;
+(B) in paragraph (1), by striking “means” and all that follows through
+“Representatives;” and inserting the following: “means, as applicable—
+“(A) the Select Committee on Ethics of the Senate; and
+“(B) the Committee on Ethics of the House of Representatives.”;
+(C) in each of paragraphs (2) through (17), by striking the semicolon at the end of the
+paragraph and inserting a period;
+(D) in paragraph (18)—
+(i) in subparagraph (B), by striking “Standards of Official Conduct” and
+inserting “Ethics”; and
+(ii) in subparagraph (D), by striking “; and” at the end and inserting a period;
+(E) in each of paragraphs (1) through (19)—
+(i) by inserting “The term” after the paragraph designation; and
+(ii) by inserting a paragraph heading, the text of which is comprised of the term
+defined in that paragraph; and
+(F) by redesignating paragraphs (8) and (9) as paragraphs (9) and (8), respectively,
+and moving the paragraphs so as to appear in numerical order.
+(2) Section 101(f) of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended—
+
+(A) in paragraph (9), by striking “as defined under section 109(12)”;
+(B) in paragraph (10), by striking “as defined under section 109(13)”;
+(C) in paragraph (11), by striking “as defined under section 109(10)”; and
+(D) in paragraph (12), by striking “as defined under section 109(8)”.
+(3) Section 103 of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended—
+(A) in subsection (j)(1), by striking “Standards of Official Conduct” and inserting
+“Ethics”; and
+(B) in subsection (l)—
+(i) in paragraph (9), by striking “, as defined under section 109(12)”; and
+(ii) in paragraph (10), by striking “, as defined under section 109(13)”.
+(4) Section 105(b)(3)(A) of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended
+by striking “described in section 109(8) or 109(10) of this Act” and inserting “who is a judicial
+employee or judicial officer”.
+(5) Section 111(2) of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended by
+striking “Standards of Official Conduct” and inserting “Ethics”.
+(6) Section 402 of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended—
+(A) in subsection (b), by striking “title II of” each place it appears; and
+(B) in subsection (f)(2)(B)—
+(i) by striking “Subject to clause (iv) of this subparagraph, before” each place it
+appears and inserting “Before”; and
+(ii) by striking clause (iv).
+(7) Section 503(1)(A) of the Ethics in Government Act of 1978 (5 U.S.C. App.) is amended by
+striking “Standards of Official Conduct” and inserting “Ethics”.
+(8) Section 3(4)(D) of the Lobbying Disclosure Act of 1995 (2 U.S.C. 1602(4)(D)) is
+amended by striking “legislative branch employee serving in a position described under section
+109(13) of the Ethics in Government Act of 1978 (5 U.S.C. App.)” and inserting “officer or
+employee of the Congress (as defined in section 109 of the Ethics in Government Act of 1978 (5
+U.S.C. App.))”.
+
+(9) Section 21A of the Securities Exchange Act of 1934 (15 U.S.C. 78u–1) is amended—
+(A) in subsection (g)(2)(B)(ii), by striking “section 109(11) of the Ethics in
+Government Act of 1978 (5 U.S.C. App. 109(11))” and inserting “section 109 of the Ethics in
+Government Act of 1978 (5 U.S.C. App.)”; and
+(B) in subsection (h)(2)—
+(i) in subparagraph (B), by striking “section 109(8) of the Ethics in Government
+Act of 1978 (5 U.S.C. App. 109(8))” and inserting “section 109 of the Ethics in
+Government Act of 1978 (5 U.S.C. App.)”; and
+(ii) in subparagraph (C), by striking “under section 109(10) of the Ethics in
+Government Act of 1978 (5 U.S.C. App. 109(10))” and inserting “in section 109 of the
+Ethics in Government Act of 1978 (5 U.S.C. App.)”.

@@ -1,0 +1,84 @@
+IN THE CONGRESS OF THE UNITED STATES
+NOVEMBER 17th, 2020
+Mr. Morales and Mr. Loulou (for themselves, Ms. Kyouko, Mr.
+Koay, Mr. Romerio, Mr. Carton) introduced the following bill,
+which was subsequently referred to the Senate.
+To create and establish Net Neutrality protections for the Internet across the United States.
+Be it enacted by the Senate and the House of Representatives of the United States
+in America assembled,
+SECTION 1. SHORT TITLE.
+This act may be cited as the “Net Neutrality Protections Act.” or NNPA for short
+SECTION 2. FINDINGS.
+Congress finds that —
+(a) The term “Net Neutrality" is the principle that all Internet service providers must treat all
+Internet communications equally and prohibits any ISP from slowing down or blocking
+any content, applications, and websites.
+(b) The authority of the Federal Communications Commission is derived from the delegation
+of this authority from the United States Congress, under the Communications Act of
+1934. The authority of the Federal Communications Commission cannot exceed its
+
+source, the United States Congress, and thus, Congress has the authority to legislate to
+regulate the Federal Communications Commission.
+(c) The term "ISP" is short for Internet Service Providers like AT&T, Comcast, Verizon, and
+etc.
+(d) This bill is partially based upon the state of California’s SB 822 sponsored by California
+State Senator Scott Wiener.
+(e) On September 30th 2018, SB 822 was signed by Governor Jerry Brown to legislate the
+protections of the FCC’s 2015 Open Internet Order, under the police powers that
+individual states have under the Tenth Amendment. Under the premise that Congress
+granted the Federal Communications Commission the sole power to regulate internet
+providers, and that internet access did not fall under the scope of police powers as
+claimed by SB 822, the United States Department of Justice sued the state of California
+on this bill. On October 26 2018, the state of California and the Federal Communications
+Commission reached an agreement to not enforce SB 822.
+SECTION 3. DEFINITIONS.
+In this act—
+(a) APPLICATION AGNOSTIC.— The term “application agnostic” means not
+differentiating on the basis of source, destination, internet content, application, service, or
+device, or class of Internet content, application, service, or device.
+(b) CONTENT PROVIDER.— The term “content provider” means any individual or entity
+that provides any content or service over the Internet.
+(c) INTERNET SERVICE PROVIDER.— The term “Internet service provider” means an
+organization that provides services for accessing, using, or participating in the Internet.
+SECTION 4. PROTECTIONS.
+(a) IN GENERAL — Internet access across the United States shall be compelled to be
+provided in a manner which is application agnostic.
+
+(b) REGULATIONS — It shall be unlawful for an Internet service provider to do any of the
+following —
+(i) To block content, services, or non-malicious devices which are in compliance
+with the law.
+(ii) To provide internet service at a higher speed by differentiating between content,
+service, or device.
+(iii) To solicit or accept financial or other compensation from an in exchange for
+adjusting in any way, its delivery of Internet traffic from a content provider.
+(iv) To fail to provide accurate information to consumers regarding the performance
+of services provided by the Internet service provider.
+(v) To otherwise not provide Internet access to lawful content in an application
+agnostic manner.
+(c) If Internet service providers determined by the Federal Communications Commission to
+be tampering with Internet access in violation with the provisions of this section, such
+Internet service providers shall be fined 20% of the taxable corporate income of that year,
+and every forthcoming year until they are determined by the Federal Communications
+Commission to no longer be in violation of these provisions. During this, Internet service
+providers will be monitored by the Federal Communications Commission.
+SECTION 5. ASSISTANT SECRETARY FOR NET NEUTRALITY
+(a) CREATION — The position of Assistant Secretary for Net Neutrality (hereafter referred
+to as ‘the Assistant Secretary) is established.
+(b) APPOINTMENT — The Assistant Secretary shall be appointed by the President of the
+United States, with the advice and consent of the Senate of the United States.
+(c) RANK — The Assistant Secretary shall report to the Federal Communications
+Commission Administrator.
+(d) DUTIES — The Assistant Secretary shall perform such duties and exercise such powers
+as the Federal Communications Commission Administrator shall prescribe, and shall
+have overall supervision over the regulations of Point (b) of Section 4 of this bill.
+SECTION 6. EMERGENCY SERVICES.
+
+(a) No provision within this bill shall be construed to override any existing legislation or
+obligation for a Internet service provider to address the needs of emergency services.
+SECTION 7. ENACTMENT
+The provisions of this statute shall go into effect immediately upon the signature of the President.
+SECTION 8. SEVERABILITY
+(a) SEVERABILITY — Should any provision of this Act be deemed invalid or
+unconstitutional for any reason in a court with relevant jurisdiction, the rest of the Act,
+and the application of the remaining provisions, shall not be affected.

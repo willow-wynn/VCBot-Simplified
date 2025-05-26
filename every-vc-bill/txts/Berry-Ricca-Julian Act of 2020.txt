@@ -1,0 +1,777 @@
+IN THE CONGRESS OF THE UNITED STATES
+MAY 20, 2020
+Authored by Rep. BERRY, Rep. JULIAN, Sen. RICCA
+Rep. JULIAN (for himself, Rep. CARTON, Rep. MITCHELL,
+Rep. SLEEK) introduced the following bill;
+AN ACT
+To reinforce the labor system to ensure that the employer and employee have rights in
+labor relations and management and to implement an impartial collective bargaining
+system.
+Beit enactedby theHouseofRepresentatives ofthe UnitedStatesofAmerica inCongress
+Assembled,
+PREAMBLE
+This Congress,acknowledgingthat—
+(a) Previouslegislationandprovisions create anunfairprocess inlaborrelations;
+(b) New legislationisneededtobalance laborrelations.
+
+SECTION 1. SHORT TITLE, REPEALING, ENACTMENT, ET CETERA.
+(a) This Actmaybe citedas the“FreeEnterpriseStructure Actof 2020”;the shorttitleof
+this Actisthe“Berry-Ricca-Julian Act”;
+(b) Thefollowing Acts arerepealedin theirentirety:
+(1) TheTaft-Hartley Actof 1947;
+(2) Economic Growth,RegulatoryRelief,andConsumer Protection Actof2018;
+(c) This Actshallbe enactedthe dayitis signed intolaw;
+(d) If any of theprovisions ofthis act aredeclared unconstitutionaltheyshould bestricken
+without affectingtherestof thelegislation;
+(e) All pre-existinglegislation whichcontradictsthe contentsof thisAct shallbedeclared
+null and void;
+(f) This billshallsupersede over existinglegislation.
+SECTION 2. TABLE OF CONTENTS.
+Table of Contents.—Thetable ofcontents for thisAct isas follows:
+Preamble
+Sec.1. ShortTitle,Repealing,Enactment,EtCetera
+Sec.2. TableofContents
+Sec.3. OrganizationofBillintoTitles
+Sec.4. EstablishmentoftheNationalBoardforLaborRelationsandManagement
+TITLEI—NATIONALBOARDFORLABORRELATIONSANDMANAGEMENTANDOTHER
+ACTIVITIES
+SUBTITLEA—ORGANIZATIONANDADMINISTRATIONOFTHENATIONALBOARDFORLABOR
+RELATIONSANDMANAGEMENT
+Sec.1101. ResponsibilitiesoftheNationalBoardforLaborRelationsandManagement
+Sec.1102. OrganizationandAdministrationoftheNationalBoardforLaborRelationsandManagement
+Sec.1103. DifferingDecisionsbytheNationalBoardforLaborRelationsandManagementandaCourtofLaw
+SUBTITLEB—REGISTRATIONANDDISSOLUTIONOFLABORUNIONS
+Sec.1201. RegistrationofNewLaborUnions
+Sec.1202. RejectionofRegistration
+Sec.1203. AppealofRejection
+Sec.1204. ImmediatePost-RecognitionActivities
+Sec.1205. OtherPost-RecognitionActivities
+Sec.1206. DissolutionofaLaborUnion
+Sec.1207. Post-DissolutionActivities
+
+SUBTITLEC—COLLECTIVEBARGAININGPROCESSFORNON-ESSENTIALEMPLOYEESAND
+EMPLOYERS
+Sec.1301. CommencementofNegotiationsandRenegotiationsforNon-EssentialServices
+Sec.1302. NotificationAbouttheCommencementofNegotiationsforNon-EssentialServices
+Sec.1303. AppointmentofaConciliationOfficerforNon-EssentialServices
+Sec.1304. ResponsibilitiesofaConciliationOfficerforNon-EssentialServices
+Sec.1305. CriteriaforWithdrawalofServicesforNon-EssentialServices
+Sec.1306. EmployerLockout
+Sec.1307. TraditionalRatificationofaCollectiveAgreementforNon-EssentialServices
+Sec.1308. ConciliatorInitiatedRatificationofaCollectiveAgreementforNon-EssentialServices
+Sec.1309. EmployerInitiatedRatificationofaCollectiveAgreementforNon-EssentialServices
+Sec.1310. ImplementationofBindingArbitrationforNon-EssentialServices
+Sec.1311. OverturningCollectiveAgreementsfromBindingArbitrationforNon-EssentialServices
+Sec.1312. ProceedingafteranOverturnedCollectiveAgreementfromBindingArbitrationforNon-Essential
+Services
+SUBTITLED—COLLECTIVEBARGAININGPROCESSFORNON-ESSENTIALEMPLOYEESAND
+EMPLOYERS
+Sec.1401. CommencementofNegotiationsandRenegotiationsforEssentialServices
+Sec.1402. NotificationAbouttheCommencementofNegotiationsforEssentialServices
+Sec.1403. AppointmentofaConciliationOfficerforEssentialServices
+Sec.1404. ResponsibilitiesofaConciliationOfficerforEssentialServices
+Sec.1405. TraditionalRatificationofaCollectiveAgreementforEssentialServices
+Sec.1406. ConciliatorInitiatedRatificationofaCollectiveAgreementforEssentialServices
+Sec.1407. EmployerInitiatedRatificationofaCollectiveAgreementforEssentialServices
+Sec.1408. ImplementationofBindingArbitrationforEssentialServices
+Sec.1409. OverturningaCollectiveAgreementfromBindingArbitrationforEssentialServices
+Sec.1410. ProceedingafteranOverturnedCollectiveAgreementfromBindingArbitrationforEssentialServices
+SUBTITLEE—NATIONALBOARDFORLABORRELATIONSANDMANAGEMENTENFORCEMENT
+POWERS
+Sec.1501. GeneralEnforcementPowersRegardingLaborUnions
+Sec.1502. GeneralEnforcementPowersRegardingEmployersandThirdParties
+Sec.1503. EnforcementPowersRegardingEmployerRetaliation
+Sec.1504. UnionDerecognition
+Sec.1505. Post-Derecognition
+SUBTITLEF—UNIONSECURITYAGREEMENTS
+Sec.1601. ProhibitionofPre-EntryAgreements
+Sec.1602. Post-EntryAgreements
+Sec.1603. Opt-OutofAgencyFees
+TITLEII—NON-ESSENTIALEMPLOYEESANDEMPLOYERS
+Sec.2001. DefiningNon-EssentialEmployeesandEmployers
+SUBTITLEA—NON-ESSENTIALEMPLOYEES
+Sec.2101. AssociationandOrganizingRelatedtoNon-EssentialEmployees
+
+Sec.2102. DefiningNon-EssentialLaborUnions
+Sec.2103. FormationofLaborUnionsforNon-EssentialEmployees
+Sec.2104. ActivitiesandCriteriaRelatedtoNon-EssentialLaborUnions
+Sec.2105. LegalLaborActionsandPracticebyNon-EssentialEmployeesandUnions
+Sec.2106. ProhibitedLaborActionsandPracticesbyNon-EssentialEmployeesandUnions
+SUBTITLEB—NON-ESSENTIALEMPLOYERS
+Sec.2201. RightsforNon-EssentialEmployers
+Sec.2202. ProhibitionofCertainUnionRelatedActivitiesforNon-EssentialEmployers
+Sec.2203. DefiningReplacementWorkersandLockouts
+Sec.2204. PermittedUsageofReplacementWorkersandLockouts
+Sec.2205. ProhibitedUsageofReplacementWorkersandLockouts
+TITLEIII—ESSENTIALEMPLOYEESANDEMPLOYERS
+Sec.3001. DefiningEssentialEmployeesandEmployers
+SUBTITLEA—ESSENTIALEMPLOYEES
+Sec.3101. AssociationandOrganizingRelatedtoEssentialEmployees
+Sec.3102. DefiningEssentialLaborUnions
+Sec.3103. FormationofLaborUnionsforEssentialEmployees
+Sec.3104. ActivitiesandCriteriaRelatedtoEssentialLaborUnions
+Sec.3105. LegalLaborActionsandPracticesbyEssentialEmployeesandUnions
+Sec.3106. ProhibitedLaborActionsandPracticesbyEssentialEmployeesandUnions
+SUBTITLEB—ESSENTIALEMPLOYEES
+Sec.3201. RightsforEssentialEmployers
+Sec.3202. ProhibitionofCertainUnionRelatedActivitiesforEssentialEmployers
+Sec.3203. ProhibitedUsageofReplacementWorkersandLockoutsByEssentialEmployers
+SECTION 3. ORGANIZATION OF BILL INTO TITLES.
+(a) Titles.—This actis organizedintothree divisionsasfollows:
+(1) Title I—NationalBoard for LaborRelationsandManagement andOther Labor
+Related Activities;
+(2) Title II—Non-Essential EmployeesandEmployers;
+(3) Title III—Essential EmployeesandEmployers.
+SECTION 4. ESTABLISHMENT OF THE NATIONAL BOARD FOR LABOR
+RELATIONS AND MANAGEMENT.
+TheNationalBoard for Labor RelationsandManagement isherebyestablishedunder the
+jurisdiction of theUnitedStates ofAmerica Department ofLabor toorganize,maintain, preserve
+and enforcegood-faith collective bargainingandto managelaborrelations,inaccordancewith
+thestandards of thisAct.
+
+TITLE I—NATIONAL BOARD FOR
+LABOR RELATIONS AND
+MANAGEMENT AND OTHER LABOR
+RELATED ACTIVITIES
+SUBTITLE A—ORGANIZATION AND
+ADMINISTRATION OF THE NATIONAL BOARD FOR
+LABOR RELATIONS AND MANAGEMENT
+SECTION 1101. RESPONSIBILITIES OF THE NATIONAL BOARD FOR
+LABOR RELATIONS AND MANAGEMENT.
+Theresponsibilities of theNationalBoard for LaborRelationsandManagement areas follows:
+(a) Toenforce laborlaws;
+(b) Tosettlelabor-related disputes;
+(c) Tooverseecollective bargaining;
+(d) Toperform otherdutiesandresponsibilities outlinedintheAct.
+SECTION 1102. ORGANIZATION AND ADMINISTRATION OF THE
+NATIONAL BOARD FOR LABOR RELATIONS AND MANAGEMENT.
+(a) MEMBERSHIP.—TheNationalBoardfor Labor RelationsandManagement shallconsist
+of 15non-partisan andexperiencedmembers nominatedbythe SecretaryofLabor and
+confirmedbya majorityof acommitteeofthe Houseof Representatives;
+(b) CHAIRPERSON.—AChairperson shallbeelectedbya majorityof members ofthe
+NationalBoard forLabor RelationsandManagement andwill onlyserveas thepresiding
+officerin debate.TheChairperson shallhavenosignificant powerandmay beremoved
+bya majorityof membersof theNationalBoard for LaborRelationsandManagement;
+
+(c) TERMS OF DUTY.—Membersof theNationalBoard for LaborRelationsand
+Management shall serveonthe committeeintermsof fiveyears;No limits ontermsshall
+be imposed;
+(d) TERMINATION OF MEMBERSHIP.—Members ofthe NationalBoardfor Labor
+Relationsand Managementmay beremovedbythe HouseofRepresentatives orby
+resignation;
+(e) VACANCIES.—In thecaseof vacancies,interim members shallnotbeappointed;
+Members mustbe appointed inaccordancewiththe processoutlinedin Section1102(a)
+of this Act.
+SECTION 1103. DIFFERING DECISIONS BY THE NATIONAL BOARD FOR
+LABOR RELATIONS AND MANAGEMENT AND A COURT OF LAW.
+In thecaseof differing rulings bytheNationalBoard for LaborRelationsandManagement, and
+acourt of law,theruling bythe courtoflaw shallsupersede.
+SUBTITLE B—REGISTRATION AND DISSOLUTION OF
+LABOR UNIONS
+SECTION 1201. REGISTRATION OF NEW LABOR UNIONS.
+(a) Prospective unionsshallsend thenamesand signaturesofmembers andaproposal for
+recognition totheNational Boardfor LaborRelationsand Management;
+(b) TheNationalBoardfor Labor RelationsandManagement shallverifyall signaturesand
+reviewtheproposal for recognition;
+(c) Thelaborunion shallbe recognizedbythe NationalBoardfor Labor Relationsand
+Management when thefollowing occurs:
+(i) Thesignaturesof employeeswho areinfavorof forminga laborunionare
+verified;
+(ii) TheNationalBoardfor Labor RelationsandManagement believesthe criteriafor
+recognized unionsis met;
+(1) Non-essentiallaborunions shallmeetthecriteria inSection 2104ofthis
+Act;
+(2) Essential laborunionsshallmeetthe criteriainSection 3104of thisAct.
+SECTION 1202. REJECTION OF REGISTRATION.
+
+TheNationalBoard for Labor RelationsandManagement mayreject anyregistration for the
+following reasons:
+(a) TheNationalBoardfor Labor RelationsandManagement recognisesincongruencesin
+thedocumentationpresented, findsthe signaturestobefalse and/orsuspect;
+(b) TheNationalBoardfor Labor RelationsandManagement believesthe criteriafor
+recognized unionsarenot met;
+(i) Criteria for non-essentiallaborunions isfound inSection 2104ofthis Act;
+(ii) Criteria for essentiallaborunionsis foundin Section3104of this Act.
+SECTION 1203. APPEAL OF REJECTION.
+In thecasethat registration isrejected,the prospectivelaborunioniseligible torequest thata
+courtof law considertheir registrationproposal.
+SECTION 1204. IMMEDIATE POST-RECOGNITION ACTIVITIES.
+Upon theregistrationand recognitionof alaborunion,the following shalloccur:
+(a) Theunion shallhave theright to negotiatewithany employeronbehalfof its members;
+(b) Theunion shallhave theability toestablish apost-entryshoptogain members.
+SECTION 1205. OTHER POST-RECOGNITION ACTIVITIES.
+After recognitionbytheNational Boardfor LaborRelationsand Management,the following
+shalloccur:
+(a) Non-essential laborunions shallbeeligible tobargaincollectivelyfollowing the
+provisionsin Title I,Subtitle C;
+(b) Essentiallaborunionsshallbeeligible tobargaincollectivelyfollowing the provisionsin
+Title I, Subtitle D.
+SECTION 1206. DISSOLUTION OF A LABOR UNION.
+Alabor unionshallbe dissolved uponcompletionof thefollowing:
+(a) A twothirds(⅔) majority ofthe union’s membershiphasagreedto dissolvetheunion;
+(b) TheNationalBoardfor Labor RelationsandManagement verifiesthat amajority has
+agreed todissolve;
+(c) Other conditionsspecifiedbythe labourunion’sstatute aremet, whichshallhowever not
+be incontrast with theones indicatedinTitle III Subtitle BSection 1206 A.
+SECTION 1207. POST-DISSOLUTION ACTIVITIES.
+
+Upon dissolutionof thelaborunion, thefollowing shalloccur:
+(a) Unionduesand agency feesshallnolonger becollected;
+(b) Thecollectiveagreementshallcontinuetobe enforceduntil the dateof expiry. If the
+employee joinsa newunion, theyshallhave thefreedom tochoose between keepingtheir
+previous agreementuntil the dateof expiryorswitch immediatelyto theagreementof
+their newunion
+SUBTITLE C—COLLECTIVE BARGAINING PROCESS
+FOR NON-ESSENTIAL EMPLOYEES AND
+EMPLOYERS
+SECTION 1301. COMMENCEMENT OF NEGOTIATIONS AND
+RENEGOTIATIONS FOR NON-ESSENTIAL SERVICES.
+(a) If there isnoexistingcollectiveagreement,the laborunionoremployer shallhavethe
+right to commence negotiations for acollectiveagreementatany time;
+(b) If there isanexistingcollectiveagreement,the laborunionor employershallhave the
+right to commence renegotiationfor acollectiveagreementtwothirds intheduration of
+thecollectiveagreement, orif agreedbybothparties, the unionandthe employer,atany
+point of time..
+SECTION 1302. NOTIFICATION ABOUT THE COMMENCEMENT OF
+NEGOTIATIONS FOR NON-ESSENTIAL SERVICES.
+TheNationalBoard for Labor RelationsandManagement shallbenotified aboutany
+commencement of negotiations for collectiveagreements.
+SECTION 1303. APPOINTMENT OF A CONCILIATION OFFICER FOR
+NON-ESSENTIAL SERVICES.
+TheNationalBoard for Labor RelationsandManagement orthe SecretaryofLabor shallappoint
+aconciliation officer(also knownas aconciliator) if eitherof thefollow occurs:
+(a) TheNationalBoardfor Labor RelationsandManagement orthe SecretaryofLabor
+determines thatthereis alack ofprogress innegotiations;
+(b) Theemployerrequestsa conciliator;
+(c) Thelaborunion requestsaconciliator.
+
+SECTION 1304. RESPONSIBILITIES OF A CONCILIATION OFFICER FOR
+NON-ESSENTIAL SERVICES.
+Theconciliator shallperformthe following tasks:
+(a) Determine theschedule for negotiations;
+(b) Oversee thebargainingprocess;
+(c) Ensure thatall bargaining isingood-faith;
+(d) Reportany bad-faith bargaining;
+(e) Aidand acceleratethe bargainingprocess;
+(f) Propose apotential collectiveagreement.
+SECTION 1305. CRITERIA FOR WITHDRAWAL OF SERVICES FOR
+NON-ESSENTIAL SERVICES.
+(a) Any partialwithdrawal ofservicesshallmeetthe following criteria:
+(i) A conciliatorhas beenappointed;
+(ii) A majority ofthe unionmembershiphasvoted infavorof apartial withdrawalof
+services;
+(b) Any full withdrawalof servicesshallmeetthefollowing criteria:
+(i) A conciliatorhas beenappointed;
+(ii) A majority ofthe unionmembershiphasvoted infavorof afull withdrawalof
+services;
+(iii) Theunion shallnotify the employer,conciliator, NationalBoardfor Labor
+RelationsandManagement, andthe Department ofLabor three(3) daysprior toa
+full withdrawalof services.
+SECTION 1306. EMPLOYER LOCKOUT.
+Any employerinitiatingalockout shallmeetthe standardsin Section2204and Section2205of
+this Act.An employerinitiatingalockout shallnotify the NationalBoardfor LaborRelations
+and Management,and the Department ofLabor fivedayspriorto thelockout.
+SECTION 1307. TRADITIONAL RATIFICATION OF A COLLECTIVE
+AGREEMENT FOR NON-ESSENTIAL SERVICES.
+
+Any collectiveagreement shallbedelivered tothe union’smembershipbythe union’s leadership
+and approvedbyamajorityof unionmembership.Thisshalloccurthrough avote organizedby
+theunion andoverseenby theDepartment ofLabor.
+SECTION 1308. CONCILIATOR INITIATED RATIFICATION OF A
+COLLECTIVE AGREEMENT FOR NON-ESSENTIAL SERVICES.
+Aconciliatorshallbe eligible tobypass unionleadershipandinitiate avote toratify aproposed
+collectiveagreementthat isoverseen bytheDepartment of Labor.
+SECTION 1309. EMPLOYER INITIATED RATIFICATION OF A
+COLLECTIVE AGREEMENT FOR NON-ESSENTIAL SERVICES.
+An employershallbeeligibletobypass unionleadershipand initiatea votetoratify aproposed
+collectiveagreementthat isoverseen bytheDepartment of Labor.
+SECTION 1310. IMPLEMENTATION OF BINDING ARBITRATION FOR
+NON-ESSENTIAL SERVICES.
+(a) Defining.—For the purposesof thisAct—The term“binding arbitration”refers tothe
+processin whichanarbitrator or panelof arbitrators hearargumentsfrom theemployer
+and laborunion,and thecollectiveagreementbythe arbitrator(s) isbinding onboth
+parties;
+(b) Bindingarbitration shallbeimplementedif eitherof thefollowing occurs:
+(i) Theemployer andthelabourunion convenein requestingbinding arbitration;
+(ii) Theconciliatorrequests binding arbitration;
+(iii) Thedurationfor negotiations has exceeded18months.
+SECTION 1311. OVERTURNING COLLECTIVE AGREEMENTS FROM
+BINDING ARBITRATION FOR NON-ESSENTIAL SERVICES.
+Thecollectiveagreementbythe arbitrator(s) shallbeoverturned ifeither ofthe following occurs:
+(a) A court of lawdetermines wrongdoingand/orpartiality bythearbitrators;
+(b) TheNationalBoardfor Labor RelationsandManagement determineswrong-doing
+and/orpartiality bythe arbitrators;
+(c) Theunion membershipvotes againstit withathree-quarters (¾) majority
+
+SECTION 1312. PROCEEDING AFTER AN OVERTURNED COLLECTIVE
+AGREEMENT FROM BINDING ARBITRATION FOR NON-ESSENTIAL
+SERVICES.
+If a collectiveagreementbythe arbitrator(s) isoverturned, anewarbitrator(s) shallbe selected
+and theyshalldecideonanewcollectiveagreement.
+SUBTITLE D—COLLECTIVE BARGAINING PROCESS
+FOR ESSENTIAL EMPLOYEES AND EMPLOYERS
+SECTION 1401. COMMENCEMENT OF NEGOTIATIONS AND
+RENEGOTIATIONS FOR ESSENTIAL SERVICES.
+(a) If there isnoexistingcollectiveagreement,the laborunionoremployer shallhavethe
+right to commence negotiations for acollectiveagreementatany time;
+(b) If there isanexistingcollectiveagreement,the laborunionor employershallhave the
+right to commence renegotiationfor acollectiveagreementtwothirds intheduration of
+thecollectiveagreement, orif agreedbybothparties, the unionandthe employer,atany
+point of time.
+SECTION 1402. NOTIFICATION ABOUT THE COMMENCEMENT OF
+NEGOTIATIONS FOR ESSENTIAL SERVICES.
+TheNationalBoard for Labor RelationsandManagement shallbenotified aboutany
+commencement of negotiations for collectiveagreements.
+SECTION 1403. APPOINTMENT OF A CONCILIATION OFFICER FOR
+ESSENTIAL SERVICES.
+TheNationalBoard for Labor RelationsandManagement orthe SecretaryofLabor shallappoint
+aconciliation officerifeither ofthe followoccurs:
+(a) TheNationalBoardfor Labor RelationsandManagement orthe SecretaryofLabor
+determines thatthereis alack ofprogress innegotiations;
+(b) Theemployerrequestsa conciliator;
+(c) Thelaborunion requestsaconciliator.
+
+SECTION 1404. RESPONSIBILITIES OF A CONCILIATION OFFICER FOR
+ESSENTIAL SERVICES.
+Theconciliator shallperformthe following tasks:
+(a) Determine theschedule for negotiations;
+(b) Oversee thebargainingprocess;
+(c) Ensure thatall bargaining isingood-faith;
+(d) Reportany bad-faith bargaining;
+(e) Aidand acceleratethe bargainingprocess;
+(f) Propose apotential collectiveagreement.
+SECTION 1405. TRADITIONAL RATIFICATION OF A COLLECTIVE
+AGREEMENT FOR ESSENTIAL SERVICES.
+Any collectiveagreement shallbedelivered tothe union’smembershipbythe union’s leadership
+and approvedbyamajorityof unionmembership.Thisshalloccurthrough avote organizedby
+theunion andoverseenby theDepartment ofLabor.
+SECTION 1406. CONCILIATOR INITIATED RATIFICATION OF A
+COLLECTIVE AGREEMENT FOR ESSENTIAL SERVICES.
+Aconciliatorshallbe eligible tobypass unionleadershipandinitiate avote toratify aproposed
+collectiveagreementthat isoverseen bytheDepartment of Labor.
+SECTION 1407. EMPLOYER INITIATED RATIFICATION OF A
+COLLECTIVE AGREEMENT FOR ESSENTIAL SERVICE.
+An employershallbeeligibletobypass unionleadershipand initiatea votetoratify aproposed
+collectiveagreementthat isoverseen bytheDepartment of Labor.
+SECTION 1408. IMPLEMENTATION OF BINDING ARBITRATION FOR
+ESSENTIAL SERVICES.
+(a) Bindingarbitration shallbeimplementedif eitherof thefollowing occurs:
+(i) Theemployer andthelabourunion convenein requestingbinding arbitration;
+(ii) Thedurationfor negotiations has exceeded10months.
+SECTION 1409. OVERTURNING A COLLECTIVE AGREEMENT FROM
+BINDING ARBITRATION FOR ESSENTIAL SERVICES.
+
+Thecollectiveagreementbythe arbitrator(s) maybeoverturned either ofthe following occurs:
+(a) A court of lawdetermines wrong-doing and/orpartialitybythe arbitrators;
+(b) TheNationalBoardfor Labor RelationsandManagement determineswrong-doing
+and/orpartiality bythe arbitrators.
+(c) Theunion membershipvotes againstit withathree-quarters (¾) majority
+SECTION 1410. PROCEEDING AFTER AN OVERTURNED COLLECTIVE
+AGREEMENT FROM BINDING ARBITRATION FOR ESSENTIAL
+SERVICES.
+If a collectiveagreementbythe arbitrator(s) isoverturned, newarbitratorsshallbeselected and
+theyshalldecideona new collectiveagreement.
+SUBTITLE E—NATIONAL BOARD FOR LABOR
+RELATIONS AND MANAGEMENT ENFORCEMENT
+POWERS
+SECTION 1501. GENERAL ENFORCEMENT POWERS REGARDING
+LABOR UNIONS.
+If a laborunionand theirmembers failtocomply withany provisionofthis Act,the National
+Board for Labor Relations andManagement, and/oracourtof lawshallbeeligible toperform
+any of thefollowing activities:
+(a) Levyfines against theunionto areasonabledegree;
+(b) Levyfines against employeestoa reasonabledegree.
+SECTION 1502. GENERAL ENFORCEMENT POWERS REGARDING
+EMPLOYERS AND THIRD PARTIES.
+If an employerand/orthird partyviolatesany partofthis Actexceptfor the offencesin Section
+1503of this Act,theNationalBoardfor Labor RelationsandManagement, and/or acourtof law
+shallbe eligibletoperform anyof thefollowing activities;
+(a) Levyfines against theemployer and/orthird partytoareasonabledegree;
+(b) Withhold any federal funds oranyotherform offinancialassistancefrom theemployer
+and/orthird partytoa reasonabledegree.
+
+SECTION 1503. ENFORCEMENT POWERS REGARDING EMPLOYER
+RETALIATION.
+Any firing, demotionor sanctionimposedinretaliation tothe worker’sor theworker’s union
+actions andprotests asdefinedbythis Actshallbeappealable bythe worker.Theworkershall
+also havetheabilityto receivecompensation inthe following formsuponapprovalbythe
+NationalBoard for Labor Relations andManagement:
+(a) If theworkerisfired, theyshallhave theright toreintegration, or anindemnityseen fit
+bytheNationalBoard for LaborRelationsand Managementor courtoflaw,but not
+inferior to10monthsof pay;
+(b) If theworkerisdemotedtoa lowerroleor mansion,theyshallhave theright to
+reinstatementto their former role ofmansion,andan indemnitynolesser thanthe
+differencebetweenthe received payfor theperiodof demotionandthe paythat would
+havebeenreceived withoutthe demotion,andinany casesnolesser than$1000(adjusted
+for inflation);
+(c) Any othersanctionimposedbythe employerinretaliation tothe worker’sor theworker’s
+union actionsand protests asdefinedbythis Actshallbe punishablewithactionslisted in
+Section 1502of thisAct,or anyotheractionas seenfit bythe NationalBoardfor Labor
+Relationsand Managementor court oflaw.
+SECTION 1504. UNION DERECOGNITION.
+If a unionfailsto meetthe criteriain Section1201of this Act,theunion shallfacefinesoutlined
+in Section1501of this Act. If theunioncontinues theirfailureinmeetingsaid criteria, the
+NationalBoard for Labor Relations andManagement, ora courtoflawshallbe capableof
+derecognizingtheunion. The unionmay appealthedecisionto ahigher court.
+SECTION 1505. POST-DERECOGNITION.
+If a unionisderecognized,the following shalloccur:
+(a) Theunion’s collective agreementremains inplaceuntil itsexpiry;
+(b) Theunion shallnolongercollect duesand/oragency fees;
+(c) Theunion mayseek recognitionagain through theprocess outlinedinSection 1201of
+this Act.
+
+SUBTITLE F—UNION SECURITY AGREEMENTS
+SECTION 1601. PROHIBITION OF PRE-ENTRY AGREEMENTS.
+(a) Defined.—For the purposesof thisAct—The term“pre-entryagreement” or“pre-entry
+union shop”or “pre-entry shop”or “closedshop” shallrefertounionsecurity agreements
+in collectiveagreements wherethe employeragrees toonlyemploy employees whoagree
+to join acertain union;
+(b) Any pre-entryagreementshallbeconsidered illegal asaninfringement on theworker’s
+right to work.
+SECTION 1602. POST-ENTRY AGREEMENTS.
+(a) Defined.—For the purposesof thisAct—The term“post-entryagreement”or “post-entry
+union shop”or “post-entry shop”or “openshop” shallrefertounionsecurity agreements
+in collectiveagreements whereemployees aregivena specificdurationtojoin aunion;
+(b) Post entryunionshopsshallbelawfulif—
+(i) Theworkeris alloweda periodofat leastthreemonths tojoin aunion;
+(ii) Theshop is notaffiliated toasingleunion,but toagroup ofunions inacollective
+agreementwiththe employer;
+(iii) Theworkershalltherefore havethe possibilityof choosing fromatleast two
+unions;
+(iv) Theworkeris notifiedat least30daysin advanceoftheirgrace periodexpiration
+and of thepossibilityof theirdismissalunlessjoining oneofthe unionsas in
+Subclauses(ii) and(iii)
+(v) Theworkeris allowedto submitajustification for themnot joininga unionandto
+contextually askfor an extensionofthe graceperiod,whichwill beevaluated and
+eventuallygranted bytheNationalBoard for LaborRelationsandManagement;
+(c) Any post-entryagreement that doesnotme thecriteria inClause (b) shallbeconsidered
+unlawful;
+(d) If any of theprovisions inClause (b) isinfringed—
+
+(i) Theworkershallhave theright toappealany firing,demotion,sanctionor any
+measure imposed inviolationof said provisions,andhave theright to
+compensation asseen fit bythe NationalBoardfor LaborRelationsand
+Management, ora courtoflaw;
+(ii) Said compensationshallbechargedto theunionor theemployer accordingto
+their legalresponsibilities ortoboth ofthem, asseen fit bythe courts;
+(iii) Theunion or theemployer orboth maybesubject toadditionalpecuniary
+sanctionsproportionedto theoffence asseen fit bythecourts;
+(iv) Theunion shop agreementmaybeterminated ifthe violationis sufficientlygrave,
+asseen fit bythe courts.
+SECTION 1603. OPT-OUT OF AGENCY FEES.
+(a) Defined.—For the purposesof thisAct—The term“agencyfees”shallreferto fees
+collected fromnon-unionized employeesbyalaborunion tocovercollectivebargaining
+costs;
+(b) If an employeewishesto opt-out ofpaying agencyfees, theemployeemust demonstrate
+that theiragreementwiththe employer,workingconditions, benefitsand salarywere
+negotiated,receivedand implementedindependentlywithout beinginfluenced bythe
+laborunion.
+TITLE II—NON-ESSENTIAL
+EMPLOYEES AND EMPLOYERS
+SECTION 2001. DEFINING NON-ESSENTIAL EMPLOYEES AND
+EMPLOYERS.
+Servicesnot listedin Section3001of thisAct areconsiderednon-essential alongwith their
+employeesand employers.
+SUBTITLE A—NON-ESSENTIAL EMPLOYEES
+SECTION 2101. ASSOCIATION AND ORGANIZING RELATED TO
+NON-ESSENTIAL EMPLOYEES.
+
+Any non-essentialemployedpersonin theUnited StatesofAmerica, theseveral Statesand
+Territoriesshallbe recognizedthe following:
+(a) Theright to self-organization intheirworkplace, toform,join orassist labor
+organizationswithout fearof consequencesnor interferencebytheiremployer(s);
+(b) Theright to bargaincollectively ingoodfaiththrough democraticallyelected
+representativesof theirchoosing;
+(c) Theright to protest;
+(d) Theright to notbe discriminated againstonthebasisof theirgender, race,nationality,
+religion or political beliefs.
+(e) Theright to mutualaid
+SECTION 2102. DEFINING NON-ESSENTIAL LABOR UNIONS.
+Non-essential laborunions areorganizationsthat representnon-essentialemployees.
+SECTION 2103. FORMATION OF LABOR UNIONS FOR NON-ESSENTIAL
+EMPLOYEES.
+(a) TheNationalBoardFor LaborRelationsandManagement shalloversee andbe
+responsiblefor non-essential employees;
+(b) Non-essential laborunions shallgainrecognition via theprocess outlinedinSection 1201
+and meetthecriteriain Section2104of this Act.
+SECTION 2104. ACTIVITIES AND CRITERIA RELATED TO
+NON-ESSENTIAL LABOR UNIONS.
+All recognizedunionsshall meetthefollowing criteria:
+(a) Be democratically operated;
+(b) Be representativeof theviews oftheirmembership;
+(c) Have aprocessto democraticallyremove unionleadership.
+SECTION 2105. LEGAL LABOR ACTIONS AND PRACTICES BY
+NON-ESSENTIAL EMPLOYEES AND UNIONS.
+Any laboractionthatisa legallaboractionpracticeand thathas beendemocraticallyvoted for
+bya majorityof theunionmembershipand leadershipshallbelegal.Legallaboractionpractices
+includebut notlimited to,shallbe thefollowing:
+(a) Boycotts,where aunion engagesinanorganized effortto discourageconsumers from
+buying goodandservices ofaparticular employer;
+(b) Secondaryboycotts,where aunionengagesin asimilar actioninsupportof legallabor
+actionpractices byanother union;
+
+(c) Work-ins, whereworkers under threatof losingtheir jobremainin theirplaceand
+continueto work;
+(d) Pickets,where employeescongregate outsideof aplaceofwork inasign ofprotest;
+(e) Blockades, whereemployeespreventthe movementof goodsandpeople intoand outof
+work sites;
+(i) Limits may beplacedonblockadesbythe judiciary;
+(f) Walkouts, whereemployees collectivelyleavetheirworkplaceas anact ofprotest;
+(g) Slowdown strikes,where workerscarry outtheirmansions atareduced paceas anact of
+protest;
+(h) Overtimebans,where workerscollectivelyrefuse towork anyovertime;
+(i) Work-to-rules, whereworkersstrictlyadhere totheminimum prescribedbytheir
+contractsand/orstrictlyadhereto safetyprotocols toreducethe paceof work;
+(j) General strikes,where workersinmost or allindustrieswithdraw theirservices;
+(k) Sympathy strikes, whereworkersfrom aunionwithdraw theirservicesinsupportfor
+another unioninvolvedin alabordispute;
+(l) Wildcatstrikes, where unionizedworkerswithdraw theirservicesindependentfromthe
+decision of theunion leadership;
+(m) Partial withdrawal ofservices;
+(n) And anyotherforms ofnonviolentdissentin theworkplaceapprovedbythe National
+Board for Labor Relations andManagement orthe courts.
+SECTION 2106. PROHIBITED LABOR ACTIONS AND PRACTICES BY
+NON-ESSENTIAL EMPLOYEES AND UNIONS.
+Illegal forms of laboractionsandpractices shallincludethefollowing:
+(a) Any actiontakenby unionleadershipwithoutconsultation and/orapprovalof the
+majority of themembership;
+(b) Any collusionbetween unionleadershipandthe employer(s);
+(c) Any coercionbyany unionmemberto forceotheremployees tovotefor or againsta
+certain action;
+(d) Any coercionbyany unionmemberor uniontojoin acertain union;
+(e) Any violentactions;
+(f) Any withdrawalof serviceswithoutaconciliator beingappointed;
+(g) Any otheractionorpracticeregarded as illegalbythe NationalBoardfor LaborRelations
+and Managementor thecourts.
+SUBTITLE B—NON-ESSENTIAL EMPLOYERS
+
+SECTION 2201. RIGHTS FOR NON-ESSENTIAL EMPLOYERS.
+All non-essentialemployers willberecognized the following rights:
+(a) Theright to request meetingswith theunionleadershipand toaskfor permissionto
+addresstheunion membershipwithin reason;
+(b) Theright to renegotiate theterms ofthe union(s)contract(s)within threemonths ofthe
+previouslysigned contract’s expirationdate;
+(c) Theright to request ajudgementand hearingbytheNationalBoard for LaborRelations
+and Managementandto requirethe presence ofunionrepresentatives;
+(d) Theright to prohibit someor all laboractionpracticesincollectiveagreements;
+(e) Theright to fire unionemployees withinreasonand withdefinitive proof for causeof
+action.
+SECTION 2202. PROHIBITION OF CERTAIN UNION RELATED
+ACTIVITIES FOR NON-ESSENTIAL EMPLOYERS.
+Non-essential employersareprohibited fromanyof thefollowing activities:
+(a) Any activitywiththeintentof prohibitingor interferingwith unionorganizingor
+formation;
+(b) Coercing employeesfrom joininga unionorseekingto formaunion;
+(c) Coercing employeesto joinaparticular unionexceptinthe caseofpost-entryunion
+shops;
+(d) Dominatingor providing illegalassistanceor supporttoalaborunion;
+(e) Establishingtheir own unions(companyunions orsham unions);
+(f) Dominateor interferewith anylabororganization;
+(g) Discriminatingagainst employeesto encourageor discouragemembershipin alabor
+organization;
+(h) Retaliatingagainst anemployeefor filing achargewith,or givingtestimony to,the
+NationalBoard forLabor RelationsandManagement and/oranycourtof law;
+(i) Interfering with an employee’sright to organize,join,or assista union;engage in
+collectivebargaining; orengage inprotected, concerted activities;
+(j) Limiting theworkers’right to mutual aid;
+(k) Refusing toengage ingood-faith collectivebargaining;
+(l) Preventing unionrepresentativesfromtalkingto unionandnon-union employees;
+(m) Preventing or obstructing anyinvestigationtaken byalawenforcement agencyor the
+NationalBoard forLabor RelationsandManagement;
+
+(n) Any otheractionorpracticedeemedprohibited bytheNationalBoard for Labor
+Relationsand Managementor court oflaw.
+SECTION 2203. DEFINING REPLACEMENT WORKERS AND LOCKOUTS.
+(a) Definitions.—For purposesof this Act—
+(i) Theterm “replacementworker”shallmean anynon-unionized employeehiredby
+an employer toperform the dutiesofaunionizedemployee;
+(ii) Theterm “lockout” shallrefertotheuse ofreplacement workersbyanemployer.
+SECTION 2204. PERMITTED USAGE OF REPLACEMENT WORKERS AND
+LOCKOUTS.
+Theusage of replacement workersandlockoutsshallbe permittedonthefollowing occasions:
+(a) Unionmembershipis engagingin apartial withdrawalofservices;
+(b) Unionmembershipis engagingin afull withdrawalof services;
+(c) Unionmembershipis engagingin aslowdownstrike.
+SECTION 2205. PROHIBITED USAGE OF REPLACEMENT WORKERS AND
+LOCKOUTS.
+Theusage of replacement workersandlockoutsshallbe prohibitedonthe following occasions:
+(a) Thecollectiveagreementis notexpired;
+(b) A conciliationofficer hasnot beenappointed;
+(c) Collective bargaining hasnotexceeded 16months
+(d) Unionmembershiphas notwithdrawn theirservices;
+(e) Unionmembershipis notengaged inaslowdownstrike;
+(f) Any occasionnot specifiedin section2204ofthis Act;
+(g) Or anyotherreason determinedbytheNationalBoard for LaborRelationsand
+Management or courtof law.
+TITLE III—ESSENTIAL EMPLOYEES
+AND EMPLOYERS
+SECTION 3001. DEFINING ESSENTIAL EMPLOYEES AND EMPLOYERS.
+Definitions.— Forpurposesof this Act—
+
+(a) Theterm “essential service”referstothe following services:
+(i) Businessesthat supply other essentialbusinessesor essentialservices;
+(ii) HealthcareandHuman Services;
+(iii) Justice;
+(iv) Homeland Security;
+(v) Security and incidentpreventiononthe workplace;
+(vi) Defence;
+(vii) Businessesthat primarilysellfood, beverages, andconsumerproducts necessary
+to maintain householdsandbusinesses;
+(viii) Financial services;
+(ix) TelecommunicationsandInformation technologyinfrastructure/service providers;
+(x) Maintenance,repair andproperty managementservicesthat arevitaltomanaging
+and maintainingthe essentialoperation,safety,sanitation andsecurity of
+residential, industrial,institutionalandcommercial buildingsandproperties;
+(xi) Transportationservices;
+(xii) Agricultureandfood production;
+(xiii) Construction-related toanyotheressentialservices;
+(xiv) Energy;
+(xv) Community services,theseincludethefollowing:
+(1) Sewagetreatment anddisposal;
+(2) Wastemanagement anddisposal;
+(3) Critical infrastructurerepair andmaintenanceservices;
+(4) Potable water;
+(5) Environmental rehabilitation, managementand monitoring
+(6) Spill cleanupandresponserelated toenvironmental managementand
+rehabilitation
+(7) Administrative authoritiesthat regulateand inspectbusinesses;
+(8) Social services;
+(9) Policing andlawenforcement;
+(10) Fire andemergency services;
+(11) Paramedics;
+(12) Coroner services;
+(13) Pathology services;
+(14) Corrections andcourtservices;
+(xvi) Any otherservice thatis deemedcriticaltothe qualityoflife ofcitizens ofthe
+UnitedStates ofAmerica byacourtoflaw;
+(b) Theterm “essential employee”refersto anemployeeemployedinan essentialservice;
+(c) Theterm “essential employer”refers toanemployer inanessentialservice.
+
+SUBTITLE A—ESSENTIAL EMPLOYEES
+SECTION 3101. ASSOCIATION AND ORGANIZING RELATED TO
+ESSENTIAL EMPLOYEES.
+Any essentialemployedperson inthe UnitedStatesof America,the severalStatesand Territories
+shallbe recognizedthefollowing:
+(a) Theright to self-organization intheirworkplace, toform,join orassist labor
+organizationswithout fearof consequencesnor interferencebytheiremployer(s);
+(b) Theright to bargaincollectively ingoodfaiththrough democraticallyelected
+representativesof theirchoosing;
+(c) Theright to protest withoutaffectingthe qualityofthe service offered;
+(d) Theright to notbe discriminated againstonthebasisof theirgender, race,nationality,
+religion or political beliefs.
+(e) Theright to mutualaid
+SECTION 3102. DEFINING ESSENTIAL LABOR UNIONS.
+Essentiallaborunionsareorganizationsthat representessentialemployees.
+SECTION 3103. FORMATION OF LABOR UNIONS FOR ESSENTIAL
+EMPLOYEES.
+(a) TheNationalBoardFor LaborRelationsandManagement shalloversee andbe
+responsiblefor essentialemployees;
+(b) Essentiallaborunionsshallgain recognitionvia theprocess outlinedinSection 1201and
+meetthecriteriainSection 3104of thisAct.
+SECTION 3104. ACTIVITIES AND CRITERIA RELATED TO ESSENTIAL
+LABOR UNIONS.
+All recognizedessentiallaborunions shallmeetthefollowing criteria:
+Be operateddemocratically;
+(a) Be democratically operated;
+(b) Be representativeof theviews oftheirmembership;
+(c) Have aprocessto democraticallyremove unionleadership.
+SECTION 3105. LEGAL LABOR ACTIONS AND PRACTICES BY
+ESSENTIAL EMPLOYEES AND UNIONS.
+
+Any laboractionthatisa legallaboractionpracticeand thathas beendemocraticallyvoted for
+bya majorityof theunionmembershipand leadershipshallbelegal.Legallaboractionpractices
+for essentialemployeesinclude butnotlimited to,shallbethe following:
+(a) Boycotts,where aunion engagesinanorganized effortto discourageconsumers from
+buying goodandservices ofaparticular employer;
+(b) Secondaryboycotts,where aunionengagesin asimilar actioninsupportof legallabor
+actionpractices byanother union;
+(c) Work-ins, whereworkers under threatof losingtheir jobremainin theirplaceand
+continueto work;
+(d) Pickets,where employeescongregate outsideof aplaceofwork inasign ofprotest;
+(i) Picketsshallnotnegatively affect theabilityof theservice tofunction toa
+minimum essentiallevel;
+(e) Overtimebans,where workerscollectivelyrefuse towork anyovertime;
+(i) Overtimebansshallnotnegatively affect theabilityof theservice tofunction toa
+minimum essentiallevel;
+(f) Work-to-rules, whereworkersstrictlyadhere totheminimum prescribedbytheir
+contractsand/orstrictlyadhereto safetyprotocols toreducethe paceof work;
+(i) Work-to-rules shallnot negativelyaffect theability ofthe serviceto functiontoa
+minimum essentiallevel
+And anyotherforms of nonviolentdissentthat does notimpedetheproviding of theservice toa
+minimum essentiallevelapprovedbythe NationalBoardfor Labor RelationsandManagement
+or thecourts.
+SECTION 3106. PROHIBITED LABOR ACTIONS AND PRACTICES BY
+ESSENTIAL EMPLOYEES AND UNIONS.
+Illegal forms of laboractionsandpractices shallincludethefollowing:
+(a) Any actiontakenby unionleadershipwithoutconsultation and/orapprovalof the
+majority of themembership;
+(b) Any collusionbetween unionleadershipandthe employer(s);
+(c) Any coercionbyany unionmemberto forceotheremployees tovotefor or againsta
+certain action;
+(d) Any coercionbyany unionmemberor uniontojoin acertain union;
+(e) Any violentactions;
+(f) Blockades, whereemployeespreventthe movementof goodandservicesintoand outof
+worksites;
+(g) Walkouts, whereemployees collectivelyleavetheirworkplaceas anact ofprotest, if they
+negativelyaffect the abilityof theservice tofunctionto aminimumessentiallevel;
+
+(h) Slowdown strikes,where workerscarry outtheirmansions atareduced paceas anact of
+protest,if theynegativelyaffect the abilityofthe service tofunctiontoa minimum
+essentiallevel;
+(i) Overtimebansnegatively affectthe abilityof theservice tofunctionto aminimum
+essentiallevel;
+(j) Work-to-rules negatively affect theabilityof theservice tofunction toaminimum
+essentiallevel;
+(k) Any partialwithdrawal ofservicesthat negatively affectstheabilityof theservice to
+function toa minimumessentiallevel;
+(l) Strikes, whereemployees withdrawall theirservices,that negatively affectthe abilityof
+theservice tofunction toaminimum essentiallevel;theseincludethefollowing:
+(i) General strikes,where workersinmost or allindustrieswithdraw theirservices;
+(ii) Sympathy strikes,where workersfrom aunionwithdraw theirservicesinsupport
+for anotherunion involvedin alabordispute;
+(iii) Wildcatstrikes, where unionizedworkerswithdraw theirservicesindependent
+from thedecisionof theunionleadership;
+(m) Any actionthatnegativelyaffectsthe abilityofthe service tofunctiontoa minimum
+essentiallevel;
+(n) Any otheractionorpracticeregarded as illegalbythe NationalBoardfor LaborRelations
+and Managementor thecourts.
+SUBTITLE B—ESSENTIAL EMPLOYERS
+SECTION 3201. RIGHTS FOR ESSENTIAL EMPLOYERS.
+All essentialemployerswill berecognized thefollowing rights:
+(a) Theright to request meetingswith theunionleadershipand toaskfor permissionto
+addresstheunion membershipwithin reason;
+(b) Theright to renegotiate theterms ofthe union(s)contract(s)within threemonths ofthe
+previouslysigned contract’s expirationdate;
+(c) Theright to request ajudgementand hearingbytheNationalBoard for LaborRelations
+and Managementandto requirethe presence ofunionrepresentatives;
+(d) Theright to prohibit someor all laboractionpracticesincollectiveagreements;
+(e) Theright to fire unionemployees withinreasonand withdefinitive proof for causeof
+action.
+
+SECTION 3202. PROHIBITION OF CERTAIN UNION RELATED
+ACTIVITIES FOR ESSENTIAL EMPLOYERS.
+Essentialemployers areprohibited fromanyof thefollowing activities:
+(a) Any activitywiththeintentof prohibitingor interferingwith unionorganizingor
+formation;
+(b) Coercing employeesfrom joininga unionorseekingto formaunion;
+(c) Coercing employeesto joinaparticular unionexceptinthe caseofpost-entryunion
+shops;
+(d) Dominatingor providing illegalassistanceof supporttoalaborunion;
+(e) Establishingtheir own employees(companyunions orsham unions);
+(f) Dominateor interferewith anylabororganization;
+(g) Discriminatingagainst employeesto encourageor discouragemembershipin alabor
+organization;
+(h) Retaliatingagainst anemployeefor filing achargewith,or givingtestimony to,the
+NationalBoard forLabor RelationsandManagement and/oranycourtof law;
+(i) Interfering with an employee’sright to organize,join,or assista union;engage in
+collectivebargaining; orengage inprotected, concerted activities;
+(j) Limiting theworkers’right to mutual aid;
+(k) Refusing toengage ingood-faith collectivebargaining;
+(l) Preventing unionrepresentativesfromtalkingto unionandnon-union employees;
+(m)Preventing or obstructing anyinvestigationtaken byalawenforcement agencyor the
+NationalBoard forLabor RelationsandManagement;
+(n) Any otheractionorpracticedeemedprohibited bytheNationalBoard for Labor
+Relationsand Managementor court oflaw.
+SECTION 3203. PROHIBITED USAGE OF REPLACEMENT WORKERS AND
+LOCKOUTS BY ESSENTIAL EMPLOYERS.
+Theusage of replacement workersandlockoutsshallbe prohibitedonall occasions.

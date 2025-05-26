@@ -1,0 +1,1136 @@
+164TH CONGRESS
+1ST SESSION
+S. 1
+To require the United States to reduce dependency on fossil fuels,
+improve national energy independence, invest in research for
+renewable energy, and for other purposes.
+MR. HARRIS-CHAREST (for himself, MS. HEINALOUMA OF OLYMPIA, MS.
+KALLIS OF PACIFICA, MR. MILLER OF LINCOLN, REPRESENTATIVE TWOS OF
+LINCOLN) introduced the following bill.
+AN ACT
+To require the United States to reduce dependency on fossil fuels, improve national energy
+independence, invest in research for renewable energy, and for other purposes.
+Be it enacted by the Senate and the House of Representatives of the United States of America
+in Congress assembled,
+SECTION 1. SHORT TITLE.
+This Act may be cited as the Generating Renewable Energy and improving Economic
+innovatioN Act of 2023, or the GREEN Act.
+SEC 2. FINDINGS.
+The Congress of the United States finds that:
+(a) Fossil fuels are a nonrenewable, finite resource;
+(b) A large portion of American energy generation requires the use of fossil
+fuels;
+(c) A large portion of American energy usage relies on fossil fuels;
+(d) The United States imported more than nine million barrels of oil per day
+in 2019 to sustain its operations and uses;
+
+2
+(e) Of the over 9 million barrels of oil imported to the United States, almost
+75 percent was crude oil, requiring refinement and harming the
+environments of several cities, towns, and waterways;
+(f) At current rates of use, the planet will run out of coal in 2156, natural gas
+in 2078, and crude oil in 2070;
+(g) Over 95 percent of vehicles in the United States require gasoline, a
+product made from the refinement of crude oil, to operate;
+(h) There lacks suitable infrastructure to allow alternative fuel vehicles to
+compete with conventional fuel vehicles;
+(i) Infrastructure is developed based on demand, which is made artificially
+scarce due to American energy policy and priorities;
+(j) A future scarcity of fossil fuels pose an inherent risk to the American
+economy and our national defense;
+(k) In 2019, petroleum and natural gas products produced 1.04 quadrillion
+and 5.21 quadrillion British thermal units of energy in the residential
+sector, making a total of 6.25 quadrillion British thermal units of energy
+for residential use;
+(l) In 2019, renewables produced less than one quadrillion British thermal
+units of energy for residential use;
+(m)The demand for electricity is increasing annually in the United States;
+(n) Renewable sources of energy can provide and sustain the United States in
+the long term;
+(o) Investing in renewable sources of energy to power the United States
+requires a diversification of sources; and,
+(p) The United States shall be a world leader on investments into, and
+research around, the implementation of renewable sources of energy.
+SEC 3. DEFINITIONS.
+As used in this act and unless otherwise defined, the term:
+(a) “Department” shall retain the same definition as enacted in 42 USC
+§7101.
+(b) “Function” shall retain the same definition and conditions for
+interpretation as enacted in 42 USC §7101.
+(c) “Secretary” shall be defined as the principal officer of the Department of
+Energy.
+(d) “Administrator” shall be defined as the Administrator of the Federal
+Energy Administration.
+(e) “Conventionally fuelled vehicle” shall be interpreted as meaning any
+vehicle that relies solely or primarily on gasoline or diesel fuel to propel
+itself.
+
+3
+TITLE I. REDUCTION OF FOSSIL FUELS.
+SUBTITLE A — USAGE TARGETS
+SECTION 101. ESTABLISHING TARGETS FOR ENERGY GENERATION AND
+CONSUMPTION.— Title 42, United States Code, is amended by inserting after
+Chapter 84, Subchapter X the following:
+“SUBCHAPTER XI – ENERGY TARGETS
+“§ 7361. Preparation of energy targets.
+“(a) No later than the first day of July of 2023, and every year
+thereafter, the President, in collaboration with the Secretary, shall
+transmit to the Congress energy targets for net imports of fossil fuels,
+domestic production of fossil fuels, domestic production of renewable
+energy, and end-use consumption of energy of all sources for the the
+next four calendar years that are evenly divisible by 5. Such targets
+shall be transmitted in the form prescribed in section 7363.
+“(b) In preparing energy targets under this section, the
+President shall take into account anticipated energy conservation and
+anticipated production of energy from new technologies, and shall
+transmit with the targets supporting data together with a statement
+of the assumptions on which the targets are based.
+“(c) Before the first day of July of 2024, and of every year
+thereafter, the President shall transmit to the Congress and the public
+a report regarding the energy targets transmitted during the
+preceding year, and shall declare whether or not targets were met.
+Should a target not be met, an explanation shall accompany the
+declaration.
+“(d) The President is prohibited from providing targets that
+reduce the use of renewable sources of energy, nor targets that fail to
+increase the use of renewable sources of energy to the greatest extent
+possible.
+“§ 7362. Congressional consideration.
+“(a)
+
+4
+“(1) Any Department of Energy authorization bill for
+any portion of the fiscal year 2024 and any such bill affecting
+any portion of any subsequent fiscal year which is proposed in
+an executive communication to the Congress shall include the
+targets required by section 7361(a) to be transmitted by July of
+the preceding fiscal year. Such targets shall be in the form
+prescribed in section 7363 and shall be set forth as a separate
+title at the end of the proposed bill.
+“(2) The energy targets transmitted to the Congress
+under section 7361 shall be considered by any committee of the
+House of Representatives or the Senate in connection with any
+Department of Energy authorization bill for fiscal year 2024 or
+any following fiscal year. This paragraph shall apply during the
+One Hundred and Sixty-third Congress, and during any
+subsequent Congress (with respect to Department of Energy
+authorization bills for later fiscal years) to the extent expressly
+provided in any Act (other than an appropriation Act) approved
+after the date of the enactment of this Act.
+“(3)
+“(A) During the One Hundred and Sixty-third
+Congress, it shall be in order (notwithstanding any rule
+or provision of law) during the consideration in the
+House of Representatives, in the Senate, or in any
+committee of either, of any Department of Energy
+authorization bill for fiscal year 2024, or a joint
+resolution (as defined in subsection (d)(1)(B)), to offer
+and consider, except as provided in subparagraph (B)—
+“(i) any amendment (or series of
+amendments) only changing the number of any
+energy target contained in such bill or resolution,
+or
+“(ii) in the case of any such authorization
+bill, any amendment only adding a title
+containing only energy targets in the form
+prescribed in section 7363 if such bill does not
+contain such a title, or only deleting such a title
+
+5
+contained in such bill.
+“(B) Any amendment (or series of amendments)
+referred to in subparagraph (A) shall not be in order
+unless it continues, improves upon, or achieves
+mathematical consistency within the targets
+transmitted by the President.
+“(b)
+“(1) If —
+“(A) on or before July 1, 2023, no Department of
+Energy authorization bill for fiscal year 2024 has been
+reported to either House of the Congress by any of the
+respective authorizing committees, or
+“(B) no committee which has reported such an
+authorization bill in either House by such date has
+included energy targets in the form prescribed in section
+7363 as a separate title,
+a joint resolution introduced in the Senate or the House
+of Representatives after such date shall be subject to the
+provisions of this section and shall immediately be referred to
+the appropriate authorizing committees, which shall have until
+August 1, 2023, to consider and report such resolution.
+“(2) If on or before August 1, 2023, the appropriate
+authorizing committees of the House of Representatives or the
+Senate have not reported such a joint resolution, such
+committees of that House may be discharged from further
+consideration of such joint resolution (or any other joint
+resolution) in accordance with paragraph (4) of section 552(d) of
+the Energy Policy and Conservation Act (as if it were a
+resolution relating to a contingency plan) if a motion for such a
+discharge is made during the period of 5 calendar days of
+continuous session of Congress which follows August 1, 2023.
+“(3) The provisions of subsections (c) and (d)(5) and (6) of
+section 552 of such Act shall apply with respect to the
+consideration of such a joint resolution in either House, except
+
+6
+that—
+“(A) debate on such joint resolution shall be
+limited to not more than 3 hours,
+“(B) it shall be in order (notwithstanding any
+rule or provision of law) to offer and consider any
+amendment (or series of amendments) permitted under
+subsection (a)(3), and
+“(C) the references in such provisions to any
+resolution relating to a contingency plan shall be
+considered to refer to a joint resolution under this
+section.
+“(c) In the consideration of any Department of Energy
+authorization bill containing a title setting forth energy targets, the
+question of whether any amendment (other than an amendment
+referred to in subsection (a)(3)) to any portion of such bill (including
+such title) is in order in the House of Representatives, in the Senate,
+or in any committee of either, shall be determined as if the title
+containing such targets were not in the bill.
+“(d)
+“(1) For purposes of this section—
+“(A) the term "Department of Energy
+authorization bill" means any general authorization of
+appropriations for the civilian programs and activities of
+the Department of Energy;
+“(B) the term "joint resolution" means only a joint
+resolution of either House of Congress
+(i) which is entitled "Joint resolution
+relating to energy targets.",
+“(ii) which does not contain a preamble,
+and
+
+7
+“(iii) the matter after the resolving clause
+of which only contains energy targets in the form
+prescribed by section 7363; and
+“(C) the term "energy target" means any number
+contained in the form prescribed in section 303.
+“(2) This section is enacted by Congress—
+“(A) as an exercise of the rulemaking power of
+the Senate and the House of Representatives,
+respectively, and as such it is deemed a part of the rules
+of each House, respectively, but applicable only with
+respect to the procedure to be followed in that House in
+the case of Department of Energy authorization bills
+and joint resolutions described by paragraph (1) of this
+subsection; and it supersedes other rules only to the
+extent that it is inconsistent therewith; and
+“(B) with full recognition of the constitutional
+right of either House to change the rules (so far as
+relating to the procedure of that House) at any time, in
+the same manner and to the same extent as in the case
+of any other rule of the House.
+“§ 7363. Energy Target Form.
+“(a) For the purposes of this title, energy targets shall be set
+forth in the following form:
+
+8
+with appropriate revisions made to update the years as required.
+“(b) As used in subsection (a)—
+“(1) the term "crude oil and NGL" includes liquid
+products obtained from lease operations, field facilities, and
+natural gas processing plants and liquid petroleum obtained
+from shale and tar sands;
+“(2) the term "coal", when used under the domestic
+production category, includes coal which is converted to gaseous
+or liquid fuels;
+“(3) the term "renewables" includes energy or fuel
+derived directly from sunlight or from biomass (as defined in
+section 203), and hydropower sources;
+‘(4) the term "end-use consumption" does not include
+exports of fuel or electricity;
+
+9
+‘(5) the term "decentralized renewables" does not
+include electricity produced for delivery to multiple points of
+end-use consumption; and
+“(6) the term "conversion loss" includes heat or other
+forms of energy not recovered in the conversion of raw energy
+resources, fuels, or electricity into alternate form prior to
+delivery for end use consumption.
+“§ 7364. General provisions regarding targets.
+“(a) The energy targets set forth pursuant to this title in any
+joint resolution or any Act authorizing appropriations for the
+Department of Energy shall be considered as an expression of national
+goals and shall not be considered to have any legal force or effect.
+“(b) Expenses paid or incurred by the President for preparing
+the energy targets and reports under this title shall be from funds
+otherwise available to the Department of Energy, consistent with
+otherwise applicable law. Such targets and reports shall be prepared
+using the minimum extent of contracting assistance that is required
+for their preparation. If any assistance is required to be obtained by
+contract for the preparation of the targets and reports, that assist-
+ance shall be limited to the providing of supporting information and
+may not include the preparation or recommendation of any proposed
+or final energy target.
+“(c) The preparation and transmission of such targets or
+reports shall not be considered a major Federal action for the purposes
+of the National Environmental Policy Act of 1969.”
+SUBTITLE B — WIND DOWN OF FOSSIL DEPENDENCY
+SECTION 102. ESTABLISHING A COMPREHENSIVE ENERGY PLAN.— Title 15,
+United States Code, is amended by striking Section 781 in its entirety, and replacing
+it with the following:
+“§ 781. COMPREHENSIVE ENERGY PLAN.
+“(a) REPORT TO PRESIDENT AND CONGRESS;
+ANALYTICAL JUSTIFICATION; SCOPE OF ANALYSIS.— Pursuant
+
+10
+and subject to the provisions and procedures set forth in this chapter,
+the Administrator shall, within 90 days from the effective date of this
+Act, develop and report to the the Secretary, the President, and
+Congress a comprehensive plan designed to reduce energy
+consumption, and meet or exceed:
+“(1) the amount of reduction in fossil fuel usage; and,
+“(2) the amount of renewable energy generated within
+the United States set forth in the plan put forth by the
+Secretary of Energy as laid out in section 201 of this Act.
+“(b) Such a plan shall project forward to 2025 in line with the
+energy targets as set in section 201 of this Act, upon which it shall
+expire. The Administrator shall propose a new plan in line with the
+requirements for the Secretary’s energy plan.
+“(c) Such plan shall be accompanied by full analytical
+justification for the actions proposed therein. Such analysis shall
+include, but not be limited to—
+“(1) estimates of the energy savings of each action and of
+the program as a whole;
+“(2) estimates of any windfall losses and gains to be
+experienced by corporations, industries, and citizens grouped
+by socioeconomic class;
+“(3) estimates of the impact on supplies and
+consumption of energy forms consequent to such price changes
+as are or may be proposed; and
+“(4) a description of alternative actions which the
+Administrator has considered together with a rationale in
+explanation of the rejection of any such alternatives in
+preference to the measures actually proposed.
+“(b) Alterations; analytical justifications.— The Administrator
+may, from time to time, modify or otherwise alter any such plan,
+except that, upon request of an appropriate committee of the
+Congress, the Administrator shall supply analytical justifications for
+
+11
+any such alterations.
+“(c) Monitoring activity.— The Administrator shall be
+responsible for monitoring any such plans as are implemented with
+respect to their effectiveness in achieving the anticipated benefits.
+SECTION 103. REVISION.— Title 42, United States Code is amended in section
+7321 by—
+(a) striking “April 1, 1979”, and replacing it with “September 1, 2023”.
+(b) striking “biennally”, and replacing it with “annually”
+SECTION 104: REVISION.— Title 42, United States Code is amended by adding the
+following after subparagrapgh (1) of section 7321 as subparagraph (2), and
+redesignating the following subparagraphs:
+“(2) support and facilitate the plans of the Secretary and the
+Administrator as outlined in sections 102 and 201 of the Generating
+Renewable Energy and improving Economic innovatioN Act, and to further
+reduce the use of fossil fuels by 2030 to 50 percent of current usage levels,
+eliminate the use of fossil fuels by 2040 for all uses not directly connected to
+or affecting the national security of the United States, and to completely
+eliminate the use of fossil fuels for all energy needs of the United States by
+2060;
+SECTION 105. REVISION.— Title 42, United States Code is amended by striking
+“and thereafter,” in section 13232, and replacing with “until the end of the fiscal year
+2023,”.
+SECTION 106. RESTRICTIONS INVOLVING VEHICLES USING INTERNAL
+COMBUSTION ENGINES FOR FEDERAL USE.— Title 42, United States Code is
+amended by adding “The Federal government is prohibited for acquiring
+conventionally fuelled vehicles for use in the Federal fleet after December 31, 2024.”
+following “alternative fuel vehicles.” in section 13232(b)(1).
+
+12
+SECTION 107. ESTABLISHING TRANSITIONAL DEADLINES.— Title 42, United
+States Code, is amended by striking the period (.) at the end of section 13232(b)(2),
+and replacing it with “until December 31st, 2024. Beginning January 1, 2025, all
+federal fleets must take action to meet the requirements set forth in paragraph (1),
+and shall be in compliance no later than July 1, 2025.”
+SECTION 108. TERMINATION OF PERMITS.— Title 30, United States Code, is
+amended in chapter 3A by creating a new subchapter after Subchapter IX and
+designating it as Subchapter X, with the following text—
+“SUBCHAPTER X — TERMINATION
+“§ 291. TERMINATION OF PERMITS
+“(a) No land leases or permits shall be issued under
+Subchapters II, IV, V, or VI to extract products for domestic use after
+2030.
+“(b) No land leases or permits shall be issued under
+Subchapters II, IV, V, or VI to extract products after 2040, except for
+collecting resources necessary to the national security of the United
+States.
+SUBTITLE C — INCREASING THE AVAILABILITY OF ALTERNATIVE FUEL
+INFRASTRUCTURE
+SECTION 109. ESTABLISHING A PROGRAM TO SUBSIDIZE RENEWABLE
+FUEL INFRASTRUCTURE FOR VEHICLES.— Title 49, United States Code is
+amended by inserting the following text as Chapter 9 of Subtitle I.—
+“CHAPTER 9— DEPARTMENT OF TRANSPORTATION
+SUPPLEMENTARY FUNDING
+“§ 901. ESTABLISHMENT AND PURPOSE
+“(a) ESTABLISHMENT.— There is to be established a
+program to assist with the financing of stations dispensing
+clean, non-conventional fuel for motor vehicles. Such a program
+shall be administered by the Office of Climate Change and
+Environment (defined by 49 USC 102(g), and will have input
+
+13
+from the Under Secretary of Transportation for Policy (49 USC
+102(d)), the Assistant Secretary for Budget and Programs (49
+USC 102(e)(1)(B)), and the Assistant Secretary for
+Administration (49 USC 102(e)(1)(C)). This shall be known as
+the Advancing Feasible Utility and Energy Loan Program,
+henceforth known as the “A-FUEL Program”, or simply the
+“Program”. The entities administering or having input on the
+Program shall henceforth be defined as the “A-FUEL Board”, or
+simply the “Board”.
+“(b) PURPOSE.— The purpose of establishing this
+program is to improve the availability of alternative fuels
+throughout the United States.
+“§ 902. DEFINITIONS.— For the purposes of this Chapter—
+“(a) “Alternative Fuel Station” shall mean any plot of
+land, upon which are devices to provide hydrogen, compressed
+natural gas, biodiesel, or electricity for use to propel motor
+vehicles
+“(b) “Applicant” shall mean any person seeking to obtain
+a loan under the Program.
+“(c) “Borrower” shall mean any applicant who has
+submitted an application that was subsequently approved for
+disbursal.
+“(d) “Secretary” shall mean the Secretary of
+Transportation (as defined by 49 USC 102(b)), or any person
+discharging the duties of the Secretary of Transportation
+pursuant to requisite order or law.
+“§ 902. REQUIREMENTS.— Any applicant must:
+“(a) presently be in the process of acquiring land to
+establish a new alternative fuel station, or in the process of
+acquiring a defunct fuel station to convert it into an alternative
+fuel station;
+
+14
+“(1) applicants must submit paperwork verifying
+such claim to be true.
+“(b) The Board shall be empowered to proscribe
+additional requirements as it sees fit to limit the amount of
+frivolous applications, but shall not impose regulations to
+unjustly reduce the number of applicants.
+“§ 903. ELIGIBILITY.— In order to be approved for a loan
+disbursed under this program, any applicant must:
+“(a) Be within 275 miles of an existing hydrogen fuel
+station;
+“(b) Have registered a business with the requisite state
+entity;
+“(c) Have a federal tax ID number with the Internal
+Revenue Service;
+“(d) Own and operate less than 4,000 fueling stations
+across the United States and associated territories, with a
+preference for small, local businesses, including branded
+establishments owned by franchise owners.
+“§ 904. REPAYMENT OF LOAN.—
+“(a) INTEREST RATE.— The interest rate shall be a
+rate equal to the high yield of the 10-year Treasury note
+auctioned at the final auction held prior to such June 1. This
+rate shall not exceed the value provided at the time of the
+disbursement of the loan, but may be matched to the
+aforementioned rate via order of the Board. Borrowers shall be
+notified of a change in rate with 90 days of notice.
+“(i) The Board shall be empowered to increase
+the interest rate by one quarter of one percent for each
+six month loan period in excess of 120 months.
+“(ii) Should a loan be fully repaid within 24
+months, the borrower shall be reimbursed for any
+
+15
+money paid towards interest.
+“(iii) §4(a)(12) of the Supporting Those Under the
+Department of Education’s New Terms Act of 2021 shall
+also apply to this program, with the authority to change
+rates remitted to the A-FUEL Board for the A-FUEL
+Program.
+“(b) FINANCE CHARGES.— There shall be applied a
+charge of 10 percent of the loan principal to cover
+administrative fees and associated expenses.
+“(c) TERM OF LOAN.— Any borrower receiving funds
+from the Program is empowered to select the term in which the
+loan shall be active pursuant to the following criteria—
+“(1) Borrowers may select any number of months
+evenly divisible by 6 up to 120 months, or longer of
+economic conditions warrant a longer term;
+“(A) A borrower may exceed the 120
+month limit, upon which any number of months
+easily divisible by three shall be available.
+“(i) Any term exceeding 120
+months must be approved by the Board
+before the disbursement of funds shall
+take place.
+“(a) Under no circumstances
+will a loan term be approved
+beyond 300 months without the
+approval of the Secretary, who
+shall not approve any loan term
+exceeding 360 months.
+“(2) Upon approval, the borrower must complete
+a promi
+“§ 905. GRANT AMOUNT AND FUNDING.—
+
+16
+“(a) The program shall be appropriated $100,000,000.00
+annually, indexed to inflation, to be disbursed to applicants.
+The number of awarded loans shall be no more than 200
+anually, but no less than 50 and shall be set by the Board.
+“(i) Any remaining funds that were not disbursed shall
+carry over as a portion of the appropriation allotted to this
+program.
+TITLE II. ENERGY INDEPENDENCE.
+SUBTITLE A — RENEWABLE ENERGY
+SECTION 201. REAUTHORIZING THE DEVELOPMENT OF RENEWABLE
+ENERGY PLANS.—
+(a) Title 42, United States Code, is amended in Section 13471 by inserting the
+following after Paragraph (b), and redesignating paragraph (c) as paragraph (e):
+“(c) Reauthorizing renewable energy plans.
+“The Secretary is required to provide and share a new plan to
+increase the share of renewables used to generate energy in the
+United States by 2025 within 90 days of the enactment of this Act
+with Congress and the public, and shall provide status updates
+pertinent to increasing the share of renewables in the United States
+energy mix on a quarterly basis. The plan shall be considered expired
+on January 1, 2025, with a report delivered on the outcomes no later
+than March 1, 2025. The Secretary is required to propose a new five
+year plan to 2030 no later than 60 days before the expiration of the
+plan to 2025.
+“(d) The requirements of paragraph (c) shall repeat in five year
+intervals, substituting years as necessary.
+(b) Title 42, United States Code, is amended in Section 13471 by inserting the
+following after Paragraph (e):
+“(f) Reauthorizing renewable energy plans
+
+17
+“The Secretary of the Treasury shall be authorized to
+appropriate funds to finance programs to facilitate solar programs
+(excluding programs under §13431 of this title), geothermal programs,
+wind programs, hydroelectric programs, tidal energy programs, wave
+energy programs, and new, promising renewable technologies in
+Section 202.
+SECTION 202: RESEARCH INTO RENEWABLE ENERGY SOURCES.—
+(a) The Secretary of Energy, or other designated person with the
+authority to discharge the statutory authority of the Secretary of Energy,
+shall review—
+(1) Rural Electrification Act of 1936 (Pub.L 74-605);
+(2) Hydroelectric Power Act of 1935 (Pub.L 74-738);
+(3) Flood Control Act of 1944 (Pub.L 78-534);
+(4) Federal Water Pollution Control Act of 1948 (Pub.L 80-845);
+(5) Atomic Energy Act of 1954 (Pub.L 83-703);
+(6) Renewable Energy Resources Act of 1960 (Pub.L 86-509);
+(7) Demonstration Cities and Metropolitan Development Act of
+1966 (Pub.L 89-754);
+(8) National Environmental Policy Act of 1969 (Pub.L 91-190);
+(9) Resource Recovery Act of 1969 (Pub.L 91-512);
+(10) Geothermal Energy Research, Development, and
+Demonstration Act of 1974 (Pub.L 93-410);
+(11) Solar Energy Research, Development, and Demonstration
+Act of 1974 (Pub.L 93-473);
+(12) Energy Conservation and Production Act of 1976 (Pub.L
+94-385);
+
+18
+(13) Solar Energy and Energy Conservation Bank Act of 1978
+(Pub.L 95-238);
+(14) National Energy Act of 1978 (Pub.L 95-617);
+(15) Energy Tax Act of 1978 (Pub.L 95-618);
+(16) Biomass Energy and Alcohol Fuels Act of 1980 (Pub.L
+96-294);
+(17) Wind Energy Systems Act of 1980 (Pub.L 96-345);
+(18) Energy Policy Act of 1992 (Pub.L 102-486);
+(19) Energy Policy Act of 2005 (Pub.L 109-58);
+(20) Renewable Energy Investment Tax Credit (created by the
+Energy Policy Act of 2005 and extended by subsequent legislation);
+(21) Energy Independence and Security Act of 2007 (Pub.L
+110-140);
+(22) The Energy Improvement and Extension Act of 2008
+(Pub.L 110-343);
+(23) The American Recovery and Reinvestment Act of 2009
+(Pub.L 111-5);
+and propose to the President and Congress requisite changes in law to
+provide for the continued research of, and development into, more sustainable
+energy sources.
+SECTION 203: INCREASING FEDERAL RENEWABLE ENERGY USE.— Title 42,
+United States Code, is amended in section 15852 by—
+(a) striking “and each fiscal year thereafter.” in section (a).
+(b) adding the following text after part (3)—
+(4) Not less than 10 percent in fiscal years 2024 through 2026;
+
+19
+(5) Not less than 20 percent in fiscal years 2027 through 2029;
+(6) Not less than 30 percent in fiscal years 2030 through 2032;
+(7) Not less than 40 percent in fiscal years 2033 through 2035;
+(8) Not less than 50 percent in fiscal years 2036 through 2038
+(9) Not less than 60 percent in fiscal year 2039, and for each
+fiscal year thereafter.
+SUBTITLE B — RESTRICTING SOURCES OF ENERGY PRODUCTION
+SECTION 204: RESCINDING APPROVAL OF BIOMASS FOR DIRECT ENERGY
+PRODUCTION.—
+(a) Title 42, United States Code, is amended in Subchapter II, Part A by adding the
+following text after section 8312—
+“§ 8313. USE OF BIOMASS IN NEW ELECTRIC POWER PLANTS.
+(a) No electric power plant beginning operations after July 1,
+2023 shall be permitted to generate electricity by way of the
+incineration of biomass products.
+(b) Title 42, United States Code, is amended in Subchapter III, Part A by adding the
+following text after section 8342—
+“§ 8343. USE OF BIOMASS IN EXISTING ELECTRIC POWER
+PLANTS.
+(a) Beginning July 1, 2023, no existing electric power plant
+shall be permitted to continue to generate electricity by way of the
+incineration of biomass products.
+SECTION 205: REVISIONS.—
+(a) Notwithstanding any provision of law and subsequent amendments to law
+except where explicitly provided, all references of “biomass” throughout the United
+States Code, except for the purposes of defining the term, shall be struck, including
+the use of “biomass” as an adjective (including, but not limited to): “biomass fuel”,
+“biomass energy”, and related terms; It is the express policy of the United States
+
+20
+that biomass is no longer acceptable as a fuel source domestically, and where
+otherwise subject to the special, maritime, or territorial jurisdiction of the United
+States.
+SECTION 206: REPEAL.— Pub. L 100-42 is hereby repealed.
+SUBTITLE C — REDUCTION IN ENERGY USAGE
+SECTION 207: Title 42, United States Code, is amended in section 13451.—
+(a) by striking “5” in subsection (a), and replacing it with “multi”.
+(b) by striking “;and ,” in subparagraph (b)(1)(B), and replacing it with
+a semicolon;
+(c) by adding the following text as subparagraph (b)(1)(C), and
+redesignating any subsequent subparagraphs as needed.—
+“(C) To reduce energy usage by:
+“(i) five percent by 2025;
+“(ii) ten percent by 2030;
+“(iii) fifteen percent by 2035; and,
+“(iv) twenty percent by 2040.
+(d) by striking “;and ,” in subparagraph (b)(2)(B), and replacing it with
+a semicolon;
+(e) by adding the following text as subparagraph (b)(2)(C), and
+redesignating any subsequent subparagraphs as needed.—
+“(C) To reduce energy usage by:
+“(i) five percent by 2025;
+“(ii) ten percent by 2030;
+“(iii) fifteen percent by 2035; and,
+
+21
+“(iv) twenty percent by 2040.
+(f) by striking “October 24, 1992” in subsection (c), and replacing it
+with “June 30, 2023”
+(g) by striking “5” in subsection (c), and replacing it with “multi”
+(h) by striking “October 24, 1992” in subsection (d), and replacing it
+with “June 30, 2023”
+(i) by striking “$178,250,000” in subsection (e), and replacing it with
+“$225,000,000”
+(j) by striking “1993” in subsection (e), and replacing it with “2023”.
+(k) by striking “$275,000,000” in subsection (e), and replacing it with
+“$350,000,000”
+(l) by striking “1994” in subsection (e), and replacing it with “2024”.
+TITLE III FACILITATING THE TRANSITION TO
+RENEWABLE ENERGY
+SECTION 301: ESTABLISHING DEPARTMENTAL OFFICES.—
+(a) Title 42, United States Code is amended in chapter 84 by inserting the following
+after subchapter XVII as subchapter XVIII—
+“SUBCHAPTER XVIII— OFFICE OF RENEWABLE ENERGY
+TRANSITION AND COORDINATION
+“§ 7387. ESTABLISHMENT, PURPOSE, ADMINISTRATION,
+AND DELEGATION OF FUNCTIONS
+“(a) ESTABLISHMENT.— There shall be an office in the
+Department, which shall work in conjunction with the Office of
+Renewable Energy Education as defined in 20 USC §3428 to be
+administered by the Director of Renewable Energy Transition
+and Coordination appointed and compensated in the manner
+described in section 7139 of this title.
+
+22
+“(b) DUTIES AND RESPONSIBILITIES OF
+DIRECTOR.— It shall be the duty and responsibility of the
+Director to—
+“(1) Consult with employers and labor unions in
+the various fields of fossil fuel energy production to
+determine the number of workers that are employed to
+produce energy from fossil fuels;
+“(2) Determine the average age of employees in
+each sector of fossil fuel production, including, but not
+limited to—
+“(A) Petroleum products;
+“(B) Natural Gas; and,
+“(C) Coal.
+and shall determine, in conjunction with the
+Department of Labor, the average number of years
+existing workers have remaining in field, and the
+number of workers who are entering the field each year
+to determine the number of employees that could
+transition into renewable energy production;
+“(A) For the purposes of this
+subparagraph, employees will be considered
+eligible to transition if they have not exceeded
+67% of the average number of years in-field as
+determined by the Secretary of Labor.
+“(3) Consult with employers and labor unions in
+the various fields of renewable energy production to
+determine the number of workers needed to improve the
+proliferation of renewable energy across the United
+States;
+“(4) Promote the availability of educational
+opportunities via the Office of Renewable Energy
+Education for those needing to transition out of fossil
+
+23
+fuel production, but remain in the energy sector;
+“(5) Oversee the transition of workers in fossil
+fuel energy production to green energy production
+throughout all portions of the process; and,
+“(6) Other duties as determined by the
+Secretary.
+“(c) PURPOSE.— The purpose of the Office of
+Renewable Energy Transition and Coordination shall be to
+ease, encourage, promote, and facilitate the transition of the
+United States of America to 100% renewable energy, ideally by
+2040.
+“(d) FACILITIES.— The Secretary, in collaboration with
+the Director, shall be allocated no fewer than six physical
+offices; one office per state, and one in or near the offices of the
+Department of Energy in Washington, DC. More physical
+offices may be approved as needed by the Secretary to support
+the purpose of the Office as outlined in section (c), or to enable
+the Director to discharge their duties as outlined in section (b).
+“(e) COORDINATION.—
+“(1) IN GENERAL.— The Secretary shall—
+“(A) shall ensure the coordination of the
+Office of Renewable Energy Transition and
+Coordination with the other activities of the
+Department, including the transfer of knowledge,
+capabilities, and rel- evant technologies from
+basic research programs of the Department to
+applied research and development programs of
+the Department for the purpose of enabling
+development of mission-relevant technologies;
+‘‘(B) shall support joint activities among
+the programs of the Department;
+‘‘(C) shall coordinate with other relevant
+Federal agencies operating under existing
+
+24
+authorizations relating to subjects relating to the
+mission described in subsection (c) in supporting
+advancements in related research areas as
+appropriate; and
+‘‘(D) may form partnerships to enhance
+the utilization of and ensure access to user
+facilities by other Federal agencies.
+“(2) OFFICE OF RENEWABLE ENERGY
+TRANSITION AND COORDINATION.— The Director
+shall ensure the coordination of programs and activities
+carried out by the Office of Renewable Energy
+Transition and Coordination with other Offices and
+Departments of the Department of Energy as required.
+(b) Title 20, United States Code is amended in subchapter II by inserting the
+following as a new section after section 3427 as section 3428—
+“§3428. OFFICE OF RENEWABLE ENERGY EDUCATION
+“(a) ESTABLISHMENT.— There shall be an office under the
+Department, which shall work with the Office of Renewable Energy
+Transition and Coordination under the Department of Energy as
+defined in 42 USC §7387 to be administered by the Director of
+Renewable Energy Education, who shall be appointed in line with
+section 3411 of this title, and compensated at the rate provided for
+Level IV of the Executive Schedule under section 5315 of Title 5.
+“(b) DUTIES AND RESPONSIBILITIES OF DIRECTOR.— It
+shall be the duty and responsibility of the Director to:
+“(1) Promote careers in the design, manufacture,
+installation, and or maintenance of renewable energy stations;
+“(A) For the purposes of this subparagraph,
+renewable energy stations shall be defined as any
+installation of devices that generate electricity using
+renewable energy as defined by section 2924 of Title 10,
+excluding paragraph 6(c).
+
+25
+“(2) Consult with the Department of Energy, the
+Department of Labor, and employers and labor unions in the
+career fields mentioned in subparagraph (1) to determine the
+projected number of workers needed to facilitate the transition
+to, and maintenance of facilites needed to meet 150% of current
+domestic electricity demand;
+“(A) For the purposes of this subparagraph,
+current electricity demand shall be measured as the
+total electricity generated from a period starting on
+March 1, 2022 and ending February 28, 2023.
+“(3) Highlight the benefits of renewable energy to the
+public via appropriate marketing campaigns in the areas of:
+“(A) Environment;
+“(B) Economy;
+“(C) Public health;
+“(D) National Security; and,
+“(E) Any other area determined jointly by the
+Secreatary and the Director to be of benefit to explain
+the benefits of renewable energy.
+There should be a focus on what sources of energy are best
+suited to each locality in order to encourage more local
+investment and attract local skilled labor;
+“(4) Emphasize the importance of transitioning from
+fossil fuels utilizing the same parameters used in
+subparagraph (3);
+“(5) Assist the Office of Postsecondary Education as
+defined in section 3415 of this title to facilitate the creation of,
+and support for programs that are determined to be useful in
+supporting the goals of this Office.
+
+26
+SECTION 302: PROVIDING AID FOR EDUCATIONAL OPPORTUNITIES
+RELATING TO TRANSITIONING TO GREEN ENERGY.— Title 20, United States
+Code is amended by inserting the following text after Chapter 81—
+“CHAPTER 82—TRAINING WORKERS IN GREEN ENERGY
+INFRASTRUCTURE
+“§11001. ESTABLISHMENT AND PURPOSE.—
+“(a) ESTABLISHMENT.— There shall be established a
+grant program to aid and assist two year colleges, four year
+colleges, and trade schools with developing, promoting, and
+implementing programs to allow workers currently employed
+in the fossil fuel industry to transition properly into careers in
+green energy, and to allow those that are looking to enter into
+careers in energy generation and development to gain the
+proper skills the same right. This grant shall be known as the
+Training Workers in Green Energy Infrastructure Grant, or
+simply “TWIG-EI Grants”.
+“(b) PURPOSE.— This grant program shall be made
+effective to:
+“(1) Alleviate expenses associate with research
+around and development of programs to train workers
+in trades necessary to construct and maintain
+infrastructure to produce electricity from renewable
+sources;
+“(2) Provide incentive to institutions of higher
+learning to encourage the development of such
+programs;
+“(3) Recruit educators in the necessary fields to
+sustain the long term goal of energy independence
+under a renewable future;
+“(4) Open a path for workers in the fossil fuel
+industry a way to transition out of work in a
+non-renewable, limited field with time remaining;
+
+27
+“(5) Provide the same right to those looking to
+provide a necessary utility for our nation and all of its
+citizens;
+“(6) Support workers looking to improve public
+confidence in their skillset with new certifications; and,
+“(7) Encourage the development of skilled labor
+in a field with permanent longevity, providing our
+country with a dedicated workforce in a field critical to
+our national defense and sovereignty.
+“§ 11002. GRANT REQUIREMENTS.—
+“(a) IN GENERAL.— The Director of Renewable Energy
+Education as defined in 20 USC 3428, as provided for in the
+Generating Renewable Energy and improving Economic
+innovatioN Act of 2023, shall be empowered to establish
+requirements for the grant program defined by this Chapter
+that meet or exceed the legislative minimum.
+“(b) GEOGRAPHICAL CONSIDERATIONS.— Priority
+will be given to awardees that are establishing programs that
+will directly benefit their local communities. Preference will be
+shown to programs training in:
+“(1) Solar, based in the regions of:
+“(A) California;
+“(B) Nevada;
+“(C) Utah;
+“(D) Arizona;
+“(E) Colorado;
+“(F) New Mexico;
+“(G) Hawaii;
+
+28
+“(H) Texas; and,
+“(I) Florida.
+“(2) Land-based Wind, based in the regions of:
+“(A) Montana;
+“(B) Wyoming;
+“(C) Colorado;
+“(D) New Mexico;
+“(E) North Dakota;
+“(F) South Dakota;
+“(G) Nebraska;
+“(H) Kansas;
+“(I) Oklahoma;
+“(J) Texas;
+“(K) Minnesota;
+“(L) Iowa;
+“(M) Missouri;
+“(N) Arkansas;
+“(O) Wisconsin;
+“(P) Illinois;
+“(Q) Michigan;
+“(R) Indiana;
+
+29
+“(S) Ohio;
+“(T) New York; and,
+“(U) Maine.
+“(3) Offshore Wind, based in the coastal portions
+of the regions of:
+“(A) Oregon;
+“(B) Washington;
+“(C) California;
+“(D) Hawaii;
+“(E) Texas;
+“(F) Michigan;
+“(G) Wisconsin;
+“(H) Illinois;
+“(I) Indiana;
+“(J) Ohio;
+“(K) Pennsylvania;
+“(L) New York;
+“(M) Maine;
+“(N) New Hampshire;
+“(O) Rhode Island;
+“(P) Connecticut;
+
+30
+“(Q) New Jersey;
+“(R) Delaware
+“(S) Maryland;
+“(T) Virginia;
+“(U) North Carolina; and,
+“(V) South Carolina.
+“(4) Geothermal, based in the regions of:
+“(A) Nevada;
+“(B) Oregon;
+“(C) Washington;
+“(D) Idaho; and,
+“(E) Montana
+“(5) Hydroelectric, based in the regions of:
+“(A) Maine;
+“(B) New Hampshire;
+“(C) Vermont;
+“(D) New York;
+“(E) Massachusetts;
+“(F) Rhode Island;
+“(G) Connecticut;
+“(H) New Jersey;
+
+31
+“(I) Pennsylvania;
+“(J) West Virginia;
+“(K) Kentucky;
+“(L) Tennessee;
+“(M) North Carolina;
+“(N) South Carolina;
+“(O) Georgia;
+“(P) Alabama;
+“(Q) Arkansas;
+“(R) Mississippi;
+“(S) Louisiana;
+“(T) Washington; and,
+“(U) California.
+“(6) Tidal, based in the coastal portions of the
+regions of:
+“(7) Wave, based in the regions of:
+“(A) Alaska;
+“(B) Hawaii;
+“(C) Washington;
+“(D) Oregon; and;
+“(E) California
+
+32
+“(c) ELIGIBILITY.— To be eligible for a grant under this
+chapter, an entity must:
+“(1) meet the requirements of being an
+institution of higher education as defined by 20 USC
+1001;
+“(2) not be restricted from receiving federal funds
+due to a violation of the Jeanne Clery Disclosure of
+Campus Security Policy and Campus Crime Statistics
+Act, as amended (20 USC 1092(f));
+“(3) maintain accreditation for 75 percent of
+currently offered courses of study;
+“(4) maintain an average graduation rate of 65
+percent or greater over the past four years; and,
+“(5) submit documentation to the Department
+regarding the location at which the program shall be
+administered (if off of the defined campus grounds),
+projected student enrollment, anticipated one-time
+expenses relating to setup of the program, anticipated
+recurring expenses relating to staff, overhead, and other
+associated administrative overhead costs, and of any
+connections with a business that is directly involved in
+the generation of power via renewable energy or the
+maintenance of such facilities that looking to invest in
+the local area the program benefits.
+“(A) For the purposes of this section,
+“local” shall be defined as any area within a 75
+mile radius of the address the program is located.
+“(d) GRANT AMOUNT AND FUNDING.— The Director
+shall be appropriated $100,000,000.00 annually indexed to
+inflation through the fiscal year 2033, to be disbursed among
+programs across the States as evenly as possible. The number
+of awarded grants shall be no more than 100 anually, but no
+less than 50 and shall be set by the Secretary, in collaboration
+with the Director.
+
+33
+TITLE IV. CHANGES TO TAXATION REGARDING VEHICLES
+SECTION 401: EXPANSION OF EXISTING TAX CREDITS.— Title 26, United
+States Code, is amended by adding the following after section 25D:
+“SEC. 25E. PREVIOUSLY-OWNED CLEAN VEHICLES.
+‘‘(a) ALLOWANCE OF CREDIT.—In the case of a qualified buyer who
+during a taxable year places in service a previously-owned clean vehicle,
+there shall be allowed as a credit against the tax imposed by this chapter for
+the taxable year an amount equal to the lesser of—
+‘‘(1) $4,000, or
+‘‘(2) the amount equal to 30 percent of the sale price with
+respect to such vehicle.
+‘‘(b) LIMITATION BASED ON MODIFIED ADJUSTED GROSS
+INCOME.—
+‘‘(1) IN GENERAL.—No credit shall be allowed under
+subsection (a) for any taxable year if—
+‘‘(A) the lesser of—
+‘‘(i) the modified adjusted gross income of the tax-
+payer for such taxable year, or
+‘‘(ii) the modified adjusted gross income of the
+tax- payer for the preceding taxable year, exceeds
+‘‘(B) the threshold amount.
+‘‘(2) Threshold amount.—For purposes of paragraph (1)(B), the
+threshold amount shall be—
+(A)in the case of a joint return or a surviving spouse (as
+defined in section 2(a)), $165,000,
+(B)in the case of a head of household (as defined in
+section 2(b)), $123,750, and
+(C)in the case of a taxpayer not described in
+subparagraph (A) or (B), $82,500.
+
+34
+(3)Modified adjusted gross income.— For purposes of this
+subsection, the term “modified adjusted gross income” means adjusted
+gross income increased by any amount excluded from gross income
+under section 911, 931, or 933.
+(c) DEFINITIONS.— For purposes of this section—
+(1) PREVIOUSLY-OWNED CLEAN VEHICLE.— The term
+“previously-owned clean vehicle” means, with respect to a taxpayer, a
+motor vehicle—
+(A) the model year of which is at least 2 years earlier
+than the calendar year in which the taxpayer acquires such
+vehicle,
+(B) the original use of which commences with a person
+other than the taxpayer,
+(C) which is acquired by the taxpayer in a qualified sale,
+and
+(D) which—
+(i) meets the requirements of subparagraphs (C),
+(D), (E), (F), and (H) (except for clause (iv) thereof) of
+section 30D(d)(1), or
+(ii) is a motor vehicle which—
+(I) satisfies the requirements under
+subparagraphs (A) and (B) of section 30B(b)(3),
+and
+(II) has a gross vehicle weight rating of
+less than 14,000 pounds.
+(2) QUALIFIED SALE.— The term “qualified sale” means a
+sale of a motor vehicle—
+(A) by a dealer (as defined in section 30D(g)(8)), and
+(B) for a sale price which does not exceed $25,000.
+(3) QUALIFIED BUYER.— The term “qualified buyer” means,
+with respect to a sale of a motor vehicle, a taxpayer—
+
+35
+(A) who is an individual,
+(B) who purchases such vehicle for use and not for
+resale,
+(C) with respect to whom no deduction is allowable with
+respect to another taxpayer under section 151, and
+(D) who has not been allowed a credit under this section
+for any sale during the 3-year period ending on the date of the
+sale of such vehicle.
+(4) MOTOR VEHICLE; CAPACITY.— The terms “motor
+vehicle” and “capacity” have the meaning given such terms in
+paragraphs (2) and (4) of section 30D(d), respectively.
+(d) VEHICLE IDENTIFICATION NUMBER REQUIREMENT.— No
+credit shall be allowed under subsection (a) with respect to any vehicle unless
+the taxpayer includes the vehicle identification number of such vehicle on the
+return of tax for the taxable year.
+(e) APPLICATION OF CERTAIN RULES.— For purposes of this
+section, rules similar to the rules of section 30D(f) (without regard to
+paragraph (10) or (11) thereof) shall apply for purposes of this section.
+(f) LIMITS ON APPLICATION OF CREDIT.— No taxpayer shall be
+allotted to claim any credit authorized by this section on more than three
+vehicles, plus one vehicle per dependent in excess of 14 years of age, but not
+more than 18 years of age.
+SECTION 402: REMOVING OUTDATED INFORMATION PERTAINING TO FUEL
+ECONOMY.— The Department of Transporation in collaboration with the
+Environmental Protection Agency, is required to update the chart located at Title 26,
+United States Code, section 30B, section (b)(2)(B) for current model year.
+(a) Upon the calculation of new figures, the Secretary of
+Transportation and the Director of the Enviromental Protection Agency shall
+issue a joint order to provide such figures.
+(b) The Secretary and the Director shall be required to repeat the
+process outlined in this section for vehicles in the model year 2025, and
+continue to do so every five years.
+
+36
+SECTION 403: REMOVING OUTDATED INFORMATION RELATING TO
+VEHICLE AGE.— All references to the model year 2002 shall be struck, and
+replaced with the most recent model year that has had information provided by the
+Secretary and Director named in section 402.
+(a) The information described in this section shall be updated in line
+with §402(b) of this Act.
+SECTION 404: REPEAL.— Title 26, United States Code, is amended by striking—
+(a) subsection (f) of section 30B in its entirety.
+(b) subsection (e) in section 30D in its entirety.
+SECTION 405: REVISIONS.— Title 26, United States Code, is amended by
+striking—
+(a) “$100,000” in section 30C, and replacing it with “$120,000”;
+(b) “$1,000” in section 30C, and replacing it with “$2,000”;
+(c) all instances of “qualified plug-in electric drive motor vehicle” in
+section 30D, and replacing with “clean vehicle”.
+SEC 4. FUNDING.
+There is authorized to be appropriated $720,000,000 annually, indexed to inflation
+for the provisions of this bill until 2024, upon which $820,000,000 is authorized to be
+appropriated until 2025, upon which $450,000,000 is authorized to be appropriated
+until 2033 with requisite adjustments for inflation, upon which an amount
+equivalent to $100,000,000 dollars in 2023 shall be authorized to be appropriated
+annually, provided:
+(a) not less than $60,000,000 for the fiscal year 2023, with the appropriate
+amount indexed for inflation for the following five fiscal years to carry out the
+provisions of 42 USC §13236;
+(b) not less than $55,000,000 for the fiscal year 2023, with the appropriate
+amount indexed for inflation for the following five fiscal years to carry out the
+provisions of 42 USC §13239;
+
+37
+(c) $180,000,000 for the fiscal year of 2023 and the following five years
+indexed to inflation, and $220,000,000 for the fiscal year of 2028 and the
+following five years indexed to inflation to carry out programs in line with 42
+USC §13471;
+(d) $100,000,000, indexed to inflation and minus any remaining funds from
+the previous fiscal year to support the program authorized by section 109;
+(e) $225,000,000 for the fiscal year 2023 to support the program reauthorized
+by section 207;
+(f) $325,000,000 for the fiscal year 2024 to support the program reauthorized
+by section 207; and,
+(g) $100,000,000 for the fiscal year 2023 through the end of the fiscal year of
+2033, indexed to inflation to support the program established by section 302.
+Any unused funds shall be immediately returned back to the Treasury of the United
+States beyond what is authorized by this Act.
+SEC 5. SUPREMACY.
+For the purposes of enacting this Act, any laws in conflict with this Act shall be
+immediately rescinded and rendered null and void.
+SEC 6. SEVERABILITY.
+If any provision of this Act, or any amendment made by this Act, or the application
+of such provision to any person, entity, government, or circumstance, is held to be
+unconstitutional, the remainder of this Act, or any amendment made thereby, or the
+application of such provision to all other persons, entities, governments, or
+circumstances, shall not be affected thereby.
+SEC 7. EFFECTIVE DATE.
+This act shall come into force immediately upon approval within the process
+described by Article I, §7 of the Constitution of the United States.
+
+38
+Meta notes:
+— Section 101 reinstates repealed portions of the Energy Security Act of 1980,
+thereby repealing section 1606 of the Energy Policy Act of 1992, with
+additional conforming amendments to bring the bill into date.
+— Sections 401, 404(b), and 405(c) canonize elements that exist in the present
+United States Code; such edits were the result of sections 13401 and 13402 of
+the Inflation Reduction Act of 2022.

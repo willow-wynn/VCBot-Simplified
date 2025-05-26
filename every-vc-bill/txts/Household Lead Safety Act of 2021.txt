@@ -1,0 +1,170 @@
+142ndCongress
+1stSession
+S.4
+Tocreatearefundabletaxcreditforhomeowners,landlords,andotherstoremoveleadfromtheirhomes,aswellas
+expandingsurveillanceofleadcontaminationandprovidinggrantsforleadtestingandtreatment
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+IN THE SENATE
+JUNE 23, 2021
+Mr.SOLOMON(forhimself,Mr.LIGHTWOOD,Mr.FRANCIS,Mr.COLLINS,Mr.XANDER,Mr.
+SULLIVAN,Mr.MILLER,Mr.ABRAHAM)introducedthefollowingbill:
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+A BILL
+Tocreate arefundabletaxcredit for homeowners,landlords,and otherstoremovelead fromtheir
+homes, aswellasexpanding surveillanceof leadcontaminationand providing grantsfor lead
+testingandtreatment
+Beit enactedbytheSenateandHouse ofRepresentativesof theUnited StatesofAmericain
+Congressassembled,
+SEC.1.SHORTTITLE.
+This Actmaybe citedas the“Household LeadSafetyAct”.
+SEC.2.HOUSEHOLD LEAD SAFETYTAXCREDIT
+(a) IN GENERAL.—Subpart Cof partIVof subchapterA of chapter1of theInternalRevenue
+Code of 1986isamended byinserting aftersection 36Cthe following newsection:
+“SEC. 36D. HOUSEHOLD LEAD REDUCTION’
+(a) DEFINITIONS.—
+(i) LEAD HAZARD REDUCTION ACTIVITYCOST.—Theterm"lead hazard
+reduction activitycost" means,withrespect toanyeligible dwelling unit—
+(1) The cost to determine the presence of a lead-based hazard through
+an assessment conductedby a certified risk assessor (as such terms
+are defined by the Secretary; in consultation with the Administrator
+of the Environmental Protection Agency),
+
+(2) The cost for performing late abatement or removal measuresby a
+certified lead abatement supervisor (as such terms aredefined by
+the Secretary; in consultation with the Administrator ofthe
+Environmental Protection Agency), including the removal of paint,
+dust, or pipes, the permanent closure of encapsulation of
+lead-based paintor pipes, the replacement of painted surfaces,
+windows, or fixtures, or the removal of permanent covering of soil
+when lead-based hazards are present,
+(3) The cost for performing interim lead control measuresto reduce
+exposure or likely exposure to lead-based hazards, including
+specialized cleaning, repairs, maintenance, painting,temporary
+containment, ongoing monitoring of lead-based hazards, and the
+establishment and operation of management and resident education
+programs, but only if such measuresare evaluated and completed
+by a certified lead abatement supervisor using accepted methods,
+are conducted by a qualified contractor, and have an expected
+useful life of more than 10 years,
+(4) The cost for for a certified lead abatement supervisor, those
+working under the supervision of such supervisor, or a qualified
+contractor to perform all preparations, cleanup, disposal, and
+clearance testing activities associatedwith the lead abatement
+measures or interim lead control measures,
+(5) Costs incurred by or on behalf of any occupant of such dwelling
+unit for any relocation which is necessary to achieve occupant
+protection (as such term is defined by the Secretary, in consultation
+with the Administrator of the Environmental Protection Agency).
+(ii) ELIGIBLEDWELLINGUNIT.—Theterm"eligibledwelling unit" means,with
+respect toanytaxable year,anydwelling unit—
+(1) Placed inservice before1978,
+(2) Located inthe UnitedStates,
+(3) Theresidentsof whichduring thepreceding taxableyearhavea
+cumulative adjustedgrossincomeof lessthan$110,000,
+(b) ALLOWANCE OFCREDIT.—
+(i) IN GENERAL.—There shall be allowed a credit againstthe tax imposed
+in paragraph(ii) for the taxable year equal to 50 percent of the household
+lead reduction paid or incurred by the taxpayer during the taxable year for
+each eligible household.
+
+(ii) APPLICATION OFCOST TOPRIORYEAR.—For purposes ofthis
+section,household lead reductiontreatment costpaid orincurred bythe
+taxpayer duringthe taxableyearmay beelectedas havingbeen paidor
+incurred during thepreceding taxableyear.
+(c) LIMITATIONS.—
+(i) IN GENERAL.—The amount of the credit allowed under subsection (a)for
+any eligible dwelling unit for any taxable year shall not exceed—
+(1) $4,000 in the case of lead hazard reduction activity cost including
+lead abatement measures specified in clauses (1)(2)(4) and (5) of
+subsection(a)(i)
+(2) $2,000 in the case of lead hazard reduction activity cost including
+interim lead control measures specified in clauses (1)(3)(4) and (5)
+of subsection(a)(i)
+(ii) OTHER TAXCREDITS.—Inthe caseofany creditagainststate orlocaltax
+liabilities whichisallowable underthe lawsof anystateor political
+subdivisionthereof toa taxpayerwithrespect toany costspaidor incurred
+bythe taxpayerwhichwouldotherwise qualifyas leadhazard reduction
+activity costsunderthis section(referred tointhis paragraph asthe 'state
+or local taxcredit amount'),the amountof thecredit allowed under
+subsection (b) for anyeligibledwelling unit for anytaxableyear
+(determined afterapplication of paragraph(i))shallnotexceedan amount
+equal tothe differencebetween—
+(1) The lead hazard reduction activity cost paid or incurred by the
+taxpayer during the taxable year for such unit, and
+(2) The state or local tax credit amount.
+(iii) LIMITATIONS PERRESIDENCE.—Thecumulativeamount of thecredit
+allowed under subsection(b) for aneligible dwelling unitfor all taxable
+yearsshallnot exceed$6,000.
+(d) INFLATION ADJUSTMENT.— In the case of any taxable year beginning in a calendar
+year after 2021, each of the dollar amounts in subsections (c) and (a)(ii)(3) shall
+be increased by an amount equal to—
+(i) Such dollar amount, multiplied by,
+(ii) The cost-of-living adjustment determined under section 1(f)(3) forthe
+calendar year in which the taxable year begins, determined by substituting
+‘calendar year 2017’ for ‘calendar year 1992’ in subparagraph (B) thereof.
+Any increase determined under the preceding sentence shall be rounded to
+the nearest multiple of $100
+
+SEC.3.INCREASED FUNDINGFOR CHILDHOODLEADPROTECTION PROGRAM
+(a) IN GENERAL.—TheCenter for DiseaseControl’sChildhoodLeadProtection Program
+shallbe allocatedanadditional $200,000toits annual budget.
+(b) IN APPROPRIATIONS.—TheCenter for DiseaseControl willbe appropriatedanadditional
+$200,000in additionto itsannual budget tobeused for theChildhoodLeadProtection
+Program
+SEC.4.REPORTING OF STATELEADEXPOSURE& CONTAMINATION
+(a) IN GENERAL.—A programunder the Centerfor Disease Controlnamed thestate lead
+exposure surveillance programwill require statestoreport andmake publicly available
+data regardingleadexposure andcontamination.
+(b) STATELEAD EXPOSURESURVEILLANCE PROGRAM.—No later than180days following
+enactment, thedirectorof theCenter for DiseaseControl shallestablish aprogramnamed
+theState LeadExposureSurveillanceProgram, whichwillbe responsiblefor annually
+collecting datafrom thestates regarding leadexposure andcontamination
+(c) REPORTINGOFDATA REGARDINGLEAD EXPOSURE& CONTAMINATION.—Allstates willbe
+mandated toreport accuratedata regarding leadexposure &contaminationtothe Center
+for Disease Control’sstate leadexposure surveillanceprogram, aswell aspubliclypost
+data ontheirhealthdepartment’s website.
+SEC.5.HOSPITALLEAD TESTING& TREATMENTGRANT
+(a) IN GENERAL.—TheSecretaryof Healthand HumanServices(in this sectionreferred to
+asthe"Secretary") shallawardgrants toeligiblehospitals providing testingandtreatment
+for lead.
+(b) ELIGIBLEAPPLICANTS.—Tobeeligible toreceive agrantunder this section,anentityshall
+be thefollowing—
+(i) A privateor public hospitalthat providesoneof thefollowing—
+(1) Leadtherapy for thetreatmentof lead poisoning,
+(2) Blood-leadtestsfor lead testing.
+(c) APPLICATIONS.—Hospitalsmay sendan applicationto theSecretarytoreceive grants
+under thissection, containingsuch informationasthe Secretarymayrequire. The
+Secretaryreservesthe right toapproveor denytheapplication.
+(d) APPROPRIATEUSEOFFUNDS.—A hospitalthat receivesagrantfromthe HospitalLead
+Testing& TreatmentGrant shallusethe funds for thefollowing—
+(i) Lead therapy for thetreatmentof lead poisoning,
+(ii) Blood-leadtestsfor lead testing.
+(e) FEDERALSHARE.—TheFederal shareofa granttobeused for theactivitiesin subsection
+(c) shallnotexceed 70percent.
+
+(f) SUPPLEMENTNOTSUPPLANT.—Grant fundsreceived under this actshallbe usedto
+supplementand notsupplantotherlead programs.
+(g) RELATIONTOOTHERPROGRAMS.—TheSecretaryshallcarryout theprogram underthis
+section inconjunction withotherfederalor statelead treatmentortesting programs.
+(h) NOTICEOFFUNDINGAVALIABILITY.—No laterthan 120daysfollowing enactment shall
+theSecretarypublisha noticeoffunding availabilityregarding grantsunder this section.
+(i) TheSecretaryshallconduct ayearlyaudit toensure thatamountsappropriated to
+hospitalsarebeingused for theintendedpurpose.
+SEC.6.ENACTMENT.
+ENACTMENT.—
+(1) SEVERABILITY.—Should anyprovision ofthis Actbedeemedinvalidor
+unconstitutionalfor any reasoninacourtwith relevantjurisdiction, therestof the
+Act, andtheapplication ofthe remaining provisions,shallnotbe affected.
+(2) SUPREMACY.—This Act shall be mutual with any other laws currentlyenforced.
+In cases where this Act were to be in contradiction with other Acts, regulations or
+orders, this Act shall take precedence, and the conflicting Act, regulation or order
+shall be stricken null and void, entirely or partially limited to the part in
+contradiction with the present Act.
+(3) EFFECTIVEDATE.—The provisionsof thisAct shallgointoeffect onthefirst
+day of thefirstcalendar monththat succeeds thesigning ofthis Act.
+CredittoSenatorSheldonWhitehouse’sHomeLeadSafetyTaxCreditActof2017fortheinspirationbehindthe
+HouseholdLeadSafetyTaxCredit
+CredittoRepresentativeJaredGolden'sLead-FreeFutureActof2019fortheinspirationbehindtheHospitalLead
+Testing&TreatmentGrant
+CredittoRepresentativeToby’s(fromVirtualCongress)UniversalPreschoolandPrekindergartenGrantsActof
+2021forprovidingreferencebehindtheHospitalLeadTesting&TreatmentGrant

@@ -41,6 +41,7 @@ The codebase now uses a **simple functional architecture** instead of complex se
 - **`bill_utils.py`** - Bill search and management functions
 - **`message_utils.py`** - Discord response formatting and messaging
 - **`file_utils.py`** - File I/O operations
+- **`economic_utils.py`** - Economic analysis system with AI-powered insights
 
 ### Key Principles
 1. **Functions over classes** - Simple functions instead of complex class hierarchies
@@ -81,6 +82,13 @@ from config import BILL_TEXT_DIR, BILL_PDF_DIR, KNOWLEDGE_FILES
 - `/add_bill [link]`: Add bills to corpus
 - `/econ_impact_report [bill_link]`: Generate economic analysis
 - `/role [users] [role]`: Role management
+
+#### Economic Analysis Commands
+- `/fetch_econ_data`: Trigger comprehensive economic data collection
+- `/econ_report`: Generate current economic overview
+- `/econ_status`: View economic system status (Admin only)
+- `/econ_set_inflation [rate]`: Set inflation rate (Admin only)
+- `/econ_set_interval [minutes]`: Set analysis frequency (Admin only)
 
 ### Message Handling (Simple if/elif in `bot.py`)
 ```python
@@ -265,6 +273,47 @@ The codebase maintains 131 unit tests (8 skipped due to Discord.py limitations):
 - Uses simple environment variable configuration
 - Logging with rotation in `logs/` directory
 - No complex dependency injection or service initialization
+
+## Economic Analysis System
+
+VCBot includes a sophisticated economic analysis system that transforms Discord server activity into economic indicators:
+
+### Core Features
+- **AI-Powered Analysis**: Uses Gemini 2.5 for intelligent economic insights
+- **Multi-Channel Monitoring**: Analyzes all server channels for governmental activity
+- **Document Integration**: Processes Google Docs links for policy analysis
+- **Virtual Stock Market**: Tracks 5 government sector stocks (GOV, DEF, EDU, HLT, BIP)
+- **Economic Indicators**: GDP, inflation, unemployment, market sentiment
+
+### Data Storage
+```
+economic_data/
+├── parameters.json      # Economic simulation parameters
+├── reports.json         # Comprehensive analysis reports
+├── gdp.json            # GDP historical data
+├── stocks.json         # Stock market data
+├── inflation.json      # Inflation metrics
+├── unemployment.json   # Unemployment indicators
+├── sentiment.json      # Market sentiment data
+└── admin_log.json      # Administrative action log
+```
+
+### Key Functions (in `economic_utils.py`)
+- `start_economic_engine(client)` - Initialize the analysis system
+- `fetch_econ_data_manually(client)` - Trigger manual analysis
+- `get_economic_data(type, days_back)` - Retrieve historical data
+- `set_economic_parameter(param, value)` - Admin parameter control
+
+### Integration Notes
+- Economic system starts automatically when bot initializes
+- Runs continuous background analysis every hour (configurable)
+- Provides new AI tools for economic data access
+- Admin commands allow real-time economic parameter steering
+
+### Testing
+- Core functionality tested with `test_economic_core.py`
+- Google Docs integration verified with test document
+- All economic calculations validated
 
 ## Important Principles
 

@@ -19,6 +19,7 @@ import ai_tools
 import bill_utils
 import message_utils
 import file_utils
+import economic_utils
 
 # Initialize Discord bot
 intents = discord.Intents.default()
@@ -93,7 +94,7 @@ async def helper(interaction: discord.Interaction, query: str):
     ))
     
     # Process with AI
-    ai_response = await ai_tools.process_ai_query(query, context, interaction.user.id, client)
+    ai_response = await ai_tools.process_ai_query(context, interaction.user.id, client)
     
     # Send response
     completion_msg = f"Complete. Input tokens: {ai_response['input_tokens']}, Output tokens: {ai_response['output_tokens']}"
@@ -234,13 +235,22 @@ async def econ_impact_report(interaction: discord.Interaction, bill_link: str, a
     # Log query
     await file_utils.save_query_log(f'Generate economic impact report on {bill_link}', report_text)
 
-@tree.command(name="role", description="Add a role to one or more users.")
+@tree.command(name="role", description="Add or remove a role to/from one or more users.")
 @handle_errors("Failed to manage roles")
-async def role(interaction: discord.Interaction, users: str, *, role: str):
-    """Add or remove roles for users."""
+async def role(
+    interaction: discord.Interaction, 
+    user1: discord.Member,
+    role: str,
+    user2: discord.Member = None,
+    user3: discord.Member = None,
+    user4: discord.Member = None,
+    user5: discord.Member = None
+):
+    """Add or remove roles for users using Discord's member picker."""
     await interaction.response.defer(ephemeral=False)
     
-    remove = role[0] == "-"
+    # Check if removing role (prefix with -)
+    remove = role.startswith("-")
     clean_role = role.removeprefix("-").removeprefix("@").strip()
 
     # Check permissions
@@ -250,44 +260,380 @@ async def role(interaction: discord.Interaction, users: str, *, role: str):
             allowed_roles.extend(config.ALLOWED_ROLES_FOR_ROLES[r.name])
 
     if clean_role not in allowed_roles:
-        raise Exception(f"You do not have permission to add the role '{clean_role}'.")
+        raise Exception(f"You do not have permission to manage the role '{clean_role}'.")
 
     target_role = discord.utils.get(interaction.guild.roles, name=clean_role)
     if not target_role:
         raise Exception(f"Role '{clean_role}' not found in this server.")
 
-    # Extract user IDs
-    user_ids = re.findall(r"\d+", users)
-    if not user_ids:
-        raise Exception("No valid users specified. Please mention users or provide user IDs.")
-
-    # Get members
-    members = []
-    for uid in dict.fromkeys(user_ids):  # Remove duplicates
-        member = interaction.guild.get_member(int(uid))
-        if member:
-            members.append(member)
-
-    if not members:
-        raise Exception("Couldn't resolve any members from the provided user IDs.")
+    # Collect all provided members
+    members = [user1]  # user1 is mandatory
+    for user in [user2, user3, user4, user5]:
+        if user is not None:
+            members.append(user)
+    
+    # Remove duplicates while preserving order
+    unique_members = []
+    seen = set()
+    for member in members:
+        if member.id not in seen:
+            unique_members.append(member)
+            seen.add(member.id)
+    
+    members = unique_members
 
     # Apply role changes
     try:
-        for m in members:
+        for member in members:
             if remove:
-                await m.remove_roles(target_role)
+                await member.remove_roles(target_role)
             else:
-                await m.add_roles(target_role)
+                await member.add_roles(target_role)
     except discord.Forbidden:
         raise Exception("Bot lacks permission to manage roles. Please check bot role hierarchy.")
     except discord.HTTPException as e:
         raise Exception(f"Discord API error: {str(e)}")
 
+    # Create success message
     mentions = ", ".join(m.mention for m in members)
+    action = "Removed" if remove else "Added"
+    preposition = "from" if remove else "to"
+    
     await interaction.followup.send(
-        f"{'Removed' if remove else 'Added'} role {clean_role} "
-        f"{'from' if remove else 'to'} {mentions}."
+        f"{action} role **{clean_role}** {preposition} {mentions}."
     )
+
+# Economic Analysis Commands
+
+@tree.command(name="fetch_econ_data", description="Trigger comprehensive economic data collection and analysis")
+@has_any_role(config.Roles.ADMIN)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to fetch economic data")
+async def fetch_econ_data(interaction: discord.Interaction, prompt: str = None):
+    """Manually trigger economic data collection with optional user context"""
+    await interaction.response.defer()
+    
+    try:
+        # Get existing data status
+        latest_report = economic_utils.econ_data.get_latest_economic_report()
+        
+        # Send initial status message
+        if latest_report is None:
+            status_msg = "🔍 No existing economic data found. Starting comprehensive AI analysis of last 30 days..."
+        else:
+            status_msg = "📊 Updating economic data with comprehensive AI analysis of last 30 days..."
+        
+        if prompt:
+            status_msg += f"\n💬 **User Context**: {prompt}"
+        
+        await interaction.followup.send(status_msg)
+        
+        # Trigger real agentic analysis with progress updates in this channel
+        analysis = await economic_utils.fetch_econ_data_manually(client, prompt, interaction.channel)
+        
+        # Create response embed
+        embed = discord.Embed(
+            title="📈 Real AI Economic Analysis Complete",
+            color=0x00ff00,
+            timestamp=discord.utils.utcnow()
+        )
+        
+        embed.add_field(
+            name="GDP",
+            value=f"${analysis['gdp']['value']:,.2f} ({analysis['gdp']['change_percent']:+.2f}%)",
+            inline=True
+        )
+        
+        embed.add_field(
+            name="Inflation",
+            value=f"{analysis['inflation']['rate']:.2f}% ({analysis['inflation']['trend']})",
+            inline=True
+        )
+        
+        embed.add_field(
+            name="Market Sentiment",
+            value=f"{analysis['sentiment']['market_confidence']}/100",
+            inline=True
+        )
+        
+        if analysis.get('insights'):
+            # Limit insights text to stay under 1024 characters
+            insights_text = "\n".join(f"• {insight}" for insight in analysis['insights'][:3])
+            if len(insights_text) > 1020:
+                insights_text = insights_text[:1017] + "..."
+            
+            embed.add_field(
+                name="AI-Generated Insights",
+                value=insights_text,
+                inline=False
+            )
+        
+        # Add detailed reasoning info if available
+        if analysis.get('reasoning'):
+            reasoning_text = []
+            for key, value in analysis['reasoning'].items():
+                if len(str(value)) < 100:  # Only show short reasoning entries
+                    reasoning_text.append(f"**{key.replace('_', ' ').title()}**: {value}")
+            
+            if reasoning_text:
+                # Ensure reasoning field stays under 1024 characters
+                reasoning_value = "\n".join(reasoning_text[:2])
+                if len(reasoning_value) > 1020:
+                    reasoning_value = reasoning_value[:1017] + "..."
+                
+                embed.add_field(
+                    name="🧠 AI Reasoning Summary",
+                    value=reasoning_value,
+                    inline=False
+                )
+        
+        # Add log file reference
+        if analysis.get('analysis_session'):
+            embed.add_field(
+                name="📋 Detailed Analysis Log",
+                value=f"Session ID: `{analysis['analysis_session']['session_id']}`\nFull turn-by-turn analysis and reasoning saved to server logs.",
+                inline=False
+            )
+        
+        embed.set_footer(text="Generated by real agentic AI analysis with detailed reasoning logs - no fake data")
+        await interaction.followup.send(embed=embed)
+            
+    except Exception as e:
+        # Real failure - no fake data fallback
+        error_embed = discord.Embed(
+            title="❌ Economic Analysis Failed",
+            description=f"Real AI analysis failed: {str(e)}",
+            color=0xff0000
+        )
+        error_embed.add_field(
+            name="🚫 No Fallback Data",
+            value="This system only provides real AI-generated economic analysis. No fake data will be generated.",
+            inline=False
+        )
+        await interaction.followup.send(embed=error_embed)
+
+@tree.command(name="econ_report", description="Generate current economic overview")
+@has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to generate economic report")
+async def econ_report(interaction: discord.Interaction):
+    """Generate current economic overview"""
+    await interaction.response.defer()
+    
+    try:
+        latest_report = economic_utils.econ_data.get_latest_economic_report()
+        
+        if not latest_report:
+            no_data_embed = discord.Embed(
+                title="📊 No Economic Data Available",
+                description="No real AI-generated economic analysis data found.",
+                color=0xff9900
+            )
+            no_data_embed.add_field(
+                name="🚀 Generate Data",
+                value="Run `/fetch_econ_data` to trigger real AI economic analysis.",
+                inline=False
+            )
+            no_data_embed.add_field(
+                name="🚫 No Fake Data",
+                value="This system only displays real AI-generated economic data.",
+                inline=False
+            )
+            await interaction.followup.send(embed=no_data_embed)
+            return
+        
+        embed = discord.Embed(
+            title="📊 Virtual Congress Economic Report",
+            color=0x0099ff,
+            timestamp=discord.utils.utcnow()
+        )
+        
+        # GDP Section
+        gdp = latest_report.get('gdp', {})
+        embed.add_field(
+            name="🏛️ GDP",
+            value=f"**${gdp.get('value', 0):,.2f}**\nChange: {gdp.get('change_percent', 0):+.2f}%",
+            inline=True
+        )
+        
+        # Stocks Section
+        stocks = latest_report.get('stocks', [])
+        if stocks:
+            stock_text = "\n".join([
+                f"**{stock['symbol']}**: ${stock['price']:.2f} ({stock.get('change_percent', 0):+.2f}%)"
+                for stock in stocks[:3]
+            ])
+            embed.add_field(name="📈 Stock Market", value=stock_text, inline=True)
+        
+        # Inflation
+        inflation = latest_report.get('inflation', {})
+        embed.add_field(
+            name="💰 Inflation",
+            value=f"**{inflation.get('rate', 0):.2f}%**\nTrend: {inflation.get('trend', 'stable').title()}",
+            inline=True
+        )
+        
+        # Sentiment
+        sentiment = latest_report.get('sentiment', {})
+        embed.add_field(
+            name="🎭 Market Sentiment",
+            value=f"Confidence: {sentiment.get('market_confidence', 0)}/100\nApproval: {sentiment.get('public_approval', 0)}/100",
+            inline=True
+        )
+        
+        # Unemployment
+        unemployment = latest_report.get('unemployment', {})
+        embed.add_field(
+            name="👥 Unemployment",
+            value=f"**{unemployment.get('rate', 0):.1f}%**",
+            inline=True
+        )
+        
+        # Activity Summary
+        gdp_components = gdp.get('components', {})
+        embed.add_field(
+            name="📋 Government Activity",
+            value=f"Legislative: {gdp_components.get('legislative', 0)}\nCommittee: {gdp_components.get('committee', 0)}\nPublic: {gdp_components.get('public', 0)}",
+            inline=True
+        )
+        
+        # Insights
+        insights = latest_report.get('insights', [])
+        if insights:
+            # Limit insights text to stay under 1024 characters
+            insights_text = "\n".join(f"• {insight}" for insight in insights[:3])
+            if len(insights_text) > 1020:
+                insights_text = insights_text[:1017] + "..."
+            
+            embed.add_field(
+                name="💡 Key Insights",
+                value=insights_text,
+                inline=False
+            )
+        
+        embed.set_footer(text=f"Real AI analysis from: {latest_report.get('timestamp', 'Unknown')[:10]} - No fake data")
+        
+        await interaction.followup.send(embed=embed)
+        
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error generating report: {str(e)}")
+
+@tree.command(name="econ_status", description="View economic system status and parameters")
+@has_any_role(config.Roles.ADMIN)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to get economic status")
+async def econ_status(interaction: discord.Interaction):
+    """Show economic system status"""
+    await interaction.response.defer()
+    
+    try:
+        status = economic_utils.get_economic_status()
+        
+        if "error" in status:
+            await interaction.followup.send(f"❌ Error: {status['error']}")
+            return
+        
+        embed = discord.Embed(
+            title="⚙️ Economic System Status",
+            color=0x0099ff,
+            timestamp=discord.utils.utcnow()
+        )
+        
+        params = status.get("parameters", {})
+        
+        # GDP Settings
+        gdp_weights = params.get("gdp_weights", {})
+        embed.add_field(
+            name="📊 GDP Weights",
+            value=f"Legislative: {gdp_weights.get('legislative', 0.4):.2f}\nCommittee: {gdp_weights.get('committee', 0.3):.2f}\nPublic: {gdp_weights.get('public', 0.3):.2f}",
+            inline=True
+        )
+        
+        # Market Settings  
+        embed.add_field(
+            name="📈 Market Settings",
+            value=f"Inflation: {params.get('inflation_base', 2.5):.2f}%\nInterval: {params.get('analysis_interval', 3600)//60} min",
+            inline=True
+        )
+        
+        # System Status
+        embed.add_field(
+            name="🔧 System Status",
+            value=f"Data Files: {status.get('data_files_count', 0)}/{status.get('total_files', 5)}\nStocks: {len(params.get('tracked_stocks', []))} tracked",
+            inline=True
+        )
+        
+        # Latest Report
+        latest = status.get("latest_report")
+        if latest:
+            embed.add_field(
+                name="📅 Latest Report",
+                value=f"Timestamp: {latest.get('timestamp', 'Unknown')[:16]}\nGDP: ${latest.get('gdp', {}).get('value', 0):,.0f}",
+                inline=False
+            )
+        
+        await interaction.followup.send(embed=embed)
+        
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error getting status: {str(e)}")
+
+@tree.command(name="econ_set_inflation", description="Set base inflation rate (Admin only)")
+@has_any_role(config.Roles.ADMIN)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to set inflation rate")
+async def econ_set_inflation(interaction: discord.Interaction, rate: float):
+    """Set inflation rate"""
+    await interaction.response.defer()
+    
+    try:
+        # Clamp to reasonable bounds
+        rate = max(-10.0, min(50.0, rate))
+        
+        success = economic_utils.set_economic_parameter("inflation_base", rate)
+        
+        if success:
+            economic_utils.log_admin_action(interaction.user.id, "set_inflation", {"rate": rate})
+            
+            embed = discord.Embed(
+                title="✅ Inflation Rate Updated",
+                description=f"Base inflation rate set to {rate:.2f}%",
+                color=0x00ff00
+            )
+            await interaction.followup.send(embed=embed)
+        else:
+            await interaction.followup.send("❌ Failed to update inflation rate")
+            
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error setting inflation: {str(e)}")
+
+@tree.command(name="econ_set_interval", description="Set analysis interval in minutes (Admin only)")
+@has_any_role(config.Roles.ADMIN)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to set analysis interval")
+async def econ_set_interval(interaction: discord.Interaction, minutes: int):
+    """Set analysis interval"""
+    await interaction.response.defer()
+    
+    try:
+        # Convert to seconds and clamp (5 minutes to 24 hours)
+        seconds = max(300, min(86400, minutes * 60))
+        
+        success = economic_utils.set_economic_parameter("analysis_interval", seconds)
+        
+        if success:
+            economic_utils.log_admin_action(interaction.user.id, "set_analysis_interval", {"minutes": minutes})
+            
+            embed = discord.Embed(
+                title="⏰ Analysis Interval Updated",
+                description=f"Economic analysis will now run every {seconds//60} minutes",
+                color=0x00ff00
+            )
+            await interaction.followup.send(embed=embed)
+        else:
+            await interaction.followup.send("❌ Failed to update analysis interval")
+            
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error setting interval: {str(e)}")
 
 # Message Handlers (replacing complex MessageRouter)
 
@@ -423,6 +769,10 @@ async def on_ready():
     
     # Start GitHub monitoring
     client.loop.create_task(check_github_commits())
+    
+    # Start economic analysis system
+    economic_utils.start_economic_engine(client)
+    print("Economic analysis system initialized")
     
     # Sync commands
     print("Syncing commands...")

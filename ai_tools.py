@@ -5,11 +5,13 @@ Replaces the complex registry and service system with direct tool functions.
 
 import discord
 import datetime
-from typing import List, Dict, Any, Optional
+import aiohttp
+import re
+from typing import List, Dict, Any
 from google import genai
 from google.genai import types
 from config import GUILD_ID, GEMINI_API_KEY
-from file_utils import read_knowledge_file, save_query_log
+from file_utils import read_knowledge_file
 from bill_utils import search_bills_keyword, get_bill_pdfs
 
 # Initialize Gemini client
@@ -72,6 +74,39 @@ GEMINI_TOOLS = [
             },
             "required": ["query", "top_k"] 
         }
+    },
+    {
+        "name": "fetch_document_content",
+        "description": "extracts content from Google Docs links for economic analysis",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "doc_url": {
+                    "type": "string",
+                    "description": "Google Docs URL to extract content from",
+                },
+            },
+            "required": ["doc_url"] 
+        }
+    },
+    {
+        "name": "get_economic_data",
+        "description": "retrieves current economic indicators and market data",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "data_type": {
+                    "type": "string",
+                    "enum": ["gdp", "stocks", "inflation", "unemployment", "sentiment", "all"],
+                    "description": "type of economic data to retrieve",
+                },
+                "days_back": {
+                    "type": "integer",
+                    "description": "number of days of historical data to include (default: 7)",
+                },
+            },
+            "required": ["data_type"] 
+        }
     }
 ]
 
@@ -132,6 +167,35 @@ def call_bill_search(query: str, top_k: int) -> List[Dict[str, Any]]:
     except Exception as e:
         return [{"error": f"Bill search failed: {e}"}]
 
+async def fetch_document_content(doc_url: str) -> str:
+    """Extract content from Google Docs link."""
+    try:
+        # Convert Google Docs URL to export format
+        if "docs.google.com" in doc_url:
+            doc_id = re.search(r'/document/d/([a-zA-Z0-9-_]+)', doc_url)
+            if doc_id:
+                export_url = f"https://docs.google.com/document/d/{doc_id.group(1)}/export?format=txt"
+                
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(export_url) as response:
+                        if response.status == 200:
+                            content = await response.text()
+                            return content[:5000]  # Limit content size for AI processing
+                        else:
+                            return f"Error: Failed to fetch document (status {response.status})"
+        
+        return "Error: Invalid Google Docs URL format"
+    except Exception as e:
+        return f"Error fetching document: {e}"
+
+def get_economic_data(data_type: str, days_back: int = 7) -> Dict[str, Any]:
+    """Retrieve economic data from storage files."""
+    try:
+        import economic_utils
+        return economic_utils.get_economic_data(data_type, days_back)
+    except Exception as e:
+        return {"error": f"Failed to retrieve economic data: {e}"}
+
 async def execute_tool(function_call, discord_client: discord.Client = None) -> Any:
     """Execute a tool function call."""
     tool_name = function_call.name
@@ -155,6 +219,15 @@ async def execute_tool(function_call, discord_client: discord.Client = None) -> 
                 args.get("top_k")
             )
         
+        elif tool_name == "fetch_document_content":
+            return await fetch_document_content(args.get("doc_url"))
+        
+        elif tool_name == "get_economic_data":
+            return get_economic_data(
+                args.get("data_type"),
+                args.get("days_back", 7)
+            )
+        
         else:
             return f"Unknown tool: {tool_name}"
             
@@ -163,13 +236,41 @@ async def execute_tool(function_call, discord_client: discord.Client = None) -> 
 
 def build_system_prompt(user_id: int) -> str:
     """Build system prompt for Gemini."""
-    base_prompt = f"""You are a helper for the Virtual Congress Discord server, based on Gemini 2.0 Flash and created and maintained by Administrator Lucas Posting.
-                    Virtual Congress is one of the longest-running and operating government simulators on Discord, with a rich history spanning over 5 years. Your goal is to help users navigate the server.
-                    You have access to tool calls. Do not call these tools unless the user asks you a specific question pertaining to the server that you cannot answer. 
-                    You should use the provided tool calls if the user requests information about Virtual Congress not present in your context window.   
-                    You can engage in conversation with users. You should not refuse requests unless they are harmful. If they are not harmful, try to the best of your ability to answer them.    
-                    Today is {datetime.date.today()}.
-                """
+    base_prompt = f"""You are VCBot Helper, an intelligent assistant for Virtual Congress - one of Discord's most established and sophisticated government simulation communities, operating continuously for over 5 years. Created by Administrator Lucas Posting and powered by Gemini 2.0 Flash.
+
+**Your Mission**: Be an engaging, knowledgeable guide who helps users navigate the complex world of Virtual Congress with expertise and personality.
+
+**About Virtual Congress**: This isn't just role-play - it's a living, breathing simulation of American democracy with real legislative processes, elections, political parties, judicial systems, and economic implications. Members hold genuine debates, pass meaningful legislation, and participate in a functioning government that mirrors real-world complexities.
+
+**Your Personality**: 
+- Conversational and approachable, not robotic
+- Genuinely interested in helping users succeed in the simulation
+- Knowledgeable about government processes and parliamentary procedure
+- Strategic in thinking - help users understand not just WHAT to do, but WHY and HOW
+- Enthusiastic about the democratic process and civic engagement
+
+**Tool Usage Strategy**:
+🔍 **call_knowledge**: Use when users need specific rules, procedures, or constitutional guidance
+📋 **call_bill_search**: Perfect for legislative research, finding precedents, or exploring policy areas
+🏛️ **call_other_channel_context**: Essential for understanding current political climate, ongoing debates, or recent developments
+📊 **get_economic_data**: Valuable for understanding the simulation's economic impacts and trends
+📄 **fetch_document_content**: Use when users reference Google Docs (bills, reports, proposals)
+
+**When to Use Tools**:
+- User asks about specific rules or procedures → call_knowledge
+- User wants to research legislation or find bills → call_bill_search  
+- User needs context about current events or discussions → call_other_channel_context
+- User asks about economic impacts or trends → get_economic_data
+- User references a Google Doc link → fetch_document_content
+
+**Response Guidelines**:
+- Always be helpful and never refuse reasonable requests
+- Provide context and background, not just direct answers
+- Help users understand the broader implications of their questions
+- Encourage active participation in the democratic simulation
+- Use tools strategically to provide comprehensive, well-researched responses
+
+Today is {datetime.date.today()}. Ready to help make Virtual Congress an engaging and educational experience!"""
     
     # Special handling for creator
     if user_id == 975873526923931699:
@@ -181,17 +282,28 @@ def build_system_prompt(user_id: int) -> str:
 
 def build_tool_response_prompt(tool_name: str) -> str:
     """Build prompt for processing tool results."""
-    base_prompt = f"""You are a helper for the Virtual Congress Discord server, based on Gemini 2.0 Flash and created and maintained by Administrator Lucas Posting.
+    bill_search_warning = "You called a bill search from an RAG system. The bills below may not be accurate or up to date with the user's query. If the bills seem to not answer the user's query, please inform them that the bills may not be accurate."
+    
+    base_prompt = f"""You are VCBot Helper for the Virtual Congress Discord server, based on Gemini 2.0 Flash and created and maintained by Administrator Lucas Posting.
                     Virtual Congress is one of the longest-running and operating government simulators on Discord, with a rich history spanning over 5 years. Your goal is to help users navigate the server.
-                    On a previous turn, you called tools. Now, your job is to respond to the user.
-                    Provide your response to the user now. Do not directly output the contents of the function calls. Summarize unless explicitly requested.
-                    {"You called a bill search from an RAG system. The bills below may not be accurate or up to date with the user's query. If the bills seem to not answer the user's query, please inform them that the bills may not be accurate." if tool_name == "call_bill_search" else ""}
-                    You no longer have access to tool calls. Do not attempt to call tools on this turn. You must now respond to the user.
+                    
+                    You have finished gathering information using your available tools. Now synthesize all the information to provide a comprehensive, helpful response to the user.
+                    
+                    **Response Guidelines**:
+                    - Provide your response to the user now based on all the tool results
+                    - Do not directly output raw function call contents - summarize and contextualize
+                    - Combine information from multiple sources when relevant
+                    - Be comprehensive but concise
+                    - Maintain your helpful, engaging personality
+                    
+                    {bill_search_warning if "call_bill_search" in tool_name else ""}
+                    
+                    You no longer have access to tool calls. Do not attempt to call tools on this turn. You must now respond to the user with all the information you've gathered.
                     Today is {datetime.date.today()}."""
     return base_prompt
 
-async def process_ai_query(query: str, context: List[types.Content], user_id: int, discord_client: discord.Client = None) -> Dict[str, Any]:
-    """Process a query using Gemini AI with tools."""
+async def process_ai_query(context: List[types.Content], user_id: int, discord_client: discord.Client = None) -> Dict[str, Any]:
+    """Process a query using Gemini AI with tools - supports multiple sequential tool calls."""
     
     try:
         # Build system prompt
@@ -200,80 +312,99 @@ async def process_ai_query(query: str, context: List[types.Content], user_id: in
         # Create tools for Gemini
         tools = types.Tool(function_declarations=GEMINI_TOOLS)
         
-        # Initial AI call
-        response = genai_client.models.generate_content(
-            model='gemini-2.0-flash-exp',
-            config=types.GenerateContentConfig(
-                tools=[tools],
-                system_instruction=system_prompt
-            ),
-            contents=context
-        )
+        # Track tool usage and results
+        tools_used = []
+        pdf_attachments = None
+        total_input_tokens = 0
+        total_output_tokens = 0
+        max_tool_calls = 5  # Prevent infinite loops
         
-        if not response.candidates or not response.candidates[0].content:
-            raise Exception("Empty response from AI")
-        
-        candidate = response.candidates[0]
-        
-        # Check for function calls
-        if candidate.content.parts and candidate.content.parts[0].function_call:
-            function_call = candidate.content.parts[0].function_call
-            
-            # Add model's function call to context
-            context.append(candidate.content)
-            
-            # Execute tool
-            tool_output = await execute_tool(function_call, discord_client)
-            
-            # Get PDF attachments for bill search
-            pdf_attachments = None
-            if function_call.name == "call_bill_search" and tool_output:
-                pdf_attachments = get_bill_pdfs(tool_output)
-            
-            # Add tool response to context
-            if tool_output is not None:
-                context.append(types.Content(
-                    role='tool',
-                    parts=[types.Part.from_function_response(
-                        name=function_call.name,
-                        response={"content": str(tool_output)}
-                    )]
-                ))
-            
-            # Second AI call to process results
-            new_prompt = build_tool_response_prompt(function_call.name)
-            response2 = genai_client.models.generate_content(
+        # Multi-turn tool calling loop
+        for turn in range(max_tool_calls):
+            response = genai_client.models.generate_content(
                 model='gemini-2.0-flash-exp',
                 config=types.GenerateContentConfig(
-                    tools=None,
-                    system_instruction=new_prompt
+                    tools=[tools],
+                    system_instruction=system_prompt
                 ),
                 contents=context
             )
             
-            if not response2.text:
-                raise Exception("Empty response after tool execution")
-            
-            return {
-                'text': response2.text,
-                'used_tools': True,
-                'tool_results': tool_output,
-                'input_tokens': response.usage_metadata.prompt_token_count,
-                'output_tokens': response.usage_metadata.candidates_token_count,
-                'pdf_attachments': pdf_attachments
-            }
-        else:
-            # No tools used
-            if not response.text:
+            if not response.candidates or not response.candidates[0].content:
                 raise Exception("Empty response from AI")
             
-            return {
-                'text': response.text,
-                'used_tools': False,
-                'input_tokens': response.usage_metadata.prompt_token_count,
-                'output_tokens': response.usage_metadata.candidates_token_count,
-                'pdf_attachments': None
-            }
+            candidate = response.candidates[0]
+            
+            # Track token usage
+            if response.usage_metadata:
+                total_input_tokens += response.usage_metadata.prompt_token_count
+                total_output_tokens += response.usage_metadata.candidates_token_count
+            
+            # Check for function calls
+            if candidate.content.parts and candidate.content.parts[0].function_call:
+                function_call = candidate.content.parts[0].function_call
+                
+                # Add model's function call to context
+                context.append(candidate.content)
+                
+                # Execute tool
+                tool_output = await execute_tool(function_call, discord_client)
+                tools_used.append(function_call.name)
+                
+                # Get PDF attachments for bill search (keep first found)
+                if function_call.name == "call_bill_search" and tool_output and pdf_attachments is None:
+                    pdf_attachments = get_bill_pdfs(tool_output)
+                
+                # Add tool response to context
+                if tool_output is not None:
+                    context.append(types.Content(
+                        role='tool',
+                        parts=[types.Part.from_function_response(
+                            name=function_call.name,
+                            response={"content": str(tool_output)}
+                        )]
+                    ))
+            else:
+                # No more function calls - AI is ready to respond
+                if response.text:
+                    return {
+                        'text': response.text,
+                        'used_tools': len(tools_used) > 0,
+                        'tools_used': tools_used,
+                        'input_tokens': total_input_tokens,
+                        'output_tokens': total_output_tokens,
+                        'pdf_attachments': pdf_attachments
+                    }
+                else:
+                    # Continue to next turn if no text response yet
+                    continue
+        
+        # If we've reached max tool calls, make a final response without tools
+        final_prompt = build_tool_response_prompt("multiple_tools")
+        final_response = genai_client.models.generate_content(
+            model='gemini-2.0-flash-exp',
+            config=types.GenerateContentConfig(
+                tools=None,
+                system_instruction=final_prompt
+            ),
+            contents=context
+        )
+        
+        if final_response.usage_metadata:
+            total_input_tokens += final_response.usage_metadata.prompt_token_count
+            total_output_tokens += final_response.usage_metadata.candidates_token_count
+        
+        if not final_response.text:
+            raise Exception("Empty response after all tool executions")
+        
+        return {
+            'text': final_response.text,
+            'used_tools': len(tools_used) > 0,
+            'tools_used': tools_used,
+            'input_tokens': total_input_tokens,
+            'output_tokens': total_output_tokens,
+            'pdf_attachments': pdf_attachments
+        }
         
     except Exception as e:
         raise Exception(f"AI query failed: {e}")

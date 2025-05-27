@@ -10,14 +10,14 @@ from pathlib import Path
 from config import Limits
 
 def sanitize_text(text: str) -> str:
-    """Sanitize text to prevent mass pings."""
+    """Sanitize text to prevent mass pings while preserving user mentions."""
     if not text:
         return ""
     
+    # Only sanitize mass ping mentions, preserve individual user mentions
     return (text.replace("@everyone", "@ everyone")
                .replace("@here", "@ here")
-               .replace("<@&", "< @&")
-               .replace("<@", "< @"))
+               .replace("<@&", "< @&"))  # Only sanitize role mentions, not user mentions
 
 def chunk_text(text: str, max_length: int = Limits.MAX_MESSAGE_LENGTH) -> List[str]:
     """Split text into Discord-safe chunks."""

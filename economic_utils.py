@@ -44,6 +44,52 @@ analysis_task = None
 # Configure Gemini 2.5
 genai.configure(api_key=GEMINI_API_KEY)
 
+# Allowed channels for economic analysis - RESTRICTED ACCESS
+ALLOWED_CHANNELS = {
+    "NEWS": [
+        "news-information", "official-rp-news", "parody", "pbn", 
+        "liberty-ledger", "wall-street-journal", "4e-news-from-the-hill", 
+        "202news", "msnbc"
+    ],
+    "CONGRESS": [
+        "speaker-announcements", "house-docket", "house-floor", "house-vote-results",
+        "senate-announcements", "senate-docket", "senate-floor", "senate-vote-results",
+        "committee-announcements"
+    ],
+    "EXECUTIVE": [
+        "bills-signed-into-law", "bills-vetoed", "presidential-congressional-desk",
+        "president-announcements", "press-briefing-room", "cabinet-announcements",
+        "executive-orders", "presidential-memoranda"
+    ],
+    "STATES": [
+        "olympia-governor", "pacifica-governor", "lincoln-governor", 
+        "jackson-governor", "frontier-governor"
+    ],
+    "COURTS": [
+        "district-court-announcements", "supreme-court-announcements"
+    ],
+    "PUBLIC_SQUARE": [
+        "rp-chat", "twitter-rp", "press-releases", "press-room", 
+        "election-announcements", "election-results", "staff-announcements"
+    ]
+}
+
+# Flatten the allowed channels list for easy lookup
+ALL_ALLOWED_CHANNELS = set()
+for category, channels in ALLOWED_CHANNELS.items():
+    ALL_ALLOWED_CHANNELS.update(channels)
+
+def is_channel_allowed(channel_name: str) -> bool:
+    """Check if a channel is in the allowed list for economic analysis"""
+    return channel_name.lower() in ALL_ALLOWED_CHANNELS
+
+def get_channel_category(channel_name: str) -> str:
+    """Get the category of an allowed channel"""
+    for category, channels in ALLOWED_CHANNELS.items():
+        if channel_name.lower() in channels:
+            return category
+    return "UNKNOWN"
+
 # Economic Analysis Tools for AI Agent - Proper Gemini Format
 def get_economic_analysis_tools():
     """Get properly formatted Gemini tools"""
@@ -132,7 +178,7 @@ class EconomicData:
         self.analysis_log_dir.mkdir(exist_ok=True)
         
         print("🤖 Economic Analysis Agent initialized with tool-based approach")
-        print(f"📊 Using realistic economic parameters: GDP base ${self.parameters['gdp_base']:,.0f}B, Inflation {self.parameters['inflation_base']}%")
+        print(f"📊 Using realistic economic parameters: GDP base ${self.parameters['gdp_base']:,.1f}T, Inflation {self.parameters['inflation_base']}%")
     
     def load_parameters(self) -> Dict[str, Any]:
         """Load economic parameters or create realistic defaults"""
@@ -149,18 +195,11 @@ class EconomicData:
             "inflation_base": 3.2,        # Current realistic inflation target (Fed aims for 2%, but 3.2% is more realistic in current environment)
             "unemployment_base": 3.7,     # Full employment level (US natural rate ~3.5-4%)
             "stock_volatility": 0.12,     # Realistic daily volatility (12% annualized is typical)
-            "gdp_base": 27000.0,          # Baseline GDP in billions (US GDP ~$27T)
+            "gdp_base": 27.0,             # Baseline GDP in trillions (US GDP ~$27T)
             "analysis_interval": 3600,    # 1 hour for responsive analysis
             "lookback_days": 7,           # Weekly analysis window for responsiveness
             "confidence_threshold": 0.75, # Minimum confidence for economic projections
-            "tracked_stocks": [
-                {"symbol": "GOV", "name": "Government Efficiency Index", "price": 2650.0, "volatility": 0.08, "sector": "governance"},
-                {"symbol": "DEF", "name": "Defense & Security Sector", "price": 3150.0, "volatility": 0.06, "sector": "defense"},
-                {"symbol": "EDU", "name": "Education & Research Index", "price": 1850.0, "volatility": 0.04, "sector": "education"},
-                {"symbol": "HLT", "name": "Healthcare Services Index", "price": 4200.0, "volatility": 0.05, "sector": "healthcare"},
-                {"symbol": "INF", "name": "Infrastructure Development", "price": 2100.0, "volatility": 0.07, "sector": "infrastructure"},
-                {"symbol": "BIP", "name": "Bipartisan Cooperation Index", "price": 1200.0, "volatility": 0.15, "sector": "political"}
-            ],
+            # Note: Stock tracking moved to stock_market.py - economic system tracks indicators only
             "economic_indicators": {
                 "employment_weight": 0.30,    # Employment data heavily influences economic health
                 "spending_weight": 0.25,      # Government spending drives economic activity  
@@ -180,8 +219,8 @@ class EconomicData:
                     'analysis_interval': 3600,  # 1 hour instead of 1 week for responsiveness
                     'lookback_days': 7,  # Weekly instead of 30-day for responsiveness
                     'stock_volatility': 0.12,  # More realistic volatility
-                    'gdp_weights': default_params['gdp_weights'],  # Include news component
-                    'tracked_stocks': default_params['tracked_stocks']  # More realistic stock prices and sectors
+                    'gdp_weights': default_params['gdp_weights']  # Include news component
+                    # Note: tracked_stocks removed - stock tracking moved to stock_market.py
                 }
                 
                 for key, value in parameters_to_update.items():
@@ -253,14 +292,15 @@ class EconomicData:
     # Agentic Tool Execution Methods
     
     async def get_server_channels(self, channel_type: str = "text") -> List[Dict[str, str]]:
-        """Get list of all readable Discord channels with their actual Discord categories"""
-        print(f"🔍 Discovering all readable {channel_type} channels...")
+        """Get list of ALLOWED readable Discord channels with their actual Discord categories"""
+        print(f"🔍 Discovering allowed readable {channel_type} channels...")
         
         if not self.client:
             return [{"error": "Discord client not available"}]
         
         channels = []
         total_channels = 0
+        allowed_channels = 0
         
         for guild in self.client.guilds:
             if channel_type == "all":
@@ -275,13 +315,21 @@ class EconomicData:
             for channel in guild_channels:
                 total_channels += 1
                 if hasattr(channel, 'name'):
-                    # Only include channels that the bot can read
+                    # FIRST: Check if channel is in allowed list
+                    if not is_channel_allowed(channel.name):
+                        continue
+                    
+                    # SECOND: Check if bot can read the channel
                     if hasattr(channel, 'permissions_for') and channel.permissions_for(guild.me).read_message_history:
+                        allowed_channels += 1
                         
                         # Get the actual Discord category if it exists
                         discord_category = None
                         if hasattr(channel, 'category') and channel.category:
                             discord_category = channel.category.name
+                        
+                        # Get the economic analysis category
+                        econ_category = get_channel_category(channel.name)
                         
                         channels.append({
                             "name": channel.name,
@@ -289,19 +337,22 @@ class EconomicData:
                             "type": str(channel.type),
                             "guild": guild.name,
                             "discord_category": discord_category,
-                            "readable": True
+                            "economic_category": econ_category,
+                            "readable": True,
+                            "access_restricted": True
                         })
         
-        # Group channels by their actual Discord categories for reporting
-        discord_categories = {}
+        # Group channels by their economic analysis categories for reporting
+        economic_categories = {}
         for channel in channels:
-            cat = channel["discord_category"] or "No Category"
-            if cat not in discord_categories:
-                discord_categories[cat] = []
-            discord_categories[cat].append(channel["name"])
+            cat = channel["economic_category"]
+            if cat not in economic_categories:
+                economic_categories[cat] = []
+            economic_categories[cat].append(channel["name"])
         
-        print(f"📋 Found {len(channels)} readable channels out of {total_channels} total {channel_type} channels")
-        for category, channel_names in discord_categories.items():
+        print(f"📋 Found {len(channels)} ALLOWED readable channels out of {total_channels} total {channel_type} channels")
+        print(f"🔒 Access restricted to {len(ALL_ALLOWED_CHANNELS)} whitelisted channels")
+        for category, channel_names in economic_categories.items():
             print(f"   📁 {category}: {len(channel_names)} channels ({', '.join(channel_names[:3])}{'...' if len(channel_names) > 3 else ''})")
         
         return channels
@@ -373,6 +424,24 @@ class EconomicData:
             
             if not channel:
                 continue
+            
+            # Check if channel is allowed for economic analysis
+            if not is_channel_allowed(channel_name):
+                print(f"🚫 Channel '{channel_name}' not in allowed list - access denied")
+                return {
+                    "channel_name": channel_name,
+                    "error": f"Channel '{channel_name}' not authorized for economic analysis",
+                    "messages_analyzed": 0,
+                    "documents_found": 0,
+                    "activity_summary": {
+                        "total_messages": 0,
+                        "access_denied": True,
+                        "reason": "Channel not in whitelist"
+                    },
+                    "sample_messages": [],
+                    "document_links": [],
+                    "economic_category": "RESTRICTED"
+                }
             
             if not channel.permissions_for(guild.me).read_message_history:
                 print(f"⚠️ No permission to read {channel_name}")
@@ -683,7 +752,7 @@ class EconomicData:
             print(f"Error fetching document: {e}")
             return None
     
-    async def conduct_agentic_analysis(self, client, days_back: int = 30, previous_report: Optional[Dict[str, Any]] = None, user_prompt: str = None, progress_channel = None) -> Dict[str, Any]:
+    async def conduct_agentic_analysis(self, client, days_back: int = 30, previous_report: Optional[Dict[str, Any]] = None, user_prompt: str = None, progress_channel = None, previous_insights: Optional[str] = None, memory_context: str = "") -> Dict[str, Any]:
         """Conduct agentic economic analysis using AI-powered tool calls with detailed logging and live progress updates"""
         print("🤖 Starting agentic economic analysis...")
         
@@ -691,14 +760,39 @@ class EconomicData:
         
         # Create analysis session identifier
         session_id = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-        print(f"📋 Analysis session ID: {session_id}")
+        
+        # Check for existing context file from previous failed attempt
+        context_file = self.data_dir / f"context_save_{session_id[:8]}.json"
+        existing_context_files = list(self.data_dir.glob("context_save_*.json"))
+        
+        if existing_context_files:
+            # Resume from most recent saved context
+            latest_context_file = max(existing_context_files, key=lambda f: f.stat().st_mtime)
+            print(f"🔄 Found existing context file: {latest_context_file.name}")
+            print(f"📝 Resuming analysis from saved context...")
+            
+            try:
+                with open(latest_context_file, 'r') as f:
+                    saved_context = json.load(f)
+                session_id = saved_context.get('session_id', session_id)
+                print(f"📋 Resuming analysis session ID: {session_id}")
+            except Exception as e:
+                print(f"⚠️ Failed to load saved context: {e}")
+                print("📝 Starting fresh analysis...")
+        else:
+            print(f"📋 Analysis session ID: {session_id}")
+        
         print(f"📝 Detailed logs will be saved to: analysis_logs/economic_analysis_{session_id}.txt")
         
-        # Build the economic analysis prompt with user context
+        # Build the economic analysis prompt with user context, previous insights, and memory
         user_prompt_context = f"\n\nUser Request Context: {user_prompt}" if user_prompt else ""
         
+        previous_insights_context = ""
+        if previous_insights:
+            previous_insights_context = f"\n\nPrevious Economic Insights (for context and continuity):\n{previous_insights}"
+        
         analysis_prompt = f"""You are an advanced economic analyst for a Virtual Congress simulation. 
-Your job is to conduct a COMPREHENSIVE analysis of ALL Discord server activity over the last {days_back} days to generate economic indicators.{user_prompt_context}
+Your job is to conduct a COMPREHENSIVE analysis of ALL Discord server activity over the last {days_back} days to generate economic indicators.{user_prompt_context}{previous_insights_context}{memory_context}
 
 You have access to these tools:
 1. get_server_channels - Discover ALL available Discord channels organized by their actual Discord categories
@@ -782,45 +876,101 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
         
         print("🧠 Starting AI-powered economic analysis...")
         
-        # Real agentic analysis with proper tool calling
-        try:
-            print("🔄 Starting real agentic AI analysis with tool calls...")
-            
-            # Use proper Gemini function calling - no fake fallbacks
-            result = await self.execute_real_agentic_analysis(analysis_prompt, tool_declarations, progress_channel)
-            
-            if result and isinstance(result, dict) and "gdp" in result:
-                print(f"✅ Real AI analysis completed - GDP: ${result.get('gdp', {}).get('value', 'N/A')}")
+        # Real agentic analysis with proper tool calling and retry mechanism
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
+            try:
+                if retry_count > 0:
+                    print(f"🔄 Retry attempt {retry_count}/{max_retries - 1} - Starting real agentic AI analysis...")
+                else:
+                    print("🔄 Starting real agentic AI analysis with tool calls...")
                 
-                # Add log file reference to result
-                result['analysis_session'] = {
-                    'session_id': session_id,
-                    'log_file': f"analysis_logs/economic_analysis_{session_id}.txt",
-                    'timestamp': datetime.now(timezone.utc).isoformat()
-                }
+                # Use proper Gemini function calling with tool-based analysis
+                result = await self.execute_real_agentic_analysis(analysis_prompt, tool_declarations, progress_channel, session_id)
                 
-                print(f"📝 Complete analysis log available at: analysis_logs/economic_analysis_{session_id}.txt")
-                return result
-            else:
-                raise Exception("AI analysis failed to produce valid economic data")
+                if result and isinstance(result, dict) and "gdp" in result:
+                    print(f"✅ Real AI analysis completed - GDP: ${result.get('gdp', {}).get('value', 'N/A')}")
+                    
+                    # Add log file reference to result
+                    result['analysis_session'] = {
+                        'session_id': session_id,
+                        'log_file': f"analysis_logs/economic_analysis_{session_id}.txt",
+                        'timestamp': datetime.now(timezone.utc).isoformat()
+                    }
+                    
+                    # Clean up any saved context files on success
+                    context_files = list(self.data_dir.glob("context_save_*.json"))
+                    for context_file in context_files:
+                        try:
+                            context_file.unlink()
+                            print(f"🗑️ Cleaned up context file: {context_file.name}")
+                        except:
+                            pass
+                    
+                    print(f"📝 Complete analysis log available at: analysis_logs/economic_analysis_{session_id}.txt")
+                    return result
+                else:
+                    raise Exception("AI analysis failed to produce valid economic data")
+                    
+            except Exception as e:
+                retry_count += 1
+                error_str = str(e).lower()
                 
-        except Exception as e:
-            print(f"❌ Agentic AI analysis failed: {e}")
-            print("🚫 No fallback - system requires real AI analysis to function")
-            
-            # Log the failure
-            session_id = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-            error_log = self.analysis_log_dir / f"economic_analysis_FAILED_{session_id}.txt"
-            with open(error_log, 'w', encoding='utf-8') as f:
-                f.write(f"=== FAILED ECONOMIC ANALYSIS SESSION ===\n")
-                f.write(f"Timestamp: {datetime.now(timezone.utc).isoformat()}\n")
-                f.write(f"Error: {e}\n")
-                f.write(f"Analysis prompt: {analysis_prompt[:500]}...\n")
-            
-            print(f"📝 Error logged to: {error_log}")
-            raise Exception(f"Economic analysis system unavailable: {e}")
+                if any(term in error_str for term in ['rate limit', 'quota', 'too many requests', 'resource exhausted']):
+                    print(f"❌ Analysis failed due to Gemini rate limits: {e}")
+                    if retry_count < max_retries:
+                        wait_time = 60 * retry_count  # Progressive backoff
+                        print(f"⏳ Waiting {wait_time} seconds before retry...")
+                        await asyncio.sleep(wait_time)
+                        continue
+                    else:
+                        print("🚫 Max retries reached - Gemini API rate limited")
+                        raise Exception(f"Gemini API rate limited after {max_retries} attempts: {e}")
+                
+                print(f"❌ Agentic AI analysis failed (attempt {retry_count}/{max_retries}): {e}")
+                
+                if retry_count < max_retries:
+                    print(f"🔄 Will retry analysis (attempt {retry_count + 1}/{max_retries})...")
+                    # Short delay before retry
+                    await asyncio.sleep(10)
+                    continue
+                else:
+                    print("🚫 Economic analysis failed after all retry attempts")
+                    
+                    # Save context for manual resumption if needed
+                    context_save = {
+                        'session_id': session_id,
+                        'timestamp': datetime.now(timezone.utc).isoformat(),
+                        'error': str(e),
+                        'retry_count': retry_count,
+                        'analysis_prompt': analysis_prompt,
+                        'user_prompt': user_prompt,
+                        'days_back': days_back
+                    }
+                    
+                    context_file_path = self.data_dir / f"context_save_{session_id[:8]}.json"
+                    with open(context_file_path, 'w') as f:
+                        json.dump(context_save, f, indent=2)
+                    print(f"💾 Context saved to: {context_file_path}")
+                    
+                    # Log the failure
+                    error_log = self.analysis_log_dir / f"economic_analysis_FAILED_{session_id}.txt"
+                    with open(error_log, 'w', encoding='utf-8') as f:
+                        f.write(f"=== FAILED ECONOMIC ANALYSIS SESSION ===\n")
+                        f.write(f"Timestamp: {datetime.now(timezone.utc).isoformat()}\n")
+                        f.write(f"Session ID: {session_id}\n")
+                        f.write(f"Retry Count: {retry_count}/{max_retries}\n")
+                        f.write(f"Error: {e}\n")
+                        f.write(f"Context saved to: {context_file_path}\n")
+                        f.write(f"Analysis prompt: {analysis_prompt[:500]}...\n")
+                    
+                    print(f"📝 Error logged to: {error_log}")
+                    print(f"💡 To resume analysis, run the command again - it will automatically pick up from saved context")
+                    raise Exception(f"Economic analysis system unavailable after {max_retries} attempts: {e}")
     
-    async def execute_real_agentic_analysis(self, analysis_prompt: str, tool_declarations: List, progress_channel = None) -> Dict[str, Any]:
+    async def execute_real_agentic_analysis(self, analysis_prompt: str, tool_declarations: List, progress_channel = None, session_id: str = None) -> Dict[str, Any]:
         """Execute real agentic AI analysis with proper function calling and detailed logging"""
         print("🤖 Executing real agentic AI analysis...")
         
@@ -860,6 +1010,7 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
             # Handle tool calling loop - increased for comprehensive analysis
             max_turns = 15  # More turns for thorough analysis
             turn = 0
+            consecutive_failures = 0  # Track consecutive tool call failures
             
             # Progress messages for live updates
             progress_messages = [
@@ -942,12 +1093,14 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
                         # Send all function responses together
                         response = await self.gemini_api_call_with_retry(chat, function_responses)
                         print(f"✅ Sent {len(function_responses)} tool results to AI")
+                        consecutive_failures = 0  # Reset failure count on successful tool execution
                         
                     # Handle text responses  
                     elif text_responses:
                         full_text = " ".join(text_responses)
                         print(f"💭 AI Response: {full_text[:200]}...")
                         log_to_file(f"[AI] Response: {full_text}")
+                        consecutive_failures = 0  # Reset failure count on successful response
                         
                         # Only accept final analysis if we're near the end of turns OR if it's clearly comprehensive
                         is_comprehensive_analysis = (
@@ -990,11 +1143,34 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
                             # Continue conversation - AI should make more tool calls
                             continue
                     else:
-                        print("⚠️ No function calls or text in AI response")
-                        break
+                        consecutive_failures += 1
+                        print(f"⚠️ No function calls or text in AI response (failure {consecutive_failures}/5)")
+                        log_to_file(f"[WARNING] No function calls or text in AI response - consecutive failures: {consecutive_failures}")
+                        
+                        if consecutive_failures >= 5:
+                            print("🚫 5 consecutive failures detected - stopping analysis")
+                            log_to_file("[ERROR] 5 consecutive failures - analysis cannot continue")
+                            raise Exception("AI failed to provide valid responses after 5 consecutive attempts")
+                        
+                        # Send a nudge prompt to encourage the AI to continue
+                        nudge_prompt = "Please continue your comprehensive economic analysis. Use your available tools to analyze more channels and gather economic data. You should be making tool calls to discover and analyze Discord channels."
+                        response = await self.gemini_api_call_with_retry(chat, nudge_prompt)
+                        log_to_file(f"[SYSTEM] Sent nudge prompt due to empty response")
+                        
                 else:
-                    print("❌ No response parts from AI")
-                    break
+                    consecutive_failures += 1
+                    print(f"❌ No response parts from AI (failure {consecutive_failures}/5)")
+                    log_to_file(f"[ERROR] No response parts from AI - consecutive failures: {consecutive_failures}")
+                    
+                    if consecutive_failures >= 5:
+                        print("🚫 5 consecutive failures detected - stopping analysis")
+                        log_to_file("[ERROR] 5 consecutive failures - analysis cannot continue")
+                        raise Exception("AI failed to provide any response parts after 5 consecutive attempts")
+                    
+                    # Send a restart prompt to get the AI back on track
+                    restart_prompt = "I need you to continue the economic analysis. Please use your tools to analyze Discord channels and gather economic data. Start by calling get_server_channels to discover available channels."
+                    response = await self.gemini_api_call_with_retry(chat, restart_prompt)
+                    log_to_file(f"[SYSTEM] Sent restart prompt due to no response parts")
             
             # If we get here, AI didn't provide valid analysis
             log_to_file(f"\n[ERROR] AI failed to provide valid economic analysis after {turn} turns")
@@ -1075,15 +1251,8 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
                     "news": base_gdp * self.parameters["gdp_weights"]["news"] / 100
                 }
             },
-            "stocks": [
-                {
-                    "symbol": stock["symbol"], 
-                    "price": stock["price"] * (1 + (0.001 * hash(ai_response) % 100 - 50) / 1000),  # Small realistic movement
-                    "change_percent": (hash(ai_response + stock["symbol"]) % 200 - 100) / 100,  # -1% to +1%
-                    "volume": 1000 + (hash(stock["symbol"]) % 5000)  # Realistic volume
-                }
-                for stock in self.parameters["tracked_stocks"]
-            ],
+            # Note: Stock market data now managed by stock_market.py
+            # Economic analysis focuses on indicators, not individual stock tracking
             "inflation": {
                 "rate": float(inflation_match.group(1)) if inflation_match else base_inflation,
                 "trend": "stable",
@@ -1127,7 +1296,7 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
         """Get most recent economic report"""
         reports_file = self.data_dir / "reports.json"
         
-        if not reports_file.exists():
+        if not reports_file.exists() or reports_file.stat().st_size == 0:
             return None
         
         try:
@@ -1137,13 +1306,150 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
         except (json.JSONDecodeError, IndexError):
             return None
     
-    async def analyze_with_agentic_ai(self, client, previous_report: Optional[Dict[str, Any]] = None, days_back: int = 30, user_prompt: str = None, progress_channel = None) -> Dict[str, Any]:
-        """Analyze data using agentic AI with tool calls - no fake fallbacks"""
+    def get_fresh_economic_report(self) -> Optional[Dict[str, Any]]:
+        """Get economic report built from individual category files (reflects manual edits)"""
+        print("📊 Building fresh economic report from individual files...")
+        
+        # Read latest data from each category file
+        categories = ["gdp", "stocks", "inflation", "unemployment", "sentiment"]
+        report = {}
+        
+        for category in categories:
+            category_file = self.data_dir / f"{category}.json"
+            if category_file.exists() and category_file.stat().st_size > 0:
+                try:
+                    with open(category_file, 'r') as f:
+                        category_data = json.load(f)
+                        if category_data and len(category_data) > 0:
+                            # Get the most recent entry (first item in array)
+                            latest_entry = category_data[0]
+                            report[category] = latest_entry.get('data', {})
+                            
+                            # Set timestamp from most recent data
+                            if 'timestamp' not in report:
+                                report['timestamp'] = latest_entry.get('timestamp', datetime.now(timezone.utc).isoformat())
+                except json.JSONDecodeError:
+                    print(f"⚠️ Could not read {category}.json")
+                    continue
+        
+        # Also include reasoning and data sources if available from latest reports.json
+        reports_file = self.data_dir / "reports.json"
+        if reports_file.exists() and reports_file.stat().st_size > 0:
+            try:
+                with open(reports_file, 'r') as f:
+                    reports = json.load(f)
+                    if reports:
+                        latest_cached = reports[-1]
+                        # Copy over metadata but not the core data (which comes from individual files)
+                        if 'reasoning' in latest_cached:
+                            report['reasoning'] = latest_cached['reasoning']
+                        if 'data_sources' in latest_cached:
+                            report['data_sources'] = latest_cached['data_sources']
+            except json.JSONDecodeError:
+                pass
+        
+        # Return report if we have any data
+        if any(cat in report for cat in categories):
+            print(f"✅ Fresh report built with {len([cat for cat in categories if cat in report])} categories")
+            return report
+        else:
+            print("⚠️ No fresh data found in individual files")
+            return None
+    
+    def get_previous_insights(self) -> Optional[str]:
+        """Get previous internal insights for AI context"""
+        insights_file = self.data_dir / "internal_insights.txt"
+        
+        if not insights_file.exists():
+            return None
+        
+        try:
+            with open(insights_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+                # Return last 2000 characters (most recent insights)
+                return content[-2000:] if len(content) > 2000 else content
+        except Exception as e:
+            print(f"❌ Error reading insights: {e}")
+            return None
+    
+    def load_memory_entries(self) -> List[Dict[str, Any]]:
+        """Load economic memory entries"""
+        memory_file = self.data_dir / "memory_entries.json"
+        
+        if not memory_file.exists():
+            return []
+        
+        try:
+            with open(memory_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"❌ Error loading memory entries: {e}")
+            return []
+    
+    def save_memory_entries(self, entries: List[Dict[str, Any]]) -> None:
+        """Save economic memory entries"""
+        memory_file = self.data_dir / "memory_entries.json"
+        
+        try:
+            with open(memory_file, 'w', encoding='utf-8') as f:
+                json.dump(entries, f, indent=2, ensure_ascii=False)
+        except Exception as e:
+            print(f"❌ Error saving memory entries: {e}")
+    
+    def add_memory_entry(self, content: str, admin_id: int) -> int:
+        """Add a new memory entry and return its ID"""
+        entries = self.load_memory_entries()
+        
+        # Find next ID
+        next_id = max([entry.get('id', 0) for entry in entries], default=0) + 1
+        
+        new_entry = {
+            "id": next_id,
+            "content": content,
+            "added_by": admin_id,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+        
+        entries.append(new_entry)
+        self.save_memory_entries(entries)
+        
+        return next_id
+    
+    def remove_memory_entry(self, entry_id: int) -> bool:
+        """Remove a memory entry by ID"""
+        entries = self.load_memory_entries()
+        
+        # Find and remove entry
+        original_count = len(entries)
+        entries = [entry for entry in entries if entry.get('id') != entry_id]
+        
+        if len(entries) < original_count:
+            self.save_memory_entries(entries)
+            return True
+        
+        return False
+    
+    def get_memory_context(self) -> str:
+        """Get formatted memory context for AI"""
+        entries = self.load_memory_entries()
+        
+        if not entries:
+            return ""
+        
+        memory_text = "\n**Economic Analysis Memory (Important Context):**\n"
+        for entry in entries:
+            timestamp = entry.get('timestamp', 'Unknown')[:10]
+            memory_text += f"• [{timestamp}] {entry.get('content', '')}\n"
+        
+        return memory_text
+    
+    async def analyze_with_agentic_ai(self, client, previous_report: Optional[Dict[str, Any]] = None, days_back: int = 30, user_prompt: str = None, progress_channel = None, previous_insights: Optional[str] = None, memory_context: str = "") -> Dict[str, Any]:
+        """Analyze data using agentic AI with tool calls"""
         print("🤖 Starting agentic AI economic analysis...")
         
         try:
             # Conduct real agentic analysis with previous report for comparison
-            analysis_result = await self.conduct_agentic_analysis(client, days_back, previous_report, user_prompt, progress_channel)
+            analysis_result = await self.conduct_agentic_analysis(client, days_back, previous_report, user_prompt, progress_channel, previous_insights, memory_context)
             
             if analysis_result and "gdp" in analysis_result:
                 print(f"✅ Agentic analysis successful - GDP: ${analysis_result.get('gdp', {}).get('value', 'N/A')}")
@@ -1164,14 +1470,35 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
     
     async def save_economic_data(self, analysis: Dict[str, Any]) -> None:
         """Save economic analysis to files"""
-        # Save comprehensive reports
+        
+        # Save internal insights to separate txt file for next AI iteration
+        if "insights" in analysis:
+            insights_file = self.data_dir / "internal_insights.txt"
+            timestamp = analysis.get("timestamp", datetime.now(timezone.utc).isoformat())
+            
+            with open(insights_file, 'a', encoding='utf-8') as f:
+                f.write(f"\n=== Economic Analysis Insights - {timestamp[:19]} ===\n")
+                for insight in analysis["insights"]:
+                    f.write(f"• {insight}\n")
+                f.write("\n")
+        
+        # Create public report without internal insights
+        public_analysis = analysis.copy()
+        if "insights" in public_analysis:
+            del public_analysis["insights"]  # Remove internal insights from public data
+        
+        # Save comprehensive reports (without internal insights)
         reports_file = self.data_dir / "reports.json"
         reports = []
-        if reports_file.exists():
-            with open(reports_file, 'r') as f:
-                reports = json.load(f)
+        if reports_file.exists() and reports_file.stat().st_size > 0:
+            try:
+                with open(reports_file, 'r') as f:
+                    reports = json.load(f)
+            except json.JSONDecodeError:
+                print(f"⚠️ Invalid JSON in {reports_file}, starting fresh")
+                reports = []
         
-        reports.append(analysis)
+        reports.append(public_analysis)
         reports = reports[-100:]  # Keep last 100
         
         with open(reports_file, 'w') as f:
@@ -1179,16 +1506,20 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
         
         # Save individual category files
         for category in ["gdp", "stocks", "inflation", "unemployment", "sentiment"]:
-            if category in analysis:
+            if category in public_analysis:
                 category_file = self.data_dir / f"{category}.json"
                 category_data = []
-                if category_file.exists():
-                    with open(category_file, 'r') as f:
-                        category_data = json.load(f)
+                if category_file.exists() and category_file.stat().st_size > 0:
+                    try:
+                        with open(category_file, 'r') as f:
+                            category_data = json.load(f)
+                    except json.JSONDecodeError:
+                        print(f"⚠️ Invalid JSON in {category_file}, starting fresh")
+                        category_data = []
                 
                 category_data.append({
-                    "timestamp": analysis["timestamp"],
-                    "data": analysis[category]
+                    "timestamp": public_analysis["timestamp"],
+                    "data": public_analysis[category]
                 })
                 category_data = category_data[-1000:]  # Keep last 1000
                 
@@ -1247,27 +1578,33 @@ def get_economic_data(data_type: str = "all", days_back: int = 7) -> Dict[str, A
             all_data = {}
             for category in ["gdp", "stocks", "inflation", "unemployment", "sentiment"]:
                 category_file = econ_data.data_dir / f"{category}.json"
-                if category_file.exists():
-                    with open(category_file, 'r') as f:
-                        category_data = json.load(f)
-                        filtered_data = [
-                            entry for entry in category_data
-                            if datetime.fromisoformat(entry["timestamp"].replace('Z', '+00:00')) >= cutoff_date
-                        ]
-                        all_data[category] = filtered_data
+                if category_file.exists() and category_file.stat().st_size > 0:
+                    try:
+                        with open(category_file, 'r') as f:
+                            category_data = json.load(f)
+                            filtered_data = [
+                                entry for entry in category_data
+                                if datetime.fromisoformat(entry["timestamp"].replace('Z', '+00:00')) >= cutoff_date
+                            ]
+                            all_data[category] = filtered_data
+                    except json.JSONDecodeError:
+                        all_data[category] = []
             return all_data
         else:
             data_file = econ_data.data_dir / f"{data_type}.json"
-            if not data_file.exists():
+            if not data_file.exists() or data_file.stat().st_size == 0:
                 return {"error": f"No data found for type: {data_type}"}
             
-            with open(data_file, 'r') as f:
-                data = json.load(f)
-                filtered_data = [
-                    entry for entry in data
-                    if datetime.fromisoformat(entry["timestamp"].replace('Z', '+00:00')) >= cutoff_date
-                ]
-                return {data_type: filtered_data}
+            try:
+                with open(data_file, 'r') as f:
+                    data = json.load(f)
+                    filtered_data = [
+                        entry for entry in data
+                        if datetime.fromisoformat(entry["timestamp"].replace('Z', '+00:00')) >= cutoff_date
+                    ]
+                    return {data_type: filtered_data}
+            except json.JSONDecodeError:
+                return {"error": f"Invalid JSON data for type: {data_type}"}
     
     except Exception as e:
         return {"error": f"Failed to retrieve economic data: {e}"}
@@ -1287,13 +1624,17 @@ async def fetch_econ_data_manually(client, user_prompt: str = None, progress_cha
         else:
             print(f"📈 Updating economic data with comprehensive {days_back}-day analysis...")
         
+        # Get previous insights and memory for AI context
+        previous_insights = econ_data.get_previous_insights()
+        memory_context = econ_data.get_memory_context()
+        
         # Conduct agentic analysis with user prompt and progress updates
         print(f"🧠 Starting AI agent analysis ({days_back} days back)...")
         if user_prompt:
             print(f"💬 User context: {user_prompt}")
         if progress_channel:
             await progress_channel.send(f"🚀 **Starting comprehensive economic analysis** - analyzing {days_back} days of server activity...")
-        analysis = await econ_data.analyze_with_agentic_ai(client, previous_report=latest_report, days_back=days_back, user_prompt=user_prompt, progress_channel=progress_channel)
+        analysis = await econ_data.analyze_with_agentic_ai(client, previous_report=latest_report, days_back=days_back, user_prompt=user_prompt, progress_channel=progress_channel, previous_insights=previous_insights, memory_context=memory_context)
         
         # Save results
         await econ_data.save_economic_data(analysis)
@@ -1325,7 +1666,7 @@ async def fetch_econ_data_manually(client, user_prompt: str = None, progress_cha
             raise Exception(f"Gemini API rate limited - please try again later: {e}")
         else:
             print(f"❌ Error in manual agentic economic analysis: {e}")
-            print("🚫 Manual economic analysis failed - no fake data generated")
+            print("🚫 Manual economic analysis failed - system requires AI analysis")
             raise Exception(f"Manual economic analysis failed: {e}")
 
 # Admin functions for economic control
@@ -1361,6 +1702,77 @@ def get_economic_status() -> Dict[str, Any]:
         }
     except Exception as e:
         return {"error": f"Failed to get status: {e}"}
+
+def get_stock_initialization_data() -> Dict[str, Any]:
+    """Get economic data to help initialize stock market"""
+    try:
+        latest_report = econ_data.get_latest_economic_report()
+        
+        if not latest_report:
+            return {
+                "message": "No economic data available - stock market will use default initialization",
+                "recommendations": {
+                    "market_sentiment": 0.6,  # Neutral-positive
+                    "volatility": 0.4,        # Moderate
+                    "trend_direction": 0.1,   # Slightly bullish
+                    "sector_outlook": {
+                        "NEWS": "Stable media environment expected",
+                        "CONGRESS": "Legislative activity driving moderate growth",
+                        "EXECUTIVE": "Administrative efficiency initiatives underway",
+                        "STATES": "Regional development opportunities emerging",
+                        "COURTS": "Judicial system stability maintained",
+                        "PUBLIC_SQUARE": "Civic engagement platforms growing"
+                    }
+                }
+            }
+        
+        # Extract economic indicators
+        gdp_data = latest_report.get('gdp', {})
+        inflation_data = latest_report.get('inflation', {})
+        sentiment_data = latest_report.get('sentiment', {})
+        
+        # Calculate stock market parameters based on economic data
+        gdp_growth = gdp_data.get('change_percent', 0) / 100
+        inflation_rate = inflation_data.get('rate', 3.2) / 100
+        market_confidence = sentiment_data.get('market_confidence', 70) / 100
+        
+        # Convert economic indicators to stock market parameters
+        trend_direction = max(-1.0, min(1.0, gdp_growth * 2))  # GDP growth drives trend
+        volatility = max(0.1, min(0.8, abs(inflation_rate - 0.025) * 10))  # Inflation deviation creates volatility
+        market_sentiment = max(0.2, min(0.9, market_confidence))
+        momentum = max(0.3, min(0.8, (market_confidence + (gdp_growth + 1) / 2) / 2))
+        
+        return {
+            "economic_report": latest_report,
+            "stock_market_initialization": {
+                "trend_direction": trend_direction,
+                "volatility": volatility,
+                "momentum": momentum,
+                "market_sentiment": market_sentiment,
+                "long_term_outlook": 0.55  # Start neutral
+            },
+            "sector_recommendations": {
+                "NEWS": f"Media sector outlook based on public sentiment: {sentiment_data.get('public_approval', 70)}/100",
+                "CONGRESS": f"Legislative sector driven by government activity: {gdp_data.get('components', {}).get('legislative', 0)} activity points",
+                "EXECUTIVE": f"Executive sector reflecting administrative efficiency: {sentiment_data.get('bipartisan_cooperation', 65)}/100 cooperation",
+                "STATES": "State sector opportunities from regional development initiatives",
+                "COURTS": "Judicial sector maintaining institutional stability",
+                "PUBLIC_SQUARE": f"Public engagement reflecting democratic participation: {sentiment_data.get('public_approval', 70)}/100"
+            },
+            "initialization_message": f"Stock market initialized using economic report from {latest_report.get('timestamp', 'unknown')[:10]}"
+        }
+        
+    except Exception as e:
+        print(f"❌ Error getting stock initialization data: {e}")
+        return {
+            "error": f"Failed to get stock initialization data: {e}",
+            "recommendations": {
+                "market_sentiment": 0.6,
+                "volatility": 0.4,
+                "trend_direction": 0.0,
+                "sector_outlook": {sector: "Default outlook" for sector in ["NEWS", "CONGRESS", "EXECUTIVE", "STATES", "COURTS", "PUBLIC_SQUARE"]}
+            }
+        }
 
 def log_admin_action(admin_id: int, action: str, details: Dict[str, Any]) -> None:
     """Log administrative actions"""

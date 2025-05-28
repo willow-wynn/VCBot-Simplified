@@ -174,8 +174,8 @@ class TestEconomicEngine:
             # Test default parameters
             params = engine.load_parameters()
             assert "gdp_weights" in params
-            assert "tracked_stocks" in params
-            assert len(params["tracked_stocks"]) == 5
+            assert "inflation_base" in params
+            # Note: tracked_stocks removed - stock tracking moved to stock_market.py
             
             # Test saving modified parameters
             params["inflation_base"] = 3.5
@@ -278,7 +278,7 @@ class TestEconomicEngine:
             test_analysis = {
                 "timestamp": datetime.utcnow().isoformat(),
                 "gdp": {"value": 1500.0, "change_percent": 2.5},
-                "stocks": [{"symbol": "GOV", "price": 105.0, "change_percent": 1.5}],
+                "stocks": [{"symbol": "AAPL", "price": 195.50, "change_percent": 1.5}],
                 "inflation": {"rate": 3.0, "trend": "rising"},
                 "unemployment": {"rate": 4.5},
                 "sentiment": {"market_confidence": 80}
@@ -464,7 +464,7 @@ class TestEconomicCalculations:
     def test_stock_price_simulation(self):
         """Test stock price movement simulation"""
         # Initial stock data
-        stock = {"symbol": "GOV", "price": 100.0, "volatility": 0.05}
+        stock = {"symbol": "MSFT", "price": 470.00, "volatility": 0.05}
         
         # Market factors
         government_efficiency = 0.02  # 2% improvement

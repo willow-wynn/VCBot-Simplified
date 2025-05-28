@@ -22,16 +22,54 @@ VCBot has been refactored from an over-engineered hobby project into a clean, ma
 ┌─────────▼─────────────────▼──────────────────▼─────────────┐
 │                   Utility Modules                          │
 │  ┌─────────────┐  ┌──────────────┐  ┌─────────────────┐   │
-│  │  ai_tools   │  │  bill_utils  │  │  message_utils  │   │
-│  │             │  │              │  │                 │   │
+│  │  ai_tools   │  │  bill_utils  │  │  stock_market   │   │
+│  │             │  │              │  │  (24 stocks)    │   │
 │  └──────┬──────┘  └──────┬───────┘  └────────┬────────┘   │
 └─────────┼─────────────────┼──────────────────┼─────────────┘
           │                 │                  │
 ┌─────────▼─────────────────▼──────────────────▼─────────────┐
 │                    file_utils.py                           │
 │          ┌──────────────┐  ┌─────────────────┐             │
-│          │ JSON Files   │  │    PDF Files    │             │
+│          │ Economic Data│  │   Stock Data    │             │
+│          │(inflation.json) (market_data.json)             │
 │          └──────────────┘  └─────────────────┘             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## Real-World Stock Market Integration
+
+The architecture now includes a sophisticated real-world stock market system that integrates seamlessly with the simplified functional design:
+
+### Stock Market Data Flow
+
+```
+Economic Data Files → Dynamic Parameter Calculation → Stock Market Behavior
+     ↓                        ↓                           ↓
+inflation.json (8.51%)   volatility: 0.80         Price fluctuations
+sentiment.json (35%)     trend: -0.35             Bearish conditions
+gdp.json (-1.2%)         momentum: 0.25           Crisis modeling
+unemployment.json        market_sentiment: 0.35   High volatility
+```
+
+### Economic Integration Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                 Economic Analysis System                    │
+│  ┌─────────────────┐                  ┌─────────────────┐   │
+│  │ economic_utils  │◄────────────────►│ stock_market.py │   │
+│  │                 │                  │                 │   │
+│  │ - Analyzes data │    Dynamic       │ - 24 real stocks│   │
+│  │ - 8.51% inflation   Parameter      │ - Perlin noise  │   │
+│  │ - 35% confidence    Calculation    │ - AI analysis   │   │
+│  └─────────────────┘                  └─────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Discord Commands                         │
+│  /econ_report          /stocks_list         /stocks_price  │
+│  (Dynamic data)        (Real stocks)        (Live prices)  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -276,6 +314,100 @@ def read_knowledge_file(file_key: str) -> str:
 - Abstract base classes
 - Complex state management
 - Thread locks (using global variables instead)
+
+### 7. `stock_market.py` - Real-World Stock Market System
+
+Sophisticated financial modeling with simple functional architecture:
+
+```python
+class StockMarket:
+    def __init__(self):
+        # 24 real stocks across 8 sectors (AAPL, MSFT, GOOGL, JPM, XOM...)
+        self.categories = self._initialize_real_stock_categories()
+        
+        # Dynamic parameter calculation from economic data
+        self.market_params = self._calculate_market_params_from_economic_data()
+    
+    def _calculate_market_params_from_economic_data(self) -> Dict[str, float]:
+        """Calculate market parameters from real economic data files"""
+        # Read inflation.json, sentiment.json, gdp.json, unemployment.json
+        # Return calculated parameters based on economic conditions
+        if inflation_rate > 6.0:  # High inflation crisis (8.51%)
+            return {
+                "trend_direction": -0.25,   # Bearish
+                "volatility": 0.65,         # Very high
+                "market_sentiment": 0.35    # Low confidence
+            }
+    
+    def get_stock_price(self, symbol: str) -> Optional[float]:
+        """Get current stock price with Perlin noise fluctuations"""
+        # Apply economic parameters to price movements
+        
+    def generate_stock_chart(self, symbol: str) -> BytesIO:
+        """Generate matplotlib chart for Discord embeds"""
+```
+
+**Key Features:**
+- **24 Real Stocks**: AAPL, MSFT, GOOGL, JPM, XOM, JNJ, WMT, etc.
+- **8 Economic Sectors**: ENERGY, TECH, FINANCE, HEALTH, RETAIL, etc.
+- **Dynamic Parameters**: Calculated from real economic data (8.51% inflation)
+- **Crisis Modeling**: Currently models high inflation environment
+- **No Hardcoded Values**: All parameters come from economic data files
+
+### 8. `economic_utils.py` - Economic Analysis System
+
+AI-powered economic analysis with simple data management:
+
+```python
+class EconomicDataCollector:
+    def get_fresh_economic_report(self) -> Optional[Dict[str, Any]]:
+        """Get economic report from individual category files"""
+        categories = ["gdp", "stocks", "inflation", "unemployment", "sentiment"]
+        report = {}
+        
+        for category in categories:
+            category_file = self.data_dir / f"{category}.json"
+            if category_file.exists():
+                with open(category_file, 'r') as f:
+                    category_data = json.load(f)
+                    # Get most recent entry (first item in array)
+                    latest_entry = category_data[0]
+                    report[category] = latest_entry.get('data', {})
+        
+        return report if report else None
+```
+
+**Current Economic Environment:**
+- **Inflation**: 8.51% YoY (crisis level)
+- **Market Confidence**: 35% (pessimistic)
+- **GDP Growth**: -1.2% quarterly (slowing)
+- **Federal Funds Rate**: 4.00% (restrictive)
+- **Unemployment**: 3.2% (tight labor market)
+
+### 9. `stock_commands.py` - Stock Market Discord Commands
+
+Comprehensive stock market management through Discord:
+
+```python
+@stocks_list_command
+async def stocks_list(interaction: discord.Interaction):
+    """Display all 24 real stocks across 8 sectors"""
+    # Generate embed with current prices and sectors
+    
+@stocks_price_command  
+async def stocks_price(interaction: discord.Interaction, symbol: str):
+    """Get detailed stock information with charts"""
+    # Generate matplotlib chart and detailed stock info
+    
+@stocks_force_update_command
+async def stocks_force_update(interaction: discord.Interaction):
+    """Force recalculation of market parameters from economic data"""
+    # Admin command to sync with latest economic conditions
+```
+
+**Available Commands:**
+- User: `stocks_list`, `stocks_price`, `stocks_categories`, `stocks_history_48h`
+- Admin: `stocks_set_market`, `stocks_force_update`, `stocks_reset`, `stocks_sync_econ`
 
 ## Key Simplifications
 

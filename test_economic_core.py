@@ -6,7 +6,7 @@ Tests without Discord.py dependencies
 import asyncio
 import json
 import shutil
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 def test_economic_utils():
@@ -30,20 +30,21 @@ def test_economic_utils():
             shutil.rmtree(test_dir)
         test_dir.mkdir()
         
-        # Test parameter loading/saving
-        economic_utils.econ_data.data_dir = test_dir
-        params = economic_utils.econ_data.load_parameters()
+        # Create test instance of EconomicData
+        test_econ_data = economic_utils.EconomicData()
+        test_econ_data.data_dir = test_dir
+        params = test_econ_data.load_parameters()
         
         assert "gdp_weights" in params
-        assert "tracked_stocks" in params
-        assert len(params["tracked_stocks"]) == 5
+        assert "inflation_base" in params
+        # Note: tracked_stocks removed - stock tracking moved to stock_market.py
         
-        # Test parameter modification
-        params["inflation_base"] = 4.5
-        economic_utils.econ_data.save_parameters(params)
+        # Test parameter modification (use a parameter that isn't auto-updated)
+        params["confidence_threshold"] = 0.85
+        test_econ_data.save_parameters(params)
         
-        new_params = economic_utils.econ_data.load_parameters()
-        assert new_params["inflation_base"] == 4.5
+        new_params = test_econ_data.load_parameters()
+        assert new_params["confidence_threshold"] == 0.85
         
         print("✅ Parameter management working")
         
@@ -54,23 +55,23 @@ def test_economic_utils():
     # Test 3: Data storage
     try:
         test_analysis = {
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "gdp": {"value": 1500.0, "change_percent": 2.5},
-            "stocks": [{"symbol": "GOV", "price": 105.0, "change_percent": 1.5}],
+            "stocks": [{"symbol": "GOOGL", "price": 2785.50, "change_percent": 1.5}],
             "inflation": {"rate": 3.0, "trend": "rising"},
             "unemployment": {"rate": 4.5},
             "sentiment": {"market_confidence": 80}
         }
         
         # Test data saving
-        asyncio.run(economic_utils.econ_data.save_economic_data(test_analysis))
+        asyncio.run(test_econ_data.save_economic_data(test_analysis))
         
         # Verify files exist
         assert (test_dir / "reports.json").exists()
         assert (test_dir / "gdp.json").exists()
         
         # Test data retrieval
-        latest = economic_utils.econ_data.get_latest_economic_report()
+        latest = test_econ_data.get_latest_economic_report()
         assert latest is not None
         assert latest["gdp"]["value"] == 1500.0
         
@@ -82,12 +83,19 @@ def test_economic_utils():
     
     # Test 4: Economic data retrieval
     try:
+        # Temporarily set global econ_data to use test directory
+        original_data_dir = economic_utils.econ_data.data_dir
+        economic_utils.econ_data.data_dir = test_dir
+        
         data = economic_utils.get_economic_data("gdp", 7)
         assert "gdp" in data
         assert len(data["gdp"]) > 0
         
         all_data = economic_utils.get_economic_data("all", 7)
         assert "gdp" in all_data
+        
+        # Restore original data directory
+        economic_utils.econ_data.data_dir = original_data_dir
         
         print("✅ Data retrieval working")
         
@@ -97,18 +105,25 @@ def test_economic_utils():
     
     # Test 5: Admin functions
     try:
-        # Test parameter setting
-        success = economic_utils.set_economic_parameter("inflation_base", 3.0)
+        # Temporarily set global econ_data to use test directory for admin functions
+        original_data_dir = economic_utils.econ_data.data_dir
+        economic_utils.econ_data.data_dir = test_dir
+        
+        # Test parameter setting (use a parameter that won't be auto-overridden)
+        success = economic_utils.set_economic_parameter("confidence_threshold", 0.80)
         assert success
         
         # Test status retrieval
         status = economic_utils.get_economic_status()
         assert "parameters" in status
-        assert status["parameters"]["inflation_base"] == 3.0
+        assert status["parameters"]["confidence_threshold"] == 0.80
         
         # Test admin logging
         economic_utils.log_admin_action(12345, "test", {"param": "value"})
         assert (test_dir / "admin_log.json").exists()
+        
+        # Restore original data directory
+        economic_utils.econ_data.data_dir = original_data_dir
         
         print("✅ Admin functions working")
         

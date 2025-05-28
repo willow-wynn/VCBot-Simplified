@@ -1,369 +1,348 @@
-# VCBot API Documentation
+# VCBot API Documentation - Real-World Stock Market System
 
 ## Overview
 
-VCBot provides a comprehensive API for interacting with Virtual Congress operations through Discord. This document describes the available services, their methods, and usage patterns.
+VCBot provides a comprehensive API for interacting with Virtual Congress operations through Discord, now featuring a sophisticated **real-world stock market simulation** that models actual economic conditions. The system uses a simplified functional architecture with dynamic economic data integration.
 
-## Core Services
+## Current Economic Environment
 
-### AIService
+The system currently models a **high inflation crisis environment** based on real economic data:
 
-The AI service integrates with Google Gemini to provide intelligent responses to user queries.
+- **Inflation Rate**: 8.51% YoY (well above Fed target of 2%)
+- **Market Confidence**: 35% (pessimistic sentiment)
+- **GDP Growth**: -1.2% quarterly (economic slowdown)
+- **Federal Funds Rate**: 4.00% (restrictive monetary policy)
+- **Unemployment**: 3.2% (tight labor market contributing to inflation)
 
-#### Class: `AIService`
+## Real-World Stock Market System
+
+### Stock Universe
+The system tracks **24 major real stocks** across **8 economic sectors**:
+
+#### Sectors and Stocks:
+- **ENERGY** (3): XOM (ExxonMobil), CVX (Chevron), SLB (Schlumberger)
+- **TECH** (4): AAPL (Apple), MSFT (Microsoft), GOOGL (Alphabet), NVDA (NVIDIA)
+- **FINANCE** (3): JPM (JPMorgan), BAC (Bank of America), WFC (Wells Fargo)
+- **HEALTH** (3): JNJ (Johnson & Johnson), PFE (Pfizer), UNH (UnitedHealth)
+- **RETAIL** (3): WMT (Walmart), TGT (Target), COST (Costco)
+- **MANUFACTURING** (3): CAT (Caterpillar), GE (General Electric), MMM (3M)
+- **ENTERTAINMENT** (3): DIS (Disney), NFLX (Netflix), CMCSA (Comcast)
+- **TRANSPORT** (2): BA (Boeing), UPS (United Parcel Service)
+
+### Market Parameters (Dynamically Calculated)
+
+The system **never uses hardcoded values**. All market parameters are calculated in real-time from economic data files:
 
 ```python
-from services.ai_service import AIService
-
-ai_service = AIService(
-    api_key="your_gemini_api_key",
-    model_name="gemini-1.5-pro-002",
-    authorized_users=[123456789],
-    admin_users=[987654321]
-)
+# Current parameters based on 8.51% inflation environment:
+{
+    "trend_direction": -0.35,     # Bearish (due to high inflation)
+    "volatility": 0.80,           # Very high (crisis conditions)
+    "momentum": 0.25,             # Weak (economic uncertainty)
+    "market_sentiment": 0.35,     # Low (35% market confidence)
+    "long_term_outlook": 0.40     # Pessimistic (policy uncertainty)
+}
 ```
 
-#### Methods
+## Discord Commands
 
-##### `process_query(query: str, user_id: int, context: Optional[str] = None) -> AIResponse`
+### Core Bot Commands
 
-Process a user query and return an AI-generated response.
+#### `/helper [query]`
+AI assistance with context awareness using Gemini 2.5.
 
 **Parameters:**
-- `query` (str): The user's question or request
-- `user_id` (int): Discord user ID for permissions checking
-- `context` (Optional[str]): Additional context for the query
-
-**Returns:**
-- `AIResponse`: Object containing response text and tool calls
+- `query` (str): User question or request
 
 **Example:**
-```python
-response = await ai_service.process_query(
-    query="What is the status of HR 4523?",
-    user_id=123456789,
-    context="Previous discussion about healthcare bills"
-)
-print(response.text)
+```
+/helper What is the current inflation rate and its impact on markets?
 ```
 
-##### `_build_system_prompt(user_id: int) -> str`
-
-Build a system prompt based on user permissions.
-
-**Parameters:**
-- `user_id` (int): Discord user ID
-
-**Returns:**
-- `str`: Formatted system prompt
-
-### BillService
-
-Manages congressional bill operations including search and retrieval.
-
-#### Class: `BillService`
-
-```python
-from services.bill_service import BillService
-
-bill_service = BillService(
-    genai_client=genai_client,
-    bill_directories={"bills": "every-vc-bill/txts", "billpdfs": "every-vc-bill/pdfs"}
-)
-```
-
-#### Methods
-
-##### `search_bills(query: str, top_k: int = 5) -> List[Dict[str, Any]]`
-
-Search for bills using keyword matching through titles, content, and metadata.
+#### `/bill_keyword_search [query]`
+Search congressional bills with keyword matching.
 
 **Parameters:**
-- `query` (str): Search query
-- `top_k` (int): Number of results to return (default: 5)
-
-**Returns:**
-- `List[Dict[str, Any]]`: List of matching bills with metadata
+- `query` (str): Search keywords
 
 **Example:**
-```python
-results = bill_service.search_bills("healthcare reform", top_k=10)
-for bill in results:
-    print(f"{bill['title']} - Score: {bill['score']}")
+```
+/bill_keyword_search healthcare reform
 ```
 
-##### `get_latest_bill(bill_type: str) -> Dict[str, Any]`
+#### `/econ_report`
+Generate current economic overview with **dynamic data reading**.
 
-Get the most recent bill of a specific type.
+**Features:**
+- Real economic data from JSON files (no hardcoded values)
+- Current inflation status (8.51% crisis level)
+- Market sentiment analysis (35% confidence)
+- Stock market integration with calculated parameters
 
-**Parameters:**
-- `bill_type` (str): Type of bill (e.g., "hr", "s", "sconres")
+**Example Response:**
+```
+📊 Economic Report - 2025-06-15
+🔥 High Inflation Crisis
+
+🏛️ GDP: $26.8T 📉 (-1.2%)
+🔥 Inflation Crisis: 8.51% YoY, Fed Rate: 4.00%, Status: 🚨 Critical
+😟 Market Sentiment: 35% confidence, 78% inflation anxiety, Pessimistic outlook
+👥 Labor Market: 3.2% unemployment, 4.2% wage growth, Tight status
+📈 Stock Market: 📉 Bearish, 🌪️ Very High volatility, 24 active stocks
+```
+
+### Stock Market Commands (User)
+
+#### `/stocks_list`
+View all 24 real stocks across 8 sectors.
 
 **Returns:**
-- `Dict[str, Any]`: Bill information
+- Comprehensive stock listing by sector
+- Current prices and performance
+- Market overview with calculated parameters
 
-**Example:**
-```python
-latest_hr = bill_service.get_latest_bill("hr")
-print(f"Latest HR: {latest_hr['title']}")
-```
-
-### ReferenceService
-
-Manages bill reference numbers with thread-safe operations.
-
-#### Class: `ReferenceService`
-
-```python
-from services.reference_service import ReferenceService
-
-ref_service = ReferenceService(
-    ref_file="bill_refs.json",
-    repository=BillReferenceRepository("bill_refs.json")
-)
-```
-
-#### Methods
-
-##### `get_next_reference(bill_type: str) -> int`
-
-Get the next available reference number for a bill type.
+#### `/stocks_price [symbol]`
+Get detailed information for individual stock.
 
 **Parameters:**
-- `bill_type` (str): Type of bill
+- `symbol` (str): Stock symbol (AAPL, MSFT, GOOGL, etc.)
 
 **Returns:**
-- `int`: Next reference number
+- Current price with change indicators
+- Sector information
+- Generated price chart (matplotlib)
 
-**Example:**
-```python
-next_hr_num = ref_service.get_next_reference("hr")
-print(f"Next HR number: {next_hr_num}")
-```
-
-##### `async get_next_reference_async(bill_type: str) -> int`
-
-Async version of get_next_reference.
-
-**Parameters:**
-- `bill_type` (str): Type of bill
+#### `/stocks_categories`
+View all economic sectors and their composition.
 
 **Returns:**
-- `int`: Next reference number
+- 8 sectors with stock listings
+- Sector performance summaries
+- ETF-like category analysis
 
-**Example:**
-```python
-next_s_num = await ref_service.get_next_reference_async("s")
-print(f"Next S number: {next_s_num}")
-```
-
-##### `set_reference(bill_type: str, reference_number: int) -> None`
-
-Set a specific reference number for a bill type.
+#### `/stocks_history_48h [symbol]`
+View 48-hour price history with charts.
 
 **Parameters:**
-- `bill_type` (str): Type of bill
-- `reference_number` (int): Reference number to set
+- `symbol` (str): Stock symbol
 
-**Example:**
-```python
-ref_service.set_reference("hr", 4525)
-```
+**Returns:**
+- Historical price data
+- Generated chart visualization
+- Performance statistics
 
-## Data Models
+### Stock Market Commands (Admin)
 
-### BillType Enum
+#### `/stocks_set_market [param] [value]`
+Set specific market parameters (temporary override).
 
-```python
-from models import BillType
+**Parameters:**
+- `param` (str): Parameter name (trend_direction, volatility, etc.)
+- `value` (float): New parameter value
 
-class BillType(str, Enum):
-    HR = "hr"
-    S = "s"
-    HRES = "hres"
-    SRES = "sres"
-    HJRES = "hjres"
-    SJRES = "sjres"
-    HCONRES = "hconres"
-    SCONRES = "sconres"
-```
+**Note:** Parameters reset to calculated values on next economic data sync.
 
-### BillReference Model
+#### `/stocks_force_update`
+Force immediate recalculation of market parameters from economic data.
 
-```python
-from models import BillReference
+**Use Cases:**
+- After updating economic data files
+- Troubleshooting parameter calculation
+- Testing economic scenario changes
 
-@dataclass
-class BillReference:
-    bill_type: BillType
-    reference_number: int
-    created_at: datetime
-    updated_at: datetime
-```
+#### `/stocks_sync_econ`
+Synchronize market parameters with latest economic analysis.
 
-### AIResponse Model
+**Features:**
+- Reads all economic data files
+- Recalculates market parameters
+- Updates stock market behavior
 
-```python
-from services.ai_service import AIResponse
+#### `/stocks_reset`
+Reset market to default state with fresh parameter calculation.
 
-@dataclass
-class AIResponse:
-    text: str
-    tool_calls: List[Dict[str, Any]]
-    error: Optional[str] = None
-```
+#### `/stocks_force_init`
+Force complete re-initialization of stock market system.
 
-## Repository Pattern
+### Economic Analysis Commands
 
-### Base Repository
+#### `/fetch_econ_data`
+Trigger comprehensive economic data collection and analysis.
 
-```python
-from repositories.base import Repository
+#### `/econ_status` (Admin)
+View economic system status and current parameters.
 
-class Repository(ABC, Generic[T]):
-    @abstractmethod
-    async def save(self, entity: T) -> None:
-        pass
-    
-    @abstractmethod
-    async def find_by_id(self, id: str) -> Optional[T]:
-        pass
-    
-    @abstractmethod
-    async def delete(self, id: str) -> None:
-        pass
-```
+#### `/econ_set_inflation [rate]` (Admin)
+Set inflation rate in economic data (updates market parameters).
 
-### BillReferenceRepository
+## Core Functions API
+
+### Stock Market Functions
+
+#### `get_stock_market() -> StockMarket`
+Get singleton stock market instance.
 
 ```python
-from repositories.bill_reference import BillReferenceRepository
+from stock_market import get_stock_market
 
-repo = BillReferenceRepository("bill_refs.json")
-
-# Get next reference
-next_ref = await repo.get_next_reference(BillType.HR)
-
-# Save reference
-ref = BillReference(
-    bill_type=BillType.HR,
-    reference_number=4525,
-    created_at=datetime.now(),
-    updated_at=datetime.now()
-)
-await repo.save(ref)
+market = get_stock_market()
+current_params = market.market_params
 ```
+
+#### `StockMarket._calculate_market_params_from_economic_data() -> Dict[str, float]`
+Calculate market parameters from economic data files.
+
+**Data Sources:**
+- `economic_data/inflation.json` → volatility, trend direction
+- `economic_data/sentiment.json` → market sentiment
+- `economic_data/gdp.json` → momentum, trend adjustment
+- `economic_data/unemployment.json` → volatility adjustment
+
+**Returns:** Dict with calculated market parameters
+
+#### `StockMarket.generate_stock_chart(symbol: str) -> BytesIO`
+Generate matplotlib price chart for Discord embeds.
+
+**Parameters:**
+- `symbol` (str): Stock symbol
+
+**Returns:** BytesIO object with PNG chart data
+
+### Economic Analysis Functions
+
+#### `economic_utils.econ_data.get_fresh_economic_report() -> Dict[str, Any]`
+Get current economic data from individual JSON files.
+
+**Returns:**
+```python
+{
+    "inflation": {"rate": 8.51, "federal_funds_rate": 4.00, ...},
+    "sentiment": {"market_confidence": 35, "inflation_anxiety": 78, ...},
+    "gdp": {"value": 26.8, "change_percent": -1.2, ...},
+    "unemployment": {"rate": 3.2, "wage_growth": 4.2, ...}
+}
+```
+
+#### `economic_utils.set_economic_parameter(param: str, value: Any) -> bool`
+Set economic parameter (triggers market parameter recalculation).
+
+## Data File Structure
+
+### Economic Data Files
+
+```
+economic_data/
+├── inflation.json      # 8.51% YoY, 4.00% fed rate
+├── sentiment.json      # 35% confidence, 78% anxiety
+├── gdp.json           # $26.8T, -1.2% growth
+├── unemployment.json   # 3.2% rate, tight market
+└── parameters.json    # Base economic parameters
+```
+
+### Stock Market Data Files
+
+```
+stock_data/
+├── market_data.json        # Current stock prices and state
+├── stock_history.json      # Historical price movements
+├── daily_analysis.json     # AI analysis results
+└── market_params.json      # Current calculated parameters
+```
+
+## Economic Data Integration
+
+### Dynamic Parameter Calculation
+
+The system uses **zero hardcoded values**. All market behavior is calculated from real economic data:
+
+```python
+# Example: High inflation triggers bearish conditions
+if inflation_rate > 6.0:  # 8.51% triggers this
+    params.update({
+        "trend_direction": -0.25,    # Bearish market
+        "volatility": 0.65,          # High volatility
+        "market_sentiment": 0.35     # Low confidence
+    })
+```
+
+### Real-Time Updates
+
+Market parameters recalculate when economic data changes:
+
+1. Economic data files updated
+2. `_calculate_market_params_from_economic_data()` called
+3. New parameters applied to stock price generation
+4. Market behavior reflects new economic conditions
 
 ## Error Handling
 
-### Custom Exceptions
+### Standard Error Responses
+
+All commands use consistent error handling:
 
 ```python
-from exceptions import (
-    ConfigurationError,
-    AIServiceError,
-    BillNotFoundError,
-    ReferenceError
-)
-
-try:
-    response = await ai_service.process_query(query, user_id)
-except AIServiceError as e:
-    print(f"AI service error: {e}")
-except ConfigurationError as e:
-    print(f"Configuration error: {e}")
+@handle_errors("Failed to process stock command")
+async def stock_command(interaction, ...):
+    # Command logic
 ```
 
-## Async Operations
+**Common Errors:**
+- Invalid stock symbol
+- Economic data file corruption
+- Parameter calculation failures
+- Chart generation errors
 
-All I/O operations are async-first:
+### Economic Data Validation
 
-```python
-import asyncio
-
-async def main():
-    # Initialize services
-    ai_service = AIService(api_key, model_name)
-    bill_service = BillService(bill_dir)
-    ref_service = ReferenceService(ref_file)
-    
-    # Concurrent operations
-    results = await asyncio.gather(
-        ai_service.process_query("What is HR 4523?", user_id),
-        bill_service.search_bills("healthcare"),
-        ref_service.get_next_reference_async("hr")
-    )
-    
-    ai_response, bills, next_ref = results
-
-asyncio.run(main())
-```
-
-## Rate Limiting
-
-The AI service implements rate limiting:
+The system validates economic data integrity:
 
 ```python
-# Rate limits are configured per user
-response = await ai_service.process_query(query, user_id)
-# Automatic rate limit handling with exponential backoff
-```
-
-## Testing
-
-### Unit Testing Services
-
-```python
-import pytest
-from unittest.mock import Mock, AsyncMock
-
-@pytest.mark.asyncio
-async def test_ai_service():
-    mock_client = Mock()
-    ai_service = AIService("key", "model")
-    ai_service.client = mock_client
-    
-    response = await ai_service.process_query("test", 123)
-    assert response.text == "expected response"
-```
-
-### Integration Testing
-
-```python
-@pytest.mark.integration
-async def test_full_flow():
-    # Test complete user interaction flow
-    ai_service = AIService(api_key, model_name)
-    response = await ai_service.process_query(
-        "Search for healthcare bills",
-        user_id=123
-    )
-    assert "healthcare" in response.text.lower()
+# Ensure inflation data exists and is valid
+if inflation_rate > 0 and inflation_rate < 100:
+    # Use data
+else:
+    # Fall back to default parameters
 ```
 
 ## Performance Considerations
 
-1. **Caching**: Implement caching for frequently accessed data
-2. **Connection Pooling**: Reuse API connections
-3. **Async I/O**: All file and network operations are non-blocking
-4. **Batching**: Batch API requests when possible
+### Caching Strategy
+- Economic data cached until file modification
+- Market parameters recalculated only when economic data changes
+- Stock price calculations use efficient Perlin noise algorithms
+
+### Memory Management
+- Singleton pattern for stock market instance
+- Lazy loading of economic data
+- Chart generation on-demand
 
 ## Security
 
-1. **API Key Management**: Store keys in environment variables
-2. **User Authorization**: Validate user permissions before operations
-3. **Input Validation**: Sanitize all user inputs
-4. **Rate Limiting**: Prevent API abuse
+### Data Integrity
+- Economic data files protected from corruption
+- Parameter validation prevents invalid market states
+- Admin commands require proper Discord role permissions
 
-## Versioning
+### Rate Limiting
+- Stock price requests limited to prevent spam
+- Chart generation throttled
+- Economic data updates require admin permissions
 
-API follows semantic versioning:
-- Major version: Breaking changes
-- Minor version: New features (backward compatible)
-- Patch version: Bug fixes
+## Future Enhancements
 
-Current version: 1.0.0
+### Planned Features
+- Real-time economic data feeds
+- Advanced charting with technical indicators
+- Portfolio tracking for Discord users
+- Economic scenario simulation tools
+
+### Extensibility
+The functional architecture allows easy addition of:
+- New stock symbols
+- Additional economic indicators
+- Enhanced market modeling algorithms
+- Integration with external financial APIs
 
 ---
 
-For more examples and advanced usage, see the examples directory.
+**Key Principle**: The VCBot API demonstrates that sophisticated financial modeling can be achieved with simple, maintainable functional architecture. The elimination of hardcoded values in favor of dynamic data reading provides a realistic economic simulation that responds to actual market conditions.

@@ -14,6 +14,7 @@ load_dotenv()
 BOT_ID = int(os.getenv("BOT_ID"))
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+UNBELIEVABOAT_API_KEY = os.getenv("UNBELIEVABOAT_API_KEY")
 
 # Optional environment variables
 GUILD_ID = int(os.getenv("GUILD", 0)) if os.getenv("GUILD") else None

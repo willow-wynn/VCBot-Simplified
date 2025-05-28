@@ -1,14 +1,16 @@
 """
 Economic Administration Commands for VCBot
 Provides admin-only commands to control and steer the economic simulation
+Note: This manages economic indicators only. Stock market is handled separately in stock_market.py
+IMPORTANT: Changes to economic parameters should trigger stock market updates for integration
 """
 
 import json
 import discord
 from discord.ext import commands
-from typing import Dict, Any, List
+from typing import Dict, Any
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from config import Roles
 
 class EconomicAdmin(commands.Cog):
@@ -35,7 +37,7 @@ class EconomicAdmin(commands.Cog):
     def log_admin_action(self, admin_id: int, action: str, details: Dict[str, Any]) -> None:
         """Log administrative actions for audit trail"""
         log_entry = {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "admin_id": admin_id,
             "action": action,
             "details": details
@@ -129,79 +131,8 @@ class EconomicAdmin(commands.Cog):
         
         await interaction.response.send_message(embed=embed)
     
-    # Stock Market Control Commands
-    @commands.slash_command(name="econ_set_stock", description="Modify stock price and volatility")
-    @commands.has_role(Roles.ADMIN)
-    async def set_stock(
-        self, 
-        interaction: discord.Interaction,
-        symbol: str,
-        price: float = None,
-        volatility: float = None
-    ):
-        """Set stock parameters"""
-        params = self.load_parameters()
-        
-        if "tracked_stocks" not in params:
-            await interaction.response.send_message("❌ No stocks found in economic system")
-            return
-        
-        # Find the stock
-        stock_found = False
-        changes = {}
-        
-        for stock in params["tracked_stocks"]:
-            if stock["symbol"].upper() == symbol.upper():
-                stock_found = True
-                
-                if price is not None:
-                    old_price = stock["price"]
-                    stock["price"] = max(0.01, price)
-                    changes["price"] = {"old": old_price, "new": stock["price"]}
-                
-                if volatility is not None:
-                    old_vol = stock["volatility"]
-                    stock["volatility"] = max(0.001, min(1.0, volatility))
-                    changes["volatility"] = {"old": old_vol, "new": stock["volatility"]}
-                
-                break
-        
-        if not stock_found:
-            available_stocks = [stock["symbol"] for stock in params["tracked_stocks"]]
-            await interaction.response.send_message(
-                f"❌ Stock '{symbol}' not found. Available: {', '.join(available_stocks)}"
-            )
-            return
-        
-        if not changes:
-            # Show current stock info
-            for stock in params["tracked_stocks"]:
-                if stock["symbol"].upper() == symbol.upper():
-                    embed = discord.Embed(
-                        title=f"📊 {stock['symbol']} - {stock['name']}",
-                        color=0x0099ff
-                    )
-                    embed.add_field(name="Price", value=f"${stock['price']:.2f}", inline=True)
-                    embed.add_field(name="Volatility", value=f"{stock['volatility']:.3f}", inline=True)
-                    await interaction.response.send_message(embed=embed)
-                    return
-        
-        self.save_parameters(params)
-        self.log_admin_action(interaction.user.id, "set_stock", {"symbol": symbol, "changes": changes})
-        
-        embed = discord.Embed(
-            title=f"✅ Stock {symbol.upper()} Updated",
-            color=0x00ff00
-        )
-        
-        for param, change in changes.items():
-            embed.add_field(
-                name=param.title(),
-                value=f"{change['old']:.3f} → {change['new']:.3f}",
-                inline=True
-            )
-        
-        await interaction.response.send_message(embed=embed)
+    # Note: Stock market controls have been moved to stock_commands.py
+    # Economic parameters influence stock market through integration layer
     
     # Analysis Control Commands
     @commands.slash_command(name="econ_set_interval", description="Set economic analysis interval in seconds")
@@ -281,13 +212,10 @@ class EconomicAdmin(commands.Cog):
         # Apply temporary scenario effects
         backup_params = params.copy()
         
-        # Modify stocks
-        for stock in params.get("tracked_stocks", []):
-            stock["volatility"] *= effects["stock_volatility_multiplier"]
-            stock["price"] *= effects["gdp_multiplier"]  # Stocks follow GDP trend
-        
-        # Modify inflation
+        # Modify economic indicators (stock market will react to these changes)
         params["inflation_base"] += effects["inflation_modifier"]
+        params["market_volatility_base"] *= effects["stock_volatility_multiplier"]
+        params["market_confidence_base"] *= effects["gdp_multiplier"]
         
         # Save temporary parameters
         params["scenario_active"] = {
@@ -295,7 +223,7 @@ class EconomicAdmin(commands.Cog):
             "effects": effects,
             "backup": backup_params,
             "activated_by": interaction.user.id,
-            "activated_at": datetime.utcnow().isoformat()
+            "activated_at": datetime.now(timezone.utc).isoformat()
         }
         
         self.save_parameters(params)
@@ -363,16 +291,12 @@ class EconomicAdmin(commands.Cog):
             default_params = {
                 "gdp_weights": {"legislative": 0.4, "committee": 0.3, "public": 0.3},
                 "inflation_base": 2.5,
-                "stock_volatility": 0.05,
+                "market_volatility_base": 0.05,
                 "analysis_interval": 3600,
                 "lookback_days": 30,
-                "tracked_stocks": [
-                    {"symbol": "GOV", "name": "Government Efficiency", "price": 100.0, "volatility": 0.03},
-                    {"symbol": "DEF", "name": "Defense Sector", "price": 95.0, "volatility": 0.04},
-                    {"symbol": "EDU", "name": "Education Sector", "price": 110.0, "volatility": 0.02},
-                    {"symbol": "HLT", "name": "Healthcare Sector", "price": 105.0, "volatility": 0.03},
-                    {"symbol": "BIP", "name": "Bipartisan Index", "price": 80.0, "volatility": 0.06}
-                ]
+                "unemployment_base": 4.0,
+                "market_confidence_base": 50.0
+                # Note: Stocks are managed by stock_market.py, not economic parameters
             }
             
             self.save_parameters(default_params)
@@ -421,7 +345,7 @@ class EconomicAdmin(commands.Cog):
         embed = discord.Embed(
             title="📊 Economic System Status",
             color=0x0099ff,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         # GDP Settings
@@ -439,11 +363,10 @@ class EconomicAdmin(commands.Cog):
             inline=True
         )
         
-        # Stock Count
-        stock_count = len(params.get("tracked_stocks", []))
+        # Market Parameters
         embed.add_field(
-            name="Tracked Stocks",
-            value=f"{stock_count} symbols",
+            name="Market Parameters",
+            value=f"Base Volatility: {params.get('market_volatility_base', 0.05):.3f}\nMarket Confidence: {params.get('market_confidence_base', 50.0):.1f}%",
             inline=True
         )
         
@@ -457,13 +380,20 @@ class EconomicAdmin(commands.Cog):
             )
         
         # Data Files Status
-        data_files = ["gdp.json", "stocks.json", "inflation.json", "unemployment.json", "sentiment.json"]
+        data_files = ["gdp.json", "inflation.json", "unemployment.json", "sentiment.json", "reports.json", "parameters.json"]
         existing_files = [f for f in data_files if (self.data_dir / f).exists()]
         
         embed.add_field(
-            name="Data Files",
+            name="Economic Data Files",
             value=f"{len(existing_files)}/{len(data_files)} files exist",
             inline=True
+        )
+        
+        # Stock market integration note
+        embed.add_field(
+            name="Stock Market Integration",
+            value="📈 Real stocks managed by stock_market.py\n💹 Economic parameters drive market behavior",
+            inline=False
         )
         
         await interaction.response.send_message(embed=embed)

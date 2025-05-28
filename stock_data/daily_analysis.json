@@ -1,0 +1,973 @@
+[
+  {
+    "reasoning": {
+      "market_overview": "The market is facing headwinds from high inflation and slowing GDP growth. Market confidence is low, and there's significant anxiety about the aggressive rate policy. The news messages, while not overwhelmingly negative, do not inspire confidence. Congressional activity appears to be continuing, but doesn't directly address the economic concerns. The overall tone suggests a cautious and somewhat pessimistic outlook.",
+      "news_impact": "The news messages, while not detailing specific market-moving events, contribute to the overall sense of uncertainty and policy adjustments. The Treasury announcement and Speaker announcements indicate ongoing government activity, but do not necessarily inspire confidence in the market given the underlying economic data.",
+      "consistency_analysis": "Since this is the first trading day analysis, there's no previous analysis to maintain consistency with. The parameters are initialized based on the current economic data and the custom user instruction.",
+      "trend_analysis": "Given the negative GDP growth rate (-1.2%), high inflation (8.51%), and low market confidence (35%), a bearish trend direction is warranted. A value of -0.4 reflects this negative sentiment without being overly extreme.",
+      "volatility_analysis": "The custom user instruction dictates a volatility of around 0.7. This is appropriate given the high inflation, economic uncertainty, and aggressive rate hikes. This level of volatility reflects the potential for significant price fluctuations.",
+      "momentum_analysis": "With a bearish trend and high volatility, momentum should be moderate to reflect the potential for price swings. A value of 0.6 indicates that price changes could be relatively strong in either direction.",
+      "sentiment_analysis": "Market sentiment is low due to high inflation anxiety and poor economic outlook. A value of 0.3 reflects this pessimism and lack of confidence in the market.",
+      "outlook_analysis": "Given the current economic challenges, the long-term outlook should be slightly pessimistic. A value of 0.45 reflects a cautious view of the future, acknowledging the potential for recovery but also the risks of prolonged economic weakness.",
+      "custom_prompt_impact": "The custom prompt to set volatility around 0.7 was the primary driver for the volatility parameter. Other parameters were then adjusted to align with this volatility level and the overall economic data."
+    },
+    "parameters": {
+      "trend_direction": -0.4,
+      "volatility": 0.7,
+      "momentum": 0.6,
+      "market_sentiment": 0.3,
+      "long_term_outlook": 0.5
+    },
+    "stock_outlook": {
+      "ENERGY": "Energy sector may experience volatility due to fluctuating oil prices and economic uncertainty.",
+      "ENTERTAINMENT": "Entertainment sector may face pressure as consumer spending decreases due to inflation.",
+      "FINANCE": "Financial sector faces headwinds from rising interest rates and potential economic slowdown.",
+      "HEALTH": "Healthcare sector may be relatively stable but could be affected by policy changes.",
+      "MANUFACTURING": "Manufacturing sector may experience slower growth due to decreased demand.",
+      "RETAIL": "Retail sector faces challenges from inflation and reduced consumer spending.",
+      "TECH": "Tech sector may experience mixed performance, with some companies benefiting from remote work trends while others face challenges from economic slowdown.",
+      "TRANSPORT": "Transport sector may be affected by reduced economic activity and supply chain disruptions."
+    },
+    "change_summary": {
+      "significant_changes": [],
+      "news_driven_changes": [],
+      "consistency_maintained": true
+    },
+    "enhanced_analysis": {
+      "custom_prompt": "Volatility should be around 0.7 set other params accordingly",
+      "news_messages_analyzed": 7,
+      "total_messages_analyzed": 128,
+      "consistency_check": false,
+      "timestamp": "2025-05-28T15:34:38.910522+00:00"
+    },
+    "timestamp": "2025-05-28T15:34:38.911184+00:00",
+    "market_state": {
+      "categories": {
+        "ENERGY": {
+          "name": "Energy Sector",
+          "description": "Oil, gas, and energy companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "XOM",
+              "name": "ExxonMobil",
+              "price": 129.05,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "CVX",
+              "name": "Chevron Corporation",
+              "price": 185.75,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "COP",
+              "name": "ConocoPhillips",
+              "price": 153.11,
+              "sector": "oil_gas"
+            }
+          ]
+        },
+        "ENTERTAINMENT": {
+          "name": "Entertainment & Media Sector",
+          "description": "Entertainment, media, and streaming companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "NFLX",
+              "name": "Netflix Inc.",
+              "price": 564.99,
+              "sector": "streaming"
+            },
+            {
+              "symbol": "DIS",
+              "name": "Walt Disney Company",
+              "price": 91.09,
+              "sector": "entertainment"
+            },
+            {
+              "symbol": "EA",
+              "name": "Electronic Arts",
+              "price": 290.79,
+              "sector": "gaming"
+            }
+          ]
+        },
+        "FINANCE": {
+          "name": "Financial Services Sector",
+          "description": "Banks, investment firms, and financial services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JPM",
+              "name": "JPMorgan Chase & Co.",
+              "price": 103.97,
+              "sector": "banking"
+            },
+            {
+              "symbol": "BAC",
+              "name": "Bank of America",
+              "price": 36.03,
+              "sector": "banking"
+            },
+            {
+              "symbol": "V",
+              "name": "Visa Inc.",
+              "price": 152.31,
+              "sector": "payments"
+            },
+            {
+              "symbol": "GS",
+              "name": "Goldman Sachs",
+              "price": 266.66,
+              "sector": "investment"
+            }
+          ]
+        },
+        "HEALTH": {
+          "name": "Healthcare Sector",
+          "description": "Healthcare, pharmaceuticals, and medical devices",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JNJ",
+              "name": "Johnson & Johnson",
+              "price": 105.02,
+              "sector": "pharma"
+            },
+            {
+              "symbol": "UNH",
+              "name": "UnitedHealth Group",
+              "price": 216.74,
+              "sector": "insurance"
+            },
+            {
+              "symbol": "PFE",
+              "name": "Pfizer Inc.",
+              "price": 43.35,
+              "sector": "pharma"
+            }
+          ]
+        },
+        "MANUFACTURING": {
+          "name": "Manufacturing Sector",
+          "description": "Industrial manufacturing and machinery",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "CAT",
+              "name": "Caterpillar Inc.",
+              "price": 136.07,
+              "sector": "machinery"
+            },
+            {
+              "symbol": "GE",
+              "name": "General Electric",
+              "price": 166.86,
+              "sector": "industrial"
+            },
+            {
+              "symbol": "LMT",
+              "name": "Lockheed Martin",
+              "price": 376.35,
+              "sector": "defense"
+            }
+          ]
+        },
+        "RETAIL": {
+          "name": "Retail Sector",
+          "description": "Consumer retail and wholesale companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "WMT",
+              "name": "Walmart Inc.",
+              "price": 68.88,
+              "sector": "discount_retail"
+            },
+            {
+              "symbol": "COST",
+              "name": "Costco Wholesale",
+              "price": 331.8,
+              "sector": "warehouse"
+            },
+            {
+              "symbol": "HD",
+              "name": "Home Depot",
+              "price": 139.25,
+              "sector": "home_improvement"
+            }
+          ]
+        },
+        "TECH": {
+          "name": "Technology Sector",
+          "description": "Technology hardware, software, and services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "price": 193.54,
+              "sector": "consumer_tech"
+            },
+            {
+              "symbol": "MSFT",
+              "name": "Microsoft Corporation",
+              "price": 468.95,
+              "sector": "software"
+            },
+            {
+              "symbol": "GOOGL",
+              "name": "Alphabet Inc.",
+              "price": 2782.18,
+              "sector": "internet"
+            },
+            {
+              "symbol": "NVDA",
+              "name": "NVIDIA Corporation",
+              "price": 680.83,
+              "sector": "semiconductors"
+            }
+          ]
+        },
+        "TRANSPORT": {
+          "name": "Transportation Sector",
+          "description": "Airlines, shipping, and transportation",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "BA",
+              "name": "Boeing Company",
+              "price": 262.71,
+              "sector": "aerospace"
+            }
+          ]
+        }
+      },
+      "parameters": {
+        "trend_direction": -0.4,
+        "volatility": 0.7,
+        "momentum": 0.6,
+        "market_sentiment": 0.3,
+        "long_term_outlook": 0.5
+      }
+    }
+  },
+  {
+    "reasoning": {
+      "market_overview": "Fallback analysis using economic data calculation",
+      "trend_analysis": "Trend based on GDP growth and economic indicators",
+      "volatility_analysis": "Volatility based on inflation and market sentiment data",
+      "momentum_analysis": "Momentum based on current economic environment",
+      "sentiment_analysis": "Sentiment derived from market confidence data",
+      "outlook_analysis": "Long-term outlook based on economic fundamentals"
+    },
+    "parameters": {
+      "trend_direction": -0.24,
+      "volatility": 1.0,
+      "momentum": 0.24375000000000002,
+      "market_sentiment": 0.35,
+      "long_term_outlook": 0.37744444444444447
+    },
+    "stock_outlook": {
+      "ENERGY": "Outlook based on economic fundamentals",
+      "ENTERTAINMENT": "Outlook based on economic fundamentals",
+      "FINANCE": "Outlook based on economic fundamentals",
+      "HEALTH": "Outlook based on economic fundamentals",
+      "MANUFACTURING": "Outlook based on economic fundamentals",
+      "RETAIL": "Outlook based on economic fundamentals",
+      "TECH": "Outlook based on economic fundamentals",
+      "TRANSPORT": "Outlook based on economic fundamentals"
+    },
+    "timestamp": "2025-05-28T17:18:15.037352+00:00",
+    "market_state": {
+      "categories": {
+        "ENERGY": {
+          "name": "Energy Sector",
+          "description": "Oil, gas, and energy companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "XOM",
+              "name": "ExxonMobil",
+              "price": 129.05,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "CVX",
+              "name": "Chevron Corporation",
+              "price": 185.75,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "COP",
+              "name": "ConocoPhillips",
+              "price": 153.11,
+              "sector": "oil_gas"
+            }
+          ]
+        },
+        "ENTERTAINMENT": {
+          "name": "Entertainment & Media Sector",
+          "description": "Entertainment, media, and streaming companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "NFLX",
+              "name": "Netflix Inc.",
+              "price": 564.99,
+              "sector": "streaming"
+            },
+            {
+              "symbol": "DIS",
+              "name": "Walt Disney Company",
+              "price": 91.09,
+              "sector": "entertainment"
+            },
+            {
+              "symbol": "EA",
+              "name": "Electronic Arts",
+              "price": 290.79,
+              "sector": "gaming"
+            }
+          ]
+        },
+        "FINANCE": {
+          "name": "Financial Services Sector",
+          "description": "Banks, investment firms, and financial services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JPM",
+              "name": "JPMorgan Chase & Co.",
+              "price": 103.97,
+              "sector": "banking"
+            },
+            {
+              "symbol": "BAC",
+              "name": "Bank of America",
+              "price": 36.03,
+              "sector": "banking"
+            },
+            {
+              "symbol": "V",
+              "name": "Visa Inc.",
+              "price": 152.31,
+              "sector": "payments"
+            },
+            {
+              "symbol": "GS",
+              "name": "Goldman Sachs",
+              "price": 266.66,
+              "sector": "investment"
+            }
+          ]
+        },
+        "HEALTH": {
+          "name": "Healthcare Sector",
+          "description": "Healthcare, pharmaceuticals, and medical devices",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JNJ",
+              "name": "Johnson & Johnson",
+              "price": 105.02,
+              "sector": "pharma"
+            },
+            {
+              "symbol": "UNH",
+              "name": "UnitedHealth Group",
+              "price": 216.74,
+              "sector": "insurance"
+            },
+            {
+              "symbol": "PFE",
+              "name": "Pfizer Inc.",
+              "price": 43.35,
+              "sector": "pharma"
+            }
+          ]
+        },
+        "MANUFACTURING": {
+          "name": "Manufacturing Sector",
+          "description": "Industrial manufacturing and machinery",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "CAT",
+              "name": "Caterpillar Inc.",
+              "price": 136.07,
+              "sector": "machinery"
+            },
+            {
+              "symbol": "GE",
+              "name": "General Electric",
+              "price": 166.86,
+              "sector": "industrial"
+            },
+            {
+              "symbol": "LMT",
+              "name": "Lockheed Martin",
+              "price": 376.35,
+              "sector": "defense"
+            }
+          ]
+        },
+        "RETAIL": {
+          "name": "Retail Sector",
+          "description": "Consumer retail and wholesale companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "WMT",
+              "name": "Walmart Inc.",
+              "price": 68.88,
+              "sector": "discount_retail"
+            },
+            {
+              "symbol": "COST",
+              "name": "Costco Wholesale",
+              "price": 331.8,
+              "sector": "warehouse"
+            },
+            {
+              "symbol": "HD",
+              "name": "Home Depot",
+              "price": 139.25,
+              "sector": "home_improvement"
+            }
+          ]
+        },
+        "TECH": {
+          "name": "Technology Sector",
+          "description": "Technology hardware, software, and services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "price": 193.54,
+              "sector": "consumer_tech"
+            },
+            {
+              "symbol": "MSFT",
+              "name": "Microsoft Corporation",
+              "price": 468.95,
+              "sector": "software"
+            },
+            {
+              "symbol": "GOOGL",
+              "name": "Alphabet Inc.",
+              "price": 2782.18,
+              "sector": "internet"
+            },
+            {
+              "symbol": "NVDA",
+              "name": "NVIDIA Corporation",
+              "price": 680.83,
+              "sector": "semiconductors"
+            }
+          ]
+        },
+        "TRANSPORT": {
+          "name": "Transportation Sector",
+          "description": "Airlines, shipping, and transportation",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "BA",
+              "name": "Boeing Company",
+              "price": 262.71,
+              "sector": "aerospace"
+            }
+          ]
+        }
+      },
+      "parameters": {
+        "trend_direction": -0.24,
+        "volatility": 1.0,
+        "momentum": 0.24375000000000002,
+        "market_sentiment": 0.35,
+        "long_term_outlook": 0.37744444444444447
+      }
+    }
+  },
+  {
+    "reasoning": {
+      "market_overview": "Fallback analysis using economic data calculation",
+      "trend_analysis": "Trend based on GDP growth and economic indicators",
+      "volatility_analysis": "Volatility based on inflation and market sentiment data",
+      "momentum_analysis": "Momentum based on current economic environment",
+      "sentiment_analysis": "Sentiment derived from market confidence data",
+      "outlook_analysis": "Long-term outlook based on economic fundamentals"
+    },
+    "parameters": {
+      "trend_direction": -0.24,
+      "volatility": 1.0,
+      "momentum": 0.24375000000000002,
+      "market_sentiment": 0.35,
+      "long_term_outlook": 0.37744444444444447
+    },
+    "stock_outlook": {
+      "ENERGY": "Outlook based on economic fundamentals",
+      "ENTERTAINMENT": "Outlook based on economic fundamentals",
+      "FINANCE": "Outlook based on economic fundamentals",
+      "HEALTH": "Outlook based on economic fundamentals",
+      "MANUFACTURING": "Outlook based on economic fundamentals",
+      "RETAIL": "Outlook based on economic fundamentals",
+      "TECH": "Outlook based on economic fundamentals",
+      "TRANSPORT": "Outlook based on economic fundamentals"
+    },
+    "timestamp": "2025-05-28T17:21:24.592998+00:00",
+    "market_state": {
+      "categories": {
+        "ENERGY": {
+          "name": "Energy Sector",
+          "description": "Oil, gas, and energy companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "XOM",
+              "name": "ExxonMobil",
+              "price": 129.05,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "CVX",
+              "name": "Chevron Corporation",
+              "price": 185.75,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "COP",
+              "name": "ConocoPhillips",
+              "price": 153.11,
+              "sector": "oil_gas"
+            }
+          ]
+        },
+        "ENTERTAINMENT": {
+          "name": "Entertainment & Media Sector",
+          "description": "Entertainment, media, and streaming companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "NFLX",
+              "name": "Netflix Inc.",
+              "price": 564.99,
+              "sector": "streaming"
+            },
+            {
+              "symbol": "DIS",
+              "name": "Walt Disney Company",
+              "price": 91.09,
+              "sector": "entertainment"
+            },
+            {
+              "symbol": "EA",
+              "name": "Electronic Arts",
+              "price": 290.79,
+              "sector": "gaming"
+            }
+          ]
+        },
+        "FINANCE": {
+          "name": "Financial Services Sector",
+          "description": "Banks, investment firms, and financial services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JPM",
+              "name": "JPMorgan Chase & Co.",
+              "price": 103.97,
+              "sector": "banking"
+            },
+            {
+              "symbol": "BAC",
+              "name": "Bank of America",
+              "price": 36.03,
+              "sector": "banking"
+            },
+            {
+              "symbol": "V",
+              "name": "Visa Inc.",
+              "price": 152.31,
+              "sector": "payments"
+            },
+            {
+              "symbol": "GS",
+              "name": "Goldman Sachs",
+              "price": 266.66,
+              "sector": "investment"
+            }
+          ]
+        },
+        "HEALTH": {
+          "name": "Healthcare Sector",
+          "description": "Healthcare, pharmaceuticals, and medical devices",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JNJ",
+              "name": "Johnson & Johnson",
+              "price": 105.02,
+              "sector": "pharma"
+            },
+            {
+              "symbol": "UNH",
+              "name": "UnitedHealth Group",
+              "price": 216.74,
+              "sector": "insurance"
+            },
+            {
+              "symbol": "PFE",
+              "name": "Pfizer Inc.",
+              "price": 43.35,
+              "sector": "pharma"
+            }
+          ]
+        },
+        "MANUFACTURING": {
+          "name": "Manufacturing Sector",
+          "description": "Industrial manufacturing and machinery",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "CAT",
+              "name": "Caterpillar Inc.",
+              "price": 136.07,
+              "sector": "machinery"
+            },
+            {
+              "symbol": "GE",
+              "name": "General Electric",
+              "price": 166.86,
+              "sector": "industrial"
+            },
+            {
+              "symbol": "LMT",
+              "name": "Lockheed Martin",
+              "price": 376.35,
+              "sector": "defense"
+            }
+          ]
+        },
+        "RETAIL": {
+          "name": "Retail Sector",
+          "description": "Consumer retail and wholesale companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "WMT",
+              "name": "Walmart Inc.",
+              "price": 68.88,
+              "sector": "discount_retail"
+            },
+            {
+              "symbol": "COST",
+              "name": "Costco Wholesale",
+              "price": 331.8,
+              "sector": "warehouse"
+            },
+            {
+              "symbol": "HD",
+              "name": "Home Depot",
+              "price": 139.25,
+              "sector": "home_improvement"
+            }
+          ]
+        },
+        "TECH": {
+          "name": "Technology Sector",
+          "description": "Technology hardware, software, and services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "price": 193.54,
+              "sector": "consumer_tech"
+            },
+            {
+              "symbol": "MSFT",
+              "name": "Microsoft Corporation",
+              "price": 468.95,
+              "sector": "software"
+            },
+            {
+              "symbol": "GOOGL",
+              "name": "Alphabet Inc.",
+              "price": 2782.18,
+              "sector": "internet"
+            },
+            {
+              "symbol": "NVDA",
+              "name": "NVIDIA Corporation",
+              "price": 680.83,
+              "sector": "semiconductors"
+            }
+          ]
+        },
+        "TRANSPORT": {
+          "name": "Transportation Sector",
+          "description": "Airlines, shipping, and transportation",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "BA",
+              "name": "Boeing Company",
+              "price": 262.71,
+              "sector": "aerospace"
+            }
+          ]
+        }
+      },
+      "parameters": {
+        "trend_direction": -0.24,
+        "volatility": 1.0,
+        "momentum": 0.24375000000000002,
+        "market_sentiment": 0.35,
+        "long_term_outlook": 0.37744444444444447
+      }
+    }
+  },
+  {
+    "reasoning": {
+      "market_overview": "Fallback analysis using economic data calculation",
+      "trend_analysis": "Trend based on GDP growth and economic indicators",
+      "volatility_analysis": "Volatility based on inflation and market sentiment data",
+      "momentum_analysis": "Momentum based on current economic environment",
+      "sentiment_analysis": "Sentiment derived from market confidence data",
+      "outlook_analysis": "Long-term outlook based on economic fundamentals"
+    },
+    "parameters": {
+      "trend_direction": -0.24,
+      "volatility": 1.0,
+      "momentum": 0.24375000000000002,
+      "market_sentiment": 0.35,
+      "long_term_outlook": 0.37744444444444447
+    },
+    "stock_outlook": {
+      "ENERGY": "Outlook based on economic fundamentals",
+      "ENTERTAINMENT": "Outlook based on economic fundamentals",
+      "FINANCE": "Outlook based on economic fundamentals",
+      "HEALTH": "Outlook based on economic fundamentals",
+      "MANUFACTURING": "Outlook based on economic fundamentals",
+      "RETAIL": "Outlook based on economic fundamentals",
+      "TECH": "Outlook based on economic fundamentals",
+      "TRANSPORT": "Outlook based on economic fundamentals"
+    },
+    "timestamp": "2025-05-28T17:22:45.013813+00:00",
+    "market_state": {
+      "categories": {
+        "ENERGY": {
+          "name": "Energy Sector",
+          "description": "Oil, gas, and energy companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "XOM",
+              "name": "ExxonMobil",
+              "price": 129.05,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "CVX",
+              "name": "Chevron Corporation",
+              "price": 185.75,
+              "sector": "oil_gas"
+            },
+            {
+              "symbol": "COP",
+              "name": "ConocoPhillips",
+              "price": 153.11,
+              "sector": "oil_gas"
+            }
+          ]
+        },
+        "ENTERTAINMENT": {
+          "name": "Entertainment & Media Sector",
+          "description": "Entertainment, media, and streaming companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "NFLX",
+              "name": "Netflix Inc.",
+              "price": 564.99,
+              "sector": "streaming"
+            },
+            {
+              "symbol": "DIS",
+              "name": "Walt Disney Company",
+              "price": 91.09,
+              "sector": "entertainment"
+            },
+            {
+              "symbol": "EA",
+              "name": "Electronic Arts",
+              "price": 290.79,
+              "sector": "gaming"
+            }
+          ]
+        },
+        "FINANCE": {
+          "name": "Financial Services Sector",
+          "description": "Banks, investment firms, and financial services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JPM",
+              "name": "JPMorgan Chase & Co.",
+              "price": 103.97,
+              "sector": "banking"
+            },
+            {
+              "symbol": "BAC",
+              "name": "Bank of America",
+              "price": 36.03,
+              "sector": "banking"
+            },
+            {
+              "symbol": "V",
+              "name": "Visa Inc.",
+              "price": 152.31,
+              "sector": "payments"
+            },
+            {
+              "symbol": "GS",
+              "name": "Goldman Sachs",
+              "price": 266.66,
+              "sector": "investment"
+            }
+          ]
+        },
+        "HEALTH": {
+          "name": "Healthcare Sector",
+          "description": "Healthcare, pharmaceuticals, and medical devices",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "JNJ",
+              "name": "Johnson & Johnson",
+              "price": 105.02,
+              "sector": "pharma"
+            },
+            {
+              "symbol": "UNH",
+              "name": "UnitedHealth Group",
+              "price": 216.74,
+              "sector": "insurance"
+            },
+            {
+              "symbol": "PFE",
+              "name": "Pfizer Inc.",
+              "price": 43.35,
+              "sector": "pharma"
+            }
+          ]
+        },
+        "MANUFACTURING": {
+          "name": "Manufacturing Sector",
+          "description": "Industrial manufacturing and machinery",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "CAT",
+              "name": "Caterpillar Inc.",
+              "price": 136.07,
+              "sector": "machinery"
+            },
+            {
+              "symbol": "GE",
+              "name": "General Electric",
+              "price": 166.86,
+              "sector": "industrial"
+            },
+            {
+              "symbol": "LMT",
+              "name": "Lockheed Martin",
+              "price": 376.35,
+              "sector": "defense"
+            }
+          ]
+        },
+        "RETAIL": {
+          "name": "Retail Sector",
+          "description": "Consumer retail and wholesale companies",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "WMT",
+              "name": "Walmart Inc.",
+              "price": 68.88,
+              "sector": "discount_retail"
+            },
+            {
+              "symbol": "COST",
+              "name": "Costco Wholesale",
+              "price": 331.8,
+              "sector": "warehouse"
+            },
+            {
+              "symbol": "HD",
+              "name": "Home Depot",
+              "price": 139.25,
+              "sector": "home_improvement"
+            }
+          ]
+        },
+        "TECH": {
+          "name": "Technology Sector",
+          "description": "Technology hardware, software, and services",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "price": 193.54,
+              "sector": "consumer_tech"
+            },
+            {
+              "symbol": "MSFT",
+              "name": "Microsoft Corporation",
+              "price": 468.95,
+              "sector": "software"
+            },
+            {
+              "symbol": "GOOGL",
+              "name": "Alphabet Inc.",
+              "price": 2782.18,
+              "sector": "internet"
+            },
+            {
+              "symbol": "NVDA",
+              "name": "NVIDIA Corporation",
+              "price": 680.83,
+              "sector": "semiconductors"
+            }
+          ]
+        },
+        "TRANSPORT": {
+          "name": "Transportation Sector",
+          "description": "Airlines, shipping, and transportation",
+          "market_direction": "normal",
+          "stocks": [
+            {
+              "symbol": "BA",
+              "name": "Boeing Company",
+              "price": 262.71,
+              "sector": "aerospace"
+            }
+          ]
+        }
+      },
+      "parameters": {
+        "trend_direction": -0.24,
+        "volatility": 1.0,
+        "momentum": 0.24375000000000002,
+        "market_sentiment": 0.35,
+        "long_term_outlook": 0.37744444444444447
+      }
+    }
+  }
+]

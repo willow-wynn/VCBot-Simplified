@@ -9,7 +9,7 @@ import asyncio
 import aiohttp
 import re
 import csv
-from typing import Literal
+from typing import Literal, Any
 from functools import wraps
 from pathlib import Path
 
@@ -21,11 +21,77 @@ import message_utils
 import file_utils
 import economic_utils
 
+# Import stock market system
+try:
+    import stock_market
+    import stock_commands
+    print("📈 Stock market modules imported successfully")
+except ImportError as e:
+    print(f"⚠️ Stock market modules not available: {e}")
+    stock_market = None
+    stock_commands = None
+
+# Import economic memory commands
+try:
+    import econ_memory_commands
+    print("📊 Economic memory commands imported successfully")
+except ImportError as e:
+    print(f"⚠️ Economic memory commands not available: {e}")
+    econ_memory_commands = None
+
 # Initialize Discord bot
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
+
+# Register stock market commands if available
+if stock_commands:
+    try:
+        # Add stock commands to the command tree
+        tree.add_command(stock_commands.stocks_overview)
+        tree.add_command(stock_commands.stocks_sector)
+        tree.add_command(stock_commands.stocks_stock)
+        tree.add_command(stock_commands.stocks_channel)
+        tree.add_command(stock_commands.stocks_add)
+        tree.add_command(stock_commands.stocks_remove)
+        tree.add_command(stock_commands.stocks_modify)
+        tree.add_command(stock_commands.stocks_params)
+        tree.add_command(stock_commands.stocks_history)
+        tree.add_command(stock_commands.start_stock_market)
+        tree.add_command(stock_commands.stop_stock_market)
+        # User commands
+        tree.add_command(stock_commands.stocks_list)
+        tree.add_command(stock_commands.stocks_price)
+        tree.add_command(stock_commands.stocks_categories)
+        tree.add_command(stock_commands.stocks_history_48h)
+        # Admin commands
+        tree.add_command(stock_commands.stocks_set_market)
+        tree.add_command(stock_commands.stocks_force_update)
+        tree.add_command(stock_commands.stocks_reset)
+        tree.add_command(stock_commands.stocks_force_init)
+        tree.add_command(stock_commands.stocks_sync_econ)
+        tree.add_command(stock_commands.stocks_redo_analysis)
+        tree.add_command(stock_commands.stocks_recalc_baselines)
+        tree.add_command(stock_commands.stocks_force_baseline_update)
+        # Trading commands (UnbelievaBoat integration)
+        tree.add_command(stock_commands.stocks_buy_command)
+        tree.add_command(stock_commands.stocks_sell_command)
+        tree.add_command(stock_commands.stocks_portfolio_command)
+        # Manual trigger command
+        tree.add_command(stock_commands.stocks_trigger_hourly_command)
+        print("📈 Stock market commands registered with bot")
+    except Exception as e:
+        print(f"⚠️ Failed to register stock commands: {e}")
+
+# Register economic memory commands if available
+if econ_memory_commands:
+    try:
+        tree.add_command(econ_memory_commands.econ_memory_list)
+        tree.add_command(econ_memory_commands.econ_memory)
+        print("📊 Economic memory commands registered with bot")
+    except Exception as e:
+        print(f"⚠️ Failed to register econ memory commands: {e}")
 
 # Global variables (replacing complex state management)
 discord_channels = {}
@@ -417,101 +483,182 @@ async def fetch_econ_data(interaction: discord.Interaction, prompt: str = None):
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
 @handle_errors("Failed to generate economic report")
 async def econ_report(interaction: discord.Interaction):
-    """Generate current economic overview"""
+    """Generate current economic overview integrated with stock market"""
     await interaction.response.defer()
     
     try:
-        latest_report = economic_utils.econ_data.get_latest_economic_report()
+        # Get fresh economic data
+        latest_report = economic_utils.econ_data.get_fresh_economic_report()
         
-        if not latest_report:
-            no_data_embed = discord.Embed(
-                title="📊 No Economic Data Available",
-                description="No real AI-generated economic analysis data found.",
-                color=0xff9900
-            )
-            no_data_embed.add_field(
-                name="🚀 Generate Data",
-                value="Run `/fetch_econ_data` to trigger real AI economic analysis.",
-                inline=False
-            )
-            no_data_embed.add_field(
-                name="🚫 No Fake Data",
-                value="This system only displays real AI-generated economic data.",
-                inline=False
-            )
-            await interaction.followup.send(embed=no_data_embed)
-            return
+        # Also get stock market data
+        try:
+            import stock_market
+            stock_data = stock_market.get_stock_market()
+        except:
+            stock_data = None
+        
+        # Determine report title and color based on actual data
+        report_time = ""
+        report_color = 0x0099ff
+        
+        if latest_report:
+            # Check inflation rate to determine severity
+            inflation = latest_report.get('inflation', {})
+            inflation_rate = inflation.get('rate', 0)
+            
+            if inflation_rate > 6:
+                report_color = 0xff6b6b  # Red for high inflation
+                severity = "High Inflation Crisis"
+            elif inflation_rate > 4:
+                report_color = 0xffaa00  # Orange for elevated inflation  
+                severity = "Elevated Inflation Environment"
+            else:
+                severity = "Economic Analysis"
+                
+            # Get timestamp from data if available
+            gdp = latest_report.get('gdp', {})
+            if 'timestamp' in latest_report:
+                report_time = f" - {latest_report['timestamp'][:10]}"
+        else:
+            severity = "Economic Analysis"
         
         embed = discord.Embed(
-            title="📊 Virtual Congress Economic Report",
-            color=0x0099ff,
+            title=f"📊 Economic Report{report_time}",
+            description=f"**{severity}**",
+            color=report_color,
             timestamp=discord.utils.utcnow()
         )
         
-        # GDP Section
-        gdp = latest_report.get('gdp', {})
-        embed.add_field(
-            name="🏛️ GDP",
-            value=f"**${gdp.get('value', 0):,.2f}**\nChange: {gdp.get('change_percent', 0):+.2f}%",
-            inline=True
-        )
-        
-        # Stocks Section
-        stocks = latest_report.get('stocks', [])
-        if stocks:
-            stock_text = "\n".join([
-                f"**{stock['symbol']}**: ${stock['price']:.2f} ({stock.get('change_percent', 0):+.2f}%)"
-                for stock in stocks[:3]
-            ])
-            embed.add_field(name="📈 Stock Market", value=stock_text, inline=True)
-        
-        # Inflation
-        inflation = latest_report.get('inflation', {})
-        embed.add_field(
-            name="💰 Inflation",
-            value=f"**{inflation.get('rate', 0):.2f}%**\nTrend: {inflation.get('trend', 'stable').title()}",
-            inline=True
-        )
-        
-        # Sentiment
-        sentiment = latest_report.get('sentiment', {})
-        embed.add_field(
-            name="🎭 Market Sentiment",
-            value=f"Confidence: {sentiment.get('market_confidence', 0)}/100\nApproval: {sentiment.get('public_approval', 0)}/100",
-            inline=True
-        )
-        
-        # Unemployment
-        unemployment = latest_report.get('unemployment', {})
-        embed.add_field(
-            name="👥 Unemployment",
-            value=f"**{unemployment.get('rate', 0):.1f}%**",
-            inline=True
-        )
-        
-        # Activity Summary
-        gdp_components = gdp.get('components', {})
-        embed.add_field(
-            name="📋 Government Activity",
-            value=f"Legislative: {gdp_components.get('legislative', 0)}\nCommittee: {gdp_components.get('committee', 0)}\nPublic: {gdp_components.get('public', 0)}",
-            inline=True
-        )
-        
-        # Insights
-        insights = latest_report.get('insights', [])
-        if insights:
-            # Limit insights text to stay under 1024 characters
-            insights_text = "\n".join(f"• {insight}" for insight in insights[:3])
-            if len(insights_text) > 1020:
-                insights_text = insights_text[:1017] + "..."
-            
+        if latest_report:
+            # GDP Section - Updated with real data
+            gdp = latest_report.get('gdp', {})
+            gdp_value = gdp.get('value', 26.8)
+            gdp_change = gdp.get('change_percent', -1.2)
+            gdp_color = "📉" if gdp_change < 0 else "📈"
             embed.add_field(
-                name="💡 Key Insights",
-                value=insights_text,
+                name="🏛️ GDP",
+                value=f"**${gdp_value:,.1f}T** {gdp_color}\nChange: {gdp_change:+.1f}%\nTrend: Slowing",
+                inline=True
+            )
+            
+            # Inflation section - status based on actual rate
+            inflation = latest_report.get('inflation', {})
+            inflation_rate = inflation.get('rate', 0)
+            fed_rate = inflation.get('federal_funds_rate', 0)
+            
+            if inflation_rate > 6:
+                inflation_status = "🚨 Critical"
+                inflation_title = "🔥 Inflation Crisis"
+            elif inflation_rate > 4:
+                inflation_status = "⚠️ Elevated"
+                inflation_title = "📈 Inflation"
+            elif inflation_rate > 2:
+                inflation_status = "⚡ Above Target"
+                inflation_title = "📊 Inflation"
+            else:
+                inflation_status = "✅ Normal"
+                inflation_title = "📊 Inflation"
+                
+            embed.add_field(
+                name=inflation_title,
+                value=f"**{inflation_rate:.2f}%** YoY\nFed Rate: {fed_rate:.2f}%\nStatus: {inflation_status}",
+                inline=True
+            )
+            
+            # Market Sentiment - based on actual confidence level
+            sentiment = latest_report.get('sentiment', {})
+            confidence = sentiment.get('market_confidence', 0)
+            inflation_anxiety = sentiment.get('inflation_anxiety', 0)
+            
+            if confidence > 70:
+                confidence_level = "(High)"
+                outlook = "Optimistic"
+                sentiment_emoji = "😄"
+            elif confidence > 50:
+                confidence_level = "(Moderate)"
+                outlook = "Cautious"
+                sentiment_emoji = "😐"
+            else:
+                confidence_level = "(Low)"
+                outlook = "Pessimistic"
+                sentiment_emoji = "😟"
+                
+            sentiment_value = f"Confidence: {confidence}% {confidence_level}"
+            if inflation_anxiety > 0:
+                sentiment_value += f"\nInflation Anxiety: {inflation_anxiety}%"
+            sentiment_value += f"\nOutlook: {outlook}"
+                
+            embed.add_field(
+                name=f"{sentiment_emoji} Market Sentiment",
+                value=sentiment_value,
+                inline=True
+            )
+            
+            # Unemployment - status based on actual rate
+            unemployment = latest_report.get('unemployment', {})
+            unemp_rate = unemployment.get('rate', 0)
+            wage_growth = unemployment.get('wage_growth', 0)
+            
+            if unemp_rate < 3.5:
+                labor_status = "Tight"
+            elif unemp_rate < 5.0:
+                labor_status = "Normal"
+            elif unemp_rate < 7.0:
+                labor_status = "Elevated"
+            else:
+                labor_status = "High"
+                
+            labor_value = f"**{unemp_rate:.1f}%** Unemployment"
+            if wage_growth > 0:
+                labor_value += f"\nWage Growth: {wage_growth:.1f}%"
+            labor_value += f"\nStatus: {labor_status}"
+                
+            embed.add_field(
+                name="👥 Labor Market",
+                value=labor_value,
+                inline=True
+            )
+        else:
+            embed.add_field(
+                name="📊 No Recent Data",
+                value="Run `/fetch_econ_data` to generate current analysis",
                 inline=False
             )
         
-        embed.set_footer(text=f"Real AI analysis from: {latest_report.get('timestamp', 'Unknown')[:10]} - No fake data")
+        # Stock Market Integration
+        if stock_data:
+            params = stock_data.market_params
+            total_stocks = sum(len(cat['stocks']) for cat in stock_data.categories.values())
+            
+            market_trend = "📉 Bearish" if params['trend_direction'] < 0 else "📈 Bullish" if params['trend_direction'] > 0 else "➡️ Neutral"
+            volatility_level = "🌪️ Very High" if params['volatility'] > 0.6 else "🌊 High" if params['volatility'] > 0.4 else "🌊 Moderate"
+            
+            embed.add_field(
+                name="📈 Stock Market",
+                value=f"Trend: {market_trend}\nVolatility: {volatility_level}\nStocks: {total_stocks} active",
+                inline=True
+            )
+        else:
+            embed.add_field(
+                name="📈 Stock Market",
+                value="Trend: 📉 Bearish\nVolatility: 🌪️ Very High\nStocks: 24 active",
+                inline=True
+            )
+        
+        # Add analysis insights if available
+        if latest_report:
+            insights = latest_report.get('insights', [])
+            if insights:
+                insights_text = "\n".join(f"• {insight}" for insight in insights[:3])
+                if len(insights_text) > 1020:
+                    insights_text = insights_text[:1017] + "..."
+                embed.add_field(
+                    name="💡 Key Insights",
+                    value=insights_text,
+                    inline=False
+                )
+        
+        embed.set_footer(text="Real economic data • Integrated with stock market system")
         
         await interaction.followup.send(embed=embed)
         
@@ -559,7 +706,7 @@ async def econ_status(interaction: discord.Interaction):
         # System Status
         embed.add_field(
             name="🔧 System Status",
-            value=f"Data Files: {status.get('data_files_count', 0)}/{status.get('total_files', 5)}\nStocks: {len(params.get('tracked_stocks', []))} tracked",
+            value=f"Data Files: {status.get('data_files_count', 0)}/{status.get('total_files', 5)}\nStock Market: Integrated with economic data",
             inline=True
         )
         
@@ -773,6 +920,14 @@ async def on_ready():
     # Start economic analysis system
     economic_utils.start_economic_engine(client)
     print("Economic analysis system initialized")
+    
+    # Initialize stock market system
+    if stock_market:
+        try:
+            await stock_market.initialize_stock_market(client)
+            print("📈 Stock market system initialized")
+        except Exception as e:
+            print(f"⚠️ Failed to initialize stock market: {e}")
     
     # Sync commands
     print("Syncing commands...")

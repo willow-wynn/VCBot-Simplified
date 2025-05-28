@@ -1,0 +1,301 @@
+[
+  {
+    "timestamp": "2025-05-28T15:18:43.733692+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 129.05,
+        "CVX": 185.75,
+        "COP": 153.11,
+        "NFLX": 564.99,
+        "DIS": 91.09,
+        "EA": 290.79,
+        "JPM": 103.97,
+        "BAC": 36.03,
+        "V": 152.31,
+        "GS": 266.66,
+        "JNJ": 105.02,
+        "UNH": 216.74,
+        "PFE": 43.35,
+        "CAT": 136.07,
+        "GE": 166.86,
+        "LMT": 376.35,
+        "WMT": 68.88,
+        "COST": 331.8,
+        "HD": 139.25,
+        "AAPL": 193.54,
+        "MSFT": 468.95,
+        "GOOGL": 2782.18,
+        "NVDA": 680.83,
+        "BA": 262.71
+      },
+      "category_prices": {
+        "ENERGY": 155.97,
+        "ENTERTAINMENT": 315.62333333333333,
+        "FINANCE": 139.7425,
+        "HEALTH": 121.70333333333333,
+        "MANUFACTURING": 226.42666666666665,
+        "RETAIL": 179.9766666666667,
+        "TECH": 1031.375,
+        "TRANSPORT": 262.71
+      },
+      "market_params": {
+        "trend_direction": 0.0,
+        "volatility": 0.3,
+        "momentum": 0.5,
+        "market_sentiment": 0.6,
+        "long_term_outlook": 0.55
+      },
+      "trading_hour": 0,
+      "analysis_update": true
+    }
+  },
+  {
+    "timestamp": "2025-05-28T15:18:43.734694+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 129.05,
+        "CVX": 185.75,
+        "COP": 153.11,
+        "NFLX": 564.99,
+        "DIS": 91.09,
+        "EA": 290.79,
+        "JPM": 103.97,
+        "BAC": 36.03,
+        "V": 152.31,
+        "GS": 266.66,
+        "JNJ": 105.02,
+        "UNH": 216.74,
+        "PFE": 43.35,
+        "CAT": 136.07,
+        "GE": 166.86,
+        "LMT": 376.35,
+        "WMT": 68.88,
+        "COST": 331.8,
+        "HD": 139.25,
+        "AAPL": 193.54,
+        "MSFT": 468.95,
+        "GOOGL": 2782.18,
+        "NVDA": 680.83,
+        "BA": 262.71
+      },
+      "category_prices": {
+        "ENERGY": 155.97,
+        "ENTERTAINMENT": 315.62333333333333,
+        "FINANCE": 139.7425,
+        "HEALTH": 121.70333333333333,
+        "MANUFACTURING": 226.42666666666665,
+        "RETAIL": 179.9766666666667,
+        "TECH": 1031.375,
+        "TRANSPORT": 262.71
+      },
+      "market_params": {
+        "trend_direction": 0.0,
+        "volatility": 0.3,
+        "momentum": 0.5,
+        "market_sentiment": 0.6,
+        "long_term_outlook": 0.55
+      },
+      "update_reason": "Analysis redone with prompt: Do not make significant modifications to the previ...",
+      "dynamic_update": true
+    }
+  },
+  {
+    "timestamp": "2025-05-28T15:34:38.915639+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 129.05,
+        "CVX": 185.75,
+        "COP": 153.11,
+        "NFLX": 564.99,
+        "DIS": 91.09,
+        "EA": 290.79,
+        "JPM": 103.97,
+        "BAC": 36.03,
+        "V": 152.31,
+        "GS": 266.66,
+        "JNJ": 105.02,
+        "UNH": 216.74,
+        "PFE": 43.35,
+        "CAT": 136.07,
+        "GE": 166.86,
+        "LMT": 376.35,
+        "WMT": 68.88,
+        "COST": 331.8,
+        "HD": 139.25,
+        "AAPL": 193.54,
+        "MSFT": 468.95,
+        "GOOGL": 2782.18,
+        "NVDA": 680.83,
+        "BA": 262.71
+      },
+      "category_prices": {
+        "ENERGY": 155.97,
+        "ENTERTAINMENT": 315.62333333333333,
+        "FINANCE": 139.7425,
+        "HEALTH": 121.70333333333333,
+        "MANUFACTURING": 226.42666666666665,
+        "RETAIL": 179.9766666666667,
+        "TECH": 1031.375,
+        "TRANSPORT": 262.71
+      },
+      "market_params": {
+        "trend_direction": -0.4,
+        "volatility": 0.7,
+        "momentum": 0.6,
+        "market_sentiment": 0.3,
+        "long_term_outlook": 0.5
+      },
+      "trading_hour": 0,
+      "analysis_update": true
+    }
+  },
+  {
+    "timestamp": "2025-05-28T15:34:38.916763+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 129.05,
+        "CVX": 185.75,
+        "COP": 153.11,
+        "NFLX": 564.99,
+        "DIS": 91.09,
+        "EA": 290.79,
+        "JPM": 103.97,
+        "BAC": 36.03,
+        "V": 152.31,
+        "GS": 266.66,
+        "JNJ": 105.02,
+        "UNH": 216.74,
+        "PFE": 43.35,
+        "CAT": 136.07,
+        "GE": 166.86,
+        "LMT": 376.35,
+        "WMT": 68.88,
+        "COST": 331.8,
+        "HD": 139.25,
+        "AAPL": 193.54,
+        "MSFT": 468.95,
+        "GOOGL": 2782.18,
+        "NVDA": 680.83,
+        "BA": 262.71
+      },
+      "category_prices": {
+        "ENERGY": 155.97,
+        "ENTERTAINMENT": 315.62333333333333,
+        "FINANCE": 139.7425,
+        "HEALTH": 121.70333333333333,
+        "MANUFACTURING": 226.42666666666665,
+        "RETAIL": 179.9766666666667,
+        "TECH": 1031.375,
+        "TRANSPORT": 262.71
+      },
+      "market_params": {
+        "trend_direction": -0.4,
+        "volatility": 0.7,
+        "momentum": 0.6,
+        "market_sentiment": 0.3,
+        "long_term_outlook": 0.5
+      },
+      "update_reason": "Analysis redone with prompt: Volatility should be around 0.7 set other params a...",
+      "dynamic_update": true
+    }
+  },
+  {
+    "timestamp": "2025-05-28T16:00:00.008105+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 124.6249454810795,
+        "CVX": 170.36466638183654,
+        "COP": 141.50264239161876,
+        "NFLX": 545.1129704686134,
+        "DIS": 89.35904417198405,
+        "EA": 265.59925567332635,
+        "JPM": 94.69488104369465,
+        "BAC": 35.52493773263462,
+        "V": 144.1758284943757,
+        "GS": 254.44796028718767,
+        "JNJ": 95.72012395158472,
+        "UNH": 209.5076048316871,
+        "PFE": 41.963972772597664,
+        "CAT": 126.13597756080135,
+        "GE": 157.5356076561682,
+        "LMT": 373.01777651986197,
+        "WMT": 63.606854953288185,
+        "COST": 311.03451624077815,
+        "HD": 133.55417061843374,
+        "AAPL": 187.31321152409532,
+        "MSFT": 427.7989307452373,
+        "GOOGL": 2592.607759823489,
+        "NVDA": 648.4144089405788,
+        "BA": 261.5431287853621
+      },
+      "category_prices": {
+        "ENERGY": 145.49741808484495,
+        "ENTERTAINMENT": 300.02375677130794,
+        "FINANCE": 132.21090188947315,
+        "HEALTH": 115.73056718528983,
+        "MANUFACTURING": 218.89645391227717,
+        "RETAIL": 169.39851393750004,
+        "TECH": 964.03357775835,
+        "TRANSPORT": 261.5431287853621
+      },
+      "market_params": {
+        "trend_direction": -0.4,
+        "volatility": 0.7,
+        "momentum": 0.6,
+        "market_sentiment": 0.3,
+        "long_term_outlook": 0.5
+      },
+      "trading_hour": 3
+    }
+  },
+  {
+    "timestamp": "2025-05-28T17:23:12.864403+00:00",
+    "data": {
+      "individual_stocks": {
+        "XOM": 60.89956535226027,
+        "CVX": 108.80801666825596,
+        "COP": 93.53401416463976,
+        "NFLX": 342.2320001487633,
+        "DIS": 49.161579096076004,
+        "EA": 133.54817901137164,
+        "JPM": 66.1071076485468,
+        "BAC": 21.544891806839356,
+        "V": 76.42952714310593,
+        "GS": 166.15781972539475,
+        "JNJ": 49.481766818819985,
+        "UNH": 111.67444282662257,
+        "PFE": 25.406760176830723,
+        "CAT": 68.00007566372629,
+        "GE": 81.86093077783289,
+        "LMT": 229.35007112089937,
+        "WMT": 36.67129776344424,
+        "COST": 196.73890067674932,
+        "HD": 88.66395392057706,
+        "AAPL": 108.07093776436896,
+        "MSFT": 285.6906824726504,
+        "GOOGL": 1567.4003400543083,
+        "NVDA": 442.8447723075409,
+        "BA": 122.94400462053018
+      },
+      "category_prices": {
+        "ENERGY": 87.74719872838533,
+        "ENTERTAINMENT": 174.98058608540364,
+        "FINANCE": 82.5598365809717,
+        "HEALTH": 62.18765660742442,
+        "MANUFACTURING": 126.40369252081952,
+        "RETAIL": 107.35805078692353,
+        "TECH": 601.0016831497171,
+        "TRANSPORT": 122.94400462053018
+      },
+      "market_params": {
+        "trend_direction": -0.24,
+        "volatility": 1.0,
+        "momentum": 0.24375000000000002,
+        "market_sentiment": 0.35,
+        "long_term_outlook": 0.37744444444444447
+      },
+      "trading_hour": 13,
+      "analysis_update": true
+    }
+  }
+]

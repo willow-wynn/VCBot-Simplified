@@ -51,13 +51,7 @@ class EconomicEngine(commands.Cog):
             "stock_volatility": 0.05,
             "analysis_interval": 3600,  # 1 hour
             "lookback_days": 30,
-            "tracked_stocks": [
-                {"symbol": "GOV", "name": "Government Efficiency", "price": 100.0, "volatility": 0.03},
-                {"symbol": "DEF", "name": "Defense Sector", "price": 95.0, "volatility": 0.04},
-                {"symbol": "EDU", "name": "Education Sector", "price": 110.0, "volatility": 0.02},
-                {"symbol": "HLT", "name": "Healthcare Sector", "price": 105.0, "volatility": 0.03},
-                {"symbol": "BIP", "name": "Bipartisan Index", "price": 80.0, "volatility": 0.06}
-            ]
+            # Note: Stock tracking moved to stock_market.py for real stock integration
         }
         
         if params_file.exists():
@@ -106,11 +100,18 @@ class EconomicEngine(commands.Cog):
         legislative_keywords = ["bill", "vote", "legislation", "amendment", "resolution"]
         committee_keywords = ["committee", "hearing", "subcommittee", "markup"]
         
+        print(f"🔒 Economic analysis restricted to authorized channels only")
+        
         for guild in self.bot.guilds:
             for channel in guild.text_channels:
                 try:
                     # Skip if bot doesn't have read permissions
                     if not channel.permissions_for(guild.me).read_message_history:
+                        continue
+                    
+                    # Skip if channel is not in allowed list for economic analysis
+                    from economic_utils import is_channel_allowed
+                    if not is_channel_allowed(channel.name):
                         continue
                     
                     messages = []
@@ -141,14 +142,28 @@ class EconomicEngine(commands.Cog):
                         
                         messages.append(message_data)
                     
-                    # Categorize channel activity
-                    channel_lower = channel.name.lower()
-                    if any(keyword in channel_lower for keyword in legislative_keywords):
+                    # Categorize channel activity using economic analysis categories
+                    from economic_utils import get_channel_category
+                    econ_category = get_channel_category(channel.name)
+                    
+                    # Map economic categories to activity data structure
+                    if econ_category in ["CONGRESS", "EXECUTIVE"]:
                         activity_data["legislative"].extend(messages)
-                    elif any(keyword in channel_lower for keyword in committee_keywords):
-                        activity_data["committee"].extend(messages)
-                    else:
+                    elif econ_category in ["COURTS"]:
+                        activity_data["committee"].extend(messages)  # Courts handled as specialized committee work
+                    elif econ_category in ["NEWS", "PUBLIC_SQUARE"]:
                         activity_data["public"].extend(messages)
+                    elif econ_category in ["STATES"]:
+                        activity_data["committee"].extend(messages)  # State government handled as committee work
+                    else:
+                        # Fallback to old logic for any edge cases
+                        channel_lower = channel.name.lower()
+                        if any(keyword in channel_lower for keyword in legislative_keywords):
+                            activity_data["legislative"].extend(messages)
+                        elif any(keyword in channel_lower for keyword in committee_keywords):
+                            activity_data["committee"].extend(messages)
+                        else:
+                            activity_data["public"].extend(messages)
                         
                 except Exception as e:
                     print(f"Error collecting from channel {channel.name}: {e}")
@@ -262,31 +277,9 @@ class EconomicEngine(commands.Cog):
                 raise ValueError("No valid JSON found in response")
                 
         except Exception as e:
-            print(f"Error in Gemini analysis: {e}")
-            return self.generate_fallback_analysis(activity_data)
-    
-    def generate_fallback_analysis(self, activity_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Generate basic economic analysis if Gemini fails"""
-        return {
-            "timestamp": datetime.utcnow().isoformat(),
-            "gdp": {
-                "value": 1000.0 + len(activity_data["legislative"]) * 10,
-                "change_percent": 2.5,
-                "components": {
-                    "legislative": len(activity_data["legislative"]),
-                    "committee": len(activity_data["committee"]),
-                    "public": len(activity_data["public"])
-                }
-            },
-            "stocks": [
-                {"symbol": stock["symbol"], "price": stock["price"], "change_percent": 0.0, "volume": 1000}
-                for stock in self.parameters["tracked_stocks"]
-            ],
-            "inflation": {"rate": 2.5, "trend": "stable", "policy_impact": "neutral"},
-            "unemployment": {"rate": 5.0, "committee_activity_index": len(activity_data["committee"])},
-            "sentiment": {"market_confidence": 75, "public_approval": 70, "bipartisan_cooperation": 60},
-            "insights": ["Fallback analysis - Gemini unavailable"]
-        }
+            print(f"❌ Gemini analysis failed: {e}")
+            print("🚫 Economic analysis requires AI - no synthetic data generated")
+            raise Exception(f"Economic analysis failed: {e}")
     
     async def save_economic_data(self, analysis: Dict[str, Any]) -> None:
         """Save economic analysis to data files"""

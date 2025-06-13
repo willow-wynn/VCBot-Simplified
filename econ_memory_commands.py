@@ -64,7 +64,7 @@ async def econ_memory_list(interaction: discord.Interaction):
         title="🧠 Economic Analysis Memory",
         description=f"{len(entries)} memory entries",
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     # Show entries in chunks to avoid embed limits
@@ -122,7 +122,7 @@ async def econ_memory(interaction: discord.Interaction, action: Literal["add", "
             title="✅ Memory Entry Added",
             description=f"Added memory entry #{entry_id}",
             color=0x00ff00,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         embed.add_field(name="Content", value=content_or_id.strip()[:500], inline=False)
@@ -157,7 +157,7 @@ async def econ_memory(interaction: discord.Interaction, action: Literal["add", "
                 title="✅ Memory Entry Removed",
                 description=f"Removed memory entry #{entry_id}",
                 color=0xff6b6b,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             embed.add_field(name="Removed Content", value=entry_to_remove.get('content', 'Unknown')[:500], inline=False)

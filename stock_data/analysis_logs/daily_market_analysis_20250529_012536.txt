@@ -1,0 +1,20 @@
+[01:25:36] === DAILY MARKET ANALYSIS SESSION START ===
+[01:25:36] Analysis timestamp: 20250529_012536
+[01:25:36] STEP 1: Calculating base parameters from economic data
+[01:25:36] Base parameters: {
+  "trend_direction": -0.24,
+  "volatility": 1.0,
+  "momentum": 0.2375,
+  "market_sentiment": 0.35,
+  "long_term_outlook": 0.3718888888888889
+}
+[01:25:36] STEP 2: Collecting Discord activity
+[01:25:36] Collecting messages from 40 authorized channels (attempt 1)
+[01:25:36] WARNING: Discord collection attempt 1 failed: 'MockClient' object has no attribute 'guilds'
+[01:25:36] Retrying Discord collection...
+[01:25:38] Collecting messages from 40 authorized channels (attempt 2)
+[01:25:38] WARNING: Discord collection attempt 2 failed: 'MockClient' object has no attribute 'guilds'
+[01:25:38] Retrying Discord collection...
+[01:25:40] Collecting messages from 40 authorized channels (attempt 3)
+[01:25:40] WARNING: Discord collection attempt 3 failed: 'MockClient' object has no attribute 'guilds'
+[01:25:40] All Discord collection attempts failed

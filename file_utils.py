@@ -11,8 +11,12 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 from config import BILL_REFS_FILE, QUERIES_FILE
 
+# File paths for channel restrictions
+CHANNEL_RESTRICTIONS_FILE = Path(__file__).parent / "channel_restrictions.json"
+
 # Global variables for data
 _bill_refs = None
+_channel_restrictions = None
 
 def load_bill_references() -> Dict[str, int]:
     """Load bill reference numbers from JSON file."""
@@ -130,6 +134,113 @@ def ensure_directories():
     
     for directory in [BILL_TEXT_DIR, BILL_PDF_DIR, BILL_JSON_DIR, KNOWLEDGE_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
+
+# Channel Restrictions Management
+
+def load_channel_restrictions() -> Dict[str, Dict[str, Any]]:
+    """Load channel restrictions from JSON file."""
+    global _channel_restrictions
+    if _channel_restrictions is None:
+        try:
+            with open(CHANNEL_RESTRICTIONS_FILE, 'r') as f:
+                _channel_restrictions = json.load(f)
+        except FileNotFoundError:
+            _channel_restrictions = {}
+            save_channel_restrictions()
+    return _channel_restrictions
+
+def save_channel_restrictions():
+    """Save channel restrictions to JSON file."""
+    global _channel_restrictions
+    if _channel_restrictions is not None:
+        with open(CHANNEL_RESTRICTIONS_FILE, 'w') as f:
+            json.dump(_channel_restrictions, f, indent=2)
+
+def set_command_channel_restriction(command_name: str, mode: str, channels: list):
+    """Set channel restriction for a command.
+    
+    Args:
+        command_name: Name of the command (e.g., 'helper', 'stocks_buy')
+        mode: 'whitelist' or 'blacklist'
+        channels: List of channel names or IDs
+    """
+    restrictions = load_channel_restrictions()
+    
+    if mode not in ['whitelist', 'blacklist']:
+        raise ValueError("Mode must be 'whitelist' or 'blacklist'")
+    
+    restrictions[command_name] = {
+        'mode': mode,
+        'channels': channels
+    }
+    
+    save_channel_restrictions()
+
+def remove_command_channel_restriction(command_name: str):
+    """Remove channel restriction for a command."""
+    restrictions = load_channel_restrictions()
+    
+    if command_name in restrictions:
+        del restrictions[command_name]
+        save_channel_restrictions()
+        return True
+    return False
+
+def check_command_channel_allowed(command_name: str, channel_id: int, channel_name: str = None) -> bool:
+    """Check if a command is allowed in a specific channel.
+    
+    Args:
+        command_name: Name of the command
+        channel_id: Discord channel ID
+        channel_name: Discord channel name (optional)
+        
+    Returns:
+        True if command is allowed, False otherwise
+    """
+    restrictions = load_channel_restrictions()
+    
+    # If no restrictions for this command, allow it
+    if command_name not in restrictions:
+        return True
+    
+    restriction = restrictions[command_name]
+    mode = restriction['mode']
+    restricted_channels = restriction['channels']
+    
+    # Check against both channel ID (as string) and channel name
+    channel_id_str = str(channel_id)
+    
+    # Check if channel matches any in the restriction list
+    is_in_list = False
+    for channel in restricted_channels:
+        if (str(channel) == channel_id_str or 
+            (channel_name and str(channel).lower() == channel_name.lower())):
+            is_in_list = True
+            break
+    
+    # For whitelist: only allow if channel is in the list
+    # For blacklist: allow unless channel is in the list
+    if mode == 'whitelist':
+        return is_in_list
+    else:  # blacklist
+        return not is_in_list
+
+def get_command_restrictions() -> Dict[str, Dict[str, Any]]:
+    """Get all current command channel restrictions."""
+    return load_channel_restrictions()
+
+def get_available_commands() -> list:
+    """Get list of available command names for restriction management."""
+    # This list includes all major bot commands
+    return [
+        'helper', 'bill_keyword_search', 'reference', 'modifyrefs', 'add_bill',
+        'econ_impact_report', 'role', 'fetch_econ_data', 'econ_report', 
+        'econ_status', 'econ_set_inflation', 'econ_set_interval',
+        'stocks_list', 'stocks_price', 'stocks_categories', 'stocks_history_48h',
+        'stocks_buy', 'stocks_sell', 'stocks_portfolio', 'stocks_set_market',
+        'stocks_force_update', 'stocks_reset', 'stocks_sync_econ', 'stocks_force_init',
+        'econ_memory_list', 'econ_memory'
+    ]
 
 # Initialize directories on import
 ensure_directories()

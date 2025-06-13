@@ -1,0 +1,439 @@
+{
+  "categories": {
+    "ENERGY": {
+      "name": "Energy Sector",
+      "description": "Oil, gas, and energy companies",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "XOM",
+          "name": "ExxonMobil",
+          "price": 104.5,
+          "sector": "oil_gas",
+          "daily_range_low": 99.5,
+          "daily_range_high": 109.5,
+          "sector_factor": 0.95
+        },
+        {
+          "symbol": "CVX",
+          "name": "Chevron Corporation",
+          "price": 156.0,
+          "sector": "oil_gas",
+          "daily_range_low": 148.5,
+          "daily_range_high": 163.5,
+          "sector_factor": 0.95
+        },
+        {
+          "symbol": "COP",
+          "name": "ConocoPhillips",
+          "price": 113.5,
+          "sector": "oil_gas",
+          "daily_range_low": 107.5,
+          "daily_range_high": 119.5,
+          "sector_factor": 0.95
+        }
+      ]
+    },
+    "ENTERTAINMENT": {
+      "name": "Entertainment & Media Sector",
+      "description": "Entertainment, media, and streaming companies",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "NFLX",
+          "name": "Netflix Inc.",
+          "price": 310.0,
+          "sector": "streaming",
+          "daily_range_low": 290.0,
+          "daily_range_high": 330.0,
+          "sector_factor": 1.2
+        },
+        {
+          "symbol": "DIS",
+          "name": "Walt Disney Company",
+          "price": 90.5,
+          "sector": "entertainment",
+          "daily_range_low": 85.0,
+          "daily_range_high": 96.0,
+          "sector_factor": 1.1
+        },
+        {
+          "symbol": "EA",
+          "name": "Electronic Arts",
+          "price": 113.0,
+          "sector": "gaming",
+          "daily_range_low": 106.0,
+          "daily_range_high": 120.0,
+          "sector_factor": 1.15
+        }
+      ]
+    },
+    "FINANCE": {
+      "name": "Financial Services Sector",
+      "description": "Banks, investment firms, and financial services",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "JPM",
+          "name": "JPMorgan Chase & Co.",
+          "price": 140.0,
+          "sector": "banking",
+          "daily_range_low": 133.0,
+          "daily_range_high": 147.0,
+          "sector_factor": 1.05
+        },
+        {
+          "symbol": "BAC",
+          "name": "Bank of America",
+          "price": 27.5,
+          "sector": "banking",
+          "daily_range_low": 26.0,
+          "daily_range_high": 29.0,
+          "sector_factor": 1.1
+        },
+        {
+          "symbol": "V",
+          "name": "Visa Inc.",
+          "price": 222.0,
+          "sector": "payments",
+          "daily_range_low": 211.0,
+          "daily_range_high": 233.0,
+          "sector_factor": 1.0
+        },
+        {
+          "symbol": "GS",
+          "name": "Goldman Sachs",
+          "price": 348.0,
+          "sector": "investment",
+          "daily_range_low": 330.0,
+          "daily_range_high": 366.0,
+          "sector_factor": 1.15
+        }
+      ]
+    },
+    "HEALTH": {
+      "name": "Healthcare Sector",
+      "description": "Healthcare, pharmaceuticals, and medical devices",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "JNJ",
+          "name": "Johnson & Johnson",
+          "price": 165.0,
+          "sector": "pharma",
+          "daily_range_low": 158.0,
+          "daily_range_high": 172.0,
+          "sector_factor": 0.85
+        },
+        {
+          "symbol": "UNH",
+          "name": "UnitedHealth Group",
+          "price": 460.0,
+          "sector": "insurance",
+          "daily_range_low": 440.0,
+          "daily_range_high": 480.0,
+          "sector_factor": 0.85
+        },
+        {
+          "symbol": "PFE",
+          "name": "Pfizer Inc.",
+          "price": 35.5,
+          "sector": "pharma",
+          "daily_range_low": 33.5,
+          "daily_range_high": 37.5,
+          "sector_factor": 0.9
+        }
+      ]
+    },
+    "MANUFACTURING": {
+      "name": "Manufacturing Sector",
+      "description": "Industrial manufacturing and machinery",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "CAT",
+          "name": "Caterpillar Inc.",
+          "price": 246.0,
+          "sector": "machinery",
+          "daily_range_low": 232.0,
+          "daily_range_high": 260.0,
+          "sector_factor": 1.1
+        },
+        {
+          "symbol": "GE",
+          "name": "General Electric",
+          "price": 76.0,
+          "sector": "industrial",
+          "daily_range_low": 71.5,
+          "daily_range_high": 80.5,
+          "sector_factor": 1.05
+        },
+        {
+          "symbol": "LMT",
+          "name": "Lockheed Martin",
+          "price": 455.0,
+          "sector": "defense",
+          "daily_range_low": 435.0,
+          "daily_range_high": 475.0,
+          "sector_factor": 0.9
+        }
+      ]
+    },
+    "RETAIL": {
+      "name": "Retail Sector",
+      "description": "Consumer retail and wholesale companies",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "WMT",
+          "name": "Walmart Inc.",
+          "price": 145.0,
+          "sector": "discount_retail",
+          "daily_range_low": 138.0,
+          "daily_range_high": 152.0,
+          "sector_factor": 0.95
+        },
+        {
+          "symbol": "COST",
+          "name": "Costco Wholesale",
+          "price": 525.0,
+          "sector": "warehouse",
+          "daily_range_low": 500.0,
+          "daily_range_high": 550.0,
+          "sector_factor": 0.9
+        },
+        {
+          "symbol": "HD",
+          "name": "Home Depot",
+          "price": 305.0,
+          "sector": "home_improvement",
+          "daily_range_low": 290.0,
+          "daily_range_high": 320.0,
+          "sector_factor": 1.0
+        }
+      ]
+    },
+    "TECH": {
+      "name": "Technology Sector",
+      "description": "Technology hardware, software, and services",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "AAPL",
+          "name": "Apple Inc.",
+          "price": 160.0,
+          "sector": "consumer_tech",
+          "daily_range_low": 150.0,
+          "daily_range_high": 170.0,
+          "sector_factor": 1.25
+        },
+        {
+          "symbol": "MSFT",
+          "name": "Microsoft Corporation",
+          "price": 270.0,
+          "sector": "software",
+          "daily_range_low": 255.0,
+          "daily_range_high": 285.0,
+          "sector_factor": 1.2
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "Alphabet Inc.",
+          "price": 135.0,
+          "sector": "internet",
+          "daily_range_low": 127.0,
+          "daily_range_high": 143.0,
+          "sector_factor": 1.25
+        },
+        {
+          "symbol": "NVDA",
+          "name": "NVIDIA Corporation",
+          "price": 385.0,
+          "sector": "semiconductors",
+          "daily_range_low": 360.0,
+          "daily_range_high": 410.0,
+          "sector_factor": 1.4
+        }
+      ]
+    },
+    "TRANSPORT": {
+      "name": "Transportation Sector",
+      "description": "Airlines, shipping, and transportation",
+      "market_direction": "normal",
+      "stocks": [
+        {
+          "symbol": "BA",
+          "name": "Boeing Company",
+          "price": 185.0,
+          "sector": "aerospace",
+          "daily_range_low": 174.0,
+          "daily_range_high": 196.0,
+          "sector_factor": 1.15
+        }
+      ]
+    }
+  },
+  "market_params": {
+    "trend_direction": -0.45,
+    "volatility": 0.85,
+    "momentum": 0.25,
+    "market_sentiment": 0.32,
+    "long_term_outlook": 0.3
+  },
+  "last_updated": "2025-06-01T18:24:50.915273+00:00",
+  "trading_state": {
+    "is_trading_day": true,
+    "current_trading_day": null,
+    "stocks_channel_id": 1327483297202176080,
+    "admin_only_trading": false,
+    "price_update_rate_minutes": 60,
+    "market_open_time": null
+  },
+  "precomputed_prices": {},
+  "daily_ranges": {
+    "XOM": {
+      "low": 99.5,
+      "high": 109.5,
+      "sector_factor": 0.95,
+      "open_price": 104.5
+    },
+    "CVX": {
+      "low": 148.5,
+      "high": 163.5,
+      "sector_factor": 0.95,
+      "open_price": 156.0
+    },
+    "COP": {
+      "low": 107.5,
+      "high": 119.5,
+      "sector_factor": 0.95,
+      "open_price": 113.5
+    },
+    "NFLX": {
+      "low": 290.0,
+      "high": 330.0,
+      "sector_factor": 1.2,
+      "open_price": 310.0
+    },
+    "DIS": {
+      "low": 85.0,
+      "high": 96.0,
+      "sector_factor": 1.1,
+      "open_price": 90.5
+    },
+    "EA": {
+      "low": 106.0,
+      "high": 120.0,
+      "sector_factor": 1.15,
+      "open_price": 113.0
+    },
+    "JPM": {
+      "low": 133.0,
+      "high": 147.0,
+      "sector_factor": 1.05,
+      "open_price": 140.0
+    },
+    "BAC": {
+      "low": 26.0,
+      "high": 29.0,
+      "sector_factor": 1.1,
+      "open_price": 27.5
+    },
+    "V": {
+      "low": 211.0,
+      "high": 233.0,
+      "sector_factor": 1.0,
+      "open_price": 222.0
+    },
+    "GS": {
+      "low": 330.0,
+      "high": 366.0,
+      "sector_factor": 1.15,
+      "open_price": 348.0
+    },
+    "JNJ": {
+      "low": 158.0,
+      "high": 172.0,
+      "sector_factor": 0.85,
+      "open_price": 165.0
+    },
+    "UNH": {
+      "low": 440.0,
+      "high": 480.0,
+      "sector_factor": 0.85,
+      "open_price": 460.0
+    },
+    "PFE": {
+      "low": 33.5,
+      "high": 37.5,
+      "sector_factor": 0.9,
+      "open_price": 35.5
+    },
+    "CAT": {
+      "low": 232.0,
+      "high": 260.0,
+      "sector_factor": 1.1,
+      "open_price": 246.0
+    },
+    "GE": {
+      "low": 71.5,
+      "high": 80.5,
+      "sector_factor": 1.05,
+      "open_price": 76.0
+    },
+    "LMT": {
+      "low": 435.0,
+      "high": 475.0,
+      "sector_factor": 0.9,
+      "open_price": 455.0
+    },
+    "WMT": {
+      "low": 138.0,
+      "high": 152.0,
+      "sector_factor": 0.95,
+      "open_price": 145.0
+    },
+    "COST": {
+      "low": 500.0,
+      "high": 550.0,
+      "sector_factor": 0.9,
+      "open_price": 525.0
+    },
+    "HD": {
+      "low": 290.0,
+      "high": 320.0,
+      "sector_factor": 1.0,
+      "open_price": 305.0
+    },
+    "AAPL": {
+      "low": 150.0,
+      "high": 170.0,
+      "sector_factor": 1.25,
+      "open_price": 160.0
+    },
+    "MSFT": {
+      "low": 255.0,
+      "high": 285.0,
+      "sector_factor": 1.2,
+      "open_price": 270.0
+    },
+    "GOOGL": {
+      "low": 127.0,
+      "high": 143.0,
+      "sector_factor": 1.25,
+      "open_price": 135.0
+    },
+    "NVDA": {
+      "low": 360.0,
+      "high": 410.0,
+      "sector_factor": 1.4,
+      "open_price": 385.0
+    },
+    "BA": {
+      "low": 174.0,
+      "high": 196.0,
+      "sector_factor": 1.15,
+      "open_price": 185.0
+    }
+  }
+}

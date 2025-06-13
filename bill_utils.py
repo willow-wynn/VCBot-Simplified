@@ -175,33 +175,44 @@ async def add_bill_to_corpus(bill_link: str) -> Dict[str, Any]:
 
 def detect_bill_reference(text: str) -> Dict[str, Any]:
     """Detect bill reference pattern in text."""
-    # Pattern: "HR 123", "H.R. 123", etc.
-    patterns = [
-        r'\b(hr|hres|hjres|hconres)\s*\.?\s*(\d+)\b',
-        r'\bh\.r\.\s*(\d+)\b',
-        r'\bhouse\s+(resolution|joint\s+resolution|concurrent\s+resolution)\s*(\d+)\b'
-    ]
-    
     text_lower = text.lower()
     
-    for pattern in patterns:
-        match = re.search(pattern, text_lower)
+    try:
+        # Pattern 1: H.R. 123 (specific format)
+        match = re.search(r'\bh\.r\.\s*(\d+)\b', text_lower)
         if match:
-            if 'h.r.' in pattern:
-                bill_type = 'hr'
-                number = int(match.group(1))
-            elif 'resolution' in pattern:
-                res_type = match.group(1)
-                number = int(match.group(2))
-                if 'joint' in res_type:
-                    bill_type = 'hjres'
-                elif 'concurrent' in res_type:
-                    bill_type = 'hconres'
-                else:
-                    bill_type = 'hres'
+            number = int(match.group(1))
+            return {
+                'success': True,
+                'bill_type': 'hr',
+                'reference_number': number,
+                'message': f"Detected HR {number}"
+            }
+        
+        # Pattern 2: HR 123, HRES 123, etc. (with type prefix)
+        match = re.search(r'\b(hr|hres|hjres|hconres)\s*\.?\s*(\d+)\b', text_lower)
+        if match:
+            bill_type = match.group(1).lower()
+            number = int(match.group(2))
+            return {
+                'success': True,
+                'bill_type': bill_type,
+                'reference_number': number,
+                'message': f"Detected {bill_type.upper()} {number}"
+            }
+        
+        # Pattern 3: House resolution/joint resolution/concurrent resolution 123
+        match = re.search(r'\bhouse\s+((?:joint\s+|concurrent\s+)?resolution)\s*(\d+)\b', text_lower)
+        if match:
+            res_type = match.group(1)
+            number = int(match.group(2))
+            
+            if 'joint' in res_type:
+                bill_type = 'hjres'
+            elif 'concurrent' in res_type:
+                bill_type = 'hconres'
             else:
-                bill_type = match.group(1).lower()
-                number = int(match.group(2))
+                bill_type = 'hres'
             
             return {
                 'success': True,
@@ -209,11 +220,18 @@ def detect_bill_reference(text: str) -> Dict[str, Any]:
                 'reference_number': number,
                 'message': f"Detected {bill_type.upper()} {number}"
             }
-    
-    return {
-        'success': False,
-        'message': "No bill reference pattern detected"
-    }
+        
+        return {
+            'success': False,
+            'message': "No bill reference pattern detected"
+        }
+        
+    except Exception as e:
+        print(f"Error in detect_bill_reference: {e}")
+        return {
+            'success': False,
+            'message': f"Error processing text: {e}"
+        }
 
 async def generate_economic_impact_report(bill_link: str, recent_news: List[str], additional_context: str = None) -> str:
     """Generate an economic impact report for a bill using AI."""

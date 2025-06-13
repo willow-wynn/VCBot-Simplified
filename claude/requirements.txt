@@ -1,0 +1,30 @@
+# MCP Server Dependencies
+mcp>=1.0.0
+fastmcp>=2.0.0
+
+# Discord Integration
+discord.py>=2.3.0
+aiohttp>=3.9.0
+
+# Async Support
+asyncio
+
+# Environment Management
+python-dotenv>=1.0.0
+
+# JSON Processing (built-in, but listed for clarity)
+# json
+
+# Standard Library Dependencies (included for reference)
+# pathlib
+# sys
+# os
+# typing
+
+# Optional: For enhanced document processing
+# beautifulsoup4>=4.12.0
+# lxml>=4.9.0
+
+# Optional: For advanced text analysis
+# nltk>=3.8
+# textstat>=0.7.0

@@ -98,7 +98,7 @@ GEMINI_TOOLS = [
                 "data_type": {
                     "type": "string",
                     "enum": ["gdp", "stocks", "inflation", "unemployment", "sentiment", "all"],
-                    "description": "type of economic data to retrieve",
+                    "description": "type of economic data to retrieve - stocks returns real market data for 24 stocks (AAPL, MSFT, GOOGL, JPM, XOM, etc.)",
                 },
                 "days_back": {
                     "type": "integer",
@@ -253,15 +253,28 @@ def build_system_prompt(user_id: int) -> str:
 🔍 **call_knowledge**: Use when users need specific rules, procedures, or constitutional guidance
 📋 **call_bill_search**: Perfect for legislative research, finding precedents, or exploring policy areas
 🏛️ **call_other_channel_context**: Essential for understanding current political climate, ongoing debates, or recent developments
-📊 **get_economic_data**: Valuable for understanding the simulation's economic impacts and trends
+📊 **get_economic_data**: Valuable for understanding the simulation's economic impacts and trends - includes real stock market data for 24 major companies (AAPL, MSFT, GOOGL, JPM, XOM, CVX, COP, BAC, V, GS, JNJ, UNH, PFE, WMT, COST, HD, CAT, GE, LMT, NFLX, DIS, EA, BA)
 📄 **fetch_document_content**: Use when users reference Google Docs (bills, reports, proposals)
 
 **When to Use Tools**:
 - User asks about specific rules or procedures → call_knowledge
 - User wants to research legislation or find bills → call_bill_search  
 - User needs context about current events or discussions → call_other_channel_context
-- User asks about economic impacts or trends → get_economic_data
+- User asks about economic impacts, trends, or STOCK PRICES → get_economic_data
 - User references a Google Doc link → fetch_document_content
+
+**IMPORTANT - Stock Market System**:
+Virtual Congress uses a REAL STOCK MARKET simulation with 24 actual company stocks across 8 sectors:
+- ENERGY: XOM (ExxonMobil), CVX (Chevron), COP (ConocoPhillips)
+- TECH: AAPL (Apple), MSFT (Microsoft), GOOGL (Alphabet), NVDA (NVIDIA)
+- FINANCE: JPM (JPMorgan), BAC (Bank of America), V (Visa), GS (Goldman Sachs)
+- HEALTH: JNJ (Johnson & Johnson), UNH (UnitedHealth), PFE (Pfizer)
+- RETAIL: WMT (Walmart), COST (Costco), HD (Home Depot)
+- MANUFACTURING: CAT (Caterpillar), GE (General Electric), LMT (Lockheed Martin)
+- ENTERTAINMENT: NFLX (Netflix), DIS (Disney), EA (Electronic Arts)
+- TRANSPORT: BA (Boeing)
+
+When users ask about stock prices, use get_economic_data with "stocks" to get current market data. NEVER mention GOV, DEF, EDU, HLT, INF, or BIP - these are old fake stocks that were replaced.
 
 **Response Guidelines**:
 - Always be helpful and never refuse reasonable requests

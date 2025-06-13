@@ -1,0 +1,186 @@
+[
+  {
+    "parameters": {
+      "trend_direction": -0.45,
+      "volatility": 0.85,
+      "momentum": 0.25,
+      "market_sentiment": 0.32,
+      "long_term_outlook": 0.3
+    },
+    "invisible_factors": {
+      "institutional_flow": -0.35,
+      "liquidity_factor": 0.4,
+      "news_velocity": 0.75,
+      "sector_rotation": -0.25,
+      "risk_appetite": 0.2
+    },
+    "daily_stock_prices": {
+      "XOM": {
+        "open_price": 104.5,
+        "range_low": 99.5,
+        "range_high": 109.5,
+        "sector_factor": 0.95
+      },
+      "CVX": {
+        "open_price": 156.0,
+        "range_low": 148.5,
+        "range_high": 163.5,
+        "sector_factor": 0.95
+      },
+      "COP": {
+        "open_price": 113.5,
+        "range_low": 107.5,
+        "range_high": 119.5,
+        "sector_factor": 0.95
+      },
+      "NFLX": {
+        "open_price": 310.0,
+        "range_low": 290.0,
+        "range_high": 330.0,
+        "sector_factor": 1.2
+      },
+      "DIS": {
+        "open_price": 90.5,
+        "range_low": 85.0,
+        "range_high": 96.0,
+        "sector_factor": 1.1
+      },
+      "EA": {
+        "open_price": 113.0,
+        "range_low": 106.0,
+        "range_high": 120.0,
+        "sector_factor": 1.15
+      },
+      "JPM": {
+        "open_price": 140.0,
+        "range_low": 133.0,
+        "range_high": 147.0,
+        "sector_factor": 1.05
+      },
+      "BAC": {
+        "open_price": 27.5,
+        "range_low": 26.0,
+        "range_high": 29.0,
+        "sector_factor": 1.1
+      },
+      "V": {
+        "open_price": 222.0,
+        "range_low": 211.0,
+        "range_high": 233.0,
+        "sector_factor": 1.0
+      },
+      "GS": {
+        "open_price": 348.0,
+        "range_low": 330.0,
+        "range_high": 366.0,
+        "sector_factor": 1.15
+      },
+      "BRK.B": {
+        "open_price": 325.0,
+        "range_low": 310.0,
+        "range_high": 340.0,
+        "sector_factor": 0.95
+      },
+      "JNJ": {
+        "open_price": 165.0,
+        "range_low": 158.0,
+        "range_high": 172.0,
+        "sector_factor": 0.85
+      },
+      "UNH": {
+        "open_price": 460.0,
+        "range_low": 440.0,
+        "range_high": 480.0,
+        "sector_factor": 0.85
+      },
+      "PFE": {
+        "open_price": 35.5,
+        "range_low": 33.5,
+        "range_high": 37.5,
+        "sector_factor": 0.9
+      },
+      "CAT": {
+        "open_price": 246.0,
+        "range_low": 232.0,
+        "range_high": 260.0,
+        "sector_factor": 1.1
+      },
+      "GE": {
+        "open_price": 76.0,
+        "range_low": 71.5,
+        "range_high": 80.5,
+        "sector_factor": 1.05
+      },
+      "LMT": {
+        "open_price": 455.0,
+        "range_low": 435.0,
+        "range_high": 475.0,
+        "sector_factor": 0.9
+      },
+      "WMT": {
+        "open_price": 145.0,
+        "range_low": 138.0,
+        "range_high": 152.0,
+        "sector_factor": 0.95
+      },
+      "COST": {
+        "open_price": 525.0,
+        "range_low": 500.0,
+        "range_high": 550.0,
+        "sector_factor": 0.9
+      },
+      "HD": {
+        "open_price": 305.0,
+        "range_low": 290.0,
+        "range_high": 320.0,
+        "sector_factor": 1.0
+      },
+      "AAPL": {
+        "open_price": 160.0,
+        "range_low": 150.0,
+        "range_high": 170.0,
+        "sector_factor": 1.25
+      },
+      "MSFT": {
+        "open_price": 270.0,
+        "range_low": 255.0,
+        "range_high": 285.0,
+        "sector_factor": 1.2
+      },
+      "GOOGL": {
+        "open_price": 135.0,
+        "range_low": 127.0,
+        "range_high": 143.0,
+        "sector_factor": 1.25
+      },
+      "NVDA": {
+        "open_price": 385.0,
+        "range_low": 360.0,
+        "range_high": 410.0,
+        "sector_factor": 1.4
+      },
+      "BA": {
+        "open_price": 185.0,
+        "range_low": 174.0,
+        "range_high": 196.0,
+        "sector_factor": 1.15
+      }
+    },
+    "sector_outlook": {
+      "ENERGY": "Energy sector remains relatively stable despite broader market turmoil. High inflation supports commodity prices, though recession fears cap upside. Expect defensive positioning.",
+      "ENTERTAINMENT": "Entertainment faces dual pressures from consumer spending pullback and high rates affecting growth valuations. Streaming competition intensifies as households cut discretionary spending.",
+      "FINANCE": "Banks benefit from higher rates but face significant credit risk from recession. Investment banks suffering from low deal activity. Expect continued volatility and defensive positioning.",
+      "HEALTH": "Healthcare showing defensive characteristics but pressured by political uncertainty and potential policy changes. Pharmaceutical companies facing pricing pressures amid inflation concerns.",
+      "MANUFACTURING": "Manufacturing hit by recession fears and supply chain concerns. Defense contractors relatively stable but industrial names face significant headwinds from economic slowdown.",
+      "RETAIL": "Retail sector under severe pressure from collapsing consumer confidence (35) and high inflation eroding purchasing power. Defensive names like WMT and COST outperforming.",
+      "TECH": "Technology sector facing perfect storm of high rates, recession fears, and valuation concerns. AI momentum fading as focus shifts to profitability over growth.",
+      "TRANSPORT": "Transport sector weak on recession fears and declining economic activity. Boeing specifically facing production challenges alongside broader sector headwinds."
+    },
+    "reasoning": {
+      "economic_assessment": "Severe stagflation with 8.51% inflation and -1.2% GDP growth creates worst-case scenario for equities. Consumer confidence at 35 and market anxiety at 78 indicate extreme pessimism warranting continued bearish stance.",
+      "parameter_justification": "Increased bearish trend to -0.45 and kept volatility very high at 0.85 due to political chaos and economic stress. Low momentum reflects lack of conviction, while sentiment remains deeply pessimistic.",
+      "discord_impact": "Low economic discourse but high political turmoil in Discord channels. Acting President situation and Speaker election drama increase uncertainty. Public complaints about inflation impacts reinforce bearish outlook.",
+      "market_outlook": "Expect continued weakness across most sectors with defensive rotation. High inflation environment warrants 5-8% daily ranges. Tech and consumer discretionary most vulnerable, energy and staples relatively defensive."
+    }
+  }
+]

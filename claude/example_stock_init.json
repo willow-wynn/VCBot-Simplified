@@ -1,0 +1,59 @@
+{
+  "market_parameters": {
+    "trend_direction": -0.3,
+    "volatility": 0.8,
+    "momentum": 0.2,
+    "market_sentiment": 0.35,
+    "long_term_outlook": 0.4
+  },
+  "invisible_factors": {
+    "institutional_flow": -0.15,
+    "liquidity_factor": 0.8,
+    "news_velocity": 1.0,
+    "sector_rotation": -0.05,
+    "risk_appetite": 0.3
+  },
+  "daily_stock_prices": {
+    "XOM": {"open_price": 110.0, "range_low": 103.5, "range_high": 116.5, "sector_factor": 1.07},
+    "CVX": {"open_price": 155.0, "range_low": 145.5, "range_high": 164.5, "sector_factor": 1.03},
+    "COP": {"open_price": 115.0, "range_low": 108.0, "range_high": 122.0, "sector_factor": 1.05},
+    "NFLX": {"open_price": 330.0, "range_low": 310.0, "range_high": 350.0, "sector_factor": 0.78},
+    "DIS": {"open_price": 95.0, "range_low": 89.0, "range_high": 101.0, "sector_factor": 0.8},
+    "EA": {"open_price": 120.0, "range_low": 112.0, "range_high": 128.0, "sector_factor": 0.75},
+    "JPM": {"open_price": 135.0, "range_low": 126.5, "range_high": 143.5, "sector_factor": 0.84},
+    "BAC": {"open_price": 28.5, "range_low": 26.5, "range_high": 30.5, "sector_factor": 0.85},
+    "V": {"open_price": 220.0, "range_low": 206.0, "range_high": 234.0, "sector_factor": 0.83},
+    "GS": {"open_price": 330.0, "range_low": 309.0, "range_high": 351.0, "sector_factor": 0.86},
+    "BRK.B": {"open_price": 320.0, "range_low": 300.0, "range_high": 340.0, "sector_factor": 0.92},
+    "JNJ": {"open_price": 165.0, "range_low": 155.0, "range_high": 175.0, "sector_factor": 0.98},
+    "UNH": {"open_price": 480.0, "range_low": 450.0, "range_high": 510.0, "sector_factor": 1.02},
+    "PFE": {"open_price": 35.0, "range_low": 32.5, "range_high": 37.5, "sector_factor": 1.0},
+    "CAT": {"open_price": 240.0, "range_low": 225.0, "range_high": 255.0, "sector_factor": 0.88},
+    "GE": {"open_price": 80.0, "range_low": 75.0, "range_high": 85.0, "sector_factor": 0.87},
+    "LMT": {"open_price": 450.0, "range_low": 422.0, "range_high": 478.0, "sector_factor": 0.91},
+    "WMT": {"open_price": 150.0, "range_low": 140.5, "range_high": 159.5, "sector_factor": 0.9},
+    "COST": {"open_price": 520.0, "range_low": 488.0, "range_high": 552.0, "sector_factor": 0.93},
+    "HD": {"open_price": 310.0, "range_low": 291.0, "range_high": 329.0, "sector_factor": 0.94},
+    "AAPL": {"open_price": 170.5, "range_low": 160.0, "range_high": 181.0, "sector_factor": 0.95},
+    "MSFT": {"open_price": 260.0, "range_low": 244.0, "range_high": 276.0, "sector_factor": 0.97},
+    "GOOGL": {"open_price": 125.5, "range_low": 117.5, "range_high": 133.5, "sector_factor": 0.96},
+    "NVDA": {"open_price": 410.0, "range_low": 380.0, "range_high": 440.0, "sector_factor": 0.99},
+    "BA": {"open_price": 175.2, "range_low": 164.0, "range_high": 186.5, "sector_factor": 0.9}
+  },
+  "sector_outlook": {
+    "ENERGY": "Positive due to inflation and potential supply constraints",
+    "ENTERTAINMENT": "Negative due to discretionary spending cuts in recessionary environment",
+    "FINANCE": "Negative due to potential loan losses and reduced investment activity",
+    "HEALTH": "Neutral to positive as healthcare is a defensive sector",
+    "MANUFACTURING": "Negative due to reduced demand and supply chain issues",
+    "RETAIL": "Negative due to reduced consumer spending and inflation",
+    "TECH": "Neutral to negative as growth slows and valuations under pressure",
+    "TRANSPORT": "Negative due to reduced economic activity and trade"
+  },
+  "reasoning": {
+    "economic_assessment": "The economic indicators paint a concerning picture: high inflation (8.51%), negative GDP growth, and elevated unemployment. This stagflationary environment warrants a cautious market outlook.",
+    "parameter_justification": "Trend direction is negative to reflect GDP decline. Volatility is high due to inflation. Market sentiment aligns with low confidence. Momentum is weak due to economic uncertainty.",
+    "discord_impact": "Discord activity shows high engagement in Congress, indicating focus on policy and potential market-moving legislation. Public sentiment suggests risk aversion.",
+    "market_outlook": "Overall bearish due to weak economic indicators. High inflation and negative GDP growth will likely weigh on corporate earnings and investor sentiment."
+  }
+}

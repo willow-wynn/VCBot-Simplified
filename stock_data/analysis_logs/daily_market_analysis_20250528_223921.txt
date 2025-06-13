@@ -1,0 +1,62 @@
+[22:39:21] === DAILY MARKET ANALYSIS SESSION START ===
+[22:39:21] Analysis timestamp: 20250528_223921
+[22:39:21] STEP 1: Calculating base parameters from economic data
+[22:39:21] Base parameters: {
+  "trend_direction": -0.24,
+  "volatility": 1.0,
+  "momentum": 0.3,
+  "market_sentiment": 0.35,
+  "long_term_outlook": 0.42744444444444446
+}
+[22:39:21] STEP 2: Collecting Discord activity
+[22:39:21] Collecting messages from 40 authorized channels (attempt 1)
+[22:39:21] Collected 0 messages from staff-announcements
+[22:39:21] Collected 0 messages from election-announcements
+[22:39:22] Collected 24 messages from rp-chat
+[22:39:22] Collected 48 messages from twitter-rp
+[22:39:22] Collected 0 messages from press-releases
+[22:39:23] Collected 0 messages from press-room
+[22:39:23] Collected 0 messages from news-information
+[22:39:23] Collected 2 messages from official-rp-news
+[22:39:23] Collected 1 messages from pbn
+[22:39:24] Collected 0 messages from liberty-ledger
+[22:39:24] Collected 0 messages from wall-street-journal
+[22:39:24] Collected 0 messages from parody
+[22:39:24] Collected 1 messages from speaker-announcements
+[22:39:25] Collected 4 messages from house-docket
+[22:39:25] Collected 20 messages from house-floor
+[22:39:25] Collected 6 messages from house-vote-results
+[22:39:25] Collected 0 messages from senate-announcements
+[22:39:26] Collected 3 messages from senate-docket
+[22:39:26] Collected 50 messages from senate-floor
+[22:39:26] Collected 2 messages from senate-vote-results
+[22:39:26] Collected 2 messages from bills-signed-into-law
+[22:39:27] Collected 0 messages from bills-vetoed
+[22:39:27] Collected 3 messages from presidential-congressional-desk
+[22:39:27] Collected 0 messages from press-briefing-room
+[22:39:28] Collected 3 messages from president-announcements
+[22:39:28] Collected 1 messages from cabinet-announcements
+[22:39:28] Collected 0 messages from executive-orders
+[22:39:28] Collected 0 messages from presidential-memoranda
+[22:39:29] Collected 0 messages from olympia-governor
+[22:39:29] Collected 0 messages from pacifica-governor
+[22:39:29] Collected 0 messages from lincoln-governor
+[22:39:29] Collected 0 messages from jackson-governor
+[22:39:30] Collected 3 messages from frontier-governor
+[22:39:30] Collected 0 messages from supreme-court-announcements
+[22:39:30] Collected 0 messages from district-court-announcements
+[22:39:30] Successfully collected 173 messages for analysis
+[22:39:30] STEP 3: Running AI analysis with structured output and economic constraints
+[22:39:30] Created structured output schema for market analysis
+[22:39:30] AI attempt 1: Sending structured prompt to Gemini
+[22:39:30] ERROR: AI analysis failed (attempt 1): Unknown field for Schema: minimum
+[22:39:30] Retrying AI analysis...
+[22:39:33] Created structured output schema for market analysis
+[22:39:33] AI attempt 2: Sending structured prompt to Gemini
+[22:39:33] ERROR: AI analysis failed (attempt 2): Unknown field for Schema: minimum
+[22:39:33] Retrying AI analysis...
+[22:39:36] Created structured output schema for market analysis
+[22:39:36] AI attempt 3: Sending structured prompt to Gemini
+[22:39:36] ERROR: AI analysis failed (attempt 3): Unknown field for Schema: minimum
+[22:39:36] All AI analysis attempts failed - using fallback
+[22:39:36] === FALLING BACK TO ECONOMIC DATA ===

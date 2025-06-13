@@ -1,0 +1,269 @@
+[12:54:19] === DAILY MARKET ANALYSIS SESSION START ===
+[12:54:19] Analysis timestamp: 20250604_125419
+[12:54:19] STEP 1: Calculating base parameters from economic data
+[12:54:19] Base parameters: {
+  "trend_direction": -0.24,
+  "volatility": 1.0,
+  "momentum": 0.2375,
+  "market_sentiment": 0.35,
+  "long_term_outlook": 0.3718888888888889
+}
+[12:54:19] STEP 2: Collecting Discord activity
+[12:54:19] Collecting messages from 40 authorized channels (attempt 1)
+[12:54:19] Collected 0 messages from staff-announcements
+[12:54:20] Collected 6 messages from election-announcements
+[12:54:20] Collected 27 messages from rp-chat
+[12:54:20] Collected 47 messages from twitter-rp
+[12:54:21] Collected 0 messages from press-releases
+[12:54:21] Collected 0 messages from press-room
+[12:54:21] Collected 0 messages from news-information
+[12:54:21] Collected 2 messages from official-rp-news
+[12:54:21] Collected 0 messages from pbn
+[12:54:22] Collected 0 messages from liberty-ledger
+[12:54:22] Collected 0 messages from wall-street-journal
+[12:54:22] Collected 2 messages from 4e-news-from-the-hill
+[12:54:23] Collected 1 messages from 202news
+[12:54:23] Collected 0 messages from msnbc
+[12:54:23] Collected 0 messages from parody
+[12:54:23] Collected 0 messages from election-results
+[12:54:23] Collected 3 messages from speaker-announcements
+[12:54:24] Collected 6 messages from house-docket
+[12:54:24] Collected 35 messages from house-floor
+[12:54:24] Collected 5 messages from house-vote-results
+[12:54:24] Collected 3 messages from senate-announcements
+[12:54:25] Collected 4 messages from senate-vote-results
+[12:54:25] Collected 3 messages from senate-docket
+[12:54:25] Collected 34 messages from senate-floor
+[12:54:25] Collected 1 messages from bills-signed-into-law
+[12:54:26] Collected 0 messages from bills-vetoed
+[12:54:26] Collected 3 messages from presidential-congressional-desk
+[12:54:26] Collected 0 messages from committee-announcements
+[12:54:26] Collected 0 messages from press-briefing-room
+[12:54:27] Collected 0 messages from president-announcements
+[12:54:27] Collected 0 messages from cabinet-announcements
+[12:54:27] Collected 0 messages from executive-orders
+[12:54:27] Collected 0 messages from presidential-memoranda
+[12:54:28] Collected 1 messages from olympia-governor
+[12:54:28] Collected 0 messages from pacifica-governor
+[12:54:28] Collected 2 messages from lincoln-governor
+[12:54:28] Collected 0 messages from jackson-governor
+[12:54:29] Collected 2 messages from frontier-governor
+[12:54:29] Collected 0 messages from supreme-court-announcements
+[12:54:29] Collected 0 messages from district-court-announcements
+[12:54:29] Successfully collected 187 messages for analysis
+[12:54:29] STEP 3: Running AI analysis with structured output and economic constraints
+[12:54:29] Created structured output schema for market analysis
+[12:54:29] AI attempt 1: Sending structured prompt to Gemini
+[12:54:42] Structured AI Response received (5483 characters)
+[12:54:42] --- STRUCTURED AI RESPONSE ---
+[12:54:42] {
+  "daily_stock_prices": {
+    "AAPL": {
+      "open_price": 170.50,
+      "range_high": 172.00,
+      "range_low": 168.00,
+      "sector_factor": 0.95
+    },
+    "BA": {
+      "open_price": 175.20,
+      "range_high": 177.00,
+      "range_low": 173.50,
+      "sector_factor": 0.98
+    },
+    "BAC": {
+      "open_price": 28.50,
+      "range_high": 29.00,
+      "range_low": 28.00,
+      "sector_factor": 0.92
+    },
+    "BRK.B": {
+      "open_price": 325.75,
+      "range_high": 327.50,
+      "range_low": 324.00,
+      "sector_factor": 0.96
+    },
+    "CAT": {
+      "open_price": 240.00,
+      "range_high": 242.00,
+      "range_low": 238.50,
+      "sector_factor": 0.97
+    },
+    "COP": {
+      "open_price": 115.80,
+      "range_high": 117.00,
+      "range_low": 114.50,
+      "sector_factor": 1.02
+    },
+    "COST": {
+      "open_price": 520.00,
+      "range_high": 522.50,
+      "range_low": 517.00,
+      "sector_factor": 0.94
+    },
+    "CVX": {
+      "open_price": 155.50,
+      "range_high": 157.00,
+      "range_low": 154.00,
+      "sector_factor": 1.01
+    },
+    "DIS": {
+      "open_price": 95.00,
+      "range_high": 96.50,
+      "range_low": 94.00,
+      "sector_factor": 0.90
+    },
+    "EA": {
+      "open_price": 120.25,
+      "range_high": 121.50,
+      "range_low": 119.00,
+      "sector_factor": 0.88
+    },
+    "GE": {
+      "open_price": 80.50,
+      "range_high": 81.50,
+      "range_low": 79.50,
+      "sector_factor": 0.93
+    },
+    "GOOGL": {
+      "open_price": 135.75,
+      "range_high": 137.00,
+      "range_low": 134.50,
+      "sector_factor": 0.95
+    },
+    "GS": {
+      "open_price": 340.00,
+      "range_high": 342.00,
+      "range_low": 338.00,
+      "sector_factor": 0.91
+    },
+    "HD": {
+      "open_price": 310.50,
+      "range_high": 312.00,
+      "range_low": 309.00,
+      "sector_factor": 0.94
+    },
+    "JNJ": {
+      "open_price": 165.20,
+      "range_high": 166.50,
+      "range_low": 164.00,
+      "sector_factor": 0.99
+    },
+    "JPM": {
+      "open_price": 145.00,
+      "range_high": 146.50,
+      "range_low": 143.50,
+      "sector_factor": 0.92
+    },
+    "LMT": {
+      "open_price": 450.75,
+      "range_high": 453.00,
+      "range_low": 448.00,
+      "sector_factor": 1.05
+    },
+    "MSFT": {
+      "open_price": 260.00,
+      "range_high": 262.00,
+      "range_low": 258.50,
+      "sector_factor": 0.95
+    },
+    "NFLX": {
+      "open_price": 330.50,
+      "range_high": 333.00,
+      "range_low": 328.00,
+      "sector_factor": 0.88
+    },
+    "NVDA": {
+      "open_price": 410.00,
+      "range_high": 413.00,
+      "range_low": 407.00,
+      "sector_factor": 0.95
+    },
+    "PFE": {
+      "open_price": 35.50,
+      "range_high": 36.00,
+      "range_low": 35.00,
+      "sector_factor": 0.99
+    },
+    "UNH": {
+      "open_price": 475.25,
+      "range_high": 477.50,
+      "range_low": 473.00,
+      "sector_factor": 1.00
+    },
+    "V": {
+      "open_price": 225.00,
+      "range_high": 227.00,
+      "range_low": 223.50,
+      "sector_factor": 0.92
+    },
+    "WMT": {
+      "open_price": 150.75,
+      "range_high": 152.00,
+      "range_low": 149.50,
+      "sector_factor": 0.94
+    },
+    "XOM": {
+      "open_price": 110.00,
+      "range_high": 111.50,
+      "range_low": 108.50,
+      "sector_factor": 1.02
+    }
+  },
+  "invisible_factors": {
+    "institutional_flow": -0.15,
+    "liquidity_factor": 0.05,
+    "news_velocity": -0.10,
+    "risk_appetite": -0.20,
+    "sector_rotation": 0.10
+  },
+  "parameters": {
+    "long_term_outlook": 0.35,
+    "market_sentiment": 0.35,
+    "momentum": 0.20,
+    "trend_direction": -0.30,
+    "volatility": 1.10
+  },
+  "reasoning": {
+    "discord_impact": "High message volume in Congress and Public Square suggests active debate and uncertainty. Executive orders mentioned in 'STATES' indicate potential policy shifts. This contributes to market volatility and lower sentiment.",
+    "economic_assessment": "High inflation and negative GDP growth create a stagflationary environment. Unemployment is slightly above the natural rate, adding to economic concerns. This justifies a negative trend direction and high volatility.",
+    "market_outlook": "The market is expected to be bearish in the short term due to poor economic indicators and low market confidence. Sectors like Energy and Healthcare may outperform due to their defensive nature, while discretionary sectors will likely underperform.",
+    "parameter_justification": "Trend direction is negative to reflect GDP decline. Volatility is high due to inflation. Market sentiment aligns with low confidence. Momentum is slightly positive due to employment. Long-term outlook is slightly reduced to reflect current economic conditions."
+  },
+  "sector_outlook": {
+    "ENERGY": "Positive. Inflation and supply constraints support energy prices.",
+    "ENTERTAINMENT": "Negative. Consumer spending is likely to decrease due to economic concerns.",
+    "FINANCE": "Neutral to Negative. Banks face uncertainty due to potential interest rate hikes and economic slowdown.",
+    "HEALTH": "Positive. Healthcare is a defensive sector and less sensitive to economic cycles.",
+    "MANUFACTURING": "Neutral. Dependent on infrastructure spending and global demand.",
+    "RETAIL": "Negative. Consumer spending is expected to decline.",
+    "TECH": "Neutral to Negative. High growth stocks are sensitive to interest rate hikes.",
+    "TRANSPORT": "Neutral. Mixed outlook due to fluctuating fuel costs and demand."
+  }
+}
+[12:54:42] --- END STRUCTURED AI RESPONSE ---
+[12:54:42] === PARSING STRUCTURED AI ANALYSIS ===
+[12:54:42] ✅ Structured JSON parsed successfully
+[12:54:42] AI provided parameters: {
+  "long_term_outlook": 0.35,
+  "market_sentiment": 0.35,
+  "momentum": 0.2,
+  "trend_direction": -0.3,
+  "volatility": 1.1
+}
+[12:54:42] Final market parameters: {
+  "trend_direction": -0.3,
+  "volatility": 1.0,
+  "momentum": 0.2,
+  "market_sentiment": 0.35,
+  "long_term_outlook": 0.35
+}
+[12:54:42] Applied invisible factors: {
+  "institutional_flow": -0.15,
+  "liquidity_factor": 0.05,
+  "news_velocity": 0.0,
+  "sector_rotation": 0.1,
+  "risk_appetite": 0.0
+}
+[12:54:42] Applying AI-provided daily stock prices
+[12:54:42] ✅ Structured analysis applied successfully
+[12:54:42] ✅ Structured AI analysis completed successfully

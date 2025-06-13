@@ -192,7 +192,7 @@ class EconomicData:
                 "public": 0.25,       # Public sentiment affects market confidence
                 "news": 0.15          # News and announcements provide market signals
             },
-            "inflation_base": 3.2,        # Current realistic inflation target (Fed aims for 2%, but 3.2% is more realistic in current environment)
+            "inflation_base": 8.51,        # Current high inflation environment (well above Fed's 2% target)
             "unemployment_base": 3.7,     # Full employment level (US natural rate ~3.5-4%)
             "stock_volatility": 0.12,     # Realistic daily volatility (12% annualized is typical)
             "gdp_base": 27.0,             # Baseline GDP in trillions (US GDP ~$27T)
@@ -215,7 +215,7 @@ class EconomicData:
                 
                 # Update to realistic parameters - force upgrade old unrealistic values
                 parameters_to_update = {
-                    'inflation_base': 3.2,  # More realistic than 2.5%
+                    # Don't override inflation_base - let it be managed by economic data
                     'analysis_interval': 3600,  # 1 hour instead of 1 week for responsiveness
                     'lookback_days': 7,  # Weekly instead of 30-day for responsiveness
                     'stock_volatility': 0.12,  # More realistic volatility
@@ -1321,8 +1321,8 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
                     with open(category_file, 'r') as f:
                         category_data = json.load(f)
                         if category_data and len(category_data) > 0:
-                            # Get the most recent entry (first item in array)
-                            latest_entry = category_data[0]
+                            # Get the most recent entry (last item in array)
+                            latest_entry = category_data[-1]
                             report[category] = latest_entry.get('data', {})
                             
                             # Set timestamp from most recent data
@@ -1709,21 +1709,11 @@ def get_stock_initialization_data() -> Dict[str, Any]:
         latest_report = econ_data.get_latest_economic_report()
         
         if not latest_report:
+            # CRITICAL: No fallback to fake data - require explicit economic data initialization
             return {
-                "message": "No economic data available - stock market will use default initialization",
-                "recommendations": {
-                    "market_sentiment": 0.6,  # Neutral-positive
-                    "volatility": 0.4,        # Moderate
-                    "trend_direction": 0.1,   # Slightly bullish
-                    "sector_outlook": {
-                        "NEWS": "Stable media environment expected",
-                        "CONGRESS": "Legislative activity driving moderate growth",
-                        "EXECUTIVE": "Administrative efficiency initiatives underway",
-                        "STATES": "Regional development opportunities emerging",
-                        "COURTS": "Judicial system stability maintained",
-                        "PUBLIC_SQUARE": "Civic engagement platforms growing"
-                    }
-                }
+                "message": "No economic data available - please run /fetch_econ_data to initialize economic analysis",
+                "error": "ECONOMIC_DATA_REQUIRED",
+                "guidance": "Stock market requires real economic data to calculate parameters. Run /fetch_econ_data first to collect economic indicators."
             }
         
         # Extract economic indicators
@@ -1733,7 +1723,7 @@ def get_stock_initialization_data() -> Dict[str, Any]:
         
         # Calculate stock market parameters based on economic data
         gdp_growth = gdp_data.get('change_percent', 0) / 100
-        inflation_rate = inflation_data.get('rate', 3.2) / 100
+        inflation_rate = inflation_data.get('rate', 8.51) / 100
         market_confidence = sentiment_data.get('market_confidence', 70) / 100
         
         # Convert economic indicators to stock market parameters
@@ -1742,6 +1732,11 @@ def get_stock_initialization_data() -> Dict[str, Any]:
         market_sentiment = max(0.2, min(0.9, market_confidence))
         momentum = max(0.3, min(0.8, (market_confidence + (gdp_growth + 1) / 2) / 2))
         
+        # Calculate long-term outlook from economic fundamentals
+        inflation_stability = max(0.2, 1.0 - abs(inflation_rate - 0.025) * 8)  # Closer to 2.5% target = better outlook
+        gdp_outlook = max(0.2, min(0.8, (gdp_growth + 0.5) / 1.0))  # Positive GDP growth improves outlook
+        long_term_outlook = max(0.2, min(0.8, (market_confidence + inflation_stability + gdp_outlook) / 3))
+        
         return {
             "economic_report": latest_report,
             "stock_market_initialization": {
@@ -1749,7 +1744,7 @@ def get_stock_initialization_data() -> Dict[str, Any]:
                 "volatility": volatility,
                 "momentum": momentum,
                 "market_sentiment": market_sentiment,
-                "long_term_outlook": 0.55  # Start neutral
+                "long_term_outlook": long_term_outlook
             },
             "sector_recommendations": {
                 "NEWS": f"Media sector outlook based on public sentiment: {sentiment_data.get('public_approval', 70)}/100",
@@ -1766,12 +1761,8 @@ def get_stock_initialization_data() -> Dict[str, Any]:
         print(f"❌ Error getting stock initialization data: {e}")
         return {
             "error": f"Failed to get stock initialization data: {e}",
-            "recommendations": {
-                "market_sentiment": 0.6,
-                "volatility": 0.4,
-                "trend_direction": 0.0,
-                "sector_outlook": {sector: "Default outlook" for sector in ["NEWS", "CONGRESS", "EXECUTIVE", "STATES", "COURTS", "PUBLIC_SQUARE"]}
-            }
+            "message": "Economic data processing failed - please check economic data files and run /fetch_econ_data",
+            "guidance": "Stock market requires valid economic data files. Ensure economic_data/ directory contains current data."
         }
 
 def log_admin_action(admin_id: int, action: str, details: Dict[str, Any]) -> None:

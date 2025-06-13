@@ -66,10 +66,24 @@ class StockTradingSystem:
             client = await self._get_unb_client()
             guild = await client.get_guild(self.guild_id)
             user = await guild.get_user_balance(user_id)
-            await user.update(cash=int(amount))  # Update cash balance
+            
+            # Use the correct API method - user.update() with cash parameter
+            await user.update(cash=int(amount))
             return True
         except Exception as e:
             print(f"❌ Error updating user balance for {user_id}: {e}")
+            # Log more details for debugging
+            if hasattr(e, 'response'):
+                print(f"Response status: {e.response.status}")
+                try:
+                    error_text = await e.response.text()
+                    print(f"Response text: {error_text}")
+                    if "403" in str(e.response.status):
+                        print("💡 Hint: Make sure the UnbelievaBoat application is authorized in your Discord server")
+                        print("   Visit: https://unbelievaboat.com/dashboard/applications to get your app ID")
+                        print("   Then authorize at: https://unbelievaboat.com/applications/authorize?app_id=YOUR_APP_ID&guild_id=654458344781774879")
+                except:
+                    pass
             return False
     
     def get_user_portfolio(self, user_id: int) -> Dict[str, int]:

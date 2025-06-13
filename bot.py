@@ -9,6 +9,7 @@ import asyncio
 import aiohttp
 import re
 import csv
+from datetime import datetime, timezone
 from typing import Literal, Any
 from functools import wraps
 from pathlib import Path
@@ -20,69 +21,68 @@ import bill_utils
 import message_utils
 import file_utils
 import economic_utils
+from data_managers import get_economic_data_manager, get_stock_data_manager
 
 # Import stock market system
 try:
     import stock_market
     import stock_commands
+    import stock_hub_commands
     print("📈 Stock market modules imported successfully")
 except ImportError as e:
     print(f"⚠️ Stock market modules not available: {e}")
     stock_market = None
     stock_commands = None
+    stock_hub_commands = None
 
 # Import economic memory commands
 try:
     import econ_memory_commands
-    print("📊 Economic memory commands imported successfully")
+    import econ_admin_hub
+    print("📊 Economic commands imported successfully")
 except ImportError as e:
-    print(f"⚠️ Economic memory commands not available: {e}")
+    print(f"⚠️ Economic commands not available: {e}")
     econ_memory_commands = None
+    econ_admin_hub = None
 
 # Initialize Discord bot
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
+print(f"Command tree created: {tree}")
 
 # Register stock market commands if available
 if stock_commands:
     try:
-        # Add stock commands to the command tree
-        tree.add_command(stock_commands.stocks_overview)
-        tree.add_command(stock_commands.stocks_sector)
-        tree.add_command(stock_commands.stocks_stock)
-        tree.add_command(stock_commands.stocks_channel)
-        tree.add_command(stock_commands.stocks_add)
-        tree.add_command(stock_commands.stocks_remove)
-        tree.add_command(stock_commands.stocks_modify)
-        tree.add_command(stock_commands.stocks_params)
-        tree.add_command(stock_commands.stocks_history)
-        tree.add_command(stock_commands.start_stock_market)
-        tree.add_command(stock_commands.stop_stock_market)
-        # User commands
+        # User-facing stock commands
         tree.add_command(stock_commands.stocks_list)
         tree.add_command(stock_commands.stocks_price)
         tree.add_command(stock_commands.stocks_categories)
         tree.add_command(stock_commands.stocks_history_48h)
-        # Admin commands
-        tree.add_command(stock_commands.stocks_set_market)
-        tree.add_command(stock_commands.stocks_force_update)
-        tree.add_command(stock_commands.stocks_reset)
-        tree.add_command(stock_commands.stocks_force_init)
-        tree.add_command(stock_commands.stocks_sync_econ)
-        tree.add_command(stock_commands.stocks_redo_analysis)
-        tree.add_command(stock_commands.stocks_recalc_baselines)
-        tree.add_command(stock_commands.stocks_force_baseline_update)
-        # Trading commands (UnbelievaBoat integration)
+        
+        # Trading commands
         tree.add_command(stock_commands.stocks_buy_command)
         tree.add_command(stock_commands.stocks_sell_command)
         tree.add_command(stock_commands.stocks_portfolio_command)
-        # Manual trigger command
-        tree.add_command(stock_commands.stocks_trigger_hourly_command)
-        print("📈 Stock market commands registered with bot")
+        
+        # Admin commands that are still needed directly
+        tree.add_command(stock_commands.stocks_set_market)
+        tree.add_command(stock_commands.stocks_set_update_rate)
+        tree.add_command(stock_commands.stocks_add)
+        
+        print("📈 Essential stock market commands registered")
     except Exception as e:
         print(f"⚠️ Failed to register stock commands: {e}")
+
+# Register stock hub commands if available
+if stock_hub_commands:
+    try:
+        tree.add_command(stock_hub_commands.stocks_hub)
+        tree.add_command(stock_hub_commands.stocks_admin)
+        print("📈 Stock hub commands registered")
+    except Exception as e:
+        print(f"⚠️ Failed to register stock hub commands: {e}")
 
 # Register economic memory commands if available
 if econ_memory_commands:
@@ -92,6 +92,14 @@ if econ_memory_commands:
         print("📊 Economic memory commands registered with bot")
     except Exception as e:
         print(f"⚠️ Failed to register econ memory commands: {e}")
+
+# Register economic admin hub if available
+if econ_admin_hub:
+    try:
+        tree.add_command(econ_admin_hub.econ_admin)
+        print("📊 Economic admin hub registered")
+    except Exception as e:
+        print(f"⚠️ Failed to register econ admin hub: {e}")
 
 # Global variables (replacing complex state management)
 discord_channels = {}
@@ -137,11 +145,191 @@ def handle_errors(error_message: str):
         return wrapper
     return decorator
 
+def check_dynamic_channel_restrictions(command_name: str, exempt_roles=[config.Roles.ADMIN]):
+    """Decorator to check dynamic channel restrictions for commands."""
+    def decorator(func):
+        @wraps(func)
+        async def wrapper(interaction: discord.Interaction, *args, **kwargs):
+            # Check if user has exempt role
+            if exempt_roles and any(role.name in exempt_roles for role in interaction.user.roles):
+                return await func(interaction, *args, **kwargs)
+            
+            # Check dynamic channel restrictions
+            channel_allowed = file_utils.check_command_channel_allowed(
+                command_name, 
+                interaction.channel.id, 
+                interaction.channel.name
+            )
+            
+            if not channel_allowed:
+                restriction = file_utils.get_command_restrictions().get(command_name, {})
+                mode = restriction.get('mode', 'unknown')
+                channels = restriction.get('channels', [])
+                
+                if mode == 'whitelist':
+                    message = f"❌ Command `/{command_name}` can only be used in: {', '.join(channels)}"
+                else:
+                    message = f"❌ Command `/{command_name}` is blocked from this channel."
+                
+                await interaction.response.send_message(message, ephemeral=True)
+                return
+            
+            return await func(interaction, *args, **kwargs)
+        return wrapper
+    return decorator
+
 # Discord Commands
+print("Registering basic commands...")
+
+@tree.command(name="help", description="Display all available commands and their usage")
+@handle_errors("Failed to display help")
+async def help_command(interaction: discord.Interaction):
+    """Display comprehensive help for all VCBot commands"""
+    await interaction.response.defer(ephemeral=True)
+    
+    # Check user roles to determine what commands they can see
+    user_roles = [role.name for role in interaction.user.roles]
+    is_admin = config.Roles.ADMIN in user_roles
+    has_ai_access = config.Roles.AI_ACCESS in user_roles or is_admin
+    has_events_access = "RP Events Team" in user_roles or is_admin
+    
+    # Create main help embed
+    embed = discord.Embed(
+        title="🤖 VCBot Command Reference",
+        description="Virtual Congress Discord Bot - Complete command list organized by category",
+        color=0x0099ff,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    # AI & Bill Management Commands
+    if has_ai_access:
+        ai_commands = [
+            "`/helper [query]` - AI assistance with context awareness",
+            "`/bill_keyword_search [search_query]` - Search bills with PDF attachments",
+            "`/econ_impact_report [bill_link] [additional_context]` - Generate economic analysis"
+        ]
+        embed.add_field(
+            name="🧠 AI & Bill Management",
+            value="\n".join(ai_commands),
+            inline=False
+        )
+    
+    # Bill Reference Commands (for clerks/reps)
+    if any(role in user_roles for role in [config.Roles.ADMIN, config.Roles.REPRESENTATIVE, config.Roles.HOUSE_CLERK, config.Roles.MODERATOR]):
+        ref_commands = [
+            "`/reference [link] [type]` - Assign bill reference (hr, hres, hjres, hconres)"
+        ]
+        if any(role in user_roles for role in [config.Roles.ADMIN, config.Roles.HOUSE_CLERK]):
+            ref_commands.append("`/modifyrefs [num] [type]` - Modify reference numbers")
+        embed.add_field(
+            name="📋 Bill References",
+            value="\n".join(ref_commands),
+            inline=False
+        )
+    
+    # Economic Analysis Commands
+    if has_ai_access:
+        econ_commands = [
+            "`/econ_report` - Current economic overview"
+        ]
+        if is_admin:
+            econ_commands.append("`/econ_admin` - ⚙️ **Economic admin hub with controls**")
+        if has_events_access:
+            econ_commands.extend([
+                "`/econ_memory_list` - List economic memory entries",
+                "`/econ_memory [add/remove] [content_or_id]` - Manage memory entries"
+            ])
+        embed.add_field(
+            name="📊 Economic Analysis",
+            value="\n".join(econ_commands),
+            inline=False
+        )
+    
+    # Stock Market Hub & Commands
+    if has_ai_access:
+        stock_commands = [
+            "`/stocks_hub` - 📈 **Stock market hub with interactive buttons**",
+            "`/stocks_list` - View all 24 real stocks across 8 sectors",
+            "`/stocks_price [symbol]` - Get current price (e.g., AAPL, MSFT)",
+            "`/stocks_categories` - View all economic sectors",
+            "`/stocks_history_48h [symbol]` - 48-hour price history with charts"
+        ]
+        embed.add_field(
+            name="📈 Stock Market",
+            value="\n".join(stock_commands),
+            inline=False
+        )
+    
+    # Stock Trading Commands
+    if has_ai_access:
+        trading_commands = [
+            "`/stocks_buy [symbol] [quantity]` - Buy stocks with UnbelievaBoat balance",
+            "`/stocks_sell [symbol] [quantity]` - Sell stocks to UnbelievaBoat balance",
+            "`/stocks_portfolio [user]` - View portfolio & net worth (optional user)"
+        ]
+        embed.add_field(
+            name="💰 Stock Trading",
+            value="\n".join(trading_commands),
+            inline=False
+        )
+    
+    # Role Management
+    role_commands = [
+        "`/role [user1] [role] [user2-5]` - Add/remove roles (use -role to remove)"
+    ]
+    embed.add_field(
+        name="👥 Role Management",
+        value="\n".join(role_commands),
+        inline=False
+    )
+    
+    # Admin Commands (only show to admins)
+    if is_admin:
+        admin_commands = [
+            "**Admin Hubs:**",
+            "`/econ_admin` - ⚙️ **Economic admin hub with interactive controls**",
+            "`/stocks_admin` - ⚙️ **Stock market admin hub with all controls**",
+            "",
+            "**Direct Admin Commands:**",
+            "`/add_bill [bill_link]` - Add bills to corpus",
+            "`/stocks_set_market [param] [value]` - Set market parameters",
+            "`/stocks_set_update_rate [minutes]` - Set price update rate",
+            "`/stocks_add [sector] [symbol] [name] [price]` - Add new stock",
+            "",
+            "**Channel Restrictions:**",
+            "`/channel_restrict list` - View all channel restrictions",
+            "`/channel_restrict set [command] [whitelist/blacklist] [channels]` - Set restrictions",
+            "`/channel_restrict remove [command]` - Remove restrictions"
+        ]
+        embed.add_field(
+            name="⚙️ Admin Commands",
+            value="\n".join(admin_commands),
+            inline=False
+        )
+    
+    # Usage Notes
+    notes = [
+        "**Arguments:** `[required]` `[optional]`",
+        "**Channels:** Most commands restricted to bot-helper channel",
+        "**Permissions:** Role-based access control",
+        "**Stock Symbols:** Real stocks only (AAPL, MSFT, GOOGL, JPM, XOM, etc.)",
+        "**Trading:** Integrates with UnbelievaBoat balance system"
+    ]
+    embed.add_field(
+        name="📋 Usage Notes",
+        value="\n".join(notes),
+        inline=False
+    )
+    
+    # Footer with additional info
+    embed.set_footer(text="VCBot - Virtual Congress Assistant | Use commands responsibly")
+    
+    await interaction.followup.send(embed=embed)
 
 @tree.command(name="helper", description="Query the VCBot helper.")
 @has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
+@check_dynamic_channel_restrictions("helper")
 @handle_errors("Failed to process query")
 async def helper(interaction: discord.Interaction, query: str):
     """AI assistance using Gemini."""
@@ -183,6 +371,7 @@ async def helper(interaction: discord.Interaction, query: str):
 @tree.command(name="bill_keyword_search", description="Perform a basic keyword search on the legislative corpus.")
 @has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
+@check_dynamic_channel_restrictions("bill_keyword_search")
 @handle_errors("Failed to search bills")
 async def bill_keyword_search(interaction: discord.Interaction, search_query: str):
     """Search bills by keywords and attach PDFs."""
@@ -302,6 +491,7 @@ async def econ_impact_report(interaction: discord.Interaction, bill_link: str, a
     await file_utils.save_query_log(f'Generate economic impact report on {bill_link}', report_text)
 
 @tree.command(name="role", description="Add or remove a role to/from one or more users.")
+@check_dynamic_channel_restrictions("role")
 @handle_errors("Failed to manage roles")
 async def role(
     interaction: discord.Interaction, 
@@ -371,113 +561,6 @@ async def role(
 
 # Economic Analysis Commands
 
-@tree.command(name="fetch_econ_data", description="Trigger comprehensive economic data collection and analysis")
-@has_any_role(config.Roles.ADMIN)
-@limit_to_channels([config.BOT_HELPER_CHANNEL])
-@handle_errors("Failed to fetch economic data")
-async def fetch_econ_data(interaction: discord.Interaction, prompt: str = None):
-    """Manually trigger economic data collection with optional user context"""
-    await interaction.response.defer()
-    
-    try:
-        # Get existing data status
-        latest_report = economic_utils.econ_data.get_latest_economic_report()
-        
-        # Send initial status message
-        if latest_report is None:
-            status_msg = "🔍 No existing economic data found. Starting comprehensive AI analysis of last 30 days..."
-        else:
-            status_msg = "📊 Updating economic data with comprehensive AI analysis of last 30 days..."
-        
-        if prompt:
-            status_msg += f"\n💬 **User Context**: {prompt}"
-        
-        await interaction.followup.send(status_msg)
-        
-        # Trigger real agentic analysis with progress updates in this channel
-        analysis = await economic_utils.fetch_econ_data_manually(client, prompt, interaction.channel)
-        
-        # Create response embed
-        embed = discord.Embed(
-            title="📈 Real AI Economic Analysis Complete",
-            color=0x00ff00,
-            timestamp=discord.utils.utcnow()
-        )
-        
-        embed.add_field(
-            name="GDP",
-            value=f"${analysis['gdp']['value']:,.2f} ({analysis['gdp']['change_percent']:+.2f}%)",
-            inline=True
-        )
-        
-        embed.add_field(
-            name="Inflation",
-            value=f"{analysis['inflation']['rate']:.2f}% ({analysis['inflation']['trend']})",
-            inline=True
-        )
-        
-        embed.add_field(
-            name="Market Sentiment",
-            value=f"{analysis['sentiment']['market_confidence']}/100",
-            inline=True
-        )
-        
-        if analysis.get('insights'):
-            # Limit insights text to stay under 1024 characters
-            insights_text = "\n".join(f"• {insight}" for insight in analysis['insights'][:3])
-            if len(insights_text) > 1020:
-                insights_text = insights_text[:1017] + "..."
-            
-            embed.add_field(
-                name="AI-Generated Insights",
-                value=insights_text,
-                inline=False
-            )
-        
-        # Add detailed reasoning info if available
-        if analysis.get('reasoning'):
-            reasoning_text = []
-            for key, value in analysis['reasoning'].items():
-                if len(str(value)) < 100:  # Only show short reasoning entries
-                    reasoning_text.append(f"**{key.replace('_', ' ').title()}**: {value}")
-            
-            if reasoning_text:
-                # Ensure reasoning field stays under 1024 characters
-                reasoning_value = "\n".join(reasoning_text[:2])
-                if len(reasoning_value) > 1020:
-                    reasoning_value = reasoning_value[:1017] + "..."
-                
-                embed.add_field(
-                    name="🧠 AI Reasoning Summary",
-                    value=reasoning_value,
-                    inline=False
-                )
-        
-        # Add log file reference
-        if analysis.get('analysis_session'):
-            embed.add_field(
-                name="📋 Detailed Analysis Log",
-                value=f"Session ID: `{analysis['analysis_session']['session_id']}`\nFull turn-by-turn analysis and reasoning saved to server logs.",
-                inline=False
-            )
-        
-        embed.set_footer(text="Generated by real agentic AI analysis with detailed reasoning logs - no fake data")
-        await interaction.followup.send(embed=embed)
-            
-    except Exception as e:
-        # Real failure - no fake data fallback
-        error_embed = discord.Embed(
-            title="❌ Economic Analysis Failed",
-            description=f"Real AI analysis failed: {str(e)}",
-            color=0xff0000
-        )
-        error_embed.add_field(
-            name="🚫 No Fallback Data",
-            value="This system only provides real AI-generated economic analysis. No fake data will be generated.",
-            inline=False
-        )
-        await interaction.followup.send(embed=error_embed)
-
 @tree.command(name="econ_report", description="Generate current economic overview")
 @has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
@@ -487,10 +570,14 @@ async def econ_report(interaction: discord.Interaction):
     await interaction.response.defer()
     
     try:
-        # Get fresh economic data
-        latest_report = economic_utils.econ_data.get_fresh_economic_report()
+        # Use data managers for consistent data access
+        econ_data_manager = get_economic_data_manager()
+        stock_data_manager = get_stock_data_manager()
         
-        # Also get stock market data
+        # Get all current economic data
+        latest_report = econ_data_manager.get_all_current_data()
+        
+        # Also get stock market instance if available
         try:
             import stock_market
             stock_data = stock_market.get_stock_market()
@@ -526,7 +613,7 @@ async def econ_report(interaction: discord.Interaction):
             title=f"📊 Economic Report{report_time}",
             description=f"**{severity}**",
             color=report_color,
-            timestamp=discord.utils.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         if latest_report:
@@ -665,122 +752,232 @@ async def econ_report(interaction: discord.Interaction):
     except Exception as e:
         await interaction.followup.send(f"❌ Error generating report: {str(e)}")
 
-@tree.command(name="econ_status", description="View economic system status and parameters")
+
+@tree.command(name="channel_restrict", description="Manage channel restrictions for bot commands (Admin only)")
 @has_any_role(config.Roles.ADMIN)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
-@handle_errors("Failed to get economic status")
-async def econ_status(interaction: discord.Interaction):
-    """Show economic system status"""
+@handle_errors("Failed to manage channel restrictions")
+async def channel_restrict(
+    interaction: discord.Interaction,
+    action: Literal["set", "remove", "list"],
+    command_name: str = None,
+    mode: Literal["whitelist", "blacklist"] = None,
+    channels: str = None
+):
+    """Manage channel restrictions for bot commands.
+    
+    Args:
+        action: set (add restriction), remove (remove restriction), list (show all)
+        command_name: Name of command to restrict (e.g., 'helper', 'stocks_buy')
+        mode: 'whitelist' (only allow in specified channels) or 'blacklist' (block from specified channels)
+        channels: Comma-separated list of channel names or IDs
+    """
     await interaction.response.defer()
     
     try:
-        status = economic_utils.get_economic_status()
-        
-        if "error" in status:
-            await interaction.followup.send(f"❌ Error: {status['error']}")
-            return
-        
-        embed = discord.Embed(
-            title="⚙️ Economic System Status",
-            color=0x0099ff,
-            timestamp=discord.utils.utcnow()
-        )
-        
-        params = status.get("parameters", {})
-        
-        # GDP Settings
-        gdp_weights = params.get("gdp_weights", {})
-        embed.add_field(
-            name="📊 GDP Weights",
-            value=f"Legislative: {gdp_weights.get('legislative', 0.4):.2f}\nCommittee: {gdp_weights.get('committee', 0.3):.2f}\nPublic: {gdp_weights.get('public', 0.3):.2f}",
-            inline=True
-        )
-        
-        # Market Settings  
-        embed.add_field(
-            name="📈 Market Settings",
-            value=f"Inflation: {params.get('inflation_base', 2.5):.2f}%\nInterval: {params.get('analysis_interval', 3600)//60} min",
-            inline=True
-        )
-        
-        # System Status
-        embed.add_field(
-            name="🔧 System Status",
-            value=f"Data Files: {status.get('data_files_count', 0)}/{status.get('total_files', 5)}\nStock Market: Integrated with economic data",
-            inline=True
-        )
-        
-        # Latest Report
-        latest = status.get("latest_report")
-        if latest:
+        if action == "list":
+            # Show all current restrictions
+            restrictions = file_utils.get_command_restrictions()
+            
+            embed = discord.Embed(
+                title="🔒 Channel Restrictions",
+                description="Current command channel restrictions",
+                color=0x0099ff,
+                timestamp=datetime.now(timezone.utc)
+            )
+            
+            if not restrictions:
+                embed.add_field(
+                    name="No Restrictions",
+                    value="No commands currently have channel restrictions.",
+                    inline=False
+                )
+            else:
+                for cmd, config in restrictions.items():
+                    mode_emoji = "✅" if config['mode'] == 'whitelist' else "❌"
+                    channels_list = ", ".join(str(ch) for ch in config['channels'])
+                    embed.add_field(
+                        name=f"{mode_emoji} {cmd}",
+                        value=f"**{config['mode'].title()}**: {channels_list}",
+                        inline=False
+                    )
+            
+            available_commands = file_utils.get_available_commands()
             embed.add_field(
-                name="📅 Latest Report",
-                value=f"Timestamp: {latest.get('timestamp', 'Unknown')[:16]}\nGDP: ${latest.get('gdp', {}).get('value', 0):,.0f}",
+                name="📋 Available Commands",
+                value=f"Commands you can restrict: {', '.join(available_commands[:10])}{'...' if len(available_commands) > 10 else ''}",
                 inline=False
             )
+            
+            embed.set_footer(text="Use '/channel_restrict set' to add restrictions")
+            await interaction.followup.send(embed=embed)
+            
+        elif action == "set":
+            if not command_name or not mode or not channels:
+                await interaction.followup.send("❌ For 'set' action, you must provide command_name, mode, and channels")
+                return
+            
+            # Validate command name
+            available_commands = file_utils.get_available_commands()
+            if command_name not in available_commands:
+                await interaction.followup.send(
+                    f"❌ Unknown command '{command_name}'. Available commands: {', '.join(available_commands)}"
+                )
+                return
+            
+            # Parse channel list
+            channel_list = [ch.strip() for ch in channels.split(',')]
+            
+            # Validate channels exist in the guild
+            valid_channels = []
+            invalid_channels = []
+            
+            for channel_input in channel_list:
+                # Try to find channel by ID or name
+                found_channel = None
+                
+                # Check if it's a channel ID
+                if channel_input.isdigit():
+                    found_channel = interaction.guild.get_channel(int(channel_input))
+                else:
+                    # Search by name
+                    found_channel = discord.utils.get(interaction.guild.channels, name=channel_input)
+                
+                if found_channel:
+                    valid_channels.append(channel_input)
+                else:
+                    invalid_channels.append(channel_input)
+            
+            if invalid_channels:
+                await interaction.followup.send(
+                    f"⚠️ Warning: These channels were not found: {', '.join(invalid_channels)}\nContinuing with valid channels: {', '.join(valid_channels)}"
+                )
+            
+            if not valid_channels:
+                await interaction.followup.send("❌ No valid channels found. Please check channel names/IDs.")
+                return
+            
+            # Set the restriction
+            file_utils.set_command_channel_restriction(command_name, mode, valid_channels)
+            
+            mode_emoji = "✅" if mode == 'whitelist' else "❌"
+            embed = discord.Embed(
+                title="🔒 Channel Restriction Set",
+                description=f"Successfully configured restriction for **{command_name}**",
+                color=0x00ff00
+            )
+            embed.add_field(
+                name=f"{mode_emoji} {mode.title()} Mode",
+                value=f"Channels: {', '.join(valid_channels)}",
+                inline=False
+            )
+            
+            if mode == 'whitelist':
+                embed.add_field(
+                    name="ℹ️ Effect",
+                    value=f"Command **{command_name}** can ONLY be used in the specified channels.",
+                    inline=False
+                )
+            else:
+                embed.add_field(
+                    name="ℹ️ Effect", 
+                    value=f"Command **{command_name}** is BLOCKED from the specified channels.",
+                    inline=False
+                )
+            
+            await interaction.followup.send(embed=embed)
+            
+        elif action == "remove":
+            if not command_name:
+                await interaction.followup.send("❌ For 'remove' action, you must provide command_name")
+                return
+            
+            success = file_utils.remove_command_channel_restriction(command_name)
+            
+            if success:
+                embed = discord.Embed(
+                    title="🔓 Channel Restriction Removed",
+                    description=f"Successfully removed channel restriction for **{command_name}**",
+                    color=0x00ff00
+                )
+                embed.add_field(
+                    name="ℹ️ Effect",
+                    value=f"Command **{command_name}** can now be used in all allowed channels (subject to existing role/channel permissions).",
+                    inline=False
+                )
+                await interaction.followup.send(embed=embed)
+            else:
+                await interaction.followup.send(f"⚠️ No channel restriction found for command '{command_name}'")
+        
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error managing channel restrictions: {str(e)}")
+
+
+@tree.command(name="sync_commands", description="Force sync Discord slash commands (Admin only)")
+@has_any_role(config.Roles.ADMIN)
+@limit_to_channels([config.BOT_HELPER_CHANNEL])
+@handle_errors("Failed to sync commands")
+async def sync_commands(
+    interaction: discord.Interaction,
+    action: Literal["clear", "sync", "both"] = "both"
+):
+    """Force sync Discord slash commands to remove old commands and add current ones.
+    
+    Args:
+        action: 'clear' (remove all), 'sync' (add current), 'both' (clear then sync)
+    """
+    await interaction.response.defer()
+    
+    try:
+        results = []
+        
+        if action in ["clear", "both"]:
+            # Clear existing commands
+            if config.GUILD_ID:
+                guild = discord.Object(id=config.GUILD_ID)
+                tree.clear_commands(guild=guild)
+                cleared_guild = await tree.sync(guild=guild)
+                results.append(f"✅ Cleared guild commands. {len(cleared_guild)} commands remain")
+                
+                # Also clear global commands
+                tree.clear_commands(guild=None)
+                cleared_global = await tree.sync(guild=None)
+                results.append(f"✅ Cleared global commands. {len(cleared_global)} commands remain")
+            else:
+                # Clear global commands only
+                tree.clear_commands(guild=None)
+                cleared = await tree.sync(guild=None)
+                results.append(f"✅ Cleared global commands. {len(cleared)} commands remain")
+        
+        if action in ["sync", "both"]:
+            # Re-register current commands and sync
+            if config.GUILD_ID:
+                guild = discord.Object(id=config.GUILD_ID)
+                tree.copy_global_to(guild=guild)
+                synced = await tree.sync(guild=guild)
+                results.append(f"✅ Synced {len(synced)} commands to guild")
+            else:
+                synced = await tree.sync()
+                results.append(f"✅ Synced {len(synced)} global commands")
+        
+        embed = discord.Embed(
+            title="🔄 Command Sync Complete",
+            description="\n".join(results),
+            color=0x00ff00,
+            timestamp=datetime.now(timezone.utc)
+        )
+        
+        embed.add_field(
+            name="ℹ️ Note",
+            value="Discord may take a few minutes to fully update command lists. Try typing `/` to see the updated commands.",
+            inline=False
+        )
         
         await interaction.followup.send(embed=embed)
         
     except Exception as e:
-        await interaction.followup.send(f"❌ Error getting status: {str(e)}")
+        await interaction.followup.send(f"❌ Error syncing commands: {str(e)}")
 
-@tree.command(name="econ_set_inflation", description="Set base inflation rate (Admin only)")
-@has_any_role(config.Roles.ADMIN)
-@limit_to_channels([config.BOT_HELPER_CHANNEL])
-@handle_errors("Failed to set inflation rate")
-async def econ_set_inflation(interaction: discord.Interaction, rate: float):
-    """Set inflation rate"""
-    await interaction.response.defer()
-    
-    try:
-        # Clamp to reasonable bounds
-        rate = max(-10.0, min(50.0, rate))
-        
-        success = economic_utils.set_economic_parameter("inflation_base", rate)
-        
-        if success:
-            economic_utils.log_admin_action(interaction.user.id, "set_inflation", {"rate": rate})
-            
-            embed = discord.Embed(
-                title="✅ Inflation Rate Updated",
-                description=f"Base inflation rate set to {rate:.2f}%",
-                color=0x00ff00
-            )
-            await interaction.followup.send(embed=embed)
-        else:
-            await interaction.followup.send("❌ Failed to update inflation rate")
-            
-    except Exception as e:
-        await interaction.followup.send(f"❌ Error setting inflation: {str(e)}")
-
-@tree.command(name="econ_set_interval", description="Set analysis interval in minutes (Admin only)")
-@has_any_role(config.Roles.ADMIN)
-@limit_to_channels([config.BOT_HELPER_CHANNEL])
-@handle_errors("Failed to set analysis interval")
-async def econ_set_interval(interaction: discord.Interaction, minutes: int):
-    """Set analysis interval"""
-    await interaction.response.defer()
-    
-    try:
-        # Convert to seconds and clamp (5 minutes to 24 hours)
-        seconds = max(300, min(86400, minutes * 60))
-        
-        success = economic_utils.set_economic_parameter("analysis_interval", seconds)
-        
-        if success:
-            economic_utils.log_admin_action(interaction.user.id, "set_analysis_interval", {"minutes": minutes})
-            
-            embed = discord.Embed(
-                title="⏰ Analysis Interval Updated",
-                description=f"Economic analysis will now run every {seconds//60} minutes",
-                color=0x00ff00
-            )
-            await interaction.followup.send(embed=embed)
-        else:
-            await interaction.followup.send("❌ Failed to update analysis interval")
-            
-    except Exception as e:
-        await interaction.followup.send(f"❌ Error setting interval: {str(e)}")
 
 # Message Handlers (replacing complex MessageRouter)
 
@@ -921,18 +1118,76 @@ async def on_ready():
     economic_utils.start_economic_engine(client)
     print("Economic analysis system initialized")
     
-    # Initialize stock market system
+    # Initialize stock market system with scheduler
     if stock_market:
         try:
+            # Initialize the complete stock market system with scheduler
             await stock_market.initialize_stock_market(client)
-            print("📈 Stock market system initialized")
+            print("📈 Stock market system initialized with automatic hourly updates")
         except Exception as e:
-            print(f"⚠️ Failed to initialize stock market: {e}")
+            print(f"⚠️ Stock market system error: {e}")
     
-    # Sync commands
+    # Sync commands (guild-specific if GUILD_ID is set)
     print("Syncing commands...")
-    synced_commands = await tree.sync()
-    print(f"Commands synced: {len(synced_commands)} commands" if synced_commands else "No commands to sync.")
+    print(f"Total commands in tree: {len(tree.get_commands())}")
+    
+    # Debug: Print all commands in tree
+    print("Commands registered in tree:")
+    for cmd in tree.get_commands():
+        print(f"  - {cmd.name} ({cmd.description[:50]}...)")
+    
+    if config.GUILD_ID:
+        guild = discord.Object(id=config.GUILD_ID)
+        try:
+            print(f"Attempting to sync to guild {config.GUILD_ID}...")
+            print(f"Guild object: {guild}")
+            print(f"Tree before sync: {tree}")
+            
+            # Clear existing guild commands first to remove old/deprecated commands
+            print("Clearing existing guild commands...")
+            tree.clear_commands(guild=guild)
+            await tree.sync(guild=guild)  # Sync empty tree to remove old commands from Discord
+            
+            # Copy global commands to guild
+            print("Copying global commands to guild...")
+            tree.copy_global_to(guild=guild)
+            
+            # Sync new commands
+            synced_commands = await tree.sync(guild=guild)
+            
+            print(f"Sync returned: {synced_commands}")
+            print(f"Type of synced_commands: {type(synced_commands)}")
+            print(f"Commands synced to guild {config.GUILD_ID}: {len(synced_commands)} commands")
+            
+            if synced_commands:
+                print("Synced commands details:")
+                for cmd in synced_commands:
+                    print(f"  - {cmd.name}: {cmd.description}")
+            else:
+                print("⚠️ Sync returned empty list - no commands were synced")
+                
+        except discord.errors.Forbidden as e:
+            print(f"❌ Bot lacks permissions to sync commands to guild {config.GUILD_ID}")
+            print(f"Error details: {e}")
+            print("Make sure the bot has the 'applications.commands' scope")
+        except Exception as e:
+            print(f"❌ Failed to sync commands to guild: {e}")
+            print(f"Error type: {type(e).__name__}")
+            print(f"Full error details: {repr(e)}")
+            import traceback
+            traceback.print_exc()
+    else:
+        try:
+            # Clear existing global commands first to remove old/deprecated commands
+            print("Clearing existing global commands...")
+            tree.clear_commands(guild=None)
+            await tree.sync(guild=None)  # Sync empty tree to remove old commands
+            
+            # Sync new commands
+            synced_commands = await tree.sync()
+            print(f"Commands synced globally: {len(synced_commands)} commands")
+        except Exception as e:
+            print(f"Failed to sync commands globally: {e}")
 
 @client.event
 async def on_message(message):
@@ -945,6 +1200,9 @@ async def on_message(message):
 def main():
     """Main entry point."""
     print("Starting VCBot...")
+    print(f"Commands in tree before running: {len(tree.get_commands())}")
+    for cmd in tree.get_commands():
+        print(f"  - {cmd.name}")
     client.run(config.DISCORD_TOKEN)
 
 if __name__ == "__main__":

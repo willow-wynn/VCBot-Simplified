@@ -1,0 +1,22 @@
+{
+  "gdp_weights": {
+    "legislative": 0.35,
+    "committee": 0.25,
+    "public": 0.25,
+    "news": 0.15
+  },
+  "inflation_base": 8.51,
+  "unemployment_base": 3.7,
+  "stock_volatility": 0.12,
+  "gdp_base": 27.0,
+  "analysis_interval": 3600,
+  "lookback_days": 7,
+  "confidence_threshold": 0.75,
+  "economic_indicators": {
+    "employment_weight": 0.3,
+    "spending_weight": 0.25,
+    "policy_weight": 0.2,
+    "sentiment_weight": 0.15,
+    "international_weight": 0.1
+  }
+}

@@ -6,7 +6,7 @@ Provides comprehensive economic data collection and analysis with agentic loops
 import asyncio
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Any
 import discord
 from discord.ext import commands, tasks
@@ -47,7 +47,7 @@ class EconomicEngine(commands.Cog):
                 "committee": 0.3,
                 "public": 0.3
             },
-            "inflation_base": 2.5,
+            "inflation_base": 8.51,
             "stock_volatility": 0.05,
             "analysis_interval": 3600,  # 1 hour
             "lookback_days": 30,
@@ -94,7 +94,7 @@ class EconomicEngine(commands.Cog):
             "documents": []
         }
         
-        cutoff_date = datetime.utcnow() - timedelta(days=days_back)
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days_back)
         
         # Define channel categories for economic analysis
         legislative_keywords = ["bill", "vote", "legislation", "amendment", "resolution"]
@@ -390,7 +390,7 @@ class EconomicEngine(commands.Cog):
             embed = discord.Embed(
                 title="📈 Economic Analysis Complete",
                 color=0x00ff00,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             embed.add_field(

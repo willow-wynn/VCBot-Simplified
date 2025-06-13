@@ -1,7 +1,0 @@
-[2025-05-24 00:18:22] [vcbot] [DEBUG] Debug logging active - this message goes to file only
-[2025-05-24 00:18:26] [vcbot] [DEBUG] Discord client set in tool registry
-[2025-05-24 00:18:26] [vcbot] [DEBUG] Generated 3 Gemini tool declarations
-[2025-05-24 00:18:26] [file_manager] [DEBUG] FileManager initialized with base directory: /Users/wynndiaz/VCBot
-[2025-05-24 00:18:26] [vcbot] [DEBUG] Added handler Clerk channel handler (1037456401708105780) for channel 1037456401708105780
-[2025-05-24 00:18:26] [vcbot] [DEBUG] Added handler News channel handler (1275044113754095697) for channel 1275044113754095697
-[2025-05-24 00:18:26] [vcbot] [DEBUG] Added handler Sign channel handler (655065748984561676) for channel 655065748984561676

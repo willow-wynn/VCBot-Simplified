@@ -9,11 +9,11 @@ from typing import Literal, Optional, Any
 import json
 import io
 import asyncio
-import random
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from functools import wraps
-from stock_market import get_stock_market, stock_scheduler
+from stock_market import get_stock_market, stock_scheduler, is_scheduler_running, stop_scheduler
 from config import Roles
+from data_managers import get_stock_data_manager, get_economic_data_manager
 # import message_utils  # Not used in this file
 
 def has_any_role(*roles):
@@ -60,18 +60,20 @@ async def stocks_overview(interaction: discord.Interaction):
     """Display comprehensive stock market overview"""
     await interaction.response.defer()
     
-    stock_market = get_stock_market()
+    # Use data managers for consistent data access
+    stock_data_manager = get_stock_data_manager()
+    stock_market = get_stock_market()  # Still need this for some operations
     
     # Create main embed
     embed = discord.Embed(
         title="📈 Virtual Congress Stock Market",
         description="Market Status: 🟢 OPEN 24/7",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
-    # Market parameters
-    params = stock_market.market_params
+    # Market parameters from data manager
+    params = stock_data_manager.get_market_params()
     param_text = f"""
 **Trend**: {params['trend_direction']:+.2f} {'📈' if params['trend_direction'] > 0 else '📉' if params['trend_direction'] < 0 else '➡️'}
 **Volatility**: {params['volatility']:.2f} {'🌪️' if params['volatility'] > 0.7 else '🌊'}
@@ -81,8 +83,8 @@ async def stocks_overview(interaction: discord.Interaction):
 """
     embed.add_field(name="📊 Market Parameters", value=param_text.strip(), inline=True)
     
-    # Category ETF prices
-    category_prices = stock_market.calculate_category_prices()
+    # Category ETF prices from data manager
+    category_prices = stock_data_manager.get_all_category_etf_prices()
     etf_text = ""
     for cat_name, price in category_prices.items():
         emoji = "⛽" if cat_name == "ENERGY" else "🎬" if cat_name == "ENTERTAINMENT" else "🏦" if cat_name == "FINANCE" else "🏥" if cat_name == "HEALTH" else "🏭" if cat_name == "MANUFACTURING" else "🛒" if cat_name == "RETAIL" else "💻" if cat_name == "TECH" else "✈️"
@@ -93,9 +95,9 @@ async def stocks_overview(interaction: discord.Interaction):
     # Trading info (24/7 operation)
     if stock_scheduler:
         et_now = stock_scheduler.get_et_now()
-        trading_info = f"**Day**: {stock_market.current_trading_day or et_now.strftime('%Y-%m-%d')}\n**Time**: {et_now.strftime('%I:%M %p ET')}\n**Hours**: 24/7 Trading Active"
+        trading_info = f"**Day**: {stock_market.current_trading_day or et_now.strftime('%Y-%m-%d')}\n**Time**: {et_now.strftime('%I:%M %p ET')}\n**Hours**: 24/7 Trading Active\n**Update Rate**: Every {stock_market.price_update_rate_minutes} minute{'s' if stock_market.price_update_rate_minutes != 1 else ''}"
     else:
-        trading_info = "**Hours**: 24/7 Trading Active"
+        trading_info = f"**Hours**: 24/7 Trading Active\n**Update Rate**: Every {stock_market.price_update_rate_minutes} minute{'s' if stock_market.price_update_rate_minutes != 1 else ''}"
     
     embed.add_field(name="🕐 Trading Schedule", value=trading_info, inline=False)
     
@@ -127,7 +129,7 @@ async def stocks_sector(interaction: discord.Interaction,
         title=f"📊 {sector_data['name']}",
         description=sector_data['description'],
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     # Sector ETF price
@@ -188,7 +190,7 @@ async def stocks_stock(interaction: discord.Interaction, symbol: str):
         title=f"📈 {target_stock['symbol']} - {target_stock['name']}",
         description=f"Sector: {target_category} | Industry: {target_stock['sector'].replace('_', ' ').title()}",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     # Current price
@@ -265,7 +267,7 @@ async def stocks_channel(interaction: discord.Interaction, channel: discord.Text
         title="✅ Stocks Channel Updated",
         description=f"Stock market updates will now be sent to {channel.mention}",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     if old_channel_id != channel.id:
@@ -329,7 +331,7 @@ async def stocks_add(interaction: discord.Interaction,
         title="✅ Stock Added Successfully",
         description=f"Added {symbol} to {sector} sector",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📈 Stock Details", value=f"**Symbol**: {symbol}\n**Name**: {name}\n**Price**: ${price:.2f}\n**Industry**: {industry}", inline=True)
@@ -377,7 +379,7 @@ async def stocks_remove(interaction: discord.Interaction, symbol: str):
         title="✅ Stock Removed Successfully",
         description=f"Removed {symbol} from {removed_sector} sector",
         color=0xff6b6b,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📉 Removed Stock", value=f"**Symbol**: {symbol}\n**Name**: {removed_stock['name']}\n**Last Price**: ${removed_stock['price']:.2f}", inline=True)
@@ -452,7 +454,7 @@ async def stocks_modify(interaction: discord.Interaction, symbol: str, price: Op
         title="✅ Stock Modified Successfully",
         description=f"Updated {symbol} in {target_category} sector",
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📊 Changes Made", value="\n".join(changes), inline=False)
@@ -492,7 +494,7 @@ async def stocks_params(interaction: discord.Interaction,
             title="📊 Market Parameters",
             description="Current market parameter settings",
             color=0x0099ff,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         param_text = f"""
@@ -554,7 +556,7 @@ async def stocks_params(interaction: discord.Interaction,
         title="✅ Market Parameters Updated",
         description="Manual parameter changes applied",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📊 Changes Made", value="\n".join(changes), inline=False)
@@ -591,7 +593,7 @@ async def stocks_history(interaction: discord.Interaction, days_back: int = 7, s
         title="📊 Stock Market History",
         description=f"Last {days_back} days • {len(historical_data)} data points",
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     if symbol:
@@ -674,9 +676,8 @@ async def stocks_history(interaction: discord.Interaction, days_back: int = 7, s
 @handle_errors("Failed to start stock market")
 async def start_stock_market(interaction: discord.Interaction, initialize: Optional[bool] = False):
     """Start the stock market auto-update system"""
-    await interaction.response.defer()
-    
     global stock_scheduler
+    await interaction.response.defer()
     stock_market = get_stock_market()
     
     if initialize:
@@ -685,7 +686,7 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
             title="🚀 Initializing Stock Market System",
             description="Setting up the Virtual Congress Stock Market...",
             color=0xffaa00,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         embed.add_field(name="📊 Progress", value="⏳ Starting initialization...", inline=False)
@@ -716,6 +717,30 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
             except Exception as e:
                 print(f"⚠️ Economic integration failed: {e}")
                 embed.set_field_at(0, name="📊 Progress", value="⚠️ Using default parameters (economic system unavailable)", inline=False)
+                await initial_msg.edit(embed=embed)
+                await asyncio.sleep(1)
+            
+            # Phase 1.5: AI Market Analysis (Dynamic Parameter Calculation)
+            embed.set_field_at(0, name="📊 Progress", value="🧠 Running AI market analysis from economic data...", inline=False)
+            embed.set_field_at(1, name="🎯 Phase", value="AI Analysis", inline=True)
+            await initial_msg.edit(embed=embed)
+            
+            try:
+                # Run AI analysis to set market parameters from real economic data
+                analysis_result = await stock_market.get_daily_market_analysis()
+                
+                # Update market parameters with AI-calculated values
+                if "market_params" in analysis_result:
+                    stock_market.market_params.update(analysis_result["market_params"])
+                    print(f"✅ AI analysis complete - parameters updated from economic data")
+                
+                embed.set_field_at(0, name="📊 Progress", value="✅ AI analysis complete - parameters set from economic data", inline=False)
+                await initial_msg.edit(embed=embed)
+                await asyncio.sleep(1)
+                
+            except Exception as e:
+                print(f"⚠️ AI analysis failed: {e}")
+                embed.set_field_at(0, name="📊 Progress", value="⚠️ AI analysis failed - using calculated base parameters", inline=False)
                 await initial_msg.edit(embed=embed)
                 await asyncio.sleep(1)
             
@@ -751,7 +776,7 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
                 title="✅ Stock Market Initialization Complete",
                 description="Virtual Congress Stock Market is now operational",
                 color=0x00ff88,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             # Market summary
@@ -785,6 +810,7 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
             embed.set_footer(text="Use /stocks commands to interact with the market")
             
             await initial_msg.edit(embed=embed)
+            return  # Exit here to prevent double scheduler creation
             
         except Exception as e:
             # Error handling
@@ -792,23 +818,27 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
                 title="❌ Initialization Failed",
                 description=f"Error during stock market setup: {str(e)}",
                 color=0xff4444,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             await initial_msg.edit(embed=error_embed)
+            return  # Exit on error to prevent double scheduler creation
             
     else:
         # Simple start without full initialization
         try:
-            if not stock_scheduler:
+            if not is_scheduler_running():
                 from stock_market import StockMarketScheduler
                 stock_scheduler = StockMarketScheduler(stock_market)
                 await stock_scheduler.start_scheduler()
+                print("✅ Trading scheduler started")
+            else:
+                print("ℹ️ Trading scheduler already active")
                 
             embed = discord.Embed(
                 title="✅ Stock Market Started",
                 description="Auto-updates and trading scheduler are now active",
                 color=0x00ff88,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             # Status info
@@ -826,6 +856,82 @@ async def start_stock_market(interaction: discord.Interaction, initialize: Optio
         except Exception as e:
             await interaction.followup.send(f"❌ Failed to start stock market: {str(e)}")
 
+@app_commands.command(name="stocks_status", description="Check stock market scheduler status")
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to check scheduler status")
+async def stocks_status(interaction: discord.Interaction):
+    """Check the status of the stock market scheduler"""
+    await interaction.response.defer()
+    
+    try:
+        stock_market = get_stock_market()
+        is_running = is_scheduler_running()
+        
+        if is_running:
+            status_color = 0x00ff88  # Green
+            status_title = "✅ Stock Market Scheduler Active"
+            status_desc = "Hourly updates and daily analysis are running"
+            
+            # Get task details
+            task_info = ""
+            if stock_scheduler:
+                if hasattr(stock_scheduler, 'hourly_update_task') and stock_scheduler.hourly_update_task:
+                    task_status = "✅ Running" if not stock_scheduler.hourly_update_task.done() else "❌ Stopped"
+                    task_info += f"**Hourly Updates**: {task_status}\n"
+                
+                if hasattr(stock_scheduler, 'daily_prep_task') and stock_scheduler.daily_prep_task:
+                    task_status = "✅ Running" if not stock_scheduler.daily_prep_task.done() else "❌ Stopped"
+                    task_info += f"**Daily Analysis**: {task_status}\n"
+                    
+                # Get next update time
+                et_now = stock_scheduler.get_et_now()
+                minutes_per_update = stock_market.price_update_rate_minutes
+                current_minutes = et_now.hour * 60 + et_now.minute
+                next_update_minutes = ((current_minutes // minutes_per_update) + 1) * minutes_per_update
+                next_update_hour = next_update_minutes // 60
+                next_update_minute = next_update_minutes % 60
+                
+                if next_update_hour >= 24:
+                    from datetime import timedelta
+                    next_update = (et_now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+                else:
+                    next_update = et_now.replace(hour=next_update_hour, minute=next_update_minute, second=0, microsecond=0)
+                
+                task_info += f"**Next Update**: {next_update.strftime('%I:%M %p ET')}\n"
+                task_info += f"**Update Interval**: {minutes_per_update} minutes"
+        else:
+            status_color = 0xff6b6b  # Red
+            status_title = "⏹️ Stock Market Scheduler Stopped"
+            status_desc = "Hourly updates are not running"
+            task_info = "No active scheduler tasks found"
+        
+        embed = discord.Embed(
+            title=status_title,
+            description=status_desc,
+            color=status_color,
+            timestamp=datetime.now(timezone.utc)
+        )
+        
+        embed.add_field(name="📊 Task Status", value=task_info, inline=False)
+        
+        # Market info
+        market_info = f"""
+**Market Status**: {'🟢 Open' if stock_market.is_trading_day else '🔴 Closed'}
+**Trading Day**: {stock_market.current_trading_day or 'Not set'}
+**Last Analysis**: {stock_market.last_market_open_time or 'Not available'}
+"""
+        embed.add_field(name="🏪 Market Info", value=market_info.strip(), inline=False)
+        
+        if is_running:
+            embed.set_footer(text="Scheduler is healthy and running")
+        else:
+            embed.set_footer(text="Use /start to enable scheduler")
+        
+        await interaction.followup.send(embed=embed)
+        
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error checking scheduler status: {str(e)}")
+
 @app_commands.command(name="stop", description="Stop stock market auto-updates")
 @has_any_role(Roles.ADMIN)
 @handle_errors("Failed to stop stock market")
@@ -836,50 +942,42 @@ async def stop_stock_market(interaction: discord.Interaction):
     global stock_scheduler
     try:
         
-        if stock_scheduler:
-            # Cancel the tasks
-            if hasattr(stock_scheduler, 'daily_prep_task') and stock_scheduler.daily_prep_task:
-                stock_scheduler.daily_prep_task.cancel()
-                stock_scheduler.daily_prep_task = None
-                
-            if hasattr(stock_scheduler, 'hourly_update_task') and stock_scheduler.hourly_update_task:
-                stock_scheduler.hourly_update_task.cancel()
-                stock_scheduler.hourly_update_task = None
-            
-            # Set market as closed
-            stock_market = get_stock_market()
-            stock_market.is_trading_day = False
-            stock_market.save_market_data()
-            
+        # Stop scheduler properly using helper function
+        scheduler_stopped = stop_scheduler()
+        
+        # Set market as closed
+        stock_market = get_stock_market()
+        stock_market.is_trading_day = False
+        stock_market.save_market_data()
+        
+        # Create response embed
+        if scheduler_stopped:
             embed = discord.Embed(
                 title="⏹️ Stock Market Stopped",
-                description="Auto-updates and trading scheduler have been paused",
+                description="Auto-updates and trading scheduler have been stopped and cleaned up",
                 color=0xff6b6b,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
+            )
+        else:
+            embed = discord.Embed(
+                title="⚠️ Stock Market Stop Warning",
+                description="Market closed, but no active scheduler was found to stop",
+                color=0xffa500,
+                timestamp=datetime.now(timezone.utc)
             )
             
-            status_text = f"""
+        # Add status information to the embed
+        status_text = f"""
 **Market Status**: 🔴 CLOSED
 **Auto-Updates**: ❌ Disabled
 **Scheduled Tasks**: ⏹️ Paused
 **Manual Commands**: ✅ Still available
 """
-            embed.add_field(name="📊 Current Status", value=status_text.strip(), inline=False)
-            embed.add_field(name="ℹ️ Note", value="Market data and stocks are preserved. Use `/start` to resume operations.", inline=False)
-            embed.set_footer(text="Use /start to resume auto-updates")
-            
-            await interaction.followup.send(embed=embed)
-            
-        else:
-            embed = discord.Embed(
-                title="ℹ️ Stock Market Not Running",
-                description="Auto-updates are already stopped",
-                color=0xffaa00,
-                timestamp=datetime.utcnow()
-            )
-            embed.add_field(name="💡 Tip", value="Use `/start` to enable auto-updates", inline=False)
-            await interaction.followup.send(embed=embed)
-            
+        embed.add_field(name="📊 Current Status", value=status_text.strip(), inline=False)
+        embed.add_field(name="ℹ️ Note", value="Market data and stocks are preserved. Use `/start` to resume operations.", inline=False)
+        embed.set_footer(text="Use /start to resume auto-updates")
+        
+        await interaction.followup.send(embed=embed)
     except Exception as e:
         await interaction.followup.send(f"❌ Error stopping stock market: {str(e)}")
 
@@ -898,7 +996,7 @@ async def stocks_list(interaction: discord.Interaction):
         title="📈 Available Stocks",
         description="All stocks traded on the Virtual Congress Market",
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     total_stocks = 0
@@ -953,7 +1051,7 @@ async def stocks_price(interaction: discord.Interaction, symbol: str):
             title="❌ Stock Not Found",
             description=f"'{symbol}' is not available for trading",
             color=0xff4444,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         embed.add_field(
             name="💡 Available Symbols",
@@ -970,10 +1068,15 @@ async def stocks_price(interaction: discord.Interaction, symbol: str):
         title=f"💰 {target_stock['symbol']} Stock Price",
         description=f"**{target_stock['name']}**",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
-    embed.add_field(name="Current Price", value=f"${target_stock['price']:.2f}", inline=True)
+    # Get current price using on-demand calculation
+    current_price = stock_market.get_stock_price(symbol)
+    if current_price is None:
+        current_price = target_stock['price']  # Fallback to stored price
+    
+    embed.add_field(name="Current Price", value=f"${current_price:.2f}", inline=True)
     embed.add_field(name="Sector", value=f"{emoji} {target_category}", inline=True)
     embed.add_field(name="Industry", value=target_stock['sector'].replace('_', ' ').title(), inline=True)
     
@@ -996,7 +1099,7 @@ async def stocks_categories(interaction: discord.Interaction):
         title="📊 Stock Market Categories",
         description="Economic sectors and their current market directions",
         color=0x0099ff,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     # Market overview
@@ -1055,43 +1158,58 @@ async def stocks_history_48h(interaction: discord.Interaction, symbol: str):
         await interaction.followup.send(f"❌ Stock '{symbol}' not found")
         return
     
-    # Get 48-hour historical data
-    historical_data = stock_market.get_historical_data(days_back=2)
-    
-    if not historical_data:
+    # Generate 48-hour price history using on-demand calculation
+    try:
+        # Generate chart using on-demand calculation
+        chart_bytes = stock_market.generate_stock_chart_on_demand(symbol, hours_back=48)
+        
+        # Calculate prices for statistics
+        current_time = datetime.now(timezone.utc)
+        prices = []
+        
+        # Calculate prices at regular intervals for statistics
+        interval_minutes = stock_market.price_update_rate_minutes
+        
+        for i in range(0, 48 * 60, interval_minutes):
+            time_offset = timedelta(minutes=i)
+            price_time = current_time - timedelta(hours=48) + time_offset
+            try:
+                price = stock_market.calculate_price_at_time(symbol, price_time)
+                prices.append(price)
+            except Exception as e:
+                print(f"Error calculating price: {e}")
+                continue
+        
+        if len(prices) < 2:
+            # Fallback to historical data if available
+            historical_data = stock_market.get_historical_data(days_back=2)
+            if historical_data:
+                prices = []
+                for entry in historical_data:
+                    if 'data' in entry and 'individual_stocks' in entry['data']:
+                        if symbol in entry['data']['individual_stocks']:
+                            prices.append(entry['data']['individual_stocks'][symbol])
+        
+        if len(prices) < 2:
+            embed = discord.Embed(
+                title="📊 Insufficient Data",
+                description=f"Not enough data to generate 48-hour history for {symbol}",
+                color=0xffaa00,
+                timestamp=datetime.now(timezone.utc)
+            )
+            embed.add_field(name="💡 Note", value="Price history requires market to be initialized", inline=False)
+            await interaction.followup.send(embed=embed)
+            return
+        
+        # Create history embed
         embed = discord.Embed(
-            title="📊 No Historical Data",
-            description=f"No 48-hour history available for {symbol}",
-            color=0xffaa00,
-            timestamp=datetime.utcnow()
+            title=f"📊 {symbol} - 48 Hour Price History",
+            description=f"Prices calculated every {stock_market.price_update_rate_minutes} minute{'s' if stock_market.price_update_rate_minutes != 1 else ''}",
+            color=0x0099ff,
+            timestamp=datetime.now(timezone.utc)
         )
-        embed.add_field(name="💡 Note", value="Historical data will be available after the market has been running for some time", inline=False)
-        await interaction.followup.send(embed=embed)
-        return
-    
-    # Extract prices for the symbol
-    prices = []
-    timestamps = []
-    
-    for entry in historical_data:
-        if 'data' in entry and 'individual_stocks' in entry['data']:
-            if symbol in entry['data']['individual_stocks']:
-                prices.append(entry['data']['individual_stocks'][symbol])
-                timestamps.append(entry['timestamp'])
-    
-    if not prices:
-        await interaction.followup.send(f"❌ No 48-hour data found for {symbol}")
-        return
-    
-    # Create history embed
-    embed = discord.Embed(
-        title=f"📊 {symbol} - 48 Hour Price History",
-        description=f"{len(prices)} data points over {len(historical_data)} periods",
-        color=0x0099ff,
-        timestamp=datetime.utcnow()
-    )
-    
-    if len(prices) >= 2:
+        
+        # Calculate statistics
         current_price = prices[-1]
         start_price = prices[0]
         change = current_price - start_price
@@ -1109,18 +1227,26 @@ async def stocks_history_48h(interaction: discord.Interaction, symbol: str):
 """
         embed.add_field(name="📈 Statistics", value=stats_text.strip(), inline=True)
         
-        # Generate chart if possible
-        try:
-            chart_bytes = stock_market.generate_stock_chart(symbol, prices)
-            if chart_bytes:
-                chart_file = discord.File(io.BytesIO(chart_bytes), filename=f"{symbol}_48h_chart.png")
-                embed.set_image(url=f"attachment://{symbol}_48h_chart.png")
-                await interaction.followup.send(embed=embed, file=chart_file)
-                return
-        except Exception as e:
-            print(f"Chart generation failed: {e}")
-    
-    await interaction.followup.send(embed=embed)
+        # Add market parameters info
+        params = stock_market.market_params
+        market_text = f"""
+**Trend**: {params['trend_direction']:+.2f}
+**Volatility**: {params['volatility']:.2f}
+**Update Rate**: {stock_market.price_update_rate_minutes}min
+"""
+        embed.add_field(name="🎯 Market Parameters", value=market_text.strip(), inline=True)
+        
+        # Attach chart if generated
+        if chart_bytes:
+            chart_file = discord.File(io.BytesIO(chart_bytes), filename=f"{symbol}_48h_chart.png")
+            embed.set_image(url=f"attachment://{symbol}_48h_chart.png")
+            await interaction.followup.send(embed=embed, file=chart_file)
+        else:
+            await interaction.followup.send(embed=embed)
+            
+    except Exception as e:
+        print(f"Error generating 48h history: {e}")
+        await interaction.followup.send(f"❌ Error generating price history: {e}")
 
 # Admin Commands
 
@@ -1156,7 +1282,7 @@ async def stocks_set_market(interaction: discord.Interaction,
         title="✅ Market Direction Updated",
         description=f"{emoji} {category} sector direction set to {direction_emoji} {direction.title()}",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="Previous Direction", value=old_direction.title(), inline=True)
@@ -1171,72 +1297,53 @@ async def stocks_set_market(interaction: discord.Interaction,
     
     await interaction.followup.send(embed=embed)
 
-@app_commands.command(name="stocks_force_update", description="Force update all stock prices (Admin)")
+@app_commands.command(name="stocks_force_update", description="Force update all stock prices using proper calculation (Admin)")
 @has_any_role(Roles.ADMIN)
 @handle_errors("Failed to force update")
 async def stocks_force_update(interaction: discord.Interaction):
-    """Force an immediate update of all stock prices"""
+    """Force an immediate controlled market update using proper pricing system"""
     await interaction.response.defer()
     
     stock_market = get_stock_market()
     
-    # Simulate price movements
-    updated_stocks = []
-    
-    for cat_name, cat_data in stock_market.categories.items():
-        for stock in cat_data['stocks']:
-            old_price = stock['price']
-            
-            # Apply random movement based on market parameters
-            volatility = stock_market.market_params['volatility']
-            trend = stock_market.market_params['trend_direction']
-            
-            # Random price change between -10% to +10%, influenced by trend and volatility
-            max_change = volatility * 0.1  # Max 10% change at max volatility
-            random_factor = (random.random() - 0.5) * 2  # -1 to 1
-            trend_factor = trend * 0.05  # Up to 5% trend influence
-            
-            price_change_pct = (random_factor * max_change) + trend_factor
-            new_price = old_price * (1 + price_change_pct)
-            new_price = max(0.01, new_price)  # Ensure price stays positive
-            
-            stock['price'] = round(new_price, 2)
-            
-            updated_stocks.append({
-                'symbol': stock['symbol'],
-                'old_price': old_price,
-                'new_price': new_price,
-                'change_pct': price_change_pct * 100
-            })
-    
-    # Save updated data
-    stock_market.save_market_data()
+    # Use the proper dynamic market update system
+    update_summary = await stock_market.trigger_dynamic_update(
+        reason="Admin force update",
+        send_discord_notification=False
+    )
     
     # Create response embed
     embed = discord.Embed(
-        title="⚡ Force Price Update Complete",
-        description=f"Updated {len(updated_stocks)} stock prices",
+        title="⚡ Market Update Complete",
+        description=f"Updated {update_summary['stocks_updated']} stocks using proper economic calculations",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
-    # Show biggest movers
-    biggest_movers = sorted(updated_stocks, key=lambda x: abs(x['change_pct']), reverse=True)[:6]
-    movers_text = ""
-    for stock in biggest_movers:
-        direction = "📈" if stock['change_pct'] > 0 else "📉"
-        movers_text += f"{direction} **{stock['symbol']}**: ${stock['new_price']:.2f} ({stock['change_pct']:+.1f}%)\n"
+    # Show current market status
+    category_prices = stock_market.calculate_category_prices()
+    etf_text = ""
+    for cat_name, price in category_prices.items():
+        emoji = "⛽" if cat_name == "ENERGY" else "🎬" if cat_name == "ENTERTAINMENT" else "🏦" if cat_name == "FINANCE" else "🏥" if cat_name == "HEALTH" else "🏭" if cat_name == "MANUFACTURING" else "🛒" if cat_name == "RETAIL" else "💻" if cat_name == "TECH" else "✈️"
+        etf_text += f"{emoji} **{cat_name}**: ${price:.2f}\n"
     
-    embed.add_field(name="🏃 Biggest Movers", value=movers_text.strip(), inline=False)
+    embed.add_field(name="📊 Current Sector ETFs", value=etf_text.strip(), inline=True)
     
-    # Market parameters used
+    # Market parameters being used
     params = stock_market.market_params
     params_text = f"""
-**Trend**: {params['trend_direction']:+.2f}
-**Volatility**: {params['volatility']:.2f}
-**Sentiment**: {params['market_sentiment']:.2f}
+**Trend**: {params['trend_direction']:+.2f} {'📈' if params['trend_direction'] > 0 else '📉' if params['trend_direction'] < 0 else '➡️'}
+**Volatility**: {params['volatility']:.2f} {'🌪️' if params['volatility'] > 0.7 else '🌊'}
+**Sentiment**: {params['market_sentiment']:.2f} {'😄' if params['market_sentiment'] > 0.7 else '😐' if params['market_sentiment'] > 0.4 else '😟'}
 """
-    embed.add_field(name="📊 Applied Parameters", value=params_text.strip(), inline=True)
+    embed.add_field(name="📈 Economic Parameters", value=params_text.strip(), inline=True)
+    
+    # Show that this uses proper calculations
+    embed.add_field(
+        name="✅ System Used", 
+        value="Economic data → Market parameters → On-demand pricing with Perlin noise", 
+        inline=False
+    )
     
     await interaction.followup.send(embed=embed)
 
@@ -1252,7 +1359,7 @@ async def stocks_reset(interaction: discord.Interaction):
         title="⚠️ Reset Stock Market",
         description="This will reset ALL stock prices to defaults and clear price history",
         color=0xffaa00,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(
@@ -1278,19 +1385,78 @@ async def stocks_reset(interaction: discord.Interaction):
     for cat_data in stock_market.categories.values():
         cat_data['market_direction'] = 'normal'
     
-    # Reset market parameters to reflect current economic conditions (high inflation)
-    stock_market.market_params = {
-        "trend_direction": -0.25,    # Slightly bearish due to inflation concerns
-        "volatility": 0.65,          # High volatility from rate uncertainty 
-        "momentum": 0.35,            # Weak momentum amid economic headwinds
-        "market_sentiment": 0.35,    # Cautious sentiment due to inflation/rates
-        "long_term_outlook": 0.40    # Pessimistic outlook with inflation above target
+    # CRITICAL: Reset stock prices to their default values from code
+    default_stock_prices = {
+        # Energy sector
+        "XOM": 129.05,
+        "CVX": 185.75,
+        "COP": 153.11,
+        # Entertainment sector
+        "NFLX": 564.99,
+        "DIS": 91.09,
+        "EA": 290.79,
+        # Finance sector
+        "JPM": 103.97,
+        "BAC": 36.03,
+        "V": 152.31,
+        "GS": 266.66,
+        # Health sector
+        "JNJ": 105.02,
+        "UNH": 216.74,
+        "PFE": 43.35,
+        # Manufacturing sector
+        "CAT": 136.07,
+        "GE": 166.86,
+        "LMT": 376.35,
+        # Retail sector
+        "WMT": 68.88,
+        "COST": 331.80,
+        "HD": 139.25,
+        # Tech sector
+        "AAPL": 193.54,
+        "MSFT": 468.95,
+        "GOOGL": 2782.18,
+        "NVDA": 680.83,
+        # Transport sector
+        "BA": 262.71
     }
+    
+    # Reset each stock to its default price
+    stocks_reset = 0
+    for _, cat_data in stock_market.categories.items():
+        for stock in cat_data["stocks"]:
+            symbol = stock["symbol"]
+            if symbol in default_stock_prices:
+                old_price = stock["price"]
+                stock["price"] = default_stock_prices[symbol]
+                
+                # Reset AI pricing attributes
+                stock["daily_range_low"] = stock["price"] * 0.97
+                stock["daily_range_high"] = stock["price"] * 1.03
+                stock["sector_factor"] = 1.0
+                
+                stocks_reset += 1
+                print(f"🔄 {symbol}: ${old_price:.2f} → ${stock['price']:.2f}")
+    
+    # Reset market parameters to economic data calculation
+    try:
+        stock_market.market_params = stock_market._calculate_market_params_from_economic_data()
+        print("📊 Market parameters recalculated from economic data")
+    except Exception as e:
+        print(f"⚠️ Could not recalculate from economic data: {e}")
+        # Fallback to reasonable defaults
+        stock_market.market_params = {
+            "trend_direction": -0.15,    # Slightly bearish but not extreme
+            "volatility": 0.45,          # Moderate volatility
+            "momentum": 0.50,            # Neutral momentum
+            "market_sentiment": 0.45,    # Cautious but not panicked
+            "long_term_outlook": 0.50    # Neutral outlook
+        }
     
     # Clear trading state
     stock_market.is_trading_day = False
     stock_market.current_trading_day = None
-    stock_market.precomputed_prices = {}
+    stock_market.daily_ranges = {}
     
     # Save changes
     stock_market.save_market_data()
@@ -1312,21 +1478,29 @@ async def stocks_reset(interaction: discord.Interaction):
         title="✅ Stock Market Reset Complete",
         description="All stocks and market data have been reset to defaults",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     total_stocks = sum(len(cat['stocks']) for cat in stock_market.categories.values())
     reset_embed.add_field(
         name="📊 Reset Summary",
-        value=f"• {total_stocks} stocks reset to default prices\n• {len(stock_market.categories)} categories normalized\n• Market parameters reset to current economic conditions\n• Trading history cleared",
+        value=f"• {total_stocks} stocks reset to realistic default prices\n• {len(stock_market.categories)} categories normalized\n• Market parameters recalculated from economic data\n• Trading history and precomputed prices cleared\n• All AI pricing attributes reset",
         inline=False
     )
     
     params = stock_market.market_params
+    
+    # Dynamic descriptions based on actual values
+    trend_desc = "Bullish" if params['trend_direction'] > 0.1 else "Bearish" if params['trend_direction'] < -0.1 else "Neutral"
+    vol_desc = "Very High" if params['volatility'] > 0.7 else "High" if params['volatility'] > 0.5 else "Moderate" if params['volatility'] > 0.3 else "Low"
+    sentiment_desc = "Optimistic" if params['market_sentiment'] > 0.7 else "Cautious" if params['market_sentiment'] > 0.4 else "Pessimistic"
+    
     params_text = f"""
-**Trend**: {params['trend_direction']:+.2f} (Bearish - Inflation concerns)
-**Volatility**: {params['volatility']:.2f} (High - Rate uncertainty)
-**Sentiment**: {params['market_sentiment']:.2f} (Cautious - Economic headwinds)
+**Trend**: {params['trend_direction']:+.2f} ({trend_desc})
+**Volatility**: {params['volatility']:.2f} ({vol_desc})
+**Sentiment**: {params['market_sentiment']:.2f} ({sentiment_desc})
+**Momentum**: {params['momentum']:.2f}
+**Outlook**: {params['long_term_outlook']:.2f}
 """
     reset_embed.add_field(name="🎯 New Market Parameters", value=params_text.strip(), inline=False)
     
@@ -1349,7 +1523,7 @@ async def stocks_force_init(interaction: discord.Interaction):
         title="✅ Stock Market Force Initialized",
         description="Market data has been updated to current code structure",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     # Show current structure
@@ -1419,12 +1593,22 @@ async def stocks_sync_econ(interaction: discord.Interaction):
         title="✅ Economic Data Synchronized",
         description="Stock market parameters updated for 8.51% inflation environment",
         color=0x00ff88,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
+    
+    # Get actual inflation rate from economic data if available
+    inflation_rate = 8.51  # Default value
+    try:
+        from economic_utils import get_economic_data
+        inflation_data = get_economic_data("inflation", days_back=1)
+        if inflation_data and len(inflation_data) > 0:
+            inflation_rate = inflation_data[0]['data'].get('rate', 8.51)
+    except:
+        pass
     
     # Show current economic conditions
     econ_summary = f"""
-**Inflation Rate**: 8.51% YoY (High - above 2% target)
+**Inflation Rate**: {inflation_rate:.2f}% YoY (High - above 2% target)
 **Fed Funds Rate**: 4.00% (Restrictive monetary policy)
 **Market Environment**: High Inflation Crisis
 **Economic Growth**: Slowing due to rate hikes
@@ -1453,7 +1637,7 @@ async def stocks_sync_econ(interaction: discord.Interaction):
 """
     embed.add_field(name="🎯 Key Economic Factors", value=factors_text.strip(), inline=False)
     
-    embed.set_footer(text="Parameters reflect June 2025 economic conditions with 8.51% inflation")
+    embed.set_footer(text=f"Parameters reflect current economic conditions with {inflation_rate:.2f}% inflation")
     
     await interaction.followup.send(embed=embed)
 
@@ -1476,7 +1660,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
         title="🔄 Redoing Daily Market Analysis",
         description=f"**Custom Prompt**: {prompt[:200]}{'...' if len(prompt) > 200 else ''}",
         color=0xffaa00,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📊 Process", value="⏳ Starting AI analysis with custom prompt...", inline=False)
@@ -1509,10 +1693,10 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
         baseline_changes = stock_market.recalculate_all_baseline_prices()
         print(f"✅ Updated baseline prices for {len(baseline_changes)} stocks")
         
-        # Generate new trading day data with updated baselines
+        # Reset daily ranges and set new trading day
         trading_day = datetime.now().strftime("%Y-%m-%d")
-        hourly_prices = stock_market.generate_hourly_prices(trading_day)
-        stock_market.precomputed_prices = hourly_prices
+        stock_market.current_trading_day = trading_day
+        stock_market.daily_ranges = {}
         
         # Update current prices to first hour if trading
         if stock_market.is_trading_day:
@@ -1530,7 +1714,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
             title="✅ Daily Market Analysis Complete",
             description="Analysis redone with custom prompt and consistency checks",
             color=0x00ff88,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         # Show updated parameters
@@ -1567,7 +1751,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
             title="❌ Analysis Failed",
             description=f"Failed to redo daily analysis: {str(e)}",
             color=0xff4444,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         error_embed.add_field(name="🔄 Recovery", value="Previous analysis and market state preserved", inline=False)
@@ -1589,7 +1773,7 @@ async def stocks_recalc_baselines(interaction: discord.Interaction):
         title="🔄 Recalculating Stock Baselines",
         description="Recalculating all stock prices based on current economic parameters",
         color=0xffaa00,
-        timestamp=datetime.utcnow()
+        timestamp=datetime.now(timezone.utc)
     )
     
     embed.add_field(name="📊 Process", value="⏳ Analyzing current economic data...", inline=False)
@@ -1616,7 +1800,7 @@ async def stocks_recalc_baselines(interaction: discord.Interaction):
             title="✅ Baseline Recalculation Complete",
             description="All stock prices recalculated from current economic parameters",
             color=0x00ff88,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         # Show market parameters used
@@ -1660,9 +1844,90 @@ async def stocks_recalc_baselines(interaction: discord.Interaction):
             title="❌ Baseline Recalculation Failed",
             description=f"Error: {str(e)}",
             color=0xff4444,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         await initial_msg.edit(embed=error_embed)
+
+@app_commands.command(name="stocks_set_update_rate", description="Set how often stock prices update (Admin)")
+@app_commands.describe(minutes="Time in minutes between price updates (1-1440)")
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to set update rate")
+async def stocks_set_update_rate(interaction: discord.Interaction, minutes: int):
+    """Set the price update rate in minutes"""
+    await interaction.response.defer()
+    
+    stock_market = get_stock_market()
+    
+    # Validate input
+    if minutes < 1 or minutes > 1440:
+        await interaction.followup.send("❌ Update rate must be between 1 and 1440 minutes (24 hours)")
+        return
+    
+    # Store old rate for comparison
+    old_rate = stock_market.price_update_rate_minutes
+    
+    # Set new rate
+    success = stock_market.set_price_update_rate(minutes)
+    
+    if not success:
+        await interaction.followup.send("❌ Failed to update price rate")
+        return
+    
+    # Create success embed
+    embed = discord.Embed(
+        title="✅ Price Update Rate Changed",
+        description=f"Stock prices will now update every {minutes} minute{'s' if minutes != 1 else ''}",
+        color=0x00ff88,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    # Add comparison info
+    embed.add_field(
+        name="🕰️ Update Schedule",
+        value=f"**Previous**: Every {old_rate} minute{'s' if old_rate != 1 else ''}\n**New**: Every {minutes} minute{'s' if minutes != 1 else ''}",
+        inline=True
+    )
+    
+    # Add next update time
+    if stock_scheduler:
+        et_now = stock_scheduler.get_et_now()
+        current_minutes = et_now.hour * 60 + et_now.minute
+        next_update_minutes = ((current_minutes // minutes) + 1) * minutes
+        next_update_hour = next_update_minutes // 60
+        next_update_minute = next_update_minutes % 60
+        
+        if next_update_hour >= 24:
+            next_update_time = "12:00 AM ET (tomorrow)"
+        else:
+            next_update_time = f"{next_update_hour % 12 or 12}:{next_update_minute:02d} {'PM' if next_update_hour >= 12 else 'AM'} ET"
+        
+        embed.add_field(
+            name="⏰ Next Update",
+            value=next_update_time,
+            inline=True
+        )
+    
+    # Add recommendations
+    if minutes == 1:
+        recommendation = "⚠️ Very frequent updates - high server load"
+    elif minutes <= 5:
+        recommendation = "ℹ️ Frequent updates - good for active trading"
+    elif minutes <= 30:
+        recommendation = "✅ Balanced - good for most scenarios"
+    elif minutes <= 60:
+        recommendation = "👍 Standard hourly updates"
+    else:
+        recommendation = "🕰️ Infrequent updates - prices change slowly"
+    
+    embed.add_field(
+        name="💡 Recommendation",
+        value=recommendation,
+        inline=False
+    )
+    
+    embed.set_footer(text="Prices calculated on-demand using Perlin noise")
+    
+    await interaction.followup.send(embed=embed)
 
 @app_commands.command(name="stocks_force_baseline_update", description="Force immediate stock price update from economic parameters (Admin)")
 @has_any_role(Roles.ADMIN)
@@ -1694,7 +1959,7 @@ async def stocks_force_baseline_update(interaction: discord.Interaction):
             title="⚡ Forced Baseline Update Complete",
             description="Market parameters and stock prices updated from current economic data",
             color=0x00ff88,
-            timestamp=datetime.utcnow()
+            timestamp=datetime.now(timezone.utc)
         )
         
         # Show updated parameters
@@ -1758,6 +2023,24 @@ async def stocks_buy(interaction: discord.Interaction, symbol: str, quantity: in
         stock_market = get_stock_market()
         trading_system = get_stock_trading_system()
         
+        # Check if trading is restricted to admins only
+        if stock_market.admin_only_trading:
+            user_roles = [role.name for role in interaction.user.roles] if hasattr(interaction.user, 'roles') else []
+            if Roles.ADMIN not in user_roles:
+                embed = discord.Embed(
+                    title="🔒 Trading Restricted",
+                    description="Trading is currently restricted to administrators only",
+                    color=0xff6b6b,
+                    timestamp=datetime.now(timezone.utc)
+                )
+                embed.add_field(
+                    name="ℹ️ Information",
+                    value="• Trading has been temporarily restricted\n• You can still view prices and your portfolio\n• Contact an administrator for more information",
+                    inline=False
+                )
+                await interaction.followup.send(embed=embed)
+                return
+        
         success, message = await trading_system.buy_stock(
             interaction.user.id, 
             symbol, 
@@ -1811,6 +2094,24 @@ async def stocks_sell(interaction: discord.Interaction, symbol: str, quantity: i
     try:
         stock_market = get_stock_market()
         trading_system = get_stock_trading_system()
+        
+        # Check if trading is restricted to admins only
+        if stock_market.admin_only_trading:
+            user_roles = [role.name for role in interaction.user.roles] if hasattr(interaction.user, 'roles') else []
+            if Roles.ADMIN not in user_roles:
+                embed = discord.Embed(
+                    title="🔒 Trading Restricted",
+                    description="Trading is currently restricted to administrators only",
+                    color=0xff6b6b,
+                    timestamp=datetime.now(timezone.utc)
+                )
+                embed.add_field(
+                    name="ℹ️ Information",
+                    value="• Trading has been temporarily restricted\n• You can still view prices and your portfolio\n• Contact an administrator for more information",
+                    inline=False
+                )
+                await interaction.followup.send(embed=embed)
+                return
         
         success, message = await trading_system.sell_stock(
             interaction.user.id, 
@@ -1990,8 +2291,9 @@ async def stocks_trigger_hourly_command(interaction: discord.Interaction):
         import stock_market
         sm = stock_market.get_stock_market()
         
-        if not sm.precomputed_prices:
-            await interaction.followup.send("❌ No precomputed prices available. Use `/stocks_force_init` first.")
+        # Check if market is initialized (has market parameters)
+        if not sm.market_params or sm.market_params.get("trend_direction") is None:
+            await interaction.followup.send("❌ Stock market not initialized. Use `/stocks_force_init` first.")
             return
         
         # Create scheduler instance to use its methods
@@ -2003,10 +2305,300 @@ async def stocks_trigger_hourly_command(interaction: discord.Interaction):
         
         await interaction.followup.send(f"🔄 Triggering hourly update for hour {hour_index} ({et_now.strftime('%I:%M %p ET')})...")
         
-        # Manually run the hourly update
-        await scheduler.update_hourly_prices()
+        # Manually run the on-demand price update
+        await scheduler.update_prices_on_demand()
         
         await interaction.edit_original_response(content=f"✅ Hourly market update triggered successfully! Check the bot channel for the posted update.")
         
     except Exception as e:
         await interaction.followup.send(f"❌ Error triggering hourly update: {str(e)}")
+
+@app_commands.command(name="stocks_toggle_admin_trading", description="Toggle trading to admin-only mode (Admin)")
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to toggle admin-only trading")
+async def stocks_toggle_admin_trading(interaction: discord.Interaction):
+    """Toggle trading restriction to admin-only mode"""
+    await interaction.response.defer()
+    
+    stock_market = get_stock_market()
+    
+    # Toggle the admin-only trading flag
+    stock_market.admin_only_trading = not stock_market.admin_only_trading
+    stock_market.save_market_data()
+    
+    # Create response embed
+    embed = discord.Embed(
+        title="🔒 Trading Restrictions Updated",
+        description=f"Trading is now {'**Admin-only**' if stock_market.admin_only_trading else '**Open to all users**'}",
+        color=0xff6b6b if stock_market.admin_only_trading else 0x00ff88,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    if stock_market.admin_only_trading:
+        embed.add_field(
+            name="⚠️ Admin-Only Mode Active",
+            value="• Only administrators can buy/sell stocks\n• All users can still view prices and portfolios\n• Market continues to operate normally",
+            inline=False
+        )
+        embed.set_footer(text="Use this command again to re-open trading to all users")
+    else:
+        embed.add_field(
+            name="✅ Open Trading Active",
+            value="• All users can buy/sell stocks\n• Normal trading restrictions apply\n• Maximum 1000 shares per transaction",
+            inline=False
+        )
+        embed.set_footer(text="Use this command again to restrict trading to admins")
+    
+    await interaction.followup.send(embed=embed)
+
+@app_commands.command(name="stocks_clear_history", description="Clear all stock price history (Admin)")
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to clear stock price history")
+async def stocks_clear_history(interaction: discord.Interaction):
+    """Clear all stock price history data"""
+    await interaction.response.defer()
+    
+    stock_market = get_stock_market()
+    
+    # Create confirmation embed
+    embed = discord.Embed(
+        title="⚠️ Clear Stock Price History",
+        description="This will permanently delete all historical stock price data",
+        color=0xffaa00,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    embed.add_field(
+        name="🗑️ What will be deleted:",
+        value="• All price history data\n• Historical charts data\n• Past trading day records",
+        inline=False
+    )
+    
+    embed.add_field(
+        name="✅ What will be preserved:",
+        value="• Current stock prices\n• User portfolios\n• Market parameters\n• Category structures",
+        inline=False
+    )
+    
+    # For now, we'll proceed directly (in production, you'd want a confirmation mechanism)
+    success = stock_market.clear_price_history()
+    
+    if success:
+        # Create success embed
+        result_embed = discord.Embed(
+            title="✅ Stock Price History Cleared",
+            description="All historical stock price data has been deleted",
+            color=0x00ff88,
+            timestamp=datetime.now(timezone.utc)
+        )
+        
+        result_embed.add_field(
+            name="📊 Result",
+            value="• Price history file deleted\n• Charts will rebuild from new data\n• Market continues normal operation",
+            inline=False
+        )
+        
+        result_embed.set_footer(text="Historical data will accumulate again with future trading")
+        
+        await interaction.followup.send(embed=result_embed)
+    else:
+        await interaction.followup.send("❌ Failed to clear stock price history. Check logs for details.")
+
+@app_commands.command(name="stocks_test_stability", description="Test market stability with simulation (Admin)")
+@app_commands.describe(
+    days="Number of days to simulate (1-10)",
+    test_volatility="Optional: Test with specific volatility (0.0-1.0)",
+    stress_test="Whether to include stress test parameters"
+)
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to run stability test")
+async def stocks_test_stability(
+    interaction: discord.Interaction,
+    days: int = 5,
+    test_volatility: Optional[float] = None,
+    stress_test: bool = False
+):
+    """Run market stability simulation to test algorithms"""
+    await interaction.response.defer()
+    
+    # Validate parameters
+    days = max(1, min(10, days))
+    if test_volatility is not None:
+        test_volatility = max(0.0, min(1.0, test_volatility))
+    
+    stock_market = get_stock_market()
+    
+    # Prepare test parameters
+    test_params = None
+    if stress_test:
+        test_params = {
+            "volatility": test_volatility if test_volatility is not None else 0.9,
+            "trend_direction": -0.8,
+            "momentum": 0.2,
+            "market_sentiment": 0.1
+        }
+    elif test_volatility is not None:
+        test_params = {"volatility": test_volatility}
+    
+    # Run simulation
+    results = stock_market.simulate_trading_days(days, test_params)
+    
+    # Create results embed
+    embed = discord.Embed(
+        title="🧪 Market Stability Test Results",
+        color=0x00ff88 if not results["market_broke"] else 0xff4444,
+        timestamp=datetime.now(timezone.utc)
+    )
+    
+    # Test summary
+    status = "✅ PASSED" if not results["market_broke"] else "❌ FAILED"
+    embed.add_field(
+        name="📊 Test Status",
+        value=f"**Status**: {status}\n**Days Simulated**: {results['days_simulated']}\n**Market Broke**: {'Yes' if results['market_broke'] else 'No'}",
+        inline=True
+    )
+    
+    # Parameter summary
+    param_text = ""
+    if test_params:
+        for key, value in test_params.items():
+            param_text += f"**{key.replace('_', ' ').title()}**: {value:.2f}\n"
+    else:
+        param_text = "Default economic parameters used"
+    
+    embed.add_field(
+        name="⚙️ Test Parameters",
+        value=param_text,
+        inline=True
+    )
+    
+    # Daily breakdown
+    daily_text = ""
+    for day_summary in results["daily_summaries"]:
+        day_num = day_summary["day"]
+        max_change = day_summary["max_daily_change"] * 100
+        broke_count = len(day_summary["broke_stocks"])
+        
+        status_icon = "✅" if broke_count == 0 else "⚠️" if broke_count < 3 else "❌"
+        daily_text += f"{status_icon} **Day {day_num}**: {max_change:.1f}% max change, {broke_count} broken\n"
+    
+    embed.add_field(
+        name="📅 Daily Breakdown",
+        value=daily_text if daily_text else "No daily data available",
+        inline=False
+    )
+    
+    # Price range analysis
+    if results["min_prices"] and results["max_prices"]:
+        extreme_stocks = []
+        for symbol in list(results["min_prices"].keys())[:5]:  # Top 5 most volatile
+            min_price = results["min_prices"][symbol]
+            max_price = results["max_prices"][symbol]
+            range_pct = ((max_price - min_price) / min_price) * 100
+            extreme_stocks.append(f"**{symbol}**: ${min_price:.2f}-${max_price:.2f} ({range_pct:.1f}%)")
+        
+        embed.add_field(
+            name="📈 Price Ranges (Top 5)",
+            value="\n".join(extreme_stocks),
+            inline=False
+        )
+    
+    # Recommendations
+    if results["market_broke"]:
+        embed.add_field(
+            name="🔧 Recommendations",
+            value="• Reduce volatility parameters\n• Implement stricter price bounds\n• Review invisible factor calculations\n• Consider AI price range validation",
+            inline=False
+        )
+    else:
+        embed.add_field(
+            name="✅ Market Health",
+            value="• Market algorithms are stable\n• Price movements are realistic\n• No broken stocks detected\n• Ready for production use",
+            inline=False
+        )
+    
+    await interaction.followup.send(embed=embed)
+
+@app_commands.command(name="stocks_daily_init", description="Force daily market initialization (Admin)")
+@has_any_role(Roles.ADMIN)
+@handle_errors("Failed to run daily initialization")
+async def stocks_daily_init(interaction: discord.Interaction):
+    """Force a complete daily market initialization"""
+    await interaction.response.defer()
+    
+    from stock_market import stock_scheduler
+    
+    if not stock_scheduler:
+        await interaction.followup.send("❌ Stock market scheduler not available")
+        return
+    
+    # Run daily initialization
+    success = await stock_scheduler.force_daily_initialization()
+    
+    if success:
+        embed = discord.Embed(
+            title="✅ Daily Market Initialization Complete",
+            description="Market has been freshly initialized with new daily data",
+            color=0x00ff88,
+            timestamp=datetime.now(timezone.utc)
+        )
+        
+        stock_market = get_stock_market()
+        
+        # Show results
+        total_stocks = sum(len(cat['stocks']) for cat in stock_market.categories.values())
+        has_market_params = bool(stock_market.market_params.get("trend_direction") is not None)
+        
+        embed.add_field(
+            name="📊 Initialization Results",
+            value=f"• {total_stocks} stocks initialized\n• On-demand pricing: {'✅ Active' if has_market_params else '❌ Failed'}\n• Trading day: {stock_market.current_trading_day}\n• Market active: {'✅' if stock_market.is_trading_day else '❌'}",
+            inline=False
+        )
+        
+        # Show market parameters
+        params = stock_market.market_params
+        params_text = f"""
+**Trend**: {params['trend_direction']:+.2f}
+**Volatility**: {params['volatility']:.2f}
+**Sentiment**: {params['market_sentiment']:.2f}
+**Momentum**: {params['momentum']:.2f}
+"""
+        embed.add_field(name="📈 Market Parameters", value=params_text.strip(), inline=True)
+        
+        # Sample stock prices using on-demand pricing
+        if has_market_params:
+            # Get 3 sample stocks from different categories
+            sample_symbols = []
+            for cat_name, cat_data in list(stock_market.categories.items())[:3]:
+                if cat_data["stocks"]:
+                    sample_symbols.append(cat_data["stocks"][0]["symbol"])
+            
+            sample_text = ""
+            for symbol in sample_symbols:
+                try:
+                    current_price = stock_market.get_stock_price(symbol)
+                    if current_price:
+                        sample_text += f"**{symbol}**: ${current_price:.2f}\n"
+                except Exception as e:
+                    print(f"Error getting price for {symbol}: {e}")
+            
+            if sample_text:
+                embed.add_field(name="📊 Sample Prices", value=sample_text.strip(), inline=True)
+        
+        embed.set_footer(text="Market is now ready for automated trading")
+        
+    else:
+        embed = discord.Embed(
+            title="❌ Daily Market Initialization Failed",
+            description="Could not initialize market data. Check logs for details.",
+            color=0xff4444,
+            timestamp=datetime.now(timezone.utc)
+        )
+        
+        embed.add_field(
+            name="🔧 Troubleshooting",
+            value="• Check economic data files\n• Verify AI system is operational\n• Review stock market configuration\n• Try `/stocks_reset` if persistent",
+            inline=False
+        )
+    
+    await interaction.followup.send(embed=embed)

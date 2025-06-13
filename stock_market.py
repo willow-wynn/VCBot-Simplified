@@ -35,6 +35,20 @@ class StockMarket:
         self.client = None
         self.stocks_channel_id = BOT_HELPER_CHANNEL  # Default channel
         
+        # Initialize invisible market factors
+        self.invisible_factors = {
+            "institutional_flow": 0.0,
+            "liquidity_factor": 0.7,
+            "news_velocity": 0.5,
+            "sector_rotation": 0.0,
+            "risk_appetite": 0.5
+        }
+        
+        # On-demand pricing configuration
+        self.price_update_rate_minutes = 60  # Default 60 minutes (hourly)
+        self.market_open_time = None  # Will be set when market opens
+        self.daily_ranges = {}  # Store daily price ranges for each stock
+        
         # Initialize stock market structure - Real Economic Sectors
         self.categories = {
             "ENERGY": {
@@ -65,7 +79,8 @@ class StockMarket:
                     {"symbol": "JPM", "name": "JPMorgan Chase & Co.", "price": 103.97, "sector": "banking"},
                     {"symbol": "BAC", "name": "Bank of America", "price": 36.03, "sector": "banking"},
                     {"symbol": "V", "name": "Visa Inc.", "price": 152.31, "sector": "payments"},
-                    {"symbol": "GS", "name": "Goldman Sachs", "price": 266.66, "sector": "investment"}
+                    {"symbol": "GS", "name": "Goldman Sachs", "price": 266.66, "sector": "investment"},
+                    {"symbol": "BRK.B", "name": "Berkshire Hathaway Class B", "price": 296.34, "sector": "holdings"}
                 ]
             },
             "HEALTH": {
@@ -119,14 +134,24 @@ class StockMarket:
             }
         }
         
-        # Market parameters - calculated from economic data
-        self.market_params = self._calculate_market_params_from_economic_data()
+        # Market parameters - will be set by AI analysis only (no defaults)
+        self.market_params = {
+            "trend_direction": 0.0,
+            "volatility": 0.5,
+            "momentum": 0.5,
+            "market_sentiment": 0.5,
+            "long_term_outlook": 0.5
+        }
+        
+        # Initialize stock attributes for AI pricing
+        self._initialize_stock_attributes()
         
         # Trading state (24/7 operation)
         self.is_trading_day = True  # Always trading
         self.current_trading_day = None
-        self.precomputed_prices = {}
+        self.precomputed_prices = {}  # Keep for backward compatibility but won't use
         self.hourly_updates_task = None
+        self.admin_only_trading = False  # Trading restriction flag
         
         # Try to load existing market data after initialization
         self.load_market_data()
@@ -134,6 +159,18 @@ class StockMarket:
         print("📈 Stock Market System initialized")
         print(f"💼 {sum(len(cat['stocks']) for cat in self.categories.values())} individual stocks across {len(self.categories)} sectors")
         print(f"📊 Market parameters calculated from economic data: Trend {self.market_params['trend_direction']:+.2f}, Volatility {self.market_params['volatility']:.2f}")
+    
+    def _initialize_stock_attributes(self) -> None:
+        """Initialize additional stock attributes for AI pricing"""
+        for cat_name, cat_data in self.categories.items():
+            for stock in cat_data["stocks"]:
+                # Set default daily ranges if not present
+                if "daily_range_low" not in stock:
+                    stock["daily_range_low"] = stock["price"] * 0.97
+                if "daily_range_high" not in stock:
+                    stock["daily_range_high"] = stock["price"] * 1.03
+                if "sector_factor" not in stock:
+                    stock["sector_factor"] = 1.0
     
     def _calculate_market_params_from_economic_data(self) -> Dict[str, float]:
         """Calculate market parameters based on current economic data"""
@@ -155,7 +192,7 @@ class StockMarket:
                     with open(inflation_file, 'r') as f:
                         inflation_data = json.load(f)
                     if inflation_data:
-                        latest_inflation = inflation_data[0]['data']
+                        latest_inflation = inflation_data[-1]['data']
                         inflation_rate = latest_inflation.get('rate', inflation_rate)
                         print(f"📊 Using inflation rate: {inflation_rate}%")
                 except Exception as e:
@@ -167,7 +204,7 @@ class StockMarket:
                     with open(sentiment_file, 'r') as f:
                         sentiment_data = json.load(f)
                     if sentiment_data:
-                        latest_sentiment = sentiment_data[0]['data']
+                        latest_sentiment = sentiment_data[-1]['data']
                         market_confidence = latest_sentiment.get('market_confidence', market_confidence)
                         inflation_anxiety = latest_sentiment.get('inflation_anxiety', inflation_anxiety)
                         print(f"📊 Using market confidence: {market_confidence}%, anxiety: {inflation_anxiety}%")
@@ -180,7 +217,7 @@ class StockMarket:
                     with open(gdp_file, 'r') as f:
                         gdp_data = json.load(f)
                     if gdp_data:
-                        latest_gdp = gdp_data[0]['data']
+                        latest_gdp = gdp_data[-1]['data']
                         gdp_change = latest_gdp.get('change_percent', gdp_change)
                         print(f"📊 Using GDP change: {gdp_change}%")
                 except Exception as e:
@@ -192,7 +229,7 @@ class StockMarket:
                     with open(unemployment_file, 'r') as f:
                         unemployment_data = json.load(f)
                     if unemployment_data:
-                        latest_unemployment = unemployment_data[0]['data']
+                        latest_unemployment = unemployment_data[-1]['data']
                         unemployment_rate = latest_unemployment.get('rate', unemployment_rate)
                         print(f"📊 Using unemployment rate: {unemployment_rate}%")
                 except Exception as e:
@@ -238,11 +275,137 @@ class StockMarket:
             print(f"   Trend: {trend_direction:+.3f}, Volatility: {volatility:.3f}, Momentum: {momentum:.3f}")
             print(f"   Sentiment: {market_sentiment:.3f}, Outlook: {long_term_outlook:.3f}")
             
+            # Update stored parameters and save
+            self.market_params = params
+            self.save_market_data()
+            
             return params
             
         except Exception as e:
             print(f"❌ Critical error in economic calculation: {e}")
             raise Exception(f"Cannot calculate market parameters without economic data: {e}")
+    
+    def _calculate_parameter_ranges_from_economic_data(self) -> Dict[str, Dict[str, float]]:
+        """Calculate acceptable parameter ranges based on economic conditions
+        
+        This creates data-driven ranges that AI should respect when setting parameters.
+        The ranges adapt to current economic conditions instead of being hardcoded.
+        """
+        try:
+            # Get current economic indicators
+            economic_data_dir = Path("economic_data")
+            
+            # Read economic indicators with defaults
+            inflation_rate = 2.0
+            gdp_change = 2.0
+            market_confidence = 50.0
+            unemployment_rate = 4.0
+            
+            # Read actual data (same as above function)
+            inflation_file = economic_data_dir / "inflation.json"
+            if inflation_file.exists():
+                with open(inflation_file, 'r') as f:
+                    data = json.load(f)
+                    if data:
+                        inflation_rate = data[0]['data'].get('rate', inflation_rate)
+            
+            gdp_file = economic_data_dir / "gdp.json"
+            if gdp_file.exists():
+                with open(gdp_file, 'r') as f:
+                    data = json.load(f)
+                    if data:
+                        gdp_change = data[0]['data'].get('change_percent', gdp_change)
+            
+            sentiment_file = economic_data_dir / "sentiment.json"
+            if sentiment_file.exists():
+                with open(sentiment_file, 'r') as f:
+                    data = json.load(f)
+                    if data:
+                        market_confidence = data[0]['data'].get('market_confidence', market_confidence)
+            
+            unemployment_file = economic_data_dir / "unemployment.json"
+            if unemployment_file.exists():
+                with open(unemployment_file, 'r') as f:
+                    data = json.load(f)
+                    if data:
+                        unemployment_rate = data[0]['data'].get('rate', unemployment_rate)
+            
+            # Calculate dynamic ranges based on economic conditions
+            ranges = {}
+            
+            # TREND DIRECTION RANGE
+            # GDP determines the center and width of acceptable trend range
+            trend_center = max(-1.0, min(1.0, gdp_change / 5.0))
+            trend_flexibility = 0.3  # Allow ±0.3 flexibility around economic-driven center
+            
+            # In extreme conditions, widen the acceptable range
+            if abs(gdp_change) > 4.0:  # Strong growth or recession
+                trend_flexibility = 0.5
+            
+            ranges["trend_direction"] = {
+                "min": max(-1.0, trend_center - trend_flexibility),
+                "max": min(1.0, trend_center + trend_flexibility)
+            }
+            
+            # VOLATILITY RANGE
+            # Base volatility on inflation deviation and market confidence
+            inflation_deviation = abs(inflation_rate - 2.0)
+            base_volatility = 0.2 + (inflation_deviation / 10.0)  # Higher inflation = higher base volatility
+            
+            # Low confidence also increases volatility floor
+            if market_confidence < 40:
+                base_volatility += 0.2
+            
+            ranges["volatility"] = {
+                "min": max(0.1, base_volatility - 0.2),
+                "max": min(1.0, base_volatility + 0.3)
+            }
+            
+            # MOMENTUM RANGE
+            # Based on GDP trend and employment
+            base_momentum = 0.5  # Neutral
+            
+            if gdp_change > 3.0 and unemployment_rate < 4.0:
+                base_momentum = 0.7  # Strong economy
+            elif gdp_change < -1.0 or unemployment_rate > 6.0:
+                base_momentum = 0.3  # Weak economy
+            
+            ranges["momentum"] = {
+                "min": max(0.1, base_momentum - 0.3),
+                "max": min(1.0, base_momentum + 0.3)
+            }
+            
+            # MARKET SENTIMENT RANGE
+            # Centered around actual confidence data with some flexibility
+            sentiment_center = market_confidence / 100.0
+            
+            ranges["market_sentiment"] = {
+                "min": max(0.1, sentiment_center - 0.2),
+                "max": min(1.0, sentiment_center + 0.2)
+            }
+            
+            # LONG TERM OUTLOOK RANGE
+            # Very narrow range - only small adjustments allowed
+            base_params = self._calculate_market_params_from_economic_data()
+            current_outlook = base_params.get("long_term_outlook", 0.5)
+            
+            ranges["long_term_outlook"] = {
+                "min": max(0.1, current_outlook - 0.02),
+                "max": min(1.0, current_outlook + 0.02)
+            }
+            
+            return ranges
+            
+        except Exception as e:
+            print(f"⚠️ Error calculating parameter ranges: {e}")
+            # Return neutral ranges as fallback
+            return {
+                "trend_direction": {"min": -0.5, "max": 0.5},
+                "volatility": {"min": 0.2, "max": 0.8},
+                "momentum": {"min": 0.2, "max": 0.8},
+                "market_sentiment": {"min": 0.3, "max": 0.7},
+                "long_term_outlook": {"min": 0.48, "max": 0.52}
+            }
         
     def save_market_data(self) -> None:
         """Save current market state to JSON"""
@@ -253,9 +416,13 @@ class StockMarket:
             "trading_state": {
                 "is_trading_day": self.is_trading_day,
                 "current_trading_day": self.current_trading_day,
-                "stocks_channel_id": self.stocks_channel_id
+                "stocks_channel_id": self.stocks_channel_id,
+                "admin_only_trading": self.admin_only_trading,
+                "price_update_rate_minutes": self.price_update_rate_minutes,
+                "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None
             },
-            "precomputed_prices": self.precomputed_prices
+            "precomputed_prices": self.precomputed_prices,
+            "daily_ranges": self.daily_ranges
         }
         
         with open(self.data_dir / "market_data.json", 'w') as f:
@@ -280,8 +447,16 @@ class StockMarket:
                 self.is_trading_day = state.get("is_trading_day", False)
                 self.current_trading_day = state.get("current_trading_day")
                 self.stocks_channel_id = state.get("stocks_channel_id", BOT_HELPER_CHANNEL)
+                self.admin_only_trading = state.get("admin_only_trading", False)
+                self.price_update_rate_minutes = state.get("price_update_rate_minutes", 60)
+                if state.get("market_open_time"):
+                    self.market_open_time = datetime.fromisoformat(state["market_open_time"])
+                else:
+                    self.market_open_time = None
             if "precomputed_prices" in data:
                 self.precomputed_prices = data["precomputed_prices"]
+            if "daily_ranges" in data:
+                self.daily_ranges = data["daily_ranges"]
             
             print("📊 Market data loaded successfully")
             if self.precomputed_prices:
@@ -337,6 +512,149 @@ class StockMarket:
             print(f"❌ Error loading historical data: {e}")
             return []
     
+    def clear_price_history(self) -> bool:
+        """Clear all stock price history"""
+        try:
+            history_file = self.data_dir / "stock_history.json"
+            if history_file.exists():
+                history_file.unlink()
+                print("✅ Stock price history cleared")
+                return True
+            else:
+                print("ℹ️ No price history to clear")
+                return True
+        except Exception as e:
+            print(f"❌ Error clearing price history: {e}")
+            return False
+    
+    def _get_sector_rotation_factor(self, sector_name: str) -> float:
+        """Get sector-specific rotation multiplier"""
+        sector_factors = {
+            "TECH": 1.3,         # High rotation sensitivity
+            "FINANCE": 1.1,      # Moderate rotation sensitivity
+            "ENERGY": 0.9,       # Lower rotation sensitivity
+            "HEALTH": 0.7,       # Stable, less affected by rotation
+            "RETAIL": 1.0,       # Average rotation sensitivity
+            "MANUFACTURING": 0.8, # Moderate stability
+            "ENTERTAINMENT": 1.2, # Higher rotation sensitivity
+            "TRANSPORT": 1.0      # Average rotation sensitivity
+        }
+        return sector_factors.get(sector_name, 1.0)
+    
+    def simulate_trading_days(self, num_days: int = 5, test_params: Optional[Dict] = None) -> Dict[str, Any]:
+        """Simulate multiple trading days to test market stability"""
+        print(f"🧪 Simulating {num_days} trading days for market stability testing...")
+        
+        simulation_results = {
+            "days_simulated": num_days,
+            "market_broke": False,
+            "min_prices": {},
+            "max_prices": {},
+            "final_prices": {},
+            "daily_summaries": []
+        }
+        
+        # Store original prices
+        original_prices = {}
+        for cat_name, cat_data in self.categories.items():
+            for stock in cat_data["stocks"]:
+                original_prices[stock["symbol"]] = stock["price"]
+        
+        try:
+            for day in range(num_days):
+                print(f"📅 Simulating day {day + 1}/{num_days}")
+                
+                # Apply test parameters if provided
+                if test_params and day == 2:  # Apply stress test on day 3
+                    print(f"⚡ Applying stress test parameters: {test_params}")
+                    self.market_params.update(test_params)
+                
+                # Use basic economic parameters for simulation (no fake analysis)
+                print("⚠️ Simulation mode: Using economic data parameters without AI analysis")
+                # Just use current economic parameters without generating fake data
+                self.market_params = self._calculate_market_params_from_economic_data()
+                
+                # Generate hourly prices
+                trading_day = f"2024-01-{day+1:02d}"
+                hourly_prices = self.generate_hourly_prices(trading_day)
+                
+                # Analyze the day's results
+                day_summary = {
+                    "day": day + 1,
+                    "market_params": self.market_params.copy(),
+                    "stock_ranges": {},
+                    "max_daily_change": 0.0,
+                    "broke_stocks": []
+                }
+                
+                for symbol, prices in hourly_prices.items():
+                    if not prices:
+                        continue
+                        
+                    min_price = min(prices)
+                    max_price = max(prices)
+                    final_price = prices[-1]
+                    
+                    # Track overall extremes
+                    if symbol not in simulation_results["min_prices"] or min_price < simulation_results["min_prices"][symbol]:
+                        simulation_results["min_prices"][symbol] = min_price
+                    if symbol not in simulation_results["max_prices"] or max_price > simulation_results["max_prices"][symbol]:
+                        simulation_results["max_prices"][symbol] = max_price
+                    
+                    simulation_results["final_prices"][symbol] = final_price
+                    
+                    # Check for broken stocks (too low or too high)
+                    original_price = original_prices[symbol]
+                    if min_price < original_price * 0.01:  # Below 1% of original
+                        day_summary["broke_stocks"].append(f"{symbol}: fell to ${min_price:.4f} from ${original_price:.2f}")
+                        simulation_results["market_broke"] = True
+                    if max_price > original_price * 100:  # Above 100x original
+                        day_summary["broke_stocks"].append(f"{symbol}: rose to ${max_price:.2f} from ${original_price:.2f}")
+                        simulation_results["market_broke"] = True
+                    
+                    # Track daily ranges
+                    daily_change = abs(max_price - min_price) / min_price
+                    day_summary["stock_ranges"][symbol] = {
+                        "min": min_price,
+                        "max": max_price,
+                        "range_pct": daily_change * 100
+                    }
+                    
+                    if daily_change > day_summary["max_daily_change"]:
+                        day_summary["max_daily_change"] = daily_change
+                    
+                    # Update stock price for next day
+                    for cat_name, cat_data in self.categories.items():
+                        for stock in cat_data["stocks"]:
+                            if stock["symbol"] == symbol:
+                                stock["price"] = final_price
+                                break
+                
+                simulation_results["daily_summaries"].append(day_summary)
+                
+                print(f"📊 Day {day + 1} complete: Max daily change {day_summary['max_daily_change']*100:.1f}%, {len(day_summary['broke_stocks'])} broken stocks")
+        
+        except Exception as e:
+            print(f"❌ Simulation failed on day {day + 1}: {e}")
+            simulation_results["market_broke"] = True
+            simulation_results["error"] = str(e)
+        
+        # Restore original prices
+        for cat_name, cat_data in self.categories.items():
+            for stock in cat_data["stocks"]:
+                symbol = stock["symbol"]
+                if symbol in original_prices:
+                    stock["price"] = original_prices[symbol]
+        
+        # Summary
+        if simulation_results["market_broke"]:
+            print("❌ Market stability test FAILED - market broke during simulation")
+        else:
+            print("✅ Market stability test PASSED - market remained stable")
+        
+        return simulation_results
+    
+    
     def calculate_category_prices(self) -> Dict[str, float]:
         """Calculate ETF-like category prices based on individual stock prices"""
         category_prices = {}
@@ -351,6 +669,15 @@ class StockMarket:
                 category_prices[cat_name] = 0.0
         
         return category_prices
+        
+    def calculate_market_average(self) -> float:
+        """Calculate overall market average price for charts"""
+        all_stocks = self.get_all_stocks_flat()
+        if not all_stocks:
+            return 0.0
+        
+        total_price = sum(stock["price"] for stock in all_stocks)
+        return total_price / len(all_stocks)
     
     def get_all_stocks_flat(self) -> List[Dict[str, Any]]:
         """Get all individual stocks in a flat list"""
@@ -362,16 +689,11 @@ class StockMarket:
                 all_stocks.append(stock_copy)
         return all_stocks
     
-    async def trigger_dynamic_update(self, reason: str = "Market update", send_discord_notification: bool = False, recalculate_baselines: bool = False) -> Dict[str, Any]:
+    async def trigger_dynamic_update(self, reason: str = "Market update", send_discord_notification: bool = False) -> Dict[str, Any]:
         """Trigger comprehensive dynamic update of all stock and ETF prices"""
         print(f"🔄 Triggering dynamic update: {reason}")
         
-        price_changes = {}
-        
-        # Optionally recalculate baseline prices from economic parameters
-        if recalculate_baselines:
-            print("🔄 Recalculating baseline prices from economic parameters...")
-            price_changes = self.recalculate_all_baseline_prices()
+        # NOTE: Removed baseline recalculation - prices should only be set by AI analysis
         
         # Recalculate all category ETF prices based on current stock prices
         category_prices = self.calculate_category_prices()
@@ -400,8 +722,6 @@ class StockMarket:
             "stocks_updated": total_stocks,
             "etf_prices": category_prices,
             "market_params": self.market_params.copy(),
-            "baselines_recalculated": recalculate_baselines,
-            "price_changes": price_changes if recalculate_baselines else {},
             "notification_sent": False
         }
         
@@ -435,8 +755,6 @@ class StockMarket:
                     embed.add_field(name="📊 Market Parameters", value=param_text.strip(), inline=True)
                     
                     footer_text = f"{total_stocks} stocks updated • All ETF prices recalculated"
-                    if recalculate_baselines:
-                        footer_text += " • Baselines recalculated from economic data"
                     embed.set_footer(text=footer_text)
                     
                     await channel.send(embed=embed)
@@ -485,6 +803,33 @@ class StockMarket:
             }
         }
     
+    def set_price_update_rate(self, minutes: int) -> bool:
+        """Set the price update rate in minutes
+        
+        Args:
+            minutes: Update rate in minutes (minimum 1, maximum 1440 for daily)
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        if minutes < 1:
+            print("❌ Update rate must be at least 1 minute")
+            return False
+        if minutes > 1440:
+            print("❌ Update rate cannot exceed 1440 minutes (24 hours)")
+            return False
+            
+        old_rate = self.price_update_rate_minutes
+        self.price_update_rate_minutes = minutes
+        
+        # Save the new rate
+        self.save_market_data()
+        
+        print(f"✅ Price update rate changed from {old_rate} minutes to {minutes} minutes")
+        print(f"📊 Prices will now update every {minutes} minute{'s' if minutes != 1 else ''}")
+        
+        return True
+    
     @staticmethod
     def perlin_noise(x: float, seed: int = 42) -> float:
         """Generate Perlin-like noise for realistic price movements"""
@@ -504,187 +849,572 @@ class StockMarket:
         
         return noise / 2.0  # Normalize to roughly -1 to 1
     
-    def calculate_dynamic_baseline_price(self, stock: Dict[str, Any], original_price: float) -> float:
-        """Calculate dynamic baseline price based on current economic parameters"""
-        try:
-            # Base price adjustment factors based on economic parameters
+    def calculate_price_at_time(self, symbol: str, target_time: datetime = None) -> float:
+        """Calculate stock price at any given time using multi-scale Perlin noise
+        
+        This system operates on multiple time scales:
+        - Weekly trends (economic report driven)
+        - Multi-day trends (economic report driven) 
+        - Daily movements (day-specific)
+        - Intraday fluctuations (day-specific)
+        
+        Args:
+            symbol: Stock symbol
+            target_time: Time to calculate price for (defaults to current time)
             
-            # Trend direction affects baseline: bullish trend = higher baseline, bearish = lower
-            trend_factor = 1.0 + (self.market_params["trend_direction"] * 0.1)  # ±10% max
+        Returns:
+            Calculated price at the specified time
+        """
+        # Use current time if not specified
+        if target_time is None:
+            target_time = datetime.now(timezone.utc)
             
-            # Market sentiment affects valuation: high confidence = premium, low = discount
-            sentiment_factor = 0.8 + (self.market_params["market_sentiment"] * 0.4)  # 0.8x to 1.2x
+        # Find the stock
+        stock = None
+        cat_name = None
+        for cname, cat_data in self.categories.items():
+            for s in cat_data["stocks"]:
+                if s["symbol"] == symbol:
+                    stock = s
+                    cat_name = cname
+                    break
+            if stock:
+                break
+                
+        if not stock:
+            raise ValueError(f"Stock {symbol} not found")
             
-            # Long-term outlook affects baseline: good outlook = higher valuations
-            outlook_factor = 0.9 + (self.market_params["long_term_outlook"] * 0.2)  # 0.9x to 1.1x
+        # Get market open time for today
+        if self.market_open_time is None:
+            # Set market open to 9 AM ET of current day
+            et_now = datetime.now(timezone.utc).replace(hour=14, minute=0, second=0, microsecond=0)  # 9 AM ET = 14:00 UTC
+            self.market_open_time = et_now.replace(hour=14, minute=0, second=0, microsecond=0)
             
-            # Volatility doesn't affect baseline - only affects movement amplitude
-            # Momentum doesn't affect baseline - only affects movement strength
-            
-            # Calculate adjusted baseline
-            adjusted_price = original_price * trend_factor * sentiment_factor * outlook_factor
-            
-            # Ensure price doesn't deviate too extremely from original
-            adjusted_price = max(adjusted_price, original_price * 0.6)  # Don't drop below 60%
-            adjusted_price = min(adjusted_price, original_price * 1.4)  # Don't rise above 140%
-            
-            return adjusted_price
-            
-        except Exception as e:
-            print(f"⚠️ Error calculating dynamic baseline for {stock.get('symbol', 'unknown')}: {e}")
-            return original_price
+        # Calculate various time scales
+        time_elapsed = (target_time - self.market_open_time).total_seconds()
+        hours_elapsed = time_elapsed / 3600.0  # Hours since market open
+        days_elapsed = time_elapsed / 86400.0  # Days since market open
+        weeks_elapsed = time_elapsed / 604800.0  # Weeks since market open
+        
+        # FIX 0.2: ALWAYS USE AI OPENING PRICE AS BASE
+        # ALWAYS use AI opening price as base for time calculations
+        if "ai_opening_price" in stock and stock["ai_opening_price"]:
+            opening_price = stock["ai_opening_price"]  # ALWAYS USE AI OPENING
+        elif symbol in self.daily_ranges and "open_price" in self.daily_ranges[symbol]:
+            opening_price = self.daily_ranges[symbol]["open_price"]  # Fallback
+        else:
+            # CRITICAL ERROR - no AI opening price!
+            raise ValueError(f"No AI opening price for {symbol} - daily analysis failed")
+        
+        # Generate seeds for different time scales
+        trading_day = self.current_trading_day or target_time.strftime("%Y-%m-%d")
+        
+        # Economic report seed (weekly trends) - changes only with economic reports
+        economic_seed = hash(symbol + "economic_2024") % 10000
+        
+        # Daily seeds for shorter-term movements
+        daily_seed = hash(symbol + trading_day) % 10000
+        
+        # MULTI-SCALE PERLIN NOISE SYSTEM
+        # Scale 1: Weekly macro trends (40% weight) - economic report driven
+        weekly_noise = self.perlin_noise(weeks_elapsed * 2.0, economic_seed)
+        
+        # Scale 2: Multi-day trends (30% weight) - economic report driven  
+        multiday_noise = self.perlin_noise(days_elapsed * 0.8, economic_seed + 1000)
+        
+        # Scale 3: Daily movements (20% weight) - day specific
+        daily_noise = self.perlin_noise(hours_elapsed * 0.3, daily_seed + 2000)
+        
+        # Scale 4: Intraday fluctuations (10% weight) - day specific
+        intraday_noise = self.perlin_noise(hours_elapsed * 2.0, daily_seed + 3000)
+        
+        # Combine noise layers with proper weights
+        combined_noise = (
+            weekly_noise * 0.4 + 
+            multiday_noise * 0.3 + 
+            daily_noise * 0.2 + 
+            intraday_noise * 0.1
+        )
+        
+        # MUCH LARGER BASE VOLATILITY for realistic movements
+        base_volatility = 0.008 + (self.market_params["volatility"] * 0.035)  # 0.8% to 4.3% base
+        
+        # Get invisible factors
+        invisible = self.invisible_factors
+        
+        # SIGNIFICANTLY STRONGER TREND COMPONENT
+        # Normal market should do 4-5% monthly = ~1% weekly = ~0.14% daily
+        trend_strength = self.market_params["momentum"] * 0.7 + 0.3  # 0.3 to 1.0
+        trend_component = self.market_params["trend_direction"] * 0.0012 * hours_elapsed * trend_strength
+        
+        # Long-term economic drift (operates over weeks/months)
+        economic_drift = self.market_params["trend_direction"] * 0.0004 * days_elapsed
+        
+        # Volatility adjustments (more dramatic)
+        liquidity_adj = (2.0 - invisible["liquidity_factor"]) * 0.8  # Increased impact
+        risk_adj = (1.0 - invisible["risk_appetite"]) * 0.6  # Increased impact
+        volatility_multiplier = base_volatility * (1.0 + liquidity_adj + risk_adj)
+        
+        # Market factors with increased impact
+        institutional_component = invisible["institutional_flow"] * 0.003 * abs(combined_noise)  # 3x stronger
+        news_amplifier = 1.0 + (invisible["news_velocity"] * 0.8 * abs(combined_noise))  # Stronger amplification
+        sector_flow = invisible["sector_rotation"] * self._get_sector_rotation_factor(cat_name) * 0.002  # 2.5x stronger
+        sentiment_bias = (self.market_params["market_sentiment"] - 0.5) * 0.006  # 3x stronger
+        
+        # Calculate total price change with much larger scale
+        base_change = combined_noise * volatility_multiplier * news_amplifier
+        total_change = (
+            base_change + 
+            trend_component + 
+            economic_drift +
+            institutional_component + 
+            sector_flow + 
+            sentiment_bias
+        )
+        
+        # Apply change to opening price
+        calculated_price = opening_price * (1 + total_change)
+        
+        # Wider daily ranges to allow for larger movements
+        if symbol in self.daily_ranges:
+            range_low = self.daily_ranges[symbol]["low"] 
+            range_high = self.daily_ranges[symbol]["high"]
+        else:
+            # Much wider default range based on volatility
+            range_multiplier = 0.05 + (self.market_params["volatility"] * 0.15)  # 5% to 20% daily range
+            range_low = opening_price * (1 - range_multiplier)
+            range_high = opening_price * (1 + range_multiplier)
+        
+        # Soft enforcement of daily ranges (allow some overflow for extreme conditions)
+        if calculated_price < range_low:
+            overshoot = (range_low - calculated_price) / range_low
+            if overshoot > 0.02:  # More than 2% overshoot, start clamping
+                calculated_price = range_low * (1 - 0.02)  # Allow 2% overshoot
+        elif calculated_price > range_high:
+            overshoot = (calculated_price - range_high) / range_high
+            if overshoot > 0.02:  # More than 2% overshoot, start clamping
+                calculated_price = range_high * (1 + 0.02)  # Allow 2% overshoot
+        
+        # Final safety check
+        calculated_price = max(calculated_price, 0.01)
+        
+        return calculated_price
     
-    def recalculate_all_baseline_prices(self) -> Dict[str, float]:
-        """Recalculate baseline prices for all stocks based on current economic parameters"""
-        print("🔄 Recalculating baseline prices from economic parameters...")
-        
-        price_changes = {}
-        
-        for cat_name, cat_data in self.categories.items():
-            for stock in cat_data["stocks"]:
-                symbol = stock["symbol"]
-                original_price = stock["price"]
-                
-                # Calculate new baseline from economic parameters
-                new_baseline = self.calculate_dynamic_baseline_price(stock, original_price)
-                
-                # Update the stock price
-                stock["price"] = new_baseline
-                
-                price_changes[symbol] = {
-                    "old_price": original_price,
-                    "new_price": new_baseline,
-                    "change": new_baseline - original_price,
-                    "change_pct": ((new_baseline - original_price) / original_price) * 100
-                }
-        
-        print(f"✅ Recalculated baseline prices for {len(price_changes)} stocks")
-        return price_changes
+    def get_stock_price(self, symbol: str) -> Optional[float]:
+        """Get current price for a stock using on-demand calculation"""
+        try:
+            return self.calculate_price_at_time(symbol)
+        except ValueError:
+            return None
+    
+    # REMOVED: calculate_dynamic_baseline_price and recalculate_all_baseline_prices
+    # These functions were causing price chaos by overriding AI-set prices.
+    # Stock prices should ONLY be set by:
+    # 1. AI daily analysis (sets opening prices and ranges)
+    # 2. On-demand price calculation using Perlin noise within those ranges
     
     def generate_hourly_prices(self, trading_day: str) -> Dict[str, List[float]]:
-        """Generate realistic hourly prices using Perlin noise and market parameters"""
-        print(f"📊 Generating hourly prices for {trading_day}")
+        """Generate sophisticated hourly prices using AI parameters, invisible factors, and multi-layer Perlin noise"""
+        print(f"📊 Generating AI-driven hourly prices for {trading_day}")
         
         # 24/7 trading: 24 hours = 24 price points (one per hour)
         hours = 24  # 00:00, 01:00, 02:00, ..., 23:00
         
         hourly_prices = {}
         
+        # Get invisible factors for complex price modeling
+        invisible = getattr(self, 'invisible_factors', {
+            "institutional_flow": 0.0,
+            "liquidity_factor": 0.7,
+            "news_velocity": 0.5,
+            "sector_rotation": 0.0,
+            "risk_appetite": 0.5
+        })
+        
+        # Calculate base volatility from market parameters (more dynamic range)
+        base_volatility = 0.002 + (self.market_params["volatility"] * 0.008)  # 0.2% to 1.0% base
+        
         for cat_name, cat_data in self.categories.items():
             for stock in cat_data["stocks"]:
                 symbol = stock["symbol"]
-                current_price = stock["price"]  # Use current (potentially recalculated) baseline
+                opening_price = stock["price"]  # AI-set opening price
                 
-                prices = [current_price]  # Start with current baseline price
+                # Get AI-provided daily range or calculate default
+                range_low = stock.get("daily_range_low", opening_price * 0.97)
+                range_high = stock.get("daily_range_high", opening_price * 1.03)
+                sector_factor = stock.get("sector_factor", 1.0)
                 
-                # Use symbol hash as seed for consistent but different noise per stock
-                noise_seed = hash(symbol + trading_day) % 10000
+                prices = [opening_price]  # Start with AI-set opening price
+                
+                # Use multiple noise seeds for complex layered movement
+                base_seed = hash(symbol + trading_day) % 10000
+                trend_seed = (base_seed + 1000) % 10000
+                micro_seed = (base_seed + 2000) % 10000
                 
                 for hour in range(1, hours):
-                    # Generate Perlin noise for this hour
-                    noise_value = self.perlin_noise(hour, noise_seed)
+                    # Layer 1: Primary trend noise (slower, bigger movements)
+                    primary_noise = self.perlin_noise(hour * 0.3, base_seed)
                     
-                    # Apply market parameters to modify the noise
-                    trend_component = self.market_params["trend_direction"] * 0.02 * hour  # Gradual trend
-                    volatility_multiplier = 0.005 + (self.market_params["volatility"] * 0.015)  # 0.5% to 2% base volatility
-                    momentum_factor = 1.0 + (self.market_params["momentum"] * 0.5)  # Amplify movements
-                    sentiment_bias = (self.market_params["market_sentiment"] - 0.5) * 0.01  # Slight bias
+                    # Layer 2: Secondary trend (medium frequency)
+                    secondary_noise = self.perlin_noise(hour * 0.8, trend_seed)
                     
-                    # Calculate price change
-                    base_change = noise_value * volatility_multiplier * momentum_factor
-                    total_change = base_change + trend_component + sentiment_bias
+                    # Layer 3: Micro movements (high frequency, small amplitude)
+                    micro_noise = self.perlin_noise(hour * 2.0, micro_seed)
+                    
+                    # Combine noise layers with different weights
+                    combined_noise = (primary_noise * 0.6) + (secondary_noise * 0.3) + (micro_noise * 0.1)
+                    
+                    # Apply market parameters with sophisticated modeling
+                    
+                    # Trend component: stronger effect based on momentum
+                    trend_strength = self.market_params["momentum"] * 0.5 + 0.2  # 0.2 to 0.7
+                    trend_component = self.market_params["trend_direction"] * 0.0015 * hour * trend_strength
+                    
+                    # Volatility: affected by liquidity and risk appetite
+                    liquidity_adj = (2.0 - invisible["liquidity_factor"]) * 0.5  # Low liquidity = higher volatility
+                    risk_adj = (1.0 - invisible["risk_appetite"]) * 0.3  # Low risk appetite = higher volatility
+                    volatility_multiplier = base_volatility * sector_factor * (1.0 + liquidity_adj + risk_adj)
+                    
+                    # Institutional flow effect (affects larger movements)
+                    institutional_component = invisible["institutional_flow"] * 0.001 * abs(combined_noise)
+                    
+                    # News velocity effect (amplifies sudden movements)
+                    news_amplifier = 1.0 + (invisible["news_velocity"] * 0.5 * abs(combined_noise))
+                    
+                    # Sector rotation effect
+                    sector_flow = invisible["sector_rotation"] * self._get_sector_rotation_factor(cat_name) * 0.0008
+                    
+                    # Sentiment bias (affects direction probability)
+                    sentiment_bias = (self.market_params["market_sentiment"] - 0.5) * 0.002
+                    
+                    # Calculate final price change
+                    base_change = combined_noise * volatility_multiplier * news_amplifier
+                    total_change = (
+                        base_change + 
+                        trend_component + 
+                        institutional_component + 
+                        sector_flow + 
+                        sentiment_bias
+                    )
                     
                     # Apply change to previous price
                     new_price = prices[-1] * (1 + total_change)
                     
-                    # Ensure price doesn't go negative or too extreme
-                    new_price = max(new_price, current_price * 0.5)  # Don't drop below 50% of opening
-                    new_price = min(new_price, current_price * 1.5)  # Don't rise above 150% of opening
+                    # Enforce AI-provided daily range limits (primary constraint)
+                    new_price = max(new_price, range_low)
+                    new_price = min(new_price, range_high)
+                    
+                    # Hourly change limits based on volatility (secondary constraint)
+                    max_hourly_change = prices[-1] * volatility_multiplier * 3.0  # 3x volatility as max hourly
+                    if abs(new_price - prices[-1]) > max_hourly_change:
+                        if new_price > prices[-1]:
+                            new_price = prices[-1] + max_hourly_change
+                        else:
+                            new_price = prices[-1] - max_hourly_change
+                    
+                    # Final safety check: ensure price doesn't become unrealistic
+                    new_price = max(new_price, 0.01)  # Can't go below 1 cent
                     
                     prices.append(new_price)
                 
                 hourly_prices[symbol] = prices
         
-        print(f"✅ Generated hourly price movements for {len(hourly_prices)} stocks")
+        print(f"✅ Generated sophisticated AI-driven price movements for {len(hourly_prices)} stocks")
         return hourly_prices
     
     async def get_daily_market_analysis(self) -> Dict[str, Any]:
-        """Use AI to analyze recent channel activity and set market parameters"""
+        """Use AI to analyze recent channel activity and set market parameters with retry logic and logging"""
         print("🧠 Running AI market analysis...")
         
-        if not self.client:
-            print("❌ Discord client not available for market analysis")
-            return self.get_fallback_analysis()
+        # Create analysis log file
+        timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+        log_file = self.data_dir / "analysis_logs" / f"daily_market_analysis_{timestamp}.txt"
+        log_file.parent.mkdir(exist_ok=True)
         
+        def log_to_file(message: str):
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {message}\n")
+        
+        log_to_file("=== DAILY MARKET ANALYSIS SESSION START ===")
+        log_to_file(f"Analysis timestamp: {timestamp}")
+        
+        if not self.client:
+            error_msg = "Discord client not available for market analysis"
+            print(f"❌ {error_msg}")
+            log_to_file(f"ERROR: {error_msg}")
+            log_to_file("CRITICAL: Cannot operate without Discord client for intelligent analysis")
+            raise Exception("Stock market requires Discord client for intelligent data collection")
+        
+        # STEP 1: Initialize from base parameters calculated from economic data
+        log_to_file("STEP 1: Calculating base parameters from economic data")
         try:
-            # Collect recent messages from all allowed channels (last 500 messages max)
-            all_messages = []
-            cutoff_date = datetime.now(timezone.utc) - timedelta(hours=24)  # Last 24 hours
-            
-            print(f"📊 Collecting messages from {len(ALL_ALLOWED_CHANNELS)} authorized channels...")
-            
-            for guild in self.client.guilds:
-                for channel in guild.text_channels:
-                    if channel.name.lower() not in ALL_ALLOWED_CHANNELS:
-                        continue
-                    
-                    if not channel.permissions_for(guild.me).read_message_history:
-                        continue
-                    
-                    try:
-                        channel_messages = []
-                        async for message in channel.history(limit=50, after=cutoff_date):  # 50 per channel max
-                            if message.author.bot:
-                                continue
-                            
-                            channel_messages.append({
-                                "content": message.content[:300],  # Limit message length
-                                "channel": channel.name,
-                                "timestamp": message.created_at.isoformat(),
-                                "author_roles": [role.name for role in getattr(message.author, 'roles', [])]
-                            })
-                        
-                        all_messages.extend(channel_messages)
-                        
-                        if len(all_messages) >= 500:  # Cap at 500 total messages
-                            break
-                            
-                    except Exception as e:
-                        print(f"⚠️ Error collecting from {channel.name}: {e}")
-                        continue
-                
-                if len(all_messages) >= 500:
-                    break
-            
-            # Limit to 500 most recent messages
-            all_messages = sorted(all_messages, key=lambda x: x["timestamp"], reverse=True)[:500]
-            
-            print(f"📝 Collected {len(all_messages)} messages for analysis")
-            
-            # Get previous day's data for context
-            previous_data = self.get_previous_trading_day_data()
-            
-            # Construct AI prompt
-            analysis_prompt = self.build_market_analysis_prompt(all_messages, previous_data)
-            
-            # Generate AI analysis
-            response = await self.model.generate_content_async(
-                analysis_prompt,
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0.4,
-                    max_output_tokens=2000
-                )
-            )
-            
-            # Parse AI response
-            return self.parse_market_analysis(response.text)
-            
+            base_params = self._calculate_market_params_from_economic_data()
+            log_to_file(f"Base parameters: {json.dumps(base_params, indent=2)}")
+            print("📊 Base parameters calculated from economic data")
         except Exception as e:
-            print(f"❌ AI market analysis failed: {e}")
-            return self.get_fallback_analysis()
+            error_msg = f"Failed to calculate base parameters: {e}"
+            print(f"❌ {error_msg}")
+            log_to_file(f"ERROR: {error_msg}")
+            log_to_file("CRITICAL: Cannot operate without economic data")
+            raise Exception(f"Stock market requires economic data for parameter calculation: {e}")
+        
+        # STEP 2: Collect Discord activity with retry logic
+        log_to_file("STEP 2: Collecting Discord activity")
+        max_retries = 3
+        retry_count = 0
+        all_messages = []
+        
+        while retry_count < max_retries:
+            try:
+                cutoff_date = datetime.now(timezone.utc) - timedelta(hours=24)
+                log_to_file(f"Collecting messages from {len(ALL_ALLOWED_CHANNELS)} authorized channels (attempt {retry_count + 1})")
+                
+                for guild in self.client.guilds:
+                    for channel in guild.text_channels:
+                        if channel.name.lower() not in ALL_ALLOWED_CHANNELS:
+                            continue
+                        
+                        if not channel.permissions_for(guild.me).read_message_history:
+                            continue
+                        
+                        try:
+                            channel_messages = []
+                            async for message in channel.history(limit=50, after=cutoff_date):
+                                if message.author.bot:
+                                    continue
+                                
+                                channel_messages.append({
+                                    "content": message.content[:300],
+                                    "channel": channel.name,
+                                    "timestamp": message.created_at.isoformat(),
+                                    "author_roles": [role.name for role in getattr(message.author, 'roles', [])]
+                                })
+                            
+                            all_messages.extend(channel_messages)
+                            log_to_file(f"Collected {len(channel_messages)} messages from {channel.name}")
+                            
+                            if len(all_messages) >= 500:
+                                break
+                                
+                        except Exception as e:
+                            log_to_file(f"Error collecting from {channel.name}: {e}")
+                            continue
+                    
+                    if len(all_messages) >= 500:
+                        break
+                
+                # Success - exit retry loop
+                break
+                
+            except Exception as e:
+                retry_count += 1
+                error_msg = f"Discord collection attempt {retry_count} failed: {e}"
+                print(f"⚠️ {error_msg}")
+                log_to_file(f"WARNING: {error_msg}")
+                
+                if retry_count < max_retries:
+                    log_to_file(f"Retrying Discord collection...")
+                    await asyncio.sleep(2)  # Wait before retry
+                else:
+                    log_to_file(f"All Discord collection attempts failed")
+                    log_to_file("CRITICAL: Cannot operate without Discord activity data")
+                    raise Exception("Stock market requires Discord activity data for intelligent analysis")
+        
+        all_messages = sorted(all_messages, key=lambda x: x["timestamp"], reverse=True)[:500]
+        log_to_file(f"Successfully collected {len(all_messages)} messages for analysis")
+        print(f"📝 Collected {len(all_messages)} messages for analysis")
+        
+        # STEP 3: AI Analysis with structured output and retry logic
+        log_to_file("STEP 3: Running AI analysis with structured output and economic constraints")
+        previous_data = self.get_previous_trading_day_data()
+        
+        ai_retry_count = 0
+        max_ai_retries = 3
+        
+        while ai_retry_count < max_ai_retries:
+            try:
+                # Create structured output schema
+                market_analysis_schema = self._create_market_analysis_schema(base_params)
+                log_to_file("Created structured output schema for market analysis")
+                
+                # Build prompt for structured output
+                analysis_prompt = self.build_structured_analysis_prompt(all_messages, previous_data, base_params)
+                log_to_file(f"AI attempt {ai_retry_count + 1}: Sending structured prompt to Gemini")
+                
+                # Use structured output to enforce schema
+                response = await self.model.generate_content_async(
+                    analysis_prompt,
+                    generation_config=genai.types.GenerationConfig(
+                        temperature=0.3,
+                        max_output_tokens=3000,
+                        response_mime_type="application/json",
+                        response_schema=market_analysis_schema
+                    )
+                )
+                
+                log_to_file(f"Structured AI Response received ({len(response.text)} characters)")
+                log_to_file("--- STRUCTURED AI RESPONSE ---")
+                log_to_file(response.text)
+                log_to_file("--- END STRUCTURED AI RESPONSE ---")
+                
+                # Parse structured output (should be valid JSON)
+                parsed_result = self.parse_structured_market_analysis(response.text, base_params, log_file)
+                log_to_file("✅ Structured AI analysis completed successfully")
+                print("✅ AI analysis completed with structured output and retry logic")
+                
+                return parsed_result
+                
+            except json.JSONDecodeError as e:
+                ai_retry_count += 1
+                error_msg = f"AI JSON parsing failed (attempt {ai_retry_count}): {e}"
+                print(f"❌ {error_msg}")
+                log_to_file(f"ERROR: {error_msg}")
+                
+                if ai_retry_count < max_ai_retries:
+                    log_to_file(f"Retrying AI analysis...")
+                    await asyncio.sleep(3)  # Wait before retry
+                else:
+                    log_to_file("All AI analysis attempts failed")
+                    log_to_file("CRITICAL: Cannot operate without AI analysis")
+                    raise Exception("Stock market requires AI analysis for intelligent parameter setting")
+                    
+            except Exception as e:
+                ai_retry_count += 1
+                error_msg = f"AI analysis failed (attempt {ai_retry_count}): {e}"
+                print(f"❌ {error_msg}")
+                log_to_file(f"ERROR: {error_msg}")
+                
+                if ai_retry_count < max_ai_retries:
+                    log_to_file(f"Retrying AI analysis...")
+                    await asyncio.sleep(3)
+                else:
+                    log_to_file("All AI analysis attempts failed")
+                    log_to_file("CRITICAL: Cannot operate without AI analysis")
+                    raise Exception("Stock market requires AI analysis for intelligent parameter setting")
+        
+        # Should never reach here - all paths above either return or raise
+        log_to_file("CRITICAL: Unexpected code path in AI analysis")
+        raise Exception("Stock market AI analysis reached unexpected code path")
     
-    def build_market_analysis_prompt(self, messages: List[Dict], previous_data: Optional[Dict]) -> str:
-        """Build comprehensive prompt for AI market analysis"""
+    
+    
+    def _create_market_analysis_schema(self, base_params: Dict[str, float]) -> Dict[str, Any]:
+        """Create JSON schema for structured market analysis output"""
+        
+        # Create schema for all individual stocks
+        stock_price_properties = {}
+        for cat_name, cat_data in self.categories.items():
+            for stock in cat_data["stocks"]:
+                stock_price_properties[stock["symbol"]] = {
+                    "type": "object",
+                    "properties": {
+                        "open_price": {"type": "number"},
+                        "range_low": {"type": "number"},
+                        "range_high": {"type": "number"},
+                        "sector_factor": {"type": "number"}
+                    },
+                    "required": ["open_price", "range_low", "range_high", "sector_factor"]
+                }
+        
+        # Create schema for sector outlook
+        sector_outlook_properties = {}
+        for cat_name in self.categories.keys():
+            sector_outlook_properties[cat_name] = {"type": "string"}
+        
+        schema = {
+            "type": "object",
+            "properties": {
+                "reasoning": {
+                    "type": "object",
+                    "properties": {
+                        "economic_assessment": {"type": "string"},
+                        "parameter_justification": {"type": "string"},
+                        "discord_impact": {"type": "string"},
+                        "market_outlook": {"type": "string"}
+                    },
+                    "required": ["economic_assessment", "parameter_justification", "discord_impact", "market_outlook"]
+                },
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "trend_direction": {"type": "number"},
+                        "volatility": {"type": "number"},
+                        "momentum": {"type": "number"},
+                        "market_sentiment": {"type": "number"},
+                        "long_term_outlook": {"type": "number"}
+                    },
+                    "required": ["trend_direction", "volatility", "momentum", "market_sentiment", "long_term_outlook"]
+                },
+                "invisible_factors": {
+                    "type": "object",
+                    "properties": {
+                        "institutional_flow": {"type": "number"},
+                        "liquidity_factor": {"type": "number"},
+                        "news_velocity": {"type": "number"},
+                        "sector_rotation": {"type": "number"},
+                        "risk_appetite": {"type": "number"}
+                    },
+                    "required": ["institutional_flow", "liquidity_factor", "news_velocity", "sector_rotation", "risk_appetite"]
+                },
+                "daily_stock_prices": {
+                    "type": "object",
+                    "properties": stock_price_properties,
+                    "required": list(stock_price_properties.keys())
+                },
+                "sector_outlook": {
+                    "type": "object",
+                    "properties": sector_outlook_properties,
+                    "required": list(sector_outlook_properties.keys())
+                }
+            },
+            "required": ["reasoning", "parameters", "invisible_factors", "daily_stock_prices", "sector_outlook"]
+        }
+        
+        return schema
+    
+    def build_structured_analysis_prompt(self, messages: List[Dict], previous_data: Optional[Dict], base_params: Dict[str, float]) -> str:
+        """Build prompt specifically for structured JSON output"""
+        
+        # Get current economic indicators from files
+        try:
+            economic_data_dir = Path("economic_data")
+            
+            # Read current economic data
+            inflation_rate = 2.0
+            market_confidence = 50.0
+            gdp_change = 2.0
+            unemployment_rate = 4.0
+            
+            inflation_file = economic_data_dir / "inflation.json"
+            if inflation_file.exists():
+                with open(inflation_file, 'r') as f:
+                    inflation_data = json.load(f)
+                if inflation_data:
+                    inflation_rate = inflation_data[0]['data'].get('rate', 2.0)
+            
+            sentiment_file = economic_data_dir / "sentiment.json"
+            if sentiment_file.exists():
+                with open(sentiment_file, 'r') as f:
+                    sentiment_data = json.load(f)
+                if sentiment_data:
+                    market_confidence = sentiment_data[0]['data'].get('market_confidence', 50.0)
+            
+            gdp_file = economic_data_dir / "gdp.json"
+            if gdp_file.exists():
+                with open(gdp_file, 'r') as f:
+                    gdp_data = json.load(f)
+                if gdp_data:
+                    gdp_change = gdp_data[0]['data'].get('change_percent', 2.0)
+            
+            unemployment_file = economic_data_dir / "unemployment.json"
+            if unemployment_file.exists():
+                with open(unemployment_file, 'r') as f:
+                    unemployment_data = json.load(f)
+                if unemployment_data:
+                    unemployment_rate = unemployment_data[0]['data'].get('rate', 4.0)
+        
+        except Exception:
+            pass  # Use defaults
         
         # Organize messages by channel category
         categorized_messages = {}
@@ -697,105 +1427,139 @@ class StockMarket:
                     categorized_messages[cat_name].append(msg)
                     break
         
-        prompt = f"""You are an expert financial analyst for a Virtual Congress stock market simulation. 
-Analyze the provided Discord server activity from the last 24 hours to determine market parameters for today's trading.
+        prompt = f"""You are a financial analyst for a Virtual Congress stock market simulation. You must provide a comprehensive market analysis in the required JSON format.
 
-**IMPORTANT**: You must output your analysis in the exact JSON format specified at the end.
+**CURRENT ECONOMIC INDICATORS:**
+- Inflation Rate: {inflation_rate}% (Fed target: 2.0%)
+- GDP Growth: {gdp_change}% quarterly 
+- Market Confidence: {market_confidence}% (neutral: 50%)
+- Unemployment: {unemployment_rate}% (natural rate: 3.5-4.0%)
 
-**Current Stock Market Structure**:
-{json.dumps(self.categories, indent=2)}
+**BASE PARAMETERS (calculated from economic data):**
+{json.dumps(base_params, indent=2)}
 
-**Market Parameters to Set** (each 0.0 to 1.0):
-- trend_direction: -1.0 (bearish) to 1.0 (bullish) - overall market direction today
-- volatility: 0.0 (stable) to 1.0 (very volatile) - how much prices will fluctuate
-- momentum: 0.0 (weak movements) to 1.0 (strong movements) - strength of price changes
-- market_sentiment: 0.0 (fearful/pessimistic) to 1.0 (confident/optimistic) - investor confidence
-- long_term_outlook: 0.0 (pessimistic) to 1.0 (optimistic) - make only TINY changes to this
+**PARAMETER GUIDELINES:**
+- trend_direction: Should reflect GDP growth ({gdp_change}%) and economic momentum
+- volatility: Should reflect inflation deviation from 2% target ({inflation_rate}% vs 2.0%)
+- market_sentiment: Should align with market confidence ({market_confidence}%)
+- momentum: Should reflect economic growth momentum and employment trends
+- long_term_outlook: Small changes only (±0.02 from {base_params.get('long_term_outlook', 0.4):.3f})
 
-**Discord Activity Analysis**:
+**DISCORD ACTIVITY ANALYSIS (last 24 hours):**
 Total messages analyzed: {len(messages)}
-
-**Activity by Category**:
 """
         
         for cat_name, cat_messages in categorized_messages.items():
-            prompt += f"\n**{cat_name}** ({len(cat_messages)} messages):\n"
-            # Include sample messages
-            for msg in cat_messages[:3]:  # Show first 3 messages per category
-                prompt += f"- [{msg['channel']}] {msg['content'][:100]}...\n"
-            if len(cat_messages) > 3:
-                prompt += f"... and {len(cat_messages) - 3} more messages\n"
+            prompt += f"\n{cat_name}: {len(cat_messages)} messages"
+            if cat_messages:
+                sample_content = " | ".join([msg['content'][:50] for msg in cat_messages[:2]])
+                prompt += f" - Sample: {sample_content}..."
         
-        # Add previous day context
-        if previous_data:
-            prompt += f"\n**Previous Trading Day Context**:\n{json.dumps(previous_data, indent=2)}\n"
-        else:
-            prompt += "\n**Previous Trading Day Context**: No previous data - this is the initial market setup.\n"
-        
-        # Add current stock data and recent performance
-        current_stocks = {}
-        for cat_name, cat_data in self.categories.items():
-            current_stocks[cat_name] = {
-                "stocks": [{"symbol": s["symbol"], "name": s["name"], "price": s["price"]} for s in cat_data["stocks"]],
-                "etf_price": sum(s["price"] for s in cat_data["stocks"]) / len(cat_data["stocks"]) if cat_data["stocks"] else 0
-            }
-        
-        prompt += f"\n**Current Stock Market State**:\n{json.dumps(current_stocks, indent=2)}\n"
-        
-        # Add recent stock performance if available
-        historical_data = self.get_historical_data(days_back=7)
-        if historical_data:
-            prompt += f"\n**Recent Stock Performance**: {len(historical_data)} data points from last 7 days available for analysis.\n"
-            
-            # Include sample of recent performance
-            if len(historical_data) > 2:
-                recent_sample = {
-                    "oldest_data": historical_data[0]["data"]["individual_stocks"] if "individual_stocks" in historical_data[0]["data"] else {},
-                    "latest_data": historical_data[-1]["data"]["individual_stocks"] if "individual_stocks" in historical_data[-1]["data"] else {}
-                }
-                prompt += f"Sample performance data: {json.dumps(recent_sample, indent=2)}\n"
-        
-        prompt += """
-**Your Analysis Task**:
-1. Analyze government activity, policy discussions, news sentiment, and public reaction
-2. Consider how each category's activity might affect related stocks
-3. Set realistic market parameters based on observed activity levels and sentiment
-4. Provide clear reasoning for your parameter choices
-5. For long_term_outlook, make only small adjustments (±0.05 max) unless major events occurred
+        prompt += f"""
 
-**Required JSON Output Format**:
-{
-  "reasoning": {
-    "market_overview": "Overall assessment of market conditions based on server activity",
-    "trend_analysis": "Why you chose the trend_direction value",
-    "volatility_analysis": "Why you chose the volatility level", 
-    "momentum_analysis": "Why you chose the momentum level",
-    "sentiment_analysis": "Why you chose the market_sentiment level",
-    "outlook_analysis": "Why you adjusted (or didn't adjust) long_term_outlook"
-  },
-  "parameters": {
-    "trend_direction": [calculated based on economic data and Discord activity],
-    "volatility": [calculated based on economic data and Discord activity],
-    "momentum": [calculated based on economic data and Discord activity],
-    "market_sentiment": [calculated based on economic data and Discord activity],
-    "long_term_outlook": [calculated based on economic data and Discord activity]
-  },
-  "stock_outlook": {
-    "NEWS": "Brief outlook for news/media sector stocks",
-    "CONGRESS": "Brief outlook for legislative sector stocks", 
-    "EXECUTIVE": "Brief outlook for executive sector stocks",
-    "STATES": "Brief outlook for state government sector stocks",
-    "COURTS": "Brief outlook for judicial sector stocks",
-    "PUBLIC_SQUARE": "Brief outlook for public engagement sector stocks"
-  }
-}
+**STOCK UNIVERSE (all must have prices set):**
+{', '.join([f"{stock['symbol']}" for cat_data in self.categories.values() for stock in cat_data['stocks']])}
 
-Provide your analysis now:"""
+**ANALYSIS REQUIREMENTS:**
+1. Set market parameters based on economic indicators and Discord activity
+2. Provide specific opening prices and daily ranges for ALL 24 stocks
+3. Set invisible market factors (institutional flow, liquidity, etc.)
+4. Give sector-specific outlooks for all 8 sectors
+5. Provide detailed reasoning for all decisions
+
+**OUTPUT FORMAT:** The response will be automatically formatted as JSON matching the required schema. Focus on providing accurate analysis based on the economic data and Discord activity."""
         
         return prompt
     
+    def parse_structured_market_analysis(self, ai_response: str, base_params: Dict[str, float], log_file) -> Dict[str, Any]:
+        """Parse structured JSON output from AI"""
+        
+        def log_to_file(message: str):
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {message}\n")
+        
+        log_to_file("=== PARSING STRUCTURED AI ANALYSIS ===")
+        
+        try:
+            # Parse JSON (should be valid due to structured output)
+            analysis = json.loads(ai_response)
+            log_to_file("✅ Structured JSON parsed successfully")
+            
+            # Validate parameters are present
+            if "parameters" not in analysis:
+                raise ValueError("Missing parameters in AI response")
+            
+            params = analysis["parameters"]
+            log_to_file(f"AI provided parameters: {json.dumps(params, indent=2)}")
+            
+            # FIX 1.1: Store parameters in analysis object for proper extraction
+            # Store parameters in analysis object for proper extraction
+            analysis["parameters"] = {
+                "trend_direction": max(-1.0, min(1.0, float(params.get("trend_direction", 0.0)))),
+                "volatility": max(0.0, min(1.0, float(params.get("volatility", 0.5)))),
+                "momentum": max(0.0, min(1.0, float(params.get("momentum", 0.5)))),
+                "market_sentiment": max(0.0, min(1.0, float(params.get("market_sentiment", 0.5)))),
+                "long_term_outlook": max(0.0, min(1.0, float(params.get("long_term_outlook", base_params.get("long_term_outlook", 0.4)))))
+            }
+            
+            # Apply to self.market_params immediately
+            self.market_params = analysis["parameters"].copy()
+            log_to_file(f"Final market parameters stored in analysis: {json.dumps(analysis['parameters'], indent=2)}")
+            
+            # Apply invisible factors if provided
+            if "invisible_factors" in analysis:
+                invisible = analysis["invisible_factors"]
+                self.invisible_factors = {
+                    "institutional_flow": max(-1.0, min(1.0, float(invisible.get("institutional_flow", 0.0)))),
+                    "liquidity_factor": max(0.0, min(1.0, float(invisible.get("liquidity_factor", 0.7)))),
+                    "news_velocity": max(0.0, min(1.0, float(invisible.get("news_velocity", 0.5)))),
+                    "sector_rotation": max(-1.0, min(1.0, float(invisible.get("sector_rotation", 0.0)))),
+                    "risk_appetite": max(0.0, min(1.0, float(invisible.get("risk_appetite", 0.5))))
+                }
+                log_to_file(f"Applied invisible factors: {json.dumps(self.invisible_factors, indent=2)}")
+            
+            # FIX 1.2: ENSURE STOCK PRICES ARE ALWAYS APPLIED
+            # CRITICAL: Daily stock prices are REQUIRED
+            if "daily_stock_prices" not in analysis:
+                log_to_file("❌ CRITICAL: No daily stock prices provided by AI")
+                raise ValueError("AI analysis must provide daily_stock_prices for all stocks")
+            
+            # Validate all stocks have prices
+            required_symbols = {stock["symbol"] for cat in self.categories.values() for stock in cat["stocks"]}
+            provided_symbols = set(analysis["daily_stock_prices"].keys())
+            missing_symbols = required_symbols - provided_symbols
+            
+            if missing_symbols:
+                log_to_file(f"❌ CRITICAL: Missing prices for stocks: {missing_symbols}")
+                raise ValueError(f"AI must provide prices for all stocks. Missing: {missing_symbols}")
+            
+            # Validate price data structure
+            for symbol, price_data in analysis["daily_stock_prices"].items():
+                required_fields = ["open_price", "range_low", "range_high", "sector_factor"]
+                missing_fields = [field for field in required_fields if field not in price_data]
+                if missing_fields:
+                    raise ValueError(f"Stock {symbol} missing required fields: {missing_fields}")
+            
+            log_to_file(f"✅ Validated prices for {len(provided_symbols)} stocks")
+            self._apply_ai_stock_prices(analysis["daily_stock_prices"])
+            
+            log_to_file("✅ Structured analysis applied successfully")
+            return analysis
+            
+        except json.JSONDecodeError as e:
+            log_to_file(f"❌ JSON parsing failed: {e}")
+            log_to_file("Structured output should never fail JSON parsing")
+            raise
+        except Exception as e:
+            log_to_file(f"❌ Error processing structured analysis: {e}")
+            raise
+    
+    
+    # REMOVED: _create_fallback_analysis_with_base_params 
+    # Per CLAUDE.md principles: "NEVER fall back to fake, random, or artificially generated data"
+    
     def parse_market_analysis(self, ai_response: str) -> Dict[str, Any]:
-        """Parse AI response and extract market parameters"""
+        """Parse AI response and extract market parameters, stock prices, and invisible factors"""
         import re
         
         try:
@@ -804,7 +1568,7 @@ Provide your analysis now:"""
             if json_match:
                 analysis = json.loads(json_match.group())
                 
-                # Validate and clamp parameters
+                # Validate and clamp market parameters
                 if "parameters" in analysis:
                     params = analysis["parameters"]
                     
@@ -824,6 +1588,34 @@ Provide your analysis now:"""
                     
                     self.market_params = params
                 
+                # Validate and clamp invisible factors
+                if "invisible_factors" in analysis:
+                    invisible = analysis["invisible_factors"]
+                    invisible["institutional_flow"] = max(-1.0, min(1.0, invisible.get("institutional_flow", 0.0)))
+                    invisible["liquidity_factor"] = max(0.0, min(1.0, invisible.get("liquidity_factor", 0.7)))
+                    invisible["news_velocity"] = max(0.0, min(1.0, invisible.get("news_velocity", 0.5)))
+                    invisible["sector_rotation"] = max(-1.0, min(1.0, invisible.get("sector_rotation", 0.0)))
+                    invisible["risk_appetite"] = max(0.0, min(1.0, invisible.get("risk_appetite", 0.5)))
+                    
+                    # Store invisible factors for use in price generation
+                    self.invisible_factors = invisible
+                else:
+                    # Default invisible factors if not provided
+                    self.invisible_factors = {
+                        "institutional_flow": 0.0,
+                        "liquidity_factor": 0.7,
+                        "news_velocity": 0.5,
+                        "sector_rotation": 0.0,
+                        "risk_appetite": 0.5
+                    }
+                
+                # Apply daily stock prices if provided
+                if "daily_stock_prices" in analysis:
+                    self._apply_ai_stock_prices(analysis["daily_stock_prices"])
+                    print("✅ AI-provided daily stock prices applied")
+                else:
+                    print("⚠️ No daily stock prices in AI response, using current prices")
+                
                 print("✅ AI market analysis parsed successfully")
                 return analysis
             else:
@@ -831,61 +1623,66 @@ Provide your analysis now:"""
                 
         except Exception as e:
             print(f"❌ Error parsing AI analysis: {e}")
-            return self.get_fallback_analysis()
+            raise Exception(f"Failed to parse AI analysis: {e}")
     
-    def get_fallback_analysis(self) -> Dict[str, Any]:
-        """Fallback analysis when AI fails - uses economic data"""
-        print("🔄 Using fallback market analysis with economic data")
+    def _apply_ai_stock_prices(self, daily_prices: Dict[str, Dict[str, float]]) -> None:
+        """Apply AI-provided daily stock prices and ranges"""
+        print("🔄 Applying AI-provided daily stock prices...")
         
-        try:
-            # Try to calculate parameters from economic data
-            self.market_params = self._calculate_market_params_from_economic_data()
-            print("✅ Fallback using economic data calculation")
-            
-            return {
-                "reasoning": {
-                    "market_overview": "Fallback analysis using economic data calculation",
-                    "trend_analysis": "Trend based on GDP growth and economic indicators",
-                    "volatility_analysis": "Volatility based on inflation and market sentiment data",
-                    "momentum_analysis": "Momentum based on current economic environment",
-                    "sentiment_analysis": "Sentiment derived from market confidence data",
-                    "outlook_analysis": "Long-term outlook based on economic fundamentals"
-                },
-                "parameters": self.market_params.copy(),
-                "stock_outlook": {cat: "Outlook based on economic fundamentals" for cat in self.categories.keys()}
-            }
-            
-        except Exception as e:
-            print(f"⚠️ Economic data fallback failed: {e}")
-            print("🔄 Using minimal adjustment fallback")
-            
-            # Last resort: small adjustments to current parameters
-            for param in ["trend_direction", "volatility", "momentum", "market_sentiment"]:
-                current = self.market_params[param]
-                change = random.uniform(-0.05, 0.05)  # Smaller changes
-                
-                if param == "trend_direction":
-                    self.market_params[param] = max(-1.0, min(1.0, current + change))
+        # Clear daily ranges for new trading day
+        self.daily_ranges = {}
+        
+        for cat_name, cat_data in self.categories.items():
+            for stock in cat_data["stocks"]:
+                symbol = stock["symbol"]
+                if symbol in daily_prices:
+                    price_data = daily_prices[symbol]
+                    
+                    # Validate price data
+                    open_price = max(0.1, price_data.get("open_price", stock["price"]))
+                    range_low = max(0.1, price_data.get("range_low", open_price * 0.95))
+                    range_high = max(range_low + 0.1, price_data.get("range_high", open_price * 1.05))
+                    sector_factor = max(0.1, min(3.0, price_data.get("sector_factor", 1.0)))
+                    
+                    # Ensure range is valid
+                    if range_low > open_price:
+                        range_low = open_price * 0.95
+                    if range_high < open_price:
+                        range_high = open_price * 1.05
+                    
+                    # FIX 0.1: NEVER OVERWRITE AI OPENING PRICES
+                    # Store AI opening price in separate field that never changes
+                    stock["ai_opening_price"] = open_price  # PRESERVE AI OPENING (NEVER CHANGES)
+                    stock["price"] = open_price             # THE ONE TRUE PRICE FIELD
+                    stock["daily_range_low"] = range_low
+                    stock["daily_range_high"] = range_high
+                    stock["sector_factor"] = sector_factor
+                    
+                    # Store in daily_ranges for on-demand calculation
+                    self.daily_ranges[symbol] = {
+                        "low": range_low,
+                        "high": range_high,
+                        "sector_factor": sector_factor,
+                        "open_price": open_price  # Store AI-provided opening price
+                    }
+                    
+                    print(f"📊 {symbol}: ${open_price:.2f} (${range_low:.2f}-${range_high:.2f}, factor: {sector_factor:.1f})")
                 else:
-                    self.market_params[param] = max(0.0, min(1.0, current + change))
-            
-            # Long-term outlook changes very slowly
-            outlook_change = random.uniform(-0.01, 0.01)  # Even smaller changes
-            current_outlook = self.market_params["long_term_outlook"]
-            self.market_params["long_term_outlook"] = max(0.0, min(1.0, current_outlook + outlook_change))
-            
-            return {
-                "reasoning": {
-                    "market_overview": "Minimal adjustment fallback - economic data unavailable",
-                    "trend_analysis": "Small adjustment to trend direction",
-                    "volatility_analysis": "Minor volatility adjustment",
-                    "momentum_analysis": "Slight momentum adjustment",
-                    "sentiment_analysis": "Minor sentiment adjustment",
-                    "outlook_analysis": "Long-term outlook minimally adjusted"
-                },
-                "parameters": self.market_params.copy(),
-                "stock_outlook": {cat: "Conservative outlook" for cat in self.categories.keys()}
-        }
+                    # No AI price provided, set default range
+                    stock["daily_range_low"] = stock["price"] * 0.97
+                    stock["daily_range_high"] = stock["price"] * 1.03
+                    stock["sector_factor"] = 1.0
+                    
+                    # Store in daily_ranges
+                    self.daily_ranges[symbol] = {
+                        "low": stock["daily_range_low"],
+                        "high": stock["daily_range_high"],
+                        "sector_factor": 1.0
+                    }
+    
+    # REMOVED: get_fallback_analysis
+    # Per CLAUDE.md principles: "NEVER fall back to fake, random, or artificially generated data"
+    # System now raises exceptions instead of generating fallback data
     
     def get_previous_trading_day_data(self) -> Optional[Dict[str, Any]]:
         """Get previous trading day data for AI context (not today's)"""
@@ -947,7 +1744,7 @@ Provide your analysis now:"""
         
         if not self.client:
             print("❌ Discord client not available for market analysis")
-            return self.get_fallback_analysis()
+            raise Exception("Stock market requires Discord client for intelligent data collection")
         
         try:
             # Collect recent messages from all allowed channels with focus on news
@@ -1035,7 +1832,7 @@ Provide your analysis now:"""
             
         except Exception as e:
             print(f"❌ Enhanced AI market analysis failed: {e}")
-            return self.get_fallback_analysis()
+            raise Exception(f"Enhanced AI market analysis failed: {e}")
     
     def build_enhanced_analysis_prompt(self, messages: List[Dict], news_messages: List[Dict], 
                                        previous_analysis: Optional[Dict], custom_prompt: str) -> str:
@@ -1285,32 +2082,34 @@ Provide your enhanced analysis now:"""
         print(f"✅ Saved new analysis replacing previous one for {today}")
     
     async def apply_hourly_price_update(self, hour_index: int) -> None:
-        """Apply precomputed price update for a specific hour"""
-        if not self.precomputed_prices:
-            print("⚠️ No precomputed prices available")
-            return
+        """Apply on-demand price update - calculates prices dynamically"""
+        print(f"📊 Calculating prices on-demand for update period {hour_index}")
         
-        print(f"📊 Applying price update for hour {hour_index}")
-        
-        # Update all stock prices
+        # Update all stock prices using on-demand calculation
         price_updates = {}
         
         for cat_name, cat_data in self.categories.items():
-            for i, stock in enumerate(cat_data["stocks"]):
+            for stock in cat_data["stocks"]:
                 symbol = stock["symbol"]
-                if symbol in self.precomputed_prices:
-                    prices = self.precomputed_prices[symbol]
-                    if hour_index < len(prices):
-                        old_price = stock["price"]
-                        new_price = prices[hour_index]
-                        stock["price"] = new_price
-                        
-                        price_updates[symbol] = {
-                            "old_price": old_price,
-                            "new_price": new_price,
-                            "change": new_price - old_price,
-                            "change_pct": ((new_price - old_price) / old_price) * 100
-                        }
+                old_price = stock["price"]
+                
+                # FIX 0.1: Calculate new price but preserve AI opening
+                # Ensure AI opening price exists
+                if "ai_opening_price" not in stock:
+                    raise ValueError(f"Stock {symbol} missing AI opening price - daily analysis failed")
+                
+                # Calculate new price on-demand
+                new_price = self.calculate_price_at_time(symbol)
+                
+                # Update the ONE TRUE price field
+                stock["price"] = new_price
+                
+                price_updates[symbol] = {
+                    "old_price": old_price,
+                    "new_price": new_price,
+                    "change": new_price - old_price,
+                    "change_pct": ((new_price - old_price) / old_price) * 100
+                }
         
         # Calculate updated category prices
         category_prices = self.calculate_category_prices()
@@ -1331,7 +2130,7 @@ Provide your enhanced analysis now:"""
         
         self.save_historical_data(timestamp, historical_data)
         
-        print(f"✅ Updated {len(price_updates)} stock prices and ETFs for hour {hour_index}")
+        print(f"✅ Updated {len(price_updates)} stock prices and ETFs using on-demand calculation")
         
         return price_updates
     
@@ -1387,6 +2186,127 @@ Provide your enhanced analysis now:"""
             
         except Exception as e:
             print(f"❌ Error generating chart for {symbol}: {e}")
+            return None
+    
+    def generate_stock_chart_on_demand(self, symbol: str, hours_back: int = 48) -> Optional[bytes]:
+        """Generate chart using on-demand price calculation for specified hours"""
+        try:
+            # Calculate prices for each hour going back
+            current_time = datetime.now(timezone.utc)
+            prices = []
+            timestamps = []
+            
+            # Generate prices at intervals based on update rate
+            intervals = hours_back * (60 // self.price_update_rate_minutes)
+            interval_minutes = self.price_update_rate_minutes
+            
+            for i in range(intervals):
+                # Calculate time for this data point
+                time_offset = timedelta(minutes=interval_minutes * (intervals - 1 - i))
+                price_time = current_time - time_offset
+                
+                # Calculate price at this time
+                try:
+                    price = self.calculate_price_at_time(symbol, price_time)
+                    prices.append(price)
+                    timestamps.append(price_time)
+                except Exception as e:
+                    print(f"⚠️ Error calculating price for {symbol} at {price_time}: {e}")
+                    continue
+            
+            if len(prices) < 2:
+                return None
+            
+            # Generate chart with calculated prices
+            return self.generate_stock_chart(symbol, prices)
+            
+        except Exception as e:
+            print(f"❌ Error generating on-demand chart for {symbol}: {e}")
+            return None
+    
+    def generate_market_average_chart(self, hour_index: int) -> Optional[bytes]:
+        """Generate matplotlib chart for overall market average movement using historical data"""
+        try:
+            # Get historical data from the last 12 hours for chart
+            history_file = self.data_dir / "stock_history.json"
+            if not history_file.exists():
+                return None
+                
+            with open(history_file, 'r') as f:
+                history = json.load(f)
+            
+            # Get recent data points for the chart (last 12 entries or hour_index + 1, whichever is smaller)
+            recent_history = history[-min(12, hour_index + 1):] if history else []
+            
+            if len(recent_history) < 2:
+                return None
+            
+            # Calculate market averages from historical data
+            market_averages = []
+            timestamps = []
+            
+            for entry in recent_history:
+                if "individual_stocks" in entry:
+                    stock_prices = list(entry["individual_stocks"].values())
+                    if stock_prices:
+                        avg_price = sum(stock_prices) / len(stock_prices)
+                        market_averages.append(avg_price)
+                        # Extract hour from timestamp for label
+                        if "timestamp" in entry:
+                            from datetime import datetime
+                            dt = datetime.fromisoformat(entry["timestamp"].replace('Z', '+00:00'))
+                            timestamps.append(dt.strftime("%H:%M"))
+                        else:
+                            timestamps.append(f"{len(timestamps):02d}:00")
+            
+            if len(market_averages) < 2:
+                return None
+            
+            # Create figure
+            plt.style.use('dark_background')
+            fig, ax = plt.subplots(figsize=(10, 6))
+            
+            # Use the extracted timestamps for x-axis labels
+            # Plot market average line
+            ax.plot(timestamps, market_averages, linewidth=3, color='#00aaff', marker='o', markersize=5)
+            
+            # Calculate overall change
+            if len(market_averages) > 1:
+                change = market_averages[-1] - market_averages[0]
+                change_pct = (change / market_averages[0]) * 100
+                
+                color = '#00ff88' if change >= 0 else '#ff4444'
+                direction = '📈' if change >= 0 else '📉'
+                
+                ax.set_title(f"Market Average - {direction} ${change:+.2f} ({change_pct:+.2f}%)", 
+                           fontsize=14, color=color, fontweight='bold')
+            else:
+                ax.set_title("Market Average", fontsize=14, color='white', fontweight='bold')
+            
+            # Style the chart
+            ax.set_xlabel("Hours (ET) [24/7 Trading]", fontsize=10, color='lightgray')
+            ax.set_ylabel("Average Price ($)", fontsize=10, color='lightgray')
+            ax.grid(True, alpha=0.3)
+            ax.tick_params(colors='lightgray')
+            
+            # Rotate x-axis labels for better readability
+            plt.xticks(rotation=45)
+            
+            # Tight layout
+            plt.tight_layout()
+            
+            # Save to bytes
+            buffer = io.BytesIO()
+            plt.savefig(buffer, format='png', facecolor='#2f3136', dpi=100)
+            buffer.seek(0)
+            
+            chart_bytes = buffer.getvalue()
+            plt.close(fig)
+            
+            return chart_bytes
+            
+        except Exception as e:
+            print(f"❌ Error generating market average chart: {e}")
             return None
 
 # Global stock market instance
@@ -1445,6 +2365,53 @@ class StockMarketScheduler:
         next_open = self.get_next_market_open()
         return next_open - timedelta(minutes=20)
     
+    async def _generate_emergency_prices(self):
+        """Generate emergency price data when no precomputed prices exist"""
+        try:
+            print("🚨 Generating emergency price data...")
+            
+            # Get current trading day
+            trading_day = self.get_trading_day_id()
+            
+            # Run a quick AI analysis or use fallback
+            try:
+                analysis = await self.stock_market.get_daily_market_analysis()
+                self.stock_market.save_daily_analysis(analysis)
+                print("✅ Emergency AI analysis completed")
+            except Exception as e:
+                print(f"⚠️ Emergency AI analysis failed, using fallback: {e}")
+                analysis = self.stock_market.get_fallback_analysis()
+            
+            # Update market parameters
+            self.stock_market.market_params = analysis.get("parameters", self.stock_market.market_params)
+            
+            # Generate hourly prices for current day
+            hourly_prices = self.stock_market.generate_hourly_prices(trading_day)
+            self.stock_market.precomputed_prices = hourly_prices
+            
+            # Set trading day state
+            self.stock_market.is_trading_day = True
+            self.stock_market.current_trading_day = trading_day
+            
+            # Save market data
+            self.stock_market.save_market_data()
+            
+            print(f"✅ Emergency price generation complete for {trading_day}")
+            
+        except Exception as e:
+            print(f"❌ Emergency price generation failed: {e}")
+    
+    async def force_daily_initialization(self):
+        """Force a complete daily market initialization"""
+        try:
+            print("🔄 Force initializing daily market data...")
+            await self.prepare_trading_day()
+            print("✅ Force daily initialization completed")
+            return True
+        except Exception as e:
+            print(f"❌ Force daily initialization failed: {e}")
+            return False
+    
     async def start_scheduler(self):
         """Start the automated scheduler"""
         print("⏰ Starting stock market scheduler...")
@@ -1479,7 +2446,16 @@ class StockMarketScheduler:
                 
             except Exception as e:
                 print(f"❌ Error in daily prep loop: {e}")
-                await asyncio.sleep(300)  # Wait 5 minutes before retrying
+                import traceback
+                traceback.print_exc()
+                
+                # Wait 5 minutes before retrying
+                await asyncio.sleep(300)
+                
+                # Check if the task should continue running
+                if asyncio.current_task().cancelled():
+                    print("🛑 Daily prep task was cancelled, stopping...")
+                    break
     
     async def prepare_trading_day(self):
         """Run daily market analysis and update parameters (8:40 AM ET daily)"""
@@ -1487,6 +2463,11 @@ class StockMarketScheduler:
         print(f"📊 Running daily market analysis for: {trading_day} [24/7 Trading]")
         
         try:
+            # FIX 0.3: Set market open time BEFORE running AI analysis
+            et_now = self.get_et_now()
+            self.stock_market.market_open_time = et_now.replace(hour=9, minute=0, second=0, microsecond=0)
+            print(f"🕕 Market open time set BEFORE analysis: {self.stock_market.market_open_time.strftime('%I:%M %p ET')}")
+            
             # Run AI analysis
             analysis = await self.stock_market.get_daily_market_analysis()
             
@@ -1496,13 +2477,15 @@ class StockMarketScheduler:
             # Update market parameters from analysis
             self.stock_market.market_params = analysis.get("parameters", self.stock_market.market_params)
             
+            # Validate all stocks have AI opening prices
+            for cat_data in self.stock_market.categories.values():
+                for stock in cat_data["stocks"]:
+                    if "ai_opening_price" not in stock:
+                        raise ValueError(f"Stock {stock['symbol']} missing AI opening price")
+            
             # CRITICAL: Recalculate baseline prices from new economic parameters
             print("🔄 Recalculating baseline prices for new trading day...")
             self.stock_market.recalculate_all_baseline_prices()
-            
-            # Generate hourly prices for the day with updated baselines
-            hourly_prices = self.stock_market.generate_hourly_prices(trading_day)
-            self.stock_market.precomputed_prices = hourly_prices
             
             # Set trading day state (always active for 24/7 trading)
             self.stock_market.is_trading_day = True
@@ -1521,70 +2504,110 @@ class StockMarketScheduler:
             print(f"❌ Error preparing trading day: {e}")
     
     async def hourly_update_loop(self):
-        """Hourly loop to update stock prices continuously (24/7 trading)"""
+        """Update loop based on price update rate (default hourly)"""
         while True:
             try:
                 # Market is always open - no need to check trading hours
                 
-                # Wait until the next hour
+                # Wait until the next update period
                 et_now = self.get_et_now()
-                next_hour = et_now.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
-                sleep_seconds = (next_hour - et_now).total_seconds()
+                minutes_per_update = self.stock_market.price_update_rate_minutes
+                
+                # Calculate next update time
+                current_minutes = et_now.hour * 60 + et_now.minute
+                next_update_minutes = ((current_minutes // minutes_per_update) + 1) * minutes_per_update
+                next_update_hour = next_update_minutes // 60
+                next_update_minute = next_update_minutes % 60
+                
+                # Handle day rollover
+                if next_update_hour >= 24:
+                    next_update = (et_now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+                else:
+                    next_update = et_now.replace(hour=next_update_hour, minute=next_update_minute, second=0, microsecond=0)
+                
+                sleep_seconds = (next_update - et_now).total_seconds()
                 
                 if sleep_seconds > 0:
+                    print(f"🕰️ Next price update in {sleep_seconds/60:.1f} minutes at {next_update.strftime('%I:%M %p ET')}")
                     await asyncio.sleep(sleep_seconds)
                 
-                # Update prices
-                await self.update_hourly_prices()
+                # Update prices using on-demand calculation
+                await self.update_prices_on_demand()
                 
             except Exception as e:
-                print(f"❌ Error in hourly update loop: {e}")
+                print(f"❌ Error in update loop: {e}")
+                import traceback
+                traceback.print_exc()
+                
+                # Progressive backoff: start with 5 minutes, increase on repeated failures
                 await asyncio.sleep(300)  # Wait 5 minutes before retrying
+                
+                # Check if the task should continue running
+                if asyncio.current_task().cancelled():
+                    print("🛑 Hourly update task was cancelled, stopping...")
+                    break
     
-    async def update_hourly_prices(self):
-        """Update stock prices with precomputed hourly values"""
-        if not self.stock_market.precomputed_prices:
-            print("⚠️ No precomputed prices available")
-            return
-        
+    async def update_prices_on_demand(self):
+        """Update stock prices using on-demand calculation"""
         et_now = self.get_et_now()
-        hour_index = et_now.hour  # 0 = midnight, 1 = 1 AM, etc. (24-hour format)
         
-        # Market runs 24/7 - no hour restrictions
+        # Ensure market open time is set
+        if not self.stock_market.market_open_time:
+            print("⚠️ Market open time not set, initializing...")
+            success = await self.force_daily_initialization()
+            if not success:
+                print("❌ Could not initialize market, skipping update")
+                return
         
-        print(f"📊 Updating stock prices for hour {hour_index} ({et_now.strftime('%I:%M %p ET')}) [24/7 Trading]")
+        print(f"📊 Calculating stock prices on-demand at {et_now.strftime('%I:%M %p ET')} [24/7 Trading]")
         
-        # Update all stock prices
+        # Update all stock prices using on-demand calculation
         price_updates = {}
         
-        for cat_name, cat_data in self.stock_market.categories.items():
-            for i, stock in enumerate(cat_data["stocks"]):
+        for cat_data in self.stock_market.categories.values():
+            for stock in cat_data["stocks"]:
                 symbol = stock["symbol"]
-                if symbol in self.stock_market.precomputed_prices:
-                    prices = self.stock_market.precomputed_prices[symbol]
-                    if hour_index < len(prices):
-                        old_price = stock["price"]
-                        new_price = prices[hour_index]
-                        stock["price"] = new_price
-                        
-                        price_updates[symbol] = {
-                            "old_price": old_price,
-                            "new_price": new_price,
-                            "change": new_price - old_price,
-                            "change_pct": ((new_price - old_price) / old_price) * 100
-                        }
+                old_price = stock["price"]
+                
+                # FIX 0.1: Calculate new price but preserve AI opening
+                try:
+                    # Ensure AI opening price exists
+                    if "ai_opening_price" not in stock:
+                        raise ValueError(f"Stock {symbol} missing AI opening price - daily analysis failed")
+                    
+                    old_price = stock.get("price", stock["ai_opening_price"])
+                    new_price = self.stock_market.calculate_price_at_time(symbol, et_now)
+                    
+                    # Update the ONE TRUE price field
+                    stock["price"] = new_price
+                    # CRITICAL: ai_opening_price is NEVER modified after being set by AI
+                    
+                    price_updates[symbol] = {
+                        "old_price": old_price,
+                        "new_price": new_price,
+                        "change": new_price - old_price,
+                        "change_pct": ((new_price - old_price) / old_price) * 100
+                    }
+                except Exception as e:
+                    print(f"⚠️ Error calculating price for {symbol}: {e}")
         
         # Calculate category prices
         category_prices = self.stock_market.calculate_category_prices()
         
         # Save historical data
         timestamp = datetime.now(timezone.utc).isoformat()
+        
+        # Calculate hour index for display purposes
+        time_elapsed = (et_now - self.stock_market.market_open_time).total_seconds()
+        hour_index = int(time_elapsed / 3600)
+        
         historical_data = {
             "individual_stocks": {symbol: stock["price"] for cat in self.stock_market.categories.values() 
                                 for stock in cat["stocks"] for symbol in [stock["symbol"]]},
             "category_prices": category_prices,
             "market_params": self.stock_market.market_params,
-            "trading_hour": hour_index
+            "trading_hour": hour_index,
+            "update_rate_minutes": self.stock_market.price_update_rate_minutes
         }
         
         self.stock_market.save_historical_data(timestamp, historical_data)
@@ -1611,7 +2634,7 @@ class StockMarketScheduler:
                 title="📊 Daily Market Analysis Complete",
                 description=f"Analysis Day: {self.stock_market.current_trading_day} • 24/7 Trading Active",
                 color=0x00ff88,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             # Market parameters
@@ -1665,7 +2688,7 @@ class StockMarketScheduler:
                 title=f"📊 Hourly Market Update",
                 description=f"{et_now.strftime('%I:%M %p ET')} • Hour {hour_index:02d}/24 [24/7 Trading]",
                 color=0x0099ff,
-                timestamp=datetime.utcnow()
+                timestamp=datetime.now(timezone.utc)
             )
             
             # Show biggest movers
@@ -1686,27 +2709,18 @@ class StockMarketScheduler:
             if category_prices:
                 etf_text = ""
                 for cat_name, price in category_prices.items():
-                    emoji = "📰" if cat_name == "NEWS" else "🏛️" if cat_name == "CONGRESS" else "🏢" if cat_name == "EXECUTIVE" else "🏞️" if cat_name == "STATES" else "⚖️" if cat_name == "COURTS" else "👥"
+                    emoji = "⛽" if cat_name == "ENERGY" else "🎬" if cat_name == "ENTERTAINMENT" else "🏦" if cat_name == "FINANCE" else "🏥" if cat_name == "HEALTH" else "🏭" if cat_name == "MANUFACTURING" else "🛒" if cat_name == "RETAIL" else "💻" if cat_name == "TECH" else "✈️" if cat_name == "TRANSPORT" else "📊"
                     etf_text += f"{emoji} **{cat_name}**: ${price:.2f}\n"
                 
                 embed.add_field(name="📊 Sector ETFs", value=etf_text.strip(), inline=True)
             
-            # Try to create and attach a chart for the most active stock
-            chart_bytes = None
-            if price_updates:
-                most_active_symbol = max(price_updates.keys(), 
-                                       key=lambda s: abs(price_updates[s]["change_pct"]))
-                
-                if most_active_symbol in self.stock_market.precomputed_prices:
-                    prices = self.stock_market.precomputed_prices[most_active_symbol][:hour_index + 1]
-                    # Show last 12 hours for readability on 24/7 charts
-                    chart_prices = prices[-12:] if len(prices) > 12 else prices
-                    chart_bytes = self.stock_market.generate_stock_chart(most_active_symbol, chart_prices)
+            # Create and attach a chart for the overall market average
+            chart_bytes = self.stock_market.generate_market_average_chart(hour_index)
             
             if chart_bytes:
-                # Attach chart
-                chart_file = discord.File(io.BytesIO(chart_bytes), filename=f"{most_active_symbol}_chart.png")
-                embed.set_image(url=f"attachment://{most_active_symbol}_chart.png")
+                # Attach market average chart
+                chart_file = discord.File(io.BytesIO(chart_bytes), filename="market_average_chart.png")
+                embed.set_image(url="attachment://market_average_chart.png")
                 await channel.send(embed=embed, file=chart_file)
             else:
                 await channel.send(embed=embed)
@@ -1717,6 +2731,46 @@ class StockMarketScheduler:
 # Global scheduler instance
 stock_scheduler = None
 
+def is_scheduler_running():
+    """Check if the scheduler is running and healthy"""
+    global stock_scheduler
+    if not stock_scheduler:
+        return False
+    
+    # Check if tasks exist and are not done/cancelled
+    daily_running = (hasattr(stock_scheduler, 'daily_prep_task') and 
+                    stock_scheduler.daily_prep_task and 
+                    not stock_scheduler.daily_prep_task.done() and 
+                    not stock_scheduler.daily_prep_task.cancelled())
+    
+    hourly_running = (hasattr(stock_scheduler, 'hourly_update_task') and 
+                     stock_scheduler.hourly_update_task and 
+                     not stock_scheduler.hourly_update_task.done() and 
+                     not stock_scheduler.hourly_update_task.cancelled())
+    
+    return daily_running and hourly_running
+
+def stop_scheduler():
+    """Properly stop and cleanup the scheduler"""
+    global stock_scheduler
+    if stock_scheduler:
+        # Cancel tasks
+        if hasattr(stock_scheduler, 'daily_prep_task') and stock_scheduler.daily_prep_task:
+            if not stock_scheduler.daily_prep_task.done():
+                stock_scheduler.daily_prep_task.cancel()
+            stock_scheduler.daily_prep_task = None
+            
+        if hasattr(stock_scheduler, 'hourly_update_task') and stock_scheduler.hourly_update_task:
+            if not stock_scheduler.hourly_update_task.done():
+                stock_scheduler.hourly_update_task.cancel()
+            stock_scheduler.hourly_update_task = None
+        
+        # Reset global scheduler
+        stock_scheduler = None
+        print("⏹️ Stock market scheduler stopped and cleaned up")
+        return True
+    return False
+
 async def initialize_stock_market(client) -> None:
     """Initialize the stock market system"""
     global stock_scheduler
@@ -1724,6 +2778,11 @@ async def initialize_stock_market(client) -> None:
     print("📈 Initializing Stock Market System...")
     
     stock_market.client = client
+    
+    # Stop existing scheduler if running
+    if is_scheduler_running():
+        print("⚠️ Existing scheduler detected, stopping before initialization...")
+        stop_scheduler()
     
     # Load existing data
     if stock_market.load_market_data():
@@ -1754,8 +2813,26 @@ async def initialize_stock_market(client) -> None:
         # Save the initialized data
         stock_market.save_market_data()
     
-    # Initialize scheduler
-    stock_scheduler = StockMarketScheduler(stock_market)
-    await stock_scheduler.start_scheduler()
+    # Initialize scheduler only if not already running
+    if not is_scheduler_running():
+        stock_scheduler = StockMarketScheduler(stock_market)
+        await stock_scheduler.start_scheduler()
+        print("✅ Stock market scheduler initialized and started")
+    else:
+        print("ℹ️ Scheduler already running, skipping initialization")
+    
+    # Check if we need to run initial market preparation
+    if not stock_market.market_open_time or not stock_market.current_trading_day:
+        print("🔄 No market open time found, running daily market initialization...")
+        try:
+            await stock_scheduler.prepare_trading_day()
+            print("✅ Daily market initialization completed")
+        except Exception as e:
+            print(f"⚠️ Daily market initialization failed, trying emergency fallback: {e}")
+            try:
+                await stock_scheduler._generate_emergency_prices()
+                print("✅ Emergency fallback completed")
+            except Exception as e2:
+                print(f"❌ Both daily init and emergency fallback failed: {e2}")
     
     print("✅ Stock Market System ready")

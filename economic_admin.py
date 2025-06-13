@@ -117,7 +117,7 @@ class EconomicAdmin(commands.Cog):
         rate = max(-10.0, min(50.0, rate))
         
         params = self.load_parameters()
-        old_rate = params.get("inflation_base", 2.5)
+        old_rate = params.get("inflation_base", 8.51)
         params["inflation_base"] = rate
         
         self.save_parameters(params)
@@ -290,7 +290,7 @@ class EconomicAdmin(commands.Cog):
         async def confirm_callback(confirm_interaction):
             default_params = {
                 "gdp_weights": {"legislative": 0.4, "committee": 0.3, "public": 0.3},
-                "inflation_base": 2.5,
+                "inflation_base": 8.51,
                 "market_volatility_base": 0.05,
                 "analysis_interval": 3600,
                 "lookback_days": 30,
@@ -359,7 +359,7 @@ class EconomicAdmin(commands.Cog):
         # Market Settings
         embed.add_field(
             name="Market Settings",
-            value=f"Inflation: {params.get('inflation_base', 2.5):.2f}%\nAnalysis Interval: {params.get('analysis_interval', 3600)//60} min",
+            value=f"Inflation: {params.get('inflation_base', 8.51):.2f}%\nAnalysis Interval: {params.get('analysis_interval', 3600)//60} min",
             inline=True
         )
         

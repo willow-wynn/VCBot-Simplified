@@ -107,6 +107,20 @@ GEMINI_TOOLS = [
             },
             "required": ["data_type"] 
         }
+    },
+    {
+        "name": "get_bill_content",
+        "description": "retrieves the full text content of a specific bill by filename",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "type": "string",
+                    "description": "the exact filename of the bill to retrieve (without .txt extension). Use the filename returned from call_bill_search.",
+                },
+            },
+            "required": ["filename"] 
+        }
     }
 ]
 
@@ -196,6 +210,38 @@ def get_economic_data(data_type: str, days_back: int = 7) -> Dict[str, Any]:
     except Exception as e:
         return {"error": f"Failed to retrieve economic data: {e}"}
 
+def get_bill_content(filename: str) -> str:
+    """Retrieve the full text content of a bill by filename."""
+    try:
+        from file_utils import get_bill_content as file_get_bill_content, get_bill_metadata
+        
+        # Get the bill content
+        content = file_get_bill_content(filename)
+        if not content:
+            return f"Error: Bill with filename '{filename}' not found"
+        
+        # Get metadata if available
+        metadata = get_bill_metadata(filename)
+        
+        # Build response with metadata and content
+        response = f"**Bill: {filename}**\n\n"
+        
+        if metadata:
+            if 'title' in metadata:
+                response += f"**Title:** {metadata['title']}\n"
+            if 'source_url' in metadata:
+                response += f"**Source URL:** {metadata['source_url']}\n"
+            if 'ai_generated_title' in metadata:
+                response += "**Note:** Title was AI-generated\n"
+            response += "\n"
+        
+        response += f"**Full Text:**\n{content}"
+        
+        return response
+        
+    except Exception as e:
+        return f"Error retrieving bill content: {e}"
+
 async def execute_tool(function_call, discord_client: discord.Client = None) -> Any:
     """Execute a tool function call."""
     tool_name = function_call.name
@@ -228,6 +274,9 @@ async def execute_tool(function_call, discord_client: discord.Client = None) -> 
                 args.get("days_back", 7)
             )
         
+        elif tool_name == "get_bill_content":
+            return get_bill_content(args.get("filename"))
+        
         else:
             return f"Unknown tool: {tool_name}"
             
@@ -252,16 +301,25 @@ def build_system_prompt(user_id: int) -> str:
 **Tool Usage Strategy**:
 🔍 **call_knowledge**: Use when users need specific rules, procedures, or constitutional guidance
 📋 **call_bill_search**: Perfect for legislative research, finding precedents, or exploring policy areas
+📄 **get_bill_content**: Essential for accessing full text of specific bills by filename - use this AFTER call_bill_search to get complete bill content
 🏛️ **call_other_channel_context**: Essential for understanding current political climate, ongoing debates, or recent developments
 📊 **get_economic_data**: Valuable for understanding the simulation's economic impacts and trends - includes real stock market data for 24 major companies (AAPL, MSFT, GOOGL, JPM, XOM, CVX, COP, BAC, V, GS, JNJ, UNH, PFE, WMT, COST, HD, CAT, GE, LMT, NFLX, DIS, EA, BA)
 📄 **fetch_document_content**: Use when users reference Google Docs (bills, reports, proposals)
 
 **When to Use Tools**:
 - User asks about specific rules or procedures → call_knowledge
-- User wants to research legislation or find bills → call_bill_search  
+- User wants to research legislation or find bills → call_bill_search, then get_bill_content for full text
+- User asks about specific bill content or wants to read a bill → get_bill_content (after getting filename from call_bill_search)
 - User needs context about current events or discussions → call_other_channel_context
 - User asks about economic impacts, trends, or STOCK PRICES → get_economic_data
 - User references a Google Doc link → fetch_document_content
+
+**CRITICAL - Tool Usage Priority**:
+🚨 **ALWAYS PRIORITIZE TOOL CALLS** - When in doubt, call tools rather than providing generic answers
+🚨 **USE MULTIPLE TOOLS** - Don't stop after one tool call if the user's question could benefit from additional information
+🚨 **TOOL FIRST, ANSWER SECOND** - Even if you think you know the answer, verify with tools when possible
+🚨 **CHAIN TOOLS STRATEGICALLY** - Use call_bill_search first, then get_bill_content for comprehensive bill analysis
+🚨 **CALL TOOLS SILENTLY** - Never announce that you're going to call tools or describe your tool usage process - just call them and provide the results
 
 **IMPORTANT - Stock Market System**:
 Virtual Congress uses a REAL STOCK MARKET simulation with 24 actual company stocks across 8 sectors:
@@ -278,10 +336,13 @@ When users ask about stock prices, use get_economic_data with "stocks" to get cu
 
 **Response Guidelines**:
 - Always be helpful and never refuse reasonable requests
+- PRIORITIZE TOOL USAGE - Use tools extensively rather than relying on your knowledge alone
+- DON'T ANNOUNCE TOOL CALLS - Never say "Let me search for..." or "I'll check..." - just call tools and present results
 - Provide context and background, not just direct answers
 - Help users understand the broader implications of their questions
 - Encourage active participation in the democratic simulation
 - Use tools strategically to provide comprehensive, well-researched responses
+- When analyzing bills, ALWAYS use call_bill_search followed by get_bill_content for complete analysis
 
 Today is {datetime.date.today()}. Ready to help make Virtual Congress an engaging and educational experience!"""
     

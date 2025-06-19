@@ -6,12 +6,13 @@ Provides comprehensive economic data collection and analysis with agentic loops
 import asyncio
 import json
 import os
+import io
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Any
 import discord
 from discord.ext import commands, tasks
 import google.generativeai as genai
-from config import GEMINI_API_KEY, Roles
+from config import GEMINI_API_KEY, Roles, ECONOMIC_DATA_DIR, JSON_OUTPUT_CHANNEL
 import aiohttp
 import re
 from pathlib import Path
@@ -24,7 +25,7 @@ class EconomicEngine(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
-        self.data_dir = Path("economic_data")
+        self.data_dir = ECONOMIC_DATA_DIR
         self.data_dir.mkdir(exist_ok=True)
         self.analysis_running = False
         
@@ -204,12 +205,28 @@ class EconomicEngine(commands.Cog):
         7. Trade and interstate relations
         
         Focus on governmental activity patterns, policy impacts, and public engagement levels.
-        Provide specific numerical values and trend analysis."""
+        Provide specific numerical values and trend analysis.
+        
+        IMPORTANT GDP CALCULATION RULES:
+        - GDP must show realistic changes based on economic activity
+        - If previous GDP exists, calculate change_percent as: ((new_value - previous_value) / previous_value) * 100
+        - GDP should typically change between -5% to +5% per period based on activity levels
+        - Consider activity volume, bill passages, and economic sentiment when determining GDP growth
+        
+        IMPORTANT INFLATION CALCULATION RULES:
+        - Inflation rate should change gradually (typically 0.1-0.5% per period)
+        - Consider monetary policy discussions, spending bills, and economic conditions
+        - If previous inflation exists, adjust based on recent policy impacts"""
         
         if previous_report:
-            context_prompt += f"\n\nPrevious Economic Report (for continuity):\n{json.dumps(previous_report, indent=2)}"
+            previous_gdp = previous_report.get('gdp', {}).get('value', 26.8)
+            previous_inflation = previous_report.get('inflation', {}).get('rate', 8.5)
+            context_prompt += f"\n\nPrevious Economic Report (for continuity):\n"
+            context_prompt += f"Previous GDP: ${previous_gdp:.2f} trillion\n"
+            context_prompt += f"Previous Inflation: {previous_inflation:.2f}%\n"
+            context_prompt += f"Full Previous Report:\n{json.dumps(previous_report, indent=2)}"
         else:
-            context_prompt += "\n\nNote: This is initial economic analysis - no previous data available."
+            context_prompt += "\n\nNote: This is initial economic analysis - no previous data available. Start with baseline GDP of $26.8 trillion and inflation of 8.5%."
         
         data_prompt = f"""
         Discord Activity Data:
@@ -319,6 +336,40 @@ class EconomicEngine(commands.Cog):
                 with open(category_file, 'w') as f:
                     json.dump(category_data, f, indent=2)
     
+    async def send_json_to_channel(self, data: Dict[str, Any], source: str = "Economic Analysis") -> None:
+        """Send JSON analysis data to the JSON output channel"""
+        try:
+            channel = self.bot.get_channel(JSON_OUTPUT_CHANNEL)
+            if not channel:
+                print(f"⚠️ JSON output channel {JSON_OUTPUT_CHANNEL} not found")
+                return
+            
+            # Format the JSON with proper indentation
+            json_str = json.dumps(data, indent=2)
+            
+            # Create embed header
+            embed = discord.Embed(
+                title=f"📊 {source} JSON Output",
+                description=f"Full analysis data from {source}",
+                color=0x00ff00,
+                timestamp=datetime.now(timezone.utc)
+            )
+            
+            # If JSON is small enough, send as code block
+            if len(json_str) < 1900:
+                await channel.send(embed=embed)
+                await channel.send(f"```json\n{json_str}\n```")
+            else:
+                # Send as file attachment if too large
+                json_bytes = json_str.encode('utf-8')
+                file = discord.File(io.BytesIO(json_bytes), filename=f"{source.lower().replace(' ', '_')}_analysis.json")
+                await channel.send(embed=embed, file=file)
+            
+            print(f"✅ JSON output sent to channel {JSON_OUTPUT_CHANNEL}")
+            
+        except Exception as e:
+            print(f"❌ Failed to send JSON to channel: {e}")
+    
     @tasks.loop(seconds=3600)  # Run every hour by default
     async def economic_analysis_loop(self):
         """Main agentic loop for continuous economic analysis"""
@@ -350,6 +401,9 @@ class EconomicEngine(commands.Cog):
             
             # Save the results
             await self.save_economic_data(analysis)
+            
+            # Send JSON to output channel
+            await self.send_json_to_channel(analysis, "Economic Analysis (Hourly)")
             
             print(f"Economic analysis completed. GDP: {analysis.get('gdp', {}).get('value', 'N/A')}")
             
@@ -385,6 +439,9 @@ class EconomicEngine(commands.Cog):
             activity_data = await self.collect_channel_activity(days_back)
             analysis = await self.analyze_with_gemini(activity_data, latest_report)
             await self.save_economic_data(analysis)
+            
+            # Send JSON to output channel
+            await self.send_json_to_channel(analysis, "Economic Analysis (Manual)")
             
             # Create response embed
             embed = discord.Embed(

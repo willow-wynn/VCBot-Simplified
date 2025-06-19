@@ -11,14 +11,14 @@ from discord.ext import commands
 from typing import Dict, Any
 from pathlib import Path
 from datetime import datetime, timezone
-from config import Roles
+from config import Roles, ECONOMIC_DATA_DIR
 
 class EconomicAdmin(commands.Cog):
     """Admin commands for controlling the economic simulation"""
     
     def __init__(self, bot):
         self.bot = bot
-        self.data_dir = Path("economic_data")
+        self.data_dir = ECONOMIC_DATA_DIR
         self.data_dir.mkdir(exist_ok=True)
     
     def load_parameters(self) -> Dict[str, Any]:

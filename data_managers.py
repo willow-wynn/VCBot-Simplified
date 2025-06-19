@@ -10,12 +10,13 @@ from pathlib import Path
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timezone
 import os
+from config import ECONOMIC_DATA_DIR, STOCK_DATA_DIR
 
 class EconomicDataManager:
     """Single source of truth for all economic data"""
     
     def __init__(self):
-        self.data_dir = Path("economic_data")
+        self.data_dir = ECONOMIC_DATA_DIR
         self._cache = {}
         self._cache_timestamp = None
         self._cache_duration = 60  # Cache for 60 seconds
@@ -110,7 +111,7 @@ class StockDataManager:
     """Single source of truth for all stock market data"""
     
     def __init__(self):
-        self.data_dir = Path("stock_data")
+        self.data_dir = STOCK_DATA_DIR
         self._market_data = None
         self._market_params = None
         self._daily_analysis = None

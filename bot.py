@@ -181,6 +181,117 @@ def check_dynamic_channel_restrictions(command_name: str, exempt_roles=[config.R
 # Discord Commands
 print("Registering basic commands...")
 
+@tree.command(name="sync", description="Admin only: Force sync slash commands to Discord")
+@has_any_role(config.Roles.ADMIN)
+@handle_errors("Failed to sync commands")
+async def sync_command(interaction: discord.Interaction, force: bool = False):
+    """Force sync slash commands to Discord - admin only"""
+    await interaction.response.defer(ephemeral=True)
+    
+    try:
+        if force:
+            # Force sync without checking
+            print(f"🔧 Force sync requested by {interaction.user}")
+            
+            if config.GUILD_ID:
+                guild = discord.Object(id=config.GUILD_ID)
+                tree.copy_global_to(guild=guild)
+                synced = await tree.sync(guild=guild)
+                await interaction.followup.send(
+                    f"✅ Force synced {len(synced)} commands to guild!\n"
+                    f"Commands: {', '.join(cmd.name for cmd in synced)}"
+                )
+            else:
+                synced = await tree.sync()
+                await interaction.followup.send(
+                    f"✅ Force synced {len(synced)} commands globally!\n"
+                    f"Commands: {', '.join(cmd.name for cmd in synced)}"
+                )
+        else:
+            # Use smart sync
+            embed = discord.Embed(
+                title="🔄 Command Sync Status",
+                color=0x00ff00
+            )
+            
+            # Get current sync status
+            if config.GUILD_ID:
+                guild = discord.Object(id=config.GUILD_ID)
+                try:
+                    existing = await tree.fetch_commands(guild=guild)
+                    tree.copy_global_to(guild=guild)
+                    local = tree.get_commands(guild=guild)
+                except:
+                    existing = []
+                    local = tree.get_commands(guild=guild)
+            else:
+                existing = await tree.fetch_commands(guild=None)
+                local = tree.get_commands(guild=None)
+            
+            existing_names = {cmd.name for cmd in existing}
+            local_names = {cmd.name for cmd in local}
+            
+            added = local_names - existing_names
+            removed = existing_names - local_names
+            
+            embed.add_field(
+                name="📊 Current Status",
+                value=f"Discord commands: {len(existing)}\nLocal commands: {len(local)}",
+                inline=False
+            )
+            
+            if added:
+                embed.add_field(
+                    name="➕ Commands to Add",
+                    value=", ".join(sorted(added)),
+                    inline=False
+                )
+            
+            if removed:
+                embed.add_field(
+                    name="➖ Commands to Remove",
+                    value=", ".join(sorted(removed)),
+                    inline=False
+                )
+            
+            if not added and not removed:
+                embed.add_field(
+                    name="✅ Status",
+                    value="Commands are already in sync!",
+                    inline=False
+                )
+                await interaction.followup.send(embed=embed)
+            else:
+                # Perform sync
+                sync_performed = await smart_sync_commands()
+                
+                if sync_performed:
+                    embed.add_field(
+                        name="✅ Sync Result",
+                        value="Commands synced successfully!",
+                        inline=False
+                    )
+                else:
+                    embed.add_field(
+                        name="⚠️ Sync Result",
+                        value="Sync not performed (rate limited or error)",
+                        inline=False
+                    )
+                
+                await interaction.followup.send(embed=embed)
+                
+    except discord.errors.HTTPException as e:
+        if e.status == 429:
+            await interaction.followup.send(
+                "⚠️ **Rate Limited!**\n"
+                "Discord has rate limited command syncing. Please try again later.\n"
+                f"Details: {e}"
+            )
+        else:
+            await interaction.followup.send(f"❌ HTTP Error: {e}")
+    except Exception as e:
+        await interaction.followup.send(f"❌ Error: {e}")
+
 @tree.command(name="help", description="Display all available commands and their usage")
 @handle_errors("Failed to display help")
 async def help_command(interaction: discord.Interaction):
@@ -295,6 +406,9 @@ async def help_command(interaction: discord.Interaction):
             "`/stocks_set_market [param] [value]` - Set market parameters",
             "`/stocks_set_update_rate [minutes]` - Set price update rate",
             "`/stocks_add [sector] [symbol] [name] [price]` - Add new stock",
+            "",
+            "**System Management:**",
+            "`/sync_commands [action]` - Force sync Discord slash commands",
             "",
             "**Channel Restrictions:**",
             "`/channel_restrict list` - View all channel restrictions",
@@ -802,10 +916,12 @@ async def channel_restrict(
                         inline=False
                     )
             
-            available_commands = file_utils.get_available_commands()
+            # Get bot instance from interaction
+            bot_instance = interaction.client
+            available_commands = file_utils.get_available_commands(bot_instance)
             embed.add_field(
                 name="📋 Available Commands",
-                value=f"Commands you can restrict: {', '.join(available_commands[:10])}{'...' if len(available_commands) > 10 else ''}",
+                value=f"{len(available_commands)} commands available. Commands you can restrict: {', '.join(available_commands[:10])}{'...' if len(available_commands) > 10 else ''}",
                 inline=False
             )
             
@@ -818,10 +934,11 @@ async def channel_restrict(
                 return
             
             # Validate command name
-            available_commands = file_utils.get_available_commands()
+            bot_instance = interaction.client
+            available_commands = file_utils.get_available_commands(bot_instance)
             if command_name not in available_commands:
                 await interaction.followup.send(
-                    f"❌ Unknown command '{command_name}'. Available commands: {', '.join(available_commands)}"
+                    f"❌ Unknown command '{command_name}'. {len(available_commands)} available commands. Use '/channel_restrict list' to see all commands."
                 )
                 return
             
@@ -997,6 +1114,10 @@ async def handle_message(message: discord.Message):
     # Sign channel - process Google Docs
     elif message.channel.id == config.SIGN_CHANNEL and "docs.google.com" in message.content:
         await handle_sign_message(message)
+    
+    # Bills-signed-into-law channel - automatically process Google Docs
+    elif message.channel.id == config.BILLS_SIGNED_INTO_LAW_CHANNEL and "docs.google.com" in message.content:
+        await handle_bills_signed_into_law_message(message)
 
 async def handle_clerk_message(message: discord.Message):
     """Process clerk channel messages for bill references."""
@@ -1051,6 +1172,203 @@ async def handle_sign_message(message: discord.Message):
             if records_channel:
                 await records_channel.send("Unexpected error adding bill. Please check logs.")
 
+async def handle_bills_signed_into_law_message(message: discord.Message):
+    """Handle automatic bill processing from bills-signed-into-law channel with callbacks."""
+    print(f"Processing bills-signed-into-law message from {message.author}")
+    
+    # Extract all Google Doc links from the message
+    doc_links = re.findall(r"https?://docs\.google\.com/\S+", message.content)
+    
+    if not doc_links:
+        print("No Google Docs links found in message")
+        return
+    
+    # Get records channel for notifications
+    records_channel = discord_channels.get('records')
+    
+    # Process each doc link
+    for doc_link in doc_links:
+        print(f"Found Google Doc link: {doc_link}")
+        
+        try:
+            # Add bill to corpus with AI-generated title
+            result = await bill_utils.add_bill_to_corpus(doc_link)
+            
+            if result['success']:
+                print(f"Bill successfully added to database: {result['title']}")
+                
+                # Send confirmation in the same channel with callback
+                embed = discord.Embed(
+                    title="✅ Bill Added to Database",
+                    description=f"Successfully processed bill from {message.author.mention}",
+                    color=0x00ff00
+                )
+                embed.add_field(name="Title", value=result['title'], inline=False)
+                embed.add_field(name="Filename", value=result['filename'], inline=True)
+                embed.add_field(name="Source", value=f"[Google Doc]({doc_link})", inline=True)
+                embed.set_footer(text="Title generated by AI • Added to searchable corpus")
+                
+                # Add callback button for immediate search
+                view = BillCallbackView(result['filename'], result['title'])
+                await message.channel.send(embed=embed, view=view)
+                
+                # Notify records channel
+                if records_channel:
+                    await records_channel.send(
+                        f"📋 New bill automatically added from bills-signed-into-law channel!\n"
+                        f"**{result['title']}** by {message.author.mention}\n"
+                        f"Source: {message.jump_url}"
+                    )
+                    
+            else:
+                print(f"Failed to add bill: {result['error']}")
+                
+                # Send error message with callback for retry
+                embed = discord.Embed(
+                    title="❌ Error Adding Bill",
+                    description=f"Failed to process bill from {message.author.mention}",
+                    color=0xff0000
+                )
+                embed.add_field(name="Error", value=result['error'], inline=False)
+                embed.add_field(name="Source", value=f"[Google Doc]({doc_link})", inline=False)
+                
+                view = RetryBillView(doc_link, message.author.id)
+                await message.channel.send(embed=embed, view=view)
+                
+                # Notify records channel of error
+                if records_channel:
+                    await records_channel.send(
+                        f"⚠️ Error adding bill from bills-signed-into-law channel: {result['error']}\n"
+                        f"Source: {message.jump_url}"
+                    )
+                    
+        except Exception as e:
+            print(f"Unexpected error processing bill: {e}")
+            
+            # Send generic error message
+            embed = discord.Embed(
+                title="❌ Unexpected Error",
+                description=f"An unexpected error occurred while processing bill from {message.author.mention}",
+                color=0xff0000
+            )
+            embed.add_field(name="Error", value=str(e), inline=False)
+            embed.add_field(name="Source", value=f"[Google Doc]({doc_link})", inline=False)
+            
+            await message.channel.send(embed=embed)
+            
+            # Notify records channel
+            if records_channel:
+                await records_channel.send(
+                    f"❌ Unexpected error processing bill from bills-signed-into-law channel: {str(e)}\n"
+                    f"Source: {message.jump_url}"
+                )
+
+# Callback views for bill processing
+class BillCallbackView(discord.ui.View):
+    """Interactive view for bill processing callbacks."""
+    
+    def __init__(self, filename: str, title: str):
+        super().__init__(timeout=300)  # 5 minutes timeout
+        self.filename = filename
+        self.title = title
+    
+    @discord.ui.button(label="🔍 Search Bill", style=discord.ButtonStyle.primary)
+    async def search_bill(self, interaction: discord.Interaction, button: discord.ui.Button):
+        """Quick search for this bill."""
+        await interaction.response.defer()
+        
+        try:
+            # Search for the bill
+            results = bill_utils.search_bills_keyword(self.filename, 1)
+            
+            if results:
+                result = results[0]
+                embed = discord.Embed(
+                    title="📋 Bill Found",
+                    description=f"**{result['title']}**",
+                    color=0x0099ff
+                )
+                embed.add_field(name="Filename", value=result['filename'], inline=True)
+                embed.add_field(name="Match Type", value=result['match_type'], inline=True)
+                embed.add_field(name="Score", value=str(result['score']), inline=True)
+                
+                await interaction.followup.send(embed=embed)
+            else:
+                await interaction.followup.send("❌ Bill not found in search results.")
+                
+        except Exception as e:
+            await interaction.followup.send(f"❌ Error searching for bill: {str(e)}")
+    
+    @discord.ui.button(label="📄 View Content", style=discord.ButtonStyle.secondary)
+    async def view_content(self, interaction: discord.Interaction, button: discord.ui.Button):
+        """View bill content preview."""
+        await interaction.response.defer()
+        
+        try:
+            from file_utils import get_bill_content
+            content = get_bill_content(self.filename)
+            
+            if content:
+                # Truncate content for display
+                preview = content[:1000] + "..." if len(content) > 1000 else content
+                
+                embed = discord.Embed(
+                    title="📄 Bill Content Preview",
+                    description=f"**{self.title}**",
+                    color=0x0099ff
+                )
+                embed.add_field(name="Content", value=f"```{preview}```", inline=False)
+                embed.set_footer(text=f"Showing first 1000 characters • Full file: {self.filename}.txt")
+                
+                await interaction.followup.send(embed=embed)
+            else:
+                await interaction.followup.send("❌ Bill content not found.")
+                
+        except Exception as e:
+            await interaction.followup.send(f"❌ Error retrieving bill content: {str(e)}")
+
+class RetryBillView(discord.ui.View):
+    """View for retrying failed bill processing."""
+    
+    def __init__(self, doc_link: str, user_id: int):
+        super().__init__(timeout=600)  # 10 minutes timeout
+        self.doc_link = doc_link
+        self.user_id = user_id
+    
+    @discord.ui.button(label="🔄 Retry", style=discord.ButtonStyle.primary)
+    async def retry_bill(self, interaction: discord.Interaction, button: discord.ui.Button):
+        """Retry processing the bill."""
+        # Only allow the original user to retry
+        if interaction.user.id != self.user_id:
+            await interaction.response.send_message("❌ Only the original user can retry this operation.", ephemeral=True)
+            return
+        
+        await interaction.response.defer()
+        
+        try:
+            result = await bill_utils.add_bill_to_corpus(self.doc_link)
+            
+            if result['success']:
+                embed = discord.Embed(
+                    title="✅ Retry Successful",
+                    description="Bill successfully added to database",
+                    color=0x00ff00
+                )
+                embed.add_field(name="Title", value=result['title'], inline=False)
+                embed.add_field(name="Filename", value=result['filename'], inline=True)
+                embed.set_footer(text="Title generated by AI • Added to searchable corpus")
+                
+                # Disable the retry button
+                self.retry_bill.disabled = True
+                await interaction.edit_original_response(view=self)
+                
+                await interaction.followup.send(embed=embed)
+            else:
+                await interaction.followup.send(f"❌ Retry failed: {result['error']}")
+                
+        except Exception as e:
+            await interaction.followup.send(f"❌ Retry failed with error: {str(e)}")
+
 # GitHub commit monitoring
 async def check_github_commits():
     """Monitor GitHub for new commits."""
@@ -1093,16 +1411,119 @@ async def check_github_commits():
 
 # Discord Events
 
+async def smart_sync_commands():
+    """Smart command sync that only syncs when there are actual changes."""
+    print("🔍 Checking if command sync is needed...")
+    
+    try:
+        # Determine if we're syncing to a guild or globally
+        if config.GUILD_ID:
+            guild = discord.Object(id=config.GUILD_ID)
+            # Fetch existing commands from Discord
+            print(f"Fetching existing commands from guild {config.GUILD_ID}...")
+            try:
+                existing_commands = await tree.fetch_commands(guild=guild)
+            except discord.errors.Forbidden:
+                print("❌ No permission to fetch commands from guild - assuming no commands exist")
+                existing_commands = []
+            
+            # Copy global commands to guild (this doesn't sync, just prepares)
+            tree.copy_global_to(guild=guild)
+            
+            # Get local commands that would be synced
+            local_commands = tree.get_commands(guild=guild)
+        else:
+            # Global sync
+            print("Fetching existing global commands...")
+            existing_commands = await tree.fetch_commands(guild=None)
+            local_commands = tree.get_commands(guild=None)
+        
+        # Compare command names only - sync only on add/remove
+        existing_names = {cmd.name for cmd in existing_commands}
+        local_names = {cmd.name for cmd in local_commands}
+        
+        # Find differences
+        added_commands = local_names - existing_names
+        removed_commands = existing_names - local_names
+        
+        # Determine if sync is needed (only for add/remove)
+        sync_needed = bool(added_commands or removed_commands)
+        
+        # Log the comparison results
+        print(f"📊 Command comparison results:")
+        print(f"   Existing commands on Discord: {len(existing_commands)}")
+        print(f"   Local commands in tree: {len(local_commands)}")
+        
+        if added_commands:
+            print(f"   ➕ New commands to add: {', '.join(sorted(added_commands))}")
+        if removed_commands:
+            print(f"   ➖ Commands to remove: {', '.join(sorted(removed_commands))}")
+        if not added_commands and not removed_commands:
+            print(f"   ✅ All commands match - no changes detected")
+        
+        if not sync_needed:
+            print("✅ Commands are already in sync - no sync needed!")
+            return False
+        
+        # Sync is needed
+        print("🔄 Syncing commands due to detected changes...")
+        
+        if config.GUILD_ID:
+            synced_commands = await tree.sync(guild=guild)
+            print(f"✅ Successfully synced {len(synced_commands)} commands to guild {config.GUILD_ID}")
+        else:
+            synced_commands = await tree.sync()
+            print(f"✅ Successfully synced {len(synced_commands)} commands globally")
+        
+        # Log synced commands
+        if synced_commands:
+            print("Synced commands:")
+            for cmd in synced_commands:
+                print(f"  - {cmd.name}: {cmd.description}")
+        
+        return True
+        
+    except discord.errors.HTTPException as e:
+        if e.status == 429:  # Rate limited
+            print(f"⚠️ Rate limited when trying to sync commands!")
+            print(f"Error details: {e}")
+            print("⏳ Commands not synced - try again later")
+            return False
+        else:
+            print(f"❌ HTTP error during command sync: {e}")
+            raise
+    except Exception as e:
+        print(f"❌ Error during smart sync: {e}")
+        import traceback
+        traceback.print_exc()
+        raise
+
 @client.event
 async def on_ready():
     """Bot startup initialization."""
     print(f"Logged in as {client.user}")
+    
+    # Initialize guild-specific data structure
+    from file_utils import migrate_data_to_guild_directory, initialize_guild_data_structure
+    from config import ensure_guild_directories, DATA_DIR, GUILD_ID
+    
+    # Ensure guild directories exist
+    ensure_guild_directories()
+    
+    # For production guild, migrate existing data if needed
+    if GUILD_ID == 654458344781774879 and not (DATA_DIR / "bill_refs.json").exists():
+        print("Migrating existing data to guild-specific directory...")
+        migrate_data_to_guild_directory()
+    elif not (DATA_DIR / "bill_refs.json").exists():
+        print("Initializing new guild data structure...")
+        initialize_guild_data_structure()
     
     # Initialize channels
     discord_channels['records'] = client.get_channel(config.RECORDS_CHANNEL)
     discord_channels['news'] = client.get_channel(config.NEWS_CHANNEL)
     discord_channels['sign'] = client.get_channel(config.SIGN_CHANNEL)
     discord_channels['clerk'] = client.get_channel(config.CLERK_CHANNEL)
+    discord_channels['bills_signed_into_law'] = client.get_channel(config.BILLS_SIGNED_INTO_LAW_CHANNEL)
     
     # Log channel status
     for name, channel in discord_channels.items():
@@ -1127,8 +1548,8 @@ async def on_ready():
         except Exception as e:
             print(f"⚠️ Stock market system error: {e}")
     
-    # Sync commands (guild-specific if GUILD_ID is set)
-    print("Syncing commands...")
+    # Smart command sync
+    print("📋 Checking command sync status...")
     print(f"Total commands in tree: {len(tree.get_commands())}")
     
     # Debug: Print all commands in tree
@@ -1136,58 +1557,16 @@ async def on_ready():
     for cmd in tree.get_commands():
         print(f"  - {cmd.name} ({cmd.description[:50]}...)")
     
-    if config.GUILD_ID:
-        guild = discord.Object(id=config.GUILD_ID)
-        try:
-            print(f"Attempting to sync to guild {config.GUILD_ID}...")
-            print(f"Guild object: {guild}")
-            print(f"Tree before sync: {tree}")
-            
-            # Clear existing guild commands first to remove old/deprecated commands
-            print("Clearing existing guild commands...")
-            tree.clear_commands(guild=guild)
-            await tree.sync(guild=guild)  # Sync empty tree to remove old commands from Discord
-            
-            # Copy global commands to guild
-            print("Copying global commands to guild...")
-            tree.copy_global_to(guild=guild)
-            
-            # Sync new commands
-            synced_commands = await tree.sync(guild=guild)
-            
-            print(f"Sync returned: {synced_commands}")
-            print(f"Type of synced_commands: {type(synced_commands)}")
-            print(f"Commands synced to guild {config.GUILD_ID}: {len(synced_commands)} commands")
-            
-            if synced_commands:
-                print("Synced commands details:")
-                for cmd in synced_commands:
-                    print(f"  - {cmd.name}: {cmd.description}")
-            else:
-                print("⚠️ Sync returned empty list - no commands were synced")
-                
-        except discord.errors.Forbidden as e:
-            print(f"❌ Bot lacks permissions to sync commands to guild {config.GUILD_ID}")
-            print(f"Error details: {e}")
-            print("Make sure the bot has the 'applications.commands' scope")
-        except Exception as e:
-            print(f"❌ Failed to sync commands to guild: {e}")
-            print(f"Error type: {type(e).__name__}")
-            print(f"Full error details: {repr(e)}")
-            import traceback
-            traceback.print_exc()
-    else:
-        try:
-            # Clear existing global commands first to remove old/deprecated commands
-            print("Clearing existing global commands...")
-            tree.clear_commands(guild=None)
-            await tree.sync(guild=None)  # Sync empty tree to remove old commands
-            
-            # Sync new commands
-            synced_commands = await tree.sync()
-            print(f"Commands synced globally: {len(synced_commands)} commands")
-        except Exception as e:
-            print(f"Failed to sync commands globally: {e}")
+    # Use smart sync to only sync when needed
+    try:
+        sync_performed = await smart_sync_commands()
+        if sync_performed:
+            print("🎉 Command sync completed successfully!")
+        else:
+            print("📋 Commands already up to date - sync was not needed")
+    except Exception as e:
+        print(f"❌ Command sync failed: {e}")
+        print("⚠️ Bot will continue running but slash commands may not be available")
 
 @client.event
 async def on_message(message):

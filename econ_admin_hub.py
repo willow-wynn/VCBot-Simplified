@@ -342,6 +342,8 @@ class IntervalModal(discord.ui.Modal, title="Set Analysis Interval"):
 @handle_errors("Failed to display economic admin hub")
 async def econ_admin(interaction: discord.Interaction):
     """Economic admin hub with management controls"""
+    await interaction.response.defer()
+    
     embed = discord.Embed(
         title="⚙️ Economic Admin Hub",
         description="Administrative controls for economic system management",
@@ -383,4 +385,4 @@ async def econ_admin(interaction: discord.Interaction):
     
     # Pass the client instance to the view
     view = EconAdminView(interaction.user, interaction.client)
-    await interaction.response.send_message(embed=embed, view=view)
+    await interaction.followup.send(embed=embed, view=view)

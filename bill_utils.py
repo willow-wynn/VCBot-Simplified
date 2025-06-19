@@ -8,6 +8,7 @@ import json
 import requests
 from pathlib import Path
 from typing import List, Dict, Any, Optional
+import config
 from config import BILL_TEXT_DIR, BILL_PDF_DIR, BILL_JSON_DIR
 from file_utils import get_bill_content, get_bill_metadata, save_bill_content, save_bill_metadata
 
@@ -135,35 +136,40 @@ def extract_google_doc_content(gdoc_url: str) -> str:
     return response.text
 
 async def add_bill_to_corpus(bill_link: str) -> Dict[str, Any]:
-    """Add a bill to the corpus from a Google Doc link."""
+    """Add a bill to the corpus from a Google Doc link with AI-generated title."""
     try:
         # Extract content from Google Doc
         content = extract_google_doc_content(bill_link)
         
-        # Generate filename from content (extract title)
-        lines = content.strip().split('\n')
-        title_line = next((line.strip() for line in lines if line.strip()), "Untitled Bill")
+        # Use Gemini 2.0 Flash to generate appropriate bill title
+        ai_title = await generate_bill_title_with_ai(content)
         
-        # Clean filename
-        filename = re.sub(r'[^a-zA-Z0-9\s-]', '', title_line)
+        # Fallback to first line if AI fails
+        if not ai_title or ai_title.startswith("Error"):
+            lines = content.strip().split('\n')
+            ai_title = next((line.strip() for line in lines if line.strip()), "Untitled Bill")
+        
+        # Clean filename from AI-generated title
+        filename = re.sub(r'[^a-zA-Z0-9\s-]', '', ai_title)
         filename = re.sub(r'\s+', ' ', filename).strip()
         filename = filename.replace(' ', '_')[:50]  # Limit length
         
         # Save bill content
         save_bill_content(filename, content)
         
-        # Create basic metadata
+        # Create metadata with AI-generated title
         metadata = {
-            'title': title_line,
+            'title': ai_title,
             'source_url': bill_link,
-            'content_preview': content[:500] + "..." if len(content) > 500 else content
+            'content_preview': content[:500] + "..." if len(content) > 500 else content,
+            'ai_generated_title': True
         }
         save_bill_metadata(filename, metadata)
         
         return {
             'success': True,
             'filename': filename,
-            'title': title_line,
+            'title': ai_title,
             'file_path': BILL_TEXT_DIR / f"{filename}.txt"
         }
         
@@ -172,6 +178,53 @@ async def add_bill_to_corpus(bill_link: str) -> Dict[str, Any]:
             'success': False,
             'error': str(e)
         }
+
+async def generate_bill_title_with_ai(bill_content: str) -> str:
+    """Generate an appropriate title for a bill using Gemini 2.0 Flash."""
+    try:
+        from google import genai
+        from google.genai import types
+        
+        # Initialize Gemini client
+        genai_client = genai.Client(api_key=config.GEMINI_API_KEY)
+        
+        # Create prompt for bill titling
+        prompt = f"""
+        You are a legislative expert. Please generate a concise, professional title for this bill based on its content.
+        
+        The title should:
+        - Be no more than 80 characters
+        - Be descriptive of the bill's main purpose
+        - Follow standard legislative naming conventions
+        - Be professional and formal
+        
+        Bill Content:
+        {bill_content[:3000]}  # Limit content to avoid token limits
+        
+        Return ONLY the title, nothing else.
+        """
+        
+        response = genai_client.models.generate_content(
+            model='gemini-2.0-flash-exp',
+            config=types.GenerateContentConfig(tools=None),
+            contents=[types.Content(role='user', parts=[types.Part.from_text(text=prompt)])]
+        )
+        
+        if response.text:
+            # Clean up the response and ensure it's a reasonable length
+            title = response.text.strip()
+            # Remove quotes if AI added them
+            title = title.strip('"').strip("'")
+            # Limit length
+            if len(title) > 80:
+                title = title[:77] + "..."
+            return title
+        else:
+            return "Error: Empty response from AI"
+            
+    except Exception as e:
+        print(f"Error generating AI title: {e}")
+        return f"Error: {str(e)}"
 
 def detect_bill_reference(text: str) -> Dict[str, Any]:
     """Detect bill reference pattern in text."""

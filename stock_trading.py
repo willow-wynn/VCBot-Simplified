@@ -10,14 +10,14 @@ from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 import discord
 from unbelievaboat import Client
-from config import UNBELIEVABOAT_API_KEY, GUILD_ID
+from config import UNBELIEVABOAT_API_KEY, GUILD_ID, STOCK_DATA_DIR
 from stock_market import StockMarket
 
 class StockTradingSystem:
     """Manages stock trading with UnbelievaBoat integration"""
     
     def __init__(self):
-        self.data_dir = Path("stock_data")
+        self.data_dir = STOCK_DATA_DIR
         self.data_dir.mkdir(exist_ok=True)
         self.portfolio_file = self.data_dir / "user_portfolios.json"
         self.unb_client = None
@@ -129,16 +129,16 @@ class StockTradingSystem:
         Buy stocks for a user
         Returns (success: bool, message: str)
         """
-        # Validate stock exists
-        all_stocks = stock_market.get_all_stocks_flat()
+        # Validate stock/ETF exists
+        all_assets = stock_market.get_all_tradeable_assets()
         stock_info = None
-        for stock in all_stocks:
-            if stock['symbol'].upper() == symbol.upper():
-                stock_info = stock
+        for asset in all_assets:
+            if asset['symbol'].upper() == symbol.upper():
+                stock_info = asset
                 break
         
         if not stock_info:
-            return False, f"❌ Stock symbol '{symbol}' not found!"
+            return False, f"❌ Stock/ETF symbol '{symbol}' not found!"
         
         # Calculate total cost
         stock_price = stock_info['price']
@@ -167,16 +167,16 @@ class StockTradingSystem:
         Sell stocks for a user
         Returns (success: bool, message: str)
         """
-        # Validate stock exists
-        all_stocks = stock_market.get_all_stocks_flat()
+        # Validate stock/ETF exists
+        all_assets = stock_market.get_all_tradeable_assets()
         stock_info = None
-        for stock in all_stocks:
-            if stock['symbol'].upper() == symbol.upper():
-                stock_info = stock
+        for asset in all_assets:
+            if asset['symbol'].upper() == symbol.upper():
+                stock_info = asset
                 break
         
         if not stock_info:
-            return False, f"❌ Stock symbol '{symbol}' not found!"
+            return False, f"❌ Stock/ETF symbol '{symbol}' not found!"
         
         # Check if user has enough stocks
         owned_quantity = self.get_user_stock_quantity(user_id, symbol.upper())
@@ -207,10 +207,10 @@ class StockTradingSystem:
         Returns (total_value: float, breakdown: Dict[symbol: {quantity, price, value, name}])
         """
         portfolio = self.get_user_portfolio(user_id)
-        all_stocks = stock_market.get_all_stocks_flat()
+        all_assets = stock_market.get_all_tradeable_assets()
         
-        # Create lookup dict for stock info
-        stock_lookup = {stock['symbol']: stock for stock in all_stocks}
+        # Create lookup dict for stock/ETF info
+        stock_lookup = {asset['symbol']: asset for asset in all_assets}
         
         total_value = 0.0
         breakdown = {}

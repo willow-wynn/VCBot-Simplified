@@ -13,13 +13,14 @@ import matplotlib.dates as mdates
 import numpy as np
 import io
 import base64
+import signal
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Any, Tuple
 from pathlib import Path
 import discord
 from discord.ext import commands, tasks
 import google.generativeai as genai
-from config import GEMINI_API_KEY, BOT_HELPER_CHANNEL
+from config import GEMINI_API_KEY, BOT_HELPER_CHANNEL, STOCK_DATA_DIR, JSON_OUTPUT_CHANNEL
 from economic_utils import ALL_ALLOWED_CHANNELS, ALLOWED_CHANNELS
 
 # Configure Gemini
@@ -29,11 +30,16 @@ class StockMarket:
     """Advanced Stock Market System with AI-driven analysis and realistic price movements"""
     
     def __init__(self):
-        self.data_dir = Path("stock_data")
+        self.data_dir = STOCK_DATA_DIR
         self.data_dir.mkdir(exist_ok=True)
         self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
         self.client = None
         self.stocks_channel_id = BOT_HELPER_CHANNEL  # Default channel
+        
+        # Flag to prevent infinite loops during initialization
+        self._initializing = True
+        # Flag to prevent infinite loops during ETF price calculations
+        self._calculating_etf_prices = False
         
         # Initialize invisible market factors
         self.invisible_factors = {
@@ -134,6 +140,278 @@ class StockMarket:
             }
         }
         
+        # Initialize ETF structure
+        self.etfs = {
+            # Market Index ETFs
+            "SPY": {
+                "symbol": "SPY",
+                "name": "SPDR S&P 500 ETF",
+                "type": "market_cap_weighted",
+                "description": "Tracks the S&P 500 index of large-cap US stocks",
+                "expense_ratio": 0.0009,  # 0.09%
+                "holdings": {
+                    "AAPL": 0.15, "MSFT": 0.13, "GOOGL": 0.08, "NVDA": 0.07,
+                    "JPM": 0.04, "UNH": 0.04, "JNJ": 0.03, "V": 0.03,
+                    "XOM": 0.03, "WMT": 0.03, "BAC": 0.02, "HD": 0.02,
+                    "CVX": 0.02, "PFE": 0.02, "DIS": 0.02, "NFLX": 0.02,
+                    "COP": 0.01, "GS": 0.01, "LMT": 0.01, "COST": 0.01,
+                    "CAT": 0.01, "BA": 0.01, "GE": 0.01, "EA": 0.01,
+                    "BRK.B": 0.03
+                },
+                "volatility_modifier": 0.7,  # Less volatile than individual stocks
+                "price": 450.0,  # Will be calculated dynamically
+                "daily_range_low": 445.0,
+                "daily_range_high": 455.0
+            },
+            "QQQ": {
+                "symbol": "QQQ",
+                "name": "Invesco QQQ Trust",
+                "type": "market_cap_weighted",
+                "description": "Tracks the NASDAQ-100 index of large-cap tech stocks",
+                "expense_ratio": 0.0020,  # 0.20%
+                "holdings": {
+                    "AAPL": 0.20, "MSFT": 0.18, "GOOGL": 0.12, "NVDA": 0.15,
+                    "NFLX": 0.05, "V": 0.04, "DIS": 0.03, "EA": 0.03,
+                    "JPM": 0.02, "UNH": 0.02, "JNJ": 0.02, "WMT": 0.02,
+                    "HD": 0.02, "GS": 0.02, "COST": 0.02, "CAT": 0.02,
+                    "BA": 0.02, "GE": 0.02
+                },
+                "volatility_modifier": 0.8,  # Tech-heavy, more volatile
+                "price": 380.0,
+                "daily_range_low": 375.0,
+                "daily_range_high": 385.0
+            },
+            "DIA": {
+                "symbol": "DIA",
+                "name": "SPDR Dow Jones Industrial Average ETF",
+                "type": "equal_weighted",
+                "description": "Tracks the Dow Jones Industrial Average of 30 large companies",
+                "expense_ratio": 0.0016,  # 0.16%
+                "holdings": {
+                    "AAPL": 0.06, "MSFT": 0.06, "JPM": 0.06, "UNH": 0.06,
+                    "JNJ": 0.06, "V": 0.06, "WMT": 0.06, "HD": 0.06,
+                    "CVX": 0.06, "DIS": 0.06, "GS": 0.06, "CAT": 0.06,
+                    "BA": 0.06, "XOM": 0.06, "GOOGL": 0.04
+                },
+                "volatility_modifier": 0.6,  # Blue-chip, less volatile
+                "price": 350.0,
+                "daily_range_low": 347.0,
+                "daily_range_high": 353.0
+            },
+            "VTI": {
+                "symbol": "VTI",
+                "name": "Vanguard Total Stock Market ETF",
+                "type": "market_cap_weighted",
+                "description": "Tracks the entire US stock market",
+                "expense_ratio": 0.0003,  # 0.03%
+                "holdings": {
+                    # Represents entire market, weighted by market cap
+                    "AAPL": 0.10, "MSFT": 0.09, "GOOGL": 0.06, "NVDA": 0.05,
+                    "JPM": 0.03, "UNH": 0.03, "JNJ": 0.03, "V": 0.03,
+                    "XOM": 0.03, "WMT": 0.03, "BAC": 0.03, "HD": 0.03,
+                    "CVX": 0.03, "PFE": 0.03, "DIS": 0.03, "NFLX": 0.03,
+                    "COP": 0.02, "GS": 0.02, "LMT": 0.02, "COST": 0.02,
+                    "CAT": 0.02, "BA": 0.02, "GE": 0.02, "EA": 0.02,
+                    "BRK.B": 0.04
+                },
+                "volatility_modifier": 0.65,  # Total market, moderate volatility
+                "price": 240.0,
+                "daily_range_low": 238.0,
+                "daily_range_high": 242.0
+            },
+            # Sector ETFs
+            "XLE": {
+                "symbol": "XLE",
+                "name": "Energy Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks energy sector companies",
+                "expense_ratio": 0.0010,  # 0.10%
+                "sector": "ENERGY",
+                "volatility_modifier": 0.9,  # Sector ETFs more volatile than broad market
+                "price": 85.0,
+                "daily_range_low": 83.0,
+                "daily_range_high": 87.0
+            },
+            "XLF": {
+                "symbol": "XLF",
+                "name": "Financial Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks financial sector companies",
+                "expense_ratio": 0.0010,
+                "sector": "FINANCE",
+                "volatility_modifier": 0.85,
+                "price": 40.0,
+                "daily_range_low": 39.0,
+                "daily_range_high": 41.0
+            },
+            "XLK": {
+                "symbol": "XLK",
+                "name": "Technology Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks technology sector companies",
+                "expense_ratio": 0.0010,
+                "sector": "TECH",
+                "volatility_modifier": 0.9,
+                "price": 175.0,
+                "daily_range_low": 172.0,
+                "daily_range_high": 178.0
+            },
+            "XLV": {
+                "symbol": "XLV",
+                "name": "Health Care Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks healthcare sector companies",
+                "expense_ratio": 0.0010,
+                "sector": "HEALTH",
+                "volatility_modifier": 0.75,
+                "price": 140.0,
+                "daily_range_low": 138.0,
+                "daily_range_high": 142.0
+            },
+            "XLI": {
+                "symbol": "XLI",
+                "name": "Industrial Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks industrial and manufacturing companies",
+                "expense_ratio": 0.0010,
+                "sector": "MANUFACTURING",
+                "volatility_modifier": 0.8,
+                "price": 115.0,
+                "daily_range_low": 113.0,
+                "daily_range_high": 117.0
+            },
+            "XLY": {
+                "symbol": "XLY",
+                "name": "Consumer Discretionary Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks consumer discretionary companies",
+                "expense_ratio": 0.0010,
+                "sector": "RETAIL",
+                "volatility_modifier": 0.85,
+                "price": 180.0,
+                "daily_range_low": 177.0,
+                "daily_range_high": 183.0
+            },
+            "XLRE": {
+                "symbol": "XLRE",
+                "name": "Real Estate Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks real estate and REIT companies",
+                "expense_ratio": 0.0010,
+                "sector": "RETAIL",  # Using retail as proxy for real estate
+                "volatility_modifier": 0.7,
+                "price": 45.0,
+                "daily_range_low": 44.0,
+                "daily_range_high": 46.0
+            },
+            "XLP": {
+                "symbol": "XLP",
+                "name": "Consumer Staples Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks consumer staples companies",
+                "expense_ratio": 0.0010,
+                "sector": "RETAIL",  # Consumer staples are retail-adjacent
+                "volatility_modifier": 0.6,  # Staples are less volatile
+                "price": 75.0,
+                "daily_range_low": 74.0,
+                "daily_range_high": 76.0
+            },
+            "XLU": {
+                "symbol": "XLU",
+                "name": "Utilities Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks utility companies",
+                "expense_ratio": 0.0010,
+                "sector": "TRANSPORT",  # Utilities/infrastructure similar to transport
+                "volatility_modifier": 0.5,  # Utilities are very stable
+                "price": 70.0,
+                "daily_range_low": 69.5,
+                "daily_range_high": 70.5
+            },
+            "XLB": {
+                "symbol": "XLB",
+                "name": "Materials Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks materials and mining companies",
+                "expense_ratio": 0.0010,
+                "sector": "MANUFACTURING",  # Materials are manufacturing inputs
+                "volatility_modifier": 0.85,
+                "price": 90.0,
+                "daily_range_low": 88.0,
+                "daily_range_high": 92.0
+            },
+            "XLC": {
+                "symbol": "XLC",
+                "name": "Communication Services Select Sector SPDR Fund",
+                "type": "sector",
+                "description": "Tracks media and communication companies",
+                "expense_ratio": 0.0010,
+                "sector": "ENTERTAINMENT",  # Media/comms maps to entertainment
+                "volatility_modifier": 0.9,
+                "price": 85.0,
+                "daily_range_low": 83.0,
+                "daily_range_high": 87.0
+            },
+            # Additional ETFs
+            "EEM": {
+                "symbol": "EEM",
+                "name": "iShares MSCI Emerging Markets ETF",
+                "type": "equal_weighted",
+                "description": "Tracks high-growth emerging market stocks",
+                "expense_ratio": 0.0068,  # 0.68%
+                "holdings": {
+                    # Focus on high-growth tech and entertainment stocks
+                    "NVDA": 0.15, "NFLX": 0.15, "EA": 0.10, "AAPL": 0.10,
+                    "MSFT": 0.10, "GOOGL": 0.10, "DIS": 0.10, "HD": 0.05,
+                    "WMT": 0.05, "COST": 0.05, "V": 0.05
+                },
+                "volatility_modifier": 1.2,  # Higher volatility for emerging markets
+                "price": 45.0,
+                "daily_range_low": 43.0,
+                "daily_range_high": 47.0
+            },
+            "AGG": {
+                "symbol": "AGG",
+                "name": "iShares Core U.S. Aggregate Bond ETF",
+                "type": "bond",
+                "description": "Tracks investment-grade U.S. bonds",
+                "expense_ratio": 0.0003,  # 0.03%
+                "holdings": {},  # Bond ETF - inverse correlation with market
+                "volatility_modifier": 0.3,  # Very low volatility
+                "price": 105.0,
+                "daily_range_low": 104.5,
+                "daily_range_high": 105.5,
+                "inverse_correlation": True  # Moves opposite to stock market
+            },
+            "DJP": {
+                "symbol": "DJP",
+                "name": "iPath Bloomberg Commodity Index ETN",
+                "type": "commodity",
+                "description": "Tracks commodity futures including energy and materials",
+                "expense_ratio": 0.0070,  # 0.70%
+                "holdings": {
+                    # Heavy weight on energy and materials stocks
+                    "XOM": 0.25, "CVX": 0.20, "COP": 0.15, "CAT": 0.15,
+                    "GE": 0.10, "BA": 0.10, "LMT": 0.05
+                },
+                "volatility_modifier": 1.0,  # Moderate volatility
+                "price": 30.0,
+                "daily_range_low": 29.0,
+                "daily_range_high": 31.0
+            }
+        }
+        
+        # Add market cap data for stocks (in billions)
+        self.market_caps = {
+            "AAPL": 3000, "MSFT": 2800, "GOOGL": 1700, "NVDA": 1600,
+            "BRK.B": 780, "JPM": 490, "UNH": 480, "JNJ": 380,
+            "V": 450, "WMT": 420, "XOM": 410, "CVX": 340,
+            "HD": 330, "BAC": 280, "PFE": 260, "DIS": 200,
+            "NFLX": 190, "COP": 140, "GS": 130, "LMT": 110,
+            "COST": 320, "CAT": 150, "BA": 140, "GE": 170,
+            "EA": 40
+        }
+        
         # Market parameters - will be set by AI analysis only (no defaults)
         self.market_params = {
             "trend_direction": 0.0,
@@ -143,22 +421,50 @@ class StockMarket:
             "long_term_outlook": 0.5
         }
         
+        # Initialize ETF attributes (needs market_params to be set first)
+        self._initialize_etf_attributes()
+        
+        # Softcap configuration parameters
+        self.softcap_config = {
+            "steepness": 75,      # How quickly resistance increases (higher = sharper transition)
+            "max_resistance": 0.95,  # Maximum damping factor (0.95 = 95% resistance at extreme distances)
+            "enabled": True       # Can disable to revert to hard caps if needed
+        }
+        
         # Initialize stock attributes for AI pricing
         self._initialize_stock_attributes()
         
         # Trading state (24/7 operation)
         self.is_trading_day = True  # Always trading
         self.current_trading_day = None
+        self.last_market_open_time = None  # Track last analysis/update time
         self.precomputed_prices = {}  # Keep for backward compatibility but won't use
+        self.etf_price_cache = {}  # Cache ETF prices with timestamps
+        self.etf_cache_expiry = None  # When to refresh the cache (9 AM ET next day)
         self.hourly_updates_task = None
         self.admin_only_trading = False  # Trading restriction flag
+        
+        # Memory-first architecture tracking
+        self._memory_dirty = False  # Track if memory state needs saving
+        self._last_checkpoint = datetime.now(timezone.utc)
+        self._checkpoint_task = None  # Will be created when bot starts
         
         # Try to load existing market data after initialization
         self.load_market_data()
         
+        # Set up signal handlers for graceful shutdown
+        self._setup_signal_handlers()
+        
         print("📈 Stock Market System initialized")
         print(f"💼 {sum(len(cat['stocks']) for cat in self.categories.values())} individual stocks across {len(self.categories)} sectors")
+        print(f"📊 {len(self.etfs)} ETFs available (market indices & sector funds)")
         print(f"📊 Market parameters calculated from economic data: Trend {self.market_params['trend_direction']:+.2f}, Volatility {self.market_params['volatility']:.2f}")
+        
+        # Initialization complete - allow ETF price updates now
+        self._initializing = False
+        
+        # Precompute ETF prices on startup
+        self.precompute_etf_prices()
     
     def _initialize_stock_attributes(self) -> None:
         """Initialize additional stock attributes for AI pricing"""
@@ -171,6 +477,36 @@ class StockMarket:
                     stock["daily_range_high"] = stock["price"] * 1.03
                 if "sector_factor" not in stock:
                     stock["sector_factor"] = 1.0
+    
+    def _initialize_etf_attributes(self) -> None:
+        """Initialize ETF attributes and calculate initial prices"""
+        # Set initialization flag to prevent circular recursion
+        self._initializing = True
+        
+        try:
+            # Update S&P ETF name based on stock count
+            total_stocks = sum(len(cat['stocks']) for cat in self.categories.values())
+            if 'SPY' in self.etfs:
+                self.etfs['SPY']['name'] = f"S&P {total_stocks} ETF"
+                self.etfs['SPY']['description'] = f"Tracks the S&P {total_stocks} index of all US stocks"
+            
+            # Don't calculate prices during initialization - will be done by precompute_etf_prices
+            
+            for symbol, etf in self.etfs.items():
+                # Ensure all ETFs have required attributes
+                if "ai_opening_price" not in etf:
+                    etf["ai_opening_price"] = etf["price"]
+                if "current_price" not in etf:
+                    etf["current_price"] = etf["price"]
+                if "sector_factor" not in etf:
+                    etf["sector_factor"] = 1.0
+                    
+                # Calculate initial price based on holdings for non-sector ETFs
+                if etf["type"] != "sector":
+                    etf["price"] = self.calculate_etf_price(symbol)
+        finally:
+            # Clear initialization flag
+            self._initializing = False
     
     def _calculate_market_params_from_economic_data(self) -> Dict[str, float]:
         """Calculate market parameters based on current economic data"""
@@ -408,9 +744,24 @@ class StockMarket:
             }
         
     def save_market_data(self) -> None:
-        """Save current market state to JSON"""
+        """Save current market state to JSON - now schedules async save"""
+        # Mark as dirty and let background task handle it
+        self._mark_dirty()
+        
+        # If we're in an async context, schedule immediate background save
+        try:
+            loop = asyncio.get_running_loop()
+            loop.create_task(self._async_save_market_data())
+        except RuntimeError:
+            # Not in async context, do synchronous save
+            self._sync_save_market_data()
+    
+    def _sync_save_market_data(self) -> None:
+        """Synchronous save for non-async contexts"""
         market_data = {
             "categories": self.categories,
+            "etfs": self.etfs,
+            "market_caps": self.market_caps,
             "market_params": self.market_params,
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "trading_state": {
@@ -419,7 +770,8 @@ class StockMarket:
                 "stocks_channel_id": self.stocks_channel_id,
                 "admin_only_trading": self.admin_only_trading,
                 "price_update_rate_minutes": self.price_update_rate_minutes,
-                "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None
+                "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
+                "last_market_open_time": self.last_market_open_time
             },
             "precomputed_prices": self.precomputed_prices,
             "daily_ranges": self.daily_ranges
@@ -427,6 +779,39 @@ class StockMarket:
         
         with open(self.data_dir / "market_data.json", 'w') as f:
             json.dump(market_data, f, indent=2)
+    
+    async def _async_save_market_data(self) -> None:
+        """Async save that runs in background after UI response"""
+        await asyncio.sleep(0.1)  # Small delay to ensure UI responds first
+        
+        market_data = {
+            "categories": self.categories,
+            "etfs": self.etfs,
+            "market_caps": self.market_caps,
+            "market_params": self.market_params,
+            "last_updated": datetime.now(timezone.utc).isoformat(),
+            "trading_state": {
+                "is_trading_day": self.is_trading_day,
+                "current_trading_day": self.current_trading_day,
+                "stocks_channel_id": self.stocks_channel_id,
+                "admin_only_trading": self.admin_only_trading,
+                "price_update_rate_minutes": self.price_update_rate_minutes,
+                "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
+                "last_market_open_time": self.last_market_open_time
+            },
+            "precomputed_prices": self.precomputed_prices,
+            "daily_ranges": self.daily_ranges
+        }
+        
+        # Write to temp file first for atomicity
+        temp_file = self.data_dir / "market_data.tmp"
+        with open(temp_file, 'w') as f:
+            json.dump(market_data, f, indent=2)
+        
+        # Atomic rename
+        temp_file.replace(self.data_dir / "market_data.json")
+        self._memory_dirty = False
+        self._last_checkpoint = datetime.now(timezone.utc)
     
     def load_market_data(self) -> bool:
         """Load market state from JSON"""
@@ -449,6 +834,7 @@ class StockMarket:
                 self.stocks_channel_id = state.get("stocks_channel_id", BOT_HELPER_CHANNEL)
                 self.admin_only_trading = state.get("admin_only_trading", False)
                 self.price_update_rate_minutes = state.get("price_update_rate_minutes", 60)
+                self.last_market_open_time = state.get("last_market_open_time") or data.get("last_updated")
                 if state.get("market_open_time"):
                     self.market_open_time = datetime.fromisoformat(state["market_open_time"])
                 else:
@@ -457,6 +843,13 @@ class StockMarket:
                 self.precomputed_prices = data["precomputed_prices"]
             if "daily_ranges" in data:
                 self.daily_ranges = data["daily_ranges"]
+            if "etfs" in data:
+                self.etfs = data["etfs"]
+            if "market_caps" in data:
+                self.market_caps = data["market_caps"]
+            
+            # Initialize ETF attributes after loading
+            self._initialize_etf_attributes()
             
             print("📊 Market data loaded successfully")
             if self.precomputed_prices:
@@ -467,8 +860,89 @@ class StockMarket:
             print(f"❌ Error loading market data: {e}")
             return False
     
+    # Memory-First Architecture Methods
+    def _mark_dirty(self) -> None:
+        """Mark memory state as needing save"""
+        self._memory_dirty = True
+    
+    def _setup_signal_handlers(self) -> None:
+        """Handle SIGINT/SIGTERM for clean shutdown"""
+        def emergency_save(signum, frame):
+            print("📊 Emergency save triggered by signal...")
+            self._emergency_save_sync()
+            print("🔄 Exiting after emergency save...")
+            import sys
+            sys.exit(0)
+            
+        signal.signal(signal.SIGINT, emergency_save)
+        signal.signal(signal.SIGTERM, emergency_save)
+    
+    def _emergency_save_sync(self) -> None:
+        """Blocking save for emergency shutdown"""
+        try:
+            print("💾 Performing emergency save...")
+            market_data = {
+                "categories": self.categories,
+                "etfs": self.etfs,
+                "market_caps": self.market_caps,
+                "market_params": self.market_params,
+                "last_updated": datetime.now(timezone.utc).isoformat(),
+                "trading_state": {
+                    "is_trading_day": self.is_trading_day,
+                    "current_trading_day": self.current_trading_day,
+                    "stocks_channel_id": self.stocks_channel_id,
+                    "admin_only_trading": self.admin_only_trading,
+                    "price_update_rate_minutes": self.price_update_rate_minutes,
+                    "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
+                    "last_market_open_time": self.last_market_open_time
+                },
+                "precomputed_prices": self.precomputed_prices,
+                "daily_ranges": self.daily_ranges
+            }
+            
+            # Direct synchronous write
+            with open(self.data_dir / "market_data.json", 'w') as f:
+                json.dump(market_data, f, indent=2)
+                f.flush()
+                os.fsync(f.fileno())
+            
+            print("✅ Emergency save completed")
+        except Exception as e:
+            print(f"❌ Emergency save failed: {e}")
+    
+    async def _checkpoint_loop(self) -> None:
+        """Periodically save memory to disk"""
+        while True:
+            try:
+                await asyncio.sleep(30)  # Every 30 seconds
+                
+                if self._memory_dirty:
+                    print("📊 Checkpoint: Saving market data...")
+                    await self._async_save_market_data()
+                    print("✅ Checkpoint save completed")
+                    
+            except asyncio.CancelledError:
+                # Final save on shutdown
+                if self._memory_dirty:
+                    print("📊 Final checkpoint save...")
+                    await self._async_save_market_data()
+                raise
+            except Exception as e:
+                print(f"⚠️ Checkpoint save error: {e}")
+                await asyncio.sleep(60)  # Wait longer on error
+    
     def save_historical_data(self, timestamp: str, data: Dict[str, Any]) -> None:
-        """Save historical price data"""
+        """Save historical price data - now deferred"""
+        # Schedule async save if in async context
+        try:
+            loop = asyncio.get_running_loop()
+            loop.create_task(self._async_save_historical_data(timestamp, data))
+        except RuntimeError:
+            # Not in async context, do synchronous save
+            self._sync_save_historical_data(timestamp, data)
+    
+    def _sync_save_historical_data(self, timestamp: str, data: Dict[str, Any]) -> None:
+        """Synchronous historical save"""
         history_file = self.data_dir / "stock_history.json"
         history = []
         
@@ -486,6 +960,33 @@ class StockMarket:
         
         with open(history_file, 'w') as f:
             json.dump(history, f, indent=2)
+    
+    async def _async_save_historical_data(self, timestamp: str, data: Dict[str, Any]) -> None:
+        """Async historical save that runs in background"""
+        await asyncio.sleep(0.1)  # Small delay to ensure UI responds first
+        
+        history_file = self.data_dir / "stock_history.json"
+        history = []
+        
+        if history_file.exists():
+            with open(history_file, 'r') as f:
+                history = json.load(f)
+        
+        history.append({
+            "timestamp": timestamp,
+            "data": data
+        })
+        
+        # Keep last 10000 entries
+        history = history[-10000:]
+        
+        # Write to temp file first
+        temp_file = self.data_dir / "stock_history.tmp"
+        with open(temp_file, 'w') as f:
+            json.dump(history, f, indent=2)
+        
+        # Atomic rename
+        temp_file.replace(self.data_dir / "stock_history.json")
     
     def get_historical_data(self, days_back: int = 30) -> List[Dict[str, Any]]:
         """Get historical stock data"""
@@ -689,14 +1190,39 @@ class StockMarket:
                 all_stocks.append(stock_copy)
         return all_stocks
     
-    async def trigger_dynamic_update(self, reason: str = "Market update", send_discord_notification: bool = False) -> Dict[str, Any]:
+    def get_all_tradeable_assets(self) -> List[Dict[str, Any]]:
+        """Get all tradeable assets (stocks and ETFs) in a flat list"""
+        # Start with all individual stocks
+        all_assets = self.get_all_stocks_flat()
+        
+        # Add ETFs
+        for etf_symbol, etf_data in self.etfs.items():
+            etf_copy = etf_data.copy()
+            etf_copy["category"] = "ETF"
+            etf_copy["is_etf"] = True
+            # Ensure price is current
+            etf_copy["price"] = etf_copy.get("current_price", self.calculate_etf_price(etf_symbol))
+            all_assets.append(etf_copy)
+        
+        return all_assets
+    
+    async def trigger_dynamic_update(self, reason: str = "Market update", send_discord_notification: bool = False, save_history: bool = True) -> Dict[str, Any]:
         """Trigger comprehensive dynamic update of all stock and ETF prices"""
         print(f"🔄 Triggering dynamic update: {reason}")
+        
+        # Update last market open time
+        self.last_market_open_time = datetime.now(timezone.utc).isoformat()
         
         # NOTE: Removed baseline recalculation - prices should only be set by AI analysis
         
         # Recalculate all category ETF prices based on current stock prices
         category_prices = self.calculate_category_prices()
+        
+        # Update ETF prices
+        etf_prices = {}
+        for etf_symbol in self.etfs.keys():
+            etf_prices[etf_symbol] = self.calculate_etf_price(etf_symbol)
+            self.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
         
         # Save updated market data
         self.save_market_data()
@@ -707,12 +1233,15 @@ class StockMarket:
             "individual_stocks": {symbol: stock["price"] for cat in self.categories.values() 
                                 for stock in cat["stocks"] for symbol in [stock["symbol"]]},
             "category_prices": category_prices,
+            "etf_prices": etf_prices,
             "market_params": self.market_params,
             "update_reason": reason,
             "dynamic_update": True
         }
         
-        self.save_historical_data(timestamp, historical_data)
+        # Only save to history if requested (hourly updates)
+        if save_history:
+            self.save_historical_data(timestamp, historical_data)
         
         # Calculate summary statistics
         total_stocks = sum(len(cat['stocks']) for cat in self.categories.values())
@@ -766,6 +1295,44 @@ class StockMarket:
         
         print(f"✅ Dynamic update complete: {total_stocks} stocks, {len(category_prices)} ETFs updated")
         return update_summary
+    
+    async def send_json_to_channel(self, data: Dict[str, Any], source: str = "Stock Market Analysis") -> None:
+        """Send JSON analysis data to the JSON output channel"""
+        try:
+            if not self.client:
+                print("⚠️ Discord client not available for JSON output")
+                return
+                
+            channel = self.client.get_channel(JSON_OUTPUT_CHANNEL)
+            if not channel:
+                print(f"⚠️ JSON output channel {JSON_OUTPUT_CHANNEL} not found")
+                return
+            
+            # Format the JSON with proper indentation
+            json_str = json.dumps(data, indent=2)
+            
+            # Create embed header
+            embed = discord.Embed(
+                title=f"📈 {source} JSON Output",
+                description=f"Full analysis data from {source}",
+                color=0x00aaff,
+                timestamp=datetime.now(timezone.utc)
+            )
+            
+            # If JSON is small enough, send as code block
+            if len(json_str) < 1900:
+                await channel.send(embed=embed)
+                await channel.send(f"```json\n{json_str}\n```")
+            else:
+                # Send as file attachment if too large
+                json_bytes = json_str.encode('utf-8')
+                file = discord.File(io.BytesIO(json_bytes), filename=f"{source.lower().replace(' ', '_')}_analysis.json")
+                await channel.send(embed=embed, file=file)
+            
+            print(f"✅ JSON output sent to channel {JSON_OUTPUT_CHANNEL}")
+            
+        except Exception as e:
+            print(f"❌ Failed to send JSON to channel: {e}")
     
     def get_market_summary(self) -> Dict[str, Any]:
         """Get comprehensive market summary with all current data"""
@@ -848,6 +1415,249 @@ class StockMarket:
             frequency *= 2.0
         
         return noise / 2.0  # Normalize to roughly -1 to 1
+    
+    def calculate_etf_price(self, etf_symbol: str, target_time: datetime = None) -> float:
+        """Calculate ETF price based on holdings and type"""
+        if etf_symbol not in self.etfs:
+            return 0.0
+            
+        etf = self.etfs[etf_symbol]
+        
+        # For sector ETFs, calculate based on sector average
+        if etf["type"] == "sector":
+            sector_name = etf.get("sector")
+            if sector_name and sector_name in self.categories:
+                total_price = 0.0
+                stocks = self.categories[sector_name]["stocks"]
+                for stock in stocks:
+                    price = self.calculate_price_at_time(stock["symbol"], target_time) if target_time else stock.get("current_price", stock["price"])
+                    total_price += price
+                base_price = total_price / len(stocks) if stocks else 0.0
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For market cap weighted ETFs
+        elif etf["type"] == "market_cap_weighted":
+            total_value = 0.0
+            total_weight = 0.0
+            
+            for stock_symbol, weight in etf.get("holdings", {}).items():
+                stock_price = self.get_stock_price(stock_symbol)
+                if stock_price and stock_price > 0:
+                    if target_time:
+                        stock_price = self.calculate_price_at_time(stock_symbol, target_time)
+                    total_value += stock_price * weight
+                    total_weight += weight
+            
+            # Normalize if weights don't sum to 1
+            if total_weight > 0:
+                base_price = total_value / total_weight
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For equal weighted ETFs
+        elif etf["type"] == "equal_weighted":
+            holdings = etf.get("holdings", {})
+            if holdings:
+                total_price = 0.0
+                valid_holdings = 0
+                
+                for stock_symbol in holdings.keys():
+                    stock_price = self.get_stock_price(stock_symbol)
+                    if stock_price and stock_price > 0:
+                        if target_time:
+                            stock_price = self.calculate_price_at_time(stock_symbol, target_time)
+                        total_price += stock_price
+                        valid_holdings += 1
+                
+                if valid_holdings > 0:
+                    # Equal weight means average of all holdings
+                    base_price = total_price / valid_holdings
+                else:
+                    base_price = etf.get("price", 100.0)
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For bond ETFs - inverse correlation with market
+        elif etf["type"] == "bond":
+            # Start with base price
+            base_price = etf.get("price", 105.0)
+            
+            # Bond prices move inversely to market sentiment and volatility
+            market_sentiment = self.market_params.get("market_sentiment", 0.5)
+            market_volatility = self.market_params.get("volatility", 0.5)
+            
+            # Higher market sentiment = lower bond prices (inverse relationship)
+            sentiment_factor = 1.0 - (market_sentiment - 0.5) * 0.1
+            
+            # Higher volatility = higher bond prices (flight to safety)
+            volatility_factor = 1.0 + (market_volatility - 0.5) * 0.05
+            
+            base_price = base_price * sentiment_factor * volatility_factor
+        
+        # For commodity ETFs
+        elif etf["type"] == "commodity":
+            # Calculate based on holdings (weighted average of commodity-related stocks)
+            holdings = etf.get("holdings", {})
+            if holdings:
+                total_value = 0.0
+                total_weight = 0.0
+                
+                for stock_symbol, weight in holdings.items():
+                    stock_price = self.get_stock_price(stock_symbol)
+                    if stock_price and stock_price > 0:
+                        if target_time:
+                            stock_price = self.calculate_price_at_time(stock_symbol, target_time)
+                        total_value += stock_price * weight
+                        total_weight += weight
+                
+                if total_weight > 0:
+                    base_price = total_value / total_weight
+                else:
+                    base_price = etf.get("price", 30.0)
+            else:
+                base_price = etf.get("price", 30.0)
+        
+        else:
+            base_price = etf.get("price", 100.0)
+        
+        # Apply expense ratio (reduces returns slightly)
+        expense_ratio = etf.get("expense_ratio", 0.001)
+        daily_expense = expense_ratio / 365
+        base_price = base_price * (1 - daily_expense)
+        
+        # If calculating at a specific time, apply volatility-adjusted noise
+        if target_time:
+            return self._apply_etf_volatility(etf_symbol, base_price, target_time)
+        
+        return base_price
+    
+    def _apply_etf_volatility(self, etf_symbol: str, base_price: float, target_time: datetime) -> float:
+        """Apply volatility to ETF price using Perlin noise"""
+        etf = self.etfs.get(etf_symbol, {})
+        volatility_modifier = etf.get("volatility_modifier", 0.7)
+        
+        # Use similar noise calculation as stocks but with reduced volatility
+        now = datetime.now(timezone.utc)
+        hours_elapsed = (target_time - datetime(2025, 1, 1, tzinfo=timezone.utc)).total_seconds() / 3600
+        
+        # Get market parameters
+        market_volatility = self.market_params.get("volatility", 0.5)
+        
+        # Use ETF symbol as seed for consistency
+        seed = sum(ord(c) for c in etf_symbol) * 1000
+        
+        # Generate multi-scale noise
+        weekly_noise = self.perlin_noise(hours_elapsed / 168, seed)
+        daily_noise = self.perlin_noise(hours_elapsed / 24, seed + 1000)
+        hourly_noise = self.perlin_noise(hours_elapsed, seed + 2000)
+        
+        # Combine with ETF-specific weights (less volatile than stocks)
+        combined_noise = (
+            weekly_noise * 0.5 +    # More weight on longer-term trends
+            daily_noise * 0.3 +
+            hourly_noise * 0.2
+        )
+        
+        # Apply volatility with ETF modifier
+        volatility_factor = market_volatility * volatility_modifier * 0.02  # Max 2% daily move
+        
+        # Handle inverse correlation for bond ETFs
+        if etf.get("inverse_correlation", False):
+            # Bond ETFs move opposite to market noise
+            price_change = -combined_noise * volatility_factor * 0.5  # Reduced movement for bonds
+        else:
+            price_change = combined_noise * volatility_factor
+        
+        # Apply daily ranges if available
+        daily_low = etf.get("daily_range_low", base_price * 0.98)
+        daily_high = etf.get("daily_range_high", base_price * 1.02)
+        
+        final_price = base_price * (1 + price_change)
+        
+        # Soft cap within daily ranges
+        if self.softcap_config["enabled"]:
+            if final_price > daily_high:
+                excess = (final_price - daily_high) / daily_high
+                resistance = 1 / (1 + self.softcap_config["steepness"] * excess)
+                final_price = daily_high + (final_price - daily_high) * (1 - resistance * self.softcap_config["max_resistance"])
+            elif final_price < daily_low:
+                deficit = (daily_low - final_price) / daily_low
+                resistance = 1 / (1 + self.softcap_config["steepness"] * deficit)
+                final_price = daily_low - (daily_low - final_price) * (1 - resistance * self.softcap_config["max_resistance"])
+        
+        return round(final_price, 2)
+    
+    def precompute_etf_prices(self) -> None:
+        """Precompute and cache all ETF prices for the trading day"""
+        try:
+            print("🔄 Precomputing ETF prices for the trading day...")
+            start_time = datetime.now(timezone.utc)
+            
+            # Clear existing cache
+            self.etf_price_cache = {}
+            
+            # Set cache expiry to 9 AM ET next day
+            from zoneinfo import ZoneInfo
+            et_now = datetime.now(ZoneInfo("America/New_York"))
+            tomorrow_9am = (et_now + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)
+            self.etf_cache_expiry = tomorrow_9am
+            
+            # Calculate and cache prices for all ETFs
+            for symbol in self.etfs:
+                price = self.calculate_etf_price(symbol)
+                self.etf_price_cache[symbol] = {
+                    'price': price,
+                    'timestamp': datetime.now(timezone.utc)
+                }
+                # Also update the ETF's current_price field
+                self.etfs[symbol]['current_price'] = price
+            
+            elapsed = (datetime.now(timezone.utc) - start_time).total_seconds()
+            print(f"✅ Precomputed {len(self.etf_price_cache)} ETF prices in {elapsed:.2f} seconds")
+            print(f"📅 Cache valid until {tomorrow_9am.strftime('%Y-%m-%d %I:%M %p ET')}")
+            
+        except Exception as e:
+            print(f"❌ Error precomputing ETF prices: {e}")
+            import traceback
+            traceback.print_exc()
+    
+    def get_cached_etf_price(self, symbol: str) -> Optional[float]:
+        """Get ETF price from cache or calculate if needed"""
+        try:
+            # Check if cache exists and is not expired
+            from zoneinfo import ZoneInfo
+            if self.etf_cache_expiry and datetime.now(ZoneInfo("America/New_York")) < self.etf_cache_expiry:
+                if symbol in self.etf_price_cache:
+                    return self.etf_price_cache[symbol]['price']
+            
+            # Cache miss or expired - calculate fresh price
+            price = self.calculate_etf_price(symbol)
+            
+            # Update cache
+            self.etf_price_cache[symbol] = {
+                'price': price,
+                'timestamp': datetime.now(timezone.utc)
+            }
+            
+            # Also update the ETF's current_price field
+            if symbol in self.etfs:
+                self.etfs[symbol]['current_price'] = price
+            
+            return price
+            
+        except Exception as e:
+            print(f"❌ Error getting cached ETF price for {symbol}: {e}")
+            # Fallback to direct calculation
+            return self.calculate_etf_price(symbol)
+    
+    def get_etf_price(self, symbol: str) -> Optional[float]:
+        """Get current ETF price"""
+        if symbol in self.etfs:
+            etf = self.etfs[symbol]
+            # Return current price if available, otherwise calculate
+            return etf.get("current_price", self.calculate_etf_price(symbol))
+        return None
     
     def calculate_price_at_time(self, symbol: str, target_time: datetime = None) -> float:
         """Calculate stock price at any given time using multi-scale Perlin noise
@@ -985,15 +1795,36 @@ class StockMarket:
             range_low = opening_price * (1 - range_multiplier)
             range_high = opening_price * (1 + range_multiplier)
         
-        # Soft enforcement of daily ranges (allow some overflow for extreme conditions)
-        if calculated_price < range_low:
-            overshoot = (range_low - calculated_price) / range_low
-            if overshoot > 0.02:  # More than 2% overshoot, start clamping
-                calculated_price = range_low * (1 - 0.02)  # Allow 2% overshoot
-        elif calculated_price > range_high:
-            overshoot = (calculated_price - range_high) / range_high
-            if overshoot > 0.02:  # More than 2% overshoot, start clamping
-                calculated_price = range_high * (1 + 0.02)  # Allow 2% overshoot
+        # SOFTCAP SYSTEM: Progressive resistance instead of hard clamping
+        # Allows prices to move beyond AI ranges but with increasing resistance
+        if self.softcap_config["enabled"]:
+            softcap_steepness = self.softcap_config["steepness"]
+            max_resistance = self.softcap_config["max_resistance"]
+        
+            if calculated_price < range_low:
+                # Price is below the AI range
+                distance_ratio = (range_low - calculated_price) / range_low
+                # Exponential resistance: starts gentle, increases rapidly
+                resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
+                # Apply resistance: pull price back towards range boundary
+                calculated_price = range_low - (range_low - calculated_price) * resistance_factor
+            elif calculated_price > range_high:
+                # Price is above the AI range
+                distance_ratio = (calculated_price - range_high) / range_high
+                # Exponential resistance: starts gentle, increases rapidly  
+                resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
+                # Apply resistance: pull price back towards range boundary
+                calculated_price = range_high + (calculated_price - range_high) * resistance_factor
+        else:
+            # Fallback to old hard clamping if softcaps disabled
+            if calculated_price < range_low:
+                overshoot = (range_low - calculated_price) / range_low
+                if overshoot > 0.02:
+                    calculated_price = range_low * (1 - 0.02)
+            elif calculated_price > range_high:
+                overshoot = (calculated_price - range_high) / range_high
+                if overshoot > 0.02:
+                    calculated_price = range_high * (1 + 0.02)
         
         # Final safety check
         calculated_price = max(calculated_price, 0.01)
@@ -1001,17 +1832,41 @@ class StockMarket:
         return calculated_price
     
     def get_stock_price(self, symbol: str) -> Optional[float]:
-        """Get current price for a stock using on-demand calculation"""
+        """Get current price for a stock using on-demand calculation
+        
+        When any stock price is fetched, update ALL stock current prices
+        to ensure consistency across the market.
+        """
         try:
-            return self.calculate_price_at_time(symbol)
+            # Update all stock prices to current time
+            current_time = datetime.now(timezone.utc)
+            for category_name, category_data in self.categories.items():
+                for stock in category_data["stocks"]:
+                    try:
+                        stock["current_price"] = self.calculate_price_at_time(stock["symbol"], current_time)
+                    except:
+                        # Keep existing price if calculation fails
+                        pass
+            
+            # Update ETF prices too (but not during initialization or ETF calculation to prevent infinite loop)
+            if (hasattr(self, 'etfs') and 
+                not getattr(self, '_initializing', False) and 
+                not getattr(self, '_calculating_etf_prices', False)):
+                self._calculating_etf_prices = True
+                try:
+                    for etf_symbol in self.etfs:
+                        try:
+                            self.etfs[etf_symbol]["current_price"] = self.calculate_etf_price(etf_symbol, current_time)
+                        except:
+                            pass
+                finally:
+                    self._calculating_etf_prices = False
+            
+            # Return the requested stock's price
+            return self.calculate_price_at_time(symbol, current_time)
         except ValueError:
             return None
     
-    # REMOVED: calculate_dynamic_baseline_price and recalculate_all_baseline_prices
-    # These functions were causing price chaos by overriding AI-set prices.
-    # Stock prices should ONLY be set by:
-    # 1. AI daily analysis (sets opening prices and ranges)
-    # 2. On-demand price calculation using Perlin noise within those ranges
     
     def generate_hourly_prices(self, trading_day: str) -> Dict[str, List[float]]:
         """Generate sophisticated hourly prices using AI parameters, invisible factors, and multi-layer Perlin noise"""
@@ -1100,9 +1955,25 @@ class StockMarket:
                     # Apply change to previous price
                     new_price = prices[-1] * (1 + total_change)
                     
-                    # Enforce AI-provided daily range limits (primary constraint)
-                    new_price = max(new_price, range_low)
-                    new_price = min(new_price, range_high)
+                    # SOFTCAP SYSTEM: Apply progressive resistance instead of hard limits
+                    if self.softcap_config["enabled"]:
+                        softcap_steepness = self.softcap_config["steepness"]
+                        max_resistance = self.softcap_config["max_resistance"]
+                        
+                        if new_price < range_low:
+                            # Price is below the AI range
+                            distance_ratio = (range_low - new_price) / range_low
+                            resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
+                            new_price = range_low - (range_low - new_price) * resistance_factor
+                        elif new_price > range_high:
+                            # Price is above the AI range
+                            distance_ratio = (new_price - range_high) / range_high
+                            resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
+                            new_price = range_high + (new_price - range_high) * resistance_factor
+                    else:
+                        # Fallback to old hard clamping if softcaps disabled
+                        new_price = max(new_price, range_low)
+                        new_price = min(new_price, range_high)
                     
                     # Hourly change limits based on volatility (secondary constraint)
                     max_hourly_change = prices[-1] * volatility_multiplier * 3.0  # 3x volatility as max hourly
@@ -1261,6 +2132,32 @@ class StockMarket:
                 parsed_result = self.parse_structured_market_analysis(response.text, base_params, log_file)
                 log_to_file("✅ Structured AI analysis completed successfully")
                 print("✅ AI analysis completed with structured output and retry logic")
+                
+                # Send JSON output to designated channel
+                try:
+                    # Parse the raw AI response for sending
+                    ai_response_json = json.loads(response.text)
+                    
+                    # Create comprehensive output including both AI response and parsed result
+                    comprehensive_output = {
+                        "timestamp": datetime.now(timezone.utc).isoformat(),
+                        "ai_raw_response": ai_response_json,
+                        "parsed_analysis": {
+                            "market_params": parsed_result.get("market_params", {}),
+                            "invisible_factors": parsed_result.get("invisible_factors", {}),
+                            "daily_ranges": parsed_result.get("daily_ranges", {}),
+                            "sector_outlooks": parsed_result.get("sector_outlooks", {})
+                        },
+                        "base_economic_params": base_params,
+                        "messages_analyzed": len(all_messages),
+                        "analysis_type": "Stock Market Daily Analysis"
+                    }
+                    
+                    await self.send_json_to_channel(comprehensive_output, "Stock Market Analysis (Hourly)")
+                    log_to_file("✅ JSON output sent to designated channel")
+                except Exception as e:
+                    log_to_file(f"WARNING: Failed to send JSON output: {e}")
+                    print(f"⚠️ Failed to send JSON output: {e}")
                 
                 return parsed_result
                 
@@ -1715,7 +2612,7 @@ Total messages analyzed: {len(messages)}
         return None
     
     def save_daily_analysis(self, analysis: Dict[str, Any]) -> None:
-        """Save daily market analysis"""
+        """Save daily market analysis - CRITICAL DATA, saves immediately"""
         analysis_file = self.data_dir / "daily_analysis.json"
         analyses = []
         
@@ -1735,8 +2632,19 @@ Total messages analyzed: {len(messages)}
         # Keep last 365 analyses (1 year)
         analyses = analyses[-365:]
         
-        with open(analysis_file, 'w') as f:
+        # Write to temp file first for atomicity
+        temp_file = self.data_dir / "daily_analysis.tmp"
+        with open(temp_file, 'w') as f:
             json.dump(analyses, f, indent=2)
+            f.flush()
+            os.fsync(f.fileno())  # Force to disk immediately
+        
+        # Atomic rename
+        temp_file.replace(analysis_file)
+        
+        # Also save market data immediately for critical updates
+        self._sync_save_market_data()
+        print("✅ Critical daily analysis saved immediately")
     
     async def get_daily_market_analysis_with_prompt(self, custom_prompt: str, previous_analysis: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Enhanced daily analysis with custom prompt and consistency checks"""
@@ -2114,6 +3022,12 @@ Provide your enhanced analysis now:"""
         # Calculate updated category prices
         category_prices = self.calculate_category_prices()
         
+        # Update ETF prices
+        etf_prices = {}
+        for etf_symbol in self.etfs.keys():
+            etf_prices[etf_symbol] = self.calculate_etf_price(etf_symbol)
+            self.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
+        
         # Save updated market data
         self.save_market_data()
         
@@ -2123,6 +3037,7 @@ Provide your enhanced analysis now:"""
             "individual_stocks": {symbol: stock["price"] for cat in self.categories.values() 
                                 for stock in cat["stocks"] for symbol in [stock["symbol"]]},
             "category_prices": category_prices,
+            "etf_prices": etf_prices,
             "market_params": self.market_params,
             "trading_hour": hour_index,
             "analysis_update": True
@@ -2196,6 +3111,9 @@ Provide your enhanced analysis now:"""
             prices = []
             timestamps = []
             
+            # Check if this is an ETF
+            is_etf = symbol in self.etfs if hasattr(self, 'etfs') else False
+            
             # Generate prices at intervals based on update rate
             intervals = hours_back * (60 // self.price_update_rate_minutes)
             interval_minutes = self.price_update_rate_minutes
@@ -2207,7 +3125,10 @@ Provide your enhanced analysis now:"""
                 
                 # Calculate price at this time
                 try:
-                    price = self.calculate_price_at_time(symbol, price_time)
+                    if is_etf:
+                        price = self.calculate_etf_price(symbol, price_time)
+                    else:
+                        price = self.calculate_price_at_time(symbol, price_time)
                     prices.append(price)
                     timestamps.append(price_time)
                 except Exception as e:
@@ -2422,6 +3343,9 @@ class StockMarketScheduler:
         # Start hourly updates (24/7 trading - always active)
         self.hourly_update_task = asyncio.create_task(self.hourly_update_loop())
         
+        # Start checkpoint loop for periodic saves
+        self.stock_market._checkpoint_task = asyncio.create_task(self.stock_market._checkpoint_loop())
+        
         print("✅ Stock market scheduler started")
     
     async def daily_prep_loop(self):
@@ -2441,8 +3365,16 @@ class StockMarketScheduler:
                 # Run market preparation
                 await self.prepare_trading_day()
                 
-                # Wait a bit to avoid immediate re-triggering
-                await asyncio.sleep(60)
+                # Wait until after market open (9 AM) to avoid re-triggering
+                current_time = self.get_et_now()
+                if current_time.hour == 8:  # If we're still in the 8 AM hour
+                    # Calculate seconds until 9:01 AM to be safe
+                    next_hour = current_time.replace(hour=9, minute=1, second=0, microsecond=0)
+                    wait_seconds = (next_hour - current_time).total_seconds()
+                    await asyncio.sleep(wait_seconds)
+                else:
+                    # Normal wait if not in the 8 AM hour
+                    await asyncio.sleep(60)
                 
             except Exception as e:
                 print(f"❌ Error in daily prep loop: {e}")
@@ -2483,14 +3415,17 @@ class StockMarketScheduler:
                     if "ai_opening_price" not in stock:
                         raise ValueError(f"Stock {stock['symbol']} missing AI opening price")
             
-            # CRITICAL: Recalculate baseline prices from new economic parameters
-            print("🔄 Recalculating baseline prices for new trading day...")
-            self.stock_market.recalculate_all_baseline_prices()
+            # AI has already set all prices - no need for baseline recalculation
+            print("✅ Market parameters and prices set by AI analysis")
             
             # Set trading day state (always active for 24/7 trading)
             self.stock_market.is_trading_day = True
             self.stock_market.current_trading_day = trading_day
             self.current_hour_index = 0
+            
+            # Precompute ETF prices for the day
+            print("📊 Precomputing ETF prices for the trading day...")
+            self.stock_market.precompute_etf_prices()
             
             # Save market data
             self.stock_market.save_market_data()
@@ -2594,6 +3529,12 @@ class StockMarketScheduler:
         # Calculate category prices
         category_prices = self.stock_market.calculate_category_prices()
         
+        # Update ETF prices
+        etf_prices = {}
+        for etf_symbol in self.stock_market.etfs.keys():
+            etf_prices[etf_symbol] = self.stock_market.calculate_etf_price(etf_symbol)
+            self.stock_market.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
+        
         # Save historical data
         timestamp = datetime.now(timezone.utc).isoformat()
         
@@ -2605,6 +3546,7 @@ class StockMarketScheduler:
             "individual_stocks": {symbol: stock["price"] for cat in self.stock_market.categories.values() 
                                 for stock in cat["stocks"] for symbol in [stock["symbol"]]},
             "category_prices": category_prices,
+            "etf_prices": etf_prices,
             "market_params": self.stock_market.market_params,
             "trading_hour": hour_index,
             "update_rate_minutes": self.stock_market.price_update_rate_minutes

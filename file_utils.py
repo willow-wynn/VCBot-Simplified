@@ -7,12 +7,16 @@ import json
 import csv
 import asyncio
 import aiofiles
+import shutil
 from pathlib import Path
 from typing import Dict, Any, Optional
-from config import BILL_REFS_FILE, QUERIES_FILE
+from config import (
+    BILL_REFS_FILE, QUERIES_FILE, DATA_DIR, ECONOMIC_DATA_DIR, 
+    STOCK_DATA_DIR, BASE_DIR, GUILD_ID, ensure_guild_directories
+)
 
-# File paths for channel restrictions
-CHANNEL_RESTRICTIONS_FILE = Path(__file__).parent / "channel_restrictions.json"
+# File paths for channel restrictions (guild-specific)
+CHANNEL_RESTRICTIONS_FILE = DATA_DIR / "channel_restrictions.json"
 
 # Global variables for data
 _bill_refs = None
@@ -130,10 +134,174 @@ def save_bill_metadata(filename: str, metadata: Dict[str, Any]):
 
 def ensure_directories():
     """Ensure all required directories exist."""
-    from config import BILL_TEXT_DIR, BILL_PDF_DIR, BILL_JSON_DIR, KNOWLEDGE_DIR
+    ensure_guild_directories()
+
+def migrate_data_to_guild_directory():
+    """
+    One-time migration of existing data to guild-specific directory.
+    Only runs if guild directory doesn't exist but root files do.
+    Copies (not moves) to preserve original data.
+    """
+    # Production guild ID
+    PROD_GUILD = 654458344781774879
     
-    for directory in [BILL_TEXT_DIR, BILL_PDF_DIR, BILL_JSON_DIR, KNOWLEDGE_DIR]:
-        directory.mkdir(parents=True, exist_ok=True)
+    # Only migrate for production guild
+    if GUILD_ID != PROD_GUILD:
+        return
+        
+    # Check if migration is needed
+    if (DATA_DIR / "bill_refs.json").exists():
+        print(f"Guild data directory already exists for {GUILD_ID}, skipping migration")
+        return
+        
+    # Check if source data exists
+    old_bill_refs = BASE_DIR / "bill_refs.json"
+    if not old_bill_refs.exists():
+        print("No existing data to migrate")
+        return
+        
+    print(f"Migrating data to guild-specific directory: {DATA_DIR}")
+    
+    # Ensure directories exist
+    ensure_guild_directories()
+    
+    # Copy root level files
+    files_to_copy = [
+        ("bill_refs.json", DATA_DIR / "bill_refs.json"),
+        ("news.txt", DATA_DIR / "news.txt"),
+        ("queries.csv", DATA_DIR / "queries.csv"),
+        ("channel_restrictions.json", DATA_DIR / "channel_restrictions.json"),
+    ]
+    
+    for src_name, dst_path in files_to_copy:
+        src_path = BASE_DIR / src_name
+        if src_path.exists():
+            shutil.copy2(src_path, dst_path)
+            print(f"Copied {src_name}")
+    
+    # Copy economic data
+    old_econ_dir = BASE_DIR / "economic_data"
+    if old_econ_dir.exists():
+        for file in old_econ_dir.glob("*.json"):
+            shutil.copy2(file, ECONOMIC_DATA_DIR / file.name)
+        print("Copied economic data")
+    
+    # Copy stock data
+    old_stock_dir = BASE_DIR / "stock_data"
+    if old_stock_dir.exists():
+        for file in old_stock_dir.glob("*.json"):
+            shutil.copy2(file, STOCK_DATA_DIR / file.name)
+        # Copy analysis logs subdirectory
+        old_logs = old_stock_dir / "analysis_logs"
+        if old_logs.exists():
+            new_logs = STOCK_DATA_DIR / "analysis_logs"
+            new_logs.mkdir(exist_ok=True)
+            for file in old_logs.glob("*.json"):
+                shutil.copy2(file, new_logs / file.name)
+        print("Copied stock data")
+    
+    # Copy bill data
+    old_bill_dir = BASE_DIR / "every-vc-bill"
+    if old_bill_dir.exists():
+        # Copy text files
+        old_txts = old_bill_dir / "txts"
+        if old_txts.exists():
+            for file in old_txts.glob("*.txt"):
+                shutil.copy2(file, DATA_DIR / "every-vc-bill" / "txts" / file.name)
+        
+        # Copy PDF files
+        old_pdfs = old_bill_dir / "pdfs"
+        if old_pdfs.exists():
+            for file in old_pdfs.glob("*.pdf"):
+                shutil.copy2(file, DATA_DIR / "every-vc-bill" / "pdfs" / file.name)
+        
+        # Copy JSON files
+        old_jsons = old_bill_dir / "json_outputs"
+        if old_jsons.exists():
+            for file in old_jsons.glob("*.json"):
+                shutil.copy2(file, DATA_DIR / "every-vc-bill" / "json_outputs" / file.name)
+        
+        print("Copied bill data")
+    
+    print("Migration complete!")
+
+def initialize_guild_data_structure():
+    """
+    Initialize empty data structure for new guild.
+    Creates all required JSON files with default values.
+    """
+    print(f"Initializing data structure for guild {GUILD_ID}")
+    
+    # Ensure directories exist
+    ensure_guild_directories()
+    
+    # Initialize bill references
+    if not BILL_REFS_FILE.exists():
+        default_refs = {"hr": 1, "hres": 1, "hjres": 1, "hconres": 1, "h.res": 1}
+        with open(BILL_REFS_FILE, 'w') as f:
+            json.dump(default_refs, f, indent=2)
+    
+    # Initialize channel restrictions
+    if not CHANNEL_RESTRICTIONS_FILE.exists():
+        with open(CHANNEL_RESTRICTIONS_FILE, 'w') as f:
+            json.dump({}, f, indent=2)
+    
+    # Initialize economic data files
+    economic_files = {
+        "parameters.json": {
+            "econ_channel": 1275044113754095697,
+            "interval": 15,
+            "is_running": False,
+            "inflation_rate": 0.02
+        },
+        "gdp.json": {"current": 21.5, "history": []},
+        "inflation.json": {"current": 0.02, "history": []},
+        "unemployment.json": {"current": 0.04, "history": []},
+        "sentiment.json": {"current": {"positive": 0.5, "negative": 0.3, "neutral": 0.2}, "history": []},
+        "admin_log.json": [],
+        "memory.json": {"entries": []},
+        "reports.json": []
+    }
+    
+    for filename, default_data in economic_files.items():
+        filepath = ECONOMIC_DATA_DIR / filename
+        if not filepath.exists():
+            with open(filepath, 'w') as f:
+                json.dump(default_data, f, indent=2)
+    
+    # Initialize stock data files
+    stock_files = {
+        "market_data.json": {
+            "market_open": True,
+            "last_update": None,
+            "stocks": {},
+            "market_params": {
+                "trend_direction": 0.0,
+                "volatility": 0.3,
+                "momentum": 0.5,
+                "market_sentiment": 0.5,
+                "long_term_outlook": 0.5
+            }
+        },
+        "stock_history.json": {},
+        "daily_analysis.json": {},
+        "user_portfolios.json": {}
+    }
+    
+    for filename, default_data in stock_files.items():
+        filepath = STOCK_DATA_DIR / filename
+        if not filepath.exists():
+            with open(filepath, 'w') as f:
+                json.dump(default_data, f, indent=2)
+    
+    # Create empty news and queries files
+    if not (DATA_DIR / "news.txt").exists():
+        (DATA_DIR / "news.txt").write_text("")
+    
+    if not (DATA_DIR / "queries.csv").exists():
+        (DATA_DIR / "queries.csv").write_text("")
+    
+    print("Initialization complete!")
 
 # Channel Restrictions Management
 
@@ -229,9 +397,22 @@ def get_command_restrictions() -> Dict[str, Dict[str, Any]]:
     """Get all current command channel restrictions."""
     return load_channel_restrictions()
 
-def get_available_commands() -> list:
+def get_available_commands(bot_instance=None) -> list:
     """Get list of available command names for restriction management."""
-    # This list includes all major bot commands
+    # If bot instance provided, dynamically get all registered commands
+    if bot_instance and hasattr(bot_instance, 'tree'):
+        command_names = []
+        # Get all application commands from the command tree
+        for command in bot_instance.tree.get_commands():
+            command_names.append(command.name)
+        # Sort alphabetically for better organization
+        return sorted(command_names) if command_names else get_default_command_list()
+    
+    # Fallback to default list if no bot instance
+    return get_default_command_list()
+
+def get_default_command_list() -> list:
+    """Get default list of command names as fallback."""
     return [
         'helper', 'bill_keyword_search', 'reference', 'modifyrefs', 'add_bill',
         'econ_impact_report', 'role', 'fetch_econ_data', 'econ_report', 
@@ -239,7 +420,12 @@ def get_available_commands() -> list:
         'stocks_list', 'stocks_price', 'stocks_categories', 'stocks_history_48h',
         'stocks_buy', 'stocks_sell', 'stocks_portfolio', 'stocks_set_market',
         'stocks_force_update', 'stocks_reset', 'stocks_sync_econ', 'stocks_force_init',
-        'econ_memory_list', 'econ_memory'
+        'stocks_clear_history', 'stocks_hub', 'stocks_admin', 'stocks_admin_detail',
+        'stocks_admin_peek', 'stocks_admin_debug', 'stocks_overview', 'stocks_etfs',
+        'stocks_toggle_admin_trading', 'stocks_add', 'stocks_add_day', 'stocks_set_update_rate',
+        'start', 'status', 'stop', 'econ_memory_list', 'econ_memory', 'econ_set_gdp_weights',
+        'clear_stock_commands', 'clear_economic_commands', 'clear_bill_commands',
+        'channel_restrict'
     ]
 
 # Initialize directories on import

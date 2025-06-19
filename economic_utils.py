@@ -14,7 +14,7 @@ from typing import Dict, List, Optional, Any
 from pathlib import Path
 import google.generativeai as genai
 from google.genai import types
-from config import GEMINI_API_KEY
+from config import GEMINI_API_KEY, ECONOMIC_DATA_DIR
 
 # Discord import for exception handling
 try:
@@ -169,7 +169,7 @@ class EconomicData:
     """Agentic economic data management with AI-powered analysis"""
     
     def __init__(self):
-        self.data_dir = Path("economic_data")
+        self.data_dir = ECONOMIC_DATA_DIR
         self.data_dir.mkdir(exist_ok=True)
         self.model = genai.GenerativeModel('gemini-2.0-flash-exp')
         self.parameters = self.load_parameters()
@@ -752,7 +752,7 @@ class EconomicData:
             print(f"Error fetching document: {e}")
             return None
     
-    async def conduct_agentic_analysis(self, client, days_back: int = 30, previous_report: Optional[Dict[str, Any]] = None, user_prompt: str = None, progress_channel = None, previous_insights: Optional[str] = None, memory_context: str = "") -> Dict[str, Any]:
+    async def conduct_agentic_analysis(self, client, days_back: int = 7, previous_report: Optional[Dict[str, Any]] = None, user_prompt: str = None, progress_channel = None, previous_insights: Optional[str] = None, memory_context: str = "") -> Dict[str, Any]:
         """Conduct agentic economic analysis using AI-powered tool calls with detailed logging and live progress updates"""
         print("🤖 Starting agentic economic analysis...")
         
@@ -1028,7 +1028,42 @@ Begin your COMPREHENSIVE analysis by discovering ALL available channels. Remembe
                 "🏁 Finalizing economic report...",
                 "✨ Completing final calculations...",
                 "🔬 Cross-referencing data sources...",
-                "📋 Preparing comprehensive summary..."
+                "📋 Preparing comprehensive summary...",
+                "🏛️ Examining congressional floor activities...",
+                "💼 Processing executive branch communications...",
+                "🗳️ Analyzing voting patterns and trends...",
+                "📑 Reviewing policy documentation...",
+                "🏪 Evaluating market regulations...",
+                "💸 Tracking monetary policy changes...",
+                "🏭 Assessing industrial production data...",
+                "🌾 Monitoring agricultural sector impacts...",
+                "🛢️ Analyzing energy sector dynamics...",
+                "🏗️ Reviewing infrastructure investments...",
+                "🚗 Processing transportation metrics...",
+                "🏥 Evaluating healthcare policy effects...",
+                "🎓 Analyzing education spending impacts...",
+                "🏡 Monitoring housing market indicators...",
+                "💳 Processing consumer spending data...",
+                "🏦 Reviewing banking sector health...",
+                "📱 Analyzing technology sector growth...",
+                "🛍️ Tracking retail performance metrics...",
+                "✈️ Monitoring tourism and travel data...",
+                "🎬 Evaluating entertainment sector trends...",
+                "⚡ Processing utility sector changes...",
+                "🏪 Analyzing small business indicators...",
+                "🌐 Reviewing international trade data...",
+                "💱 Processing currency exchange impacts...",
+                "📈 Calculating inflation adjustments...",
+                "📊 Monitoring employment statistics...",
+                "💼 Tracking job market dynamics...",
+                "🏢 Analyzing corporate earnings data...",
+                "📉 Processing market volatility metrics...",
+                "🎯 Identifying economic trend signals...",
+                "🔄 Updating cyclical indicators...",
+                "📡 Gathering real-time market data...",
+                "🧮 Computing statistical correlations...",
+                "🔍 Detecting economic anomalies...",
+                "⚖️ Balancing competing indicators..."
             ]
             
             while turn < max_turns:
@@ -1762,7 +1797,7 @@ def get_stock_initialization_data() -> Dict[str, Any]:
         return {
             "error": f"Failed to get stock initialization data: {e}",
             "message": "Economic data processing failed - please check economic data files and run /fetch_econ_data",
-            "guidance": "Stock market requires valid economic data files. Ensure economic_data/ directory contains current data."
+            "guidance": f"Stock market requires valid economic data files. Ensure {ECONOMIC_DATA_DIR} directory contains current data."
         }
 
 def log_admin_action(admin_id: int, action: str, details: Dict[str, Any]) -> None:

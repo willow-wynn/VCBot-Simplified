@@ -64,7 +64,7 @@ class MessageTools:
             "channel": channel_name,
             "channel_id": channel_id,
             "content": content,
-            "message_id": "mock_message_id_12345",
+            "message_id": "mock_message_id_1327483297202176080",
             "timestamp": "2024-01-01T12:00:00Z"
         }
         

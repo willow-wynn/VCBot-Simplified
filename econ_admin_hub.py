@@ -244,12 +244,12 @@ class EconAdminView(discord.ui.View):
             
             # GDP Section
             gdp = latest_report.get('gdp', {})
-            gdp_value = gdp.get('value', 26.8)
+            gdp_value = gdp.get('value', 'N/A')
             gdp_change = gdp.get('change_percent', -1.2)
             gdp_color = "📉" if gdp_change < 0 else "📈"
             embed.add_field(
                 name="🏛️ GDP",
-                value=f"**${gdp_value:,.1f}T** {gdp_color}\nChange: {gdp_change:+.1f}%",
+                value=f"**${gdp_value:,.1f}T** {gdp_color}\nChange: {gdp_change:+.1f}%" if gdp_value != 'N/A' else "**N/A**",
                 inline=True
             )
             

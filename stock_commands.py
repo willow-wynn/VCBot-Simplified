@@ -611,6 +611,119 @@ async def stocks_history(interaction: discord.Interaction, days_back: int = 7, s
         await interaction.followup.send("❌ Days back must be between 1 and 30")
         return
     
+    # If symbol is provided, generate a chart
+    if symbol:
+        symbol = symbol.upper()
+        
+        # Check if it's an ETF first
+        is_etf = hasattr(stock_market, 'etfs') and symbol in stock_market.etfs
+        
+        # Verify stock/ETF exists
+        asset_exists = is_etf
+        if not is_etf:
+            for cat_data in stock_market.categories.values():
+                for stock in cat_data['stocks']:
+                    if stock['symbol'] == symbol:
+                        asset_exists = True
+                        break
+                if asset_exists:
+                    break
+        
+        if not asset_exists:
+            await interaction.followup.send(f"❌ Stock/ETF '{symbol}' not found")
+            return
+        
+        # Generate price history chart using on-demand calculation
+        try:
+            # Convert days to hours
+            hours_back = days_back * 24
+            
+            # Generate chart using on-demand calculation
+            chart_bytes = stock_market.generate_stock_chart_on_demand(symbol, hours_back=hours_back)
+            
+            # Calculate prices for statistics
+            current_time = datetime.now(timezone.utc)
+            prices = []
+            
+            # Calculate prices at regular intervals for statistics
+            interval_minutes = stock_market.price_update_rate_minutes
+            total_minutes = hours_back * 60
+            
+            for i in range(0, total_minutes, interval_minutes):
+                time_offset = timedelta(minutes=i)
+                price_time = current_time - timedelta(hours=hours_back) + time_offset
+                try:
+                    if is_etf:
+                        price = stock_market.calculate_etf_price(symbol, price_time)
+                    else:
+                        price = stock_market.calculate_price_at_time(symbol, price_time)
+                    prices.append(price)
+                except Exception as e:
+                    print(f"Error calculating price: {e}")
+                    continue
+            
+            if len(prices) < 2:
+                embed = discord.Embed(
+                    title="📊 Insufficient Data",
+                    description=f"Not enough data to generate {days_back}-day history for {symbol}",
+                    color=0xffaa00,
+                    timestamp=datetime.now(timezone.utc)
+                )
+                embed.add_field(name="💡 Note", value="Price history requires market to be initialized", inline=False)
+                await interaction.followup.send(embed=embed)
+                return
+            
+            # Create history embed
+            embed = discord.Embed(
+                title=f"📊 {symbol} - {days_back} Day Price History",
+                description=f"Prices calculated every {stock_market.price_update_rate_minutes} minute{'s' if stock_market.price_update_rate_minutes != 1 else ''}",
+                color=0x0099ff,
+                timestamp=datetime.now(timezone.utc)
+            )
+            
+            # Calculate statistics
+            current_price = prices[-1]
+            start_price = prices[0]
+            change = current_price - start_price
+            change_pct = (change / start_price) * 100
+            high_price = max(prices)
+            low_price = min(prices)
+            avg_price = sum(prices) / len(prices)
+            
+            stats_text = f"""
+**Current**: ${current_price:.2f}
+**{days_back}d Change**: ${change:+.2f} ({change_pct:+.2f}%)
+**{days_back}d High**: ${high_price:.2f}
+**{days_back}d Low**: ${low_price:.2f}
+**{days_back}d Average**: ${avg_price:.2f}
+"""
+            embed.add_field(name="📈 Statistics", value=stats_text.strip(), inline=True)
+            
+            # Add market parameters info
+            params = stock_market.market_params
+            market_text = f"""
+**Trend**: {params['trend_direction']:+.2f}
+**Volatility**: {params['volatility']:.2f}
+**Update Rate**: {stock_market.price_update_rate_minutes}min
+"""
+            embed.add_field(name="🎯 Market Parameters", value=market_text.strip(), inline=True)
+            
+            # Attach chart if generated
+            if chart_bytes:
+                chart_file = discord.File(io.BytesIO(chart_bytes), filename=f"{symbol}_{days_back}d_chart.png")
+                embed.set_image(url=f"attachment://{symbol}_{days_back}d_chart.png")
+                await interaction.followup.send(embed=embed, file=chart_file)
+            else:
+                await interaction.followup.send(embed=embed)
+                
+            return
+            
+        except Exception as e:
+            print(f"Error generating {days_back}d history: {e}")
+            await interaction.followup.send(f"❌ Error generating price history: {e}")
+            return
+    
+    # Original code for general market history (no specific symbol)
     # Get historical data
     historical_data = stock_market.get_historical_data(days_back)
     
@@ -625,72 +738,26 @@ async def stocks_history(interaction: discord.Interaction, days_back: int = 7, s
         timestamp=datetime.now(timezone.utc)
     )
     
-    if symbol:
-        symbol = symbol.upper()
+    # Show overall market statistics
+    if len(historical_data) > 1:
+        first_entry = historical_data[0]['data']
+        last_entry = historical_data[-1]['data']
         
-        # Extract data for specific stock
-        prices = []
-        timestamps = []
+        # Calculate market-wide changes
+        market_summary = "**Market Overview:**\n"
         
-        for entry in historical_data:
-            if 'data' in entry and 'individual_stocks' in entry['data']:
-                if symbol in entry['data']['individual_stocks']:
-                    prices.append(entry['data']['individual_stocks'][symbol])
-                    timestamps.append(entry['timestamp'])
+        if 'category_prices' in first_entry and 'category_prices' in last_entry:
+            for sector in first_entry['category_prices']:
+                if sector in last_entry['category_prices']:
+                    old_price = first_entry['category_prices'][sector]
+                    new_price = last_entry['category_prices'][sector]
+                    change_pct = ((new_price - old_price) / old_price) * 100
+                    
+                    emoji = "⛽" if sector == "ENERGY" else "🎬" if sector == "ENTERTAINMENT" else "🏦" if sector == "FINANCE" else "🏥" if sector == "HEALTH" else "🏭" if sector == "MANUFACTURING" else "🛒" if sector == "RETAIL" else "💻" if sector == "TECH" else "✈️"
+                    direction = "📈" if change_pct >= 0 else "📉"
+                    market_summary += f"{emoji} {sector}: {direction} {change_pct:+.1f}%\n"
         
-        if not prices:
-            await interaction.followup.send(f"❌ No historical data found for stock '{symbol}'")
-            return
-        
-        # Calculate statistics
-        if len(prices) > 1:
-            change = prices[-1] - prices[0]
-            change_pct = (change / prices[0]) * 100
-            high_price = max(prices)
-            low_price = min(prices)
-            avg_price = sum(prices) / len(prices)
-            
-            stock_stats = f"""
-**Current**: ${prices[-1]:.2f}
-**Change**: ${change:+.2f} ({change_pct:+.2f}%)
-**High**: ${high_price:.2f}
-**Low**: ${low_price:.2f}
-**Average**: ${avg_price:.2f}
-"""
-            embed.add_field(name=f"📈 {symbol} Statistics", value=stock_stats.strip(), inline=True)
-            
-            # Generate chart
-            try:
-                chart_bytes = stock_market.generate_stock_chart(symbol, prices[-24:])  # Last 24 points
-                if chart_bytes:
-                    chart_file = discord.File(io.BytesIO(chart_bytes), filename=f"{symbol}_history.png")
-                    embed.set_image(url=f"attachment://{symbol}_history.png")
-                    await interaction.followup.send(embed=embed, file=chart_file)
-                    return
-            except Exception as e:
-                print(f"Chart generation failed: {e}")
-    
-    else:
-        # Show overall market statistics
-        if len(historical_data) > 1:
-            first_entry = historical_data[0]['data']
-            last_entry = historical_data[-1]['data']
-            
-            # Calculate market-wide changes
-            market_summary = "**Market Overview:**\n"
-            
-            if 'category_prices' in first_entry and 'category_prices' in last_entry:
-                for sector in first_entry['category_prices']:
-                    if sector in last_entry['category_prices']:
-                        old_price = first_entry['category_prices'][sector]
-                        new_price = last_entry['category_prices'][sector]
-                        change_pct = ((new_price - old_price) / old_price) * 100
-                        
-                        emoji = "⛽" if sector == "ENERGY" else "🎬" if sector == "ENTERTAINMENT" else "🏦" if sector == "FINANCE" else "🏥" if sector == "HEALTH" else "🏭" if sector == "MANUFACTURING" else "🛒" if sector == "RETAIL" else "💻" if sector == "TECH" else "✈️"
-                        direction = "📈" if change_pct >= 0 else "📉"
-                        market_summary += f"{emoji} {sector}: {direction} {change_pct:+.1f}%\n"
-            
-            embed.add_field(name="📊 Sector Performance", value=market_summary.strip(), inline=False)
+        embed.add_field(name="📊 Sector Performance", value=market_summary.strip(), inline=False)
     
     # Data source info
     embed.set_footer(text=f"Data from {len(historical_data)} trading periods")

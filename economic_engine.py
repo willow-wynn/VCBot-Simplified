@@ -212,21 +212,28 @@ class EconomicEngine(commands.Cog):
         - If previous GDP exists, calculate change_percent as: ((new_value - previous_value) / previous_value) * 100
         - GDP should typically change between -5% to +5% per period based on activity levels
         - Consider activity volume, bill passages, and economic sentiment when determining GDP growth
+        - NEVER default to exactly 26.8 - let economic activity determine the actual value
+        - Each analysis should reflect unique economic conditions
         
         IMPORTANT INFLATION CALCULATION RULES:
         - Inflation rate should change gradually (typically 0.1-0.5% per period)
         - Consider monetary policy discussions, spending bills, and economic conditions
-        - If previous inflation exists, adjust based on recent policy impacts"""
+        - If previous inflation exists, adjust based on recent policy impacts
+        - NEVER default to exactly 8.5 or 8.51 - let economic conditions determine the rate
+        - Each period should show unique inflation dynamics"""
         
         if previous_report:
-            previous_gdp = previous_report.get('gdp', {}).get('value', 26.8)
-            previous_inflation = previous_report.get('inflation', {}).get('rate', 8.5)
-            context_prompt += f"\n\nPrevious Economic Report (for continuity):\n"
-            context_prompt += f"Previous GDP: ${previous_gdp:.2f} trillion\n"
-            context_prompt += f"Previous Inflation: {previous_inflation:.2f}%\n"
-            context_prompt += f"Full Previous Report:\n{json.dumps(previous_report, indent=2)}"
+            previous_gdp = previous_report.get('gdp', {}).get('value')
+            previous_inflation = previous_report.get('inflation', {}).get('rate')
+            if previous_gdp and previous_inflation:
+                context_prompt += f"\n\nPrevious Economic Report (for continuity):\n"
+                context_prompt += f"Previous GDP: ${previous_gdp:.2f} trillion\n"
+                context_prompt += f"Previous Inflation: {previous_inflation:.2f}%\n"
+                context_prompt += f"Full Previous Report:\n{json.dumps(previous_report, indent=2)}"
+            else:
+                context_prompt += "\n\nNote: Previous report data incomplete. Establish new baseline."
         else:
-            context_prompt += "\n\nNote: This is initial economic analysis - no previous data available. Start with baseline GDP of $26.8 trillion and inflation of 8.5%."
+            context_prompt += "\n\nNote: This is initial economic analysis - no previous data available. Establish initial GDP and inflation based on the scale and intensity of economic activity you observe. Consider: a modern developed economy typically has GDP in the $20-30 trillion range and inflation between 2-10%. Let the actual Discord activity guide your specific values."
         
         data_prompt = f"""
         Discord Activity Data:
@@ -289,7 +296,20 @@ class EconomicEngine(commands.Cog):
             # Extract JSON from response
             json_match = re.search(r'\{.*\}', response.text, re.DOTALL)
             if json_match:
-                return json.loads(json_match.group())
+                result = json.loads(json_match.group())
+                
+                # Validate that we're not getting stuck on default values
+                gdp_value = result.get('gdp', {}).get('value')
+                inflation_rate = result.get('inflation', {}).get('rate')
+                
+                if gdp_value == 26.8:
+                    print("⚠️ Warning: GDP is exactly 26.8 - this suggests AI is using hardcoded default")
+                    # Add a retry mechanism or stronger prompt here if needed
+                
+                if inflation_rate in [8.5, 8.51]:
+                    print("⚠️ Warning: Inflation is exactly 8.5/8.51 - this suggests AI is using hardcoded default")
+                
+                return result
             else:
                 raise ValueError("No valid JSON found in response")
                 

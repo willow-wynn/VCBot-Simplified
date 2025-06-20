@@ -58,20 +58,20 @@ class EconomicDataManager:
     def get_current_gdp(self) -> Dict[str, Any]:
         """Get current GDP data"""
         self._refresh_cache_if_needed()
-        return self._cache.get('gdp', {
-            'amount': 26.8,
-            'change_percent': 0.0,
-            'quarterly_growth': 0.0
-        })
+        gdp_data = self._cache.get('gdp')
+        if not gdp_data:
+            # Return None if no data exists, don't mask with defaults
+            return None
+        return gdp_data
     
     def get_current_inflation(self) -> Dict[str, Any]:
         """Get current inflation data"""
         self._refresh_cache_if_needed()
-        return self._cache.get('inflation', {
-            'rate': 2.0,
-            'yoy_change': 0.0,
-            'fed_rate': 2.5
-        })
+        inflation_data = self._cache.get('inflation')
+        if not inflation_data:
+            # Return None if no data exists, don't mask with defaults
+            return None
+        return inflation_data
     
     def get_current_unemployment(self) -> Dict[str, Any]:
         """Get current unemployment data"""

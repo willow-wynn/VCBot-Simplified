@@ -16,11 +16,10 @@ import base64
 import signal
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Any, Tuple
-from pathlib import Path
 import discord
 from discord.ext import commands, tasks
 import google.generativeai as genai
-from config import GEMINI_API_KEY, BOT_HELPER_CHANNEL, STOCK_DATA_DIR, JSON_OUTPUT_CHANNEL
+from config import GEMINI_API_KEY, BOT_HELPER_CHANNEL, STOCK_DATA_DIR, JSON_OUTPUT_CHANNEL, ECONOMIC_DATA_DIR
 from economic_utils import ALL_ALLOWED_CHANNELS, ALLOWED_CHANNELS
 
 # Configure Gemini
@@ -458,7 +457,7 @@ class StockMarket:
         print("📈 Stock Market System initialized")
         print(f"💼 {sum(len(cat['stocks']) for cat in self.categories.values())} individual stocks across {len(self.categories)} sectors")
         print(f"📊 {len(self.etfs)} ETFs available (market indices & sector funds)")
-        print(f"📊 Market parameters calculated from economic data: Trend {self.market_params['trend_direction']:+.2f}, Volatility {self.market_params['volatility']:.2f}")
+        print(f"🤖 Market parameters await AI analysis (current: neutral defaults)")
         
         # Initialization complete - allow ETF price updates now
         self._initializing = False
@@ -509,10 +508,14 @@ class StockMarket:
             self._initializing = False
     
     def _calculate_market_params_from_economic_data(self) -> Dict[str, float]:
-        """Calculate market parameters based on current economic data"""
+        """[DEPRECATED] Calculate market parameters based on current economic data
+        
+        This function is deprecated. Market parameters should be set by AI analysis,
+        not calculated from formulas. The AI receives economic data directly and
+        interprets it to set parameters."""
         try:
             # Try to read economic data files
-            economic_data_dir = Path("economic_data")
+            economic_data_dir = ECONOMIC_DATA_DIR
             
             # Start with neutral baseline - will be adjusted by actual data
             inflation_rate = 2.0  # Fed target as baseline
@@ -622,14 +625,15 @@ class StockMarket:
             raise Exception(f"Cannot calculate market parameters without economic data: {e}")
     
     def _calculate_parameter_ranges_from_economic_data(self) -> Dict[str, Dict[str, float]]:
-        """Calculate acceptable parameter ranges based on economic conditions
+        """[DEPRECATED] Calculate acceptable parameter ranges based on economic conditions
         
-        This creates data-driven ranges that AI should respect when setting parameters.
-        The ranges adapt to current economic conditions instead of being hardcoded.
+        This function is deprecated. The AI has full control over parameter setting
+        and doesn't need pre-calculated ranges. The AI receives economic data directly
+        and can set any valid parameter values based on its analysis.
         """
         try:
             # Get current economic indicators
-            economic_data_dir = Path("economic_data")
+            economic_data_dir = ECONOMIC_DATA_DIR
             
             # Read economic indicators with defaults
             inflation_rate = 2.0
@@ -722,8 +726,8 @@ class StockMarket:
             
             # LONG TERM OUTLOOK RANGE
             # Very narrow range - only small adjustments allowed
-            base_params = self._calculate_market_params_from_economic_data()
-            current_outlook = base_params.get("long_term_outlook", 0.5)
+            # [DEPRECATED] This function is not used - AI has full control
+            current_outlook = 0.5  # Default neutral value
             
             ranges["long_term_outlook"] = {
                 "min": max(0.1, current_outlook - 0.02),
@@ -1070,10 +1074,16 @@ class StockMarket:
                     print(f"⚡ Applying stress test parameters: {test_params}")
                     self.market_params.update(test_params)
                 
-                # Use basic economic parameters for simulation (no fake analysis)
-                print("⚠️ Simulation mode: Using economic data parameters without AI analysis")
-                # Just use current economic parameters without generating fake data
-                self.market_params = self._calculate_market_params_from_economic_data()
+                # Use neutral parameters for simulation (no AI analysis)
+                print("⚠️ Simulation mode: Using neutral default parameters without AI analysis")
+                # Use neutral defaults for testing
+                self.market_params = {
+                    "trend_direction": 0.0,
+                    "volatility": 0.5,
+                    "momentum": 0.5,
+                    "market_sentiment": 0.5,
+                    "long_term_outlook": 0.5
+                }
                 
                 # Generate hourly prices
                 trading_day = f"2024-01-{day+1:02d}"
@@ -2016,18 +2026,26 @@ class StockMarket:
             log_to_file("CRITICAL: Cannot operate without Discord client for intelligent analysis")
             raise Exception("Stock market requires Discord client for intelligent data collection")
         
-        # STEP 1: Initialize from base parameters calculated from economic data
-        log_to_file("STEP 1: Calculating base parameters from economic data")
-        try:
-            base_params = self._calculate_market_params_from_economic_data()
-            log_to_file(f"Base parameters: {json.dumps(base_params, indent=2)}")
-            print("📊 Base parameters calculated from economic data")
-        except Exception as e:
-            error_msg = f"Failed to calculate base parameters: {e}"
-            print(f"❌ {error_msg}")
-            log_to_file(f"ERROR: {error_msg}")
-            log_to_file("CRITICAL: Cannot operate without economic data")
-            raise Exception(f"Stock market requires economic data for parameter calculation: {e}")
+        # STEP 1: Get previous trading day data for continuity
+        log_to_file("STEP 1: Getting previous trading day data for AI context")
+        previous_data = self.get_previous_trading_day_data()
+        
+        # Extract previous parameters if available, otherwise use neutral defaults
+        if previous_data and "market_state" in previous_data and "parameters" in previous_data["market_state"]:
+            previous_params = previous_data["market_state"]["parameters"]
+            log_to_file(f"Previous parameters from {previous_data.get('timestamp', 'unknown')[:10]}: {json.dumps(previous_params, indent=2)}")
+            print(f"📊 Using previous market parameters from {previous_data.get('timestamp', 'unknown')[:10]}")
+        else:
+            # Use neutral defaults if no previous data
+            previous_params = {
+                "trend_direction": 0.0,
+                "volatility": 0.5,
+                "momentum": 0.5,
+                "market_sentiment": 0.5,
+                "long_term_outlook": 0.5
+            }
+            log_to_file("No previous parameters found, using neutral defaults")
+            print("📊 No previous parameters found, using neutral defaults for AI")
         
         # STEP 2: Collect Discord activity with retry logic
         log_to_file("STEP 2: Collecting Discord activity")
@@ -2096,8 +2114,7 @@ class StockMarket:
         print(f"📝 Collected {len(all_messages)} messages for analysis")
         
         # STEP 3: AI Analysis with structured output and retry logic
-        log_to_file("STEP 3: Running AI analysis with structured output and economic constraints")
-        previous_data = self.get_previous_trading_day_data()
+        log_to_file("STEP 3: Running AI analysis with structured output")
         
         ai_retry_count = 0
         max_ai_retries = 3
@@ -2105,11 +2122,11 @@ class StockMarket:
         while ai_retry_count < max_ai_retries:
             try:
                 # Create structured output schema
-                market_analysis_schema = self._create_market_analysis_schema(base_params)
+                market_analysis_schema = self._create_market_analysis_schema()
                 log_to_file("Created structured output schema for market analysis")
                 
                 # Build prompt for structured output
-                analysis_prompt = self.build_structured_analysis_prompt(all_messages, previous_data, base_params)
+                analysis_prompt = self.build_structured_analysis_prompt(all_messages, previous_params)
                 log_to_file(f"AI attempt {ai_retry_count + 1}: Sending structured prompt to Gemini")
                 
                 # Use structured output to enforce schema
@@ -2129,7 +2146,7 @@ class StockMarket:
                 log_to_file("--- END STRUCTURED AI RESPONSE ---")
                 
                 # Parse structured output (should be valid JSON)
-                parsed_result = self.parse_structured_market_analysis(response.text, base_params, log_file)
+                parsed_result = self.parse_structured_market_analysis(response.text, previous_params, log_file)
                 log_to_file("✅ Structured AI analysis completed successfully")
                 print("✅ AI analysis completed with structured output and retry logic")
                 
@@ -2148,7 +2165,7 @@ class StockMarket:
                             "daily_ranges": parsed_result.get("daily_ranges", {}),
                             "sector_outlooks": parsed_result.get("sector_outlooks", {})
                         },
-                        "base_economic_params": base_params,
+                        "previous_market_params": previous_params,
                         "messages_analyzed": len(all_messages),
                         "analysis_type": "Stock Market Daily Analysis"
                     }
@@ -2195,7 +2212,7 @@ class StockMarket:
     
     
     
-    def _create_market_analysis_schema(self, base_params: Dict[str, float]) -> Dict[str, Any]:
+    def _create_market_analysis_schema(self) -> Dict[str, Any]:
         """Create JSON schema for structured market analysis output"""
         
         # Create schema for all individual stocks
@@ -2269,12 +2286,12 @@ class StockMarket:
         
         return schema
     
-    def build_structured_analysis_prompt(self, messages: List[Dict], previous_data: Optional[Dict], base_params: Dict[str, float]) -> str:
+    def build_structured_analysis_prompt(self, messages: List[Dict], previous_params: Dict[str, float]) -> str:
         """Build prompt specifically for structured JSON output"""
         
         # Get current economic indicators from files
         try:
-            economic_data_dir = Path("economic_data")
+            economic_data_dir = ECONOMIC_DATA_DIR
             
             # Read current economic data
             inflation_rate = 2.0
@@ -2332,15 +2349,16 @@ class StockMarket:
 - Market Confidence: {market_confidence}% (neutral: 50%)
 - Unemployment: {unemployment_rate}% (natural rate: 3.5-4.0%)
 
-**BASE PARAMETERS (calculated from economic data):**
-{json.dumps(base_params, indent=2)}
+**PREVIOUS MARKET PARAMETERS:**
+{json.dumps(previous_params, indent=2)}
 
-**PARAMETER GUIDELINES:**
-- trend_direction: Should reflect GDP growth ({gdp_change}%) and economic momentum
-- volatility: Should reflect inflation deviation from 2% target ({inflation_rate}% vs 2.0%)
-- market_sentiment: Should align with market confidence ({market_confidence}%)
-- momentum: Should reflect economic growth momentum and employment trends
-- long_term_outlook: Small changes only (±0.02 from {base_params.get('long_term_outlook', 0.4):.3f})
+**PARAMETER SETTING GUIDELINES:**
+You have full control to set market parameters based on your analysis of economic conditions and Discord activity.
+- trend_direction: Set based on GDP growth ({gdp_change}%), economic momentum, and Discord sentiment
+- volatility: Set based on inflation ({inflation_rate}% vs 2.0% target), uncertainty in Discord, and market conditions
+- market_sentiment: Set based on market confidence ({market_confidence}%) and Discord activity tone
+- momentum: Set based on economic growth, employment ({unemployment_rate}%), and activity levels
+- long_term_outlook: Adjust gradually based on fundamental changes (previous: {previous_params.get('long_term_outlook', 0.5):.3f})
 
 **DISCORD ACTIVITY ANALYSIS (last 24 hours):**
 Total messages analyzed: {len(messages)}
@@ -2368,7 +2386,7 @@ Total messages analyzed: {len(messages)}
         
         return prompt
     
-    def parse_structured_market_analysis(self, ai_response: str, base_params: Dict[str, float], log_file) -> Dict[str, Any]:
+    def parse_structured_market_analysis(self, ai_response: str, previous_params: Dict[str, float], log_file) -> Dict[str, Any]:
         """Parse structured JSON output from AI"""
         
         def log_to_file(message: str):
@@ -2396,7 +2414,7 @@ Total messages analyzed: {len(messages)}
                 "volatility": max(0.0, min(1.0, float(params.get("volatility", 0.5)))),
                 "momentum": max(0.0, min(1.0, float(params.get("momentum", 0.5)))),
                 "market_sentiment": max(0.0, min(1.0, float(params.get("market_sentiment", 0.5)))),
-                "long_term_outlook": max(0.0, min(1.0, float(params.get("long_term_outlook", base_params.get("long_term_outlook", 0.4)))))
+                "long_term_outlook": max(0.0, min(1.0, float(params.get("long_term_outlook", previous_params.get("long_term_outlook", 0.5)))))
             }
             
             # Apply to self.market_params immediately
@@ -2857,7 +2875,7 @@ News messages analyzed: {news_count}
             
             # Include inflation data
             if "inflation" in economic_data and economic_data["inflation"]:
-                latest_inflation = economic_data["inflation"][0]["data"]
+                latest_inflation = economic_data["inflation"][-1]["data"]
                 prompt += f"\n**CURRENT INFLATION DATA**:\n"
                 prompt += f"- Current Rate: {latest_inflation.get('rate', 'N/A')}%\n"
                 prompt += f"- Federal Funds Rate: {latest_inflation.get('federal_funds_rate', 'N/A')}%\n"
@@ -2866,7 +2884,7 @@ News messages analyzed: {news_count}
             
             # Include GDP data
             if "gdp" in economic_data and economic_data["gdp"]:
-                latest_gdp = economic_data["gdp"][0]["data"]
+                latest_gdp = economic_data["gdp"][-1]["data"]
                 prompt += f"\n**CURRENT GDP DATA**:\n"
                 prompt += f"- GDP: ${latest_gdp.get('value', 'N/A')}T\n"
                 prompt += f"- Growth Rate: {latest_gdp.get('change_percent', 'N/A')}%\n"
@@ -2875,7 +2893,7 @@ News messages analyzed: {news_count}
             
             # Include sentiment data
             if "sentiment" in economic_data and economic_data["sentiment"]:
-                latest_sentiment = economic_data["sentiment"][0]["data"]
+                latest_sentiment = economic_data["sentiment"][-1]["data"]
                 prompt += f"\n**CURRENT MARKET SENTIMENT DATA**:\n"
                 prompt += f"- Market Confidence: {latest_sentiment.get('market_confidence', 'N/A')}%\n"
                 prompt += f"- Business Sentiment: {latest_sentiment.get('business_sentiment', 'N/A')}%\n"
@@ -2885,7 +2903,7 @@ News messages analyzed: {news_count}
             
             # Include unemployment data
             if "unemployment" in economic_data and economic_data["unemployment"]:
-                latest_unemployment = economic_data["unemployment"][0]["data"]
+                latest_unemployment = economic_data["unemployment"][-1]["data"]
                 prompt += f"\n**CURRENT UNEMPLOYMENT DATA**:\n"
                 prompt += f"- Rate: {latest_unemployment.get('rate', 'N/A')}%\n"
                 prompt += f"- Trend: {latest_unemployment.get('trend', 'N/A')}\n"

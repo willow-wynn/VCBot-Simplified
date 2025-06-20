@@ -53,10 +53,25 @@ logs/*.log
 # Discord bot data
 queries.csv
 last_commit.txt
+news.txt
+data/
 
 # Economic data (keep structure, ignore data files)
+economic_data/
 economic_data/*.json
 economic_data/analysis_logs/*.txt
 
+# Stock data
+stock_data/
+claude/stock_data/
+claude/economic_data/
+
 # Test data
 test_economic_data/
+test_ai_price_data/
+
+# Shell scripts
+*.sh
+
+# Environment files
+.env*

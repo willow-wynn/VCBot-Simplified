@@ -3405,13 +3405,31 @@ class StockMarketScheduler:
         """Update stock prices using on-demand calculation"""
         et_now = self.get_et_now()
         
-        # Ensure market open time is set
+        # Ensure market open time is set and from today
+        # AIDEV-NOTE: stale-time-reset; force re-init if market_open_time is stale
         if not self.stock_market.market_open_time:
             print("⚠️ Market open time not set, initializing...")
             success = await self.force_daily_initialization()
             if not success:
                 print("❌ Could not initialize market, skipping update")
                 return
+        else:
+            # Check if market_open_time is from today
+            try:
+                from zoneinfo import ZoneInfo
+                et_tz = ZoneInfo("America/New_York")
+            except ImportError:
+                import pytz
+                et_tz = pytz.timezone("America/New_York")
+            
+            market_open_et = self.stock_market.market_open_time.astimezone(et_tz)
+            
+            if market_open_et.date() != et_now.date():
+                print(f"⚠️ Market open time is stale (from {market_open_et.date()}), reinitializing...")
+                success = await self.force_daily_initialization()
+                if not success:
+                    print("❌ Could not reinitialize market, skipping update")
+                    return
         
         print(f"📊 Calculating stock prices on-demand at {et_now.strftime('%I:%M %p ET')} [24/7 Trading]")
         
@@ -3458,8 +3476,12 @@ class StockMarketScheduler:
         timestamp = datetime.now(timezone.utc).isoformat()
         
         # Calculate hour index for display purposes
+        # AIDEV-NOTE: hour-index-cap; ensure hour index is always 0-23 for daily display
         time_elapsed = (et_now - self.stock_market.market_open_time).total_seconds()
-        hour_index = int(time_elapsed / 3600)
+        raw_hour_index = int(time_elapsed / 3600)
+        
+        # Cap at 0-23 range for display (market_open_time should be from today)
+        hour_index = max(0, raw_hour_index) % 24
         
         historical_data = {
             "individual_stocks": {symbol: stock["price"] for cat in self.stock_market.categories.values() 
@@ -3683,8 +3705,31 @@ async def initialize_stock_market(client) -> None:
         print("ℹ️ Scheduler already running, skipping initialization")
     
     # Check if we need to run initial market preparation
+    # AIDEV-NOTE: stale-time-check; validate market_open_time is from today
+    needs_initialization = False
+    
     if not stock_market.market_open_time or not stock_market.current_trading_day:
+        needs_initialization = True
         print("🔄 No market open time found, running daily market initialization...")
+    else:
+        # Check if market_open_time is from today
+        et_now = stock_scheduler.get_et_now()
+        
+        # Convert market_open_time to ET using same approach as get_et_now
+        try:
+            from zoneinfo import ZoneInfo
+            et_tz = ZoneInfo("America/New_York")
+        except ImportError:
+            import pytz
+            et_tz = pytz.timezone("America/New_York")
+        
+        market_open_et = stock_market.market_open_time.astimezone(et_tz)
+        
+        if market_open_et.date() != et_now.date():
+            needs_initialization = True
+            print(f"🔄 Market open time is stale (from {market_open_et.date()}), running daily market initialization...")
+    
+    if needs_initialization:
         try:
             await stock_scheduler.prepare_trading_day()
             print("✅ Daily market initialization completed")

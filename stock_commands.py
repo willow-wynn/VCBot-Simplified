@@ -2784,11 +2784,20 @@ async def stocks_portfolio(interaction: discord.Interaction, user: discord.Membe
         for category, stocks in categories.items():
             stock_lines = []
             for symbol, details in sorted(stocks, key=lambda x: x[1]['value'], reverse=True):
-                profit_loss = (details['price'] - 100) * details['quantity']  # Rough P/L calc
-                pl_emoji = "📈" if profit_loss >= 0 else "📉"
+                # Use actual gain/loss from portfolio breakdown
+                gain_loss = details.get('gain_loss', 0)
+                gain_loss_pct = details.get('gain_loss_pct', 0)
+                avg_price = details.get('avg_price', details['current_price'])
+                pl_emoji = "📈" if gain_loss >= 0 else "📉"
+                
+                # Format gain/loss display
+                gl_sign = "+" if gain_loss >= 0 else ""
+                gl_color = "🟢" if gain_loss >= 0 else "🔴"
+                
                 stock_lines.append(
-                    f"{pl_emoji} **{symbol}** - {details['quantity']:,} shares @ ${details['price']:,.2f}\n"
-                    f"   Value: ${details['value']:,.2f}"
+                    f"{pl_emoji} **{symbol}** - {details['quantity']:,} shares\n"
+                    f"   Avg Cost: ${avg_price:,.2f} | Current: ${details['current_price']:,.2f}\n"
+                    f"   Value: ${details['value']:,.2f} {gl_color} {gl_sign}${gain_loss:,.2f} ({gl_sign}{gain_loss_pct:.1f}%)"
                 )
             
             if stock_lines:

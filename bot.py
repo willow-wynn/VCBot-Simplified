@@ -1388,9 +1388,9 @@ async def check_github_commits():
     except FileNotFoundError:
         last_commit_sha = ""
     
-    repo = "willow-wynn/VCBot"
+    repo = "willow-wynn/VCBot-Simplified"
     github_api_url = f"https://api.github.com/repos/{repo}/commits"
-    github_url = "https://github.com/willow-wynn/VCBot"
+    github_url = "https://github.com/willow-wynn/VCBot-Simplified"
     
     async with aiohttp.ClientSession() as session:
         while not client.is_closed():

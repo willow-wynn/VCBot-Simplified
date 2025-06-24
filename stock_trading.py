@@ -8,6 +8,7 @@ import os
 import asyncio
 from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
+from datetime import datetime, timezone
 import discord
 from unbelievaboat import Client
 from config import UNBELIEVABOAT_API_KEY, GUILD_ID, STOCK_DATA_DIR
@@ -28,12 +29,51 @@ class StockTradingSystem:
         self._load_portfolios()
         print("💼 Stock Trading System initialized")
     
+    def _migrate_portfolio_data(self, old_data: Dict) -> Dict:
+        """Migrate old portfolio format {symbol: quantity} to new format {symbol: [transactions]}"""
+        new_data = {}
+        migration_occurred = False
+        
+        # Get current stock prices for migration
+        try:
+            from stock_market import get_stock_market
+            stock_market = get_stock_market()
+            all_assets = stock_market.get_all_tradeable_assets()
+            price_lookup = {asset['symbol']: asset['price'] for asset in all_assets}
+        except:
+            price_lookup = {}
+        
+        for user_id, portfolio in old_data.items():
+            new_data[user_id] = {}
+            for symbol, value in portfolio.items():
+                # Check if it's old format (simple quantity)
+                if isinstance(value, (int, float)):
+                    # Use current market price if available, otherwise use 100
+                    purchase_price = price_lookup.get(symbol, 100.0)
+                    # Migrate to new format with current market price
+                    new_data[user_id][symbol] = [{
+                        'quantity': value,
+                        'purchase_price': purchase_price,
+                        'purchase_date': datetime.now(timezone.utc).isoformat()
+                    }]
+                    migration_occurred = True
+                else:
+                    # Already in new format
+                    new_data[user_id][symbol] = value
+        
+        if migration_occurred:
+            print("📦 Migrated portfolio data to new format using current market prices")
+        
+        return new_data
+    
     def _load_portfolios(self) -> None:
         """Load user portfolios from JSON file"""
         if self.portfolio_file.exists():
             try:
                 with open(self.portfolio_file, 'r') as f:
-                    self.portfolios = json.load(f)
+                    loaded_data = json.load(f)
+                    # Migrate data if needed
+                    self.portfolios = self._migrate_portfolio_data(loaded_data)
             except (json.JSONDecodeError, FileNotFoundError):
                 self.portfolios = {}
         else:
@@ -88,40 +128,67 @@ class StockTradingSystem:
                     pass
             return False
     
-    def get_user_portfolio(self, user_id: int) -> Dict[str, int]:
-        """Get user's stock portfolio"""
+    def get_user_portfolio(self, user_id: int) -> Dict[str, List[Dict]]:
+        """Get user's stock portfolio with transaction history"""
         return self.portfolios.get(str(user_id), {})
     
     def get_user_stock_quantity(self, user_id: int, symbol: str) -> int:
-        """Get quantity of specific stock owned by user"""
+        """Get total quantity of specific stock owned by user"""
         portfolio = self.get_user_portfolio(user_id)
-        return portfolio.get(symbol, 0)
+        transactions = portfolio.get(symbol, [])
+        return sum(t['quantity'] for t in transactions)
     
-    def add_stock_to_portfolio(self, user_id: int, symbol: str, quantity: int) -> None:
-        """Add stocks to user's portfolio"""
+    def add_stock_to_portfolio(self, user_id: int, symbol: str, quantity: int, purchase_price: float) -> None:
+        """Add stocks to user's portfolio with purchase price tracking"""
         user_id_str = str(user_id)
         if user_id_str not in self.portfolios:
             self.portfolios[user_id_str] = {}
         
-        current_quantity = self.portfolios[user_id_str].get(symbol, 0)
-        self.portfolios[user_id_str][symbol] = current_quantity + quantity
+        if symbol not in self.portfolios[user_id_str]:
+            self.portfolios[user_id_str][symbol] = []
+        
+        # Add new transaction
+        self.portfolios[user_id_str][symbol].append({
+            'quantity': quantity,
+            'purchase_price': purchase_price,
+            'purchase_date': datetime.now(timezone.utc).isoformat()
+        })
+        
         self._save_portfolios()
     
     def remove_stock_from_portfolio(self, user_id: int, symbol: str, quantity: int) -> bool:
-        """Remove stocks from user's portfolio. Returns True if successful, False if insufficient stocks"""
+        """Remove stocks from user's portfolio using FIFO. Returns True if successful, False if insufficient stocks"""
         user_id_str = str(user_id)
         if user_id_str not in self.portfolios:
             return False
         
-        current_quantity = self.portfolios[user_id_str].get(symbol, 0)
-        if current_quantity < quantity:
+        transactions = self.portfolios[user_id_str].get(symbol, [])
+        total_quantity = sum(t['quantity'] for t in transactions)
+        
+        if total_quantity < quantity:
             return False
         
-        new_quantity = current_quantity - quantity
-        if new_quantity == 0:
-            del self.portfolios[user_id_str][symbol]
+        # Implement FIFO - remove from oldest transactions first
+        remaining_to_sell = quantity
+        new_transactions = []
+        
+        for transaction in transactions:
+            if remaining_to_sell <= 0:
+                new_transactions.append(transaction)
+            elif transaction['quantity'] <= remaining_to_sell:
+                # Sell entire transaction
+                remaining_to_sell -= transaction['quantity']
+            else:
+                # Partially sell this transaction
+                transaction['quantity'] -= remaining_to_sell
+                new_transactions.append(transaction)
+                remaining_to_sell = 0
+        
+        if new_transactions:
+            self.portfolios[user_id_str][symbol] = new_transactions
         else:
-            self.portfolios[user_id_str][symbol] = new_quantity
+            # All shares sold, remove symbol from portfolio
+            del self.portfolios[user_id_str][symbol]
         
         self._save_portfolios()
         return True
@@ -159,8 +226,8 @@ class StockTradingSystem:
         if not success:
             return False, "❌ Failed to process payment. Please try again."
         
-        # Add stocks to portfolio
-        self.add_stock_to_portfolio(user_id, symbol.upper(), quantity)
+        # Add stocks to portfolio with purchase price
+        self.add_stock_to_portfolio(user_id, symbol.upper(), quantity, stock_price)
         
         return True, f"✅ Successfully purchased {quantity} shares of {stock_info['name']} ({symbol.upper()}) for ${total_cost:,.2f}!"
     
@@ -205,8 +272,8 @@ class StockTradingSystem:
     
     def get_portfolio_value(self, user_id: int, stock_market: StockMarket) -> Tuple[float, Dict[str, Dict[str, Any]]]:
         """
-        Calculate total portfolio value and detailed breakdown
-        Returns (total_value: float, breakdown: Dict[symbol: {quantity, price, value, name}])
+        Calculate total portfolio value and detailed breakdown with cost basis
+        Returns (total_value: float, breakdown: Dict[symbol: {quantity, avg_price, current_price, value, cost_basis, gain_loss, gain_loss_pct, name, category}])
         """
         portfolio = self.get_user_portfolio(user_id)
         all_assets = stock_market.get_all_tradeable_assets()
@@ -217,20 +284,40 @@ class StockTradingSystem:
         total_value = 0.0
         breakdown = {}
         
-        for symbol, quantity in portfolio.items():
+        for symbol, transactions in portfolio.items():
             if symbol in stock_lookup:
                 stock_info = stock_lookup[symbol]
-                stock_price = stock_info['price']
-                stock_value = stock_price * quantity
-                total_value += stock_value
+                current_price = stock_info['price']
                 
-                breakdown[symbol] = {
-                    'quantity': quantity,
-                    'price': stock_price,
-                    'value': stock_value,
-                    'name': stock_info['name'],
-                    'category': stock_info.get('category', 'Unknown')
-                }
+                # Calculate total quantity and weighted average purchase price
+                total_quantity = 0
+                total_cost = 0.0
+                
+                for transaction in transactions:
+                    quantity = transaction['quantity']
+                    purchase_price = transaction['purchase_price']
+                    total_quantity += quantity
+                    total_cost += quantity * purchase_price
+                
+                if total_quantity > 0:
+                    avg_purchase_price = total_cost / total_quantity
+                    current_value = current_price * total_quantity
+                    gain_loss = current_value - total_cost
+                    gain_loss_pct = (gain_loss / total_cost) * 100 if total_cost > 0 else 0
+                    
+                    total_value += current_value
+                    
+                    breakdown[symbol] = {
+                        'quantity': total_quantity,
+                        'avg_price': avg_purchase_price,
+                        'current_price': current_price,
+                        'value': current_value,
+                        'cost_basis': total_cost,
+                        'gain_loss': gain_loss,
+                        'gain_loss_pct': gain_loss_pct,
+                        'name': stock_info['name'],
+                        'category': stock_info.get('category', 'Unknown')
+                    }
         
         return total_value, breakdown
 

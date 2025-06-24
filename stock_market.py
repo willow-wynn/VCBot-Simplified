@@ -25,6 +25,108 @@ from economic_utils import ALL_ALLOWED_CHANNELS, ALLOWED_CHANNELS
 # Configure Gemini
 genai.configure(api_key=GEMINI_API_KEY)
 
+# AIDEV-NOTE: stock-market-overview; complete system documentation
+"""
+====================================================================================
+                        STOCK MARKET SYSTEM ARCHITECTURE
+====================================================================================
+
+OVERVIEW:
+- 24/7 AI-driven stock market with 24 companies across 8 sectors
+- Daily AI analysis sets opening prices based on Discord activity & economic data  
+- Hourly Perlin noise generates realistic price movements from AI openings
+- Full UnbelievaBoat integration for real Discord economy trading
+
+KEY CLASSES:
+1. StockMarket (line ~130): Main market engine
+   - Manages stock data, AI analysis, price calculations
+   - Key data: self.categories (stocks by sector), self.market_params, self.daily_ranges
+   
+2. StockScheduler (line ~3152): Handles timing and automation
+   - Daily AI analysis at midnight ET
+   - Hourly price updates via Perlin noise
+   - Manages Discord notifications
+
+CRITICAL FLOWS:
+
+1. DAILY AI PRICE SETTING (midnight ET):
+   - get_daily_market_analysis() [~1872]: Entry point for AI analysis
+   - Collects Discord messages from last 24h across authorized channels
+   - Sends to Gemini 2.0 with economic indicators & previous day's state
+   - parse_structured_market_analysis() [~2253]: Parses AI JSON response
+   - _apply_ai_stock_prices() [~2407]: VALIDATES & applies opening prices
+     * Checks for stagnant prices (same as previous)
+     * Checks for erratic prices (>20% change)  
+     * Applies $1 random adjustment if validation fails
+   - save_daily_analysis() [~2496]: Persists to daily_analysis.json
+
+2. HOURLY PRICE UPDATES:
+   - hourly_update_loop() [~3358]: Triggers every N minutes (default 60)
+   - apply_hourly_price_update() [~2907]: Calculates new prices
+   - calculate_price_at_time() [~1536]: PERLIN NOISE generator
+     * Uses ai_opening_price as base (NEVER modified after AI sets it)
+     * Multi-scale noise: weekly, daily, hourly, minute components
+     * Respects daily_range_low/high set by AI
+   - Saves to stock_history.json for charts
+
+3. ETF CALCULATIONS:
+   - calculate_etf_price() [~1452]: Weighted average of sector stocks
+   - ETFs defined in self.etfs with sector mappings
+   - Updated whenever individual stock prices change
+
+KEY DATA STRUCTURES:
+
+self.categories = {
+    "TECH": {
+        "stocks": [
+            {
+                "symbol": "AAPL",
+                "name": "Apple Inc",
+                "price": 150.00,  # Current price (changes hourly)
+                "ai_opening_price": 150.00,  # AI-set opening (NEVER changes)
+                "daily_range_low": 147.00,
+                "daily_range_high": 153.00,
+                "sector_factor": 1.0
+            }
+        ]
+    }
+}
+
+self.market_params = {
+    "trend_direction": 0.0,  # -1 to 1
+    "volatility": 0.5,       # 0 to 1  
+    "momentum": 0.5,         # 0 to 1
+    "market_sentiment": 0.5, # 0 to 1
+    "long_term_outlook": 0.5 # 0 to 1 (changes slowly)
+}
+
+IMPORTANT FILES:
+- stock_data/market_data.json: Current market state
+- stock_data/stock_history.json: Price history for charts
+- stock_data/daily_analysis.json: AI analysis history
+- economic_data/*.json: GDP, inflation, unemployment data
+
+INTEGRATION POINTS:
+- stock_trading.py: Handles buy/sell with UnbelievaBoat API
+- stock_commands.py: Discord slash commands
+- economic_engine.py: Provides economic indicators
+- data_managers.py: Centralized data access layer
+
+CRITICAL METHODS TO KNOW:
+- get_daily_market_analysis() [~1872]: AI daily analysis entry
+- _apply_ai_stock_prices() [~2407]: Price validation & application
+- calculate_price_at_time() [~1536]: Perlin noise price generation
+- trigger_dynamic_update() [~983]: Force market-wide update
+- save_market_data() [~616]: Persist to JSON
+
+AIDEV-TODO: Search for these AIDEV-NOTE tags for key locations:
+- ai-price-entry-point: Where AI sets daily prices
+- price-validation: Stagnant/erratic price checks
+- perlin-price-calc: Hourly price generation
+- hourly-trigger: Scheduler update loop
+====================================================================================
+"""
+
 class StockMarket:
     """Advanced Stock Market System with AI-driven analysis and realistic price movements"""
     
@@ -507,246 +609,10 @@ class StockMarket:
             # Clear initialization flag
             self._initializing = False
     
-    def _calculate_market_params_from_economic_data(self) -> Dict[str, float]:
-        """[DEPRECATED] Calculate market parameters based on current economic data
-        
-        This function is deprecated. Market parameters should be set by AI analysis,
-        not calculated from formulas. The AI receives economic data directly and
-        interprets it to set parameters."""
-        try:
-            # Try to read economic data files
-            economic_data_dir = ECONOMIC_DATA_DIR
-            
-            # Start with neutral baseline - will be adjusted by actual data
-            inflation_rate = 2.0  # Fed target as baseline
-            gdp_change = 2.0  # Moderate growth as baseline
-            market_confidence = 50.0  # Neutral confidence as baseline
-            inflation_anxiety = 50.0  # Neutral anxiety as baseline
-            unemployment_rate = 4.0  # Natural rate as baseline
-            
-            # Read actual economic data
-            inflation_file = economic_data_dir / "inflation.json"
-            if inflation_file.exists():
-                try:
-                    with open(inflation_file, 'r') as f:
-                        inflation_data = json.load(f)
-                    if inflation_data:
-                        latest_inflation = inflation_data[-1]['data']
-                        inflation_rate = latest_inflation.get('rate', inflation_rate)
-                        print(f"📊 Using inflation rate: {inflation_rate}%")
-                except Exception as e:
-                    print(f"⚠️ Error reading inflation data: {e}")
-            
-            sentiment_file = economic_data_dir / "sentiment.json"
-            if sentiment_file.exists():
-                try:
-                    with open(sentiment_file, 'r') as f:
-                        sentiment_data = json.load(f)
-                    if sentiment_data:
-                        latest_sentiment = sentiment_data[-1]['data']
-                        market_confidence = latest_sentiment.get('market_confidence', market_confidence)
-                        inflation_anxiety = latest_sentiment.get('inflation_anxiety', inflation_anxiety)
-                        print(f"📊 Using market confidence: {market_confidence}%, anxiety: {inflation_anxiety}%")
-                except Exception as e:
-                    print(f"⚠️ Error reading sentiment data: {e}")
-            
-            gdp_file = economic_data_dir / "gdp.json"
-            if gdp_file.exists():
-                try:
-                    with open(gdp_file, 'r') as f:
-                        gdp_data = json.load(f)
-                    if gdp_data:
-                        latest_gdp = gdp_data[-1]['data']
-                        gdp_change = latest_gdp.get('change_percent', gdp_change)
-                        print(f"📊 Using GDP change: {gdp_change}%")
-                except Exception as e:
-                    print(f"⚠️ Error reading GDP data: {e}")
-            
-            unemployment_file = economic_data_dir / "unemployment.json"
-            if unemployment_file.exists():
-                try:
-                    with open(unemployment_file, 'r') as f:
-                        unemployment_data = json.load(f)
-                    if unemployment_data:
-                        latest_unemployment = unemployment_data[-1]['data']
-                        unemployment_rate = latest_unemployment.get('rate', unemployment_rate)
-                        print(f"📊 Using unemployment rate: {unemployment_rate}%")
-                except Exception as e:
-                    print(f"⚠️ Error reading unemployment data: {e}")
-            
-            # Calculate parameters proportionally from actual data
-            
-            # TREND DIRECTION: Based on GDP growth
-            # -5% GDP = -1.0 trend, +5% GDP = +1.0 trend, 0% GDP = 0.0 trend
-            trend_direction = max(-1.0, min(1.0, gdp_change / 5.0))
-            
-            # VOLATILITY: Based on inflation deviation from target (2%) and anxiety
-            # Higher inflation deviation and anxiety = higher volatility
-            inflation_deviation = abs(inflation_rate - 2.0) / 10.0  # Normalize to 0-1 scale
-            anxiety_factor = inflation_anxiety / 100.0  # Convert to 0-1
-            volatility = max(0.1, min(1.0, 0.2 + inflation_deviation + (anxiety_factor * 0.3)))
-            
-            # MOMENTUM: Based on GDP growth and unemployment trend
-            # Strong GDP growth and low unemployment = high momentum
-            gdp_momentum = max(0.0, gdp_change / 5.0)  # Convert GDP to 0-1 scale
-            unemployment_momentum = max(0.0, (8.0 - unemployment_rate) / 8.0)  # Lower unemployment = higher momentum
-            momentum = max(0.1, min(1.0, (gdp_momentum + unemployment_momentum) / 2.0))
-            
-            # MARKET SENTIMENT: Directly from market confidence data
-            market_sentiment = max(0.1, min(1.0, market_confidence / 100.0))
-            
-            # LONG TERM OUTLOOK: Based on structural economic indicators
-            # Considers inflation stability, GDP trend, and employment
-            inflation_stability = max(0.0, 1.0 - (abs(inflation_rate - 2.0) / 10.0))  # Closer to 2% = better
-            gdp_stability = max(0.0, min(1.0, (gdp_change + 2.0) / 6.0))  # -2% to +4% mapped to 0-1
-            employment_stability = max(0.0, min(1.0, (8.0 - unemployment_rate) / 6.0))  # Lower unemployment = better
-            long_term_outlook = max(0.1, min(1.0, (inflation_stability + gdp_stability + employment_stability) / 3.0))
-            
-            params = {
-                "trend_direction": trend_direction,
-                "volatility": volatility,
-                "momentum": momentum,
-                "market_sentiment": market_sentiment,
-                "long_term_outlook": long_term_outlook
-            }
-            
-            print(f"📈 Calculated market parameters from economic data:")
-            print(f"   Trend: {trend_direction:+.3f}, Volatility: {volatility:.3f}, Momentum: {momentum:.3f}")
-            print(f"   Sentiment: {market_sentiment:.3f}, Outlook: {long_term_outlook:.3f}")
-            
-            # Update stored parameters and save
-            self.market_params = params
-            self.save_market_data()
-            
-            return params
-            
-        except Exception as e:
-            print(f"❌ Critical error in economic calculation: {e}")
-            raise Exception(f"Cannot calculate market parameters without economic data: {e}")
+    # AIDEV-NOTE: deprecated-functions-removed; AI sets all params, no formulas
+    # _calculate_market_params_from_economic_data() removed - AI analysis only
+    # _calculate_parameter_ranges_from_economic_data() removed - AI has full control
     
-    def _calculate_parameter_ranges_from_economic_data(self) -> Dict[str, Dict[str, float]]:
-        """[DEPRECATED] Calculate acceptable parameter ranges based on economic conditions
-        
-        This function is deprecated. The AI has full control over parameter setting
-        and doesn't need pre-calculated ranges. The AI receives economic data directly
-        and can set any valid parameter values based on its analysis.
-        """
-        try:
-            # Get current economic indicators
-            economic_data_dir = ECONOMIC_DATA_DIR
-            
-            # Read economic indicators with defaults
-            inflation_rate = 2.0
-            gdp_change = 2.0
-            market_confidence = 50.0
-            unemployment_rate = 4.0
-            
-            # Read actual data (same as above function)
-            inflation_file = economic_data_dir / "inflation.json"
-            if inflation_file.exists():
-                with open(inflation_file, 'r') as f:
-                    data = json.load(f)
-                    if data:
-                        inflation_rate = data[0]['data'].get('rate', inflation_rate)
-            
-            gdp_file = economic_data_dir / "gdp.json"
-            if gdp_file.exists():
-                with open(gdp_file, 'r') as f:
-                    data = json.load(f)
-                    if data:
-                        gdp_change = data[0]['data'].get('change_percent', gdp_change)
-            
-            sentiment_file = economic_data_dir / "sentiment.json"
-            if sentiment_file.exists():
-                with open(sentiment_file, 'r') as f:
-                    data = json.load(f)
-                    if data:
-                        market_confidence = data[0]['data'].get('market_confidence', market_confidence)
-            
-            unemployment_file = economic_data_dir / "unemployment.json"
-            if unemployment_file.exists():
-                with open(unemployment_file, 'r') as f:
-                    data = json.load(f)
-                    if data:
-                        unemployment_rate = data[0]['data'].get('rate', unemployment_rate)
-            
-            # Calculate dynamic ranges based on economic conditions
-            ranges = {}
-            
-            # TREND DIRECTION RANGE
-            # GDP determines the center and width of acceptable trend range
-            trend_center = max(-1.0, min(1.0, gdp_change / 5.0))
-            trend_flexibility = 0.3  # Allow ±0.3 flexibility around economic-driven center
-            
-            # In extreme conditions, widen the acceptable range
-            if abs(gdp_change) > 4.0:  # Strong growth or recession
-                trend_flexibility = 0.5
-            
-            ranges["trend_direction"] = {
-                "min": max(-1.0, trend_center - trend_flexibility),
-                "max": min(1.0, trend_center + trend_flexibility)
-            }
-            
-            # VOLATILITY RANGE
-            # Base volatility on inflation deviation and market confidence
-            inflation_deviation = abs(inflation_rate - 2.0)
-            base_volatility = 0.2 + (inflation_deviation / 10.0)  # Higher inflation = higher base volatility
-            
-            # Low confidence also increases volatility floor
-            if market_confidence < 40:
-                base_volatility += 0.2
-            
-            ranges["volatility"] = {
-                "min": max(0.1, base_volatility - 0.2),
-                "max": min(1.0, base_volatility + 0.3)
-            }
-            
-            # MOMENTUM RANGE
-            # Based on GDP trend and employment
-            base_momentum = 0.5  # Neutral
-            
-            if gdp_change > 3.0 and unemployment_rate < 4.0:
-                base_momentum = 0.7  # Strong economy
-            elif gdp_change < -1.0 or unemployment_rate > 6.0:
-                base_momentum = 0.3  # Weak economy
-            
-            ranges["momentum"] = {
-                "min": max(0.1, base_momentum - 0.3),
-                "max": min(1.0, base_momentum + 0.3)
-            }
-            
-            # MARKET SENTIMENT RANGE
-            # Centered around actual confidence data with some flexibility
-            sentiment_center = market_confidence / 100.0
-            
-            ranges["market_sentiment"] = {
-                "min": max(0.1, sentiment_center - 0.2),
-                "max": min(1.0, sentiment_center + 0.2)
-            }
-            
-            # LONG TERM OUTLOOK RANGE
-            # Very narrow range - only small adjustments allowed
-            # [DEPRECATED] This function is not used - AI has full control
-            current_outlook = 0.5  # Default neutral value
-            
-            ranges["long_term_outlook"] = {
-                "min": max(0.1, current_outlook - 0.02),
-                "max": min(1.0, current_outlook + 0.02)
-            }
-            
-            return ranges
-            
-        except Exception as e:
-            print(f"⚠️ Error calculating parameter ranges: {e}")
-            # Return neutral ranges as fallback
-            return {
-                "trend_direction": {"min": -0.5, "max": 0.5},
-                "volatility": {"min": 0.2, "max": 0.8},
-                "momentum": {"min": 0.2, "max": 0.8},
-                "market_sentiment": {"min": 0.3, "max": 0.7},
-                "long_term_outlook": {"min": 0.48, "max": 0.52}
-            }
-        
     def save_market_data(self) -> None:
         """Save current market state to JSON - now schedules async save"""
         # Mark as dirty and let background task handle it
@@ -1672,6 +1538,7 @@ class StockMarket:
     def calculate_price_at_time(self, symbol: str, target_time: datetime = None) -> float:
         """Calculate stock price at any given time using multi-scale Perlin noise
         
+        # AIDEV-NOTE: perlin-price-calc; generates hourly prices from AI opening
         This system operates on multiple time scales:
         - Weekly trends (economic report driven)
         - Multi-day trends (economic report driven) 
@@ -2005,6 +1872,7 @@ class StockMarket:
     
     async def get_daily_market_analysis(self) -> Dict[str, Any]:
         """Use AI to analyze recent channel activity and set market parameters with retry logic and logging"""
+        # AIDEV-NOTE: ai-price-entry-point; AI sets opening prices daily here
         print("🧠 Running AI market analysis...")
         
         # Create analysis log file
@@ -2544,6 +2412,9 @@ Total messages analyzed: {len(messages)}
         """Apply AI-provided daily stock prices and ranges"""
         print("🔄 Applying AI-provided daily stock prices...")
         
+        # AIDEV-NOTE: price-validation; prevent AI stagnation or erratic swings
+        import random
+        
         # Clear daily ranges for new trading day
         self.daily_ranges = {}
         
@@ -2553,11 +2424,38 @@ Total messages analyzed: {len(messages)}
                 if symbol in daily_prices:
                     price_data = daily_prices[symbol]
                     
+                    # AIDEV-NOTE: price-sent-to-ai; stock["price"] is what AI received as current
+                    previous_price_sent_to_ai = stock["price"]  # This is what the AI saw
+                    
                     # Validate price data
                     open_price = max(0.1, price_data.get("open_price", stock["price"]))
                     range_low = max(0.1, price_data.get("range_low", open_price * 0.95))
                     range_high = max(range_low + 0.1, price_data.get("range_high", open_price * 1.05))
                     sector_factor = max(0.1, min(3.0, price_data.get("sector_factor", 1.0)))
+                    
+                    # AIDEV-NOTE: stagnant-price-check; detect if AI returns same price
+                    # Check for stagnant price (AI returns exact same price as previous)
+                    is_stagnant = abs(open_price - previous_price_sent_to_ai) < 0.01
+                    
+                    # AIDEV-NOTE: erratic-price-check; detect >20% price swings from AI
+                    # Check for erratic price (more than 20% different from previous)
+                    price_change_pct = abs((open_price - previous_price_sent_to_ai) / previous_price_sent_to_ai)
+                    is_erratic = price_change_pct > 0.20
+                    
+                    if is_stagnant or is_erratic:
+                        # AIDEV-NOTE: price-adjustment; random $1 up/down from current hourly
+                        # Apply random $1 adjustment from most recent hourly price
+                        adjustment = random.choice([-1.0, 1.0])
+                        # Use the current price (which is the most recent hourly update)
+                        open_price = max(0.1, stock["price"] + adjustment)
+                        
+                        print(f"⚠️ {symbol}: AI price {'stagnant' if is_stagnant else 'erratic'} "
+                              f"(was ${previous_price_sent_to_ai:.2f}, AI said ${price_data.get('open_price', 0):.2f}) "
+                              f"→ adjusted to ${open_price:.2f}")
+                        
+                        # Recalculate ranges based on adjusted price
+                        range_low = max(0.1, open_price * 0.95)
+                        range_high = open_price * 1.05
                     
                     # Ensure range is valid
                     if range_low > open_price:
@@ -3009,6 +2907,7 @@ Provide your enhanced analysis now:"""
     
     async def apply_hourly_price_update(self, hour_index: int) -> None:
         """Apply on-demand price update - calculates prices dynamically"""
+        # AIDEV-NOTE: hourly-price-update; Perlin noise generates price from AI opening
         print(f"📊 Calculating prices on-demand for update period {hour_index}")
         
         # Update all stock prices using on-demand calculation
@@ -3312,14 +3211,15 @@ class StockMarketScheduler:
             # Get current trading day
             trading_day = self.get_trading_day_id()
             
-            # Run a quick AI analysis or use fallback
+            # Run a quick AI analysis (no fallback - per CLAUDE.md principles)
             try:
                 analysis = await self.stock_market.get_daily_market_analysis()
                 self.stock_market.save_daily_analysis(analysis)
                 print("✅ Emergency AI analysis completed")
             except Exception as e:
-                print(f"⚠️ Emergency AI analysis failed, using fallback: {e}")
-                analysis = self.stock_market.get_fallback_analysis()
+                print(f"❌ Emergency AI analysis failed: {e}")
+                # AIDEV-NOTE: no-fallback; system requires AI - no fake data generation
+                raise Exception(f"Cannot initialize market without AI analysis: {e}")
             
             # Update market parameters
             self.stock_market.market_params = analysis.get("parameters", self.stock_market.market_params)
@@ -3458,6 +3358,7 @@ class StockMarketScheduler:
     
     async def hourly_update_loop(self):
         """Update loop based on price update rate (default hourly)"""
+        # AIDEV-NOTE: hourly-trigger; triggers Perlin price updates from AI opening
         while True:
             try:
                 # Market is always open - no need to check trading hours

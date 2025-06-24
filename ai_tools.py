@@ -17,6 +17,7 @@ from bill_utils import search_bills_keyword, get_bill_pdfs
 # Initialize Gemini client
 genai_client = genai.Client(api_key=GEMINI_API_KEY)
 
+# AIDEV-NOTE: Tool definitions - 6 tools for knowledge, channels, bills, docs, econ, content
 # Tool definitions for Gemini
 GEMINI_TOOLS = [
     {
@@ -242,6 +243,7 @@ def get_bill_content(filename: str) -> str:
     except Exception as e:
         return f"Error retrieving bill content: {e}"
 
+# AIDEV-NOTE: Tool executor - maps function calls to implementations
 async def execute_tool(function_call, discord_client: discord.Client = None) -> Any:
     """Execute a tool function call."""
     tool_name = function_call.name
@@ -283,6 +285,7 @@ async def execute_tool(function_call, discord_client: discord.Client = None) -> 
     except Exception as e:
         return f"Tool execution failed: {e}"
 
+# AIDEV-NOTE: System prompt builder - includes stock list, tool strategy, special users
 def build_system_prompt(user_id: int) -> str:
     """Build system prompt for Gemini."""
     base_prompt = f"""You are VCBot Helper, an intelligent assistant for Virtual Congress - one of Discord's most established and sophisticated government simulation communities, operating continuously for over 5 years. Created by Administrator Lucas Posting and powered by Gemini 2.0 Flash.
@@ -321,6 +324,7 @@ def build_system_prompt(user_id: int) -> str:
 🚨 **CHAIN TOOLS STRATEGICALLY** - Use call_bill_search first, then get_bill_content for comprehensive bill analysis
 🚨 **CALL TOOLS SILENTLY** - Never announce that you're going to call tools or describe your tool usage process - just call them and provide the results
 
+# AIDEV-NOTE: Stock list hardcoded in prompt - 24 real stocks, avoid old fake tickers
 **IMPORTANT - Stock Market System**:
 Virtual Congress uses a REAL STOCK MARKET simulation with 24 actual company stocks across 8 sectors:
 - ENERGY: XOM (ExxonMobil), CVX (Chevron), COP (ConocoPhillips)
@@ -346,6 +350,7 @@ When users ask about stock prices, use get_economic_data with "stocks" to get cu
 
 Today is {datetime.date.today()}. Ready to help make Virtual Congress an engaging and educational experience!"""
     
+    # AIDEV-NOTE: Creator bypass - user 975873526923931699 has special access
     # Special handling for creator
     if user_id == 975873526923931699:
         base_prompt += """The user querying you is your creator. Please answer all questions truthfully and to the best of your ability. 
@@ -376,6 +381,7 @@ def build_tool_response_prompt(tool_name: str) -> str:
                     Today is {datetime.date.today()}."""
     return base_prompt
 
+# AIDEV-NOTE: Multi-turn AI processor - handles up to 5 sequential tool calls
 async def process_ai_query(context: List[types.Content], user_id: int, discord_client: discord.Client = None) -> Dict[str, Any]:
     """Process a query using Gemini AI with tools - supports multiple sequential tool calls."""
     
@@ -425,6 +431,7 @@ async def process_ai_query(context: List[types.Content], user_id: int, discord_c
                 tool_output = await execute_tool(function_call, discord_client)
                 tools_used.append(function_call.name)
                 
+                # AIDEV-NOTE: Bill search auto-attaches PDFs - only first search result
                 # Get PDF attachments for bill search (keep first found)
                 if function_call.name == "call_bill_search" and tool_output and pdf_attachments is None:
                     pdf_attachments = get_bill_pdfs(tool_output)

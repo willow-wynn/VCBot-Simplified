@@ -13,6 +13,7 @@ from unbelievaboat import Client
 from config import UNBELIEVABOAT_API_KEY, GUILD_ID, STOCK_DATA_DIR
 from stock_market import StockMarket
 
+# AIDEV-NOTE: Trading system - integrates UnbelievaBoat economy with stock market
 class StockTradingSystem:
     """Manages stock trading with UnbelievaBoat integration"""
     
@@ -43,6 +44,7 @@ class StockTradingSystem:
         with open(self.portfolio_file, 'w') as f:
             json.dump(self.portfolios, f, indent=2)
     
+    # AIDEV-NOTE: UnbelievaBoat client - manages Discord server economy balance
     async def _get_unb_client(self) -> Client:
         """Get or create UnbelievaBoat client"""
         if self.unb_client is None:

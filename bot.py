@@ -23,6 +23,7 @@ import file_utils
 import economic_utils
 from data_managers import get_economic_data_manager, get_stock_data_manager
 
+# AIDEV-NOTE: Optional stock market modules - graceful fallback if missing
 # Import stock market system
 try:
     import stock_market
@@ -52,6 +53,7 @@ client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 print(f"Command tree created: {tree}")
 
+# AIDEV-NOTE: Dynamic command registration - conditionally loads based on imports
 # Register stock market commands if available
 if stock_commands:
     try:
@@ -145,6 +147,7 @@ def handle_errors(error_message: str):
         return wrapper
     return decorator
 
+# AIDEV-NOTE: Critical permission decorator - handles channel whitelisting/blacklisting
 def check_dynamic_channel_restrictions(command_name: str, exempt_roles=[config.Roles.ADMIN]):
     """Decorator to check dynamic channel restrictions for commands."""
     def decorator(func):
@@ -440,6 +443,7 @@ async def help_command(interaction: discord.Interaction):
     
     await interaction.followup.send(embed=embed)
 
+# AIDEV-NOTE: Main AI command - uses Gemini with channel history context
 @tree.command(name="helper", description="Query the VCBot helper.")
 @has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
@@ -675,6 +679,7 @@ async def role(
 
 # Economic Analysis Commands
 
+# AIDEV-NOTE: Complex economic report - integrates stock market + econ data
 @tree.command(name="econ_report", description="Generate current economic overview")
 @has_any_role(config.Roles.ADMIN, config.Roles.AI_ACCESS)
 @limit_to_channels([config.BOT_HELPER_CHANNEL])
@@ -1098,6 +1103,7 @@ async def sync_commands(
 
 # Message Handlers (replacing complex MessageRouter)
 
+# AIDEV-NOTE: Message router - handles 4 special channels with different logic
 async def handle_message(message: discord.Message):
     """Handle incoming messages."""
     if message.author.bot:
@@ -1172,6 +1178,7 @@ async def handle_sign_message(message: discord.Message):
             if records_channel:
                 await records_channel.send("Unexpected error adding bill. Please check logs.")
 
+# AIDEV-NOTE: Auto bill processor - extracts Google Docs, generates AI titles, adds callbacks
 async def handle_bills_signed_into_law_message(message: discord.Message):
     """Handle automatic bill processing from bills-signed-into-law channel with callbacks."""
     print(f"Processing bills-signed-into-law message from {message.author}")
@@ -1411,6 +1418,7 @@ async def check_github_commits():
 
 # Discord Events
 
+# AIDEV-NOTE: Smart sync - prevents rate limiting by only syncing on changes
 async def smart_sync_commands():
     """Smart command sync that only syncs when there are actual changes."""
     print("🔍 Checking if command sync is needed...")
@@ -1498,6 +1506,7 @@ async def smart_sync_commands():
         traceback.print_exc()
         raise
 
+# AIDEV-NOTE: Critical startup - data migration, channel init, stock market, econ engine
 @client.event
 async def on_ready():
     """Bot startup initialization."""
@@ -1510,6 +1519,7 @@ async def on_ready():
     # Ensure guild directories exist
     ensure_guild_directories()
     
+    # AIDEV-NOTE: Guild-specific data migration - handles prod vs test environments
     # For production guild, migrate existing data if needed
     if GUILD_ID == 654458344781774879 and not (DATA_DIR / "bill_refs.json").exists():
         print("Migrating existing data to guild-specific directory...")

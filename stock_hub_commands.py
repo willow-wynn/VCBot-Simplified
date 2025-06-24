@@ -411,6 +411,7 @@ class TradingView(discord.ui.View):
 
 class StockAdminView(discord.ui.View):
     """Admin view for stock market management"""
+    # AIDEV-NOTE: admin-ui-buttons; no baseline recalc - prices set by AI only
     
     def __init__(self, user: discord.User):
         super().__init__(timeout=300)

@@ -135,6 +135,7 @@ def extract_google_doc_content(gdoc_url: str) -> str:
     
     return response.text
 
+# AIDEV-NOTE: Bill processor - extracts Google Docs, generates AI title, saves to corpus
 async def add_bill_to_corpus(bill_link: str) -> Dict[str, Any]:
     """Add a bill to the corpus from a Google Doc link with AI-generated title."""
     try:

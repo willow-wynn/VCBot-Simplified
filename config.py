@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+# AIDEV-NOTE: Core secrets - must be set in .env file
 # Required environment variables
 BOT_ID = int(os.getenv("BOT_ID"))
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -23,6 +24,7 @@ GUILD_ID = int(os.getenv("GUILD", 0)) if os.getenv("GUILD") else None
 if not GUILD_ID:
     raise ValueError("GUILD environment variable must be set")
 
+# AIDEV-NOTE: Channel IDs - bills-signed-into-law=655065748984561676 triggers auto-processing
 # Channel IDs
 RECORDS_CHANNEL = int(os.getenv("RECORDS_CHANNEL", 0))
 NEWS_CHANNEL = int(os.getenv("NEWS_CHANNEL", 0))
@@ -37,6 +39,7 @@ JSON_OUTPUT_CHANNEL = 1385322968803971244  # Channel for economic and stock anal
 # File paths
 BASE_DIR = Path(__file__).parent
 
+# AIDEV-NOTE: Guild isolation - each Discord server gets own data directory
 # Guild-specific data directory
 DATA_DIR = BASE_DIR / "data" / str(GUILD_ID)
 

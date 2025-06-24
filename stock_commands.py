@@ -1980,20 +1980,16 @@ async def stocks_reset(interaction: discord.Interaction):
                 stocks_reset += 1
                 print(f"🔄 {symbol}: ${old_price:.2f} → ${stock['price']:.2f}")
     
-    # Reset market parameters to economic data calculation
-    try:
-        stock_market.market_params = stock_market._calculate_market_params_from_economic_data()
-        print("📊 Market parameters recalculated from economic data")
-    except Exception as e:
-        print(f"⚠️ Could not recalculate from economic data: {e}")
-        # Fallback to reasonable defaults
-        stock_market.market_params = {
-            "trend_direction": -0.15,    # Slightly bearish but not extreme
-            "volatility": 0.45,          # Moderate volatility
-            "momentum": 0.50,            # Neutral momentum
-            "market_sentiment": 0.45,    # Cautious but not panicked
-            "long_term_outlook": 0.50    # Neutral outlook
-        }
+    # AIDEV-NOTE: param-reset; set neutral defaults - AI will set proper values
+    # Market parameters reset to neutral defaults
+    stock_market.market_params = {
+        "trend_direction": 0.0,      # Neutral direction
+        "volatility": 0.5,           # Moderate volatility
+        "momentum": 0.5,             # Neutral momentum
+        "market_sentiment": 0.5,     # Neutral sentiment
+        "long_term_outlook": 0.5     # Neutral outlook
+    }
+    print("📊 Market parameters reset to neutral defaults")
     
     # Clear trading state
     stock_market.is_trading_day = False
@@ -2275,7 +2271,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
         # Update market parameters from new analysis
         stock_market.market_params = analysis.get("parameters", stock_market.market_params)
         
-        # NOTE: Baseline price recalculation removed - prices are set by AI analysis only
+        # AIDEV-NOTE: price-source; prices set by AI daily analysis only
         print("✅ Market parameters updated from AI analysis")
         
         # Reset daily ranges and set new trading day
@@ -2291,7 +2287,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
         await stock_market.trigger_dynamic_update(
             reason=f"Analysis redone with prompt: {prompt[:50]}...",
             send_discord_notification=True,
-            recalculate_baselines=False  # Already done above
+            save_history=True
         )
         
         # Create success embed
@@ -2344,88 +2340,7 @@ async def stocks_redo_analysis(interaction: discord.Interaction, prompt: str):
         
         await initial_msg.edit(embed=error_embed)
 
-@app_commands.command(name="stocks_recalc_baselines", description="Recalculate all stock baseline prices from current economic parameters (Admin)")
-@has_any_role(Roles.ADMIN)
-@handle_errors("Failed to recalculate baseline prices")
-async def stocks_recalc_baselines(interaction: discord.Interaction):
-    """Manually recalculate all stock baseline prices from current economic parameters"""
-    await interaction.response.defer()
-    
-    stock_market = get_stock_market()
-    
-    # Send initial status
-    embed = discord.Embed(
-        title="🔄 Recalculating Stock Baselines",
-        description="Recalculating all stock prices based on current economic parameters",
-        color=0xffaa00,
-        timestamp=datetime.now(timezone.utc)
-    )
-    
-    embed.add_field(name="📊 Process", value="⏳ Analyzing current economic data...", inline=False)
-    
-    initial_msg = await interaction.followup.send(embed=embed)
-    
-    try:
-        # Show current economic parameters
-        embed.set_field_at(0, name="📊 Process", value="📈 Updating market parameters...", inline=False)
-        await initial_msg.edit(embed=embed)
-        
-        # NOTE: Baseline price recalculation removed - prices are set by AI analysis only
-        
-        # Trigger dynamic update with new baselines
-        await stock_market.trigger_dynamic_update(
-            reason="Manual baseline recalculation from economic data",
-            send_discord_notification=True,
-            recalculate_baselines=False  # Already done above
-        )
-        
-        # Create success embed
-        embed = discord.Embed(
-            title="✅ Baseline Recalculation Complete",
-            description="All stock prices recalculated from current economic parameters",
-            color=0x00ff88,
-            timestamp=datetime.now(timezone.utc)
-        )
-        
-        # Show market parameters used
-        params = stock_market.market_params
-        param_text = f"""
-**Trend**: {params['trend_direction']:+.3f} {'📈' if params['trend_direction'] > 0 else '📉' if params['trend_direction'] < 0 else '➡️'}
-**Volatility**: {params['volatility']:.3f} {'🌪️' if params['volatility'] > 0.7 else '🌊'}
-**Momentum**: {params['momentum']:.3f} {'🚀' if params['momentum'] > 0.7 else '⚡'}
-**Sentiment**: {params['market_sentiment']:.3f} {'😄' if params['market_sentiment'] > 0.7 else '😐' if params['market_sentiment'] > 0.4 else '😟'}
-**Outlook**: {params['long_term_outlook']:.3f} {'🌟' if params['long_term_outlook'] > 0.7 else '🌤️'}
-"""
-        embed.add_field(name="📊 Economic Parameters Used", value=param_text.strip(), inline=True)
-        
-        # Trigger dynamic update with new parameters
-        update_summary = await stock_market.trigger_dynamic_update(
-            reason="Economic sync - market parameters updated",
-            send_discord_notification=False
-        )
-        
-        # Calculate new ETF prices
-        category_prices = stock_market.calculate_category_prices()
-        etf_text = ""
-        for cat_name, price in category_prices.items():
-            emoji = "⛽" if cat_name == "ENERGY" else "🎬" if cat_name == "ENTERTAINMENT" else "🏦" if cat_name == "FINANCE" else "🏥" if cat_name == "HEALTH" else "🏭" if cat_name == "MANUFACTURING" else "🛒" if cat_name == "RETAIL" else "💻" if cat_name == "TECH" else "✈️"
-            etf_text += f"{emoji} **{cat_name}**: ${price:.2f}\n"
-        
-        embed.add_field(name="📊 Updated Sector ETFs", value=etf_text.strip(), inline=True)
-        
-        total_stocks = sum(len(cat['stocks']) for cat in stock_market.categories.values())
-        embed.set_footer(text=f"{total_stocks} stocks • {len(category_prices)} ETFs updated")
-        
-        await initial_msg.edit(embed=embed)
-        
-    except Exception as e:
-        error_embed = discord.Embed(
-            title="❌ Baseline Recalculation Failed",
-            description=f"Error: {str(e)}",
-            color=0xff4444,
-            timestamp=datetime.now(timezone.utc)
-        )
-        await initial_msg.edit(embed=error_embed)
+# AIDEV-NOTE: deprecated-command-removed; baseline recalc no longer needed (AI sets prices)
 
 @app_commands.command(name="stocks_set_update_rate", description="Set how often stock prices update (Admin)")
 @app_commands.describe(minutes="Time in minutes between price updates (1-1440)")

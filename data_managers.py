@@ -1,3 +1,4 @@
+# AIDEV-NOTE: Centralized data layer - prevents inconsistencies, caches JSON files
 """
 Data Managers - Single Source of Truth for Economic and Stock Data
 

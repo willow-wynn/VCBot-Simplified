@@ -15,6 +15,7 @@ from config import (
     STOCK_DATA_DIR, BASE_DIR, GUILD_ID, ensure_guild_directories
 )
 
+# AIDEV-NOTE: Guild-specific data - channel restrictions per Discord server
 # File paths for channel restrictions (guild-specific)
 CHANNEL_RESTRICTIONS_FILE = DATA_DIR / "channel_restrictions.json"
 
@@ -41,6 +42,7 @@ def save_bill_references():
         with open(BILL_REFS_FILE, 'w') as f:
             json.dump(_bill_refs, f, indent=2)
 
+# AIDEV-NOTE: Bill ref counter - auto-increments HR/HRES/HJRES/HCONRES numbers
 def get_next_reference(bill_type: str) -> int:
     """Get next reference number for a bill type."""
     refs = load_bill_references()

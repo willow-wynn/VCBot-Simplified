@@ -86,6 +86,7 @@ class EconomicEngine(commands.Cog):
             print(f"Error fetching document: {e}")
             return None
     
+    # AIDEV-NOTE: Discord scraper - categorizes activity into legislative/committee/public
     async def collect_channel_activity(self, days_back: int = 1) -> Dict[str, Any]:
         """Collect and analyze activity from all server channels"""
         activity_data = {

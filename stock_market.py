@@ -14,10 +14,12 @@ import numpy as np
 import io
 import base64
 import signal
+import hashlib
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Any, Tuple
 import discord
 from discord.ext import commands, tasks
+from pathlib import Path
 import google.generativeai as genai
 from config import GEMINI_API_KEY, BOT_HELPER_CHANNEL, STOCK_DATA_DIR, JSON_OUTPUT_CHANNEL, ECONOMIC_DATA_DIR
 from economic_utils import ALL_ALLOWED_CHANNELS, ALLOWED_CHANNELS
@@ -83,9 +85,6 @@ self.categories = {
                 "symbol": "AAPL",
                 "name": "Apple Inc",
                 "price": 150.00,  # Current price (changes hourly)
-                "ai_opening_price": 150.00,  # AI-set opening (NEVER changes)
-                "daily_range_low": 147.00,
-                "daily_range_high": 153.00,
                 "sector_factor": 1.0
             }
         ]
@@ -151,10 +150,30 @@ class StockMarket:
             "risk_appetite": 0.5
         }
         
+        # AIDEV-NOTE: perlin-params; Per-stock Perlin noise parameters set by AI
+        # Initialize per-stock Perlin parameters (AI-controlled)
+        self.stock_perlin_params = {}  # Will be populated with per-stock parameters
+        # Default structure for each stock:
+        # {
+        #     "AAPL": {
+        #         "trend_strength": 0.5,      # 0-1, how strong the trend is
+        #         "trend_direction": 0.0,     # -1 to 1, bearish to bullish
+        #         "volatility": 0.5,          # 0-1, how volatile this specific stock is
+        #         "noise_scale": 1.0,         # Multiplier for Perlin noise amplitude
+        #         "cycle_frequency": 1.0,     # How fast the stock cycles
+        #         "sector_correlation": 1.0,  # How much it follows its sector
+        #     }
+        # }
+        
         # On-demand pricing configuration
         self.price_update_rate_minutes = 60  # Default 60 minutes (hourly)
-        self.market_open_time = None  # Will be set when market opens
-        self.daily_ranges = {}  # Store daily price ranges for each stock
+        
+        # AIDEV-NOTE: 24-7-market; Initialize market open time to prevent warnings
+        # Set to today at 9 AM ET for 24/7 market operation
+        from zoneinfo import ZoneInfo
+        et_now = datetime.now(ZoneInfo("America/New_York"))
+        self.market_open_time = et_now.replace(hour=9, minute=0, second=0, microsecond=0).astimezone(timezone.utc)
+        self.last_market_open_time = self.market_open_time.isoformat()
         
         # Initialize stock market structure - Real Economic Sectors
         self.categories = {
@@ -260,9 +279,7 @@ class StockMarket:
                     "BRK.B": 0.03
                 },
                 "volatility_modifier": 0.7,  # Less volatile than individual stocks
-                "price": 450.0,  # Will be calculated dynamically
-                "daily_range_low": 445.0,
-                "daily_range_high": 455.0
+                "price": 450.0  # Will be calculated dynamically
             },
             "QQQ": {
                 "symbol": "QQQ",
@@ -278,9 +295,7 @@ class StockMarket:
                     "BA": 0.02, "GE": 0.02
                 },
                 "volatility_modifier": 0.8,  # Tech-heavy, more volatile
-                "price": 380.0,
-                "daily_range_low": 375.0,
-                "daily_range_high": 385.0
+                "price": 380.0
             },
             "DIA": {
                 "symbol": "DIA",
@@ -522,26 +537,25 @@ class StockMarket:
             "long_term_outlook": 0.5
         }
         
-        # Initialize ETF attributes (needs market_params to be set first)
-        self._initialize_etf_attributes()
+        # Initialize cache attributes BEFORE ETF initialization
+        # Trading state (24/7 operation)
+        self.is_trading_day = True  # Always trading
+        self.current_trading_day = None
+        self.stock_price_cache = {}  # Cache stock prices with timestamps
+        self.etf_price_cache = {}  # Cache ETF prices with timestamps
+        self.price_cache_expiry = None  # When to refresh the cache (9 AM ET next day)
         
-        # Softcap configuration parameters
-        self.softcap_config = {
-            "steepness": 75,      # How quickly resistance increases (higher = sharper transition)
-            "max_resistance": 0.95,  # Maximum damping factor (0.95 = 95% resistance at extreme distances)
-            "enabled": True       # Can disable to revert to hard caps if needed
-        }
+        # 5-minute interval price caches
+        # AIDEV-NOTE: 5min-cache; stores precomputed prices for deterministic lookups
+        self.stock_price_cache_5min = {}  # {symbol: {minute_offset: price}}
+        self.etf_price_cache_5min = {}    # {symbol: {minute_offset: price}}
+        
+        # Initialize ETF attributes (needs market_params and caches to be set first)
+        self._initialize_etf_attributes()
         
         # Initialize stock attributes for AI pricing
         self._initialize_stock_attributes()
         
-        # Trading state (24/7 operation)
-        self.is_trading_day = True  # Always trading
-        self.current_trading_day = None
-        self.last_market_open_time = None  # Track last analysis/update time
-        self.precomputed_prices = {}  # Keep for backward compatibility but won't use
-        self.etf_price_cache = {}  # Cache ETF prices with timestamps
-        self.etf_cache_expiry = None  # When to refresh the cache (9 AM ET next day)
         self.hourly_updates_task = None
         self.admin_only_trading = False  # Trading restriction flag
         
@@ -602,12 +616,21 @@ class StockMarket:
                 if "sector_factor" not in etf:
                     etf["sector_factor"] = 1.0
                     
-                # Calculate initial price based on holdings for non-sector ETFs
-                if etf["type"] != "sector":
-                    etf["price"] = self.calculate_etf_price(symbol)
+                # Skip price calculation during initialization - caches aren't populated yet
+                # Price calculation will be done by precompute_etf_prices after stocks are cached
         finally:
             # Clear initialization flag
             self._initializing = False
+    
+    def deterministic_hash(self, input_string: str) -> int:
+        """Generate deterministic hash that's consistent across program runs
+        
+        AIDEV-NOTE: Replaces Python's hash() which is non-deterministic between runs
+        """
+        # Use SHA256 for deterministic hashing
+        hash_bytes = hashlib.sha256(input_string.encode('utf-8')).digest()
+        # Convert first 8 bytes to integer
+        return int.from_bytes(hash_bytes[:8], byteorder='big')
     
     # AIDEV-NOTE: deprecated-functions-removed; AI sets all params, no formulas
     # _calculate_market_params_from_economic_data() removed - AI analysis only
@@ -633,6 +656,7 @@ class StockMarket:
             "etfs": self.etfs,
             "market_caps": self.market_caps,
             "market_params": self.market_params,
+            "stock_perlin_params": self.stock_perlin_params,
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "trading_state": {
                 "is_trading_day": self.is_trading_day,
@@ -642,9 +666,7 @@ class StockMarket:
                 "price_update_rate_minutes": self.price_update_rate_minutes,
                 "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
                 "last_market_open_time": self.last_market_open_time
-            },
-            "precomputed_prices": self.precomputed_prices,
-            "daily_ranges": self.daily_ranges
+            }
         }
         
         with open(self.data_dir / "market_data.json", 'w') as f:
@@ -659,6 +681,7 @@ class StockMarket:
             "etfs": self.etfs,
             "market_caps": self.market_caps,
             "market_params": self.market_params,
+            "stock_perlin_params": self.stock_perlin_params,
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "trading_state": {
                 "is_trading_day": self.is_trading_day,
@@ -668,9 +691,7 @@ class StockMarket:
                 "price_update_rate_minutes": self.price_update_rate_minutes,
                 "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
                 "last_market_open_time": self.last_market_open_time
-            },
-            "precomputed_prices": self.precomputed_prices,
-            "daily_ranges": self.daily_ranges
+            }
         }
         
         # Write to temp file first for atomicity
@@ -709,10 +730,9 @@ class StockMarket:
                     self.market_open_time = datetime.fromisoformat(state["market_open_time"])
                 else:
                     self.market_open_time = None
-            if "precomputed_prices" in data:
-                self.precomputed_prices = data["precomputed_prices"]
-            if "daily_ranges" in data:
-                self.daily_ranges = data["daily_ranges"]
+            # Load Perlin parameters if available
+            if "stock_perlin_params" in data:
+                self.stock_perlin_params = data["stock_perlin_params"]
             if "etfs" in data:
                 self.etfs = data["etfs"]
             if "market_caps" in data:
@@ -722,8 +742,6 @@ class StockMarket:
             self._initialize_etf_attributes()
             
             print("📊 Market data loaded successfully")
-            if self.precomputed_prices:
-                print(f"✅ Loaded {len(self.precomputed_prices)} precomputed price series")
             return True
             
         except Exception as e:
@@ -756,6 +774,7 @@ class StockMarket:
                 "etfs": self.etfs,
                 "market_caps": self.market_caps,
                 "market_params": self.market_params,
+                "stock_perlin_params": self.stock_perlin_params,
                 "last_updated": datetime.now(timezone.utc).isoformat(),
                 "trading_state": {
                     "is_trading_day": self.is_trading_day,
@@ -765,9 +784,7 @@ class StockMarket:
                     "price_update_rate_minutes": self.price_update_rate_minutes,
                     "market_open_time": self.market_open_time.isoformat() if self.market_open_time else None,
                     "last_market_open_time": self.last_market_open_time
-                },
-                "precomputed_prices": self.precomputed_prices,
-                "daily_ranges": self.daily_ranges
+                }
             }
             
             # Direct synchronous write
@@ -1076,8 +1093,8 @@ class StockMarket:
             etf_copy = etf_data.copy()
             etf_copy["category"] = "ETF"
             etf_copy["is_etf"] = True
-            # Ensure price is current
-            etf_copy["price"] = etf_copy.get("current_price", self.calculate_etf_price(etf_symbol))
+            # Ensure price is current (use cached price)
+            etf_copy["price"] = etf_copy.get("current_price", self.get_cached_etf_price(etf_symbol) or etf_copy.get("price", 100.0))
             all_assets.append(etf_copy)
         
         return all_assets
@@ -1097,7 +1114,9 @@ class StockMarket:
         # Update ETF prices
         etf_prices = {}
         for etf_symbol in self.etfs.keys():
-            etf_prices[etf_symbol] = self.calculate_etf_price(etf_symbol)
+            # Use cached price to prevent recursion
+            cached_price = self.get_cached_etf_price(etf_symbol)
+            etf_prices[etf_symbol] = cached_price if cached_price is not None else self.etfs[etf_symbol].get("price", 100.0)
             self.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
         
         # Save updated market data
@@ -1233,7 +1252,7 @@ class StockMarket:
             "trading_status": {
                 "is_trading_day": self.is_trading_day,
                 "current_trading_day": self.current_trading_day,
-                "has_precomputed_prices": bool(self.precomputed_prices)
+                "market_active": True  # 24/7 trading
             },
             "individual_stocks": {
                 stock["symbol"]: {
@@ -1293,7 +1312,11 @@ class StockMarket:
         return noise / 2.0  # Normalize to roughly -1 to 1
     
     def calculate_etf_price(self, etf_symbol: str, target_time: datetime = None) -> float:
-        """Calculate ETF price based on holdings and type"""
+        """Calculate ETF price based on holdings and type
+        
+        DEPRECATED: Only used during initialization. Use get_current_price() for runtime lookups.
+        AIDEV-NOTE: deprecated-calc; causes recursion if called outside precomputation
+        """
         if etf_symbol not in self.etfs:
             return 0.0
             
@@ -1464,81 +1487,350 @@ class StockMarket:
         
         return round(final_price, 2)
     
-    def precompute_etf_prices(self) -> None:
-        """Precompute and cache all ETF prices for the trading day"""
+    def calculate_etf_price_from_cache(self, etf_symbol: str) -> float:
+        """Calculate ETF price using only cached stock prices (for precomputation)"""
+        if etf_symbol not in self.etfs:
+            raise ValueError(f"ETF {etf_symbol} not found")
+            
+        etf = self.etfs[etf_symbol]
+        
+        # For sector ETFs, calculate based on sector average
+        if etf["type"] == "sector":
+            sector_name = etf.get("sector")
+            if sector_name and sector_name in self.categories:
+                total_price = 0.0
+                count = 0
+                stocks = self.categories[sector_name]["stocks"]
+                for stock in stocks:
+                    symbol = stock["symbol"]
+                    if symbol in self.stock_price_cache:
+                        total_price += self.stock_price_cache[symbol]['price']
+                        count += 1
+                if count > 0:
+                    base_price = total_price / count
+                else:
+                    base_price = etf.get("price", 100.0)
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For market cap weighted ETFs
+        elif etf["type"] == "market_cap_weighted":
+            total_value = 0.0
+            total_weight = 0.0
+            
+            for stock_symbol, weight in etf.get("holdings", {}).items():
+                if stock_symbol in self.stock_price_cache:
+                    stock_price = self.stock_price_cache[stock_symbol]['price']
+                    total_value += stock_price * weight
+                    total_weight += weight
+            
+            # Normalize if weights don't sum to 1
+            if total_weight > 0:
+                base_price = total_value / total_weight
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For equal weighted ETFs
+        elif etf["type"] == "equal_weighted":
+            holdings = etf.get("holdings", {})
+            if holdings:
+                total_price = 0.0
+                valid_holdings = 0
+                
+                for stock_symbol in holdings.keys():
+                    if stock_symbol in self.stock_price_cache:
+                        stock_price = self.stock_price_cache[stock_symbol]['price']
+                        total_price += stock_price
+                        valid_holdings += 1
+                
+                if valid_holdings > 0:
+                    # Equal weight means average of all holdings
+                    base_price = total_price / valid_holdings
+                else:
+                    base_price = etf.get("price", 100.0)
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For bond ETFs - use same logic as calculate_etf_price
+        elif etf["type"] == "bond":
+            base_price = etf.get("price", 105.0)
+            market_sentiment = self.market_params.get("market_sentiment", 0.5)
+            market_volatility = self.market_params.get("volatility", 0.5)
+            sentiment_factor = 1.0 - (market_sentiment - 0.5) * 0.1
+            volatility_factor = 1.0 + (market_volatility - 0.5) * 0.05
+            base_price = base_price * sentiment_factor * volatility_factor
+        
+        # For other ETF types
+        else:
+            base_price = etf.get("price", 100.0)
+        
+        # Apply ETF-specific volatility
+        etf_volatility = etf.get("volatility", 0.02)
+        random_factor = 1.0 + (self.deterministic_hash(etf_symbol + str(datetime.now(timezone.utc).date())) % 100 - 50) / 5000 * etf_volatility
+        
+        final_price = base_price * random_factor
+        
+        # Apply soft caps if needed
+        if hasattr(self, 'softcap_config') and self.softcap_config.get("enabled", True):
+            daily_low = etf.get("daily_low", base_price * 0.95)
+            daily_high = etf.get("daily_high", base_price * 1.05)
+            
+            if final_price < daily_low:
+                undershoot = (daily_low - final_price) / daily_low
+                if undershoot > 0.02:
+                    resistance = min(undershoot / 0.02, 1.0)
+                    final_price = daily_low - (daily_low - final_price) * (1 - resistance * self.softcap_config["max_resistance"])
+            elif final_price > daily_high:
+                overshoot = (final_price - daily_high) / daily_high
+                if overshoot > 0.02:
+                    resistance = min(overshoot / 0.02, 1.0)
+                    final_price = daily_high + (final_price - daily_high) * (1 - resistance * self.softcap_config["max_resistance"])
+        
+        return round(final_price, 2)
+    
+    def precompute_all_prices(self) -> None:
+        """Precompute and cache all stock and ETF prices for 5-minute intervals throughout the day"""
         try:
-            print("🔄 Precomputing ETF prices for the trading day...")
+            print("🔄 Precomputing all prices for 5-minute intervals...")
             start_time = datetime.now(timezone.utc)
             
-            # Clear existing cache
+            # Clear all caches
+            self.stock_price_cache_5min = {}
+            self.etf_price_cache_5min = {}
+            self.stock_price_cache = {}
             self.etf_price_cache = {}
             
             # Set cache expiry to 9 AM ET next day
             from zoneinfo import ZoneInfo
             et_now = datetime.now(ZoneInfo("America/New_York"))
             tomorrow_9am = (et_now + timedelta(days=1)).replace(hour=9, minute=0, second=0, microsecond=0)
-            self.etf_cache_expiry = tomorrow_9am
+            self.price_cache_expiry = tomorrow_9am
             
-            # Calculate and cache prices for all ETFs
-            for symbol in self.etfs:
-                price = self.calculate_etf_price(symbol)
-                self.etf_price_cache[symbol] = {
-                    'price': price,
-                    'timestamp': datetime.now(timezone.utc)
-                }
-                # Also update the ETF's current_price field
-                self.etfs[symbol]['current_price'] = price
+            # Ensure market_open_time is set
+            if self.market_open_time is None:
+                self.market_open_time = et_now.replace(hour=9, minute=0, second=0, microsecond=0)
+                print(f"⚠️ Market open time was not set, using {self.market_open_time.strftime('%I:%M %p ET')}")
+            
+            stock_count = 0
+            etf_count = 0
+            interval_count = 0
+            
+            # Precompute for 24 hours in 5-minute intervals (288 intervals)
+            print("  📈 Computing prices for 288 intervals (24 hours × 12 intervals/hour)...")
+            
+            for minute_offset in range(0, 1440, 5):  # 0, 5, 10, ..., 1435
+                target_time = self.market_open_time + timedelta(minutes=minute_offset)
+                interval_count += 1
+                
+                if interval_count % 24 == 0:  # Progress every 2 hours
+                    print(f"    ⏳ Progress: {interval_count}/288 intervals ({minute_offset/60:.0f} hours)")
+                
+                # Step 1: Calculate all stock prices for this time
+                for category_data in self.categories.values():
+                    for stock in category_data["stocks"]:
+                        symbol = stock["symbol"]
+                        try:
+                            price = self.calculate_price_at_time(symbol, target_time)
+                            
+                            # Initialize symbol dict if needed
+                            if symbol not in self.stock_price_cache_5min:
+                                self.stock_price_cache_5min[symbol] = {}
+                                stock_count += 1
+                            
+                            # Store price for this interval
+                            self.stock_price_cache_5min[symbol][minute_offset] = price
+                            
+                            # Update current price if this is the current interval
+                            if minute_offset == 0:
+                                stock["current_price"] = price
+                                stock["price"] = price
+                                
+                        except Exception as e:
+                            print(f"    ❌ Error computing price for {symbol} at offset {minute_offset}: {e}")
+                
+                # Step 2: Calculate ETF prices using the stock prices from this interval
+                for etf_symbol in self.etfs:
+                    try:
+                        price = self._calculate_etf_price_from_interval(etf_symbol, minute_offset)
+                        
+                        # Initialize ETF dict if needed
+                        if etf_symbol not in self.etf_price_cache_5min:
+                            self.etf_price_cache_5min[etf_symbol] = {}
+                            etf_count += 1
+                        
+                        # Store price for this interval
+                        self.etf_price_cache_5min[etf_symbol][minute_offset] = price
+                        
+                        # Update current price if this is the current interval
+                        if minute_offset == 0:
+                            self.etfs[etf_symbol]["current_price"] = price
+                            
+                    except Exception as e:
+                        print(f"    ❌ Error computing ETF price for {etf_symbol} at offset {minute_offset}: {e}")
+            
+            # Also populate the legacy caches with current prices
+            current_time = datetime.now(timezone.utc)
+            for symbol, intervals in self.stock_price_cache_5min.items():
+                if 0 in intervals:
+                    self.stock_price_cache[symbol] = {
+                        'price': intervals[0],
+                        'timestamp': current_time
+                    }
+            
+            for symbol, intervals in self.etf_price_cache_5min.items():
+                if 0 in intervals:
+                    self.etf_price_cache[symbol] = {
+                        'price': intervals[0],
+                        'timestamp': current_time
+                    }
             
             elapsed = (datetime.now(timezone.utc) - start_time).total_seconds()
-            print(f"✅ Precomputed {len(self.etf_price_cache)} ETF prices in {elapsed:.2f} seconds")
+            print(f"✅ Precomputed {stock_count} stocks × 288 intervals = {stock_count * 288:,} stock prices")
+            print(f"✅ Precomputed {etf_count} ETFs × 288 intervals = {etf_count * 288:,} ETF prices")
+            print(f"⏱️ Total computation time: {elapsed:.2f} seconds")
             print(f"📅 Cache valid until {tomorrow_9am.strftime('%Y-%m-%d %I:%M %p ET')}")
             
         except Exception as e:
-            print(f"❌ Error precomputing ETF prices: {e}")
+            print(f"❌ Error precomputing prices: {e}")
             import traceback
             traceback.print_exc()
     
+    def _calculate_etf_price_from_interval(self, etf_symbol: str, minute_offset: int) -> float:
+        """Calculate ETF price using stock prices from a specific 5-minute interval"""
+        if etf_symbol not in self.etfs:
+            raise ValueError(f"ETF {etf_symbol} not found")
+            
+        etf = self.etfs[etf_symbol]
+        
+        # For sector ETFs, calculate based on sector average
+        if etf["type"] == "sector":
+            sector_name = etf.get("sector")
+            if sector_name and sector_name in self.categories:
+                total_price = 0.0
+                count = 0
+                stocks = self.categories[sector_name]["stocks"]
+                for stock in stocks:
+                    symbol = stock["symbol"]
+                    if symbol in self.stock_price_cache_5min and minute_offset in self.stock_price_cache_5min[symbol]:
+                        total_price += self.stock_price_cache_5min[symbol][minute_offset]
+                        count += 1
+                if count > 0:
+                    base_price = total_price / count
+                else:
+                    base_price = etf.get("price", 100.0)
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For market cap weighted ETFs
+        elif etf["type"] == "market_cap_weighted":
+            total_value = 0.0
+            total_weight = 0.0
+            
+            for stock_symbol, weight in etf.get("holdings", {}).items():
+                if stock_symbol in self.stock_price_cache_5min and minute_offset in self.stock_price_cache_5min[stock_symbol]:
+                    stock_price = self.stock_price_cache_5min[stock_symbol][minute_offset]
+                    total_value += stock_price * weight
+                    total_weight += weight
+            
+            # Normalize if weights don't sum to 1
+            if total_weight > 0:
+                base_price = total_value / total_weight
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For equal weighted ETFs
+        elif etf["type"] == "equal_weighted":
+            holdings = etf.get("holdings", {})
+            if holdings:
+                total_price = 0.0
+                valid_holdings = 0
+                
+                for stock_symbol in holdings.keys():
+                    if stock_symbol in self.stock_price_cache_5min and minute_offset in self.stock_price_cache_5min[stock_symbol]:
+                        stock_price = self.stock_price_cache_5min[stock_symbol][minute_offset]
+                        total_price += stock_price
+                        valid_holdings += 1
+                
+                if valid_holdings > 0:
+                    # Equal weight means average of all holdings
+                    base_price = total_price / valid_holdings
+                else:
+                    base_price = etf.get("price", 100.0)
+            else:
+                base_price = etf.get("price", 100.0)
+        
+        # For bond ETFs
+        elif etf["type"] == "bond":
+            base_price = etf.get("price", 105.0)
+            market_sentiment = self.market_params.get("market_sentiment", 0.5)
+            market_volatility = self.market_params.get("volatility", 0.5)
+            sentiment_factor = 1.0 - (market_sentiment - 0.5) * 0.1
+            volatility_factor = 1.0 + (market_volatility - 0.5) * 0.05
+            base_price = base_price * sentiment_factor * volatility_factor
+        
+        # For other ETF types
+        else:
+            base_price = etf.get("price", 100.0)
+        
+        # Apply ETF-specific volatility with deterministic seed
+        etf_volatility = etf.get("volatility", 0.02)
+        # Use minute offset as part of seed for different values at different times
+        seed_string = f"{etf_symbol}_{self.current_trading_day or datetime.now(timezone.utc).strftime('%Y-%m-%d')}_{minute_offset}"
+        random_factor = 1.0 + (self.deterministic_hash(seed_string) % 100 - 50) / 5000 * etf_volatility
+        
+        final_price = base_price * random_factor
+        
+        # Apply soft caps if needed
+        if hasattr(self, 'softcap_config') and self.softcap_config.get("enabled", True):
+            daily_low = etf.get("daily_low", base_price * 0.95)
+            daily_high = etf.get("daily_high", base_price * 1.05)
+            
+            if final_price < daily_low:
+                undershoot = (daily_low - final_price) / daily_low
+                if undershoot > 0.02:
+                    resistance = min(undershoot / 0.02, 1.0)
+                    final_price = daily_low - (daily_low - final_price) * (1 - resistance * self.softcap_config["max_resistance"])
+            elif final_price > daily_high:
+                overshoot = (final_price - daily_high) / daily_high
+                if overshoot > 0.02:
+                    resistance = min(overshoot / 0.02, 1.0)
+                    final_price = daily_high + (final_price - daily_high) * (1 - resistance * self.softcap_config["max_resistance"])
+        
+        return round(final_price, 2)
+    
+    def precompute_etf_prices(self) -> None:
+        """Legacy method - redirects to precompute_all_prices"""
+        self.precompute_all_prices()
+    
     def get_cached_etf_price(self, symbol: str) -> Optional[float]:
-        """Get ETF price from cache or calculate if needed"""
+        """Get ETF price from cache ONLY - never recalculate"""
         try:
-            # Check if cache exists and is not expired
-            from zoneinfo import ZoneInfo
-            if self.etf_cache_expiry and datetime.now(ZoneInfo("America/New_York")) < self.etf_cache_expiry:
-                if symbol in self.etf_price_cache:
-                    return self.etf_price_cache[symbol]['price']
+            # Check if we have a cached price
+            if symbol in self.etf_price_cache:
+                return self.etf_price_cache[symbol]['price']
             
-            # Cache miss or expired - calculate fresh price
-            price = self.calculate_etf_price(symbol)
-            
-            # Update cache
-            self.etf_price_cache[symbol] = {
-                'price': price,
-                'timestamp': datetime.now(timezone.utc)
-            }
-            
-            # Also update the ETF's current_price field
+            # Fallback to current_price field if available
             if symbol in self.etfs:
-                self.etfs[symbol]['current_price'] = price
+                return self.etfs[symbol].get('current_price')
             
-            return price
+            # AIDEV-NOTE: No recalculation - cache only to prevent recursion
+            return None
             
         except Exception as e:
             print(f"❌ Error getting cached ETF price for {symbol}: {e}")
-            # Fallback to direct calculation
-            return self.calculate_etf_price(symbol)
+            return None
     
     def get_etf_price(self, symbol: str) -> Optional[float]:
-        """Get current ETF price"""
+        """Get current ETF price from cache"""
         if symbol in self.etfs:
-            etf = self.etfs[symbol]
-            # Return current price if available, otherwise calculate
-            return etf.get("current_price", self.calculate_etf_price(symbol))
+            # Use cached price only - no recalculation
+            return self.get_cached_etf_price(symbol)
         return None
     
     def calculate_price_at_time(self, symbol: str, target_time: datetime = None) -> float:
-        """Calculate stock price at any given time using multi-scale Perlin noise
+        """Calculate stock price at any given time using Perlin noise and AI parameters
         
-        # AIDEV-NOTE: perlin-price-calc; generates hourly prices from AI opening
+        AIDEV-NOTE: pure-perlin-calc; Prices generated from Perlin params only
         This system operates on multiple time scales:
         - Weekly trends (economic report driven)
         - Multi-day trends (economic report driven) 
@@ -1583,37 +1875,44 @@ class StockMarket:
         days_elapsed = time_elapsed / 86400.0  # Days since market open
         weeks_elapsed = time_elapsed / 604800.0  # Weeks since market open
         
-        # FIX 0.2: ALWAYS USE AI OPENING PRICE AS BASE
-        # ALWAYS use AI opening price as base for time calculations
-        if "ai_opening_price" in stock and stock["ai_opening_price"]:
-            opening_price = stock["ai_opening_price"]  # ALWAYS USE AI OPENING
-        elif symbol in self.daily_ranges and "open_price" in self.daily_ranges[symbol]:
-            opening_price = self.daily_ranges[symbol]["open_price"]  # Fallback
-        else:
-            # CRITICAL ERROR - no AI opening price!
-            raise ValueError(f"No AI opening price for {symbol} - daily analysis failed")
+        # Get Perlin parameters for this stock
+        if symbol not in self.stock_perlin_params:
+            # Use defaults if not set
+            self.stock_perlin_params[symbol] = {
+                "trend_strength": 0.5,
+                "trend_direction": 0.0,
+                "volatility": 0.5,
+                "noise_scale": 1.0,
+                "cycle_frequency": 1.0,
+                "sector_correlation": 1.0
+            }
+        
+        params = self.stock_perlin_params[symbol]
+        
+        # Use current stock price as base (or initial price if at market open)
+        base_price = stock.get("price", 100.0)
         
         # Generate seeds for different time scales
         trading_day = self.current_trading_day or target_time.strftime("%Y-%m-%d")
         
         # Economic report seed (weekly trends) - changes only with economic reports
-        economic_seed = hash(symbol + "economic_2024") % 10000
+        economic_seed = self.deterministic_hash(symbol + "economic_2024") % 10000
         
         # Daily seeds for shorter-term movements
-        daily_seed = hash(symbol + trading_day) % 10000
+        daily_seed = self.deterministic_hash(symbol + trading_day) % 10000
         
-        # MULTI-SCALE PERLIN NOISE SYSTEM
+        # MULTI-SCALE PERLIN NOISE SYSTEM with AI-controlled frequencies
         # Scale 1: Weekly macro trends (40% weight) - economic report driven
-        weekly_noise = self.perlin_noise(weeks_elapsed * 2.0, economic_seed)
+        weekly_noise = self.perlin_noise(weeks_elapsed * 2.0 * params["cycle_frequency"], economic_seed)
         
         # Scale 2: Multi-day trends (30% weight) - economic report driven  
-        multiday_noise = self.perlin_noise(days_elapsed * 0.8, economic_seed + 1000)
+        multiday_noise = self.perlin_noise(days_elapsed * 0.8 * params["cycle_frequency"], economic_seed + 1000)
         
         # Scale 3: Daily movements (20% weight) - day specific
-        daily_noise = self.perlin_noise(hours_elapsed * 0.3, daily_seed + 2000)
+        daily_noise = self.perlin_noise(hours_elapsed * 0.3 * params["cycle_frequency"], daily_seed + 2000)
         
         # Scale 4: Intraday fluctuations (10% weight) - day specific
-        intraday_noise = self.perlin_noise(hours_elapsed * 2.0, daily_seed + 3000)
+        intraday_noise = self.perlin_noise(hours_elapsed * 2.0 * params["cycle_frequency"], daily_seed + 3000)
         
         # Combine noise layers with proper weights
         combined_noise = (
@@ -1623,32 +1922,33 @@ class StockMarket:
             intraday_noise * 0.1
         )
         
-        # MUCH LARGER BASE VOLATILITY for realistic movements
-        base_volatility = 0.008 + (self.market_params["volatility"] * 0.035)  # 0.8% to 4.3% base
+        # Apply AI-controlled noise scale
+        combined_noise *= params["noise_scale"]
+        
+        # Use AI-controlled volatility for this specific stock
+        base_volatility = 0.005 + (params["volatility"] * 0.045)  # 0.5% to 5% range
         
         # Get invisible factors
         invisible = self.invisible_factors
         
-        # SIGNIFICANTLY STRONGER TREND COMPONENT
-        # Normal market should do 4-5% monthly = ~1% weekly = ~0.14% daily
-        trend_strength = self.market_params["momentum"] * 0.7 + 0.3  # 0.3 to 1.0
-        trend_component = self.market_params["trend_direction"] * 0.0012 * hours_elapsed * trend_strength
+        # Use AI-controlled trend parameters
+        trend_component = params["trend_direction"] * params["trend_strength"] * 0.0015 * hours_elapsed
         
-        # Long-term economic drift (operates over weeks/months)
-        economic_drift = self.market_params["trend_direction"] * 0.0004 * days_elapsed
+        # Long-term economic drift influenced by market-wide trend and sector correlation
+        economic_drift = self.market_params["trend_direction"] * params["sector_correlation"] * 0.0004 * days_elapsed
         
         # Volatility adjustments (more dramatic)
         liquidity_adj = (2.0 - invisible["liquidity_factor"]) * 0.8  # Increased impact
         risk_adj = (1.0 - invisible["risk_appetite"]) * 0.6  # Increased impact
         volatility_multiplier = base_volatility * (1.0 + liquidity_adj + risk_adj)
         
-        # Market factors with increased impact
-        institutional_component = invisible["institutional_flow"] * 0.003 * abs(combined_noise)  # 3x stronger
-        news_amplifier = 1.0 + (invisible["news_velocity"] * 0.8 * abs(combined_noise))  # Stronger amplification
-        sector_flow = invisible["sector_rotation"] * self._get_sector_rotation_factor(cat_name) * 0.002  # 2.5x stronger
-        sentiment_bias = (self.market_params["market_sentiment"] - 0.5) * 0.006  # 3x stronger
+        # Market factors with increased impact, adjusted by sector correlation
+        institutional_component = invisible["institutional_flow"] * params["sector_correlation"] * 0.003 * abs(combined_noise)
+        news_amplifier = 1.0 + (invisible["news_velocity"] * 0.8 * abs(combined_noise))
+        sector_flow = invisible["sector_rotation"] * self._get_sector_rotation_factor(cat_name) * params["sector_correlation"] * 0.002
+        sentiment_bias = (self.market_params["market_sentiment"] - 0.5) * params["sector_correlation"] * 0.006
         
-        # Calculate total price change with much larger scale
+        # Calculate total price change
         base_change = combined_noise * volatility_multiplier * news_amplifier
         total_change = (
             base_change + 
@@ -1659,90 +1959,102 @@ class StockMarket:
             sentiment_bias
         )
         
-        # Apply change to opening price
-        calculated_price = opening_price * (1 + total_change)
+        # Apply change to base price
+        calculated_price = base_price * (1 + total_change)
         
-        # Wider daily ranges to allow for larger movements
-        if symbol in self.daily_ranges:
-            range_low = self.daily_ranges[symbol]["low"] 
-            range_high = self.daily_ranges[symbol]["high"]
-        else:
-            # Much wider default range based on volatility
-            range_multiplier = 0.05 + (self.market_params["volatility"] * 0.15)  # 5% to 20% daily range
-            range_low = opening_price * (1 - range_multiplier)
-            range_high = opening_price * (1 + range_multiplier)
+        # AIDEV-NOTE: extreme-price-protection; Repurposed softcap for extreme movements only
+        # Extreme price protection (only for >50% daily moves)
+        extreme_threshold = 0.5  # 50% daily move threshold
+        price_change_ratio = abs(calculated_price - base_price) / base_price
         
-        # SOFTCAP SYSTEM: Progressive resistance instead of hard clamping
-        # Allows prices to move beyond AI ranges but with increasing resistance
-        if self.softcap_config["enabled"]:
-            softcap_steepness = self.softcap_config["steepness"]
-            max_resistance = self.softcap_config["max_resistance"]
-        
-            if calculated_price < range_low:
-                # Price is below the AI range
-                distance_ratio = (range_low - calculated_price) / range_low
-                # Exponential resistance: starts gentle, increases rapidly
-                resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
-                # Apply resistance: pull price back towards range boundary
-                calculated_price = range_low - (range_low - calculated_price) * resistance_factor
-            elif calculated_price > range_high:
-                # Price is above the AI range
-                distance_ratio = (calculated_price - range_high) / range_high
-                # Exponential resistance: starts gentle, increases rapidly  
-                resistance_factor = 1 - (1 - math.exp(-softcap_steepness * distance_ratio)) * max_resistance
-                # Apply resistance: pull price back towards range boundary
-                calculated_price = range_high + (calculated_price - range_high) * resistance_factor
-        else:
-            # Fallback to old hard clamping if softcaps disabled
-            if calculated_price < range_low:
-                overshoot = (range_low - calculated_price) / range_low
-                if overshoot > 0.02:
-                    calculated_price = range_low * (1 - 0.02)
-            elif calculated_price > range_high:
-                overshoot = (calculated_price - range_high) / range_high
-                if overshoot > 0.02:
-                    calculated_price = range_high * (1 + 0.02)
+        if price_change_ratio > extreme_threshold:
+            # Apply progressive resistance for extreme movements
+            excess_ratio = (price_change_ratio - extreme_threshold) / extreme_threshold
+            resistance = 1 - math.exp(-excess_ratio * 5)  # Exponential resistance
+            
+            # Pull price back towards threshold
+            if calculated_price > base_price:
+                max_price = base_price * (1 + extreme_threshold)
+                calculated_price = max_price + (calculated_price - max_price) * (1 - resistance)
+            else:
+                min_price = base_price * (1 - extreme_threshold)
+                calculated_price = min_price - (min_price - calculated_price) * (1 - resistance)
         
         # Final safety check
         calculated_price = max(calculated_price, 0.01)
         
         return calculated_price
     
-    def get_stock_price(self, symbol: str) -> Optional[float]:
-        """Get current price for a stock using on-demand calculation
+    def get_current_price(self, symbol: str) -> Optional[float]:
+        """Get price from nearest 5-minute interval cache
         
-        When any stock price is fetched, update ALL stock current prices
-        to ensure consistency across the market.
+        AIDEV-NOTE: Primary price getter - uses 5min cache for deterministic prices
         """
         try:
-            # Update all stock prices to current time
-            current_time = datetime.now(timezone.utc)
-            for category_name, category_data in self.categories.items():
-                for stock in category_data["stocks"]:
-                    try:
-                        stock["current_price"] = self.calculate_price_at_time(stock["symbol"], current_time)
-                    except:
-                        # Keep existing price if calculation fails
-                        pass
+            # Ensure market_open_time is set
+            if self.market_open_time is None:
+                print(f"⚠️ Market open time not set, cannot get current price for {symbol}")
+                return None
             
-            # Update ETF prices too (but not during initialization or ETF calculation to prevent infinite loop)
-            if (hasattr(self, 'etfs') and 
-                not getattr(self, '_initializing', False) and 
-                not getattr(self, '_calculating_etf_prices', False)):
-                self._calculating_etf_prices = True
-                try:
-                    for etf_symbol in self.etfs:
-                        try:
-                            self.etfs[etf_symbol]["current_price"] = self.calculate_etf_price(etf_symbol, current_time)
-                        except:
-                            pass
-                finally:
-                    self._calculating_etf_prices = False
+            # Calculate current minute offset from market open
+            time_elapsed = (datetime.now(timezone.utc) - self.market_open_time).total_seconds()
+            minute_offset = int(time_elapsed / 60)
             
-            # Return the requested stock's price
-            return self.calculate_price_at_time(symbol, current_time)
-        except ValueError:
+            # Handle negative offsets (before market open)
+            if minute_offset < 0:
+                minute_offset = 0
+            
+            # Round to nearest 5-minute interval
+            nearest_5min = (minute_offset // 5) * 5
+            
+            # Cap at 23:55 (1435 minutes)
+            if nearest_5min > 1435:
+                nearest_5min = 1435
+            
+            # Check stock cache first
+            if symbol in self.stock_price_cache_5min:
+                if nearest_5min in self.stock_price_cache_5min[symbol]:
+                    return self.stock_price_cache_5min[symbol][nearest_5min]
+                # If exact interval not found, try offset 0
+                elif 0 in self.stock_price_cache_5min[symbol]:
+                    return self.stock_price_cache_5min[symbol][0]
+            
+            # Check ETF cache
+            if symbol in self.etf_price_cache_5min:
+                if nearest_5min in self.etf_price_cache_5min[symbol]:
+                    return self.etf_price_cache_5min[symbol][nearest_5min]
+                # If exact interval not found, try offset 0
+                elif 0 in self.etf_price_cache_5min[symbol]:
+                    return self.etf_price_cache_5min[symbol][0]
+            
+            # Fallback to base price
+            return self._get_base_price(symbol)
+            
+        except Exception as e:
+            print(f"❌ Error getting current price for {symbol}: {e}")
             return None
+    
+    def _get_base_price(self, symbol: str) -> Optional[float]:
+        """Get base price for a symbol from categories or ETFs"""
+        # Check stocks
+        for category_data in self.categories.values():
+            for stock in category_data["stocks"]:
+                if stock["symbol"] == symbol:
+                    return stock.get("current_price", stock.get("price", 100.0))
+        
+        # Check ETFs
+        if hasattr(self, 'etfs') and symbol in self.etfs:
+            return self.etfs[symbol].get("current_price", self.etfs[symbol].get("price", 100.0))
+        
+        return None
+    
+    def get_stock_price(self, symbol: str) -> Optional[float]:
+        """Get current price for a stock from cache
+        
+        DEPRECATED: Use get_current_price() instead for 5-minute interval caching
+        AIDEV-NOTE: legacy-compat; redirects to get_current_price
+        """
+        return self.get_current_price(symbol)
     
     
     def generate_hourly_prices(self, trading_day: str) -> Dict[str, List[float]]:
@@ -1779,7 +2091,7 @@ class StockMarket:
                 prices = [opening_price]  # Start with AI-set opening price
                 
                 # Use multiple noise seeds for complex layered movement
-                base_seed = hash(symbol + trading_day) % 10000
+                base_seed = self.deterministic_hash(symbol + trading_day) % 10000
                 trend_seed = (base_seed + 1000) % 10000
                 micro_seed = (base_seed + 2000) % 10000
                 
@@ -2083,19 +2395,22 @@ class StockMarket:
     def _create_market_analysis_schema(self) -> Dict[str, Any]:
         """Create JSON schema for structured market analysis output"""
         
-        # Create schema for all individual stocks
-        stock_price_properties = {}
+        # AIDEV-NOTE: perlin-schema; AI sets Perlin parameters, not prices
+        # Create schema for per-stock Perlin parameters
+        stock_perlin_properties = {}
         for cat_name, cat_data in self.categories.items():
             for stock in cat_data["stocks"]:
-                stock_price_properties[stock["symbol"]] = {
+                stock_perlin_properties[stock["symbol"]] = {
                     "type": "object",
                     "properties": {
-                        "open_price": {"type": "number"},
-                        "range_low": {"type": "number"},
-                        "range_high": {"type": "number"},
-                        "sector_factor": {"type": "number"}
+                        "trend_strength": {"type": "number"},      # 0-1
+                        "trend_direction": {"type": "number"},     # -1 to 1
+                        "volatility": {"type": "number"},          # 0-1
+                        "noise_scale": {"type": "number"},         # 0.5-2.0
+                        "cycle_frequency": {"type": "number"},     # 0.5-2.0
+                        "sector_correlation": {"type": "number"}   # 0-1
                     },
-                    "required": ["open_price", "range_low", "range_high", "sector_factor"]
+                    "required": ["trend_strength", "trend_direction", "volatility", "noise_scale", "cycle_frequency", "sector_correlation"]
                 }
         
         # Create schema for sector outlook
@@ -2138,10 +2453,10 @@ class StockMarket:
                     },
                     "required": ["institutional_flow", "liquidity_factor", "news_velocity", "sector_rotation", "risk_appetite"]
                 },
-                "daily_stock_prices": {
+                "perlin_parameters": {
                     "type": "object",
-                    "properties": stock_price_properties,
-                    "required": list(stock_price_properties.keys())
+                    "properties": stock_perlin_properties,
+                    "required": list(stock_perlin_properties.keys())
                 },
                 "sector_outlook": {
                     "type": "object",
@@ -2149,7 +2464,7 @@ class StockMarket:
                     "required": list(sector_outlook_properties.keys())
                 }
             },
-            "required": ["reasoning", "parameters", "invisible_factors", "daily_stock_prices", "sector_outlook"]
+            "required": ["reasoning", "parameters", "invisible_factors", "perlin_parameters", "sector_outlook"]
         }
         
         return schema
@@ -2240,17 +2555,26 @@ Total messages analyzed: {len(messages)}
         
         prompt += f"""
 
-**STOCK UNIVERSE (all must have prices set):**
+**STOCK UNIVERSE (all stocks need Perlin parameters):**
 {', '.join([f"{stock['symbol']}" for cat_data in self.categories.values() for stock in cat_data['stocks']])}
 
+**PERLIN PARAMETER GUIDELINES:**
+For each stock, set the following parameters based on sector, economic data, and Discord activity:
+- trend_strength (0-1): How strongly the stock follows its trend. 0=random walk, 1=strong trend
+- trend_direction (-1 to 1): -1=bearish, 0=neutral, 1=bullish. Based on sector outlook and specific news
+- volatility (0-1): Individual stock volatility. Tech stocks typically 0.6-0.9, utilities 0.2-0.4
+- noise_scale (0.5-2.0): Amplitude of price movements. 1.0=normal, 2.0=double amplitude
+- cycle_frequency (0.5-2.0): How fast the stock cycles. 1.0=normal, 2.0=twice as fast
+- sector_correlation (0-1): How closely it follows its sector. 1.0=perfect correlation
+
 **ANALYSIS REQUIREMENTS:**
-1. Set market parameters based on economic indicators and Discord activity
-2. Provide specific opening prices and daily ranges for ALL 24 stocks
+1. Set market-wide parameters based on economic indicators and Discord activity
+2. Set Perlin parameters for ALL 24 stocks (NO PRICES - just trend/volatility parameters)
 3. Set invisible market factors (institutional flow, liquidity, etc.)
 4. Give sector-specific outlooks for all 8 sectors
 5. Provide detailed reasoning for all decisions
 
-**OUTPUT FORMAT:** The response will be automatically formatted as JSON matching the required schema. Focus on providing accurate analysis based on the economic data and Discord activity."""
+**OUTPUT FORMAT:** The response will be automatically formatted as JSON matching the required schema. Focus on setting realistic trend and volatility parameters based on the economic data and Discord activity."""
         
         return prompt
     
@@ -2301,30 +2625,30 @@ Total messages analyzed: {len(messages)}
                 }
                 log_to_file(f"Applied invisible factors: {json.dumps(self.invisible_factors, indent=2)}")
             
-            # FIX 1.2: ENSURE STOCK PRICES ARE ALWAYS APPLIED
-            # CRITICAL: Daily stock prices are REQUIRED
-            if "daily_stock_prices" not in analysis:
-                log_to_file("❌ CRITICAL: No daily stock prices provided by AI")
-                raise ValueError("AI analysis must provide daily_stock_prices for all stocks")
+            # AIDEV-NOTE: perlin-params-required; AI must provide Perlin parameters
+            # CRITICAL: Perlin parameters are REQUIRED
+            if "perlin_parameters" not in analysis:
+                log_to_file("❌ CRITICAL: No perlin_parameters provided by AI")
+                raise ValueError("AI analysis must provide perlin_parameters for all stocks")
             
-            # Validate all stocks have prices
+            # Validate all stocks have parameters
             required_symbols = {stock["symbol"] for cat in self.categories.values() for stock in cat["stocks"]}
-            provided_symbols = set(analysis["daily_stock_prices"].keys())
+            provided_symbols = set(analysis["perlin_parameters"].keys())
             missing_symbols = required_symbols - provided_symbols
             
             if missing_symbols:
-                log_to_file(f"❌ CRITICAL: Missing prices for stocks: {missing_symbols}")
-                raise ValueError(f"AI must provide prices for all stocks. Missing: {missing_symbols}")
+                log_to_file(f"❌ CRITICAL: Missing Perlin parameters for stocks: {missing_symbols}")
+                raise ValueError(f"AI must provide Perlin parameters for all stocks. Missing: {missing_symbols}")
             
-            # Validate price data structure
-            for symbol, price_data in analysis["daily_stock_prices"].items():
-                required_fields = ["open_price", "range_low", "range_high", "sector_factor"]
-                missing_fields = [field for field in required_fields if field not in price_data]
+            # Validate Perlin parameter structure
+            for symbol, param_data in analysis["perlin_parameters"].items():
+                required_fields = ["trend_strength", "trend_direction", "volatility", "noise_scale", "cycle_frequency", "sector_correlation"]
+                missing_fields = [field for field in required_fields if field not in param_data]
                 if missing_fields:
-                    raise ValueError(f"Stock {symbol} missing required fields: {missing_fields}")
+                    raise ValueError(f"Stock {symbol} missing required Perlin fields: {missing_fields}")
             
-            log_to_file(f"✅ Validated prices for {len(provided_symbols)} stocks")
-            self._apply_ai_stock_prices(analysis["daily_stock_prices"])
+            log_to_file(f"✅ Validated Perlin parameters for {len(provided_symbols)} stocks")
+            self._apply_ai_perlin_parameters(analysis["perlin_parameters"])
             
             log_to_file("✅ Structured analysis applied successfully")
             return analysis
@@ -2392,12 +2716,12 @@ Total messages analyzed: {len(messages)}
                         "risk_appetite": 0.5
                     }
                 
-                # Apply daily stock prices if provided
-                if "daily_stock_prices" in analysis:
-                    self._apply_ai_stock_prices(analysis["daily_stock_prices"])
-                    print("✅ AI-provided daily stock prices applied")
+                # Apply Perlin parameters if provided
+                if "perlin_parameters" in analysis:
+                    self._apply_ai_perlin_parameters(analysis["perlin_parameters"])
+                    print("✅ AI-provided Perlin parameters applied")
                 else:
-                    print("⚠️ No daily stock prices in AI response, using current prices")
+                    print("⚠️ No Perlin parameters in AI response, using defaults")
                 
                 print("✅ AI market analysis parsed successfully")
                 return analysis
@@ -2408,90 +2732,64 @@ Total messages analyzed: {len(messages)}
             print(f"❌ Error parsing AI analysis: {e}")
             raise Exception(f"Failed to parse AI analysis: {e}")
     
-    def _apply_ai_stock_prices(self, daily_prices: Dict[str, Dict[str, float]]) -> None:
-        """Apply AI-provided daily stock prices and ranges"""
-        print("🔄 Applying AI-provided daily stock prices...")
+    def _apply_ai_perlin_parameters(self, perlin_params: Dict[str, Dict[str, float]]) -> None:
+        """Apply AI-provided Perlin parameters for stock behavior"""
+        print("🔄 Applying AI-provided Perlin parameters...")
         
-        # AIDEV-NOTE: price-validation; prevent AI stagnation or erratic swings
-        import random
-        
-        # Clear daily ranges for new trading day
-        self.daily_ranges = {}
+        # AIDEV-NOTE: perlin-param-application; AI controls trends and volatility
+        # Clear any existing parameters
+        self.stock_perlin_params = {}
         
         for cat_name, cat_data in self.categories.items():
             for stock in cat_data["stocks"]:
                 symbol = stock["symbol"]
-                if symbol in daily_prices:
-                    price_data = daily_prices[symbol]
+                if symbol in perlin_params:
+                    param_data = perlin_params[symbol]
                     
-                    # AIDEV-NOTE: price-sent-to-ai; stock["price"] is what AI received as current
-                    previous_price_sent_to_ai = stock["price"]  # This is what the AI saw
+                    # Validate and clamp parameters to valid ranges
+                    trend_strength = max(0.0, min(1.0, float(param_data.get("trend_strength", 0.5))))
+                    trend_direction = max(-1.0, min(1.0, float(param_data.get("trend_direction", 0.0))))
+                    volatility = max(0.0, min(1.0, float(param_data.get("volatility", 0.5))))
+                    noise_scale = max(0.5, min(2.0, float(param_data.get("noise_scale", 1.0))))
+                    cycle_frequency = max(0.5, min(2.0, float(param_data.get("cycle_frequency", 1.0))))
+                    sector_correlation = max(0.0, min(1.0, float(param_data.get("sector_correlation", 1.0))))
                     
-                    # Validate price data
-                    open_price = max(0.1, price_data.get("open_price", stock["price"]))
-                    range_low = max(0.1, price_data.get("range_low", open_price * 0.95))
-                    range_high = max(range_low + 0.1, price_data.get("range_high", open_price * 1.05))
-                    sector_factor = max(0.1, min(3.0, price_data.get("sector_factor", 1.0)))
-                    
-                    # AIDEV-NOTE: stagnant-price-check; detect if AI returns same price
-                    # Check for stagnant price (AI returns exact same price as previous)
-                    is_stagnant = abs(open_price - previous_price_sent_to_ai) < 0.01
-                    
-                    # AIDEV-NOTE: erratic-price-check; detect >20% price swings from AI
-                    # Check for erratic price (more than 20% different from previous)
-                    price_change_pct = abs((open_price - previous_price_sent_to_ai) / previous_price_sent_to_ai)
-                    is_erratic = price_change_pct > 0.20
-                    
-                    if is_stagnant or is_erratic:
-                        # AIDEV-NOTE: price-adjustment; random $1 up/down from current hourly
-                        # Apply random $1 adjustment from most recent hourly price
-                        adjustment = random.choice([-1.0, 1.0])
-                        # Use the current price (which is the most recent hourly update)
-                        open_price = max(0.1, stock["price"] + adjustment)
-                        
-                        print(f"⚠️ {symbol}: AI price {'stagnant' if is_stagnant else 'erratic'} "
-                              f"(was ${previous_price_sent_to_ai:.2f}, AI said ${price_data.get('open_price', 0):.2f}) "
-                              f"→ adjusted to ${open_price:.2f}")
-                        
-                        # Recalculate ranges based on adjusted price
-                        range_low = max(0.1, open_price * 0.95)
-                        range_high = open_price * 1.05
-                    
-                    # Ensure range is valid
-                    if range_low > open_price:
-                        range_low = open_price * 0.95
-                    if range_high < open_price:
-                        range_high = open_price * 1.05
-                    
-                    # FIX 0.1: NEVER OVERWRITE AI OPENING PRICES
-                    # Store AI opening price in separate field that never changes
-                    stock["ai_opening_price"] = open_price  # PRESERVE AI OPENING (NEVER CHANGES)
-                    stock["price"] = open_price             # THE ONE TRUE PRICE FIELD
-                    stock["daily_range_low"] = range_low
-                    stock["daily_range_high"] = range_high
-                    stock["sector_factor"] = sector_factor
-                    
-                    # Store in daily_ranges for on-demand calculation
-                    self.daily_ranges[symbol] = {
-                        "low": range_low,
-                        "high": range_high,
-                        "sector_factor": sector_factor,
-                        "open_price": open_price  # Store AI-provided opening price
+                    # Store parameters for this stock
+                    self.stock_perlin_params[symbol] = {
+                        "trend_strength": trend_strength,
+                        "trend_direction": trend_direction,
+                        "volatility": volatility,
+                        "noise_scale": noise_scale,
+                        "cycle_frequency": cycle_frequency,
+                        "sector_correlation": sector_correlation
                     }
                     
-                    print(f"📊 {symbol}: ${open_price:.2f} (${range_low:.2f}-${range_high:.2f}, factor: {sector_factor:.1f})")
+                    # Remove deprecated fields from stock
+                    if "ai_opening_price" in stock:
+                        del stock["ai_opening_price"]
+                    if "daily_range_low" in stock:
+                        del stock["daily_range_low"]
+                    if "daily_range_high" in stock:
+                        del stock["daily_range_high"]
+                    
+                    print(f"📊 {symbol}: trend={trend_direction:+.2f} (str={trend_strength:.2f}), "
+                          f"vol={volatility:.2f}, scale={noise_scale:.2f}, freq={cycle_frequency:.2f}")
                 else:
-                    # No AI price provided, set default range
-                    stock["daily_range_low"] = stock["price"] * 0.97
-                    stock["daily_range_high"] = stock["price"] * 1.03
-                    stock["sector_factor"] = 1.0
-                    
-                    # Store in daily_ranges
-                    self.daily_ranges[symbol] = {
-                        "low": stock["daily_range_low"],
-                        "high": stock["daily_range_high"],
-                        "sector_factor": 1.0
+                    # No parameters provided, use defaults
+                    self.stock_perlin_params[symbol] = {
+                        "trend_strength": 0.5,
+                        "trend_direction": 0.0,
+                        "volatility": 0.5,
+                        "noise_scale": 1.0,
+                        "cycle_frequency": 1.0,
+                        "sector_correlation": 1.0
                     }
+                    print(f"⚠️ {symbol}: Using default Perlin parameters")
+        
+        print(f"✅ Applied Perlin parameters for {len(self.stock_perlin_params)} stocks")
+    
+    # REMOVED: correct_out_of_range_prices
+    # No longer needed - Perlin system doesn't use daily ranges
     
     # REMOVED: get_fallback_analysis
     # Per CLAUDE.md principles: "NEVER fall back to fake, random, or artificially generated data"
@@ -2918,12 +3216,8 @@ Provide your enhanced analysis now:"""
                 symbol = stock["symbol"]
                 old_price = stock["price"]
                 
-                # FIX 0.1: Calculate new price but preserve AI opening
-                # Ensure AI opening price exists
-                if "ai_opening_price" not in stock:
-                    raise ValueError(f"Stock {symbol} missing AI opening price - daily analysis failed")
-                
-                # Calculate new price on-demand
+                # AIDEV-NOTE: pure-perlin-update; No AI opening price needed
+                # Calculate new price on-demand using Perlin parameters
                 new_price = self.calculate_price_at_time(symbol)
                 
                 # Update the ONE TRUE price field
@@ -2942,7 +3236,9 @@ Provide your enhanced analysis now:"""
         # Update ETF prices
         etf_prices = {}
         for etf_symbol in self.etfs.keys():
-            etf_prices[etf_symbol] = self.calculate_etf_price(etf_symbol)
+            # Use cached price to prevent recursion
+            cached_price = self.get_cached_etf_price(etf_symbol)
+            etf_prices[etf_symbol] = cached_price if cached_price is not None else self.etfs[etf_symbol].get("price", 100.0)
             self.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
         
         # Save updated market data
@@ -3018,6 +3314,57 @@ Provide your enhanced analysis now:"""
             
         except Exception as e:
             print(f"❌ Error generating chart for {symbol}: {e}")
+            return None
+    
+    def generate_stock_chart_from_history(self, symbol: str, hours_back: int = 48) -> Optional[bytes]:
+        """Generate chart from SAVED historical data only
+        
+        AIDEV-NOTE: chart-from-history; reads actual prices from stock_history.json
+        """
+        try:
+            # Read historical data
+            history_file = self.data_dir / "stock_history.json"
+            if not history_file.exists():
+                print(f"⚠️ No historical data file found")
+                return None
+            
+            with open(history_file, 'r') as f:
+                history = json.load(f)
+            
+            if not history:
+                print(f"⚠️ Historical data is empty")
+                return None
+            
+            # Extract prices for requested symbol
+            prices = []
+            timestamps = []
+            
+            # Get last N hourly snapshots (history is saved hourly)
+            for entry in history[-hours_back:]:
+                data = entry.get("data", {})
+                timestamp_str = entry.get("timestamp", "")
+                
+                # Check individual stocks first
+                if symbol in data.get("individual_stocks", {}):
+                    prices.append(data["individual_stocks"][symbol])
+                    timestamps.append(timestamp_str)
+                # Then check ETF prices
+                elif symbol in data.get("etf_prices", {}):
+                    prices.append(data["etf_prices"][symbol])
+                    timestamps.append(timestamp_str)
+            
+            if len(prices) < 2:
+                print(f"⚠️ Not enough historical data for {symbol} (found {len(prices)} points)")
+                return None
+            
+            # Generate chart from actual historical prices
+            print(f"📊 Generating chart for {symbol} with {len(prices)} historical data points")
+            return self.generate_stock_chart(symbol, prices)
+            
+        except Exception as e:
+            print(f"❌ Error generating historical chart for {symbol}: {e}")
+            import traceback
+            traceback.print_exc()
             return None
     
     def generate_stock_chart_on_demand(self, symbol: str, hours_back: int = 48) -> Optional[bytes]:
@@ -3177,7 +3524,8 @@ class StockMarketScheduler:
     def is_trading_hours(self) -> bool:
         """Check if currently in trading hours (9 AM - 5 PM ET)"""
         et_now = self.get_et_now()
-        return 9 <= et_now.hour < 17  # 9 AM to 4:59 PM
+        # return 9 <= et_now.hour < 17  # 9 AM to 4:59 PM (Commented out - Trading is 24/7)
+        return True
     
     def get_trading_day_id(self) -> str:
         """Get current trading day identifier"""
@@ -3224,9 +3572,8 @@ class StockMarketScheduler:
             # Update market parameters
             self.stock_market.market_params = analysis.get("parameters", self.stock_market.market_params)
             
-            # Generate hourly prices for current day
-            hourly_prices = self.stock_market.generate_hourly_prices(trading_day)
-            self.stock_market.precomputed_prices = hourly_prices
+            # Precompute all prices for 5-minute intervals
+            self.stock_market.precompute_all_prices()
             
             # Set trading day state
             self.stock_market.is_trading_day = True
@@ -3402,11 +3749,13 @@ class StockMarketScheduler:
                     break
     
     async def update_prices_on_demand(self):
-        """Update stock prices using on-demand calculation"""
+        """Post hourly update using ONLY cached prices from 5-minute intervals
+        
+        AIDEV-NOTE: hourly-cache-update; pulls from precomputed 5min cache only
+        """
         et_now = self.get_et_now()
         
         # Ensure market open time is set and from today
-        # AIDEV-NOTE: stale-time-reset; force re-init if market_open_time is stale
         if not self.stock_market.market_open_time:
             print("⚠️ Market open time not set, initializing...")
             success = await self.force_daily_initialization()
@@ -3431,68 +3780,95 @@ class StockMarketScheduler:
                     print("❌ Could not reinitialize market, skipping update")
                     return
         
-        print(f"📊 Calculating stock prices on-demand at {et_now.strftime('%I:%M %p ET')} [24/7 Trading]")
+        print(f"📊 Posting hourly update at {et_now.strftime('%I:%M %p ET')} [24/7 Trading]")
         
-        # Update all stock prices using on-demand calculation
+        # Calculate exact hour offset and corresponding minute offset
+        time_elapsed = (et_now - self.stock_market.market_open_time).total_seconds()
+        hour_offset = int(time_elapsed / 3600)
+        minute_offset = hour_offset * 60  # Exact hour mark
+        
+        # Ensure we're within bounds
+        if minute_offset < 0:
+            minute_offset = 0
+        elif minute_offset > 1435:
+            minute_offset = 1435
+        
+        # Get prices from cache for this exact hour
         price_updates = {}
         
         for cat_data in self.stock_market.categories.values():
             for stock in cat_data["stocks"]:
                 symbol = stock["symbol"]
-                old_price = stock["price"]
+                old_price = stock.get("price", stock.get("ai_opening_price", 100.0))
                 
-                # FIX 0.1: Calculate new price but preserve AI opening
                 try:
-                    # Ensure AI opening price exists
-                    if "ai_opening_price" not in stock:
-                        raise ValueError(f"Stock {symbol} missing AI opening price - daily analysis failed")
+                    # Get price from 5-minute cache at exact hour offset
+                    if symbol in self.stock_market.stock_price_cache_5min:
+                        if minute_offset in self.stock_market.stock_price_cache_5min[symbol]:
+                            new_price = self.stock_market.stock_price_cache_5min[symbol][minute_offset]
+                        else:
+                            # Fallback to nearest 5-minute interval
+                            nearest_5min = (minute_offset // 5) * 5
+                            new_price = self.stock_market.stock_price_cache_5min[symbol].get(nearest_5min, old_price)
+                    else:
+                        print(f"⚠️ No cached prices for {symbol}")
+                        new_price = old_price
                     
-                    old_price = stock.get("price", stock["ai_opening_price"])
-                    new_price = self.stock_market.calculate_price_at_time(symbol, et_now)
-                    
-                    # Update the ONE TRUE price field
+                    # Update the price field
                     stock["price"] = new_price
-                    # CRITICAL: ai_opening_price is NEVER modified after being set by AI
                     
                     price_updates[symbol] = {
                         "old_price": old_price,
                         "new_price": new_price,
                         "change": new_price - old_price,
-                        "change_pct": ((new_price - old_price) / old_price) * 100
+                        "change_pct": ((new_price - old_price) / old_price) * 100 if old_price > 0 else 0
                     }
                 except Exception as e:
-                    print(f"⚠️ Error calculating price for {symbol}: {e}")
+                    print(f"⚠️ Error getting cached price for {symbol}: {e}")
         
-        # Calculate category prices
+        # Calculate category prices from cached stock prices
         category_prices = self.stock_market.calculate_category_prices()
         
-        # Update ETF prices
+        # Get ETF prices from cache
         etf_prices = {}
         for etf_symbol in self.stock_market.etfs.keys():
-            etf_prices[etf_symbol] = self.stock_market.calculate_etf_price(etf_symbol)
-            self.stock_market.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
+            try:
+                if etf_symbol in self.stock_market.etf_price_cache_5min:
+                    if minute_offset in self.stock_market.etf_price_cache_5min[etf_symbol]:
+                        etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol][minute_offset]
+                    else:
+                        # Fallback to nearest 5-minute interval
+                        nearest_5min = (minute_offset // 5) * 5
+                        etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol].get(
+                            nearest_5min, 
+                            self.stock_market.etfs[etf_symbol].get("price", 100.0)
+                        )
+                else:
+                    etf_prices[etf_symbol] = self.stock_market.etfs[etf_symbol].get("price", 100.0)
+                
+                # Update ETF current_price
+                self.stock_market.etfs[etf_symbol]["current_price"] = etf_prices[etf_symbol]
+                
+            except Exception as e:
+                print(f"⚠️ Error getting cached ETF price for {etf_symbol}: {e}")
         
-        # Save historical data
+        # Save historical snapshot
         timestamp = datetime.now(timezone.utc).isoformat()
-        
-        # Calculate hour index for display purposes
-        # AIDEV-NOTE: hour-index-cap; ensure hour index is always 0-23 for daily display
-        time_elapsed = (et_now - self.stock_market.market_open_time).total_seconds()
-        raw_hour_index = int(time_elapsed / 3600)
-        
-        # Cap at 0-23 range for display (market_open_time should be from today)
-        hour_index = max(0, raw_hour_index) % 24
+        hour_index = max(0, hour_offset) % 24  # Cap at 0-23 for display
         
         historical_data = {
-            "individual_stocks": {symbol: stock["price"] for cat in self.stock_market.categories.values() 
-                                for stock in cat["stocks"] for symbol in [stock["symbol"]]},
+            "individual_stocks": {symbol: price_updates[symbol]["new_price"] 
+                                for symbol in price_updates},
             "category_prices": category_prices,
             "etf_prices": etf_prices,
             "market_params": self.stock_market.market_params,
             "trading_hour": hour_index,
+            "hour_offset": hour_offset,
+            "minute_offset": minute_offset,
             "update_rate_minutes": self.stock_market.price_update_rate_minutes
         }
         
+        # Save to history file
         self.stock_market.save_historical_data(timestamp, historical_data)
         self.stock_market.save_market_data()
         

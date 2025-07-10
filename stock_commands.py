@@ -638,29 +638,30 @@ async def stocks_history(interaction: discord.Interaction, days_back: int = 7, s
             # Convert days to hours
             hours_back = days_back * 24
             
-            # Generate chart using on-demand calculation
-            chart_bytes = stock_market.generate_stock_chart_on_demand(symbol, hours_back=hours_back)
+            # Generate chart from historical data
+            chart_bytes = stock_market.generate_stock_chart_from_history(symbol, hours_back=hours_back)
             
-            # Calculate prices for statistics
-            current_time = datetime.now(timezone.utc)
+            # Get prices from historical data for statistics
+            history_file = stock_market.data_dir / "stock_history.json"
             prices = []
             
-            # Calculate prices at regular intervals for statistics
-            interval_minutes = stock_market.price_update_rate_minutes
-            total_minutes = hours_back * 60
+            if history_file.exists():
+                with open(history_file, 'r') as f:
+                    history = json.load(f)
+                
+                # Extract prices from history for this symbol
+                for entry in history[-hours_back:]:
+                    data = entry.get("data", {})
+                    if symbol in data.get("individual_stocks", {}):
+                        prices.append(data["individual_stocks"][symbol])
+                    elif symbol in data.get("etf_prices", {}):
+                        prices.append(data["etf_prices"][symbol])
             
-            for i in range(0, total_minutes, interval_minutes):
-                time_offset = timedelta(minutes=i)
-                price_time = current_time - timedelta(hours=hours_back) + time_offset
-                try:
-                    if is_etf:
-                        price = stock_market.calculate_etf_price(symbol, price_time)
-                    else:
-                        price = stock_market.calculate_price_at_time(symbol, price_time)
-                    prices.append(price)
-                except Exception as e:
-                    print(f"Error calculating price: {e}")
-                    continue
+            # If no historical data, use current price as fallback
+            if not prices:
+                current_price = stock_market.get_current_price(symbol)
+                if current_price:
+                    prices = [current_price]
             
             if len(prices) < 2:
                 embed = discord.Embed(
@@ -1529,8 +1530,8 @@ async def stocks_price(interaction: discord.Interaction, symbol: str):
         timestamp=datetime.now(timezone.utc)
     )
     
-    # Get current price using on-demand calculation
-    current_price = stock_market.get_stock_price(symbol)
+    # Get current price from cache
+    current_price = stock_market.get_current_price(symbol)
     if current_price is None:
         current_price = target_stock['price']  # Fallback to stored price
     
@@ -1672,37 +1673,32 @@ async def stocks_history_48h(interaction: discord.Interaction, symbol: str):
         await interaction.followup.send(f"❌ Stock/ETF '{symbol}' not found")
         return
     
-    # Generate 48-hour price history using on-demand calculation
+    # Generate 48-hour price history from historical data
     try:
-        # Generate chart using on-demand calculation
-        chart_bytes = stock_market.generate_stock_chart_on_demand(symbol, hours_back=48)
+        # Generate chart from historical data
+        chart_bytes = stock_market.generate_stock_chart_from_history(symbol, hours_back=48)
         
-        # Calculate prices for statistics
-        current_time = datetime.now(timezone.utc)
+        # Get prices from historical data for statistics
+        history_file = stock_market.data_dir / "stock_history.json"
         prices = []
         
-        # Calculate prices at regular intervals for statistics
-        interval_minutes = stock_market.price_update_rate_minutes
+        if history_file.exists():
+            with open(history_file, 'r') as f:
+                history = json.load(f)
+            
+            # Extract prices from last 48 hours of history
+            for entry in history[-48:]:  # Last 48 hourly entries
+                data = entry.get("data", {})
+                if symbol in data.get("individual_stocks", {}):
+                    prices.append(data["individual_stocks"][symbol])
+                elif symbol in data.get("etf_prices", {}):
+                    prices.append(data["etf_prices"][symbol])
         
-        for i in range(0, 48 * 60, interval_minutes):
-            time_offset = timedelta(minutes=i)
-            price_time = current_time - timedelta(hours=48) + time_offset
-            try:
-                price = stock_market.calculate_price_at_time(symbol, price_time)
-                prices.append(price)
-            except Exception as e:
-                print(f"Error calculating price: {e}")
-                continue
-        
-        if len(prices) < 2:
-            # Fallback to historical data if available
-            historical_data = stock_market.get_historical_data(days_back=2)
-            if historical_data:
-                prices = []
-                for entry in historical_data:
-                    if 'data' in entry and 'individual_stocks' in entry['data']:
-                        if symbol in entry['data']['individual_stocks']:
-                            prices.append(entry['data']['individual_stocks'][symbol])
+        # If no historical data, use current price as fallback
+        if not prices:
+            current_price = stock_market.get_current_price(symbol)
+            if current_price:
+                prices = [current_price]
         
         if len(prices) < 2:
             embed = discord.Embed(
@@ -3195,7 +3191,7 @@ async def stocks_daily_init(interaction: discord.Interaction):
             sample_text = ""
             for symbol in sample_symbols:
                 try:
-                    current_price = stock_market.get_stock_price(symbol)
+                    current_price = stock_market.get_current_price(symbol)
                     if current_price:
                         sample_text += f"**{symbol}**: ${current_price:.2f}\n"
                 except Exception as e:

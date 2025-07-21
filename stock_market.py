@@ -4176,6 +4176,11 @@ class StockMarketScheduler:
         elif minute_offset > 1435:
             minute_offset = 1435
         
+        # Round to nearest 5-minute interval for cache lookup
+        cache_minute_offset = (minute_offset // 5) * 5
+        
+        print(f"🕐 Update timing: {hour_offset}h since market open (minute offset: {minute_offset}, cache offset: {cache_minute_offset})")
+        
         # Get prices from cache for this exact hour
         price_updates = {}
         
@@ -4242,15 +4247,6 @@ class StockMarketScheduler:
                 
             except Exception as e:
                 print(f"⚠️ Error getting cached ETF price for {etf_symbol}: {e}")
-        
-        # Ensure minute_offset is within valid range for cache lookup
-        if minute_offset < 0:
-            minute_offset = 0
-        elif minute_offset > 1435:
-            minute_offset = 1435
-        
-        # Round to nearest 5-minute interval for cache lookup
-        cache_minute_offset = (minute_offset // 5) * 5
         
         # Save historical snapshot
         timestamp = datetime.now(timezone.utc).isoformat()

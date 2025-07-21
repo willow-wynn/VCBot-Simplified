@@ -2765,20 +2765,27 @@ For each stock, set the following parameters based on sector, economic data, and
             log_to_file("✅ Structured analysis applied successfully")
             
             # PHASE 2: Generate opening prices after getting market parameters
+            # AIDEV-NOTE: selective-ai-pricing; AI only sets prices for newsworthy stocks
             log_to_file("=== PHASE 2: GENERATING OPENING PRICES ===")
+            
+            # First, apply fallback prices to ALL stocks based on market parameters
+            log_to_file("Applying trend-based prices to all stocks")
+            self._calculate_fallback_opening_prices(analysis)
+            
+            # Then, try to get AI-specific prices for newsworthy stocks
             try:
                 opening_prices = await self._generate_opening_prices_phase2(analysis, log_file)
-                if opening_prices:
-                    log_to_file("✅ Opening prices generated successfully")
+                if opening_prices and len(opening_prices) > 0:
+                    log_to_file(f"✅ AI identified {len(opening_prices)} stocks with significant news")
                     self._apply_ai_opening_prices(opening_prices)
                     analysis["opening_prices"] = opening_prices
                 else:
-                    log_to_file("⚠️ Failed to generate opening prices - using fallback")
-                    self._calculate_fallback_opening_prices(analysis)
+                    log_to_file("✅ No stocks with significant news - all using trend-based prices")
+                    analysis["opening_prices"] = {}
             except Exception as e:
-                log_to_file(f"ERROR: Phase 2 opening price generation failed: {e}")
-                log_to_file("Using fallback price calculation")
-                self._calculate_fallback_opening_prices(analysis)
+                log_to_file(f"WARNING: Phase 2 AI price generation failed: {e}")
+                log_to_file("Continuing with trend-based prices for all stocks")
+                analysis["opening_prices"] = {}
             
             return analysis
             
@@ -2932,8 +2939,8 @@ For each stock, set the following parameters based on sector, economic data, and
         print(f"✅ Applied sector-level Perlin parameters to {len(self.stock_perlin_params)} stocks")
     
     def _apply_ai_opening_prices(self, opening_prices: Dict[str, Dict[str, float]]) -> None:
-        """Apply AI-generated opening prices to stocks"""
-        print("💰 Applying AI-generated opening prices...")
+        """Apply AI-generated opening prices to specific newsworthy stocks"""
+        print(f"📰 Applying AI-generated opening prices to {len(opening_prices)} newsworthy stocks...")
         
         applied_count = 0
         for cat_data in self.categories.values():
@@ -2949,12 +2956,14 @@ For each stock, set the following parameters based on sector, economic data, and
                         stock["daily_range_low"] = float(price_data["range_low"])
                         stock["daily_range_high"] = float(price_data["range_high"])
                         applied_count += 1
+                        print(f"  📈 {symbol}: AI price override due to significant news")
                     else:
-                        print(f"⚠️ {symbol}: Incomplete price data from AI")
-                else:
-                    print(f"⚠️ {symbol}: No opening price from AI")
+                        print(f"  ⚠️ {symbol}: Incomplete price data from AI")
         
-        print(f"✅ Applied opening prices to {applied_count} stocks")
+        if applied_count > 0:
+            print(f"✅ Applied AI prices to {applied_count} stocks with significant news")
+        else:
+            print("✅ No stocks required AI price overrides")
     
     async def _generate_opening_prices_phase2(self, phase1_analysis: Dict[str, Any], log_file) -> Optional[Dict[str, Dict[str, float]]]:
         """Phase 2: Generate opening prices using unstructured AI output"""
@@ -2972,7 +2981,7 @@ For each stock, set the following parameters based on sector, economic data, and
                 current_prices[stock["symbol"]] = stock.get("price", 100.0)
         
         # Build prompt for opening prices
-        prompt = f"""Based on the market analysis, generate opening prices for all stocks.
+        prompt = f"""Based on the market analysis and recent activity, identify which stocks have significant news or events that warrant specific opening price adjustments.
 
 MARKET CONDITIONS:
 - Trend Direction: {phase1_analysis['parameters']['trend_direction']:+.2f}
@@ -2985,21 +2994,22 @@ CURRENT PRICES:
 SECTOR OUTLOOKS:
 {json.dumps(phase1_analysis.get('sector_outlook', {}), indent=2)}
 
-Generate opening prices for each stock with the following JSON structure:
+IMPORTANT: Only provide opening prices for stocks that have significant news, events, or exceptional circumstances that justify a specific price adjustment beyond normal market trends. For all other stocks, the system will apply standard trend-based adjustments.
+
+For stocks with significant developments, provide opening prices with the following JSON structure:
 {{
     "AAPL": {{"open_price": 150.25, "range_low": 148.50, "range_high": 152.00}},
-    "MSFT": {{"open_price": 350.00, "range_low": 346.50, "range_high": 353.50}},
-    ... (continue for all 24 stocks)
+    "TSLA": {{"open_price": 245.00, "range_low": 242.00, "range_high": 248.00}}
 }}
 
 Guidelines:
-- Daily change typically 0.5-3% from current price
-- Positive sectors should open higher, negative sectors lower
+- Only include stocks with notable news/events/developments
+- Daily change can be 1-5% for newsworthy stocks
 - range_low should be 1-3% below open_price
 - range_high should be 1-3% above open_price
-- Consider individual stock volatility within sectors
+- An empty JSON object {{}} is valid if no stocks have significant news
 
-Return ONLY the JSON object, no other text."""
+Return ONLY the JSON object (which may be empty or contain only newsworthy stocks), no other text."""
 
         try:
             # Use regular generation without structured output
@@ -3030,8 +3040,8 @@ Return ONLY the JSON object, no other text."""
             return None
     
     def _calculate_fallback_opening_prices(self, analysis: Dict[str, Any]) -> None:
-        """Calculate opening prices based on market parameters and sector outlook"""
-        print("📈 Calculating fallback opening prices based on market conditions")
+        """Calculate trend-based opening prices for all stocks based on market parameters"""
+        print("📊 Calculating trend-based opening prices using market parameters")
         
         market_trend = analysis['parameters']['trend_direction']
         market_sentiment = analysis['parameters']['market_sentiment']
@@ -3073,7 +3083,7 @@ Return ONLY the JSON object, no other text."""
                 stock["daily_range_low"] = round(open_price * (1 - range_factor), 2)
                 stock["daily_range_high"] = round(open_price * (1 + range_factor), 2)
         
-        print("✅ Fallback opening prices calculated for all stocks")
+        print("✅ Trend-based opening prices calculated for all stocks")
 
     def _apply_ai_perlin_parameters(self, perlin_params: Dict[str, Dict[str, float]]) -> None:
         """Apply AI-provided Perlin parameters for stock behavior (legacy function for fallback)"""

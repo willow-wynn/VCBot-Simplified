@@ -2298,12 +2298,20 @@ class StockMarket:
         
         ai_retry_count = 0
         max_ai_retries = 3
+        schema_levels = ["full", "basic", "minimal"]  # Progressive fallback schemas
         
         while ai_retry_count < max_ai_retries:
             try:
-                # Create structured output schema
-                market_analysis_schema = self._create_market_analysis_schema()
-                log_to_file("Created structured output schema for market analysis")
+                # Select schema complexity based on retry attempt
+                complexity_level = schema_levels[min(ai_retry_count, len(schema_levels) - 1)]
+                market_analysis_schema = self._create_market_analysis_schema(complexity_level)
+                
+                # Validate schema complexity
+                complexity_info = self._validate_schema_complexity(market_analysis_schema, complexity_level)
+                log_to_file(f"Created {complexity_level} complexity schema for market analysis (attempt {ai_retry_count + 1})")
+                log_to_file(f"Schema complexity: {complexity_info['total_required_fields']} required fields, "
+                           f"score: {complexity_info['complexity_score']}, "
+                           f"Gemini constraint risk: {complexity_info['gemini_constraint_risk']}")
                 
                 # Build prompt for structured output
                 analysis_prompt = self.build_structured_analysis_prompt(all_messages, previous_params)
@@ -2326,7 +2334,7 @@ class StockMarket:
                 log_to_file("--- END STRUCTURED AI RESPONSE ---")
                 
                 # Parse structured output (should be valid JSON)
-                parsed_result = self.parse_structured_market_analysis(response.text, previous_params, log_file)
+                parsed_result = await self.parse_structured_market_analysis(response.text, previous_params, log_file)
                 log_to_file("✅ Structured AI analysis completed successfully")
                 print("✅ AI analysis completed with structured output and retry logic")
                 
@@ -2391,16 +2399,60 @@ class StockMarket:
         raise Exception("Stock market AI analysis reached unexpected code path")
     
     
-    
-    def _create_market_analysis_schema(self) -> Dict[str, Any]:
-        """Create JSON schema for structured market analysis output"""
+    def _create_market_analysis_schema(self, complexity_level: str = "full") -> Dict[str, Any]:
+        """Create JSON schema for structured market analysis output - with multiple complexity levels for fallback"""
         
-        # AIDEV-NOTE: perlin-schema; AI sets Perlin parameters, not prices
-        # Create schema for per-stock Perlin parameters
-        stock_perlin_properties = {}
-        for cat_name, cat_data in self.categories.items():
-            for stock in cat_data["stocks"]:
-                stock_perlin_properties[stock["symbol"]] = {
+        if complexity_level == "minimal":
+            # AIDEV-NOTE: minimal-schema; only essential parameters for emergency fallback
+            return {
+                "type": "object",
+                "properties": {
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "trend_direction": {"type": "number"},
+                            "volatility": {"type": "number"},
+                            "market_sentiment": {"type": "number"}
+                        },
+                        "required": ["trend_direction", "volatility", "market_sentiment"]
+                    }
+                },
+                "required": ["parameters"]
+            }
+        
+        elif complexity_level == "basic":
+            # AIDEV-NOTE: basic-schema; core parameters without sector details
+            return {
+                "type": "object",
+                "properties": {
+                    "reasoning": {
+                        "type": "object",
+                        "properties": {
+                            "market_outlook": {"type": "string"}
+                        },
+                        "required": ["market_outlook"]
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "trend_direction": {"type": "number"},
+                            "volatility": {"type": "number"},
+                            "momentum": {"type": "number"},
+                            "market_sentiment": {"type": "number"},
+                            "long_term_outlook": {"type": "number"}
+                        },
+                        "required": ["trend_direction", "volatility", "momentum", "market_sentiment", "long_term_outlook"]
+                    }
+                },
+                "required": ["reasoning", "parameters"]
+            }
+        
+        else:  # complexity_level == "full"
+            # AIDEV-NOTE: full-schema; sector-level parameters to avoid "too many states" error
+            # Create schema for sector-level Perlin parameters (8 sectors instead of 24 stocks = 48 vs 144 parameters)
+            sector_perlin_properties = {}
+            for cat_name in self.categories.keys():
+                sector_perlin_properties[cat_name] = {
                     "type": "object",
                     "properties": {
                         "trend_strength": {"type": "number"},      # 0-1
@@ -2412,62 +2464,100 @@ class StockMarket:
                     },
                     "required": ["trend_strength", "trend_direction", "volatility", "noise_scale", "cycle_frequency", "sector_correlation"]
                 }
+            
+            # Create schema for sector outlook
+            sector_outlook_properties = {}
+            for cat_name in self.categories.keys():
+                sector_outlook_properties[cat_name] = {"type": "string"}
+            
+            schema = {
+                "type": "object",
+                "properties": {
+                    "reasoning": {
+                        "type": "object",
+                        "properties": {
+                            "economic_assessment": {"type": "string"},
+                            "parameter_justification": {"type": "string"},
+                            "discord_impact": {"type": "string"},
+                            "market_outlook": {"type": "string"}
+                        },
+                        "required": ["economic_assessment", "parameter_justification", "discord_impact", "market_outlook"]
+                    },
+                    "parameters": {
+                        "type": "object",
+                        "properties": {
+                            "trend_direction": {"type": "number"},
+                            "volatility": {"type": "number"},
+                            "momentum": {"type": "number"},
+                            "market_sentiment": {"type": "number"},
+                            "long_term_outlook": {"type": "number"}
+                        },
+                        "required": ["trend_direction", "volatility", "momentum", "market_sentiment", "long_term_outlook"]
+                    },
+                    "invisible_factors": {
+                        "type": "object",
+                        "properties": {
+                            "institutional_flow": {"type": "number"},
+                            "liquidity_factor": {"type": "number"},
+                            "news_velocity": {"type": "number"},
+                            "sector_rotation": {"type": "number"},
+                            "risk_appetite": {"type": "number"}
+                        },
+                        "required": ["institutional_flow", "liquidity_factor", "news_velocity", "sector_rotation", "risk_appetite"]
+                    },
+                    "sector_perlin_parameters": {
+                        "type": "object",
+                        "properties": sector_perlin_properties,
+                        "required": list(sector_perlin_properties.keys())
+                    },
+                    "sector_outlook": {
+                        "type": "object",
+                        "properties": sector_outlook_properties,
+                        "required": list(sector_outlook_properties.keys())
+                    }
+                },
+                "required": ["reasoning", "parameters", "invisible_factors", "sector_perlin_parameters", "sector_outlook"]
+            }
+            
+            return schema
+    
+    def _validate_schema_complexity(self, schema: Dict[str, Any], complexity_level: str) -> Dict[str, Any]:
+        """Validate and report schema complexity to help with debugging"""
         
-        # Create schema for sector outlook
-        sector_outlook_properties = {}
-        for cat_name in self.categories.keys():
-            sector_outlook_properties[cat_name] = {"type": "string"}
+        def count_required_fields(obj, path=""):
+            """Recursively count required fields in schema"""
+            count = 0
+            if isinstance(obj, dict):
+                # Count required fields at this level
+                if "required" in obj and isinstance(obj["required"], list):
+                    count += len(obj["required"])
+                
+                # Count properties recursively
+                if "properties" in obj and isinstance(obj["properties"], dict):
+                    for prop_name, prop_schema in obj["properties"].items():
+                        count += count_required_fields(prop_schema, f"{path}.{prop_name}")
+            
+            return count
         
-        schema = {
-            "type": "object",
-            "properties": {
-                "reasoning": {
-                    "type": "object",
-                    "properties": {
-                        "economic_assessment": {"type": "string"},
-                        "parameter_justification": {"type": "string"},
-                        "discord_impact": {"type": "string"},
-                        "market_outlook": {"type": "string"}
-                    },
-                    "required": ["economic_assessment", "parameter_justification", "discord_impact", "market_outlook"]
-                },
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "trend_direction": {"type": "number"},
-                        "volatility": {"type": "number"},
-                        "momentum": {"type": "number"},
-                        "market_sentiment": {"type": "number"},
-                        "long_term_outlook": {"type": "number"}
-                    },
-                    "required": ["trend_direction", "volatility", "momentum", "market_sentiment", "long_term_outlook"]
-                },
-                "invisible_factors": {
-                    "type": "object",
-                    "properties": {
-                        "institutional_flow": {"type": "number"},
-                        "liquidity_factor": {"type": "number"},
-                        "news_velocity": {"type": "number"},
-                        "sector_rotation": {"type": "number"},
-                        "risk_appetite": {"type": "number"}
-                    },
-                    "required": ["institutional_flow", "liquidity_factor", "news_velocity", "sector_rotation", "risk_appetite"]
-                },
-                "perlin_parameters": {
-                    "type": "object",
-                    "properties": stock_perlin_properties,
-                    "required": list(stock_perlin_properties.keys())
-                },
-                "sector_outlook": {
-                    "type": "object",
-                    "properties": sector_outlook_properties,
-                    "required": list(sector_outlook_properties.keys())
-                }
-            },
-            "required": ["reasoning", "parameters", "invisible_factors", "perlin_parameters", "sector_outlook"]
+        total_required_fields = count_required_fields(schema)
+        
+        # Count top-level sections
+        top_level_props = len(schema.get("properties", {}))
+        top_level_required = len(schema.get("required", []))
+        
+        # Estimate complexity score (rough heuristic)
+        complexity_score = total_required_fields + (top_level_props * 2)
+        
+        complexity_info = {
+            "complexity_level": complexity_level,
+            "total_required_fields": total_required_fields,
+            "top_level_properties": top_level_props,
+            "top_level_required": top_level_required,
+            "complexity_score": complexity_score,
+            "gemini_constraint_risk": "high" if complexity_score > 100 else "medium" if complexity_score > 50 else "low"
         }
         
-        return schema
+        return complexity_info
     
     def build_structured_analysis_prompt(self, messages: List[Dict], previous_params: Dict[str, float]) -> str:
         """Build prompt specifically for structured JSON output"""
@@ -2578,7 +2668,7 @@ For each stock, set the following parameters based on sector, economic data, and
         
         return prompt
     
-    def parse_structured_market_analysis(self, ai_response: str, previous_params: Dict[str, float], log_file) -> Dict[str, Any]:
+    async def parse_structured_market_analysis(self, ai_response: str, previous_params: Dict[str, float], log_file) -> Dict[str, Any]:
         """Parse structured JSON output from AI"""
         
         def log_to_file(message: str):
@@ -2599,21 +2689,21 @@ For each stock, set the following parameters based on sector, economic data, and
             params = analysis["parameters"]
             log_to_file(f"AI provided parameters: {json.dumps(params, indent=2)}")
             
-            # FIX 1.1: Store parameters in analysis object for proper extraction
-            # Store parameters in analysis object for proper extraction
+            # AIDEV-NOTE: flexible-parameters; Handle different schema complexity levels with defaults
+            # Store parameters with graceful handling for missing fields in simplified schemas
             analysis["parameters"] = {
                 "trend_direction": max(-1.0, min(1.0, float(params.get("trend_direction", 0.0)))),
                 "volatility": max(0.0, min(1.0, float(params.get("volatility", 0.5)))),
-                "momentum": max(0.0, min(1.0, float(params.get("momentum", 0.5)))),
+                "momentum": max(0.0, min(1.0, float(params.get("momentum", 0.5)))),  # May be missing in minimal schema
                 "market_sentiment": max(0.0, min(1.0, float(params.get("market_sentiment", 0.5)))),
-                "long_term_outlook": max(0.0, min(1.0, float(params.get("long_term_outlook", previous_params.get("long_term_outlook", 0.5)))))
+                "long_term_outlook": max(0.0, min(1.0, float(params.get("long_term_outlook", previous_params.get("long_term_outlook", 0.5)))))  # May be missing in minimal schema
             }
             
             # Apply to self.market_params immediately
             self.market_params = analysis["parameters"].copy()
             log_to_file(f"Final market parameters stored in analysis: {json.dumps(analysis['parameters'], indent=2)}")
             
-            # Apply invisible factors if provided
+            # Apply invisible factors if provided (for full complexity schemas)
             if "invisible_factors" in analysis:
                 invisible = analysis["invisible_factors"]
                 self.invisible_factors = {
@@ -2624,33 +2714,72 @@ For each stock, set the following parameters based on sector, economic data, and
                     "risk_appetite": max(0.0, min(1.0, float(invisible.get("risk_appetite", 0.5))))
                 }
                 log_to_file(f"Applied invisible factors: {json.dumps(self.invisible_factors, indent=2)}")
+            else:
+                # For basic/minimal schemas, use default invisible factors
+                log_to_file("ℹ️ No invisible factors in response (using simplified schema), applying defaults")
+                self.invisible_factors = {
+                    "institutional_flow": 0.0,
+                    "liquidity_factor": 0.7,
+                    "news_velocity": 0.5,
+                    "sector_rotation": 0.0,
+                    "risk_appetite": 0.5
+                }
             
-            # AIDEV-NOTE: perlin-params-required; AI must provide Perlin parameters
-            # CRITICAL: Perlin parameters are REQUIRED
-            if "perlin_parameters" not in analysis:
-                log_to_file("❌ CRITICAL: No perlin_parameters provided by AI")
-                raise ValueError("AI analysis must provide perlin_parameters for all stocks")
-            
-            # Validate all stocks have parameters
-            required_symbols = {stock["symbol"] for cat in self.categories.values() for stock in cat["stocks"]}
-            provided_symbols = set(analysis["perlin_parameters"].keys())
-            missing_symbols = required_symbols - provided_symbols
-            
-            if missing_symbols:
-                log_to_file(f"❌ CRITICAL: Missing Perlin parameters for stocks: {missing_symbols}")
-                raise ValueError(f"AI must provide Perlin parameters for all stocks. Missing: {missing_symbols}")
-            
-            # Validate Perlin parameter structure
-            for symbol, param_data in analysis["perlin_parameters"].items():
-                required_fields = ["trend_strength", "trend_direction", "volatility", "noise_scale", "cycle_frequency", "sector_correlation"]
-                missing_fields = [field for field in required_fields if field not in param_data]
-                if missing_fields:
-                    raise ValueError(f"Stock {symbol} missing required Perlin fields: {missing_fields}")
-            
-            log_to_file(f"✅ Validated Perlin parameters for {len(provided_symbols)} stocks")
-            self._apply_ai_perlin_parameters(analysis["perlin_parameters"])
+            # AIDEV-NOTE: flexible-perlin-params; Handle different schema complexity levels
+            # Apply Perlin parameters if provided (for full complexity schemas)
+            if "sector_perlin_parameters" in analysis:
+                # Validate all sectors have parameters
+                required_sectors = set(self.categories.keys())
+                provided_sectors = set(analysis["sector_perlin_parameters"].keys())
+                missing_sectors = required_sectors - provided_sectors
+                
+                if missing_sectors:
+                    log_to_file(f"❌ WARNING: Missing Perlin parameters for sectors: {missing_sectors}")
+                    # Don't fail - use defaults for missing sectors
+                
+                # Validate sector Perlin parameter structure
+                for sector, param_data in analysis["sector_perlin_parameters"].items():
+                    required_fields = ["trend_strength", "trend_direction", "volatility", "noise_scale", "cycle_frequency", "sector_correlation"]
+                    missing_fields = [field for field in required_fields if field not in param_data]
+                    if missing_fields:
+                        log_to_file(f"❌ WARNING: Sector {sector} missing Perlin fields: {missing_fields}")
+                        # Don't fail - use defaults for missing fields
+                
+                log_to_file(f"✅ Validated sector Perlin parameters for {len(provided_sectors)} sectors")
+                self._apply_ai_sector_perlin_parameters(analysis["sector_perlin_parameters"])
+            else:
+                # For basic/minimal schemas, use default Perlin parameters
+                log_to_file("ℹ️ No sector Perlin parameters in response (using simplified schema), applying defaults")
+                default_sector_params = {}
+                for sector in self.categories.keys():
+                    default_sector_params[sector] = {
+                        "trend_strength": 0.5,
+                        "trend_direction": 0.0,
+                        "volatility": 0.5,
+                        "noise_scale": 1.0,
+                        "cycle_frequency": 1.0,
+                        "sector_correlation": 1.0
+                    }
+                self._apply_ai_sector_perlin_parameters(default_sector_params)
             
             log_to_file("✅ Structured analysis applied successfully")
+            
+            # PHASE 2: Generate opening prices after getting market parameters
+            log_to_file("=== PHASE 2: GENERATING OPENING PRICES ===")
+            try:
+                opening_prices = await self._generate_opening_prices_phase2(analysis, log_file)
+                if opening_prices:
+                    log_to_file("✅ Opening prices generated successfully")
+                    self._apply_ai_opening_prices(opening_prices)
+                    analysis["opening_prices"] = opening_prices
+                else:
+                    log_to_file("⚠️ Failed to generate opening prices - using fallback")
+                    self._calculate_fallback_opening_prices(analysis)
+            except Exception as e:
+                log_to_file(f"ERROR: Phase 2 opening price generation failed: {e}")
+                log_to_file("Using fallback price calculation")
+                self._calculate_fallback_opening_prices(analysis)
+            
             return analysis
             
         except json.JSONDecodeError as e:
@@ -2716,10 +2845,13 @@ For each stock, set the following parameters based on sector, economic data, and
                         "risk_appetite": 0.5
                     }
                 
-                # Apply Perlin parameters if provided
-                if "perlin_parameters" in analysis:
+                # Apply Perlin parameters if provided (prefer new sector-based approach)
+                if "sector_perlin_parameters" in analysis:
+                    self._apply_ai_sector_perlin_parameters(analysis["sector_perlin_parameters"])
+                    print("✅ AI-provided sector-level Perlin parameters applied")
+                elif "perlin_parameters" in analysis:
                     self._apply_ai_perlin_parameters(analysis["perlin_parameters"])
-                    print("✅ AI-provided Perlin parameters applied")
+                    print("✅ AI-provided stock-level Perlin parameters applied (legacy)")
                 else:
                     print("⚠️ No Perlin parameters in AI response, using defaults")
                 
@@ -2732,8 +2864,219 @@ For each stock, set the following parameters based on sector, economic data, and
             print(f"❌ Error parsing AI analysis: {e}")
             raise Exception(f"Failed to parse AI analysis: {e}")
     
+    def _apply_ai_sector_perlin_parameters(self, sector_params: Dict[str, Dict[str, float]]) -> None:
+        """Apply AI-provided sector-level Perlin parameters to all stocks in each sector"""
+        print("🔄 Applying AI-provided sector-level Perlin parameters...")
+        
+        # AIDEV-NOTE: sector-perlin-param-application; AI controls sector trends, distributed to stocks
+        # Clear any existing parameters
+        self.stock_perlin_params = {}
+        
+        for cat_name, cat_data in self.categories.items():
+            if cat_name in sector_params:
+                param_data = sector_params[cat_name]
+                
+                # Validate and clamp parameters to valid ranges
+                trend_strength = max(0.0, min(1.0, float(param_data.get("trend_strength", 0.5))))
+                trend_direction = max(-1.0, min(1.0, float(param_data.get("trend_direction", 0.0))))
+                volatility = max(0.0, min(1.0, float(param_data.get("volatility", 0.5))))
+                noise_scale = max(0.5, min(2.0, float(param_data.get("noise_scale", 1.0))))
+                cycle_frequency = max(0.5, min(2.0, float(param_data.get("cycle_frequency", 1.0))))
+                sector_correlation = max(0.0, min(1.0, float(param_data.get("sector_correlation", 1.0))))
+                
+                print(f"📊 {cat_name} sector: trend={trend_direction:+.2f} (str={trend_strength:.2f}), "
+                      f"vol={volatility:.2f}, scale={noise_scale:.2f}, freq={cycle_frequency:.2f}")
+                
+                # Apply sector parameters to all stocks in this sector
+                for stock in cat_data["stocks"]:
+                    symbol = stock["symbol"]
+                    
+                    # Add small random variations within each sector to maintain stock individuality
+                    import random
+                    random.seed(hash(symbol) % 2**32)  # Consistent seed per stock for reproducibility
+                    
+                    # Small variations around sector parameters (±10% for most, ±5% for correlation)
+                    stock_trend_strength = max(0.0, min(1.0, trend_strength + random.uniform(-0.05, 0.05)))
+                    stock_trend_direction = max(-1.0, min(1.0, trend_direction + random.uniform(-0.1, 0.1)))
+                    stock_volatility = max(0.0, min(1.0, volatility + random.uniform(-0.05, 0.05)))
+                    stock_noise_scale = max(0.5, min(2.0, noise_scale + random.uniform(-0.1, 0.1)))
+                    stock_cycle_frequency = max(0.5, min(2.0, cycle_frequency + random.uniform(-0.1, 0.1)))
+                    stock_sector_correlation = max(0.0, min(1.0, sector_correlation + random.uniform(-0.02, 0.02)))
+                    
+                    # Store parameters for this stock
+                    self.stock_perlin_params[symbol] = {
+                        "trend_strength": stock_trend_strength,
+                        "trend_direction": stock_trend_direction,
+                        "volatility": stock_volatility,
+                        "noise_scale": stock_noise_scale,
+                        "cycle_frequency": stock_cycle_frequency,
+                        "sector_correlation": stock_sector_correlation
+                    }
+                    
+                    # Keep ai_opening_price and daily ranges - they are set by AI analysis
+                    # These fields are needed for price calculations
+            else:
+                # No sector parameters provided, use defaults for all stocks in this sector
+                for stock in cat_data["stocks"]:
+                    symbol = stock["symbol"]
+                    self.stock_perlin_params[symbol] = {
+                        "trend_strength": 0.5,
+                        "trend_direction": 0.0,
+                        "volatility": 0.5,
+                        "noise_scale": 1.0,
+                        "cycle_frequency": 1.0,
+                        "sector_correlation": 1.0
+                    }
+                    print(f"⚠️ {symbol}: Using default Perlin parameters (no sector data)")
+        
+        print(f"✅ Applied sector-level Perlin parameters to {len(self.stock_perlin_params)} stocks")
+    
+    def _apply_ai_opening_prices(self, opening_prices: Dict[str, Dict[str, float]]) -> None:
+        """Apply AI-generated opening prices to stocks"""
+        print("💰 Applying AI-generated opening prices...")
+        
+        applied_count = 0
+        for cat_data in self.categories.values():
+            for stock in cat_data["stocks"]:
+                symbol = stock["symbol"]
+                if symbol in opening_prices:
+                    price_data = opening_prices[symbol]
+                    
+                    # Validate price data
+                    if all(key in price_data for key in ["open_price", "range_low", "range_high"]):
+                        stock["ai_opening_price"] = float(price_data["open_price"])
+                        stock["price"] = float(price_data["open_price"])
+                        stock["daily_range_low"] = float(price_data["range_low"])
+                        stock["daily_range_high"] = float(price_data["range_high"])
+                        applied_count += 1
+                    else:
+                        print(f"⚠️ {symbol}: Incomplete price data from AI")
+                else:
+                    print(f"⚠️ {symbol}: No opening price from AI")
+        
+        print(f"✅ Applied opening prices to {applied_count} stocks")
+    
+    async def _generate_opening_prices_phase2(self, phase1_analysis: Dict[str, Any], log_file) -> Optional[Dict[str, Dict[str, float]]]:
+        """Phase 2: Generate opening prices using unstructured AI output"""
+        
+        def log_to_file(message: str):
+            with open(log_file, 'a', encoding='utf-8') as f:
+                f.write(f"[{datetime.now(timezone.utc).strftime('%H:%M:%S')}] {message}\n")
+        
+        log_to_file("Starting Phase 2: Opening price generation")
+        
+        # Get current prices for reference
+        current_prices = {}
+        for cat_data in self.categories.values():
+            for stock in cat_data["stocks"]:
+                current_prices[stock["symbol"]] = stock.get("price", 100.0)
+        
+        # Build prompt for opening prices
+        prompt = f"""Based on the market analysis, generate opening prices for all stocks.
+
+MARKET CONDITIONS:
+- Trend Direction: {phase1_analysis['parameters']['trend_direction']:+.2f}
+- Market Sentiment: {phase1_analysis['parameters']['market_sentiment']:.2f}
+- Volatility: {phase1_analysis['parameters']['volatility']:.2f}
+
+CURRENT PRICES:
+{json.dumps(current_prices, indent=2)}
+
+SECTOR OUTLOOKS:
+{json.dumps(phase1_analysis.get('sector_outlook', {}), indent=2)}
+
+Generate opening prices for each stock with the following JSON structure:
+{{
+    "AAPL": {{"open_price": 150.25, "range_low": 148.50, "range_high": 152.00}},
+    "MSFT": {{"open_price": 350.00, "range_low": 346.50, "range_high": 353.50}},
+    ... (continue for all 24 stocks)
+}}
+
+Guidelines:
+- Daily change typically 0.5-3% from current price
+- Positive sectors should open higher, negative sectors lower
+- range_low should be 1-3% below open_price
+- range_high should be 1-3% above open_price
+- Consider individual stock volatility within sectors
+
+Return ONLY the JSON object, no other text."""
+
+        try:
+            # Use regular generation without structured output
+            response = await self.model.generate_content_async(
+                prompt,
+                generation_config=genai.types.GenerationConfig(
+                    temperature=0.4,
+                    max_output_tokens=2000
+                )
+            )
+            
+            log_to_file(f"Phase 2 response received: {len(response.text)} characters")
+            
+            # Extract JSON from response
+            import re
+            # More robust regex to capture nested JSON structure
+            json_match = re.search(r'\{[\s\S]*\}', response.text)
+            if json_match:
+                opening_prices = json.loads(json_match.group())
+                log_to_file(f"Successfully parsed opening prices for {len(opening_prices)} stocks")
+                return opening_prices
+            else:
+                log_to_file("Failed to extract JSON from Phase 2 response")
+                return None
+                
+        except Exception as e:
+            log_to_file(f"Phase 2 generation error: {e}")
+            return None
+    
+    def _calculate_fallback_opening_prices(self, analysis: Dict[str, Any]) -> None:
+        """Calculate opening prices based on market parameters and sector outlook"""
+        print("📈 Calculating fallback opening prices based on market conditions")
+        
+        market_trend = analysis['parameters']['trend_direction']
+        market_sentiment = analysis['parameters']['market_sentiment']
+        
+        for cat_name, cat_data in self.categories.items():
+            # Get sector outlook sentiment
+            sector_outlook = analysis.get('sector_outlook', {}).get(cat_name, "neutral")
+            
+            # Determine sector bias
+            if "bullish" in sector_outlook.lower() or "positive" in sector_outlook.lower():
+                sector_bias = 0.01  # +1% bias
+            elif "bearish" in sector_outlook.lower() or "negative" in sector_outlook.lower():
+                sector_bias = -0.01  # -1% bias
+            else:
+                sector_bias = 0.0  # neutral
+            
+            for stock in cat_data["stocks"]:
+                current_price = stock.get("price", 100.0)
+                
+                # Calculate opening price change
+                base_change = (market_trend * 0.01) + (market_sentiment - 0.5) * 0.01
+                total_change = base_change + sector_bias
+                
+                # Add small random variation
+                import random
+                random.seed(hash(stock["symbol"]) % 2**32)
+                variation = random.uniform(-0.003, 0.003)  # ±0.3%
+                
+                # Calculate prices
+                open_price = current_price * (1 + total_change + variation)
+                open_price = round(open_price, 2)
+                
+                # Set ranges based on volatility
+                volatility = analysis['parameters']['volatility']
+                range_factor = 0.01 + (volatility * 0.02)  # 1-3% based on volatility
+                
+                stock["ai_opening_price"] = open_price
+                stock["price"] = open_price
+                stock["daily_range_low"] = round(open_price * (1 - range_factor), 2)
+                stock["daily_range_high"] = round(open_price * (1 + range_factor), 2)
+        
+        print("✅ Fallback opening prices calculated for all stocks")
+
     def _apply_ai_perlin_parameters(self, perlin_params: Dict[str, Dict[str, float]]) -> None:
-        """Apply AI-provided Perlin parameters for stock behavior"""
+        """Apply AI-provided Perlin parameters for stock behavior (legacy function for fallback)"""
         print("🔄 Applying AI-provided Perlin parameters...")
         
         # AIDEV-NOTE: perlin-param-application; AI controls trends and volatility
@@ -2764,13 +3107,8 @@ For each stock, set the following parameters based on sector, economic data, and
                         "sector_correlation": sector_correlation
                     }
                     
-                    # Remove deprecated fields from stock
-                    if "ai_opening_price" in stock:
-                        del stock["ai_opening_price"]
-                    if "daily_range_low" in stock:
-                        del stock["daily_range_low"]
-                    if "daily_range_high" in stock:
-                        del stock["daily_range_high"]
+                    # Keep ai_opening_price and daily ranges - they are set by AI analysis
+                    # These fields are needed for price calculations
                     
                     print(f"📊 {symbol}: trend={trend_direction:+.2f} (str={trend_strength:.2f}), "
                           f"vol={volatility:.2f}, scale={noise_scale:.2f}, freq={cycle_frequency:.2f}")
@@ -2855,6 +3193,41 @@ For each stock, set the following parameters based on sector, economic data, and
         
         # Atomic rename
         temp_file.replace(analysis_file)
+    
+    def has_analysis_run_today(self) -> bool:
+        """Check if daily analysis has already run today (ET)"""
+        analysis_file = self.data_dir / "daily_analysis.json"
+        if not analysis_file.exists():
+            return False
+        
+        try:
+            with open(analysis_file, 'r') as f:
+                analyses = json.load(f)
+            
+            if not analyses:
+                return False
+            
+            # Get the most recent analysis
+            last_analysis = analyses[-1]
+            last_timestamp = datetime.fromisoformat(last_analysis["timestamp"])
+            
+            # Convert to ET for comparison
+            try:
+                from zoneinfo import ZoneInfo
+                et_tz = ZoneInfo("America/New_York")
+            except ImportError:
+                import pytz
+                et_tz = pytz.timezone("America/New_York")
+            
+            last_analysis_et = last_timestamp.astimezone(et_tz)
+            current_et = datetime.now(et_tz)
+            
+            # Check if it's the same date in ET
+            return last_analysis_et.date() == current_et.date()
+            
+        except Exception as e:
+            print(f"⚠️ Error checking last analysis date: {e}")
+            return False
         
         # Also save market data immediately for critical updates
         self._sync_save_market_data()
@@ -3617,6 +3990,18 @@ class StockMarketScheduler:
         """Daily loop to prepare market for each trading day"""
         while True:
             try:
+                # Check if analysis already ran today
+                if self.stock_market.has_analysis_run_today():
+                    et_now = self.get_et_now()
+                    print(f"✅ Daily analysis already ran today at {et_now.strftime('%I:%M %p ET')}")
+                    # Calculate time until tomorrow's prep
+                    tomorrow_prep = self.get_next_market_open() - timedelta(minutes=20)
+                    sleep_seconds = (tomorrow_prep - et_now).total_seconds()
+                    if sleep_seconds > 0:
+                        print(f"💤 Next market prep in {sleep_seconds/3600:.1f} hours at {tomorrow_prep.strftime('%I:%M %p ET')}")
+                        await asyncio.sleep(sleep_seconds)
+                    continue
+                
                 next_prep = self.get_next_prep_time()
                 current_time = self.get_et_now()
                 
@@ -3660,10 +4045,10 @@ class StockMarketScheduler:
         print(f"📊 Running daily market analysis for: {trading_day} [24/7 Trading]")
         
         try:
-            # FIX 0.3: Set market open time BEFORE running AI analysis
+            # Always set market open time to 9 AM ET of current day
             et_now = self.get_et_now()
             self.stock_market.market_open_time = et_now.replace(hour=9, minute=0, second=0, microsecond=0)
-            print(f"🕕 Market open time set BEFORE analysis: {self.stock_market.market_open_time.strftime('%I:%M %p ET')}")
+            print(f"🕕 Market open time set to: {self.stock_market.market_open_time.strftime('%I:%M %p ET')}")
             
             # Run AI analysis
             analysis = await self.stock_market.get_daily_market_analysis()
@@ -3731,6 +4116,9 @@ class StockMarketScheduler:
                 if sleep_seconds > 0:
                     print(f"🕰️ Next price update in {sleep_seconds/60:.1f} minutes at {next_update.strftime('%I:%M %p ET')}")
                     await asyncio.sleep(sleep_seconds)
+                    
+                    # Add 2-second buffer to ensure we're past the hour mark
+                    await asyncio.sleep(2)
                 
                 # Update prices using on-demand calculation
                 await self.update_prices_on_demand()
@@ -3755,37 +4143,32 @@ class StockMarketScheduler:
         """
         et_now = self.get_et_now()
         
-        # Ensure market open time is set and from today
-        if not self.stock_market.market_open_time:
-            print("⚠️ Market open time not set, initializing...")
-            success = await self.force_daily_initialization()
-            if not success:
-                print("❌ Could not initialize market, skipping update")
-                return
-        else:
-            # Check if market_open_time is from today
-            try:
-                from zoneinfo import ZoneInfo
-                et_tz = ZoneInfo("America/New_York")
-            except ImportError:
-                import pytz
-                et_tz = pytz.timezone("America/New_York")
-            
-            market_open_et = self.stock_market.market_open_time.astimezone(et_tz)
-            
-            if market_open_et.date() != et_now.date():
-                print(f"⚠️ Market open time is stale (from {market_open_et.date()}), reinitializing...")
+        # Always use today's 9 AM ET as market open time for calculations
+        market_open_today = et_now.replace(hour=9, minute=0, second=0, microsecond=0)
+        
+        # Check if we need to run daily initialization
+        if not self.stock_market.current_trading_day or self.stock_market.current_trading_day != self.get_trading_day_id():
+            print("⚠️ Trading day not initialized, checking if analysis needed...")
+            if not self.stock_market.has_analysis_run_today():
                 success = await self.force_daily_initialization()
                 if not success:
-                    print("❌ Could not reinitialize market, skipping update")
+                    print("❌ Could not initialize market, skipping update")
                     return
         
         print(f"📊 Posting hourly update at {et_now.strftime('%I:%M %p ET')} [24/7 Trading]")
         
-        # Calculate exact hour offset and corresponding minute offset
-        time_elapsed = (et_now - self.stock_market.market_open_time).total_seconds()
+        # Calculate exact hour offset and minute offset from 9 AM ET today
+        time_elapsed = (et_now - market_open_today).total_seconds()
+        
+        # If before 9 AM, treat as previous day's late hours
+        if time_elapsed < 0:
+            # Add 24 hours to get correct offset from yesterday's 9 AM
+            time_elapsed += 24 * 3600
+        
         hour_offset = int(time_elapsed / 3600)
-        minute_offset = hour_offset * 60  # Exact hour mark
+        # Calculate minute offset based on actual time, not just hour * 60
+        # This ensures we get the right cache entry even if timing is slightly off
+        minute_offset = int(time_elapsed / 60)
         
         # Ensure we're within bounds
         if minute_offset < 0:
@@ -3802,14 +4185,21 @@ class StockMarketScheduler:
                 old_price = stock.get("price", stock.get("ai_opening_price", 100.0))
                 
                 try:
-                    # Get price from 5-minute cache at exact hour offset
+                    # Get price from 5-minute cache using cache_minute_offset
                     if symbol in self.stock_market.stock_price_cache_5min:
-                        if minute_offset in self.stock_market.stock_price_cache_5min[symbol]:
-                            new_price = self.stock_market.stock_price_cache_5min[symbol][minute_offset]
+                        if cache_minute_offset in self.stock_market.stock_price_cache_5min[symbol]:
+                            new_price = self.stock_market.stock_price_cache_5min[symbol][cache_minute_offset]
                         else:
-                            # Fallback to nearest 5-minute interval
-                            nearest_5min = (minute_offset // 5) * 5
-                            new_price = self.stock_market.stock_price_cache_5min[symbol].get(nearest_5min, old_price)
+                            # Try to find closest available offset
+                            available_offsets = sorted(self.stock_market.stock_price_cache_5min[symbol].keys())
+                            if available_offsets:
+                                # Find closest offset
+                                closest_offset = min(available_offsets, key=lambda x: abs(x - cache_minute_offset))
+                                new_price = self.stock_market.stock_price_cache_5min[symbol][closest_offset]
+                                print(f"⚠️ Using closest offset {closest_offset} for {symbol} (requested {cache_minute_offset})")
+                            else:
+                                print(f"⚠️ No cached prices available for {symbol}")
+                                new_price = old_price
                     else:
                         print(f"⚠️ No cached prices for {symbol}")
                         new_price = old_price
@@ -3834,15 +4224,16 @@ class StockMarketScheduler:
         for etf_symbol in self.stock_market.etfs.keys():
             try:
                 if etf_symbol in self.stock_market.etf_price_cache_5min:
-                    if minute_offset in self.stock_market.etf_price_cache_5min[etf_symbol]:
-                        etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol][minute_offset]
+                    if cache_minute_offset in self.stock_market.etf_price_cache_5min[etf_symbol]:
+                        etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol][cache_minute_offset]
                     else:
-                        # Fallback to nearest 5-minute interval
-                        nearest_5min = (minute_offset // 5) * 5
-                        etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol].get(
-                            nearest_5min, 
-                            self.stock_market.etfs[etf_symbol].get("price", 100.0)
-                        )
+                        # Try to find closest available offset
+                        available_offsets = sorted(self.stock_market.etf_price_cache_5min[etf_symbol].keys())
+                        if available_offsets:
+                            closest_offset = min(available_offsets, key=lambda x: abs(x - cache_minute_offset))
+                            etf_prices[etf_symbol] = self.stock_market.etf_price_cache_5min[etf_symbol][closest_offset]
+                        else:
+                            etf_prices[etf_symbol] = self.stock_market.etfs[etf_symbol].get("price", 100.0)
                 else:
                     etf_prices[etf_symbol] = self.stock_market.etfs[etf_symbol].get("price", 100.0)
                 
@@ -3852,9 +4243,19 @@ class StockMarketScheduler:
             except Exception as e:
                 print(f"⚠️ Error getting cached ETF price for {etf_symbol}: {e}")
         
+        # Ensure minute_offset is within valid range for cache lookup
+        if minute_offset < 0:
+            minute_offset = 0
+        elif minute_offset > 1435:
+            minute_offset = 1435
+        
+        # Round to nearest 5-minute interval for cache lookup
+        cache_minute_offset = (minute_offset // 5) * 5
+        
         # Save historical snapshot
         timestamp = datetime.now(timezone.utc).isoformat()
-        hour_index = max(0, hour_offset) % 24  # Cap at 0-23 for display
+        # Calculate hour index for 24-hour display (0-23)
+        hour_index = hour_offset % 24
         
         historical_data = {
             "individual_stocks": {symbol: price_updates[symbol]["new_price"] 
